@@ -1,12 +1,19 @@
-/* Shortz TV service worker — cache the app shell, leave media on network */
-const CACHE = "shortztv-v1";
-const SHELL = ["index.html", "catalog.js", "manifest.json",
+/* Shortz TV service worker — app shell: network-first for the page (always fresh when online), cache-first for the rest */
+const CACHE = "shortztv-v2";
+const SHELL = ["catalog.js", "manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
+const PAGE = ["index.html"];
+
+function isPage(url) {
+  if (url.origin !== location.origin) return false;
+  const p = url.pathname;
+  if (p.endsWith("/shortz-tv/") || p.endsWith("/shortz-tv")) return true; // start_url
+  return PAGE.some(f => p.endsWith("/" + f));
+}
 
 function isShell(url) {
   if (url.origin !== location.origin) return false;
   const p = url.pathname;
-  if (p.endsWith("/shortz-tv/") || p.endsWith("/shortz-tv")) return true; // start_url
   return SHELL.some(f => p.endsWith("/" + f));
 }
 
@@ -25,7 +32,21 @@ self.addEventListener("activate", e => {
 });
 
 self.addEventListener("fetch", e => {
-  if (e.request.method !== "GET" || !isShell(new URL(e.request.url))) return; // thumbnails/embeds: network
+  if (e.request.method !== "GET") return;
+  const url = new URL(e.request.url);
+  if (isPage(url)) {
+    // The page itself: always try network first so updates reach the app immediately.
+    // (The app needs internet for videos anyway; cache is only the offline fallback.)
+    e.respondWith(
+      fetch(e.request).then(res => {
+        const copy = res.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copy));
+        return res;
+      }).catch(() => caches.match(e.request, { ignoreSearch: true }))
+    );
+    return;
+  }
+  if (!isShell(url)) return; // thumbnails/embeds: network
   e.respondWith(
     caches.match(e.request, { ignoreSearch: true }).then(hit => {
       if (hit) return hit;
