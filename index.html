@@ -223,11 +223,15 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #elist{overflow-y:auto;padding:4px 10px;flex:1;min-height:120px}
 .erow{display:flex;align-items:center;gap:12px;padding:11px 8px;border-bottom:1px solid rgba(255,255,255,.05);
   width:100%;text-align:left;color:inherit}
-.erow .en{font-size:13px;font-weight:800;width:34px;flex-shrink:0;color:#d7d7e0}
+.erow .en{font-size:12px;font-weight:800;width:48px;flex-shrink:0;color:#d7d7e0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .erow .em{flex:1;min-width:0}
 .erow .et{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .erow .es{font-size:10px;color:var(--mut);margin-top:2px}
+.erow.unav{opacity:.45}
 .npbadge{font-size:9px;font-weight:900;letter-spacing:.6px;color:#fff;background:var(--red);padding:5px 10px;border-radius:10px;flex-shrink:0}
+.spbadge{font-size:9px;font-weight:900;letter-spacing:.6px;color:#1a1405;background:#f5c518;padding:5px 10px;border-radius:10px;flex-shrink:0}
+.cpbadge{font-size:9px;font-weight:900;letter-spacing:.6px;color:#fff;background:#7c3aed;padding:5px 10px;border-radius:10px;flex-shrink:0}
+.unbadge{font-size:9px;font-weight:800;letter-spacing:.6px;color:#8b8b96;background:rgba(255,255,255,.08);padding:5px 10px;border-radius:10px;flex-shrink:0}
 .vbadge{font-size:9px;font-weight:800;letter-spacing:.6px;color:#d8b94a;background:rgba(245,197,24,.12);
   border:1px solid rgba(245,197,24,.4);padding:5px 10px;border-radius:10px;flex-shrink:0}
 .erow.now .en{color:var(--red)}
@@ -369,7 +373,9 @@ function renderView(v){
 }
 
 /* ---------- FEED: TikTok-style vertical pager ---------- */
-const feed={cur:null, altMode:false};
+const feed={cur:null, curEp:null, altMode:false};
+function curUrl(){return (feed.curEp&&feed.curEp.url)||(feed.cur&&feed.cur.url)||""}
+function curIsVimeo(){return curUrl().indexOf("vimeo.com")>=0}
 let soundOn=false, feedMounted=false;
 let feedStack=[], feedPos=-1;          // ordered visit history; feedPos = current index
 let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,next]
@@ -575,7 +581,7 @@ function togglePause(){
   const fr=slide.querySelector("[data-frame]");if(!fr||!fr.contentWindow)return;
   const paused=!slide._paused;
   try{
-    if(feed.cur.url.indexOf("vimeo.com")>=0){
+    if(curIsVimeo()){
       fr.contentWindow.postMessage(JSON.stringify({method:paused?"pause":"play"}),"*");
     }else{
       fr.contentWindow.postMessage(JSON.stringify({event:"command",func:paused?"pauseVideo":"playVideo",args:""}),"*");
@@ -587,7 +593,7 @@ function togglePause(){
 function unmuteFrame(){
   const fr=curSlide().querySelector("[data-frame]");if(!fr||!fr.contentWindow||!feed.cur)return;
   try{
-    if(feed.cur.url.indexOf("vimeo.com")>=0){
+    if(curIsVimeo()){
       fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:1}),"*");
       fr.contentWindow.postMessage(JSON.stringify({method:"setMuted",value:false}),"*");
     }else{
@@ -602,7 +608,7 @@ function playSeries(t){
   if(!t)return;
   const nx=pickRandom(t.id);
   feedStack=[t,nx];feedPos=0;
-  feed.cur=t;feed.altMode=false;
+  feed.cur=t;feed.curEp=null;feed.altMode=false;
   const track=$("#feedTrack");
   track.classList.remove("anim");track.style.transform="";
   fillSlide(slotNodes[0],null,"blank");
@@ -654,6 +660,7 @@ function commitSnap(dir){
     fillSlide(nC,feedStack[feedPos+1]||null,feedStack[feedPos+1]?"preload":"blank");
   }
   layoutSlots();
+  feed.curEp=null;
   pushHistory(feed.cur);
   snapAnim=false;
 }
@@ -682,33 +689,85 @@ $("#cform").addEventListener("submit",e=>{
 });
 $("#cdraw").addEventListener("click",e=>{if(e.target.id==="cdraw")$("#cdraw").classList.remove("open")});
 
-/* ---------- episode drawer: honest states, one verified video per series ---------- */
+/* ---------- episode drawer: real verified episodes ---------- */
 function epCount(t){
   const m=String(t.eps||"").match(/\d+/);
   return Math.max(1,Math.min(m?parseInt(m[0],10):8,100));
+}
+function epNumLabel(e,partIdx){
+  const k=e.kind||"episode";
+  if(k==="part")return "P"+(partIdx+1);
+  if(k==="special")return "SP";
+  if(k==="compilation")return "◎";
+  return e.n||"E?";
+}
+function epRowTitle(e,partIdx){
+  const k=e.kind||"episode";
+  if(k==="part")return "Part "+(partIdx+1)+(e.title?": "+e.title:"");
+  if(k==="special")return "Special: "+(e.title||"");
+  if(k==="compilation")return e.title||"Compilation";
+  return e.title||("Episode "+(e.n||""));
+}
+function playEpisode(e){
+  const t=feed.cur; if(!t||!e||!e.verified||!e.url)return;
+  feed.curEp=e;
+  closeEpDrawer();
+  const slide=curSlide();
+  const fr=slide.querySelector("[data-frame]");
+  if(fr)fr.src=embedSrc(e.url,true);
+  slide._paused=false;
+  const fl=slide.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
+  const meta=slide.querySelector("[data-meta]");
+  if(meta)meta.textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
+  pushHistory(t);
+  toast("▶ "+epRowTitle(e,partIdxOf(t,e)));
+}
+function partIdxOf(t,e){
+  if((e.kind||"episode")!=="part")return 0;
+  const parts=(t.episodes||[]).filter(x=>(x.kind||"episode")==="part");
+  return Math.max(0,parts.indexOf(e));
 }
 function openEpDrawer(){
   const t=feed.cur; if(!t)return;
   const th=$("#edThumb");
   th.style.display=""; th.onerror=()=>{th.style.display="none"}; th.src=thumb(t,"hq");
   $("#edTitle").textContent=t.title;
-  $("#edMeta").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
-  const n=epCount(t), rt=t.runtime||"";
-  let h="";
-  for(let i=1;i<=n;i++){
-    if(i===1){
-      h+=`<button class="erow now" data-i="1"><span class="en">E1</span><span class="em"><div class="et">${esc(t.title)}</div><div class="es">${esc(rt)}</div></span><span class="npbadge">▶ NOW PLAYING</span></button>`;
-    }else{
-      h+=`<button class="erow" data-i="${i}"><span class="en">E${i}</span><span class="em"><div class="et">Episode ${i}</div><div class="es">${esc(rt)}</div></span><span class="vbadge">VERIFYING…</span></button>`;
-    }
-  }
+  const eps=(t.episodes&&t.episodes.length)?t.episodes:[];
+  $("#edMeta").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}${eps.length?` · ${eps.length} verified`:""}`;
+  const rt=t.runtime||"";
   const list=$("#elist");
-  list.innerHTML=h;
-  list.querySelectorAll(".erow").forEach(r=>{
-    r.onclick=()=>{
-      if(r.dataset.i==="1"){closeEpDrawer();const fr=curSlide().querySelector("[data-frame]");if(fr&&feed.cur)fr.src=embedSrc(feed.cur.url,true)}
-      else toast("The hunt is still verifying this episode — it'll appear here when it's ready.");
+  if(!eps.length){
+    // honest fallback: the verified video plays, more as the hunt verifies them
+    list.innerHTML=`<button class="erow now" id="epMain"><span class="en">E1</span><span class="em"><div class="et">${esc(t.title)}</div><div class="es">${esc(rt)}</div></span><span class="npbadge">▶ NOW PLAYING</span></button>
+      <div class="ed-note">More episodes appear here as the hunt verifies them.</div>`;
+    list.querySelector("#epMain").onclick=()=>{
+      feed.curEp=null;closeEpDrawer();
+      const fr=curSlide().querySelector("[data-frame]");
+      if(fr&&feed.cur)fr.src=embedSrc(feed.cur.url,true);
     };
+    list.scrollTop=0;
+    $("#escrim").classList.add("open");$("#edraw").classList.add("open");
+    return;
+  }
+  const nowU=curUrl();
+  let h="";
+  eps.forEach((e,idx)=>{
+    const k=e.kind||"episode", pi=partIdxOf(t,e);
+    const num=epNumLabel(e,pi), title=epRowTitle(e,pi);
+    const isNow=e.verified&&e.url&&e.url===nowU;
+    const badge=!e.verified?`<span class="unbadge">Unavailable</span>`
+      :isNow?`<span class="npbadge">▶ NOW PLAYING</span>`
+      :k==="special"?`<span class="spbadge">SPECIAL</span>`
+      :k==="compilation"?`<span class="cpbadge">COMPILATION</span>`:"";
+    const cls="erow"+(isNow?" now":"")+(!e.verified?" unav":"");
+    const inner=`<span class="en">${esc(num)}</span><span class="em"><div class="et">${esc(title)}</div><div class="es">${esc(rt)}</div></span>${badge}`;
+    h+=e.verified?`<button class="${cls}" data-idx="${idx}">${inner}</button>`
+                   :`<div class="${cls}">${inner}</div>`;
+  });
+  if(t.episodes_note)h+=`<div class="ed-note">${esc(t.episodes_note)}</div>`;
+  list.innerHTML=h;
+  list.querySelectorAll("button.erow").forEach(r=>{
+    r.onclick=()=>{const e=eps[parseInt(r.dataset.idx,10)];if(e)playEpisode(e);};
   });
   list.scrollTop=0;
   $("#escrim").classList.add("open");$("#edraw").classList.add("open");
