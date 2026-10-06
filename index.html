@@ -84,6 +84,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.06)}}
 .swipehint{text-align:center;font-size:10px;color:rgba(255,255,255,.45);margin-top:8px;letter-spacing:1px}
 
+
 /* ---------- rows of vertical cards ---------- */
 .rowlabel{display:flex;justify-content:space-between;align-items:baseline;margin:26px 0 12px}
 .rowlabel h2{font-size:17px;font-weight:800;letter-spacing:.2px}
@@ -190,11 +191,16 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #viewpad{height:calc(70px + env(safe-area-inset-bottom))}
 
 /* ---------- comments drawer ---------- */
+#cscrim{position:fixed;inset:0;z-index:105;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+#cscrim.open{opacity:1;pointer-events:auto}
 #cdraw{position:fixed;left:0;right:0;bottom:0;z-index:110;max-height:70vh;background:#101016;border-radius:22px 22px 0 0;
   border-top:1px solid var(--line);transform:translateY(105%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
 #cdraw.open{transform:none}
-#cdraw .grab{width:44px;height:5px;border-radius:3px;background:#333;margin:10px auto 4px}
-#cdraw h3{font-size:15px;font-weight:800;padding:8px 18px}
+#cdraw .grab{width:44px;height:5px;border-radius:3px;background:#333;margin:10px auto 4px;flex-shrink:0}
+.chead{display:flex;align-items:center;gap:6px;padding:2px 14px 0}
+#cclose{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:15px;font-weight:700;flex-shrink:0}
+#cclose:active{background:rgba(255,255,255,.18)}
+#cdraw h3{font-size:15px;font-weight:800;padding:8px 0}
 #clist{overflow-y:auto;padding:6px 18px;flex:1;min-height:120px}
 .citem{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
 .citem .cn{font-weight:800;font-size:12px;color:var(--gold)}
@@ -241,6 +247,28 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   .vcard{width:140px}.vthumb{width:140px;height:248px}
   .feedstage{max-width:520px;margin:0 auto}
 }
+/* ---------- LANDSCAPE: rotate freely, video contain-fit, rail + nav stay reachable ---------- */
+@media (orientation:landscape) and (min-width:600px){
+  #topbar{padding:8px 18px 6px}
+  .logo{font-size:17px}
+  .feedstage{height:calc(100dvh - 104px);min-height:0;max-width:none}
+  .feed-video.fit iframe{top:0;left:50%;height:100%;width:auto;transform:translateX(-50%)}
+  .feed-video.fill iframe{top:50%;left:0;width:100%;height:auto;transform:translateY(-50%)}
+  .feed-video.vert iframe{top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
+  .feed-rail{top:50%;right:12px;gap:8px}
+  .ric button{font-size:20px}
+  .feed-bottom{padding:8px 14px 10px}
+  .f-title{font-size:13px;padding-right:120px}
+  .f-meta{font-size:10px;padding-right:120px;margin-top:2px}
+  .f-next{margin-top:8px;padding:8px 10px}
+  .f-next .nt{font-size:11px}
+  .swipehint{display:none}
+  .soundprompt{font-size:13px;padding:11px 20px}
+  #tabbar{padding:6px 0 calc(8px + env(safe-area-inset-bottom))}
+  .tab .ico{font-size:18px;margin-bottom:1px}
+  #viewpad{height:calc(56px + env(safe-area-inset-bottom))}
+}
+
 </style>
 </head>
 <body>
@@ -266,9 +294,10 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
     <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
   </nav>
 
+  <div id="cscrim"></div>
   <div id="cdraw">
     <div class="grab"></div>
-    <h3>💬 Comments</h3>
+    <div class="chead"><button id="cclose" aria-label="Close comments">✕</button><h3>💬 Comments</h3></div>
     <div id="clist"></div>
     <form id="cform"><input id="cinput" placeholder="Add a comment…" maxlength="300" autocomplete="off"><button type="submit">Post</button></form>
   </div>
@@ -456,7 +485,7 @@ function fillSlide(node,t,mode){
   node.querySelector('[data-t="fit"]').textContent="Fit";
   updateRailIn(node,t);
   if(mode==="current"){
-    fr.src=embedSrc(t.url,true);
+    loadVideoInto(node,t.url,vidOf(t.url));
     node._paused=false;
     const fl=node.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
     if(soundOn){sp.style.display="none";fr.onload=()=>setTimeout(unmuteFrame,900)}
@@ -465,6 +494,8 @@ function fillSlide(node,t,mode){
     fr.src=embedSrc(t.url,false);
     sp.style.display="none";fr.onload=null;
   }else{
+    try{if(node._player&&node._player.destroy)node._player.destroy()}catch(e){}
+    node._player=null;node._vid=null;
     fr.removeAttribute("src");fr.onload=null;sp.style.display="none";
   }
 }
@@ -477,7 +508,7 @@ function railAction(a,slide){
   if(a==="like"){
     if(likes[t.id]){delete likes[t.id];toast("Unliked")}else{likes[t.id]=1;toast("♥ Liked")}
     store.set("likes",likes);updateRailIn(slide,t);
-  }else if(a==="com"){renderComments();$("#cdraw").classList.add("open")}
+  }else if(a==="com"){renderComments();$("#cdraw").classList.add("open");$("#cscrim").classList.add("open")}
   else if(a==="share"){shareCur()}
   else if(a==="save"){
     if(mylist.has(t.id)){mylist.delete(t.id);toast("Removed from My List")}else{mylist.add(t.id);toast("Saved to My List")}
@@ -604,8 +635,122 @@ function unmuteFrame(){
   }catch(e){}
 }
 function updateRail(t){const s=curSlide();if(s)updateRailIn(s,t)}
+
+/* ---------- resume playback: per-video progress ---------- */
+let prog={}; try{prog=store.get("progress",{})||{}}catch(e){prog={}}
+function vidOf(u){
+  let m=String(u||"").match(/embed\/([A-Za-z0-9_-]+)/);
+  if(m)return m[1];
+  m=String(u||"").match(/vimeo\.com\/video\/(\d+)/);
+  if(m)return "vimeo:"+m[1];
+  return null;
+}
+function isVimeoUrl(u){return String(u||"").indexOf("vimeo.com")>=0}
+function fmtTime(s){s=Math.floor(s);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
+function flashResume(node,s){
+  const f=node.querySelector("[data-flash]");if(!f)return;
+  f.textContent="▶ "+fmtTime(s);
+  f.classList.remove("show");void f.offsetWidth;f.classList.add("show");
+}
+function saveProg(node){
+  if(!node||!node._vid||!node._player||!node._player.getCurrentTime)return;
+  try{
+    const s=Math.floor(node._player.getCurrentTime());
+    if(s>5)prog[node._vid]=s; else delete prog[node._vid];
+    store.set("progress",prog);
+  }catch(e){}
+}
+function clearProg(node){if(node&&node._vid){delete prog[node._vid];store.set("progress",prog)}}
+function maybeResume(node,player){
+  const vid=node._vid; if(!vid||node._seekDone)return;
+  const s=prog[vid]||0;
+  if(!(s>5)){node._seekDone=true;return}
+  const attempt=()=>{
+    if(node._vid!==vid)return;
+    let dur=0; try{dur=player.getDuration?player.getDuration():0}catch(e){}
+    if(dur>0&&s>dur-10){delete prog[vid];store.set("progress",prog);node._seekDone=true;return}
+    try{player.seekTo(s,true)}catch(e){}
+    node._seekDone=true;flashResume(node,s);
+  };
+  let d=0; try{d=player.getDuration?player.getDuration():0}catch(e){}
+  if(d>0){attempt();return}
+  let n=0;const iv=setInterval(()=>{
+    n++;let dur=0;try{dur=player.getDuration?player.getDuration():0}catch(e){}
+    if(dur>0||n>20){clearInterval(iv);attempt()}
+  },500);
+}
+function ensureYT(cb){
+  if(window.YT&&YT.Player){cb&&cb();return}
+  window._ytQ=window._ytQ||[];
+  if(cb)window._ytQ.push(cb);
+  if(window._ytLoading)return;
+  window._ytLoading=true;
+  window.onYouTubeIframeAPIReady=()=>{(window._ytQ||[]).forEach(f=>{try{f()}catch(e){}});window._ytQ=[]};
+  const sc=document.createElement("script");sc.src="https://www.youtube.com/iframe_api";document.head.appendChild(sc);
+}
+function loadVideoInto(node,url,vid){
+  const fr=node.querySelector("[data-frame]");
+  node._vid=vid||null;node._seekDone=false;
+  try{if(node._player&&node._player.destroy)node._player.destroy()}catch(e){}
+  node._player=null;
+  if(!fr)return;
+  fr.src=embedSrc(url,true);
+  if(isVimeoUrl(url)){
+    setTimeout(()=>{
+      if(node._vid!==vid)return;
+      const s=prog[vid]||0;
+      if(s>5){
+        try{fr.contentWindow.postMessage(JSON.stringify({method:"seekTo",value:s}),"*")}catch(e){}
+        flashResume(node,s);
+      }
+      node._seekDone=true;
+    },2500);
+    return;
+  }
+  ensureYT(()=>{
+    if(node._vid!==vid)return;
+    try{
+      node._player=new YT.Player(fr,{events:{
+        onReady:ev=>{maybeResume(node,ev.target)},
+        onStateChange:ev=>{
+          try{
+            if(ev.data===YT.PlayerState.PAUSED)saveProg(node);
+            else if(ev.data===YT.PlayerState.ENDED)clearProg(node);
+          }catch(e){}
+        }
+      }});
+    }catch(e){}
+  });
+}
+function pollProg(){
+  const s=curSlide();if(!s||!s._t||!s._vid)return;
+  const fr=s.querySelector("[data-frame]");if(!fr||!fr.contentWindow)return;
+  if(isVimeoUrl(curUrl())){
+    try{fr.contentWindow.postMessage(JSON.stringify({method:"getCurrentTime"}),"*")}catch(e){}
+    return;
+  }
+  saveProg(s);
+}
+setInterval(()=>{try{pollProg()}catch(e){}},5000);
+window.addEventListener("pagehide",()=>{try{pollProg()}catch(e){}});
+window.addEventListener("message",e=>{
+  try{
+    const d=typeof e.data==="string"?JSON.parse(e.data):e.data;
+    if(d&&d.method==="getCurrentTime"&&typeof d.value==="number"){
+      slotNodes.forEach(n=>{
+        const fr=n.querySelector("[data-frame]");
+        if(n._vid&&fr&&fr.contentWindow===e.source){
+          const s=Math.floor(d.value);
+          if(s>5)prog[n._vid]=s; else delete prog[n._vid];
+          store.set("progress",prog);
+        }
+      });
+    }
+  }catch(_){}
+});
 function playSeries(t){
   if(!t)return;
+  try{if(feedMounted&&slotNodes[1])saveProg(slotNodes[1])}catch(e){}
   const nx=pickRandom(t.id);
   feedStack=[t,nx];feedPos=0;
   feed.cur=t;feed.curEp=null;feed.altMode=false;
@@ -642,6 +787,7 @@ function advanceAnimated(dir){
 }
 function commitSnap(dir){
   const track=$("#feedTrack");
+  try{saveProg(slotNodes[1])}catch(e){}
   track.classList.remove("anim");track.style.transform="";
   const [nP,nC,nN]=slotNodes;
   if(dir>0){
@@ -687,7 +833,10 @@ $("#cform").addEventListener("submit",e=>{
   store.set("comments",comments);$("#cinput").value="";
   renderComments();updateRail(t);toast("Comment posted");
 });
-$("#cdraw").addEventListener("click",e=>{if(e.target.id==="cdraw")$("#cdraw").classList.remove("open")});
+$("#cdraw").addEventListener("click",e=>{if(e.target.id==="cdraw")closeComments()});
+function closeComments(){$("#cdraw").classList.remove("open");$("#cscrim").classList.remove("open")}
+$("#cclose").addEventListener("click",closeComments);
+$("#cscrim").addEventListener("click",closeComments);
 
 /* ---------- episode drawer: real verified episodes ---------- */
 function epCount(t){
@@ -713,8 +862,7 @@ function playEpisode(e){
   feed.curEp=e;
   closeEpDrawer();
   const slide=curSlide();
-  const fr=slide.querySelector("[data-frame]");
-  if(fr)fr.src=embedSrc(e.url,true);
+  loadVideoInto(slide,e.url,e.video_id||vidOf(e.url));
   slide._paused=false;
   const fl=slide.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
   const meta=slide.querySelector("[data-meta]");
@@ -779,7 +927,7 @@ function closeEpDrawer(){
   dr.style.transition=""; dr.style.transform="";
 }
 $("#escrim").addEventListener("click",closeEpDrawer);
-document.addEventListener("keydown",e=>{if(e.key==="Escape")closeEpDrawer()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeEpDrawer();closeComments()}});
 (function(){
   const dr=$("#edraw");let y0=null,dy=0;
   const start=e=>{y0=e.touches[0].clientY;dy=0};
