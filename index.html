@@ -53,6 +53,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .feed-backdrop{position:absolute;inset:-6%;background-size:cover;background-position:center;filter:blur(28px) brightness(.45);transform:scale(1.05);z-index:0}
 .feed-video.cover iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:16/9;transform:translateX(-50%)}
 .feed-video.vert iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
+.feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
 .feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer}
 .feed-flash{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;pointer-events:none;font-size:64px;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.7);opacity:0}
 .feed-flash.show{animation:flashpop .7s ease forwards}
@@ -418,8 +419,16 @@ function embedSrc(u,autoplay){
   return vimeo ? u+sep+"autoplay=1&muted=1&title=0&byline=0&portrait=0"
                : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
 }
-function frameModeClass(t){
-  return t.orientation==="vertical" ? "vert" : "cover";
+function frameModeClass(t,fit){
+  if(t.orientation==="vertical")return "vert";
+  return fit?"fit":"cover";
+}
+function toggleFit(slide){
+  const t=(slide&&slide._t)||feed.cur; if(!t)return;
+  if(t.orientation==="vertical"){toast("Already full screen");return;}
+  slide._fit=!slide._fit;
+  const fv=slide.querySelector("[data-fv]");
+  if(fv)fv.className="feed-video "+(slide._fit?"fit":"cover");
 }
 function curSlide(){return slotNodes[1]}
 function layoutSlots(){slotNodes.forEach((n,i)=>{n.style.transform=`translateY(${(i-1)*100}%)`})}
@@ -438,6 +447,7 @@ function slideHTML(){
       <div class="ric"><button data-a="com">💬</button><span data-t="com">0</span></div>
       <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
       <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
+      <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
       <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
     </div>
     <button class="soundprompt" data-sound>🔊 Tap for sound</button>
@@ -464,6 +474,7 @@ function fillSlide(node,t,mode){
   const sp=node.querySelector("[data-sound]");
   node._t=t||null;
   const bd=node.querySelector("[data-backdrop]");
+  node._fit=false; // every video starts in fill
   if(!t){
     fr.removeAttribute("src");fr.onload=null;
     node.querySelector("[data-title]").textContent="";
@@ -471,7 +482,7 @@ function fillSlide(node,t,mode){
     if(bd)bd.style.backgroundImage="none";
     sp.style.display="none";return;
   }
-  fv.className="feed-video "+frameModeClass(t);
+  fv.className="feed-video "+frameModeClass(t,false);
   if(bd){const bi=thumb(t,"hq");bd.style.backgroundImage=bi?`url("${bi}")`:"none";}
   node.querySelector("[data-title]").textContent=t.title;
   node.querySelector("[data-meta]").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
@@ -506,6 +517,7 @@ function railAction(a,slide){
     if(mylist.has(t.id)){mylist.delete(t.id);toast("Removed from My List")}else{mylist.add(t.id);toast("Saved to My List")}
     saveList();updateRailIn(slide,t);
   }else if(a==="info"){openDetail(t.id)}
+  else if(a==="fit"){toggleFit(slide)}
 }
 function mountFeed(){
   document.body.classList.add("feedfull");
@@ -851,6 +863,9 @@ function playEpisode(e){
   const slide=curSlide();
   loadVideoInto(slide,e.url,e.video_id||vidOf(e.url));
   slide._paused=false;
+  slide._fit=false; // episodes also start in fill
+  const pfv=slide.querySelector("[data-fv]");
+  if(pfv)pfv.className="feed-video "+frameModeClass(t,false);
   const fl=slide.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
   const meta=slide.querySelector("[data-meta]");
   if(meta)meta.textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
