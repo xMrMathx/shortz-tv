@@ -129,6 +129,18 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .btn-play{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-weight:800;font-size:15px;
   padding:13px 26px;border-radius:30px;box-shadow:0 8px 30px rgba(229,9,20,.45);transition:transform .25s var(--ease)}
 .btn-play:active{transform:scale(.96)}
+.installbtn{width:100%;justify-content:center;margin:2px 0 12px;font-size:15px}
+/* ---------- install instruction sheet ---------- */
+#iscrim{position:fixed;inset:0;z-index:125;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+#iscrim.open{opacity:1;pointer-events:auto}
+#isheet{position:fixed;left:0;right:0;bottom:0;z-index:130;background:#101016;border-radius:22px 22px 0 0;
+  border-top:1px solid var(--line);transform:translateY(105%);transition:transform .5s var(--ease);
+  padding:8px 22px 30px;box-shadow:0 -20px 60px rgba(0,0,0,.6)}
+#isheet.open{transform:none}
+#isheet .grab{width:44px;height:5px;border-radius:3px;background:#3a3a46;margin:10px auto 8px}
+#isheet h3{font-size:16px;font-weight:800;margin:6px 0 10px}
+#isheet ol{margin:0 0 6px 20px;font-size:14px;line-height:2;color:#d7d7e0}
+#isheet .done{margin-top:12px;width:100%}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--txt);font-weight:700;font-size:14px;
   padding:12px 22px;border-radius:30px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
 .ai-chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.6px;color:#cfe3ff;
@@ -266,6 +278,18 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
     </div>
     <div id="elist"></div>
     <div class="ed-note">New episodes appear here as the hunt verifies them.</div>
+  </div>
+
+  <div id="iscrim"></div>
+  <div id="isheet">
+    <div class="grab"></div>
+    <h3>📲 Install Shortz TV</h3>
+    <ol>
+      <li>Tap the <b>Share</b> button (box with an arrow) in your browser</li>
+      <li>Scroll down and tap <b>Add to Home Screen</b></li>
+      <li>Tap <b>Add</b> — Shortz TV opens full-screen like a real app</li>
+    </ol>
+    <button class="btn-play done" id="isheetClose">Got it</button>
   </div>
 
   <div id="toast"></div>
@@ -822,6 +846,7 @@ function renderProfile(){
       <div class="stat"><b>${GENRES.length}</b><small>GENRES</small></div>
       <div class="stat"><b>∞</b><small>FREE</small></div>
     </div>
+    <button id="installAppBtn" class="btn-play installbtn" style="display:none">📲 Install App</button>
     <div class="freebanner"><b>✓ 100% FREE — FOREVER</b>
       <p>No coins. No paywall. No locked episodes. No subscription. Every short in Shortz TV is free to watch, always.</p></div>
     <div style="margin-top:6px">
@@ -835,7 +860,48 @@ function renderProfile(){
       ${aiN} series are labeled ✦ Made with AI, the same way YouTube labels them.
       <br>Shortz TV v1.0.1</div>
   </div>`;
+  const ib=$("#installAppBtn");
+  if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
 }
+
+/* ---------- PWA install ---------- */
+let deferredInstallPrompt=null;
+function isIOS(){
+  return /iPhone|iPad|iPod/.test(navigator.userAgent)
+      || (navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+}
+function isStandalone(){
+  return window.matchMedia("(display-mode: standalone)").matches
+      || window.matchMedia("(display-mode: fullscreen)").matches
+      || navigator.standalone===true;
+}
+function refreshInstallBtn(){
+  const b=$("#installAppBtn");if(!b)return;
+  const show=!isStandalone()&&(!!deferredInstallPrompt||isIOS());
+  b.style.display=show?"":"none";
+}
+function onInstallClick(){
+  if(deferredInstallPrompt){
+    deferredInstallPrompt.prompt();
+    deferredInstallPrompt.userChoice.then(()=>{deferredInstallPrompt=null;refreshInstallBtn();}).catch(()=>{});
+  }else{
+    openInstallSheet(); // iOS / no prompt support
+  }
+}
+function openInstallSheet(){
+  $("#iscrim").classList.add("open");$("#isheet").classList.add("open");
+}
+function closeInstallSheet(){
+  $("#iscrim").classList.remove("open");$("#isheet").classList.remove("open");
+}
+window.addEventListener("beforeinstallprompt",e=>{
+  e.preventDefault();deferredInstallPrompt=e;refreshInstallBtn();
+});
+window.addEventListener("appinstalled",()=>{
+  deferredInstallPrompt=null;refreshInstallBtn();toast("Shortz TV installed ✓");
+});
+$("#iscrim").addEventListener("click",closeInstallSheet);
+$("#isheetClose").addEventListener("click",closeInstallSheet);
 
 /* ---------- boot: cold open straight into the feed ---------- */
 mountFeed();
