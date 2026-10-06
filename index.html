@@ -400,13 +400,13 @@ function embedSrc(u,autoplay){
 }
 function frameModeClass(t){
   if(t.orientation==="vertical") return feed.altMode?"fill":"vert";
-  return feed.altMode?"fit":"fill";
+  return feed.altMode?"fill":"fit";
 }
 function curSlide(){return slotNodes[1]}
 function layoutSlots(){slotNodes.forEach((n,i)=>{n.style.transform=`translateY(${(i-1)*100}%)`})}
 function slideHTML(){
   return `
-    <div class="feed-video fill" data-fv>
+    <div class="feed-video fit" data-fv>
       <iframe data-frame referrerpolicy="strict-origin-when-cross-origin"
         allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
         title="Shortz TV player"></iframe>
@@ -453,7 +453,7 @@ function fillSlide(node,t,mode){
   fv.className="feed-video "+frameModeClass(t);
   node.querySelector("[data-title]").textContent=t.title;
   node.querySelector("[data-meta]").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
-  node.querySelector('[data-t="fit"]').textContent="Fill";
+  node.querySelector('[data-t="fit"]').textContent="Fit";
   updateRailIn(node,t);
   if(mode==="current"){
     fr.src=embedSrc(t.url,true);
@@ -486,8 +486,8 @@ function railAction(a,slide){
   else if(a==="fit"){
     feed.altMode=!feed.altMode;
     slide.querySelector("[data-fv]").className="feed-video "+frameModeClass(t);
-    slide.querySelector('[data-t="fit"]').textContent=feed.altMode?(t.orientation==="vertical"?"Crop":"Fit"):"Fill";
-    toast(feed.altMode?"⤢ "+(t.orientation==="vertical"?"Cropped fill":"Fit mode"):"⤢ Fill mode");
+    slide.querySelector('[data-t="fit"]').textContent=feed.altMode?"Fill":"Fit";
+    toast(feed.altMode?"⤢ Fill mode (cropped)":"⤢ Fit mode");
   }
 }
 function mountFeed(){
