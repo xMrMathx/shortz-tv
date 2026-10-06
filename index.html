@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Shortz TV — Free Short Dramas</title>
+<meta name="description" content="Shortz TV: 100% free short drama series. Every episode plays right in the app.">
+<style>
+:root{
+  --bg:#08080d; --bg2:#0e0e15; --card:#14141c; --line:rgba(255,255,255,.08);
+  --txt:#f4f4f7; --mut:#a3a3b0; --red:#e50914; --green:#22c55e; --gold:#f5c518;
+  --ease:cubic-bezier(.22,.8,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;overflow-x:hidden}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+::-webkit-scrollbar{width:0;height:0}
+
+/* film grain overlay for artwork */
+.grain{position:relative;overflow:hidden}
+.grain::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.14;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
+
+/* ---------- top bar ---------- */
+#topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 18px calc(10px + env(safe-area-inset-top)*0);padding-top:calc(14px + env(safe-area-inset-top));
+  background:linear-gradient(rgba(8,8,13,.92),rgba(8,8,13,.75));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.logo{font-weight:900;font-size:21px;letter-spacing:1.5px}
+.logo b{color:var(--red)}
+.free-tag{font-size:10px;font-weight:800;letter-spacing:1px;color:#04140a;background:linear-gradient(135deg,#4ade80,#22c55e);
+  padding:6px 12px;border-radius:20px;box-shadow:0 0 18px rgba(34,197,94,.35)}
+
+/* ---------- views: seamless crossfade ---------- */
+#views{position:relative;min-height:80vh}
+.view{position:absolute;inset:0;opacity:0;transform:translateY(14px) scale(.995);pointer-events:none;
+  transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.view.active{position:relative;opacity:1;transform:none;pointer-events:auto}
+.view.leaving{position:absolute;inset:0;opacity:0;transform:translateY(-10px) scale(1.005);pointer-events:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+
+/* ---------- HERO: full bleed + ken burns + shimmer ---------- */
+#hero{position:relative;width:100vw;margin-left:calc(50% - 50vw);height:min(58vh,480px);min-height:340px;overflow:hidden}
+.hero-kb{position:absolute;top:-6%;left:-6%;width:112%;height:112%;
+  animation:kenburns 18s ease-in-out infinite alternate;will-change:transform}
+@keyframes kenburns{from{transform:scale(1) translate(0,0) rotate(0deg)}to{transform:scale(1.22) translate(-2.5%,2%) rotate(.6deg)}}
+.hero-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:clamp(120px,32vw,300px);font-weight:900;letter-spacing:-.05em;color:rgba(255,255,255,.10);
+  text-shadow:0 20px 80px rgba(0,0,0,.5);user-select:none}
+.hero-shimmer{position:absolute;top:-20%;bottom:-20%;width:38%;left:-45%;transform:skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);
+  animation:shimmer 7s ease-in-out infinite;pointer-events:none}
+@keyframes shimmer{0%{left:-45%}55%,100%{left:135%}}
+.hero-scrim{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(8,8,13,.55) 0%,transparent 30%,transparent 45%,rgba(8,8,13,.88) 100%)}
+.hero-info{position:absolute;left:0;right:0;bottom:0;padding:0 max(18px,calc(50vw - 580px)) 26px}
+.hero-kicker{font-size:11px;font-weight:800;letter-spacing:2.5px;color:var(--gold);margin-bottom:8px}
+.hero-title{font-size:clamp(26px,6vw,44px);font-weight:900;line-height:1.05;letter-spacing:-.5px;max-width:640px;
+  text-shadow:0 4px 30px rgba(0,0,0,.7)}
+.hero-meta{margin-top:8px;font-size:13px;color:#d7d7e0}
+.hero-cta{margin-top:14px;display:flex;gap:10px;align-items:center}
+.btn-play{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-weight:800;font-size:15px;
+  padding:13px 26px;border-radius:30px;box-shadow:0 8px 30px rgba(229,9,20,.45);transition:transform .25s var(--ease)}
+.btn-play:active{transform:scale(.96)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--txt);font-weight:700;font-size:14px;
+  padding:12px 22px;border-radius:30px;background:rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+.ai-chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.6px;color:#cfe3ff;
+  background:rgba(120,170,255,.14);border:1px solid rgba(140,180,255,.35);padding:4px 10px;border-radius:12px;margin-top:10px}
+
+/* ---------- rows of vertical cards ---------- */
+.rowlabel{display:flex;justify-content:space-between;align-items:baseline;margin:26px 0 12px}
+.rowlabel h2{font-size:17px;font-weight:800;letter-spacing:.2px}
+.rowlabel span{font-size:12px;color:var(--mut)}
+.hrow{display:flex;gap:12px;overflow-x:auto;padding:4px 16px 10px;margin:0 -16px;scroll-snap-type:x proximity}
+.vcard{flex:0 0 auto;width:118px;scroll-snap-align:start;cursor:pointer;transition:transform .3s var(--ease)}
+.vcard:active{transform:scale(.95)}
+.vthumb{width:118px;height:208px;border-radius:14px;display:flex;flex-direction:column;justify-content:flex-end;
+  padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.07)}
+.vthumb::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.78));border-radius:14px}
+.vinit{position:absolute;top:8px;left:10px;font-size:34px;font-weight:900;color:rgba(255,255,255,.28);line-height:1}
+.vtitle{position:relative;font-size:12px;font-weight:800;line-height:1.3}
+.vsub{position:relative;font-size:10px;color:rgba(255,255,255,.72);margin-top:3px}
+.epsbadge{position:absolute;top:8px;right:8px;font-size:8px;font-weight:900;letter-spacing:.5px;background:rgba(229,9,20,.95);
+  padding:4px 8px;border-radius:9px}
+.aibadge{position:absolute;bottom:8px;right:8px;font-size:8px;font-weight:800;color:#cfe3ff;
+  background:rgba(10,20,40,.72);border:1px solid rgba(140,180,255,.4);padding:3px 7px;border-radius:8px}
+.dur{position:absolute;bottom:8px;left:10px;font-size:9px;font-weight:700;background:rgba(0,0,0,.65);padding:3px 7px;border-radius:7px}
+
+/* ---------- detail ---------- */
+#detailArt{position:relative;width:100vw;margin-left:calc(50% - 50vw);height:300px;overflow:hidden}
+#detailArt .hero-kb{animation-duration:26s}
+.backbtn{position:absolute;top:calc(14px + env(safe-area-inset-top));left:14px;z-index:5;width:40px;height:40px;border-radius:50%;
+  background:rgba(0,0,0,.5);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;font-size:18px}
+.detail-body{padding:18px 0 30px}
+.detail-body h1{font-size:26px;font-weight:900;letter-spacing:-.5px;line-height:1.15}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.chip{font-size:11px;font-weight:700;background:rgba(255,255,255,.07);border:1px solid var(--line);padding:7px 13px;border-radius:16px;color:#d7d7e0}
+.chip.red{background:var(--red);border-color:var(--red);color:#fff}
+.chip.green{background:rgba(34,197,94,.14);border-color:rgba(34,197,94,.5);color:#4ade80}
+.syn{font-size:14px;line-height:1.65;color:#c9c9d4}
+.srcbox{margin-top:16px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.srcbox .k{font-size:10px;font-weight:800;letter-spacing:1.5px;color:var(--mut);margin-bottom:6px}
+.srcbox .v{font-size:13px;font-weight:700}
+.srcbox .r{font-size:12px;color:var(--mut);margin-top:4px}
+.playrow{display:flex;gap:10px;margin-top:18px;position:sticky;bottom:90px}
+
+/* ---------- browse ---------- */
+.pills{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;margin:0 -16px}
+.pill{flex:0 0 auto;font-size:13px;font-weight:700;padding:10px 18px;border-radius:22px;border:1px solid var(--line);
+  background:rgba(255,255,255,.05);color:#d7d7e0;transition:all .35s var(--ease)}
+.pill.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 6px 20px rgba(229,9,20,.4)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:14px;padding:14px 0 30px;
+  transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.grid.fading{opacity:0;transform:translateY(12px)}
+.grid .vcard{width:100%}
+.grid .vthumb{width:100%;height:auto;aspect-ratio:9/16}
+
+/* ---------- my list / profile ---------- */
+.sect{font-size:17px;font-weight:800;margin:22px 0 12px}
+.librow{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer}
+.libthumb{width:56px;height:88px;border-radius:10px;flex-shrink:0;display:flex;align-items:flex-end;justify-content:center;
+  font-size:22px;font-weight:900;color:rgba(255,255,255,.35);padding-bottom:6px}
+.librow .lt{font-size:14px;font-weight:700}
+.librow .lm{font-size:11px;color:var(--mut);margin-top:3px}
+.librow .go{margin-left:auto;color:var(--red);font-size:20px}
+.empty{text-align:center;color:var(--mut);padding:50px 20px;font-size:14px;line-height:1.7}
+.profhead{display:flex;gap:14px;align-items:center;margin:22px 0 16px}
+.avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--red),#7a0d18);
+  display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;box-shadow:0 8px 24px rgba(229,9,20,.4)}
+.statrow{display:flex;gap:10px;margin-bottom:16px}
+.stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 8px;text-align:center}
+.stat b{font-size:22px;display:block}
+.stat small{font-size:10px;color:var(--mut);letter-spacing:.5px}
+.freebanner{background:linear-gradient(135deg,rgba(34,197,94,.16),rgba(34,197,94,.06));border:1px solid rgba(34,197,94,.45);
+  border-radius:18px;padding:18px;margin-bottom:8px}
+.freebanner b{color:#4ade80;font-size:15px;letter-spacing:.5px}
+.freebanner p{font-size:13px;color:#bfe8c6;margin-top:6px;line-height:1.6}
+.setitem{display:flex;justify-content:space-between;align-items:center;padding:15px 2px;border-bottom:1px solid rgba(255,255,255,.05);font-size:14px}
+.setitem small{color:var(--mut);font-size:12px}
+
+/* ---------- tab bar ---------- */
+#tabbar{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;
+  background:rgba(10,10,16,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-top:1px solid var(--line);padding:10px 0 calc(14px + env(safe-area-inset-bottom))}
+.tab{flex:1;text-align:center;font-size:10px;color:#8b8b96;font-weight:600;transition:color .3s}
+.tab .ico{font-size:20px;display:block;margin-bottom:3px}
+.tab.on{color:#fff}
+#viewpad{height:calc(70px + env(safe-area-inset-bottom))}
+
+/* ---------- player ---------- */
+#player{position:fixed;inset:0;z-index:100;background:#000;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+#player.open{opacity:1;pointer-events:auto}
+#playerBg{position:absolute;inset:-40px;filter:blur(60px) brightness(.5);transform:scale(1.1)}
+.stage{position:relative;height:100%;width:100%;max-width:520px;display:flex;flex-direction:column}
+.p-top{display:flex;align-items:center;justify-content:space-between;padding:calc(12px + env(safe-area-inset-top)) 14px 8px;z-index:3}
+.p-title{font-size:14px;font-weight:800;text-align:center;flex:1;padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.p-close{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.p-video{position:relative;flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.p-video iframe{width:100%;aspect-ratio:16/9;border:0;background:#000;box-shadow:0 20px 80px rgba(0,0,0,.8)}
+.p-rail{position:absolute;right:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:18px;z-index:3}
+.ric{text-align:center;font-size:10px;color:#eee;font-weight:700}
+.ric button{font-size:24px;display:block;margin:0 auto 3px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6));transition:transform .2s}
+.ric button:active{transform:scale(1.25)}
+.ric button.liked{color:#ff2d55}
+.ric button.saved{color:var(--gold)}
+.p-bottom{padding:10px 16px calc(16px + env(safe-area-inset-bottom));background:linear-gradient(transparent,rgba(0,0,0,.9));z-index:3}
+.p-ep{font-size:14px;font-weight:800}
+.p-meta{font-size:11px;color:#c9c9d4;margin-top:3px}
+.p-next{margin-top:12px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);
+  border:1px solid var(--line);border-radius:14px;padding:10px 12px;backdrop-filter:blur(10px);cursor:pointer;
+  transition:background .3s}
+.p-next:active{background:rgba(255,255,255,.16)}
+.p-next .nt{font-size:12px;font-weight:800}
+.p-next .ns{font-size:10px;color:var(--mut);margin-top:2px}
+.p-next .nxt{margin-left:auto;font-size:22px;color:var(--red)}
+.swipehint{text-align:center;font-size:10px;color:rgba(255,255,255,.45);margin-top:8px;letter-spacing:1px}
+
+/* ---------- comments drawer ---------- */
+#cdraw{position:fixed;left:0;right:0;bottom:0;z-index:110;max-height:70vh;background:#101016;border-radius:22px 22px 0 0;
+  border-top:1px solid var(--line);transform:translateY(105%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
+#cdraw.open{transform:none}
+#cdraw .grab{width:44px;height:5px;border-radius:3px;background:#333;margin:10px auto 4px}
+#cdraw h3{font-size:15px;font-weight:800;padding:8px 18px}
+#clist{overflow-y:auto;padding:6px 18px;flex:1;min-height:120px}
+.citem{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:13px}
+.citem .cn{font-weight:800;font-size:12px;color:var(--gold)}
+.citem .ct{color:#8b8b96;font-size:10px;margin-left:8px}
+#cform{display:flex;gap:8px;padding:12px 18px calc(16px + env(safe-area-inset-bottom))}
+#cform input{flex:1;background:#1a1a24;border:1px solid var(--line);border-radius:22px;padding:12px 16px;color:#fff;font-size:14px;outline:none}
+#cform button{background:var(--red);color:#fff;font-weight:800;padding:12px 20px;border-radius:22px}
+
+#toast{position:fixed;bottom:110px;left:50%;transform:translateX(-50%) translateY(20px);z-index:130;background:#1c1c26;
+  border:1px solid var(--line);padding:12px 22px;border-radius:26px;font-size:13px;font-weight:700;opacity:0;
+  transition:all .4s var(--ease);pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translateX(-50%)}
+
+@media(min-width:760px){
+  .stage{max-width:480px;border-left:1px solid var(--line);border-right:1px solid var(--line)}
+  .vcard{width:140px}.vthumb{width:140px;height:248px}
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="topbar">
+    <div class="logo">SHORTZ <b>TV</b></div>
+    <div class="free-tag">100% FREE</div>
+  </header>
+
+  <main id="views">
+    <section class="view active" id="view-home"></section>
+    <section class="view" id="view-browse"></section>
+    <section class="view" id="view-mylist"></section>
+    <section class="view" id="view-profile"></section>
+    <section class="view" id="view-detail"></section>
+  </main>
+  <div id="viewpad"></div>
+
+  <nav id="tabbar">
+    <button class="tab on" data-v="home"><span class="ico">⌂</span>Home</button>
+    <button class="tab" data-v="browse"><span class="ico">▦</span>Browse</button>
+    <button class="tab" data-v="mylist"><span class="ico">♥</span>My List</button>
+    <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
+  </nav>
+
+  <div id="player">
+    <div id="playerBg" class="grain"></div>
+    <div class="stage" id="stage">
+      <div class="p-top">
+        <button class="p-close" id="pClose">✕</button>
+        <div class="p-title" id="pTitle"></div>
+        <div style="width:38px"></div>
+      </div>
+      <div class="p-video" id="pVideoWrap">
+        <iframe id="pFrame" referrerpolicy="strict-origin-when-cross-origin"
+          allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
+          title="Shortz TV player"></iframe>
+        <div class="p-rail">
+          <div class="ric"><button id="rLike">♥</button><span id="rLikeT">Like</span></div>
+          <div class="ric"><button id="rCom">💬</button><span id="rComT">0</span></div>
+          <div class="ric"><button id="rShare">↗</button><span>Share</span></div>
+          <div class="ric"><button id="rSave">＋</button><span>Save</span></div>
+        </div>
+      </div>
+      <div class="p-bottom">
+        <div class="p-ep" id="pEp"></div>
+        <div class="p-meta" id="pMeta"></div>
+        <div class="p-next" id="pNext">
+          <div><div class="nt" id="pNextT"></div><div class="ns">Up next — tap or swipe up</div></div>
+          <div class="nxt">›</div>
+        </div>
+        <div class="swipehint">SWIPE UP FOR NEXT SHORT</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cdraw">
+    <div class="grab"></div>
+    <h3>💬 Comments</h3>
+    <div id="clist"></div>
+    <form id="cform"><input id="cinput" placeholder="Add a comment…" maxlength="300" autocomplete="off"><button type="submit">Post</button></form>
+  </div>
+
+  <div id="toast"></div>
+</div>
+
+<script src="catalog.js"></script>
+<script>
+"use strict";
+const C = window.SHORTZ_CATALOG || [];
+const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation"];
+const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨"};
+
+/* ---------- utils ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function artBg(t){const h=hash(t),h1=h%360,h2=(h1+45+(h%70))%360;
+  return `radial-gradient(120% 90% at 20% 10%, hsl(${h1},60%,30%), transparent 60%),linear-gradient(155deg,hsl(${h1},58%,24%),hsl(${h2},62%,9%) 75%)`}
+function initials(t){const w=t.replace(/^[^A-Za-z0-9]+/,"").split(/[\s:—–-]+/).filter(Boolean);
+  return ((w[0]||"S")[0]+((w[1]||"")[0]||"")).toUpperCase()}
+const byId = id => C.find(t=>t.id===id);
+const store = {
+  get(k,d){try{const v=localStorage.getItem("shortztv_"+k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem("shortztv_"+k,JSON.stringify(v))}catch(e){}}
+};
+let mylist = new Set(store.get("mylist",[]));
+let likes = store.get("likes",{});
+let comments = store.get("comments",{});
+let history = store.get("history",[]);
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800)}
+function saveList(){store.set("mylist",[...mylist])}
+function aiChip(t){return t.ai_made?'<span class="ai-chip">✦ Made with AI</span>':""}
+
+/* ---------- cards ---------- */
+function cardHTML(t){
+  return `<div class="vcard" data-id="${t.id}">
+    <div class="vthumb grain" style="background:${artBg(t.title)}">
+      <span class="vinit">${esc(initials(t.title))}</span>
+      <span class="epsbadge">${esc(t.eps)}</span>
+      <div class="vtitle">${esc(t.title)}</div>
+      <div class="vsub">${esc(t.runtime)} · ${GICON[t.genre]||""} ${esc(t.genre)}</div>
+      ${t.ai_made?'<span class="aibadge">✦ AI</span>':""}
+    </div></div>`;
+}
+function bindCards(root){
+  root.querySelectorAll(".vcard").forEach(c=>{
+    c.onclick=()=>openDetail(c.dataset.id);
+  });
+}
+
+/* ---------- seamless view switching ---------- */
+let curView="home", returnView="home";
+function go(v){
+  if(v===curView&&v!=="detail")return;
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
+  const cur=$("#view-"+curView), nxt=$("#view-"+v);
+  cur.classList.remove("active");cur.classList.add("leaving");
+  setTimeout(()=>cur.classList.remove("leaving"),550);
+  nxt.classList.add("active");
+  curView=v;
+  $("#views").scrollIntoView({block:"start"});
+  window.scrollTo({top:0,behavior:"auto"});
+}
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{renderView(t.dataset.v);go(t.dataset.v)});
+function renderView(v){
+  if(v==="home")renderHome(); if(v==="browse")renderBrowse(browseGenre);
+  if(v==="mylist")renderMyList(); if(v==="profile")renderProfile();
+}
+
+/* ---------- home ---------- */
+function featured(){
+  const day=Math.floor(Date.now()/864e5);
+  return C[day%C.length];
+}
+function renderHome(){
+  const f=featured();
+  let rows="";
+  for(const g of GENRES){
+    const list=C.filter(t=>t.genre===g);
+    if(!list.length)continue;
+    rows+=`<div class="wrap"><div class="rowlabel"><h2>${GICON[g]} ${g}</h2><span>${list.length} series</span></div></div>
+    <div class="wrap"><div class="hrow">${list.map(cardHTML).join("")}</div></div>`;
+  }
+  $("#view-home").innerHTML=`
+    <section id="hero">
+      <div class="hero-kb grain" style="background:${artBg(f.title)}"></div>
+      <div class="hero-initials">${esc(initials(f.title))}</div>
+      <div class="hero-shimmer"></div>
+      <div class="hero-scrim"></div>
+      <div class="hero-info">
+        <div class="hero-kicker">★ FEATURED SHORT SERIES</div>
+        <div class="hero-title">${esc(f.title)}</div>
+        <div class="hero-meta">${esc(f.eps)} · ${esc(f.runtime)} each · ${GICON[f.genre]||""} ${esc(f.genre)}</div>
+        ${aiChip(f)}
+        <div class="hero-cta">
+          <button class="btn-play" id="heroPlay">▶ Play now</button>
+          <button class="btn-ghost" id="heroInfo">More info</button>
+        </div>
+      </div>
+    </section>
+    ${rows}
+    <div class="wrap" style="padding:26px 16px 10px;color:var(--mut);font-size:12px;line-height:1.7">
+      ${C.length} verified short series · every one plays inside Shortz TV · new finds added regularly.
+    </div>`;
+  bindCards($("#view-home"));
+  $("#heroPlay").onclick=()=>{openPlayer(feedFrom(C,C.indexOf(f)),C.indexOf(f))};
+  $("#heroInfo").onclick=()=>openDetail(f.id);
+}
+function feedFrom(list,idx){return {list,idx}}
+
+/* ---------- detail ---------- */
+function openDetail(id){
+  const t=byId(id);if(!t)return;
+  if(curView!=="detail")returnView=curView;
+  const inList=mylist.has(id);
+  $("#view-detail").innerHTML=`
+    <section id="detailArt">
+      <div class="hero-kb grain" style="background:${artBg(t.title)}"></div>
+      <div class="hero-initials" style="font-size:150px">${esc(initials(t.title))}</div>
+      <div class="hero-shimmer"></div>
+      <div class="hero-scrim"></div>
+      <button class="backbtn" id="dBack">‹</button>
+    </section>
+    <div class="wrap"><div class="detail-body">
+      <h1>${esc(t.title)}</h1>
+      <div class="chips">
+        <span class="chip red">▶ Plays in app</span>
+        <span class="chip">📺 ${esc(t.eps)}</span>
+        <span class="chip">⏱ ${esc(t.runtime)}</span>
+        <span class="chip">${GICON[t.genre]||""} ${esc(t.genre)}</span>
+      </div>
+      ${aiChip(t)}
+      <p class="syn">${esc(t.desc)}</p>
+      <div class="srcbox">
+        <div class="k">SOURCE</div>
+        <div class="v">${esc(t.source_channel)}</div>
+        <div class="r">${esc(t.rights_basis)}</div>
+      </div>
+      <div class="playrow">
+        <button class="btn-play" id="dPlay" style="flex:1;justify-content:center">▶ Play</button>
+        <button class="btn-ghost" id="dSave">${inList?"♥ Saved":"＋ My List"}</button>
+      </div>
+    </div></div>`;
+  $("#dBack").onclick=()=>go(returnView);
+  $("#dPlay").onclick=()=>{const gl=C.filter(x=>x.genre===t.genre);const i=gl.findIndex(x=>x.id===id);openPlayer(gl,i>=0?i:0)};
+  $("#dSave").onclick=()=>{
+    if(mylist.has(id)){mylist.delete(id);toast("Removed from My List")}else{mylist.add(id);toast("Saved to My List")}
+    saveList();$("#dSave").textContent=mylist.has(id)?"♥ Saved":"＋ My List";
+  };
+  go("detail");
+}
+
+/* ---------- player: endless vertical feed ---------- */
+let feed={list:[],idx:0};
+function openPlayer(f,idx){
+  feed={list:f.list||f,idx:idx||0};
+  loadCurrent();
+  $("#player").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closePlayer(){
+  $("#pFrame").src="about:blank";
+  $("#player").classList.remove("open");
+  document.body.style.overflow="";
+}
+function embedSrc(u){
+  const vimeo=u.includes("vimeo.com");
+  const sep=u.includes("?")?"&":"?";
+  return vimeo?u+sep+"title=0&byline=0&portrait=0":u+sep+"rel=0&playsinline=1&modestbranding=1";
+}
+function loadCurrent(){
+  const t=feed.list[feed.idx%feed.list.length];if(!t)return;
+  $("#pTitle").textContent=t.title;
+  $("#pEp").textContent=t.title;
+  $("#pMeta").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · via ${t.source_channel}`;
+  $("#playerBg").style.background=artBg(t.title);
+  const nx=feed.list[(feed.idx+1)%feed.list.length];
+  $("#pNextT").textContent=nx?("Up next: "+nx.title):"";
+  $("#pFrame").src=embedSrc(t.url);
+  // rail state
+  $("#rLike").classList.toggle("liked",!!likes[t.id]);
+  $("#rLikeT").textContent=likes[t.id]?"Liked":"Like";
+  const cl=comments[t.id]||[];
+  $("#rComT").textContent=cl.length||"0";
+  $("#rSave").classList.toggle("saved",mylist.has(t.id));
+  // history
+  history=[{id:t.id,ts:Date.now()},...history.filter(h=>h.id!==t.id)].slice(0,20);
+  store.set("history",history);
+}
+function nextInFeed(){feed.idx=(feed.idx+1)%feed.list.length;loadCurrent()}
+$("#pClose").onclick=closePlayer;
+$("#pNext").onclick=nextInFeed;
+$("#rLike").onclick=()=>{
+  const t=feed.list[feed.idx%feed.list.length];if(!t)return;
+  if(likes[t.id]){delete likes[t.id];toast("Unliked")}else{likes[t.id]=1;toast("♥ Liked")}
+  store.set("likes",likes);loadCurrentMeta(t);
+};
+function loadCurrentMeta(t){
+  $("#rLike").classList.toggle("liked",!!likes[t.id]);
+  $("#rLikeT").textContent=likes[t.id]?"Liked":"Like";
+}
+$("#rSave").onclick=()=>{
+  const t=feed.list[feed.idx%feed.list.length];if(!t)return;
+  if(mylist.has(t.id)){mylist.delete(t.id);toast("Removed from My List")}else{mylist.add(t.id);toast("Saved to My List")}
+  saveList();$("#rSave").classList.toggle("saved",mylist.has(t.id));
+};
+$("#rShare").onclick=async()=>{
+  const t=feed.list[feed.idx%feed.list.length];if(!t)return;
+  const txt=`Watch "${t.title}" free on Shortz TV`;
+  if(navigator.share){try{await navigator.share({title:"Shortz TV",text:txt,url:location.href})}catch(e){}}
+  else{try{await navigator.clipboard.writeText(txt+" — "+location.href);toast("Link copied")}catch(e){toast("Copy this link: "+location.href)}}
+};
+$("#rCom").onclick=()=>{renderComments();$("#cdraw").classList.add("open")};
+function renderComments(){
+  const t=feed.list[feed.idx%feed.list.length];if(!t)return;
+  const cl=comments[t.id]||[];
+  $("#clist").innerHTML=cl.length?cl.map(c=>
+    `<div class="citem"><span class="cn">${esc(c.n)}</span><span class="ct">${new Date(c.ts).toLocaleDateString()}</span><div>${esc(c.x)}</div></div>`
+  ).join(""):'<div class="empty">No comments yet.<br>Be the first to say something.</div>';
+}
+$("#cform").onsubmit=e=>{
+  e.preventDefault();
+  const t=feed.list[feed.idx%feed.list.length];if(!t)return;
+  const v=$("#cinput").value.trim();if(!v)return;
+  (comments[t.id]=comments[t.id]||[]).push({n:"You",x:v,ts:Date.now()});
+  store.set("comments",comments);$("#cinput").value="";
+  renderComments();$("#rComT").textContent=comments[t.id].length;toast("Comment posted");
+};
+// swipe up = next
+let ty0=null;
+$("#stage").addEventListener("touchstart",e=>{ty0=e.touches[0].clientY},{passive:true});
+$("#stage").addEventListener("touchend",e=>{
+  if(ty0==null)return;const dy=e.changedTouches[0].clientY-ty0;ty0=null;
+  if(dy<-70)nextInFeed();
+},{passive:true});
+document.addEventListener("keydown",e=>{
+  if(!$("#player").classList.contains("open"))return;
+  if(e.key==="ArrowUp")nextInFeed();
+  if(e.key==="Escape")closePlayer();
+});
+// tap scrim above drawer to close
+$("#cdraw").addEventListener("click",e=>{if(e.target.id==="cdraw")$("#cdraw").classList.remove("open")});
+
+/* ---------- browse ---------- */
+let browseGenre=GENRES[0];
+function renderBrowse(g){
+  browseGenre=g||browseGenre;
+  const list=C.filter(t=>t.genre===browseGenre);
+  $("#view-browse").innerHTML=`
+    <div class="wrap" style="padding-top:18px">
+      <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span>14 genres</span></div>
+    </div>
+    <div class="wrap"><div class="pills">${GENRES.map(x=>
+      `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${GICON[x]} ${x}</button>`).join("")}</div></div>
+    <div class="wrap"><div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div></div>`;
+  bindCards($("#view-browse"));
+  $("#view-browse").querySelectorAll(".pill").forEach(p=>{
+    p.onclick=()=>{
+      if(p.dataset.g===browseGenre)return;
+      $("#view-browse").querySelectorAll(".pill").forEach(q=>q.classList.toggle("on",q===p));
+      const gr=$("#bgrid");gr.classList.add("fading");
+      setTimeout(()=>{
+        browseGenre=p.dataset.g;
+        gr.innerHTML=C.filter(t=>t.genre===browseGenre).map(cardHTML).join("");
+        bindCards(gr);gr.classList.remove("fading");
+      },320);
+    };
+  });
+}
+
+/* ---------- my list ---------- */
+function renderMyList(){
+  const saved=[...mylist].map(byId).filter(Boolean);
+  const hist=history.map(h=>byId(h.id)).filter(Boolean).slice(0,10);
+  $("#view-mylist").innerHTML=`<div class="wrap">
+    <div class="sect">♥ My List ${saved.length?`(${saved.length})`:""}</div>
+    ${saved.length?saved.map(t=>`
+      <div class="librow" data-id="${t.id}">
+        <div class="libthumb grain" style="background:${artBg(t.title)}">${esc(initials(t.title))}</div>
+        <div><div class="lt">${esc(t.title)}</div><div class="lm">${esc(t.eps)} · ${esc(t.genre)} · ${esc(t.runtime)}${t.ai_made?" · ✦ AI":""}</div></div>
+        <div class="go">›</div></div>`).join("")
+      :'<div class="empty">Nothing saved yet.<br>Tap ＋ Save on any short to keep it here.</div>'}
+    <div class="sect">🕘 Recently watched</div>
+    ${hist.length?hist.map(t=>`
+      <div class="librow" data-id="${t.id}">
+        <div class="libthumb grain" style="background:${artBg(t.title)}">${esc(initials(t.title))}</div>
+        <div><div class="lt">${esc(t.title)}</div><div class="lm">${esc(t.eps)} · ${esc(t.genre)}</div></div>
+        <div class="go">›</div></div>`).join("")
+      :'<div class="empty">No watch history yet.</div>'}
+  </div>`;
+  $("#view-mylist").querySelectorAll(".librow").forEach(r=>r.onclick=()=>openDetail(r.dataset.id));
+}
+
+/* ---------- profile ---------- */
+function renderProfile(){
+  const aiN=C.filter(t=>t.ai_made).length;
+  $("#view-profile").innerHTML=`<div class="wrap">
+    <div class="profhead">
+      <div class="avatar">S</div>
+      <div><div style="font-size:17px;font-weight:800">Shortz TV viewer</div>
+      <div style="font-size:12px;color:var(--mut);margin-top:2px">Watching free since day one</div></div>
+    </div>
+    <div class="statrow">
+      <div class="stat"><b>${C.length}</b><small>SERIES</small></div>
+      <div class="stat"><b>${GENRES.length}</b><small>GENRES</small></div>
+      <div class="stat"><b>∞</b><small>FREE</small></div>
+    </div>
+    <div class="freebanner"><b>✓ 100% FREE — FOREVER</b>
+      <p>No coins. No paywall. No locked episodes. No subscription. Every short in Shortz TV is free to watch, always.</p></div>
+    <div style="margin-top:6px">
+      <div class="setitem">🔔 New series alerts <small>On ›</small></div>
+      <div class="setitem">📺 Autoplay <small>Up next feed ›</small></div>
+      <div class="setitem">💾 My List <small>${mylist.size} saved ›</small></div>
+      <div class="setitem">ℹ️ Sources &amp; licenses <small>${C.length} embeds ›</small></div>
+    </div>
+    <div style="padding:20px 0 10px;color:var(--mut);font-size:11px;line-height:1.7">
+      All series stream from their official, studio, or creator channels via embed — nothing pirated.
+      ${aiN} series are labeled ✦ Made with AI, the same way YouTube labels them.</div>
+  </div>`;
+}
+
+/* ---------- boot ---------- */
+renderHome();
+</script>
+</body>
+</html>
