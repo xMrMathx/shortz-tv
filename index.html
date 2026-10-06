@@ -54,6 +54,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
 .feed-video.vert iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:9/16;transform:translateY(-50%)}
 .feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer}
+.feed-flash{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;pointer-events:none;font-size:64px;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.7);opacity:0}
+.feed-flash.show{animation:flashpop .7s ease forwards}
+@keyframes flashpop{0%{opacity:.92;transform:translate(-50%,-50%) scale(.8)}35%{opacity:.92;transform:translate(-50%,-50%) scale(1.06)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.16)}}
 #feedTrack{position:absolute;inset:0;z-index:1}
 #feedTrack.anim{transition:transform .32s cubic-bezier(.25,.8,.3,1)}
 #feedTrack .slide{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;will-change:transform}
@@ -348,7 +351,7 @@ let feedStack=[], feedPos=-1;          // ordered visit history; feedPos = curre
 let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,next]
 let dragging=false, dragDy=0, dragX0=0, dragY0=0, dragT0=0, movedPx=0;
 let velSamples=[];
-let snapAnim=false, suppressClick=false;
+let snapAnim=false, suppressClick=false, skipMouseUntil=0;
 function pickRandom(exceptId){
   const pool=C.filter(t=>t.id!==exceptId&&seen.indexOf(t.id)<0);
   const src=pool.length?pool:C.filter(t=>t.id!==exceptId);
@@ -379,6 +382,7 @@ function slideHTML(){
         title="Shortz TV player"></iframe>
     </div>
     <div class="feed-tapzone" data-tap></div>
+    <div class="feed-flash" data-flash></div>
     <div class="feed-rail">
       <div class="ric"><button data-a="like" data-like>♥</button><span data-t="like">Like</span></div>
       <div class="ric"><button data-a="com">💬</button><span data-t="com">0</span></div>
@@ -395,7 +399,7 @@ function slideHTML(){
         <div><div class="nt">Episodes: this series</div><div class="ns">Tap for the episode list · swipe up for next short</div></div>
         <div class="nxt">›</div>
       </button>
-      <div class="swipehint">SWIPE UP FOR NEXT SHORT · TAP VIDEO FOR INFO</div>
+      <div class="swipehint">SWIPE UP FOR NEXT SHORT · TAP VIDEO TO PAUSE</div>
     </div>`;
 }
 function updateRailIn(node,t){
@@ -423,6 +427,8 @@ function fillSlide(node,t,mode){
   updateRailIn(node,t);
   if(mode==="current"){
     fr.src=embedSrc(t.url,true);
+    node._paused=false;
+    const fl=node.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
     if(soundOn){sp.style.display="none";fr.onload=()=>setTimeout(unmuteFrame,900)}
     else{sp.style.display="";fr.onload=null}
   }else if(mode==="preload"){
@@ -474,7 +480,7 @@ function mountFeed(){
     if(e.target.closest("[data-next]")){openEpDrawer();return;}
     if(e.target.closest("[data-sound]")){e.stopPropagation();doUnmute();return;}
     if(e.target.closest("[data-tap]")){
-      if(!soundOn)doUnmute(); else if(feed.cur)openDetail(feed.cur.id);
+      if(!soundOn)doUnmute(); else togglePause();
     }
   },true);
   let startOnAction=false;
@@ -506,11 +512,11 @@ function mountFeed(){
       // tap: on a button, let the native click do the action; on the video, act here
       track.style.transform="";
       if(startOnAction){return;}
-      suppressClick=true;setTimeout(()=>suppressClick=false,150);
-      if(!soundOn)doUnmute(); else if(feed.cur)openDetail(feed.cur.id);
+      suppressClick=true;setTimeout(()=>suppressClick=false,500);
+      if(!soundOn)doUnmute(); else togglePause();
       return;
     }
-    suppressClick=true;setTimeout(()=>suppressClick=false,150);
+    suppressClick=true;setTimeout(()=>suppressClick=false,500);
     if(dragDy<-H*0.25||v<-0.45)advanceAnimated(1);
     else if(dragDy>H*0.25||v>0.45)advanceAnimated(-1);
     else{track.classList.add("anim");track.style.transform="";
@@ -518,9 +524,9 @@ function mountFeed(){
   };
   stage.addEventListener("touchstart",e=>{onStart(e.touches[0].clientX,e.touches[0].clientY,actionAt(e))},{passive:true});
   stage.addEventListener("touchmove",e=>{if(dragging){onMove(e.touches[0].clientX,e.touches[0].clientY);if(e.cancelable)e.preventDefault()}},{passive:false});
-  stage.addEventListener("touchend",onEnd);
-  stage.addEventListener("touchcancel",()=>{dragging=false;track.classList.add("anim");track.style.transform="";setTimeout(()=>track.classList.remove("anim"),340)});
-  stage.addEventListener("mousedown",e=>{if(e.button===0)onStart(e.clientX,e.clientY,actionAt(e))});
+  stage.addEventListener("touchend",()=>{skipMouseUntil=Date.now()+600;onEnd()});
+  stage.addEventListener("touchcancel",()=>{skipMouseUntil=Date.now()+600;dragging=false;track.classList.add("anim");track.style.transform="";setTimeout(()=>track.classList.remove("anim"),340)});
+  stage.addEventListener("mousedown",e=>{if(e.button!==0||Date.now()<skipMouseUntil)return;onStart(e.clientX,e.clientY,actionAt(e))});
   window.addEventListener("mousemove",e=>{if(dragging)onMove(e.clientX,e.clientY)});
   window.addEventListener("mouseup",()=>{if(dragging)onEnd()});
   document.addEventListener("keydown",e=>{
@@ -534,6 +540,25 @@ function doUnmute(){
   soundOn=true;unmuteFrame();
   const sp=curSlide().querySelector("[data-sound]");if(sp)sp.style.display="none";
   toast("🔊 Sound on");
+}
+function flashPauseIcon(slide,paused){
+  const f=slide.querySelector("[data-flash]");if(!f)return;
+  f.textContent=paused?"⏸":"▶";
+  f.classList.remove("show");void f.offsetWidth;f.classList.add("show");
+}
+function togglePause(){
+  const slide=curSlide();if(!slide||!feed.cur)return;
+  const fr=slide.querySelector("[data-frame]");if(!fr||!fr.contentWindow)return;
+  const paused=!slide._paused;
+  try{
+    if(feed.cur.url.indexOf("vimeo.com")>=0){
+      fr.contentWindow.postMessage(JSON.stringify({method:paused?"pause":"play"}),"*");
+    }else{
+      fr.contentWindow.postMessage(JSON.stringify({event:"command",func:paused?"pauseVideo":"playVideo",args:""}),"*");
+    }
+  }catch(e){}
+  slide._paused=paused;
+  flashPauseIcon(slide,paused);
 }
 function unmuteFrame(){
   const fr=curSlide().querySelector("[data-frame]");if(!fr||!fr.contentWindow||!feed.cur)return;
