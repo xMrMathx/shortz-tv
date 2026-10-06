@@ -47,10 +47,10 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
 /* ---------- FEED (home landing): fullscreen vertical player ---------- */
-.feedstage{position:relative;height:calc(100dvh - 152px);min-height:440px;overflow:hidden;background:#000;touch-action:none}
+.feedstage{position:relative;height:100dvh;min-height:0;overflow:hidden;background:#000;touch-action:none}
 .feed-video{position:absolute;inset:0;overflow:hidden;background:#000}
-.feed-video iframe{border:0;background:#000;display:block}
-.feed-video.fill iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:16/9;transform:translateX(-50%)}
+.feed-video iframe{border:0;background:#000;display:block;position:relative;z-index:1}
+.feed-backdrop{position:absolute;inset:-6%;background-size:cover;background-position:center;filter:blur(28px) brightness(.45);transform:scale(1.05);z-index:0}
 .feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
 .feed-video.vert iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:9/16;transform:translateY(-50%)}
 .feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer}
@@ -66,12 +66,12 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .ric button:active{transform:scale(1.25)}
 .ric button.liked{color:#ff2d55}
 .ric button.saved{color:var(--gold)}
-.feed-bottom{position:absolute;left:0;right:0;bottom:0;padding:14px 16px 16px;z-index:5;
+.feed-bottom{position:absolute;left:0;right:0;bottom:calc(76px + env(safe-area-inset-bottom));padding:14px 16px 12px;z-index:5;
   background:linear-gradient(transparent,rgba(0,0,0,.88))}
 .f-title{font-size:15px;font-weight:800;line-height:1.3;padding-right:64px}
 .f-meta{font-size:11px;color:#c9c9d4;margin-top:4px;padding-right:64px}
-.f-next{margin-top:12px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);
-  border:1px solid var(--line);border-radius:14px;padding:10px 12px;backdrop-filter:blur(10px);cursor:pointer;
+.f-next{margin-top:10px;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);
+  border:1px solid var(--line);border-radius:14px;padding:8px 12px;backdrop-filter:blur(10px);cursor:pointer;
   transition:background .3s;color:inherit;text-align:left;width:100%}
 .f-next:active{background:rgba(255,255,255,.16)}
 .f-next .nt{font-size:12px;font-weight:800}
@@ -247,27 +247,13 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   .vcard{width:140px}.vthumb{width:140px;height:248px}
   .feedstage{max-width:520px;margin:0 auto}
 }
-/* ---------- LANDSCAPE: rotate freely, video contain-fit, rail + nav stay reachable ---------- */
-@media (orientation:landscape) and (min-width:600px){
-  #topbar{padding:8px 18px 6px}
-  .logo{font-size:17px}
-  .feedstage{height:calc(100dvh - 104px);min-height:0;max-width:none}
-  .feed-video.fit iframe{top:0;left:50%;height:100%;width:auto;transform:translateX(-50%)}
-  .feed-video.fill iframe{top:50%;left:0;width:100%;height:auto;transform:translateY(-50%)}
-  .feed-video.vert iframe{top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
-  .feed-rail{top:50%;right:12px;gap:8px}
-  .ric button{font-size:20px}
-  .feed-bottom{padding:8px 14px 10px}
-  .f-title{font-size:13px;padding-right:120px}
-  .f-meta{font-size:10px;padding-right:120px;margin-top:2px}
-  .f-next{margin-top:8px;padding:8px 10px}
-  .f-next .nt{font-size:11px}
-  .swipehint{display:none}
-  .soundprompt{font-size:13px;padding:11px 20px}
-  #tabbar{padding:6px 0 calc(8px + env(safe-area-inset-bottom))}
-  .tab .ico{font-size:18px;margin-bottom:1px}
-  #viewpad{height:calc(56px + env(safe-area-inset-bottom))}
-}
+/* ---------- feed fullscreen: video edge-to-edge, chrome overlaid PineDrama-style ---------- */
+body.feedfull{overflow:hidden}
+body.feedfull #topbar{position:fixed;top:0;left:0;right:0;z-index:41;
+  background:linear-gradient(rgba(5,5,10,.72),transparent);backdrop-filter:none;-webkit-backdrop-filter:none}
+body.feedfull #views{min-height:0}
+body.feedfull #viewpad{display:none}
+body.feedfull #tabbar{background:linear-gradient(transparent,rgba(5,5,10,.9) 55%)}
 
 </style>
 </head>
@@ -350,6 +336,10 @@ function thumb(t,sz){
   return "https://i.ytimg.com/vi/"+id+"/"+sz+"default.jpg";
 }
 const byId = id => C.find(t=>t.id===id);
+/* early release: computed live — exactly 1 verified episode; auto-graduates as the hunt verifies more */
+function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length===1}
+const EARLY="__early__";
+function browseList(){return browseGenre===EARLY?C.filter(isEarlyRelease):C.filter(t=>t.genre===browseGenre)}
 const store = {
   get(k,d){try{const v=localStorage.getItem("shortztv_"+k);return v?JSON.parse(v):d}catch(e){return d}},
   set(k,v){try{localStorage.setItem("shortztv_"+k,JSON.stringify(v))}catch(e){}}
@@ -391,6 +381,7 @@ function go(v){
   setTimeout(()=>cur.classList.remove("leaving"),550);
   nxt.classList.add("active");
   curView=v;
+  document.body.classList.toggle("feedfull",v==="home");
   $("#views").scrollIntoView({block:"start"});
   window.scrollTo({top:0,behavior:"auto"});
 }
@@ -402,7 +393,7 @@ function renderView(v){
 }
 
 /* ---------- FEED: TikTok-style vertical pager ---------- */
-const feed={cur:null, curEp:null, altMode:false};
+const feed={cur:null, curEp:null};
 function curUrl(){return (feed.curEp&&feed.curEp.url)||(feed.cur&&feed.cur.url)||""}
 function curIsVimeo(){return curUrl().indexOf("vimeo.com")>=0}
 let soundOn=false, feedMounted=false;
@@ -428,14 +419,14 @@ function embedSrc(u,autoplay){
                : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
 }
 function frameModeClass(t){
-  if(t.orientation==="vertical") return feed.altMode?"fill":"vert";
-  return feed.altMode?"fill":"fit";
+  return t.orientation==="vertical" ? "vert" : "fit";
 }
 function curSlide(){return slotNodes[1]}
 function layoutSlots(){slotNodes.forEach((n,i)=>{n.style.transform=`translateY(${(i-1)*100}%)`})}
 function slideHTML(){
   return `
     <div class="feed-video fit" data-fv>
+      <div class="feed-backdrop" data-backdrop></div>
       <iframe data-frame referrerpolicy="strict-origin-when-cross-origin"
         allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
         title="Shortz TV player"></iframe>
@@ -448,7 +439,6 @@ function slideHTML(){
       <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
       <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
       <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
-      <div class="ric"><button data-a="fit">⤢</button><span data-t="fit">Fill</span></div>
     </div>
     <button class="soundprompt" data-sound>🔊 Tap for sound</button>
     <div class="feed-bottom">
@@ -473,16 +463,18 @@ function fillSlide(node,t,mode){
   const fr=node.querySelector("[data-frame]");
   const sp=node.querySelector("[data-sound]");
   node._t=t||null;
+  const bd=node.querySelector("[data-backdrop]");
   if(!t){
     fr.removeAttribute("src");fr.onload=null;
     node.querySelector("[data-title]").textContent="";
     node.querySelector("[data-meta]").textContent="";
+    if(bd)bd.style.backgroundImage="none";
     sp.style.display="none";return;
   }
   fv.className="feed-video "+frameModeClass(t);
+  if(bd){const bi=thumb(t,"hq");bd.style.backgroundImage=bi?`url("${bi}")`:"none";}
   node.querySelector("[data-title]").textContent=t.title;
   node.querySelector("[data-meta]").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
-  node.querySelector('[data-t="fit"]').textContent="Fit";
   updateRailIn(node,t);
   if(mode==="current"){
     loadVideoInto(node,t.url,vidOf(t.url));
@@ -514,14 +506,9 @@ function railAction(a,slide){
     if(mylist.has(t.id)){mylist.delete(t.id);toast("Removed from My List")}else{mylist.add(t.id);toast("Saved to My List")}
     saveList();updateRailIn(slide,t);
   }else if(a==="info"){openDetail(t.id)}
-  else if(a==="fit"){
-    feed.altMode=!feed.altMode;
-    slide.querySelector("[data-fv]").className="feed-video "+frameModeClass(t);
-    slide.querySelector('[data-t="fit"]').textContent=feed.altMode?"Fill":"Fit";
-    toast(feed.altMode?"⤢ Fill mode (cropped)":"⤢ Fit mode");
-  }
 }
 function mountFeed(){
+  document.body.classList.add("feedfull");
   if(feedMounted)return; feedMounted=true;
   $("#view-home").innerHTML=`
     <div class="feedstage" id="feedStage"><div id="feedTrack"></div></div>`;
@@ -753,7 +740,7 @@ function playSeries(t){
   try{if(feedMounted&&slotNodes[1])saveProg(slotNodes[1])}catch(e){}
   const nx=pickRandom(t.id);
   feedStack=[t,nx];feedPos=0;
-  feed.cur=t;feed.curEp=null;feed.altMode=false;
+  feed.cur=t;feed.curEp=null;
   const track=$("#feedTrack");
   track.classList.remove("anim");track.style.transform="";
   fillSlide(slotNodes[0],null,"blank");
@@ -792,7 +779,7 @@ function commitSnap(dir){
   const [nP,nC,nN]=slotNodes;
   if(dir>0){
     slotNodes=[nC,nN,nP];
-    feed.cur=feedStack[feedPos];feed.altMode=false;
+    feed.cur=feedStack[feedPos];
     fillSlide(nC,feedStack[feedPos-1]||null,feedStack[feedPos-1]?"unload":"blank");
     fillSlide(nN,feed.cur,"current");
     const nn=pickRandom(feed.cur.id);
@@ -800,7 +787,7 @@ function commitSnap(dir){
     fillSlide(nP,nn,"preload");
   }else{
     slotNodes=[nN,nP,nC];
-    feed.cur=feedStack[feedPos];feed.altMode=false;
+    feed.cur=feedStack[feedPos];
     fillSlide(nN,feedStack[feedPos-1]||null,feedStack[feedPos-1]?"unload":"blank");
     fillSlide(nP,feed.cur,"current");
     fillSlide(nC,feedStack[feedPos+1]||null,feedStack[feedPos+1]?"preload":"blank");
@@ -967,6 +954,7 @@ function openDetail(id){
       <h1>${esc(t.title)}</h1>
       <div class="chips">
         <span class="chip red">▶ Plays in app</span>
+        ${isEarlyRelease(t)?'<span class="chip">🌱 Early Release</span>':""}
         <span class="chip">📺 ${esc(t.eps)}</span>
         <span class="chip">⏱ ${esc(t.runtime)}</span>
         <span class="chip">${GICON[t.genre]||""} ${esc(t.genre)}</span>
@@ -996,12 +984,15 @@ function openDetail(id){
 let browseGenre=GENRES[0];
 function renderBrowse(g){
   browseGenre=g||browseGenre;
-  const list=C.filter(t=>t.genre===browseGenre);
+  const list=browseList();
+  const earlyN=C.filter(isEarlyRelease).length;
   $("#view-browse").innerHTML=`
     <div class="wrap" style="padding-top:18px">
       <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span>14 genres</span></div>
     </div>
-    <div class="wrap"><div class="pills">${GENRES.map(x=>
+    <div class="wrap"><div class="pills">
+      <button class="pill${EARLY===browseGenre?" on":""}" data-g="${EARLY}">🌱 Early Release · ${earlyN}</button>
+      ${GENRES.map(x=>
       `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${GICON[x]} ${x}</button>`).join("")}</div></div>
     <div class="wrap"><div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div></div>`;
   bindCards($("#view-browse"));
@@ -1012,7 +1003,7 @@ function renderBrowse(g){
       const gr=$("#bgrid");gr.classList.add("fading");
       setTimeout(()=>{
         browseGenre=p.dataset.g;
-        gr.innerHTML=C.filter(t=>t.genre===browseGenre).map(cardHTML).join("");
+        gr.innerHTML=browseList().map(cardHTML).join("");
         bindCards(gr);gr.classList.remove("fading");
       },320);
     };
