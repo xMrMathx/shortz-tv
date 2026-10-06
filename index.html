@@ -468,9 +468,26 @@ function updateRailIn(node,t){
   const cb=node.querySelector('[data-t="com"]'); if(cb)cb.textContent=(comments[t.id]||[]).length||"0";
   const sb=node.querySelector("[data-save]"); if(sb)sb.classList.toggle("saved",mylist.has(t.id));
 }
+// YT.Player.destroy() REMOVES the <iframe> from the DOM (per YouTube's API docs),
+// so a slide reused after an unload may have no [data-frame] left — re-create it
+// with the exact original attributes (referrerpolicy is required or embeds throw 153).
+function ensureFrame(node){
+  let fr=node.querySelector("[data-frame]");
+  if(!fr){
+    const fv=node.querySelector("[data-fv]");
+    fr=document.createElement("iframe");
+    fr.setAttribute("data-frame","");
+    fr.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
+    fr.setAttribute("allow","autoplay; fullscreen; encrypted-media; picture-in-picture");
+    fr.setAttribute("allowfullscreen","");
+    fr.setAttribute("title","Shortz TV player");
+    if(fv)fv.appendChild(fr);
+  }
+  return fr;
+}
 function fillSlide(node,t,mode){
   const fv=node.querySelector("[data-fv]");
-  const fr=node.querySelector("[data-frame]");
+  const fr=ensureFrame(node);
   const sp=node.querySelector("[data-sound]");
   node._t=t||null;
   const bd=node.querySelector("[data-backdrop]");
@@ -491,8 +508,9 @@ function fillSlide(node,t,mode){
     loadVideoInto(node,t.url,vidOf(t.url));
     node._paused=false;
     const fl=node.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
-    if(soundOn){sp.style.display="none";fr.onload=()=>setTimeout(unmuteFrame,900)}
-    else{sp.style.display="";fr.onload=null}
+    const frC=ensureFrame(node); // loadVideoInto may have replaced the iframe above
+    if(soundOn){sp.style.display="none";frC.onload=()=>setTimeout(unmuteFrame,900)}
+    else{sp.style.display="";frC.onload=null}
   }else if(mode==="preload"){
     fr.src=embedSrc(t.url,false);
     sp.style.display="none";fr.onload=null;
@@ -688,10 +706,12 @@ function ensureYT(cb){
   const sc=document.createElement("script");sc.src="https://www.youtube.com/iframe_api";document.head.appendChild(sc);
 }
 function loadVideoInto(node,url,vid){
-  const fr=node.querySelector("[data-frame]");
-  node._vid=vid||null;node._seekDone=false;
+  // destroy FIRST: YT destroy() removes the iframe from the DOM, so the frame
+  // must be (re)created after — never hold a reference across destroy().
   try{if(node._player&&node._player.destroy)node._player.destroy()}catch(e){}
   node._player=null;
+  const fr=ensureFrame(node);
+  node._vid=vid||null;node._seekDone=false;
   if(!fr)return;
   fr.src=embedSrc(url,true);
   if(isVimeoUrl(url)){
