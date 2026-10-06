@@ -51,8 +51,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .feed-video{position:absolute;inset:0;overflow:hidden;background:#000}
 .feed-video iframe{border:0;background:#000;display:block;position:relative;z-index:1}
 .feed-backdrop{position:absolute;inset:-6%;background-size:cover;background-position:center;filter:blur(28px) brightness(.45);transform:scale(1.05);z-index:0}
-.feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
-.feed-video.vert iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:9/16;transform:translateY(-50%)}
+.feed-video.cover iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:16/9;transform:translateX(-50%)}
+.feed-video.vert iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
 .feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer}
 .feed-flash{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;pointer-events:none;font-size:64px;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.7);opacity:0}
 .feed-flash.show{animation:flashpop .7s ease forwards}
@@ -419,13 +419,13 @@ function embedSrc(u,autoplay){
                : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
 }
 function frameModeClass(t){
-  return t.orientation==="vertical" ? "vert" : "fit";
+  return t.orientation==="vertical" ? "vert" : "cover";
 }
 function curSlide(){return slotNodes[1]}
 function layoutSlots(){slotNodes.forEach((n,i)=>{n.style.transform=`translateY(${(i-1)*100}%)`})}
 function slideHTML(){
   return `
-    <div class="feed-video fit" data-fv>
+    <div class="feed-video cover" data-fv>
       <div class="feed-backdrop" data-backdrop></div>
       <iframe data-frame referrerpolicy="strict-origin-when-cross-origin"
         allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
