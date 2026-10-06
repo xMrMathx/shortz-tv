@@ -47,13 +47,16 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
 /* ---------- FEED (home landing): fullscreen vertical player ---------- */
-.feedstage{position:relative;height:calc(100dvh - 152px);min-height:440px;overflow:hidden;background:#000;touch-action:pan-x}
+.feedstage{position:relative;height:calc(100dvh - 152px);min-height:440px;overflow:hidden;background:#000;touch-action:none}
 .feed-video{position:absolute;inset:0;overflow:hidden;background:#000}
-#feedFrame{border:0;background:#000;display:block}
-.feed-video.fill #feedFrame{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:16/9;transform:translateX(-50%)}
-.feed-video.fit #feedFrame{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
-.feed-video.vert #feedFrame{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:9/16;transform:translateY(-50%)}
+.feed-video iframe{border:0;background:#000;display:block}
+.feed-video.fill iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:16/9;transform:translateX(-50%)}
+.feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
+.feed-video.vert iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:9/16;transform:translateY(-50%)}
 .feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer}
+#feedTrack{position:absolute;inset:0;z-index:1}
+#feedTrack.anim{transition:transform .32s cubic-bezier(.25,.8,.3,1)}
+#feedTrack .slide{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;will-change:transform}
 .feed-rail{position:absolute;right:8px;top:44%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;z-index:5}
 .ric{text-align:center;font-size:10px;color:#eee;font-weight:700}
 .ric button{font-size:24px;display:block;margin:0 auto 3px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6));transition:transform .2s}
@@ -338,9 +341,14 @@ function renderView(v){
   if(v==="mylist")renderMyList(); if(v==="profile")renderProfile();
 }
 
-/* ---------- FEED: cold-open fullscreen vertical player ---------- */
+/* ---------- FEED: TikTok-style vertical pager ---------- */
 const feed={cur:null, altMode:false};
 let soundOn=false, feedMounted=false;
+let feedStack=[], feedPos=-1;          // ordered visit history; feedPos = current index
+let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,next]
+let dragging=false, dragDy=0, dragX0=0, dragY0=0, dragT0=0, movedPx=0;
+let velSamples=[];
+let snapAnim=false, suppressClick=false;
 function pickRandom(exceptId){
   const pool=C.filter(t=>t.id!==exceptId&&seen.indexOf(t.id)<0);
   const src=pool.length?pool:C.filter(t=>t.id!==exceptId);
@@ -348,9 +356,12 @@ function pickRandom(exceptId){
   seen.push(t.id); seen=seen.slice(-10); store.set("seen",seen);
   return t;
 }
-function embedSrc(u){
+function embedSrc(u,autoplay){
   const vimeo=u.indexOf("vimeo.com")>=0;
   const sep=u.indexOf("?")>=0?"&":"?";
+  if(autoplay===false)
+    return vimeo ? u+sep+"title=0&byline=0&portrait=0"
+                 : u+sep+"enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
   return vimeo ? u+sep+"autoplay=1&muted=1&title=0&byline=0&portrait=0"
                : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
 }
@@ -358,87 +369,174 @@ function frameModeClass(t){
   if(t.orientation==="vertical") return feed.altMode?"fill":"vert";
   return feed.altMode?"fit":"fill";
 }
+function curSlide(){return slotNodes[1]}
+function layoutSlots(){slotNodes.forEach((n,i)=>{n.style.transform=`translateY(${(i-1)*100}%)`})}
+function slideHTML(){
+  return `
+    <div class="feed-video fill" data-fv>
+      <iframe data-frame referrerpolicy="strict-origin-when-cross-origin"
+        allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
+        title="Shortz TV player"></iframe>
+    </div>
+    <div class="feed-tapzone" data-tap></div>
+    <div class="feed-rail">
+      <div class="ric"><button data-a="like" data-like>♥</button><span data-t="like">Like</span></div>
+      <div class="ric"><button data-a="com">💬</button><span data-t="com">0</span></div>
+      <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
+      <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
+      <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
+      <div class="ric"><button data-a="fit">⤢</button><span data-t="fit">Fill</span></div>
+    </div>
+    <button class="soundprompt" data-sound>🔊 Tap for sound</button>
+    <div class="feed-bottom">
+      <div class="f-title" data-title></div>
+      <div class="f-meta" data-meta></div>
+      <button class="f-next" data-next>
+        <div><div class="nt">Episodes: this series</div><div class="ns">Tap for the episode list · swipe up for next short</div></div>
+        <div class="nxt">›</div>
+      </button>
+      <div class="swipehint">SWIPE UP FOR NEXT SHORT · TAP VIDEO FOR INFO</div>
+    </div>`;
+}
+function updateRailIn(node,t){
+  const lb=node.querySelector("[data-like]");
+  if(lb){lb.classList.toggle("liked",!!likes[t.id]);
+    node.querySelector('[data-t="like"]').textContent=likes[t.id]?"Liked":"Like";}
+  const cb=node.querySelector('[data-t="com"]'); if(cb)cb.textContent=(comments[t.id]||[]).length||"0";
+  const sb=node.querySelector("[data-save]"); if(sb)sb.classList.toggle("saved",mylist.has(t.id));
+}
+function fillSlide(node,t,mode){
+  const fv=node.querySelector("[data-fv]");
+  const fr=node.querySelector("[data-frame]");
+  const sp=node.querySelector("[data-sound]");
+  node._t=t||null;
+  if(!t){
+    fr.removeAttribute("src");fr.onload=null;
+    node.querySelector("[data-title]").textContent="";
+    node.querySelector("[data-meta]").textContent="";
+    sp.style.display="none";return;
+  }
+  fv.className="feed-video "+frameModeClass(t);
+  node.querySelector("[data-title]").textContent=t.title;
+  node.querySelector("[data-meta]").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
+  node.querySelector('[data-t="fit"]').textContent="Fill";
+  updateRailIn(node,t);
+  if(mode==="current"){
+    fr.src=embedSrc(t.url,true);
+    if(soundOn){sp.style.display="none";fr.onload=()=>setTimeout(unmuteFrame,900)}
+    else{sp.style.display="";fr.onload=null}
+  }else if(mode==="preload"){
+    fr.src=embedSrc(t.url,false);
+    sp.style.display="none";fr.onload=null;
+  }else{
+    fr.removeAttribute("src");fr.onload=null;sp.style.display="none";
+  }
+}
+function pushHistory(t){
+  history=[{id:t.id,ts:Date.now()},...history.filter(h=>h.id!==t.id)].slice(0,20);
+  store.set("history",history);
+}
+function railAction(a,slide){
+  const t=(slide&&slide._t)||feed.cur; if(!t)return;
+  if(a==="like"){
+    if(likes[t.id]){delete likes[t.id];toast("Unliked")}else{likes[t.id]=1;toast("♥ Liked")}
+    store.set("likes",likes);updateRailIn(slide,t);
+  }else if(a==="com"){renderComments();$("#cdraw").classList.add("open")}
+  else if(a==="share"){shareCur()}
+  else if(a==="save"){
+    if(mylist.has(t.id)){mylist.delete(t.id);toast("Removed from My List")}else{mylist.add(t.id);toast("Saved to My List")}
+    saveList();updateRailIn(slide,t);
+  }else if(a==="info"){openDetail(t.id)}
+  else if(a==="fit"){
+    feed.altMode=!feed.altMode;
+    slide.querySelector("[data-fv]").className="feed-video "+frameModeClass(t);
+    slide.querySelector('[data-t="fit"]').textContent=feed.altMode?(t.orientation==="vertical"?"Crop":"Fit"):"Fill";
+    toast(feed.altMode?"⤢ "+(t.orientation==="vertical"?"Cropped fill":"Fit mode"):"⤢ Fill mode");
+  }
+}
 function mountFeed(){
   if(feedMounted)return; feedMounted=true;
   $("#view-home").innerHTML=`
-    <div class="feedstage" id="feedStage">
-      <div class="feed-video fill" id="feedVideo">
-        <iframe id="feedFrame" referrerpolicy="strict-origin-when-cross-origin"
-          allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
-          title="Shortz TV player"></iframe>
-      </div>
-      <div class="feed-tapzone" id="feedTap"></div>
-      <div class="feed-rail">
-        <div class="ric"><button data-a="like" id="fLike">♥</button><span data-t="like">Like</span></div>
-        <div class="ric"><button data-a="com">💬</button><span data-t="com">0</span></div>
-        <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
-        <div class="ric"><button data-a="save" id="fSave">＋</button><span>Save</span></div>
-        <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
-        <div class="ric"><button data-a="fit" id="fFit">⤢</button><span data-t="fit">Fill</span></div>
-      </div>
-      <button class="soundprompt" id="soundPrompt">🔊 Tap for sound</button>
-      <div class="feed-bottom">
-        <div class="f-title" id="fTitle"></div>
-        <div class="f-meta" id="fMeta"></div>
-        <button class="f-next" id="fNext">
-          <div><div class="nt" id="fNextT">Episodes: this series</div><div class="ns">Tap for the episode list · swipe up for next short</div></div>
-          <div class="nxt">›</div>
-        </button>
-        <div class="swipehint">SWIPE UP FOR NEXT SHORT · TAP VIDEO FOR INFO</div>
-      </div>
-    </div>`;
-  // rail actions
-  $("#view-home").addEventListener("click",e=>{
-    const b=e.target.closest("[data-a]"); if(!b||!feed.cur)return;
-    const a=b.dataset.a, t=feed.cur;
-    if(a==="like"){
-      if(likes[t.id]){delete likes[t.id];toast("Unliked")}else{likes[t.id]=1;toast("♥ Liked")}
-      store.set("likes",likes);updateRail(t);
-    }else if(a==="com"){renderComments();$("#cdraw").classList.add("open")}
-    else if(a==="share"){shareCur()}
-    else if(a==="save"){
-      if(mylist.has(t.id)){mylist.delete(t.id);toast("Removed from My List")}else{mylist.add(t.id);toast("Saved to My List")}
-      saveList();updateRail(t);
-    }else if(a==="info"){openDetail(t.id)}
-    else if(a==="fit"){
-      feed.altMode=!feed.altMode;
-      $("#feedVideo").className="feed-video "+frameModeClass(t);
-      document.querySelector('[data-t="fit"]').textContent=feed.altMode?(t.orientation==="vertical"?"Crop":"Fit"):"Fill";
-      toast(feed.altMode?"⤢ "+(t.orientation==="vertical"?"Cropped fill":"Fit mode"):"⤢ Fill mode");
-    }
-  });
-  $("#soundPrompt").addEventListener("click",e=>{e.stopPropagation();doUnmute()});
-  $("#fNext").addEventListener("click",()=>openEpDrawer());
-  // tap video = unmute first, then info; swipe up = next (tapzone sits above iframe so taps register)
-  const st=$("#feedTap");
-  let sx0=null,sy0=null,st0=0;
-  st.addEventListener("touchstart",e=>{const t=e.touches[0];sx0=t.clientX;sy0=t.clientY;st0=Date.now()},{passive:true});
-  st.addEventListener("touchend",e=>{
-    if(sx0==null)return;
-    const t=e.changedTouches[0],dx=t.clientX-sx0,dy=t.clientY-sy0;sx0=sy0=null;
-    if(e.target.closest(".feed-rail,.feed-bottom,.soundprompt"))return;
-    if(dy<-70&&Math.abs(dx)<60){nextFeed();return}
-    if(Math.abs(dx)<14&&Math.abs(dy)<14&&Date.now()-st0<600){
+    <div class="feedstage" id="feedStage"><div id="feedTrack"></div></div>`;
+  const track=$("#feedTrack"), stage=$("#feedStage");
+  for(let i=0;i<3;i++){
+    const s=document.createElement("div");
+    s.className="slide";s.innerHTML=slideHTML();
+    track.appendChild(s);slotNodes.push(s);
+  }
+  layoutSlots();
+  // one delegated click handler: rail / up-next / sound / tapzone (mouse + post-touch taps)
+  track.addEventListener("click",e=>{
+    if(suppressClick)return;
+    const slide=e.target.closest(".slide");
+    const b=e.target.closest("[data-a]");
+    if(b&&slide){railAction(b.dataset.a,slide);return;}
+    if(e.target.closest("[data-next]")){openEpDrawer();return;}
+    if(e.target.closest("[data-sound]")){e.stopPropagation();doUnmute();return;}
+    if(e.target.closest("[data-tap]")){
       if(!soundOn)doUnmute(); else if(feed.cur)openDetail(feed.cur.id);
     }
-  },{passive:true});
-  st.addEventListener("click",e=>{
-    if(e.target.closest(".feed-rail,.feed-bottom,.soundprompt"))return;
-    if(!soundOn)doUnmute(); else if(feed.cur)openDetail(feed.cur.id);
-  });
+  },true);
+  let startOnAction=false;
+  const onStart=(x,y,onAction)=>{
+    if(snapAnim||dragging)return false;
+    dragging=true;dragDy=0;movedPx=0;dragX0=x;dragY0=y;dragT0=Date.now();
+    startOnAction=!!onAction;
+    velSamples=[{y,t:Date.now()}];
+    track.classList.remove("anim");
+    return true;
+  };
+  const actionAt=e=>e.target.closest("[data-a],[data-next],[data-sound]");
+  const onMove=(x,y)=>{
+    if(!dragging)return;
+    dragDy=y-dragY0;
+    movedPx=Math.max(movedPx,Math.abs(dragDy),Math.abs(x-dragX0));
+    velSamples.push({y,t:Date.now()});if(velSamples.length>6)velSamples.shift();
+    track.style.transform=`translateY(${dragDy}px)`;
+  };
+  const onEnd=()=>{
+    if(!dragging)return;dragging=false;
+    const dt=Date.now()-dragT0,H=stage.clientHeight;
+    let v=0;
+    if(velSamples.length>=2){
+      const a=velSamples[0],b=velSamples[velSamples.length-1];
+      v=(b.y-a.y)/Math.max(1,b.t-a.t);
+    }
+    if(movedPx<10&&dt<300){
+      // tap: on a button, let the native click do the action; on the video, act here
+      track.style.transform="";
+      if(startOnAction){return;}
+      suppressClick=true;setTimeout(()=>suppressClick=false,150);
+      if(!soundOn)doUnmute(); else if(feed.cur)openDetail(feed.cur.id);
+      return;
+    }
+    suppressClick=true;setTimeout(()=>suppressClick=false,150);
+    if(dragDy<-H*0.25||v<-0.45)advanceAnimated(1);
+    else if(dragDy>H*0.25||v>0.45)advanceAnimated(-1);
+    else{track.classList.add("anim");track.style.transform="";
+      setTimeout(()=>track.classList.remove("anim"),340);}
+  };
+  stage.addEventListener("touchstart",e=>{onStart(e.touches[0].clientX,e.touches[0].clientY,actionAt(e))},{passive:true});
+  stage.addEventListener("touchmove",e=>{if(dragging){onMove(e.touches[0].clientX,e.touches[0].clientY);if(e.cancelable)e.preventDefault()}},{passive:false});
+  stage.addEventListener("touchend",onEnd);
+  stage.addEventListener("touchcancel",()=>{dragging=false;track.classList.add("anim");track.style.transform="";setTimeout(()=>track.classList.remove("anim"),340)});
+  stage.addEventListener("mousedown",e=>{if(e.button===0)onStart(e.clientX,e.clientY,actionAt(e))});
+  window.addEventListener("mousemove",e=>{if(dragging)onMove(e.clientX,e.clientY)});
+  window.addEventListener("mouseup",()=>{if(dragging)onEnd()});
   document.addEventListener("keydown",e=>{
     if(curView!=="home")return;
-    if(e.key==="ArrowUp")nextFeed();
+    if(e.key==="ArrowUp")advanceAnimated(1);
+    if(e.key==="ArrowDown")advanceAnimated(-1);
   });
-  loadFeed(pickRandom(null));
+  playSeries(pickRandom(null));
 }
 function doUnmute(){
-  soundOn=true; unmuteFrame();
-  const sp=$("#soundPrompt"); if(sp)sp.style.display="none";
+  soundOn=true;unmuteFrame();
+  const sp=curSlide().querySelector("[data-sound]");if(sp)sp.style.display="none";
   toast("🔊 Sound on");
 }
 function unmuteFrame(){
-  const fr=$("#feedFrame"); if(!fr||!fr.contentWindow||!feed.cur)return;
+  const fr=curSlide().querySelector("[data-frame]");if(!fr||!fr.contentWindow||!feed.cur)return;
   try{
     if(feed.cur.url.indexOf("vimeo.com")>=0){
       fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:1}),"*");
@@ -450,29 +548,66 @@ function unmuteFrame(){
     }
   }catch(e){}
 }
-function updateRail(t){
-  const lb=$("#fLike"); if(lb){lb.classList.toggle("liked",!!likes[t.id]);
-    document.querySelector('[data-t="like"]').textContent=likes[t.id]?"Liked":"Like";}
-  const cb=document.querySelector('[data-t="com"]'); if(cb)cb.textContent=(comments[t.id]||[]).length||"0";
-  const sb=$("#fSave"); if(sb)sb.classList.toggle("saved",mylist.has(t.id));
-}
-function loadFeed(t){
+function updateRail(t){const s=curSlide();if(s)updateRailIn(s,t)}
+function playSeries(t){
   if(!t)return;
-  feed.cur=t; feed.altMode=false;
-  $("#feedVideo").className="feed-video "+frameModeClass(t);
-  $("#fTitle").textContent=t.title;
-  $("#fMeta").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
-  document.querySelector('[data-t="fit"]').textContent="Fill";
-  const fr=$("#feedFrame");
-  fr.src=embedSrc(t.url);
-  const sp=$("#soundPrompt");
-  if(soundOn){sp.style.display="none";fr.onload=()=>setTimeout(unmuteFrame,900)}
-  else{sp.style.display="";fr.onload=null}
-  updateRail(t);
-  history=[{id:t.id,ts:Date.now()},...history.filter(h=>h.id!==t.id)].slice(0,20);
-  store.set("history",history);
+  const nx=pickRandom(t.id);
+  feedStack=[t,nx];feedPos=0;
+  feed.cur=t;feed.altMode=false;
+  const track=$("#feedTrack");
+  track.classList.remove("anim");track.style.transform="";
+  fillSlide(slotNodes[0],null,"blank");
+  fillSlide(slotNodes[1],t,"current");
+  fillSlide(slotNodes[2],nx,"preload");
+  layoutSlots();
+  pushHistory(t);
 }
-function nextFeed(){ if(feed.cur)loadFeed(pickRandom(feed.cur.id)); }
+function loadFeed(t){playSeries(t)}            // compat: detail Play button
+function nextFeed(){advanceAnimated(1)}        // compat: Up Next bar, ArrowUp
+function advanceAnimated(dir){
+  const stage=$("#feedStage"),track=$("#feedTrack"),H=stage.clientHeight;
+  if(snapAnim)return;
+  if(dir>0){
+    const nx=(slotNodes[2]&&slotNodes[2]._t)||pickRandom(feed.cur&&feed.cur.id);
+    feedStack[feedPos+1]=nx;
+    feedPos++;
+    snapAnim=true;track.classList.add("anim");
+    track.style.transform=`translateY(${-H}px)`;
+    setTimeout(()=>commitSnap(1),330);
+  }else{
+    if(feedPos<=0){
+      track.classList.add("anim");track.style.transform="";
+      setTimeout(()=>{track.classList.remove("anim")},330);return;
+    }
+    feedPos--;
+    snapAnim=true;track.classList.add("anim");
+    track.style.transform=`translateY(${H}px)`;
+    setTimeout(()=>commitSnap(-1),330);
+  }
+}
+function commitSnap(dir){
+  const track=$("#feedTrack");
+  track.classList.remove("anim");track.style.transform="";
+  const [nP,nC,nN]=slotNodes;
+  if(dir>0){
+    slotNodes=[nC,nN,nP];
+    feed.cur=feedStack[feedPos];feed.altMode=false;
+    fillSlide(nC,feedStack[feedPos-1]||null,feedStack[feedPos-1]?"unload":"blank");
+    fillSlide(nN,feed.cur,"current");
+    const nn=pickRandom(feed.cur.id);
+    feedStack[feedPos+1]=nn;
+    fillSlide(nP,nn,"preload");
+  }else{
+    slotNodes=[nN,nP,nC];
+    feed.cur=feedStack[feedPos];feed.altMode=false;
+    fillSlide(nN,feedStack[feedPos-1]||null,feedStack[feedPos-1]?"unload":"blank");
+    fillSlide(nP,feed.cur,"current");
+    fillSlide(nC,feedStack[feedPos+1]||null,feedStack[feedPos+1]?"preload":"blank");
+  }
+  layoutSlots();
+  pushHistory(feed.cur);
+  snapAnim=false;
+}
 function shareCur(){
   const t=feed.cur; if(!t)return;
   const txt=`Watch "${t.title}" free on Shortz TV`;
@@ -522,7 +657,7 @@ function openEpDrawer(){
   list.innerHTML=h;
   list.querySelectorAll(".erow").forEach(r=>{
     r.onclick=()=>{
-      if(r.dataset.i==="1"){closeEpDrawer();const fr=$("#feedFrame");if(fr&&feed.cur)fr.src=embedSrc(feed.cur.url)}
+      if(r.dataset.i==="1"){closeEpDrawer();const fr=curSlide().querySelector("[data-frame]");if(fr&&feed.cur)fr.src=embedSrc(feed.cur.url,true)}
       else toast("The hunt is still verifying this episode — it'll appear here when it's ready.");
     };
   });
