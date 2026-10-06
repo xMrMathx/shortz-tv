@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Shortz TV — Free Short Dramas</title>
 <meta name="description" content="Shortz TV: 100% free short drama series. Every episode plays right in the app.">
+<meta name="theme-color" content="#0b0b10">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Shortz TV">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{
   --bg:#08080d; --bg2:#0e0e15; --card:#14141c; --line:rgba(255,255,255,.08);
@@ -183,6 +190,31 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   transition:all .4s var(--ease);pointer-events:none;white-space:nowrap}
 #toast.show{opacity:1;transform:translateX(-50%)}
 
+/* ---------- episode drawer ---------- */
+#escrim{position:fixed;inset:0;z-index:115;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+#escrim.open{opacity:1;pointer-events:auto}
+#edraw{position:fixed;left:0;right:0;bottom:0;z-index:120;max-height:78dvh;background:#101016;border-radius:22px 22px 0 0;
+  border-top:1px solid var(--line);transform:translateY(105%);transition:transform .5s var(--ease);
+  display:flex;flex-direction:column;box-shadow:0 -20px 60px rgba(0,0,0,.6)}
+#edraw.open{transform:none}
+#edraw .grab{width:44px;height:5px;border-radius:3px;background:#3a3a46;margin:10px auto 2px;flex-shrink:0;touch-action:none}
+.ed-head{display:flex;gap:12px;align-items:center;padding:10px 18px 12px;border-bottom:1px solid rgba(255,255,255,.06);flex-shrink:0;touch-action:none}
+.ed-thumb{width:48px;height:76px;border-radius:10px;object-fit:cover;background:#1a1a24;flex-shrink:0}
+.ed-title{font-size:15px;font-weight:800;line-height:1.3}
+.ed-meta{font-size:11px;color:var(--mut);margin-top:3px}
+#elist{overflow-y:auto;padding:4px 10px;flex:1;min-height:120px}
+.erow{display:flex;align-items:center;gap:12px;padding:11px 8px;border-bottom:1px solid rgba(255,255,255,.05);
+  width:100%;text-align:left;color:inherit}
+.erow .en{font-size:13px;font-weight:800;width:34px;flex-shrink:0;color:#d7d7e0}
+.erow .em{flex:1;min-width:0}
+.erow .et{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.erow .es{font-size:10px;color:var(--mut);margin-top:2px}
+.npbadge{font-size:9px;font-weight:900;letter-spacing:.6px;color:#fff;background:var(--red);padding:5px 10px;border-radius:10px;flex-shrink:0}
+.vbadge{font-size:9px;font-weight:800;letter-spacing:.6px;color:#d8b94a;background:rgba(245,197,24,.12);
+  border:1px solid rgba(245,197,24,.4);padding:5px 10px;border-radius:10px;flex-shrink:0}
+.erow.now .en{color:var(--red)}
+.ed-note{padding:12px 18px calc(18px + env(safe-area-inset-bottom));font-size:11px;color:var(--mut);text-align:center;flex-shrink:0}
+
 @media(min-width:760px){
   .vcard{width:140px}.vthumb{width:140px;height:248px}
   .feedstage{max-width:520px;margin:0 auto}
@@ -217,6 +249,17 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
     <h3>💬 Comments</h3>
     <div id="clist"></div>
     <form id="cform"><input id="cinput" placeholder="Add a comment…" maxlength="300" autocomplete="off"><button type="submit">Post</button></form>
+  </div>
+
+  <div id="escrim"></div>
+  <div id="edraw">
+    <div class="grab" id="edGrab"></div>
+    <div class="ed-head" id="edHead">
+      <img class="ed-thumb" id="edThumb" alt="">
+      <div><div class="ed-title" id="edTitle"></div><div class="ed-meta" id="edMeta"></div></div>
+    </div>
+    <div id="elist"></div>
+    <div class="ed-note">New episodes appear here as the hunt verifies them.</div>
   </div>
 
   <div id="toast"></div>
@@ -338,7 +381,7 @@ function mountFeed(){
         <div class="f-title" id="fTitle"></div>
         <div class="f-meta" id="fMeta"></div>
         <button class="f-next" id="fNext">
-          <div><div class="nt" id="fNextT">Up next: another short</div><div class="ns">Up next — tap or swipe up</div></div>
+          <div><div class="nt" id="fNextT">Episodes: this series</div><div class="ns">Tap for the episode list · swipe up for next short</div></div>
           <div class="nxt">›</div>
         </button>
         <div class="swipehint">SWIPE UP FOR NEXT SHORT · TAP VIDEO FOR INFO</div>
@@ -365,7 +408,7 @@ function mountFeed(){
     }
   });
   $("#soundPrompt").addEventListener("click",e=>{e.stopPropagation();doUnmute()});
-  $("#fNext").addEventListener("click",()=>nextFeed());
+  $("#fNext").addEventListener("click",()=>openEpDrawer());
   // tap video = unmute first, then info; swipe up = next (tapzone sits above iframe so taps register)
   const st=$("#feedTap");
   let sx0=null,sy0=null,st0=0;
@@ -454,6 +497,67 @@ $("#cform").addEventListener("submit",e=>{
   renderComments();updateRail(t);toast("Comment posted");
 });
 $("#cdraw").addEventListener("click",e=>{if(e.target.id==="cdraw")$("#cdraw").classList.remove("open")});
+
+/* ---------- episode drawer: honest states, one verified video per series ---------- */
+function epCount(t){
+  const m=String(t.eps||"").match(/\d+/);
+  return Math.max(1,Math.min(m?parseInt(m[0],10):8,100));
+}
+function openEpDrawer(){
+  const t=feed.cur; if(!t)return;
+  const th=$("#edThumb");
+  th.style.display=""; th.onerror=()=>{th.style.display="none"}; th.src=thumb(t,"hq");
+  $("#edTitle").textContent=t.title;
+  $("#edMeta").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
+  const n=epCount(t), rt=t.runtime||"";
+  let h="";
+  for(let i=1;i<=n;i++){
+    if(i===1){
+      h+=`<button class="erow now" data-i="1"><span class="en">E1</span><span class="em"><div class="et">${esc(t.title)}</div><div class="es">${esc(rt)}</div></span><span class="npbadge">▶ NOW PLAYING</span></button>`;
+    }else{
+      h+=`<button class="erow" data-i="${i}"><span class="en">E${i}</span><span class="em"><div class="et">Episode ${i}</div><div class="es">${esc(rt)}</div></span><span class="vbadge">VERIFYING…</span></button>`;
+    }
+  }
+  const list=$("#elist");
+  list.innerHTML=h;
+  list.querySelectorAll(".erow").forEach(r=>{
+    r.onclick=()=>{
+      if(r.dataset.i==="1"){closeEpDrawer();const fr=$("#feedFrame");if(fr&&feed.cur)fr.src=embedSrc(feed.cur.url)}
+      else toast("The hunt is still verifying this episode — it'll appear here when it's ready.");
+    };
+  });
+  list.scrollTop=0;
+  $("#escrim").classList.add("open");$("#edraw").classList.add("open");
+}
+function closeEpDrawer(){
+  const dr=$("#edraw");
+  $("#escrim").classList.remove("open");
+  dr.classList.remove("open");
+  dr.style.transition=""; dr.style.transform="";
+}
+$("#escrim").addEventListener("click",closeEpDrawer);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeEpDrawer()});
+(function(){
+  const dr=$("#edraw");let y0=null,dy=0;
+  const start=e=>{y0=e.touches[0].clientY;dy=0};
+  const move=e=>{
+    if(y0==null)return;
+    dy=Math.max(0,e.touches[0].clientY-y0);
+    dr.style.transition="none";dr.style.transform=`translateY(${dy}px)`;
+  };
+  const end=()=>{
+    if(y0==null)return;
+    dr.style.transition="";
+    if(dy>90)closeEpDrawer();else dr.style.transform="";
+    y0=null;dy=0;
+  };
+  ["edGrab","edHead"].forEach(id=>{
+    const el=document.getElementById(id);
+    el.addEventListener("touchstart",start,{passive:true});
+    el.addEventListener("touchmove",move,{passive:true});
+    el.addEventListener("touchend",end);
+  });
+})();
 
 /* ---------- detail ---------- */
 function openDetail(id){
@@ -574,6 +678,13 @@ function renderProfile(){
 
 /* ---------- boot: cold open straight into the feed ---------- */
 mountFeed();
+
+/* PWA: service worker */
+if("serviceWorker" in navigator){
+  window.addEventListener("load",()=>{
+    navigator.serviceWorker.register("sw.js").catch(()=>{});
+  });
+}
 </script>
 </body>
 </html>
