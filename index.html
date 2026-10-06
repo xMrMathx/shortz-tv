@@ -420,12 +420,12 @@ function embedSrc(u,autoplay){
                : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
 }
 function frameModeClass(t,fit){
-  if(t.orientation==="vertical")return "vert";
+  if(t.orientation==="vertical"||t.vertical)return "vert";
   return fit?"fit":"cover";
 }
 function toggleFit(slide){
   const t=(slide&&slide._t)||feed.cur; if(!t)return;
-  if(t.orientation==="vertical"){toast("Already full screen");return;}
+  if(t.orientation==="vertical"||t.vertical){toast("Already full screen");return;}
   slide._fit=!slide._fit;
   const fv=slide.querySelector("[data-fv]");
   if(fv)fv.className="feed-video "+(slide._fit?"fit":"cover");
