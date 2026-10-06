@@ -722,6 +722,7 @@ function loadVideoInto(node,url,vid){
   if(isVimeoUrl(url)){
     setTimeout(()=>{
       if(node._vid!==vid)return;
+      try{fr.contentWindow.postMessage(JSON.stringify({method:"addEventListener",value:"ended"}),"*")}catch(e){}
       const s=prog[vid]||0;
       if(s>5){
         try{fr.contentWindow.postMessage(JSON.stringify({method:"seekTo",value:s}),"*")}catch(e){}
@@ -739,7 +740,7 @@ function loadVideoInto(node,url,vid){
         onStateChange:ev=>{
           try{
             if(ev.data===YT.PlayerState.PAUSED)saveProg(node);
-            else if(ev.data===YT.PlayerState.ENDED)clearProg(node);
+            else if(ev.data===YT.PlayerState.ENDED){clearProg(node);autoNext(node,vid);}
           }catch(e){}
         }
       }});
@@ -760,6 +761,13 @@ window.addEventListener("pagehide",()=>{try{pollProg()}catch(e){}});
 window.addEventListener("message",e=>{
   try{
     const d=typeof e.data==="string"?JSON.parse(e.data):e.data;
+    if(d&&d.event==="ended"){
+      slotNodes.forEach(n=>{
+        const fr=n.querySelector("[data-frame]");
+        if(n._vid&&fr&&fr.contentWindow===e.source){try{autoNext(n,n._vid)}catch(_){}}
+      });
+      return;
+    }
     if(d&&d.method==="getCurrentTime"&&typeof d.value==="number"){
       slotNodes.forEach(n=>{
         const fr=n.querySelector("[data-frame]");
@@ -880,6 +888,21 @@ function epRowTitle(e,partIdx){
   if(k==="special")return "Special: "+(e.title||"");
   if(k==="compilation")return e.title||"Compilation";
   return e.title||("Episode "+(e.n||""));
+}
+/* ---------- autoplay: when a video ends, play the next verified episode ---------- */
+function autoNext(node,vid){
+  if(!node||!vid||node!==curSlide()||node._vid!==vid)return; // stale slide/video: do nothing
+  try{clearProg(node)}catch(e){}
+  const t=feed.cur, eps=(t&&t.episodes)||[];
+  let idx=-1;
+  for(let i=0;i<eps.length;i++){
+    const id=eps[i].video_id||vidOf(eps[i].url||"");
+    if(id&&id===vid){idx=i;break;}
+  }
+  for(let i=idx+1;i<eps.length;i++){
+    if(eps[i].verified&&eps[i].url){playEpisode(eps[i]);return;}
+  }
+  advanceAnimated(1); // not in list, or last verified episode: binge on
 }
 function playEpisode(e){
   const t=feed.cur; if(!t||!e||!e.verified||!e.url)return;
