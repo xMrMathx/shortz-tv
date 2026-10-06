@@ -410,6 +410,7 @@ const feed={cur:null, curEp:null};
 function curUrl(){return (feed.curEp&&feed.curEp.url)||(feed.cur&&feed.cur.url)||""}
 function curIsVimeo(){return curUrl().indexOf("vimeo.com")>=0}
 let soundOn=false, feedMounted=false;
+let lastTapT=0, tapTimer=null; // single/double-tap disambiguation
 let feedStack=[], feedPos=-1;          // ordered visit history; feedPos = current index
 let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,next]
 let dragging=false, dragDy=0, dragX0=0, dragY0=0, dragT0=0, movedPx=0;
@@ -574,7 +575,7 @@ function mountFeed(){
     if(e.target.closest("[data-next]")){openEpDrawer();return;}
     if(e.target.closest("[data-sound]")){e.stopPropagation();doUnmute();return;}
     if(e.target.closest("[data-tap]")){
-      if(!soundOn)doUnmute(); else togglePause();
+      handleTap(e.clientX);
     }
   },true);
   let startOnAction=false;
@@ -607,9 +608,10 @@ function mountFeed(){
       track.style.transform="";
       if(startOnAction){return;}
       suppressClick=true;setTimeout(()=>suppressClick=false,500);
-      if(!soundOn)doUnmute(); else togglePause();
+      handleTap(dragX0);
       return;
     }
+    clearTimeout(tapTimer);tapTimer=null;lastTapT=0;
     suppressClick=true;setTimeout(()=>suppressClick=false,500);
     if(dragDy<-H*0.25||v<-0.45)advanceAnimated(1);
     else if(dragDy>H*0.25||v>0.45)advanceAnimated(-1);
@@ -619,7 +621,7 @@ function mountFeed(){
   stage.addEventListener("touchstart",e=>{onStart(e.touches[0].clientX,e.touches[0].clientY,actionAt(e))},{passive:true});
   stage.addEventListener("touchmove",e=>{if(dragging){onMove(e.touches[0].clientX,e.touches[0].clientY);if(e.cancelable)e.preventDefault()}},{passive:false});
   stage.addEventListener("touchend",()=>{skipMouseUntil=Date.now()+600;onEnd()});
-  stage.addEventListener("touchcancel",()=>{skipMouseUntil=Date.now()+600;dragging=false;track.classList.add("anim");track.style.transform="";setTimeout(()=>track.classList.remove("anim"),340)});
+  stage.addEventListener("touchcancel",()=>{skipMouseUntil=Date.now()+600;dragging=false;clearTimeout(tapTimer);tapTimer=null;lastTapT=0;track.classList.add("anim");track.style.transform="";setTimeout(()=>track.classList.remove("anim"),340)});
   stage.addEventListener("mousedown",e=>{if(e.button!==0||Date.now()<skipMouseUntil)return;onStart(e.clientX,e.clientY,actionAt(e))});
   window.addEventListener("mousemove",e=>{if(dragging)onMove(e.clientX,e.clientY)});
   window.addEventListener("mouseup",()=>{if(dragging)onEnd()});
@@ -653,6 +655,40 @@ function togglePause(){
   }catch(e){}
   slide._paused=paused;
   flashPauseIcon(slide,paused);
+}
+/* ---------- tap: single = pause/resume, double-tap left = -10s, right = +10s ---------- */
+function handleTap(x){
+  const now=Date.now();
+  if(soundOn&&now-lastTapT<350){
+    clearTimeout(tapTimer);tapTimer=null;lastTapT=0;
+    const w=(curSlide()&&curSlide().clientWidth)||window.innerWidth||390;
+    seekBy(x<w/2?-10:10);
+    return;
+  }
+  lastTapT=now;
+  if(!soundOn){lastTapT=0;doUnmute();return;} // first tap always unmutes immediately
+  clearTimeout(tapTimer);
+  tapTimer=setTimeout(()=>{tapTimer=null;lastTapT=0;togglePause();},350);
+}
+function seekBy(d){
+  const slide=curSlide();if(!slide||!feed.cur)return;
+  const vid=slide._vid;
+  try{
+    if(curIsVimeo()){
+      const fr=slide.querySelector("[data-frame]");
+      const cur=(vid&&prog[vid])||0;
+      if(fr&&fr.contentWindow)fr.contentWindow.postMessage(JSON.stringify({method:"setCurrentTime",value:Math.max(0,cur+d)}),"*");
+    }else if(slide._player&&slide._player.getCurrentTime&&slide._player.seekTo){
+      const t=slide._player.getCurrentTime();
+      slide._player.seekTo(Math.max(0,t+d),true);
+    }else{
+      const fr=slide.querySelector("[data-frame]");
+      const cur=(vid&&prog[vid])||0;
+      if(fr&&fr.contentWindow)fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"seekTo",args:[Math.max(0,cur+d),true]}),"*");
+    }
+  }catch(e){}
+  const fl=slide.querySelector("[data-flash]");
+  if(fl){fl.textContent=d<0?"⏪ 10s":"10s ⏩";fl.classList.remove("show");void fl.offsetWidth;fl.classList.add("show");}
 }
 function unmuteFrame(){
   const fr=curSlide().querySelector("[data-frame]");if(!fr||!fr.contentWindow||!feed.cur)return;
