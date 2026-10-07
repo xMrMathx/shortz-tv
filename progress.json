@@ -1,49 +1,49 @@
 {
-  "note": "v1.2.31 live (627 series): Home feed sound ON by default, pause/resume race fix",
-  "phases": [
-    {
-      "id": "mockup",
-      "label": "Visual mockup",
-      "pct": 100,
-      "status": "done"
-    },
-    {
-      "id": "approval",
-      "label": "His approval",
-      "note": "Build it.",
-      "pct": 100,
-      "status": "done"
-    },
-    {
-      "id": "build",
-      "label": "Build Live/Chat (app side)",
-      "note": "Client done, config wired in",
-      "pct": 100,
-      "status": "done"
-    },
-    {
-      "id": "backend",
-      "label": "Firebase project (his Google account)",
-      "note": "LIVE: shortz-tv, anon auth on, RTDB rules published",
-      "pct": 100,
-      "status": "done"
-    },
-    {
-      "id": "release",
-      "label": "Build + ship v1.2.6",
-      "note": "v1.2.17 live: 532 series, Reality=19 (14 P. Royal Lit Shade Network series, 207 eps)",
-      "pct": 100,
-      "status": "done"
-    },
-    {
-      "id": "test",
-      "label": "Private test: him + Ivory + James",
-      "note": "Ivory test PASSED (live chat both ways) \u2014 James pending",
-      "pct": 50,
-      "status": "running"
-    }
-  ],
-  "project": "Shortz TV \u2014 Live/Chat",
-  "shipped": "v1.2.33",
-  "updatedAt": "2026-10-07T20:26:44.111124+00:00"
+ "note": "v1.2.34 live (669 series): 42 horror/thriller short films added, Short Films now 105",
+ "phases": [
+  {
+   "id": "mockup",
+   "label": "Visual mockup",
+   "pct": 100,
+   "status": "done"
+  },
+  {
+   "id": "approval",
+   "label": "His approval",
+   "note": "Build it.",
+   "pct": 100,
+   "status": "done"
+  },
+  {
+   "id": "build",
+   "label": "Build Live/Chat (app side)",
+   "note": "Client done, config wired in",
+   "pct": 100,
+   "status": "done"
+  },
+  {
+   "id": "backend",
+   "label": "Firebase project (his Google account)",
+   "note": "LIVE: shortz-tv, anon auth on, RTDB rules published",
+   "pct": 100,
+   "status": "done"
+  },
+  {
+   "id": "release",
+   "label": "Build + ship v1.2.6",
+   "note": "v1.2.17 live: 532 series, Reality=19 (14 P. Royal Lit Shade Network series, 207 eps)",
+   "pct": 100,
+   "status": "done"
+  },
+  {
+   "id": "test",
+   "label": "Private test: him + Ivory + James",
+   "note": "Ivory test PASSED (live chat both ways) \u2014 James pending",
+   "pct": 50,
+   "status": "running"
+  }
+ ],
+ "project": "Shortz TV \u2014 Live/Chat",
+ "shipped": "v1.2.33",
+ "updatedAt": "2026-10-07T20:26:44.111124+00:00"
 }
