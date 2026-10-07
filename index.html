@@ -266,6 +266,13 @@ body.feedfull #tabbar{background:linear-gradient(transparent,rgba(5,5,10,.9) 55%
 body.pip #topbar,body.pip #tabbar,body.pip #viewpad,
 body.pip .feed-rail,body.pip .feed-bottom,body.pip .soundprompt,
 body.pip #edraw,body.pip #escrim,body.pip #cdraw,body.pip #cscrim{display:none!important}
+/* PiP mini window: video fills edge-to-edge, always cover (no dvh units, no fit mode).
+   Iframe geometry is set by applyPipLayout() (pure cover math) so it fills at ANY window ratio. */
+body.pip{overflow:hidden!important}
+body.pip .feedstage{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;margin:0!important}
+body.pip #feedTrack{position:absolute!important;inset:0!important}
+body.pip .feed-video{position:absolute!important;inset:0!important}
+body.pip .feed-video iframe{position:absolute!important;transform:none!important;aspect-ratio:auto!important}
 
 </style>
 </head>
@@ -450,6 +457,27 @@ function toggleFit(slide){
   const fv=slide.querySelector("[data-fv]");
   if(fv)fv.className="feed-video "+(slide._fit?"fit":"cover");
 }
+/* PiP mini window: pure cover math so the video fills edge-to-edge at ANY
+   window aspect ratio (Android may not honor the requested 9:16 exactly). */
+function applyPipLayout(){
+  const on=document.body.classList.contains("pip");
+  document.querySelectorAll(".feed-video iframe").forEach(fr=>{
+    if(!on){fr.style.cssText="";return;}
+    const w=window.innerWidth,h=window.innerHeight;
+    const vert=fr.closest(".feed-video").classList.contains("vert");
+    const vr=vert?9/16:16/9, wr=w/h;
+    let iw,ih;
+    if(wr>vr){iw=w;ih=w/vr;}else{ih=h;iw=h*vr;}
+    fr.style.position="absolute";
+    fr.style.top=Math.round((h-ih)/2)+"px";
+    fr.style.left=Math.round((w-iw)/2)+"px";
+    fr.style.width=Math.round(iw)+"px";
+    fr.style.height=Math.round(ih)+"px";
+    fr.style.transform="none";
+    fr.style.aspectRatio="auto";
+  });
+}
+window.addEventListener("resize",()=>{if(document.body.classList.contains("pip"))applyPipLayout();});
 function curSlide(){return slotNodes[1]}
 function layoutSlots(){slotNodes.forEach((n,i)=>{n.style.transform=`translateY(${(i-1)*100}%)`})}
 function slideHTML(){
