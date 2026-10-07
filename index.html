@@ -2561,7 +2561,18 @@ async function openFriendProfile(uid){
     if(add) add.onclick=()=>{ sendFriendRequest(uid,{name:p.name||"Viewer",photo:p.photo||""}); };
     $("#lvsbody").querySelectorAll("[data-join]").forEach(b=>b.onclick=()=>{ closeLiveSheet(); joinRoom(b.dataset.join); });
   }catch(e){
-    $("#lvsbody").innerHTML=`<div style="padding:26px;text-align:center;color:var(--mut)">Couldn't load profile.</div>`;
+    // fallback: show what we know from the friends/search entry instead of a dead error
+    try{
+      const fb=(Live.friendsSnap&&Live.friendsSnap[uid])||{};
+      const nm=fb.name||"Viewer";
+      $("#lvsbody").innerHTML=`<div style="text-align:center;padding:6px 0 2px">
+        ${avLive({name:nm,photo:fb.photo||""},"lg",uid)}
+        <div style="font-size:19px;font-weight:800;margin-top:8px">${esc(nm)}</div>
+        <div style="font-size:12px;color:var(--mut);margin-top:8px">Profile details unavailable right now.</div>
+      </div>`;
+    }catch(_){
+      $("#lvsbody").innerHTML=`<div style="padding:26px;text-align:center;color:var(--mut)">Couldn't load profile.</div>`;
+    }
   }
 }
 
