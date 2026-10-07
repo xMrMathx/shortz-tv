@@ -1718,6 +1718,7 @@ function renderSportPicker(){
 function openSportsReel(sport){
   const e=sportEntry(sport); if(!e||!e.episodes||!e.episodes.length){ toast("No highlights yet"); return; }
   sportsSport=sport;
+  soundOn=true; // sports reel always starts WITH sound — no tap-to-unmute
   let ov=$("#sportsReel");
   if(!ov){
     ov=document.createElement("div"); ov.id="sportsReel";
