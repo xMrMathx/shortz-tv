@@ -2340,12 +2340,29 @@ function renderProfileForm(box,p){
   box.querySelector("#pfUpload").onclick=()=>box.querySelector("#pfFile").click();
   box.querySelector("#pfFile").onchange=async e=>{
     const f=e.target.files&&e.target.files[0]; if(!f)return;
-    toast("Uploading…");
+    // show the picked photo INSTANTLY — downscale via canvas, store as data URL
     try{
-      const url=await uploadProfilePhoto(f);
-      if(url){setPhoto(url);toast("Photo uploaded ✓");}
-      else{toast("Upload unavailable — pick a preset");}
-    }catch(_){toast("Upload unavailable — pick a preset");}
+      const dataUrl=await new Promise((res,rej)=>{
+        const img=new Image();
+        img.onload=()=>{
+          const max=256;
+          const sc=Math.min(1,max/Math.max(img.width,img.height));
+          const c=document.createElement("canvas");
+          c.width=Math.round(img.width*sc); c.height=Math.round(img.height*sc);
+          c.getContext("2d").drawImage(img,0,0,c.width,c.height);
+          res(c.toDataURL("image/jpeg",0.82));
+          URL.revokeObjectURL(img.src);
+        };
+        img.onerror=rej;
+        img.src=URL.createObjectURL(f);
+      });
+      setPhoto(dataUrl); toast("Photo updated ✓");
+      // try cloud upload in background for cross-device sync; keep local on failure
+      try{
+        const url=await uploadProfilePhoto(f);
+        if(url) setPhoto(url);
+      }catch(_){}
+    }catch(_){ toast("Couldn't read that photo"); }
   };
   box.querySelectorAll("#pfGenres .gpill").forEach(b=>b.onclick=()=>b.classList.toggle("on"));
   box._getPhoto=()=>photo;
