@@ -455,8 +455,8 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script>
 "use strict";
 const C = window.SHORTZ_CATALOG || [];
-const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation","Anime"];
-const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️"};
+const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation","Anime","Reality"];
+const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️","Reality":"📺"};
 
 /* ---------- utils ---------- */
 const $ = s => document.querySelector(s);
@@ -478,12 +478,13 @@ function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length=
 const EARLY="__early__";
 const AI="__ai__";
 const REBIRTH="__rebirth__";
+function alphaSort(a){return [...a].sort((x,y)=>String(x.title||"").localeCompare(String(y.title||""),"en",{sensitivity:"base"}))}
 function browseList(){
   const qf=browseListFiltered();
-  if(qf)return qf;
-  if(browseGenre===AI)return C.filter(t=>t.ai_made===true);
-  if(browseGenre===REBIRTH)return C.filter(t=>t.rebirth===true);
-  return browseGenre===EARLY?C.filter(isEarlyRelease):C.filter(t=>t.genre===browseGenre);
+  if(qf)return alphaSort(qf);
+  if(browseGenre===AI)return alphaSort(C.filter(t=>t.ai_made===true));
+  if(browseGenre===REBIRTH)return alphaSort(C.filter(t=>t.rebirth===true));
+  return alphaSort(browseGenre===EARLY?C.filter(isEarlyRelease):C.filter(t=>t.genre===browseGenre));
 }
 const store = {
   get(k,d){try{const v=localStorage.getItem("shortztv_"+k);return v?JSON.parse(v):d}catch(e){return d}},
@@ -517,14 +518,25 @@ function cardHTML(t){
 }
 function bindCards(root){
   root.querySelectorAll(".vcard").forEach(c=>{
-    c.onclick=()=>openDetail(c.dataset.id);
+    let tapTimer=null;
+    c.onclick=()=>{
+      if(tapTimer){clearTimeout(tapTimer);tapTimer=null;dblSave(c.dataset.id);return;}
+      tapTimer=setTimeout(()=>{tapTimer=null;openDetail(c.dataset.id);},300);
+    };
   });
+}
+/* double-tap a card = save to My List */
+function dblSave(id){
+  const t=byId(id);if(!t)return;
+  if(mylist.has(id)){toast("Already in My List");return;}
+  mylist.add(id);saveList();toast("♥ Saved to My List");
 }
 
 /* ---------- seamless view switching ---------- */
 let curView="home", returnView="home";
 function go(v){
   if(v===curView&&v!=="detail")return;
+  if(curView==="home"&&v!=="home")pauseFeedVideo();
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
   const cur=$("#view-"+curView), nxt=$("#view-"+v);
   cur.classList.remove("active");cur.classList.add("leaving");
@@ -1003,6 +1015,19 @@ function togglePause(){
   }catch(e){}
   slide._paused=paused;
   flashPauseIcon(slide,paused);
+}
+/* auto-pause the feed video when navigating away from home */
+function pauseFeedVideo(){
+  const slide=curSlide();if(!slide||!feed.cur||slide._paused)return;
+  const fr=slide.querySelector("[data-frame]");if(!fr||!fr.contentWindow)return;
+  try{
+    if(curIsVimeo()){
+      fr.contentWindow.postMessage(JSON.stringify({method:"pause"}),"*");
+    }else{
+      fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"pauseVideo",args:""}),"*");
+    }
+  }catch(e){}
+  slide._paused=true;
 }
 /* ---------- tap: single = pause/resume, double-tap left = -10s, right = +10s ---------- */
 function handleTap(x){
@@ -1577,11 +1602,11 @@ function renderBrowse(g){
       </div>
     </div>
     <div class="wrap"><div class="pills">
-      <button class="pill${EARLY===browseGenre?" on":""}" data-g="${EARLY}">🌱 Early Release · ${earlyN}</button>
-      <button class="pill${AI===browseGenre?" on":""}" data-g="${AI}">✦ AI Shorts · ${aiN}</button>
-      <button class="pill${REBIRTH===browseGenre?" on":""}" data-g="${REBIRTH}">🔄 Rebirth · ${rebirthN}</button>
+      <button class="pill${EARLY===browseGenre?" on":""}" data-g="${EARLY}">Early Release · ${earlyN}</button>
+      <button class="pill${AI===browseGenre?" on":""}" data-g="${AI}">AI Shorts · ${aiN}</button>
+      <button class="pill${REBIRTH===browseGenre?" on":""}" data-g="${REBIRTH}">Rebirth · ${rebirthN}</button>
       ${GENRES.map(x=>
-      `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${GICON[x]} ${x}</button>`).join("")}</div></div>
+      `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${x} · ${C.filter(t=>t.genre===x).length}</button>`).join("")}</div></div>
     <div class="wrap"><div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>
     <div id="bnores" class="empty" style="display:${list.length?"none":""}">No shows found.<br>Try another search.</div></div>`;
   bindCards($("#view-browse"));
