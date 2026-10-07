@@ -1378,6 +1378,7 @@ function ensureYT(cb){
 }
 function loadVideoInto(node,url,vid){
   hudWake(); // new video → UI visible, restart the 3s hide timer
+  node._endedFired=false; // reset the backup auto-next flag for the new video
   // destroy FIRST: YT destroy() removes the iframe from the DOM, so the frame
   // must be (re)created after — never hold a reference across destroy().
   try{if(node._player&&node._player.destroy)node._player.destroy()}catch(e){}
@@ -1423,6 +1424,14 @@ function pollProg(){
     try{fr.contentWindow.postMessage(JSON.stringify({method:"getCurrentTime"}),"*")}catch(e){}
     return;
   }
+  // backup auto-next: if the YT API onStateChange missed ENDED, catch it here
+  try{
+    if(s._player&&s._player.getPlayerState&&s._player.getPlayerState()===0){
+      if(!s._endedFired){ s._endedFired=true; clearProg(s); autoNext(s,s._vid); }
+      return;
+    }
+    if(s._player&&s._player.getPlayerState&&s._player.getPlayerState()!==0){ s._endedFired=false; }
+  }catch(e){}
   saveProg(s);
 }
 setInterval(()=>{try{pollProg()}catch(e){}},5000);
