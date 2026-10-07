@@ -456,7 +456,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 "use strict";
 const C = window.SHORTZ_CATALOG || [];
 const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation","Anime","Reality"];
-const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️","Reality":"📺"};
+const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️",};
 
 /* ---------- utils ---------- */
 const $ = s => document.querySelector(s);
@@ -1605,7 +1605,7 @@ function renderBrowse(g){
       <button class="pill${EARLY===browseGenre?" on":""}" data-g="${EARLY}">Early Release · ${earlyN}</button>
       <button class="pill${AI===browseGenre?" on":""}" data-g="${AI}">AI Shorts · ${aiN}</button>
       <button class="pill${REBIRTH===browseGenre?" on":""}" data-g="${REBIRTH}">Rebirth · ${rebirthN}</button>
-      ${GENRES.map(x=>
+      ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
       `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${x} · ${C.filter(t=>t.genre===x).length}</button>`).join("")}</div></div>
     <div class="wrap"><div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>
     <div id="bnores" class="empty" style="display:${list.length?"none":""}">No shows found.<br>Try another search.</div></div>`;
