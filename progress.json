@@ -1,5 +1,5 @@
 {
- "note": "v1.2.23 live (563 series, 479 sports highlights). Sports QA sweep: 57 Content-ID-blocked videos removed, 95 verified playable replacements added, 0 AI-generated content found, newest-first recency ordering fixed.",
+ "note": "v1.2.24 live: sports reel autoplays WITH sound, no tap-to-unmute (563 series)",
  "phases": [
   {
    "id": "mockup",
@@ -44,6 +44,6 @@
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.22",
- "updatedAt": "2026-10-07T19:45:00-05:00"
+ "shipped": "v1.2.24",
+ "updatedAt": "2026-10-07T19:46:00+00:00"
 }
