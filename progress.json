@@ -31,19 +31,19 @@
   {
    "id": "release",
    "label": "Build + ship v1.2.6",
-   "note": "versionCode 27 \u2014 anime curated to 115 Japanese-aesthetic, shipped",
+   "note": "v1.2.17 live: 532 series, Reality=19 (14 P. Royal Lit Shade Network series, 207 eps)",
    "pct": 100,
    "status": "done"
   },
   {
    "id": "test",
    "label": "Private test: him + Ivory + James",
-   "note": "Ivory test PASSED (live chat both ways) \u2014 James pending",
+   "note": "Ivory test PASSED (live chat both ways) — James pending",
    "pct": 50,
    "status": "running"
   }
  ],
- "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.16 \u00b7 alphabetical browse sort (518 series)",
+ "project": "Shortz TV — Live/Chat",
+ "shipped": "v1.2.17 (532 series, 19 Reality incl. 14 Shade Network)",
  "updatedAt": "2026-10-07T13:45:00-05:00"
 }
