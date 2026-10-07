@@ -1,7 +1,7 @@
 {
  "project": "Shortz TV \u2014 60+ series per category",
- "updatedAt": "2026-10-07T23:26:13Z",
- "shipped": 4,
+ "updatedAt": "2026-10-07T23:46:39Z",
+ "shipped": 5,
  "phases": [
   {
    "id": "action",
@@ -71,6 +71,13 @@
    "label": "Horror \u00b7 12/60",
    "pct": 20,
    "status": "queued",
+   "note": ""
+  },
+  {
+   "id": "mr-ballin",
+   "label": "Mr. Ballin \u00b7 701/60",
+   "pct": 100,
+   "status": "done",
    "note": ""
   },
   {
