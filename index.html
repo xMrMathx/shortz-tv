@@ -262,6 +262,10 @@ body.feedfull #topbar{position:fixed;top:0;left:0;right:0;z-index:41;
 body.feedfull #views{min-height:0}
 body.feedfull #viewpad{display:none}
 body.feedfull #tabbar{background:linear-gradient(transparent,rgba(5,5,10,.9) 55%)}
+/* PiP mini window: video only, all chrome hidden */
+body.pip #topbar,body.pip #tabbar,body.pip #viewpad,
+body.pip .feed-rail,body.pip .feed-bottom,body.pip .soundprompt,
+body.pip #edraw,body.pip #escrim,body.pip #cdraw,body.pip #cscrim{display:none!important}
 
 </style>
 </head>
@@ -395,6 +399,7 @@ function go(v){
   nxt.classList.add("active");
   curView=v;
   document.body.classList.toggle("feedfull",v==="home");
+  try{if(window.Android&&window.Android.onWatching)window.Android.onWatching(v==="home")}catch(e){}
   $("#views").scrollIntoView({block:"start"});
   window.scrollTo({top:0,behavior:"auto"});
 }
