@@ -490,7 +490,12 @@ function artBg(t){const h=hash(t),h1=h%360,h2=(h1+45+(h%70))%360;
 function ytId(u){const m=String(u||"").match(/youtube\.com\/embed\/([A-Za-z0-9_-]{6,})/);return m?m[1]:""}
 function thumb(t,sz){
   const u=t.url||"";
-  if(u.indexOf("vimeo.com")>=0) return "https://vumbnail.com/103363123.jpg";
+  const vm=u.match(/vimeo\.com\/(?:video\/)?(\d+)/); // per-video thumbnail, not one shared face
+  if(vm) return "https://vumbnail.com/"+vm[1]+".jpg";
+  const dm=u.match(/dailymotion\.com\/embed\/video\/([A-Za-z0-9]+)/);
+  if(dm) return "https://www.dailymotion.com/thumbnail/video/"+dm[1];
+  const ar=u.match(/archive\.org\/embed\/([^/?#]+)/);
+  if(ar) return "https://archive.org/download/"+ar[1]+"/__ia_thumb.jpg";
   const id=ytId(u); if(!id) return "";
   return "https://i.ytimg.com/vi/"+id+"/"+sz+"default.jpg";
 }
