@@ -2117,7 +2117,7 @@ function avatarHTML(prof,cls){
   if(ph.indexOf("preset:")===0){
     return `<div class="avatar ${cls} ${presetClass(parseInt(ph.slice(7),10)||0)}">${init}</div>`;
   }
-  if(ph.indexOf("http")===0){
+  if(ph.indexOf("http")===0||ph.indexOf("data:image")===0){
     return `<div class="avatar ${cls}"><img src="${esc(ph)}" alt="" onerror="this.remove()">${init}</div>`;
   }
   return `<div class="avatar ${cls} pav0">${init}</div>`;
