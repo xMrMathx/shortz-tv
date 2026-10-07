@@ -212,10 +212,9 @@ body.rot-full #rotexit{display:block}
 .top10-row::-webkit-scrollbar{display:none}
 .top10-item{position:relative;flex:0 0 auto;width:152px;cursor:pointer}
 .top10-num{position:absolute;left:0;bottom:36px;font-family:Arial,Helvetica,sans-serif;font-size:118px;font-weight:900;line-height:.8;color:#0a0a0a;-webkit-text-stroke:4px #e5e5e5;z-index:0;user-select:none;letter-spacing:-8px}
-.top10-num.two{font-size:76px;letter-spacing:-4px;-webkit-text-stroke:3px #e5e5e5}
-.top10-item.wide{width:196px}
-.top10-item.wide img{margin-left:88px}
-.top10-item.wide .top10-t,.top10-item.wide .top10-v{margin-left:88px}
+.top10-item.wide{width:252px}
+.top10-item.wide img{margin-left:144px}
+.top10-item.wide .top10-t,.top10-item.wide .top10-v{margin-left:144px}
 .top10-item img{position:relative;z-index:1;display:block;width:104px;height:148px;object-fit:cover;border-radius:8px;margin-left:46px;box-shadow:0 6px 18px rgba(0,0,0,.55);background:#1a1a1a}
 .top10-t{position:relative;z-index:1;font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0 46px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100px}
 .top10-v{position:relative;z-index:1;font-size:10px;color:var(--mut);margin:1px 0 0 46px}
@@ -1887,7 +1886,7 @@ async function loadTop10(){
     if(!list.length) return;
     row.innerHTML=list.map((t,i)=>`
       <div class="top10-item${i+1>=10?" wide":""}" data-tid="${esc(t.id)}">
-        <div class="top10-num${i+1>=10?" two":""}">${i+1}</div>
+        <div class="top10-num">${i+1}</div>
         <img src="${esc(t.thumb)}" alt="" loading="lazy" onerror="this.style.display='none'">
         <div class="top10-t">${esc(t.title)}</div>
         <div class="top10-v">${fmtViews(t.views||0)}</div>
