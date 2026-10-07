@@ -38,12 +38,12 @@
   {
    "id": "test",
    "label": "Private test: him + Ivory + James",
-   "note": "",
-   "pct": 0,
-   "status": "pending"
+   "note": "Ivory test PASSED (live chat both ways) \u2014 James pending",
+   "pct": 50,
+   "status": "running"
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
  "shipped": "v1.2.2 \u00b7 Live picker posters + descriptions",
- "updatedAt": "2026-10-07T10:06:00-05:00"
+ "updatedAt": "2026-10-07T10:46:00-05:00"
 }
