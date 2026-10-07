@@ -2170,6 +2170,7 @@ async function saveProfile(p){
     if(ok&&Live.db){
       await Live.db.ref("users/"+Live.uid+"/profile").set(p);
       await Live.db.ref("users/"+Live.uid+"/name").set(p.name||"Viewer");
+      await Live.db.ref("directory/"+Live.uid).set({name:p.name||"Viewer",photo:p.photo||"",ts:Date.now()});
       Live.name=p.name||Live.name;
       syncHistoryRemote(); syncMyListRemote(); // backfill recents/saved
     }
@@ -2419,15 +2420,14 @@ async function searchUsers(q){
   box.innerHTML=`<div style="color:var(--mut);font-size:13px">Searching…</div>`;
   try{
     const ok=await liveEnsure(); if(!ok){box.innerHTML="";return;}
-    const snap=await Live.db.ref("users").limitToFirst(200).once("value");
+    const snap=await Live.db.ref("directory").limitToFirst(200).once("value");
     const all=snap.val()||{};
     const ql=q.toLowerCase();
     const hits=[];
     Object.keys(all).forEach(uid=>{
       if(uid===Live.uid)return;
-      const u=all[uid]||{};
-      const prof=u.profile||{};
-      const nm=(prof.name||u.name||"").toString();
+      const prof=all[uid]||{};
+      const nm=(prof.name||"").toString();
       if(nm.toLowerCase().includes(ql)) hits.push({uid:uid,name:nm,photo:prof.photo||""});
     });
     if(!hits.length){box.innerHTML=`<div style="color:var(--mut);font-size:13px">No users named “${esc(q)}”.</div>`;return;}
