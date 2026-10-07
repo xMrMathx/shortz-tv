@@ -160,6 +160,17 @@ body.pip .scrub{display:none!important}
 
 /* ---------- browse ---------- */
 .pills{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;margin:0 -16px}
+.gdrop{position:relative;margin:10px 0 4px}
+.gdrop-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#101016;color:var(--txt);font-size:16px;font-weight:800;cursor:pointer}
+.gdrop-btn .arr{transition:transform .2s}
+.gdrop.open .gdrop-btn .arr{transform:rotate(180deg)}
+.gmenu{position:absolute;top:calc(100% + 6px);left:0;right:0;max-height:50vh;overflow-y:auto;background:#16161e;border:1px solid var(--line);border-radius:14px;z-index:50;display:none;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+.gdrop.open .gmenu{display:block}
+.gitem{display:flex;justify-content:space-between;align-items:center;width:100%;padding:13px 16px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:var(--txt);font-size:15px;font-weight:700;cursor:pointer;text-align:left}
+.gitem:last-child{border-bottom:none}
+.gitem:active{background:#22222e}
+.gitem.sel{color:#ff3b3b}
+.gitem .cnt{color:#888;font-weight:400;font-size:13px}
 /* ---------- sports picker + reel ---------- */
 .sportpick{display:flex;flex-wrap:wrap;gap:10px;padding:6px 0 20px}
 .sportbtn{font-size:15px;font-weight:800;padding:14px 22px;border-radius:16px;border:1px solid var(--line);background:#101016;color:var(--txt);cursor:pointer}
@@ -1658,7 +1669,7 @@ function openDetail(id){
 }
 
 /* ---------- browse ---------- */
-let browseGenre=GENRES[0];
+let browseGenre=EARLY; // always start Browse on Early Releases
 let browseQuery=""; // search text; filters across all series regardless of pill
 let sportsSport=null; // selected sport in Sports genre; null = picker view
 function browseListFiltered(){
@@ -1680,11 +1691,15 @@ function renderBrowse(g){
         <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
       </div>
     </div>
-    <div class="wrap"><div class="pills">
-      <button class="pill${EARLY===browseGenre?" on":""}" data-g="${EARLY}">Early Release · ${earlyN}</button>
-      <button class="pill${AI===browseGenre?" on":""}" data-g="${AI}">AI Shorts · ${aiN}</button>
-      ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
-      `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${x} · ${x==="Rebirth"?rebirthN:C.filter(t=>t.genre===x).length}</button>`).join("")}</div></div>
+    <div class="wrap"><div class="gdrop" id="gdrop">
+      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre}</span><span class="arr">▼</span></button>
+      <div class="gmenu" id="gmenu">
+        <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${earlyN}</span></button>
+        <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${aiN}</span></button>
+        ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
+        `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?rebirthN:C.filter(t=>t.genre===x).length}</span></button>`).join("")}
+      </div>
+    </div></div>
     <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
       ? `<div class="sect" style="margin-top:4px">Pick your sport</div><div class="sportpick" id="sportpick"></div>`
       : `<div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>`}
@@ -1706,12 +1721,17 @@ function renderBrowse(g){
   si.addEventListener("input",applySearch);
   sx.onclick=()=>{si.value="";applySearch();si.focus();};
   if(bc&&browseQuery.trim())bc.textContent=`${list.length} result${list.length===1?"":"s"}`;
-  $("#view-browse").querySelectorAll(".pill").forEach(p=>{
+  const gd=$("#gdrop"),gb=$("#gdropbtn"),gm=$("#gmenu"),gc=$("#gdropcur");
+  gb.onclick=(e)=>{e.stopPropagation();gd.classList.toggle("open");};
+  document.addEventListener("click",function h(e){ if(gd&&!gd.contains(e.target)) gd.classList.remove("open"); });
+  gm.querySelectorAll(".gitem").forEach(p=>{
     p.onclick=()=>{
+      gd.classList.remove("open");
       const wasSearching=!!si.value.trim();
-      if(wasSearching){si.value="";browseQuery="";} // selecting a pill clears the search
+      if(wasSearching){si.value="";browseQuery="";} // selecting a genre clears the search
       if(p.dataset.g===browseGenre&&!wasSearching)return;
-      $("#view-browse").querySelectorAll(".pill").forEach(q=>q.classList.toggle("on",q===p));
+      gm.querySelectorAll(".gitem").forEach(q=>q.classList.toggle("sel",q===p));
+      gc.textContent=p.dataset.g===EARLY?"Early Release":p.dataset.g===AI?"AI Shorts":p.dataset.g;
       const toSports=p.dataset.g==="Sports", fromSports=browseGenre==="Sports";
       if(toSports||fromSports){ renderBrowse(p.dataset.g); return; } // full re-render for Sports transitions
       gr.classList.add("fading");
