@@ -166,6 +166,15 @@ body.pip .scrub{display:none!important}
 /* auto-hide HUD: fade UI out after 3s idle, tap to bring back */
 #view-home .feed-rail,#view-home .feed-bottom,#view-home .soundprompt,#topbar{transition:opacity .4s}
 body.hud-hidden #view-home .feed-rail,body.hud-hidden #view-home .feed-bottom,body.hud-hidden #view-home .soundprompt{opacity:0;pointer-events:none}
+/* css-land: in-app 90° rotation — video fills screen, no OS rotation needed */
+body.css-land #view-home .feed-rail,
+body.css-land #view-home .feed-bottom,
+body.css-land #view-home .soundprompt,
+body.css-land #bnav,
+body.css-land #topbar{display:none!important}
+body.css-land #view-home .feed-video{position:fixed!important;top:50%!important;left:50%!important;width:100vh!important;height:100vw!important;transform:translate(-50%,-50%) rotate(90deg)!important;transform-origin:center center!important;z-index:1000!important;background:#000}
+body.css-land #view-home .feed-video iframe{position:absolute!important;top:50%!important;left:50%!important;width:177.78vh!important;height:56.25vw!important;min-width:100vw!important;min-height:100vh!important;transform:translate(-50%,-50%)!important}
+body.css-land #rotexit{display:block;transform:rotate(-90deg)}
 /* rotate-full: just the video, nothing else, edge to edge */
 body.rot-full #view-home .feed-rail,
 body.rot-full #view-home .feed-cap,
@@ -678,22 +687,21 @@ function hudWake(){
 ["touchstart","mousedown"].forEach(ev=>document.addEventListener(ev,()=>{ 
   if(document.body.classList.contains("hud-hidden"))hudWake(); else hudWake();
 },{passive:true}));
-/* rotate: tap once → video-only fullscreen landscape, tap again → back */
+/* rotate: pure CSS in-app rotation — works regardless of phone's auto-rotate setting */
 let _rotated=false;
 function toggleRotate(){
   _rotated=!_rotated;
+  document.body.classList.toggle("css-land",_rotated);
   document.body.classList.toggle("rot-full",_rotated);
   document.body.classList.remove("force-land");
-  // native orientation lock
-  try{
-    if(window.Android&&window.Android.setOrientation){
-      window.Android.setOrientation(_rotated?"landscape":"portrait");
-      return;
-    }
-  }catch(e){}
-  const canLock=!!(screen.orientation&&screen.orientation.lock);
-  if(_rotated&&canLock){ screen.orientation.lock("landscape").catch(()=>{}); }
-  else if(canLock){ try{screen.orientation.unlock();}catch(e){} }
+  // keep the video playing — rotate must never pause
+  setTimeout(()=>{
+    const slide=curSlide(); if(!slide) return;
+    const fr=slide.querySelector("[data-frame]");
+    try{
+      if(fr&&fr.contentWindow) fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"playVideo",args:""}),"*");
+    }catch(e){}
+  },300);
 }
 function toggleFit(slide){
   const t=(slide&&slide._t)||feed.cur; if(!t)return;
