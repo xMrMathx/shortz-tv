@@ -78,6 +78,16 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .f-next .nt{font-size:12px;font-weight:800}
 .f-next .ns{font-size:10px;color:var(--mut);margin-top:2px}
 .f-next .nxt{margin-left:auto;font-size:22px;color:var(--red)}
+/* custom scrubber: thin progress line, expands with handle + times when paused/dragging */
+.scrub{position:absolute;left:0;right:0;bottom:calc(58px + env(safe-area-inset-bottom));height:30px;z-index:6;touch-action:none}
+.scrub-track{position:absolute;left:10px;right:10px;top:50%;height:3px;transform:translateY(-50%);background:rgba(255,255,255,.28);border-radius:2px}
+.scrub-fill{position:absolute;left:0;top:0;bottom:0;width:0%;background:#e50914;border-radius:2px}
+.scrub-knob{position:absolute;top:50%;left:0;width:13px;height:13px;border-radius:50%;background:#fff;transform:translate(-50%,-50%) scale(0);transition:transform .18s;box-shadow:0 1px 8px rgba(0,0,0,.6)}
+.scrub-times{position:absolute;left:12px;right:12px;bottom:22px;display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 5px rgba(0,0,0,.9);opacity:0;transition:opacity .18s;pointer-events:none}
+.scrub.big .scrub-track{height:5px}
+.scrub.big .scrub-knob{transform:translate(-50%,-50%) scale(1)}
+.scrub.big .scrub-times{opacity:1}
+body.pip .scrub{display:none!important}
 .soundprompt{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:6;
   background:rgba(10,10,16,.78);border:1px solid var(--line);backdrop-filter:blur(10px);
   font-size:15px;font-weight:800;padding:14px 26px;border-radius:32px;box-shadow:0 10px 40px rgba(0,0,0,.6);
@@ -359,10 +369,12 @@ const byId = id => C.find(t=>t.id===id);
 function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length===1}
 const EARLY="__early__";
 const AI="__ai__";
+const REBIRTH="__rebirth__";
 function browseList(){
   const qf=browseListFiltered();
   if(qf)return qf;
   if(browseGenre===AI)return C.filter(t=>t.ai_made===true);
+  if(browseGenre===REBIRTH)return C.filter(t=>t.rebirth===true);
   return browseGenre===EARLY?C.filter(isEarlyRelease):C.filter(t=>t.genre===browseGenre);
 }
 const store = {
@@ -510,6 +522,10 @@ function slideHTML(){
     </div>
     <div class="feed-tapzone" data-tap></div>
     <div class="feed-flash" data-flash></div>
+    <div class="scrub" data-scrub>
+      <div class="scrub-times"><span data-cur>0:00</span><span data-dur>0:00</span></div>
+      <div class="scrub-track"><div class="scrub-fill" data-fill></div><div class="scrub-knob" data-knob></div></div>
+    </div>
     <div class="feed-rail">
       <div class="ric"><button data-a="like" data-like>♥</button><span data-t="like">Like</span></div>
       <div class="ric"><button data-a="com">💬</button><span data-t="com">0</span></div>
@@ -620,7 +636,7 @@ function mountFeed(){
   for(let i=0;i<3;i++){
     const s=document.createElement("div");
     s.className="slide";s.innerHTML=slideHTML();
-    track.appendChild(s);slotNodes.push(s);
+    track.appendChild(s);slotNodes.push(s);bindScrub(s);
   }
   layoutSlots();
   // one delegated click handler: rail / up-next / sound / tapzone (mouse + post-touch taps)
@@ -644,7 +660,7 @@ function mountFeed(){
     track.classList.remove("anim");
     return true;
   };
-  const actionAt=e=>e.target.closest("[data-a],[data-next],[data-sound]");
+  const actionAt=e=>e.target.closest("[data-a],[data-next],[data-sound],[data-scrub]");
   const onMove=(x,y)=>{
     if(!dragging)return;
     dragDy=y-dragY0;
@@ -747,6 +763,104 @@ function seekBy(d){
   const fl=slide.querySelector("[data-flash]");
   if(fl){fl.textContent=d<0?"⏪ 10s":"10s ⏩";fl.classList.remove("show");void fl.offsetWidth;fl.classList.add("show");}
 }
+/* ---------- custom scrubber ---------- */
+function scrubState(slide){
+  const vid=slide._vid;
+  if(curIsVimeo())return {cur:(vid&&prog[vid])||0,dur:slide._dur||0};
+  let cur=0,dur=0;
+  try{const p=slide._player;if(p&&p.getCurrentTime){cur=p.getCurrentTime()||0;dur=(p.getDuration&&p.getDuration())||0;}}catch(e){}
+  return {cur:cur,dur:dur};
+}
+function paintScrub(slide){
+  const sc=slide.querySelector("[data-scrub]");if(!sc)return;
+  sc.style.display=slide._vid?"":"none";
+  if(!slide._vid)return;
+  const st=scrubState(slide),pct=st.dur>0?Math.min(100,st.cur/st.dur*100):0;
+  sc.querySelector("[data-fill]").style.width=pct+"%";
+  sc.querySelector("[data-knob]").style.left=pct+"%";
+  sc.querySelector("[data-cur]").textContent=fmtTime(st.cur);
+  sc.querySelector("[data-dur]").textContent=fmtTime(st.dur);
+  sc.classList.toggle("big",!!(slide._paused||sc._drag));
+}
+function scrubSeekTo(slide,t){
+  const vid=slide._vid;if(!vid)return;
+  t=Math.max(0,t);
+  try{
+    if(curIsVimeo()){
+      const fr=slide.querySelector("[data-frame]");
+      if(fr&&fr.contentWindow)fr.contentWindow.postMessage(JSON.stringify({method:"setCurrentTime",value:t}),"*");
+      prog[vid]=t;
+    }else if(slide._player&&slide._player.seekTo){
+      slide._player.seekTo(t,true);
+    }else{
+      const fr=slide.querySelector("[data-frame]");
+      if(fr&&fr.contentWindow)fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"seekTo",args:[t,true]}),"*");
+    }
+  }catch(e){}
+  paintScrub(slide);
+}
+function bindScrub(slide){
+  const sc=slide.querySelector("[data-scrub]");if(!sc||sc._bound)return;sc._bound=true;
+  const trackEl=sc.querySelector(".scrub-track");
+  let sx=0,sy=0,active=false,claimed=false;
+  const ratioAt=cx=>{const r=trackEl.getBoundingClientRect();return r.width>0?Math.min(1,Math.max(0,(cx-r.left)/r.width)):0;};
+  const durOf=()=>scrubState(slide).dur||0;
+  const cancelPager=()=>{dragging=false;};
+  sc.addEventListener("touchstart",e=>{
+    const t=e.touches[0];sx=t.clientX;sy=t.clientY;active=true;claimed=false;sc._drag=false;
+  },{capture:true,passive:true});
+  sc.addEventListener("touchmove",e=>{
+    if(!active||claimed)return;
+    const t=e.touches[0],dx=t.clientX-sx,dy=t.clientY-sy;
+    if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*1.2){
+      claimed=true;sc._drag=true;slide._scrubDrag=true;cancelPager();
+      suppressClick=true;sc.classList.add("big");
+      if(e.cancelable)e.preventDefault();
+      e.stopPropagation();
+      if(durOf()>0)scrubSeekTo(slide,ratioAt(t.clientX)*durOf());
+    }else if(Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){
+      active=false; // vertical swipe: hand it to the pager
+    }
+  },{capture:true,passive:false});
+  const touchEnd=e=>{
+    if(!active)return;active=false;
+    if(claimed){
+      claimed=false;sc._drag=false;slide._scrubDrag=false;
+      sc.classList.remove("big");paintScrub(slide);
+      setTimeout(()=>{suppressClick=false;},350);
+    }else{
+      const t=e.changedTouches&&e.changedTouches[0];
+      if(t&&t.clientX!=null&&durOf()>0){
+        suppressClick=true;setTimeout(()=>{suppressClick=false;},350);
+        scrubSeekTo(slide,ratioAt(t.clientX)*durOf());
+      }
+    }
+  };
+  sc.addEventListener("touchend",touchEnd,{capture:true});
+  sc.addEventListener("touchcancel",()=>{active=false;claimed=false;sc._drag=false;slide._scrubDrag=false;sc.classList.remove("big");},{capture:true});
+  // mouse (desktop QA): drag or click to seek
+  let mDown=false,mMoved=false;
+  sc.addEventListener("mousedown",e=>{mDown=true;mMoved=false;sx=e.clientX;sc._drag=true;sc.classList.add("big");});
+  window.addEventListener("mousemove",e=>{
+    if(!mDown)return;
+    if(Math.abs(e.clientX-sx)>4)mMoved=true;
+    if(mMoved&&durOf()>0)scrubSeekTo(slide,ratioAt(e.clientX)*durOf());
+  });
+  window.addEventListener("mouseup",e=>{
+    if(!mDown)return;mDown=false;sc._drag=false;sc.classList.remove("big");paintScrub(slide);
+    if(!mMoved&&durOf()>0)scrubSeekTo(slide,ratioAt(e.clientX)*durOf());
+  });
+}
+setInterval(()=>{try{
+  const s=curSlide();
+  if(s&&s._t&&!s._scrubDrag)paintScrub(s);
+  // keep Vimeo duration fresh
+  if(s&&s._t&&curIsVimeo()&&!s._dur&&(!s._durReq||Date.now()-s._durReq>4000)){
+    s._durReq=Date.now();
+    const fr=s.querySelector("[data-frame]");
+    if(fr&&fr.contentWindow)fr.contentWindow.postMessage(JSON.stringify({method:"getDuration"}),"*");
+  }
+}catch(e){}},500);
 function unmuteFrame(){
   const fr=curSlide().querySelector("[data-frame]");if(!fr||!fr.contentWindow||!feed.cur)return;
   try{
@@ -820,7 +934,7 @@ function loadVideoInto(node,url,vid){
   try{if(node._player&&node._player.destroy)node._player.destroy()}catch(e){}
   node._player=null;
   const fr=ensureFrame(node);
-  node._vid=vid||null;node._seekDone=false;
+  node._vid=vid||null;node._seekDone=false;node._dur=0;node._durReq=0;
   if(!fr)return;
   fr.src=embedSrc(url,true);
   if(isVimeoUrl(url)){
@@ -869,6 +983,13 @@ window.addEventListener("message",e=>{
       slotNodes.forEach(n=>{
         const fr=n.querySelector("[data-frame]");
         if(n._vid&&fr&&fr.contentWindow===e.source){try{autoNext(n,n._vid)}catch(_){}}
+      });
+      return;
+    }
+    if(d&&d.method==="getDuration"&&typeof d.value==="number"){
+      slotNodes.forEach(n=>{
+        const fr=n.querySelector("[data-frame]");
+        if(fr&&fr.contentWindow===e.source){n._dur=d.value;}
       });
       return;
     }
@@ -1164,6 +1285,7 @@ function renderBrowse(g){
   const list=browseList();
   const earlyN=C.filter(isEarlyRelease).length;
   const aiN=C.filter(t=>t.ai_made===true).length;
+  const rebirthN=C.filter(t=>t.rebirth===true).length;
   $("#view-browse").innerHTML=`
     <div class="wrap" style="padding-top:18px">
       <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span id="bcount">${browseQuery.trim()?"":"14 genres"}</span></div>
@@ -1175,6 +1297,7 @@ function renderBrowse(g){
     <div class="wrap"><div class="pills">
       <button class="pill${EARLY===browseGenre?" on":""}" data-g="${EARLY}">🌱 Early Release · ${earlyN}</button>
       <button class="pill${AI===browseGenre?" on":""}" data-g="${AI}">✦ AI Shorts · ${aiN}</button>
+      <button class="pill${REBIRTH===browseGenre?" on":""}" data-g="${REBIRTH}">🔄 Rebirth · ${rebirthN}</button>
       ${GENRES.map(x=>
       `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${GICON[x]} ${x}</button>`).join("")}</div></div>
     <div class="wrap"><div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>
