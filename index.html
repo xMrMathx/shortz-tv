@@ -1336,21 +1336,17 @@ function renderBrowse(g){
 /* ---------- my list ---------- */
 function renderMyList(){
   const saved=[...mylist].map(byId).filter(Boolean);
-  const hist=history.map(h=>byId(h.id)).filter(Boolean).slice(0,10);
-  const libRow=t=>`
-      <div class="librow" data-id="${t.id}">
-        <div class="libthumb grain" style="background:${artBg(t.title)}"><img src="${thumb(t,"hq")}" alt="" loading="lazy" onerror="this.style.display='none'"></div>
-        <div><div class="lt">${esc(t.title)}</div><div class="lm">${esc(t.eps)} · ${esc(t.genre)} · ${esc(t.runtime)}${t.ai_made?" · ✦ AI":""}</div></div>
-        <div class="go">›</div></div>`;
+  const hist=history.map(h=>byId(h.id)).filter(Boolean);
+  const row=list=>`<div class="hrow">${list.map(cardHTML).join("")}</div>`;
   $("#view-mylist").innerHTML=`<div class="wrap">
     <div class="sect">♥ My List ${saved.length?`(${saved.length})`:""}</div>
-    ${saved.length?saved.map(libRow).join("")
+    ${saved.length?row(saved)
       :'<div class="empty">Nothing saved yet.<br>Tap ＋ Save on any short to keep it here.</div>'}
-    <div class="sect">🕘 Recently watched</div>
-    ${hist.length?hist.map(libRow).join("")
+    <div class="sect">🕘 Recently watched ${hist.length?`(${hist.length})`:""}</div>
+    ${hist.length?row(hist)
       :'<div class="empty">No watch history yet.</div>'}
   </div>`;
-  $("#view-mylist").querySelectorAll(".librow").forEach(r=>r.onclick=()=>openDetail(r.dataset.id));
+  bindCards($("#view-mylist"));
 }
 
 /* ---------- profile ---------- */
