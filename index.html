@@ -265,6 +265,12 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--red),#7a0d18);
   display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;box-shadow:0 8px 24px rgba(229,9,20,.4);overflow:hidden;flex-shrink:0}
 .avatar img{width:100%;height:100%;object-fit:cover}
+/* avatar full-screen viewer */
+#avatarView{position:fixed;inset:0;z-index:9999;display:none;align-items:center;justify-content:center}
+#avatarView.open{display:flex}
+#avatarView .av-back{position:absolute;inset:0;background:rgba(0,0,0,.92)}
+#avatarView .av-full{position:relative;max-width:92vw;max-height:86vh;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+#avatarView .av-x{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:20px;cursor:pointer}
 .avatar.lg{width:84px;height:84px;font-size:34px}
 .avatar.sm{width:40px;height:40px;font-size:16px;box-shadow:none}
 /* LIVE indicator: pulsing red ring + badge on avatars of users hosting a watch party */
@@ -2118,10 +2124,27 @@ function avatarHTML(prof,cls){
     return `<div class="avatar ${cls} ${presetClass(parseInt(ph.slice(7),10)||0)}">${init}</div>`;
   }
   if(ph.indexOf("http")===0||ph.indexOf("data:image")===0){
-    return `<div class="avatar ${cls}"><img src="${esc(ph)}" alt="" onerror="this.remove()">${init}</div>`;
+    return `<div class="avatar ${cls}" onclick="openAvatarView(this)"><img src="${esc(ph)}" alt="" onerror="this.remove()"></div>`;
   }
   return `<div class="avatar ${cls} pav0">${init}</div>`;
 }
+/* ---------- tap a profile picture to view it full-screen ---------- */
+function openAvatarView(el){
+  const img=el&&el.querySelector("img");
+  const src=img&&img.src; if(!src) return;
+  let ov=$("#avatarView");
+  if(!ov){
+    ov=document.createElement("div");
+    ov.id="avatarView";
+    ov.innerHTML=`<div class="av-back"></div><img class="av-full" alt=""><button class="av-x" aria-label="Close">✕</button>`;
+    document.body.appendChild(ov);
+    ov.querySelector(".av-back").onclick=closeAvatarView;
+    ov.querySelector(".av-x").onclick=closeAvatarView;
+  }
+  ov.querySelector(".av-full").src=src;
+  ov.classList.add("open");
+}
+function closeAvatarView(){ const ov=$("#avatarView"); if(ov) ov.classList.remove("open"); }
 function getProfile(){
   return store.get("profile",null);
 }
