@@ -267,6 +267,12 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .avatar img{width:100%;height:100%;object-fit:cover}
 .avatar.lg{width:84px;height:84px;font-size:34px}
 .avatar.sm{width:40px;height:40px;font-size:16px;box-shadow:none}
+/* LIVE indicator: pulsing red ring + badge on avatars of users hosting a watch party */
+.avwrap{position:relative;display:inline-block;flex-shrink:0}
+.avwrap .livebadge{display:none;position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);background:#e00;color:#fff;font-size:8px;font-weight:900;padding:2px 6px;border-radius:7px;letter-spacing:.6px;white-space:nowrap;z-index:2}
+.avwrap.live .livebadge{display:block}
+.avwrap.live .avatar{animation:livepulse 1.6s ease-in-out infinite}
+@keyframes livepulse{0%,100%{box-shadow:0 0 0 2px #e00}50%{box-shadow:0 0 0 5px rgba(255,0,0,.4)}}
 /* preset avatar gradients */
 .pav0{background:linear-gradient(135deg,#e50914,#7a0d18)}.pav1{background:linear-gradient(135deg,#7b2ff7,#2f80ed)}
 .pav2{background:linear-gradient(135deg,#11998e,#38ef7d)}.pav3{background:linear-gradient(135deg,#fc4a1a,#f7b733)}
@@ -613,7 +619,14 @@ let ccLang = store.get("cc_lang","")||"";
 let audioLang = store.get("audio_lang","")||"";
 let ccSlide = null, ccTracks = [], ccLoading = false;
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800)}
-function saveList(){store.set("mylist",[...mylist])}
+function saveList(){store.set("mylist",[...mylist]);syncMyListRemote();}
+function syncMyListRemote(){
+  try{
+    if(Live.authed&&Live.db&&Live.uid){
+      Live.db.ref("users/"+Live.uid+"/profile/saved").set([...mylist].slice(0,50));
+    }
+  }catch(e){}
+}
 function aiChip(t){return t.ai_made?'<span class="ai-chip">✦ Made with AI</span>':""}
 
 /* ---------- cards (real thumbnails, no initials) ---------- */
@@ -892,6 +905,14 @@ function pushHistory(t){
     if(!Array.isArray(history))history=[];
     history=[{id:t.id,ts:Date.now()},...history.filter(h=>h&&h.id!==t.id)].slice(0,20);
     store.set("history",history);
+    syncHistoryRemote();
+  }catch(e){}
+}
+function syncHistoryRemote(){
+  try{
+    if(Live.authed&&Live.db&&Live.uid){
+      Live.db.ref("users/"+Live.uid+"/profile/recent").set(history.map(h=>h.id).slice(0,20));
+    }
   }catch(e){}
 }
 function railAction(a,slide){
@@ -2127,6 +2148,7 @@ async function saveProfile(p){
       await Live.db.ref("users/"+Live.uid+"/profile").set(p);
       await Live.db.ref("users/"+Live.uid+"/name").set(p.name||"Viewer");
       Live.name=p.name||Live.name;
+      syncHistoryRemote(); syncMyListRemote(); // backfill recents/saved
     }
   }catch(e){}
 }
@@ -2163,6 +2185,8 @@ function renderProfile(){
     <div id="frRequests"><div style="color:var(--mut);font-size:13px">Loading…</div></div>
     <div class="secttl">My friends</div>
     <div id="frList"><div style="color:var(--mut);font-size:13px">Loading…</div></div>
+    <div class="secttl"><span class="livedot">●</span> My live watch parties</div>
+    <div id="profLive"><div style="color:var(--mut);font-size:13px">Checking…</div></div>
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
     <div class="freebanner" style="margin-top:14px"><b>✓ 100% FREE — FOREVER</b>
       <p>No coins. No paywall. No locked episodes. No subscription. Every short in Shortz TV is free to watch, always.</p></div>
@@ -2190,6 +2214,20 @@ function renderProfile(){
       renderFriendList();
     });
     Live.db.ref("users/"+Live.uid+"/friendRequests").on("value",s=>renderFriendRequests(s.val()||{}));
+    // my live watch parties on my own profile
+    ensureLiveHosts();
+    Live.db.ref("rooms/").on("value",snap=>{
+      const box=$("#profLive"); if(!box)return;
+      const mine=Object.entries(snap.val()||{}).filter(([id,r])=>r&&r.hostUid===Live.uid)
+        .sort((a,b)=>(b[1].createdAt||0)-(a[1].createdAt||0));
+      if(!mine.length){ box.innerHTML=""; box.previousElementSibling.style.display="none"; return; }
+      box.previousElementSibling.style.display="";
+      box.innerHTML=mine.map(([id,r])=>`
+        <div class="lroom"><div class="lroom-mid"><div class="lroom-t">${esc(r.title||"Watch party")}</div>
+        <div class="lroom-s"><span class="livedot">●</span> Live now</div></div>
+        <button class="btn-play lroom-join" data-join="${id}">Join</button></div>`).join("");
+      box.querySelectorAll("[data-join]").forEach(b=>b.onclick=()=>{ go("live"); setTimeout(()=>joinRoom(b.dataset.join),150); });
+    });
   });
 }
 
@@ -2354,13 +2392,16 @@ async function searchUsers(q){
     });
     if(!hits.length){box.innerHTML=`<div style="color:var(--mut);font-size:13px">No users named “${esc(q)}”.</div>`;return;}
     const friends=Live.friendsSnap||{};
+    ensureLiveHosts();
     box.innerHTML=hits.slice(0,20).map(h=>`
-      <div class="prow">${avatarHTML(h,"sm")}
-        <div style="flex:1"><div style="font-weight:700;font-size:14px">${esc(h.name||"Viewer")}</div></div>
+      <div class="prow" data-fp="${h.uid}" style="cursor:pointer">${avLive(h,"sm",h.uid)}
+        <div style="flex:1"><div style="font-weight:700;font-size:14px">${esc(h.name||"Viewer")}</div>
+        <div style="font-size:12px;color:var(--mut)">Tap to view profile</div></div>
         ${friends[h.uid]?`<span style="color:var(--mut);font-size:12px">Friends ✓</span>`
           :`<button class="pbtn ghost sm" data-add="${h.uid}" data-nm="${esc(h.name||"Viewer")}" data-ph="${esc(h.photo||"")}">Add</button>`}
       </div>`).join("");
-    box.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>sendFriendRequest(b.dataset.add,{name:b.dataset.nm,photo:b.dataset.ph}));
+    box.querySelectorAll("[data-add]").forEach(b=>b.onclick=e=>{e.stopPropagation();sendFriendRequest(b.dataset.add,{name:b.dataset.nm,photo:b.dataset.ph});});
+    box.querySelectorAll("[data-fp]").forEach(r=>r.onclick=()=>openFriendProfile(r.dataset.fp));
   }catch(e){ box.innerHTML=`<div style="color:var(--mut);font-size:13px">Search failed — try again.</div>`; }
 }
 async function sendFriendRequest(toUid,info){
@@ -2409,12 +2450,79 @@ function renderFriendList(){
   const friends=Live.friendsSnap||{};
   const ids=Object.keys(friends);
   if(!ids.length){box.innerHTML=`<div style="color:var(--mut);font-size:13px">No friends yet — search above to add some.</div>`;return;}
+  ensureLiveHosts();
   box.innerHTML=ids.map(fid=>{
     const f=friends[fid]||{};
-    return `<div class="prow">${avatarHTML(f,"sm")}
-      <div style="flex:1"><div style="font-weight:700;font-size:14px">${esc(f.name||"Viewer")}</div></div>
+    return `<div class="prow" data-fp="${fid}" style="cursor:pointer">${avLive(f,"sm",fid)}
+      <div style="flex:1"><div style="font-weight:700;font-size:14px">${esc(f.name||"Viewer")}</div>
+      <div style="font-size:12px;color:var(--mut)">Tap to view profile</div></div>
+      <span style="color:var(--mut)">›</span>
     </div>`;
   }).join("");
+  box.querySelectorAll("[data-fp]").forEach(r=>r.onclick=()=>openFriendProfile(r.dataset.fp));
+}
+
+/* ---------- LIVE indicator: red ring on avatars of users hosting a party ---------- */
+function ensureLiveHosts(){
+  try{
+    if(Live._hostsOn||!Live.db) return;
+    Live._hostsOn=true; Live.liveHosts=Live.liveHosts||{};
+    Live.db.ref("rooms/").on("value",snap=>{
+      const m={};
+      Object.values(snap.val()||{}).forEach(r=>{ if(r&&r.hostUid) m[r.hostUid]=true; });
+      Live.liveHosts=m;
+      document.querySelectorAll("[data-liveuid]").forEach(el=>{
+        el.classList.toggle("live",!!m[el.dataset.liveuid]);
+      });
+    });
+  }catch(e){}
+}
+function avLive(prof,cls,uid){
+  const live=!!(Live.liveHosts&&uid&&Live.liveHosts[uid]);
+  return `<span class="avwrap${live?" live":""}" data-liveuid="${esc(uid||"")}">${avatarHTML(prof,cls)}<span class="livebadge">LIVE</span></span>`;
+}
+
+/* ---------- friend profile sheet: avatar, genres, live parties, recents, saved ---------- */
+async function openFriendProfile(uid){
+  if(!uid) return;
+  const sh=$("#lvsheet"), sc=$("#lvscrim");
+  $("#lvstitle").textContent="Profile";
+  $("#lvsbody").innerHTML=`<div style="padding:26px;text-align:center;color:var(--mut)">Loading…</div>`;
+  sc.classList.add("open"); sh.classList.add("open");
+  ensureLiveHosts();
+  try{
+    const ok=await liveEnsure(); if(!ok) throw 0;
+    const psnap=await Live.db.ref("users/"+uid+"/profile").once("value");
+    const p=psnap.val()||{};
+    const rsnap=await Live.db.ref("rooms/").once("value");
+    const rooms=rsnap.val()||{};
+    const live=Object.entries(rooms).filter(([id,r])=>r&&r.hostUid===uid)
+      .sort((a,b)=>(b[1].createdAt||0)-(a[1].createdAt||0));
+    const recents=(p.recent||[]).map(id=>byId(id)).filter(Boolean).slice(0,8);
+    const saved=(p.saved||[]).map(id=>byId(id)).filter(Boolean).slice(0,8);
+    const isMe=uid===Live.uid;
+    const isFriend=!!(Live.friendsSnap&&Live.friendsSnap[uid]);
+    const row=t=>{const th=thumb(t,"mq");return `<div class="lvrow">${th?`<img class="lvrow-img" src="${th}" alt="" loading="lazy" onerror="this.style.display='none'">`:""}<span class="lvrow-main"><span class="lvrow-t">${esc(t.title)}</span></span></div>`;};
+    $("#lvsbody").innerHTML=`<div style="text-align:center;padding:6px 0 2px">
+        ${avLive(p,"lg",uid)}
+        <div style="font-size:19px;font-weight:800;margin-top:8px">${esc(p.name||"Viewer")}</div>
+        <div style="font-size:12px;color:var(--mut);margin-top:4px">${esc(bioLine(p))}</div>
+        <div class="biochips" style="justify-content:center;margin-top:8px">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
+        ${(!isMe&&!isFriend)?`<button class="btn-play" id="fpAdd" style="margin-top:12px">＋ Add friend</button>`:""}
+      </div>
+      ${live.length?`<div class="secttl" style="margin-top:14px"><span class="livedot">●</span> Live now</div>`+live.map(([id,r])=>`
+        <div class="lroom"><div class="lroom-mid"><div class="lroom-t">${esc(r.title||"Watch party")}</div>
+        <div class="lroom-s">Host: ${esc(r.hostName||p.name||"Viewer")}</div></div>
+        <button class="btn-play lroom-join" data-join="${id}">Join</button></div>`).join(""):""}
+      ${recents.length?`<div class="secttl" style="margin-top:14px">Recently watched</div>`+recents.map(row).join(""):""}
+      ${saved.length?`<div class="secttl" style="margin-top:14px">Saved</div>`+saved.map(row).join(""):""}
+      ${(!live.length&&!recents.length&&!saved.length)?`<div style="color:var(--mut);font-size:13px;text-align:center;padding:14px">Nothing to show yet.</div>`:""}`;
+    const add=$("#fpAdd");
+    if(add) add.onclick=()=>{ sendFriendRequest(uid,{name:p.name||"Viewer",photo:p.photo||""}); };
+    $("#lvsbody").querySelectorAll("[data-join]").forEach(b=>b.onclick=()=>{ closeLiveSheet(); joinRoom(b.dataset.join); });
+  }catch(e){
+    $("#lvsbody").innerHTML=`<div style="padding:26px;text-align:center;color:var(--mut)">Couldn't load profile.</div>`;
+  }
 }
 
 /* ---------- PWA install ---------- */
@@ -2767,25 +2875,10 @@ async function liveLogHistory(room){
   }catch(e){}
 }
 
-/* ---------- chatter profile → add friend ---------- */
+/* ---------- chatter profile → full profile sheet ---------- */
 function liveChatter(uid,nm){
   if(uid===Live.uid){ toast("That's you 🙂"); return; }
-  const sh=$("#lvsheet"), sc=$("#lvscrim");
-  $("#lvstitle").textContent=nm||"Viewer";
-  $("#lvsbody").innerHTML=`<div class="lvprof">
-    <div class="lvavatar">${esc(((nm||"V")[0]||"V").toUpperCase())}</div>
-    <div style="font-size:16px;font-weight:800">${esc(nm)}</div>
-    <div style="font-size:12px;color:var(--mut)">Watching with you now</div>
-    <button class="btn-play" id="lvAddFriend" style="margin-top:12px">＋ Add friend</button>
-  </div>`;
-  sc.classList.add("open"); sh.classList.add("open");
-  $("#lvAddFriend").onclick=async()=>{
-    try{
-      await Live.db.ref("users/"+Live.uid+"/friends/"+uid).set({name:nm,since:Date.now()});
-      toast("Added "+nm+" ✓");
-    }catch(e){ toast("Couldn't add — try again"); }
-    closeLiveSheet();
-  };
+  openFriendProfile(uid);
 }
 
 /* ---------- friends tab ---------- */
