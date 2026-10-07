@@ -30,8 +30,8 @@
   },
   {
    "id": "release",
-   "label": "Build + ship v1.2.1",
-   "note": "versionCode 22 \u2014 Live room Back button fix, shipped",
+   "label": "Build + ship v1.2.2",
+   "note": "versionCode 23 \u2014 picker rows with posters + descriptions, shipped",
    "pct": 100,
    "status": "done"
   },
@@ -44,6 +44,6 @@
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.1 \u00b7 Live room Back button fix",
- "updatedAt": "2026-10-07T10:01:00-05:00"
+ "shipped": "v1.2.2 \u00b7 Live picker posters + descriptions",
+ "updatedAt": "2026-10-07T10:06:00-05:00"
 }
