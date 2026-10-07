@@ -228,9 +228,9 @@ body.pip .scrub{display:none!important}
 #viewpad{height:calc(70px + env(safe-area-inset-bottom))}
 
 /* ---------- comments drawer ---------- */
-#cscrim{position:fixed;inset:0;z-index:105;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+#cscrim{position:fixed;inset:0;z-index:205;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
 #cscrim.open{opacity:1;pointer-events:auto}
-#cdraw{position:fixed;left:0;right:0;bottom:0;z-index:110;max-height:70vh;background:#101016;border-radius:22px 22px 0 0;
+#cdraw{position:fixed;left:0;right:0;bottom:0;z-index:210;max-height:70vh;background:#101016;border-radius:22px 22px 0 0;
   border-top:1px solid var(--line);transform:translateY(105%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
 #cdraw.open{transform:none}
 #cdraw .grab{width:44px;height:5px;border-radius:3px;background:#333;margin:10px auto 4px;flex-shrink:0}
