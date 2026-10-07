@@ -1,5 +1,5 @@
 {
- "note": "v1.2.21: Rebirth pill sorted A-Z in genre row (541 series)",
+ "note": "v1.2.22 live (543 series, 442 sports highlights). v1.2.23 building: blocked-video sweep + AI highlight removal + recency-first ordering + bulletproof home-audio kill",
  "phases": [
   {
    "id": "mockup",
@@ -44,6 +44,6 @@
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.20",
- "updatedAt": "2026-10-07T19:01:00.962670+00:00"
+ "shipped": "v1.2.22",
+ "updatedAt": "2026-10-07T19:36:00+00:00"
 }

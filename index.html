@@ -559,6 +559,7 @@ let curView="home", returnView="home";
 function go(v){
   if(v===curView&&v!=="detail")return;
   if(curView==="home"&&v!=="home")pauseFeedVideo();
+  if(v==="home"&&curView!=="home")setTimeout(resumeFeedVideo,600);
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
   const cur=$("#view-"+curView), nxt=$("#view-"+v);
@@ -1053,19 +1054,36 @@ function togglePause(){
 }
 /* auto-pause the feed video when navigating away from home */
 function pauseFeedVideo(){
-  const slide=curSlide();if(!slide||!feed.cur||slide._paused)return;
-  const fr=slide.querySelector("[data-frame]");if(!fr||!fr.contentWindow)return;
-  try{
-    if(curIsVimeo()){
-      fr.contentWindow.postMessage(JSON.stringify({method:"pause"}),"*");
-      fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:0}),"*");
-    }else{
-      const msg=(func,args)=>fr.contentWindow.postMessage(JSON.stringify({event:"command",func,args:args||""}),"*");
-      msg("pauseVideo");
-      if(soundOn){ msg("mute"); slide._silencedOnLeave=true; } // fallback: kill audio even if pause is dropped
-    }
-  }catch(e){}
+  const slide=curSlide();if(!slide||!feed.cur)return;
+  const fr=slide.querySelector("[data-frame]");
   slide._paused=true;
+  if(!fr)return;
+  const kill=()=>{
+    try{
+      if(!fr.contentWindow)return;
+      if(curIsVimeo()){
+        fr.contentWindow.postMessage(JSON.stringify({method:"pause"}),"*");
+        fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:0}),"*");
+      }else{
+        const msg=(func)=>{try{fr.contentWindow.postMessage(JSON.stringify({event:"command",func,args:""}),"*");}catch(e){}};
+        msg("pauseVideo");
+        msg("mute");
+        msg("stopVideo");
+      }
+    }catch(e){}
+  };
+  kill();
+  setTimeout(kill,300);
+  setTimeout(()=>{ // nuclear fallback: nuke the iframe so audio CANNOT continue
+    try{ if(fr.parentNode){ fr.src="about:blank"; slide._nuked=true; } }catch(e){}
+  },800);
+}
+function resumeFeedVideo(){
+  const slide=curSlide();if(!slide||!feed.cur||!slide._nuked)return;
+  slide._nuked=false;slide._paused=false;
+  loadVideoInto(slide,curUrl(),vidOf(curUrl()));
+  const fr=slide.querySelector("[data-frame]");
+  if(fr&&soundOn){fr.onload=()=>setTimeout(unmuteFrame,900);}
 }
 /* ---------- tap: single = pause/resume, double-tap left = -10s, right = +10s ---------- */
 function handleTap(x){
