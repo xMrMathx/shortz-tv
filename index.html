@@ -2489,7 +2489,11 @@ function livePlan(){
   body.innerHTML=`
     <div style="font-size:20px;font-weight:800;margin:6px 0 4px">Plan a watch</div>
     <div class="plabel">SERIES</div>
-    <select id="plSeries" class="pinput">${C.map(t=>`<option value="${t.id}">${esc(t.title)}</option>`).join("")}</select>
+    <div class="gdrop" id="plDrop">
+      <button class="gdrop-btn" id="plDropBtn" type="button"><span id="plDropCur">Pick a series…</span><span class="arr">▼</span></button>
+      <div class="gmenu" id="plMenu" style="max-height:40vh"></div>
+    </div>
+    <input type="hidden" id="plSeries" value="">
     <div class="plabel">WITH</div>
     <div id="plFriends" class="pfriends"><div style="font-size:12px;color:var(--mut)">Loading…</div></div>
     <div class="plabel">WHEN</div>
@@ -2504,9 +2508,23 @@ function livePlan(){
       ? Object.keys(friends).map(fid=>`<label class="pchk"><input type="checkbox" value="${fid}" data-nm="${esc(friends[fid].name||"Viewer")}"> ${esc(friends[fid].name||"Viewer")}</label>`).join("")
       : `<div style="font-size:12px;color:var(--mut)">Add friends from a watch party first.</div>`;
   });
+  // series dropdown with cover art thumbnails
+  const plD=$("#plDrop"), plB=$("#plDropBtn"), plM=$("#plMenu"), plC=$("#plDropCur"), plH=$("#plSeries");
+  if(plD&&plM){
+    plM.innerHTML=C.map(t=>{const th=thumb(t,"mq");return `<button type="button" class="gitem" data-sid="${t.id}">${th?`<img src="${th}" alt="" loading="lazy" style="width:44px;height:60px;object-fit:cover;border-radius:8px;flex-shrink:0" onerror="this.style.display='none'">`:""}<span style="flex:1">${esc(t.title)}</span><span class="cnt">${esc(t.genre||"")}</span></button>`}).join("");
+    plB.onclick=(e)=>{e.stopPropagation();plD.classList.toggle("open");};
+    plM.querySelectorAll("[data-sid]").forEach(b=>b.onclick=()=>{
+      plH.value=b.dataset.sid;
+      const t=byId(b.dataset.sid);
+      plC.textContent=t?t.title:"Pick a series…";
+      plM.querySelectorAll(".gitem").forEach(x=>x.classList.toggle("sel",x===b));
+      plD.classList.remove("open");
+    });
+  }
   $("#plGo").onclick=async()=>{
     const sid=$("#plSeries").value, t=byId(sid);
     const when=new Date($("#plWhen").value).getTime();
+    if(!sid||!t){ toast("Pick a series first"); return; }
     if(!when||isNaN(when)||when<Date.now()-60000){ toast("Pick a future time"); return; }
     const withUids={[Live.uid]:true}, withNames={[Live.uid]:Live.name};
     document.querySelectorAll("#plFriends input:checked").forEach(c=>{ withUids[c.value]=true; withNames[c.value]=c.dataset.nm; });
