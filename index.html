@@ -62,6 +62,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #feedTrack.anim{transition:transform .32s cubic-bezier(.25,.8,.3,1)}
 #feedTrack .slide{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;will-change:transform}
 .feed-rail{position:absolute;right:8px;top:44%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;z-index:5}
+.ric-more{display:flex;flex-direction:column;gap:16px}
 .ric{text-align:center;font-size:10px;color:#eee;font-weight:700}
 .ric button{font-size:24px;display:block;margin:0 auto 3px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6));transition:transform .2s}
 .ric button:active{transform:scale(1.25)}
@@ -725,11 +726,14 @@ function slideHTML(){
       <div class="ric"><button data-a="com">💬</button><span data-t="com">0</span></div>
       <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
       <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
+      <div class="ric"><button data-a="more" data-more>▼</button><span>More</span></div>
+      <div class="ric-more" data-moremenu style="display:none">
       <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
       <div class="ric"><button data-a="cc" data-cc>CC</button><span>Subs</span></div>
       <div class="ric"><button data-a="pip">⧉</button><span>PiP</span></div>
       <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
       <div class="ric"><button data-a="rot">⟳</button><span>Rotate</span></div>
+      </div>
     </div>
     <button class="soundprompt" data-sound>🔊 Tap for sound</button>
     <div class="feed-bottom">
@@ -823,6 +827,11 @@ function railAction(a,slide){
   }else if(a==="info"){openDetail(t.id)}
   else if(a==="fit"){toggleFit(slide)}
   else if(a==="rot"){toggleRotate()}
+  else if(a==="more"){
+    const m=slide.querySelector("[data-moremenu]");
+    const btn=slide.querySelector("[data-more]");
+    if(m){ const open=m.style.display!=="none"; m.style.display=open?"none":""; if(btn)btn.textContent=open?"▼":"▲"; }
+  }
   else if(a==="cc"){openCc(slide)}
   else if(a==="pip"){try{if(window.Android&&window.Android.enterPip)window.Android.enterPip()}catch(e){}}
 }
