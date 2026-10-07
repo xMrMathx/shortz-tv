@@ -461,15 +461,21 @@ function embedSrc(u,autoplay){
                : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
 }
 function frameModeClass(t,fit){
-  if(t.orientation==="vertical"||t.vertical)return "vert";
+  if(t.orientation==="vertical"||t.vertical||isVertMain(t))return "vert";
   return fit?"fit":"cover";
 }
 function toggleFit(slide){
   const t=(slide&&slide._t)||feed.cur; if(!t)return;
-  if(t.orientation==="vertical"||t.vertical){toast("Already full screen");return;}
-  slide._fit=!slide._fit;
   const fv=slide.querySelector("[data-fv]");
-  if(fv)fv.className="feed-video "+(slide._fit?"fit":"cover");
+  if(slide._fit){
+    // revert a stuck fit state back to the correct base class for this video
+    slide._fit=false;
+    if(fv)fv.className="feed-video "+frameModeClass(t,false);
+    return;
+  }
+  if(isVertMain(t)){toast("Already full screen");return;}
+  slide._fit=true;
+  if(fv)fv.className="feed-video fit";
 }
 /* PiP mini window: pure cover math so the video fills edge-to-edge at ANY
    window aspect ratio (Android may not honor the requested 9:16 exactly). */
