@@ -1,0 +1,80 @@
+{
+ "project": "Shortz TV \u2014 Category Fill",
+ "target": 60,
+ "updatedAt": "2026-10-07T20:43:28.842537+00:00",
+ "total": 627,
+ "categories": [
+  {
+   "name": "Action",
+   "count": 4
+  },
+  {
+   "name": "Animation",
+   "count": 12
+  },
+  {
+   "name": "Anime",
+   "count": 114
+  },
+  {
+   "name": "Comedy",
+   "count": 24
+  },
+  {
+   "name": "Faith",
+   "count": 8
+  },
+  {
+   "name": "Family",
+   "count": 5
+  },
+  {
+   "name": "Fantasy",
+   "count": 24
+  },
+  {
+   "name": "Hood",
+   "count": 77
+  },
+  {
+   "name": "Horror",
+   "count": 12
+  },
+  {
+   "name": "Mystery",
+   "count": 12
+  },
+  {
+   "name": "Reality",
+   "count": 21
+  },
+  {
+   "name": "Revenge",
+   "count": 24
+  },
+  {
+   "name": "Romance",
+   "count": 46
+  },
+  {
+   "name": "Sci-Fi",
+   "count": 26
+  },
+  {
+   "name": "Short Films",
+   "count": 63
+  },
+  {
+   "name": "Sports",
+   "count": 10
+  },
+  {
+   "name": "Thriller",
+   "count": 142
+  },
+  {
+   "name": "Western",
+   "count": 3
+  }
+ ]
+}
