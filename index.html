@@ -2748,6 +2748,11 @@ async function liveEnsure(){
       Live.name = nm;
       Live.authed = true;
       await Live.db.ref("users/"+Live.uid+"/name").set(nm);
+      // keep the public directory fresh on every launch so search works
+      try{
+        const prof=store.get("profile",null)||{};
+        await Live.db.ref("directory/"+Live.uid).set({name:prof.name||nm||"Viewer",photo:prof.photo||"",ts:Date.now()});
+      }catch(_){}
       return true;
     }catch(e){ return false; }
   })();
