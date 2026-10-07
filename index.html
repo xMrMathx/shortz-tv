@@ -1968,11 +1968,27 @@ function openSportsReel(sport){
     const vid=ph&&ph.dataset.ph; if(!vid)return;
     const url="https://www.youtube.com/watch?v="+vid;
     const done=()=>toast("Link copied");
-    try{
-      if(navigator.share){ navigator.share({title:sport+" highlight",url:url}).catch(()=>{}); }
-      else if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done).catch(()=>toast("Share not available")); }
-      else toast("Share not available");
-    }catch(err){ toast("Share not available"); }
+    (async()=>{
+      let files=[];
+      try{
+        const tu="https://i.ytimg.com/vi/"+vid+"/maxresdefault.jpg";
+        if(navigator.canShare){
+          const r=await fetch(tu,{mode:"cors"});
+          const blob=await r.blob();
+          const f=new File([blob],"highlight.jpg",{type:blob.type||"image/jpeg"});
+          if(navigator.canShare({files:[f]})) files=[f];
+        }
+      }catch(_){}
+      try{
+        if(navigator.share){
+          const p={title:sport+" highlight",text:"Watch this "+sport+" highlight free on Shortz TV",url:url};
+          if(files.length)p.files=files;
+          await navigator.share(p);
+        }
+        else if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done).catch(()=>toast("Share not available")); }
+        else toast("Share not available");
+      }catch(err){ toast("Share not available"); }
+    })();
   });
   ov.querySelectorAll("[data-com]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation();
     const sl=b.closest(".sreel-slide"); const ph=sl&&sl.querySelector("[data-ph]");
