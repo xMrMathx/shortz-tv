@@ -1,5 +1,5 @@
 {
- "note": "",
+ "note": "v1.2.20: watch party close button + Sports section (541 series, 8 sports, 44 highlights)",
  "phases": [
   {
    "id": "mockup",
@@ -44,6 +44,6 @@
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.19 \u00b7 Kinda Ghetto (Unghetto, 19 eps, 3 seasons) \u2014 533 series",
- "updatedAt": "2026-10-07T13:48:00-05:00"
+ "shipped": "v1.2.20",
+ "updatedAt": "2026-10-07T19:01:00.962670+00:00"
 }

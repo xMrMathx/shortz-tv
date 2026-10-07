@@ -160,6 +160,24 @@ body.pip .scrub{display:none!important}
 
 /* ---------- browse ---------- */
 .pills{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;margin:0 -16px}
+/* ---------- sports picker + reel ---------- */
+.sportpick{display:flex;flex-wrap:wrap;gap:10px;padding:6px 0 20px}
+.sportbtn{font-size:15px;font-weight:800;padding:14px 22px;border-radius:16px;border:1px solid var(--line);background:#101016;color:var(--txt);cursor:pointer}
+.sportbtn:active{background:#e00;border-color:#e00;color:#fff}
+#sportsReel{position:fixed;inset:0;z-index:200;background:#000;display:none}
+#sportsReel.open{display:block}
+.sreel-scroll{height:100%;overflow-y:auto;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch}
+.sreel-slide{height:100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;background:#000}
+.sreel-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.sreel-back{position:absolute;top:14px;left:14px;z-index:5;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.55);color:#fff;font-size:20px;cursor:pointer}
+.sreel-sport{position:absolute;top:20px;left:0;right:0;text-align:center;z-index:4;color:#fff;font-size:14px;font-weight:800;pointer-events:none;text-shadow:0 1px 4px #000}
+.sreel-rail{position:absolute;right:10px;bottom:90px;z-index:5;display:flex;flex-direction:column;gap:18px;align-items:center}
+.sreel-ric{text-align:center;color:#fff}
+.sreel-ric button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.55);color:#fff;font-size:20px;cursor:pointer}
+.sreel-ric span{display:block;font-size:11px;margin-top:4px;text-shadow:0 1px 4px #000}
+.sreel-cap{position:absolute;left:14px;bottom:26px;right:80px;z-index:5;color:#fff;pointer-events:none}
+.sreel-cap b{font-size:14px;display:block;text-shadow:0 1px 4px #000}
+.sreel-cap p{font-size:12px;color:#ddd;margin:4px 0 0;text-shadow:0 1px 4px #000}
 .pill{flex:0 0 auto;font-size:13px;font-weight:700;padding:10px 18px;border-radius:22px;border:1px solid var(--line);
   background:rgba(255,255,255,.05);color:#d7d7e0;transition:all .35s var(--ease)}
 .pill.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 6px 20px rgba(229,9,20,.4)}
@@ -309,7 +327,9 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .liveseg button.on{background:var(--red);border-color:var(--red);color:#fff}
 .live-setup{background:#101016;border:1px solid var(--line);border-radius:18px;padding:26px 20px;text-align:center}
 .live-steps{text-align:left;display:inline-block;margin:14px auto;font-size:13px;line-height:2.1;color:var(--txt)}
-.lroom{display:flex;gap:12px;background:#101016;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;align-items:center}
+.lroom{display:flex;gap:12px;background:#101016;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;align-items:center;position:relative}
+.lroom-x{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#1a1a24;color:var(--mut);font-size:14px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.lroom-x:active{background:#e00;color:#fff;border-color:#e00}
 .lroom-art{width:64px;height:92px;border-radius:10px;object-fit:cover;background:#1a1a24;flex-shrink:0}
 .lroom-mid{flex:1;min-width:0}
 .lroom-t{font-size:14px;font-weight:800}
@@ -455,7 +475,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script>
 "use strict";
 const C = window.SHORTZ_CATALOG || [];
-const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation","Anime","Reality"];
+const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation","Anime","Reality","Sports"];
 const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️",};
 
 /* ---------- utils ---------- */
@@ -1582,6 +1602,7 @@ function openDetail(id){
 /* ---------- browse ---------- */
 let browseGenre=GENRES[0];
 let browseQuery=""; // search text; filters across all series regardless of pill
+let sportsSport=null; // selected sport in Sports genre; null = picker view
 function browseListFiltered(){
   const q=browseQuery.trim().toLowerCase();
   if(!q)return null;
@@ -1607,13 +1628,18 @@ function renderBrowse(g){
       <button class="pill${REBIRTH===browseGenre?" on":""}" data-g="${REBIRTH}">Rebirth · ${rebirthN}</button>
       ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
       `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${x} · ${C.filter(t=>t.genre===x).length}</button>`).join("")}</div></div>
-    <div class="wrap"><div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>
-    <div id="bnores" class="empty" style="display:${list.length?"none":""}">No shows found.<br>Try another search.</div></div>`;
-  bindCards($("#view-browse"));
+    <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
+      ? `<div class="sect" style="margin-top:4px">Pick your sport</div><div class="sportpick" id="sportpick"></div>`
+      : `<div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>`}
+    <div id="bnores" class="empty" style="display:${list.length||(browseGenre==="Sports"&&!browseQuery.trim())?"none":""}">No shows found.<br>Try another search.</div></div>`;
+  if(browseGenre==="Sports"&&!browseQuery.trim()){ renderSportPicker(); }
+  else { bindCards($("#view-browse")); }
   const si=$("#bsearch"),sx=$("#bsearchx"),bc=$("#bcount"),gr=$("#bgrid"),nr=$("#bnores");
   const applySearch=()=>{
     browseQuery=si.value;
     const l=browseList();
+    if(browseGenre==="Sports"&&!browseQuery.trim()){ return; } // picker stays
+    if(!gr){ renderBrowse(); return; }
     gr.innerHTML=l.map(cardHTML).join("");
     bindCards(gr);
     nr.style.display=l.length?"none":"";
@@ -1629,6 +1655,8 @@ function renderBrowse(g){
       if(wasSearching){si.value="";browseQuery="";} // selecting a pill clears the search
       if(p.dataset.g===browseGenre&&!wasSearching)return;
       $("#view-browse").querySelectorAll(".pill").forEach(q=>q.classList.toggle("on",q===p));
+      const toSports=p.dataset.g==="Sports", fromSports=browseGenre==="Sports";
+      if(toSports||fromSports){ renderBrowse(p.dataset.g); return; } // full re-render for Sports transitions
       gr.classList.add("fading");
       setTimeout(()=>{
         browseGenre=p.dataset.g;
@@ -1638,6 +1666,70 @@ function renderBrowse(g){
       },320);
     };
   });
+}
+
+/* ---------- sports: picker + vertical reel ---------- */
+const SPORTS_ORDER=["NFL","Boxing","Baseball","Basketball","Soccer","Cricket","MMA","Tennis"];
+function sportEntry(sport){ return C.find(t=>t.genre==="Sports"&&t.sport===sport); }
+function renderSportPicker(){
+  const box=$("#sportpick"); if(!box) return;
+  const avail=SPORTS_ORDER.filter(s=>sportEntry(s));
+  box.innerHTML=avail.map(s=>{
+    const e=sportEntry(s), n=(e.episodes||[]).length;
+    return `<button class="sportbtn" data-sport="${esc(s)}">${esc(s)} · ${n}</button>`;
+  }).join("")||`<div class="empty">No sports yet.</div>`;
+  box.querySelectorAll("[data-sport]").forEach(b=>b.onclick=()=>openSportsReel(b.dataset.sport));
+}
+function openSportsReel(sport){
+  const e=sportEntry(sport); if(!e||!e.episodes||!e.episodes.length){ toast("No highlights yet"); return; }
+  sportsSport=sport;
+  let ov=$("#sportsReel");
+  if(!ov){
+    ov=document.createElement("div"); ov.id="sportsReel";
+    ov.innerHTML=`<div class="sreel-scroll" id="sreelScroll"></div>`;
+    document.body.appendChild(ov);
+  }
+  const sc=$("#sreelScroll");
+  sc.innerHTML=e.episodes.map((ep,i)=>`
+    <div class="sreel-slide" data-i="${i}">
+      <div class="sreel-ph" data-ph="${ep.video_id}" style="position:absolute;inset:0"></div>
+      <button class="sreel-back" data-back aria-label="Back to sports">‹</button>
+      <div class="sreel-sport">${esc(sport)} highlights</div>
+      <div class="sreel-rail">
+        <div class="sreel-ric"><button data-like>♥</button><span>Like</span></div>
+        <div class="sreel-ric"><button data-com>💬</button><span>0</span></div>
+        <div class="sreel-ric"><button data-share>↗</button><span>Share</span></div>
+      </div>
+      <div class="sreel-cap"><b>${esc(ep.title||("Highlight "+(i+1)))}</b><p>Swipe up for next highlight</p></div>
+    </div>`).join("");
+  // lazy-load iframes: only visible + neighbors
+  const loadSlide=sl=>{
+    const ph=sl.querySelector("[data-ph]"); if(!ph||ph.dataset.done) return;
+    ph.dataset.done="1";
+    const vid=ph.dataset.ph;
+    ph.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Sports highlight"></iframe>`;
+  };
+  const io=new IntersectionObserver(es=>{
+    es.forEach(x=>{
+      if(x.isIntersecting){
+        loadSlide(x.target);
+        const nx=x.target.nextElementSibling, pv=x.target.previousElementSibling;
+        if(nx) loadSlide(nx); if(pv) loadSlide(pv);
+      }
+    });
+  },{root:sc,threshold:0.5});
+  sc.querySelectorAll(".sreel-slide").forEach(sl=>io.observe(sl));
+  sc.scrollTop=0;
+  ov.classList.add("open");
+  ov.querySelectorAll("[data-back]").forEach(b=>b.onclick=closeSportsReel);
+  ov.querySelectorAll("[data-like]").forEach(b=>b.onclick=()=>{ b.style.color="#e00"; b.textContent="♥"; });
+  ov.querySelectorAll("[data-share]").forEach(b=>b.onclick=()=>{ try{ navigator.share({title:sport+" highlights",url:location.href}); }catch(e){ toast("Share not available"); } });
+}
+function closeSportsReel(){
+  const ov=$("#sportsReel"); if(!ov) return;
+  ov.classList.remove("open");
+  ov.querySelectorAll("iframe").forEach(f=>f.remove()); // stop playback
+  sportsSport=null;
 }
 
 /* ---------- my list ---------- */
@@ -1811,7 +1903,7 @@ function liveSetupHTML(){
   return `<div class="wrap" style="padding-top:26px"><div class="live-setup">
     <div style="font-size:34px;margin-bottom:8px">🔴</div>
     <div style="font-size:18px;font-weight:800;margin-bottom:6px">Live chat isn't connected yet</div>
-    <p style="font-size:13px;color:var(--mut);line-height:1.6">The Live/Chat backend needs a free Firebase project (no credit card, ~2 minutes). It's being set up now — once the config lands, this tab lights up with live rooms, chat, friends, and watch scheduling.</p>
+    <p style="font-size:13px;color:var(--mut);line-height:1.6">The Live/Chat backend needs a free Firebase project (no credit card, ~2 minutes). It's being set up now — once the config lands, this tab lights up with watch parties, chat, friends, and watch scheduling.</p>
     <div class="live-steps">
       <div>1 · Create a free Firebase project (Spark plan)</div>
       <div>2 · Enable <b>Anonymous</b> sign-in</div>
@@ -1854,11 +1946,11 @@ function liveLobby(){
   const body=$("#livebody"); if(!body) return;
   body.innerHTML=`
     <div style="display:flex;align-items:center;justify-content:space-between;margin:6px 0 12px">
-      <div><div style="font-size:20px;font-weight:800">🔴 Live now</div>
+      <div><div style="font-size:20px;font-weight:800">🔴 Watch parties</div>
       <div style="font-size:12px;color:var(--mut)">Watch together, chat live</div></div>
-      <button class="btn-play" id="liveStart" style="font-size:13px;padding:10px 16px">+ Start a room</button>
+      <button class="btn-play" id="liveStart" style="font-size:13px;padding:10px 16px">+ Start a watch party</button>
     </div>
-    <div id="liveRooms"><div class="live-empty">Looking for live rooms…</div></div>`;
+    <div id="liveRooms"><div class="live-empty">Looking for watch parties…</div></div>`;
   $("#liveStart").onclick=liveSeriesPicker;
   if(!Live.roomsListening){
     Live.roomsListening=true;
@@ -1882,10 +1974,11 @@ function liveRenderRooms(rooms){
       // room-level listeners persist for the session (cheap); cleaned on reload
     }
   });
-  if(!ids.length){ wrap.innerHTML=`<div class="live-empty">No one's live right now — start a room.</div>`; return; }
+  if(!ids.length){ wrap.innerHTML=`<div class="live-empty">No watch parties right now — start one.</div>`; return; }
   wrap.innerHTML=ids.map(id=>{
     const r=rooms[id], t=byId(r.seriesId), img=t?thumb(t,"hq"):"";
     return `<div class="lroom">
+      <button class="lroom-x" data-close="${id}" aria-label="Close watch party">✕</button>
       ${img?`<img class="lroom-art" src="${img}" alt="" loading="lazy" onerror="this.style.display='none'">`:`<div class="lroom-art" style="background:${artBg(r.title||"?")}"></div>`}
       <div class="lroom-mid">
         <div class="lroom-t">${esc(r.title)}</div>
@@ -1894,9 +1987,17 @@ function liveRenderRooms(rooms){
       </div></div>`;
   }).join("");
   wrap.querySelectorAll("[data-join]").forEach(b=>b.onclick=()=>joinRoom(b.dataset.join));
+  wrap.querySelectorAll("[data-close]").forEach(b=>b.onclick=e=>{e.stopPropagation();closeWatchParty(b.dataset.close);});
 }
 
-/* ---------- start a room: series picker ---------- */
+/* ---------- close a watch party ---------- */
+async function closeWatchParty(roomId){
+  if(!roomId||!Live.db) return;
+  try{ await Live.db.ref("rooms/"+roomId).remove(); }catch(e){}
+  try{ await Live.db.ref("presence/"+roomId).remove(); }catch(e){}
+  toast("Watch party closed");
+}
+/* ---------- start a watch party: series picker ---------- */
 function liveSeriesPicker(){
   const sh=$("#lvsheet"), sc=$("#lvscrim");
   $("#lvstitle").textContent="Pick a series to host";
@@ -1946,9 +2047,9 @@ function renderLiveRoomHTML(room, viewerCount){
   const url=(ep&&ep.url)||(t&&t.url)||"";
   const src=url?embedSrc(url,true):"";
   return `<div class="wrap" style="padding-top:10px">
-    <button class="live-back" id="liveLeave" aria-label="Back to live rooms">‹ Back</button>
+    <button class="live-back" id="liveLeave" aria-label="Back to watch parties">‹ Back</button>
     <div class="lvid">
-      ${src?`<iframe src="${esc(src)}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Live room player"></iframe>`:`<div class="lvid-none">Video unavailable</div>`}
+      ${src?`<iframe src="${esc(src)}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Watch party player"></iframe>`:`<div class="lvid-none">Video unavailable</div>`}
       <span class="live-badge">● LIVE</span>
       <span class="live-viewers">👁 <span id="liveViewN">${viewerCount}</span></span>
       ${src?`<button class="live-sound" id="liveSound">🔊 Tap for sound</button>`:""}
@@ -2055,7 +2156,7 @@ function liveFriends(){
     let hist={};
     try{ hist=(await Live.db.ref("users/"+Live.uid+"/history").once("value")).val()||{}; }catch(e){}
     const ids=Object.keys(friends||{});
-    if(!ids.length){ el.innerHTML=`<div class="live-empty">No friends yet — tap a chatter's name in any live room to add them.</div>`; return; }
+    if(!ids.length){ el.innerHTML=`<div class="live-empty">No friends yet — tap a chatter's name in any watch party to add them.</div>`; return; }
     el.innerHTML=ids.map(fid=>{
       const f=friends[fid]||{};
       const together=Object.values(hist).filter(h=>(h.with||[]).some(w=>w.uid===fid));
@@ -2096,7 +2197,7 @@ function livePlan(){
     const box=$("#plFriends"); if(!box) return;
     box.innerHTML=Object.keys(friends).length
       ? Object.keys(friends).map(fid=>`<label class="pchk"><input type="checkbox" value="${fid}" data-nm="${esc(friends[fid].name||"Viewer")}"> ${esc(friends[fid].name||"Viewer")}</label>`).join("")
-      : `<div style="font-size:12px;color:var(--mut)">Add friends from a live room first.</div>`;
+      : `<div style="font-size:12px;color:var(--mut)">Add friends from a watch party first.</div>`;
   });
   $("#plGo").onclick=async()=>{
     const sid=$("#plSeries").value, t=byId(sid);
