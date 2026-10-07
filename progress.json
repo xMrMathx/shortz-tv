@@ -1,5 +1,5 @@
 {
- "note": "v1.2.22 live (543 series, 442 sports highlights). v1.2.23 building: blocked-video sweep + AI highlight removal + recency-first ordering + bulletproof home-audio kill",
+ "note": "v1.2.23 live (563 series, 479 sports highlights). Sports QA sweep: 57 Content-ID-blocked videos removed, 95 verified playable replacements added, 0 AI-generated content found, newest-first recency ordering fixed.",
  "phases": [
   {
    "id": "mockup",
@@ -45,5 +45,5 @@
  ],
  "project": "Shortz TV \u2014 Live/Chat",
  "shipped": "v1.2.22",
- "updatedAt": "2026-10-07T19:36:00+00:00"
+ "updatedAt": "2026-10-07T19:45:00-05:00"
 }
