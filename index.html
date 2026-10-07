@@ -430,8 +430,22 @@ let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,ne
 let dragging=false, dragDy=0, dragX0=0, dragY0=0, dragT0=0, movedPx=0;
 let velSamples=[];
 let snapAnim=false, suppressClick=false, skipMouseUntil=0;
+function isVertMain(t){
+  // true when the series' main video is natively vertical (9:16) — cached on t._vmain.
+  if(t._vmain!==undefined)return t._vmain;
+  let v=!!t.vertical;
+  if(!v){
+    const m=String(t.url||"").match(/embed\/([A-Za-z0-9_-]+)/);
+    const vid=m&&m[1];
+    if(vid)v=(t.episodes||[]).some(e=>e.vertical&&e.video_id===vid);
+  }
+  t._vmain=v;return v;
+}
 function pickRandom(exceptId){
-  const pool=C.filter(t=>t.id!==exceptId&&seen.indexOf(t.id)<0);
+  const base=C.filter(t=>t.id!==exceptId&&seen.indexOf(t.id)<0);
+  // home feed: prefer natively-vertical series so every video fills the screen
+  const vpool=base.filter(isVertMain);
+  const pool=vpool.length?vpool:base;
   const src=pool.length?pool:C.filter(t=>t.id!==exceptId);
   const t=src[Math.floor(Math.random()*src.length)];
   seen.push(t.id); seen=seen.slice(-10); store.set("seen",seen);
