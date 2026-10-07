@@ -2534,6 +2534,10 @@ async function openFriendProfile(uid){
     const ok=await liveEnsure(); if(!ok) throw 0;
     const psnap=await Live.db.ref("users/"+uid+"/profile").once("value");
     const p=psnap.val()||{};
+    // merge in what we know from the friends list when the remote profile is empty
+    const fb=(Live.friendsSnap&&Live.friendsSnap[uid])||{};
+    if(!p.name&&fb.name) p.name=fb.name;
+    if(!p.photo&&fb.photo) p.photo=fb.photo;
     const rsnap=await Live.db.ref("rooms/").once("value");
     const rooms=rsnap.val()||{};
     const live=Object.entries(rooms).filter(([id,r])=>r&&r.hostUid===uid)
