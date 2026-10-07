@@ -646,6 +646,15 @@ function frameModeClass(t,fit){
 let _rotated=false;
 function toggleRotate(){
   _rotated=!_rotated;
+  // 1) native bridge — most reliable, fills the screen properly
+  try{
+    if(window.Android&&window.Android.setOrientation){
+      window.Android.setOrientation(_rotated?"landscape":"portrait");
+      document.body.classList.remove("force-land");
+      return;
+    }
+  }catch(e){}
+  // 2) Screen Orientation API
   const canLock=!!(screen.orientation&&screen.orientation.lock);
   if(_rotated){
     if(canLock){ screen.orientation.lock("landscape").catch(()=>document.body.classList.add("force-land")); }
