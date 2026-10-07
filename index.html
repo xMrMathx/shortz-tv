@@ -163,6 +163,22 @@ body.pip .scrub{display:none!important}
 .ai-chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.6px;color:#cfe3ff;
   background:rgba(120,170,255,.14);border:1px solid rgba(140,180,255,.35);padding:4px 10px;border-radius:12px;margin-top:10px}
 
+/* auto-hide HUD: fade UI out after 3s idle, tap to bring back */
+#view-home .feed-rail,#view-home .feed-bottom,#view-home .soundprompt,#topbar{transition:opacity .4s}
+body.hud-hidden #view-home .feed-rail,body.hud-hidden #view-home .feed-bottom,body.hud-hidden #view-home .soundprompt{opacity:0;pointer-events:none}
+/* rotate-full: just the video, nothing else, edge to edge */
+body.rot-full #view-home .feed-rail,
+body.rot-full #view-home .feed-cap,
+body.rot-full #view-home .feed-title,
+body.rot-full #view-home [data-scrub],
+body.rot-full #view-home .epbar,
+body.rot-full #bnav,
+body.rot-full #topbar,
+body.rot-full .soundprompt{display:none!important}
+body.rot-full #view-home .feed-video,
+body.rot-full #view-home .feed-video iframe{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;transform:none!important}
+#rotexit{display:none;position:fixed;top:14px;right:14px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.6);color:#fff;font-size:20px;cursor:pointer}
+body.rot-full #rotexit{display:block}
 /* ---------- browse ---------- */
 body.force-land #view-home{transform:rotate(90deg);transform-origin:center center;width:100vh;height:100vw;position:fixed;top:50%;left:50%;margin-left:-50vw;margin-top:-50vh}
 .pills{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;margin:0 -16px}
@@ -402,6 +418,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 </style>
 </head>
 <body>
+<button id="rotexit" aria-label="Exit rotate" onclick="toggleRotate()">✕</button>
 <div id="app">
   <header id="topbar">
     <div class="logo">SHORTZ <b>TV</b></div>
@@ -647,27 +664,36 @@ function frameModeClass(t,fit){
   if(t.orientation==="vertical"||t.vertical||isVertMain(t))return "vert";
   return fit?"fit":"cover";
 }
-/* rotate: tap once → landscape, tap again → back to portrait */
+/* HUD auto-hide: 3s no touch → UI fades, tap → back */
+let _hudT=null;
+function hudWake(){
+  document.body.classList.remove("hud-hidden");
+  clearTimeout(_hudT);
+  _hudT=setTimeout(()=>{ 
+    // don't hide while a drawer/menu/sheet is open or while rotated-full
+    if(document.querySelector("#cdraw.open,#edraw.open,.gdrop.open,.ric-more.open")){hudWake();return;}
+    document.body.classList.add("hud-hidden"); 
+  },3000);
+}
+["touchstart","mousedown"].forEach(ev=>document.addEventListener(ev,()=>{ 
+  if(document.body.classList.contains("hud-hidden"))hudWake(); else hudWake();
+},{passive:true}));
+/* rotate: tap once → video-only fullscreen landscape, tap again → back */
 let _rotated=false;
 function toggleRotate(){
   _rotated=!_rotated;
-  // 1) native bridge — most reliable, fills the screen properly
+  document.body.classList.toggle("rot-full",_rotated);
+  document.body.classList.remove("force-land");
+  // native orientation lock
   try{
     if(window.Android&&window.Android.setOrientation){
       window.Android.setOrientation(_rotated?"landscape":"portrait");
-      document.body.classList.remove("force-land");
       return;
     }
   }catch(e){}
-  // 2) Screen Orientation API
   const canLock=!!(screen.orientation&&screen.orientation.lock);
-  if(_rotated){
-    if(canLock){ screen.orientation.lock("landscape").catch(()=>document.body.classList.add("force-land")); }
-    else{ document.body.classList.add("force-land"); }
-  }else{
-    document.body.classList.remove("force-land");
-    if(canLock){ try{screen.orientation.unlock();}catch(e){} }
-  }
+  if(_rotated&&canLock){ screen.orientation.lock("landscape").catch(()=>{}); }
+  else if(canLock){ try{screen.orientation.unlock();}catch(e){} }
 }
 function toggleFit(slide){
   const t=(slide&&slide._t)||feed.cur; if(!t)return;
