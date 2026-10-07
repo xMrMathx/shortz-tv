@@ -1,80 +1,133 @@
 {
- "project": "Shortz TV \u2014 Category Fill",
- "target": 60,
- "updatedAt": "2026-10-07T22:19:03.525218+00:00",
- "total": 669,
- "categories": [
+ "project": "Shortz TV \u2014 60+ series per category",
+ "updatedAt": "2026-10-07T22:42:36Z",
+ "shipped": 4,
+ "phases": [
   {
-   "name": "Action",
-   "count": 4
+   "id": "action",
+   "label": "Action \u00b7 4/60",
+   "pct": 7,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Animation",
-   "count": 12
+   "id": "animation",
+   "label": "Animation \u00b7 12/60",
+   "pct": 20,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Anime",
-   "count": 114
+   "id": "anime",
+   "label": "Anime \u00b7 114/60",
+   "pct": 100,
+   "status": "done",
+   "note": ""
   },
   {
-   "name": "Comedy",
-   "count": 24
+   "id": "comedy",
+   "label": "Comedy \u00b7 24/60",
+   "pct": 40,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Faith",
-   "count": 8
+   "id": "faith",
+   "label": "Faith \u00b7 8/60",
+   "pct": 13,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Family",
-   "count": 5
+   "id": "family",
+   "label": "Family \u00b7 5/60",
+   "pct": 8,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Fantasy",
-   "count": 24
+   "id": "fantasy",
+   "label": "Fantasy \u00b7 24/60",
+   "pct": 40,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Hood",
-   "count": 77
+   "id": "hood",
+   "label": "Hood \u00b7 77/60",
+   "pct": 100,
+   "status": "done",
+   "note": ""
   },
   {
-   "name": "Horror",
-   "count": 12
+   "id": "horror",
+   "label": "Horror \u00b7 12/60",
+   "pct": 20,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Mystery",
-   "count": 12
+   "id": "mystery",
+   "label": "Mystery \u00b7 12/60",
+   "pct": 20,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Reality",
-   "count": 21
+   "id": "reality",
+   "label": "Reality \u00b7 21/60",
+   "pct": 35,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Revenge",
-   "count": 24
+   "id": "revenge",
+   "label": "Revenge \u00b7 24/60",
+   "pct": 40,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Romance",
-   "count": 46
+   "id": "romance",
+   "label": "Romance \u00b7 46/60",
+   "pct": 77,
+   "status": "running",
+   "note": ""
   },
   {
-   "name": "Sci-Fi",
-   "count": 26
+   "id": "sci-fi",
+   "label": "Sci-Fi \u00b7 26/60",
+   "pct": 43,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Short Films",
-   "count": 105
+   "id": "short-films",
+   "label": "Short Films \u00b7 105/60",
+   "pct": 100,
+   "status": "done",
+   "note": ""
   },
   {
-   "name": "Sports",
-   "count": 10
+   "id": "sports",
+   "label": "Sports \u00b7 10/60",
+   "pct": 17,
+   "status": "queued",
+   "note": ""
   },
   {
-   "name": "Thriller",
-   "count": 142
+   "id": "thriller",
+   "label": "Thriller \u00b7 142/60",
+   "pct": 100,
+   "status": "done",
+   "note": ""
   },
   {
-   "name": "Western",
-   "count": 3
+   "id": "western",
+   "label": "Western \u00b7 3/60",
+   "pct": 5,
+   "status": "queued",
+   "note": ""
   }
  ]
 }
