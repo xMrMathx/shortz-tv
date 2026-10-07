@@ -30,8 +30,8 @@
   },
   {
    "id": "release",
-   "label": "Build + ship v1.2.0",
-   "note": "versionCode 21 \u2014 backend 8/8 pass, QA 14/14, shipped",
+   "label": "Build + ship v1.2.1",
+   "note": "versionCode 22 \u2014 Live room Back button fix, shipped",
    "pct": 100,
    "status": "done"
   },
@@ -44,6 +44,6 @@
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.0 \u00b7 Live/Chat on real Firebase",
- "updatedAt": "2026-10-07T09:52:00-05:00"
+ "shipped": "v1.2.1 \u00b7 Live room Back button fix",
+ "updatedAt": "2026-10-07T10:01:00-05:00"
 }
