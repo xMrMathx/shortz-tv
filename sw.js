@@ -1,5 +1,5 @@
 /* Shortz TV service worker — app shell: network-first for the page (always fresh when online), cache-first for the rest */
-const CACHE = "shortztv-v2";
+const CACHE = "shortztv-v3";
 const SHELL = ["catalog.js", "manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
 const PAGE = ["index.html"];
