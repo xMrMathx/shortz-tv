@@ -292,7 +292,8 @@ body.feedfull #tabbar{background:linear-gradient(transparent,rgba(5,5,10,.9) 55%
 /* PiP mini window: video only, all chrome hidden */
 body.pip #topbar,body.pip #tabbar,body.pip #viewpad,
 body.pip .feed-rail,body.pip .feed-bottom,body.pip .soundprompt,
-body.pip #edraw,body.pip #escrim,body.pip #cdraw,body.pip #cscrim,body.pip #ccsheet{display:none!important}
+body.pip #edraw,body.pip #escrim,body.pip #cdraw,body.pip #cscrim,body.pip #ccsheet,
+body.pip #lvsheet,body.pip #lvscrim,body.pip #lnsheet,body.pip #lnscrim{display:none!important}
 /* PiP mini window: video fills edge-to-edge, always cover (no dvh units, no fit mode).
    Iframe geometry is set by applyPipLayout() (pure cover math) so it fills at ANY window ratio. */
 body.pip{overflow:hidden!important}
@@ -300,6 +301,60 @@ body.pip .feedstage{position:fixed!important;inset:0!important;width:100%!import
 body.pip #feedTrack{position:absolute!important;inset:0!important}
 body.pip .feed-video{position:absolute!important;inset:0!important}
 body.pip .feed-video iframe{position:absolute!important;transform:none!important;aspect-ratio:auto!important}
+
+/* ---------- live / chat (v1.2.0) ---------- */
+.liveico{color:var(--red)}
+.liveseg{display:flex;gap:8px;margin-bottom:14px}
+.liveseg button{flex:1;background:#16161e;border:1px solid var(--line);color:var(--mut);font-weight:800;font-size:13px;padding:10px 0;border-radius:14px}
+.liveseg button.on{background:var(--red);border-color:var(--red);color:#fff}
+.live-setup{background:#101016;border:1px solid var(--line);border-radius:18px;padding:26px 20px;text-align:center}
+.live-steps{text-align:left;display:inline-block;margin:14px auto;font-size:13px;line-height:2.1;color:var(--txt)}
+.lroom{display:flex;gap:12px;background:#101016;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;align-items:center}
+.lroom-art{width:64px;height:92px;border-radius:10px;object-fit:cover;background:#1a1a24;flex-shrink:0}
+.lroom-mid{flex:1;min-width:0}
+.lroom-t{font-size:14px;font-weight:800}
+.lroom-s{font-size:12px;color:var(--mut);margin:4px 0 8px}
+.lroom-join{font-size:13px;padding:8px 18px}
+.livedot{color:var(--red)}
+.live-empty{text-align:center;color:var(--mut);font-size:13px;padding:30px 20px;line-height:1.6}
+.live-back{background:none;color:var(--txt);font-size:14px;font-weight:700;padding:8px 0}
+.lvid{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9;margin:6px 0 10px}
+.lvid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lvid-none{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px}
+.live-badge{position:absolute;top:10px;left:10px;background:var(--red);font-size:11px;font-weight:900;padding:4px 10px;border-radius:8px;color:#fff;letter-spacing:.5px}
+.live-viewers{position:absolute;top:10px;right:10px;font-size:11px;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:12px;color:#fff}
+.live-sound{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.65);border:1px solid var(--line);color:#fff;font-size:12px;font-weight:700;padding:8px 14px;border-radius:20px}
+.lroom-title{font-size:15px;font-weight:800;margin-bottom:8px}
+.lroom-host{font-size:12px;color:var(--mut);font-weight:400}
+.lchat{height:280px;overflow-y:auto;background:#0c0c12;border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.lmsg{font-size:13px;line-height:1.45}
+.lmsg .lname{background:none;color:var(--gold);font-weight:800;font-size:12px;margin-right:6px;padding:0}
+.lmsg.me .lname{color:var(--red)}
+.lmsg .ltext{color:#e8e8ee;word-break:break-word}
+.lform{display:flex;gap:8px;margin-top:10px}
+.lform input{flex:1;background:#1a1a24;border:1px solid var(--line);border-radius:22px;padding:12px 16px;color:#fff;font-size:14px;outline:none}
+.lform button{background:var(--red);color:#fff;font-weight:800;width:46px;height:46px;border-radius:50%;font-size:17px;flex-shrink:0}
+.live-hint{font-size:11px;color:var(--mut);text-align:center;margin:10px 0 4px}
+#lvscrim,#lnscrim{position:fixed;inset:0;z-index:125;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+#lvscrim.open,#lnscrim.open{opacity:1;pointer-events:auto}
+#lvsheet,#lnsheet{position:fixed;left:0;right:0;bottom:0;z-index:130;max-height:72vh;background:#101016;border-radius:22px 22px 0 0;
+  border-top:1px solid var(--line);transform:translateY(105%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
+#lvsheet.open,#lnsheet.open{transform:none}
+#lvsheet .grab,#lnsheet .grab{width:44px;height:5px;border-radius:3px;background:#333;margin:10px auto 4px;flex-shrink:0}
+#lvsbody{overflow-y:auto;padding:6px 18px calc(18px + env(safe-area-inset-bottom))}
+#lvsearch{width:100%;background:#1a1a24;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:#fff;font-size:14px;outline:none;margin-bottom:8px}
+.lvrow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.05);color:var(--txt)}
+.lvrow-t{font-size:14px;font-weight:700;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lvrow-s{font-size:11px;color:var(--mut);flex-shrink:0}
+.lvprof{display:flex;flex-direction:column;align-items:center;padding:16px 0 8px;text-align:center}
+.lvavatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--red),#7b2ff7);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;color:#fff;margin-bottom:10px}
+.lvavatar.sm{width:44px;height:44px;font-size:17px;margin:0;flex-shrink:0}
+.plabel{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--mut);margin:14px 0 6px}
+.pinput{width:100%;background:#1a1a24;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:#fff;font-size:14px;outline:none;color-scheme:dark}
+.pfriends{display:flex;flex-wrap:wrap;gap:8px}
+.pchk{background:#16161e;border:1px solid var(--line);border-radius:16px;padding:8px 14px;font-size:13px;font-weight:700;display:flex;gap:8px;align-items:center;color:var(--txt)}
+.levent{background:#101016;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px;font-size:13px}
+#lnsheet input{width:100%;background:#1a1a24;border:1px solid var(--line);border-radius:14px;padding:14px;color:#fff;font-size:16px;outline:none}
 
 </style>
 </head>
@@ -313,6 +368,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
   <main id="views">
     <section class="view active" id="view-home"></section>
     <section class="view" id="view-browse"></section>
+    <section class="view" id="view-live"></section>
     <section class="view" id="view-mylist"></section>
     <section class="view" id="view-profile"></section>
     <section class="view" id="view-detail"></section>
@@ -322,6 +378,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
   <nav id="tabbar">
     <button class="tab on" data-v="home"><span class="ico">⌂</span>Home</button>
     <button class="tab" data-v="browse"><span class="ico">▦</span>Browse</button>
+    <button class="tab" data-v="live"><span class="ico liveico">●</span>Live</button>
     <button class="tab" data-v="mylist"><span class="ico">♥</span>My List</button>
     <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
   </nav>
@@ -366,9 +423,30 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <button class="btn-play done" id="isheetClose">Got it</button>
   </div>
 
+  <div id="lvscrim"></div>
+  <div id="lvsheet">
+    <div class="grab"></div>
+    <div class="chead"><button id="lvsclose" aria-label="Close">✕</button><h3 id="lvstitle">Live</h3></div>
+    <div id="lvsbody"></div>
+  </div>
+
+  <div id="lnscrim"></div>
+  <div id="lnsheet">
+    <div class="grab"></div>
+    <h3 style="padding:8px 18px 0">Pick a display name</h3>
+    <div style="padding:12px 18px calc(20px + env(safe-area-inset-bottom))">
+      <p style="font-size:12px;color:var(--mut);margin-bottom:10px">This is the name other viewers see in live chat.</p>
+      <input id="lninput" placeholder="Your name…" maxlength="24" autocomplete="off">
+      <button class="btn-play" id="lnsave" style="width:100%;justify-content:center;margin-top:12px">Join Live</button>
+    </div>
+  </div>
+
   <div id="toast"></div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script src="catalog.js"></script>
 <script>
 "use strict";
@@ -458,6 +536,7 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{renderView(t.dataset
 function renderView(v){
   if(v==="home")mountFeed();
   if(v==="browse")renderBrowse(browseGenre);
+  if(v==="live")renderLive();
   if(v==="mylist")renderMyList(); if(v==="profile")renderProfile();
 }
 
@@ -1618,6 +1697,433 @@ window.addEventListener("appinstalled",()=>{
 });
 $("#iscrim").addEventListener("click",closeInstallSheet);
 $("#isheetClose").addEventListener("click",closeInstallSheet);
+
+/* ============================================================
+   LIVE / CHAT (v1.2.0) — Firebase Realtime Database backend
+   ------------------------------------------------------------
+   *** FIREBASE_CONFIG is THE single wiring point. ***
+   The project is provisioned on his Google account; the real
+   web config is pasted here (one-line swap). Until then the
+   Live tab shows a setup notice and nothing crashes.
+   ============================================================ */
+const FIREBASE_CONFIG = {
+  apiKey: "PASTE_API_KEY_HERE",
+  authDomain: "PASTE_AUTH_DOMAIN_HERE",
+  databaseURL: "PASTE_DATABASE_URL_HERE",
+  projectId: "PASTE_PROJECT_ID_HERE",
+  appId: "PASTE_APP_ID_HERE"
+};
+const FIREBASE_READY = !/PASTE_/.test(String(FIREBASE_CONFIG.apiKey||""));
+
+const Live = {
+  app:null, auth:null, db:null,
+  uid:null, name:"", authed:false, _ensuring:null,
+  tab:"lobby",               // lobby | friends | plan
+  roomId:null, room:null,
+  roomsListening:false, friendsListening:false,
+  roomOffs:[], friendsSnap:null,
+  remindedKey:"live_reminded"
+};
+function liveRoomOffAll(){ Live.roomOffs.forEach(f=>{try{f()}catch(e){}}); Live.roomOffs=[]; }
+
+/* ---------- display-name prompt (one-time) ---------- */
+function liveAskName(){
+  return new Promise(res=>{
+    const s=$("#lnsheet"), sc=$("#lnscrim"), inp=$("#lninput");
+    let settled=false;
+    const done=()=>{
+      if(settled)return; settled=true;
+      const n=(inp.value.trim().slice(0,24))||"Viewer";
+      s.classList.remove("open"); sc.classList.remove("open");
+      res(n);
+    };
+    inp.value=store.get("live_name","")||"";
+    s.classList.add("open"); sc.classList.add("open");
+    setTimeout(()=>{try{inp.focus()}catch(e){}},350);
+    $("#lnsave").onclick=done;
+    sc.onclick=done;
+  });
+}
+$("#lvsclose").addEventListener("click",closeLiveSheet);
+$("#lvscrim").addEventListener("click",closeLiveSheet);
+function closeLiveSheet(){ $("#lvsheet").classList.remove("open"); $("#lvscrim").classList.remove("open"); }
+
+/* ---------- auth (anonymous) ---------- */
+async function liveEnsure(){
+  if(!FIREBASE_READY || !window.firebase) return false;
+  if(Live.authed && Live.uid) return true;
+  if(Live._ensuring) return Live._ensuring;
+  Live._ensuring = (async()=>{
+    try{
+      if(!Live.app){
+        Live.app = firebase.initializeApp(FIREBASE_CONFIG);
+        Live.auth = firebase.auth();
+        Live.db = firebase.database();
+      }
+      const cred = await Live.auth.signInAnonymously();
+      Live.uid = cred.user.uid;
+      let nm = store.get("live_name","");
+      if(!nm){ nm = await liveAskName(); store.set("live_name",nm); }
+      Live.name = nm;
+      Live.authed = true;
+      await Live.db.ref("users/"+Live.uid+"/name").set(nm);
+      return true;
+    }catch(e){ return false; }
+  })();
+  const r = await Live._ensuring;
+  Live._ensuring = null;
+  return r;
+}
+
+/* ---------- setup notice (backend not wired yet) ---------- */
+function liveSetupHTML(){
+  return `<div class="wrap" style="padding-top:26px"><div class="live-setup">
+    <div style="font-size:34px;margin-bottom:8px">🔴</div>
+    <div style="font-size:18px;font-weight:800;margin-bottom:6px">Live chat isn't connected yet</div>
+    <p style="font-size:13px;color:var(--mut);line-height:1.6">The Live/Chat backend needs a free Firebase project (no credit card, ~2 minutes). It's being set up now — once the config lands, this tab lights up with live rooms, chat, friends, and watch scheduling.</p>
+    <div class="live-steps">
+      <div>1 · Create a free Firebase project (Spark plan)</div>
+      <div>2 · Enable <b>Anonymous</b> sign-in</div>
+      <div>3 · Create a Realtime Database + publish the rules</div>
+      <div>4 · Paste the web config into the app</div>
+    </div>
+    <p style="font-size:11px;color:var(--mut)">Details: <span style="font-family:monospace">FIREBASE_SETUP.md</span> in the repo.</p>
+  </div></div>`;
+}
+
+/* ---------- live view shell ---------- */
+function liveShellHTML(){
+  return `<div class="wrap" style="padding-top:14px">
+    <div class="liveseg">
+      <button data-lt="lobby" class="${Live.tab==="lobby"?"on":""}">🔴 Live</button>
+      <button data-lt="friends" class="${Live.tab==="friends"?"on":""}">👥 Friends</button>
+      <button data-lt="plan" class="${Live.tab==="plan"?"on":""}">📅 Plan</button>
+    </div>
+    <div id="livebody"></div>
+  </div>`;
+}
+async function renderLive(){
+  const v=$("#view-live");
+  liveRoomOffAll();
+  if(Live.roomId){ renderLiveRoom(); return; }
+  if(!FIREBASE_READY){ v.innerHTML=liveSetupHTML(); return; }
+  v.innerHTML=liveShellHTML();
+  v.querySelectorAll("[data-lt]").forEach(b=>b.onclick=()=>{ Live.tab=b.dataset.lt; renderLive(); });
+  const ok=await liveEnsure();
+  if(!ok){ v.innerHTML=liveSetupHTML(); return; }
+  if(Live.tab==="lobby") liveLobby();
+  else if(Live.tab==="friends") liveFriends();
+  else livePlan();
+  liveReminders();
+}
+
+/* ---------- lobby ---------- */
+const liveCounts={}; // roomId -> viewer count
+function liveLobby(){
+  const body=$("#livebody"); if(!body) return;
+  body.innerHTML=`
+    <div style="display:flex;align-items:center;justify-content:space-between;margin:6px 0 12px">
+      <div><div style="font-size:20px;font-weight:800">🔴 Live now</div>
+      <div style="font-size:12px;color:var(--mut)">Watch together, chat live</div></div>
+      <button class="btn-play" id="liveStart" style="font-size:13px;padding:10px 16px">+ Start a room</button>
+    </div>
+    <div id="liveRooms"><div class="live-empty">Looking for live rooms…</div></div>`;
+  $("#liveStart").onclick=liveSeriesPicker;
+  if(!Live.roomsListening){
+    Live.roomsListening=true;
+    Live.db.ref("rooms").on("value",snap=>liveRenderRooms(snap.val()||{}));
+  }else{
+    Live.db.ref("rooms").once("value").then(snap=>liveRenderRooms(snap.val()||{}));
+  }
+}
+function liveRenderRooms(rooms){
+  const wrap=$("#liveRooms"); if(!wrap) return;
+  const ids=Object.keys(rooms).sort((a,b)=>(rooms[b].createdAt||0)-(rooms[a].createdAt||0));
+  ids.forEach(id=>{
+    if(liveCounts[id]===undefined){
+      liveCounts[id]=0;
+      const ref=Live.db.ref("presence/"+id);
+      const h=ref.on("value",s=>{
+        liveCounts[id]=s.numChildren();
+        const el=document.querySelector(`[data-viewers="${id}"]`);
+        if(el) el.textContent=liveCounts[id]+" watching";
+      });
+      // room-level listeners persist for the session (cheap); cleaned on reload
+    }
+  });
+  if(!ids.length){ wrap.innerHTML=`<div class="live-empty">No one's live right now — start a room.</div>`; return; }
+  wrap.innerHTML=ids.map(id=>{
+    const r=rooms[id], t=byId(r.seriesId), img=t?thumb(t,"hq"):"";
+    return `<div class="lroom">
+      ${img?`<img class="lroom-art" src="${img}" alt="" loading="lazy" onerror="this.style.display='none'">`:`<div class="lroom-art" style="background:${artBg(r.title||"?")}"></div>`}
+      <div class="lroom-mid">
+        <div class="lroom-t">${esc(r.title)}</div>
+        <div class="lroom-s">Host: ${esc(r.hostName)} · <span class="livedot">●</span> <span data-viewers="${id}">${liveCounts[id]||0} watching</span></div>
+        <button class="btn-play lroom-join" data-join="${id}">Join</button>
+      </div></div>`;
+  }).join("");
+  wrap.querySelectorAll("[data-join]").forEach(b=>b.onclick=()=>joinRoom(b.dataset.join));
+}
+
+/* ---------- start a room: series picker ---------- */
+function liveSeriesPicker(){
+  const sh=$("#lvsheet"), sc=$("#lvscrim");
+  $("#lvstitle").textContent="Pick a series to host";
+  $("#lvsbody").innerHTML=`<input id="lvsearch" placeholder="Search series…" autocomplete="off"><div id="lvlist"></div>`;
+  const render=q=>{
+    const list=C.filter(t=>!q||t.title.toLowerCase().includes(q)||(t.genre||"").toLowerCase().includes(q)).slice(0,60);
+    const box=$("#lvlist");
+    box.innerHTML=list.map(t=>`<button class="lvrow" data-sid="${t.id}"><span class="lvrow-t">${esc(t.title)}</span><span class="lvrow-s">${esc(t.eps||"")}</span></button>`).join("")
+      || `<div class="live-empty">No matches.</div>`;
+    box.querySelectorAll("[data-sid]").forEach(b=>b.onclick=()=>{ closeLiveSheet(); startRoom(b.dataset.sid); });
+  };
+  $("#lvsearch").oninput=e=>render(e.target.value.trim().toLowerCase());
+  render("");
+  sc.classList.add("open"); sh.classList.add("open");
+  setTimeout(()=>{try{$("#lvsearch").focus()}catch(e){}},350);
+}
+async function startRoom(seriesId){
+  const t=byId(seriesId); if(!t||!Live.db) return;
+  const ref=Live.db.ref("rooms").push();
+  await ref.set({
+    seriesId, episodeIdx:0,
+    hostUid:Live.uid, hostName:Live.name,
+    title:t.title, createdAt:firebase.database.ServerValue.TIMESTAMP
+  });
+  joinRoom(ref.key);
+}
+
+/* ---------- room screen ---------- */
+async function joinRoom(roomId){
+  liveRoomOffAll();
+  Live.roomId=roomId;
+  const pref=Live.db.ref("presence/"+roomId+"/"+Live.uid);
+  try{ await pref.onDisconnect().remove(); }catch(e){}
+  try{ await pref.set({name:Live.name, ts:firebase.database.ServerValue.TIMESTAMP}); }catch(e){}
+  Live.roomOffs.push(()=>{ try{pref.remove()}catch(e){} });
+  renderLiveRoom();
+}
+function leaveRoom(){
+  liveRoomOffAll();
+  Live.roomId=null; Live.room=null;
+  renderLive();
+}
+/* pure render — testable without Firebase */
+function renderLiveRoomHTML(room, viewerCount){
+  const t=byId(room.seriesId);
+  const ep=(t&&t.episodes&&t.episodes[room.episodeIdx||0])||null;
+  const url=(ep&&ep.url)||(t&&t.url)||"";
+  const src=url?embedSrc(url,true):"";
+  return `<div class="wrap" style="padding-top:10px">
+    <button class="live-back" id="liveLeave">‹ Leave room</button>
+    <div class="lvid">
+      ${src?`<iframe src="${esc(src)}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Live room player"></iframe>`:`<div class="lvid-none">Video unavailable</div>`}
+      <span class="live-badge">● LIVE</span>
+      <span class="live-viewers">👁 <span id="liveViewN">${viewerCount}</span></span>
+      ${src?`<button class="live-sound" id="liveSound">🔊 Tap for sound</button>`:""}
+    </div>
+    <div class="lroom-title">${esc(room.title)} <span class="lroom-host">· Host: ${esc(room.hostName)}</span></div>
+    <div id="liveChat" class="lchat"></div>
+    <form id="liveForm" class="lform">
+      <input id="liveInput" placeholder="Chat…" maxlength="300" autocomplete="off">
+      <button type="submit" aria-label="Send">➤</button>
+    </form>
+    <div class="live-hint">Tap a chatter's name to add them as a friend.</div>
+  </div>`;
+}
+async function renderLiveRoom(){
+  const v=$("#view-live");
+  let room=null;
+  try{ room=(await Live.db.ref("rooms/"+Live.roomId).once("value")).val(); }catch(e){}
+  if(!room){ Live.roomId=null; renderLive(); toast("That room ended."); return; }
+  Live.room=room;
+  v.innerHTML=renderLiveRoomHTML(room,1);
+  $("#liveLeave").onclick=leaveRoom;
+  const fr=v.querySelector(".lvid iframe");
+  const snd=$("#liveSound");
+  if(snd&&fr){
+    snd.onclick=()=>{
+      try{
+        const vm=((room.seriesId&&byId(room.seriesId))||{}).url||"";
+        if(vm.indexOf("vimeo.com")>=0) fr.contentWindow.postMessage({method:"setVolume",value:1},"*");
+        else fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"unMute",args:""}),"*");
+      }catch(e){}
+      snd.style.display="none";
+    };
+  }
+  const voff=Live.db.ref("presence/"+Live.roomId).on("value",s=>{
+    const el=$("#liveViewN"); if(el) el.textContent=s.numChildren();
+  });
+  Live.roomOffs.push(()=>Live.db.ref("presence/"+Live.roomId).off("value",voff));
+  const chat=$("#liveChat");
+  const q=Live.db.ref("rooms/"+Live.roomId+"/messages").limitToLast(60);
+  const madd=q.on("child_added",s=>{
+    const m=s.val(); if(!m) return;
+    const d=document.createElement("div");
+    d.className="lmsg"+(m.uid===Live.uid?" me":"");
+    d.innerHTML=`<button class="lname" data-uid="${esc(m.uid)}" data-nm="${esc(m.name)}">${esc(m.name)}</button><span class="ltext">${esc(m.text)}</span>`;
+    chat.appendChild(d);
+    const nb=d.querySelector(".lname");
+    nb.onclick=()=>liveChatter(nb.dataset.uid,nb.dataset.nm);
+    chat.scrollTop=chat.scrollHeight;
+  });
+  Live.roomOffs.push(()=>q.off("child_added",madd));
+  $("#liveForm").onsubmit=e=>{
+    e.preventDefault();
+    const inp=$("#liveInput");
+    const text=inp.value.trim().slice(0,300);
+    if(!text) return;
+    inp.value="";
+    Live.db.ref("rooms/"+Live.roomId+"/messages").push({
+      uid:Live.uid, name:Live.name, text,
+      ts:firebase.database.ServerValue.TIMESTAMP
+    }).catch(()=>toast("Couldn't send — try again"));
+  };
+  liveLogHistory(room);
+}
+async function liveLogHistory(room){
+  try{
+    const ps=await Live.db.ref("presence/"+Live.roomId).once("value");
+    const withArr=[];
+    ps.forEach(c=>{ if(c.key!==Live.uid) withArr.push({uid:c.key,name:(c.val()||{}).name||"Viewer"}); });
+    await Live.db.ref("users/"+Live.uid+"/history").push({
+      seriesId:room.seriesId, seriesTitle:room.title,
+      with:withArr, ts:firebase.database.ServerValue.TIMESTAMP
+    });
+  }catch(e){}
+}
+
+/* ---------- chatter profile → add friend ---------- */
+function liveChatter(uid,nm){
+  if(uid===Live.uid){ toast("That's you 🙂"); return; }
+  const sh=$("#lvsheet"), sc=$("#lvscrim");
+  $("#lvstitle").textContent=nm||"Viewer";
+  $("#lvsbody").innerHTML=`<div class="lvprof">
+    <div class="lvavatar">${esc(((nm||"V")[0]||"V").toUpperCase())}</div>
+    <div style="font-size:16px;font-weight:800">${esc(nm)}</div>
+    <div style="font-size:12px;color:var(--mut)">Watching with you now</div>
+    <button class="btn-play" id="lvAddFriend" style="margin-top:12px">＋ Add friend</button>
+  </div>`;
+  sc.classList.add("open"); sh.classList.add("open");
+  $("#lvAddFriend").onclick=async()=>{
+    try{
+      await Live.db.ref("users/"+Live.uid+"/friends/"+uid).set({name:nm,since:Date.now()});
+      toast("Added "+nm+" ✓");
+    }catch(e){ toast("Couldn't add — try again"); }
+    closeLiveSheet();
+  };
+}
+
+/* ---------- friends tab ---------- */
+function liveFriends(){
+  const body=$("#livebody"); if(!body) return;
+  body.innerHTML=`<div style="font-size:20px;font-weight:800;margin:6px 0 12px">Friends</div><div id="liveFriends"><div class="live-empty">Loading…</div></div>`;
+  const render=async friends=>{
+    Live.friendsSnap=friends;
+    const el=$("#liveFriends"); if(!el) return;
+    let hist={};
+    try{ hist=(await Live.db.ref("users/"+Live.uid+"/history").once("value")).val()||{}; }catch(e){}
+    const ids=Object.keys(friends||{});
+    if(!ids.length){ el.innerHTML=`<div class="live-empty">No friends yet — tap a chatter's name in any live room to add them.</div>`; return; }
+    el.innerHTML=ids.map(fid=>{
+      const f=friends[fid]||{};
+      const together=Object.values(hist).filter(h=>(h.with||[]).some(w=>w.uid===fid));
+      const last=together.length?esc(together[together.length-1].seriesTitle||""):"";
+      const init=esc(((f.name||"V")[0]||"V").toUpperCase());
+      return `<div class="lroom">
+        <div class="lvavatar sm">${init}</div>
+        <div class="lroom-mid">
+          <div class="lroom-t">${esc(f.name||"Viewer")}</div>
+          <div class="lroom-s">${together.length} show${together.length===1?"":"s"} together${last?` · last: ${last}`:""}</div>
+        </div></div>`;
+    }).join("");
+  };
+  if(!Live.friendsListening){
+    Live.friendsListening=true;
+    Live.db.ref("users/"+Live.uid+"/friends").on("value",snap=>render(snap.val()||{}));
+  }else{
+    render(Live.friendsSnap||{});
+  }
+}
+
+/* ---------- plan tab: schedule watch-togethers ---------- */
+function livePlan(){
+  const body=$("#livebody"); if(!body) return;
+  body.innerHTML=`
+    <div style="font-size:20px;font-weight:800;margin:6px 0 4px">Plan a watch</div>
+    <div class="plabel">SERIES</div>
+    <select id="plSeries" class="pinput">${C.map(t=>`<option value="${t.id}">${esc(t.title)}</option>`).join("")}</select>
+    <div class="plabel">WITH</div>
+    <div id="plFriends" class="pfriends"><div style="font-size:12px;color:var(--mut)">Loading…</div></div>
+    <div class="plabel">WHEN</div>
+    <input id="plWhen" type="datetime-local" class="pinput">
+    <button class="btn-play" id="plGo" style="width:100%;justify-content:center;margin:14px 0">Schedule</button>
+    <div class="plabel">UPCOMING</div>
+    <div id="plEvents"><div class="live-empty">Loading…</div></div>`;
+  Live.db.ref("users/"+Live.uid+"/friends").once("value").then(fsnap=>{
+    const friends=fsnap.val()||{};
+    const box=$("#plFriends"); if(!box) return;
+    box.innerHTML=Object.keys(friends).length
+      ? Object.keys(friends).map(fid=>`<label class="pchk"><input type="checkbox" value="${fid}" data-nm="${esc(friends[fid].name||"Viewer")}"> ${esc(friends[fid].name||"Viewer")}</label>`).join("")
+      : `<div style="font-size:12px;color:var(--mut)">Add friends from a live room first.</div>`;
+  });
+  $("#plGo").onclick=async()=>{
+    const sid=$("#plSeries").value, t=byId(sid);
+    const when=new Date($("#plWhen").value).getTime();
+    if(!when||isNaN(when)||when<Date.now()-60000){ toast("Pick a future time"); return; }
+    const withUids={}, withNames={};
+    document.querySelectorAll("#plFriends input:checked").forEach(c=>{ withUids[c.value]=true; withNames[c.value]=c.dataset.nm; });
+    try{
+      await Live.db.ref("events").push({
+        seriesId:sid, seriesTitle:t?t.title:"",
+        withUids, withNames, when,
+        createdBy:Live.uid, createdByName:Live.name
+      });
+      toast("Scheduled ✓");
+      liveLoadEvents();
+    }catch(e){ toast("Couldn't schedule — try again"); }
+  };
+  liveLoadEvents();
+}
+async function liveLoadEvents(){
+  const el=$("#plEvents"); if(!el) return;
+  let snap=null;
+  try{ snap=await Live.db.ref("events").orderByChild("when").once("value"); }catch(e){}
+  const now=Date.now(), mine=[];
+  if(snap) snap.forEach(c=>{
+    const e=c.val()||{};
+    if(e.createdBy===Live.uid||(e.withUids&&e.withUids[Live.uid])) mine.push(Object.assign({id:c.key},e));
+  });
+  const upcoming=mine.filter(e=>e.when>now-3600000).sort((a,b)=>a.when-b.when).slice(0,10);
+  el.innerHTML=upcoming.length?upcoming.map(e=>{
+    const d=new Date(e.when);
+    const when=d.toLocaleString([],{weekday:"short",month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+    const names=Object.values(e.withNames||{}).join(", ");
+    return `<div class="levent"><b>${esc(e.seriesTitle||"Watch party")}</b><div class="lroom-s" style="margin:4px 0 0">${esc(when)} · with ${esc(names||e.createdByName||"")}</div></div>`;
+  }).join(""):`<div class="live-empty">Nothing scheduled yet.</div>`;
+}
+
+/* ---------- event reminders (in-app toast at showtime) ---------- */
+function liveReminders(){
+  if(liveReminders._on) return; liveReminders._on=true;
+  setInterval(async()=>{
+    if(!Live.authed||!Live.db) return;
+    try{
+      const snap=await Live.db.ref("events").orderByChild("when").once("value");
+      const now=Date.now();
+      snap.forEach(c=>{
+        const e=c.val()||{};
+        const mine=e.createdBy===Live.uid||(e.withUids&&e.withUids[Live.uid]);
+        if(!mine) return;
+        const key=Live.remindedKey+"_"+c.key;
+        if(Math.abs((e.when||0)-now)<5*60000&&!store.get(key,false)){
+          store.set(key,true);
+          toast("🔴 Starting now: "+(e.seriesTitle||"your watch party"));
+        }
+      });
+    }catch(e){}
+  },60000);
+}
 
 /* ---------- boot: cold open straight into the feed ---------- */
 mountFeed();
