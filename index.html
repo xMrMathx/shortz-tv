@@ -317,7 +317,8 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .lroom-join{font-size:13px;padding:8px 18px}
 .livedot{color:var(--red)}
 .live-empty{text-align:center;color:var(--mut);font-size:13px;padding:30px 20px;line-height:1.6}
-.live-back{background:none;color:var(--txt);font-size:14px;font-weight:700;padding:8px 0}
+.live-back{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:17px;font-weight:800;padding:12px 20px;border-radius:999px;margin:2px 0 12px;min-height:48px}
+.live-back:active{transform:scale(.95);background:rgba(255,255,255,.2)}
 .lvid{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9;margin:6px 0 10px}
 .lvid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .lvid-none{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px}
@@ -1917,7 +1918,7 @@ function renderLiveRoomHTML(room, viewerCount){
   const url=(ep&&ep.url)||(t&&t.url)||"";
   const src=url?embedSrc(url,true):"";
   return `<div class="wrap" style="padding-top:10px">
-    <button class="live-back" id="liveLeave">‹ Leave room</button>
+    <button class="live-back" id="liveLeave" aria-label="Back to live rooms">‹ Back</button>
     <div class="lvid">
       ${src?`<iframe src="${esc(src)}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Live room player"></iframe>`:`<div class="lvid-none">Video unavailable</div>`}
       <span class="live-badge">● LIVE</span>
@@ -2073,7 +2074,7 @@ function livePlan(){
     const sid=$("#plSeries").value, t=byId(sid);
     const when=new Date($("#plWhen").value).getTime();
     if(!when||isNaN(when)||when<Date.now()-60000){ toast("Pick a future time"); return; }
-    const withUids={}, withNames={};
+    const withUids={[Live.uid]:true}, withNames={[Live.uid]:Live.name};
     document.querySelectorAll("#plFriends input:checked").forEach(c=>{ withUids[c.value]=true; withNames[c.value]=c.dataset.nm; });
     try{
       await Live.db.ref("events").push({
