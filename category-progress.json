@@ -1,6 +1,6 @@
 {
  "project": "Shortz TV \u2014 60+ series per category",
- "updatedAt": "2026-10-07T23:21:54Z",
+ "updatedAt": "2026-10-07T23:26:13Z",
  "shipped": 4,
  "phases": [
   {
@@ -26,9 +26,9 @@
   },
   {
    "id": "body-cam",
-   "label": "Body Cam \u00b7 26/60",
-   "pct": 43,
-   "status": "queued",
+   "label": "Body Cam \u00b7 54/60",
+   "pct": 90,
+   "status": "running",
    "note": ""
   },
   {
