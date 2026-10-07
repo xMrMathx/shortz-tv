@@ -240,6 +240,7 @@ body.pip .scrub{display:none!important}
 .ccrow .ck{margin-left:auto;color:var(--red);font-weight:900;font-size:16px;opacity:0}
 .ccrow.sel .ck{opacity:1}
 .ccnone{padding:13px 2px;font-size:13px;color:var(--mut)}
+.ccnote{padding:0 2px 12px;font-size:11px;color:var(--mut);opacity:.75}
 .ccnote{font-size:11px;color:var(--mut);margin-top:14px;line-height:1.55}
 .ric button.ccon{color:var(--red)}
 
@@ -671,6 +672,22 @@ function ytCcTracks(p){
     return p.getOption("captions","tracklist")||[];
   }catch(e){return[];}
 }
+// The captions module is NOT auto-loaded: per the IFrame API docs it must be
+// loaded before getOptions('captions') exposes tracklist/track. Querying once
+// without loadModule locks in "none" forever — so every sheet open re-queries
+// fresh with polling (module readiness is async).
+function ytEnsureCcModule(p){
+  try{if(p&&typeof p.loadModule==="function")p.loadModule("captions");}catch(e){}
+}
+function ytCcTracksAsync(p,cb){
+  ytEnsureCcModule(p);
+  const t0=Date.now();
+  (function poll(){
+    const tl=ytCcTracks(p);
+    if(tl.length||Date.now()-t0>5000){try{cb(tl)}catch(e){}return;}
+    setTimeout(poll,300);
+  })();
+}
 function ytSetCc(p,code){
   try{
     if(code)p.setOption("captions","track",{languageCode:code});
@@ -691,11 +708,10 @@ function slideIsVimeo(slide){
 }
 function applySavedTracks(node,p){
   if(!node||!p||node._player!==p)return;
+  ytEnsureCcModule(p); // setOption('captions','track',...) needs the module loaded
   if(ccLang){
-    const tl=ytCcTracks(p);
-    const ok=!tl.length||tl.some(t=>{const c=(t.languageCode||"");return c===ccLang||c.indexOf(ccLang+"-")===0;});
     ytSetCc(p,ccLang);
-    markCc(node,ok);
+    markCc(node,true);
   }else markCc(node,false);
   if(audioLang==="en"&&ytHasAudioSwitch(p)){try{p.setAudioTrack("en")}catch(e){}}
 }
@@ -727,7 +743,7 @@ function renderCcSheet(){
   if(ccLoading){
     subs.innerHTML='<div class="ccnone">Loading…</div>';
   }else if(!ccTracks.length){
-    subs.innerHTML='<div class="ccnone">None available</div>';
+    subs.innerHTML='<div class="ccnone">None available</div><div class="ccnote">This video has no subtitle tracks</div>';
   }else{
     subs.appendChild(ccRowEl("Off",!ccLang,()=>setCc("")));
     const sorted=[...ccTracks].sort((a,b)=>{
@@ -765,7 +781,9 @@ function openCc(slide){
     try{fr.contentWindow.postMessage(JSON.stringify({method:"getTextTracks"}),"*")}catch(e){done([])}
     setTimeout(()=>{if(window._ccVimeoCb){window._ccVimeoCb=null;done([])}},4000);
   }else{
-    done(ytCcTracks(slide._player));
+    // Fresh query every open (never cached): load the captions module, then
+    // poll until the tracklist is exposed — module readiness is async.
+    ytCcTracksAsync(slide._player,done);
   }
 }
 function closeCc(){
