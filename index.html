@@ -159,6 +159,7 @@ body.pip .scrub{display:none!important}
   background:rgba(120,170,255,.14);border:1px solid rgba(140,180,255,.35);padding:4px 10px;border-radius:12px;margin-top:10px}
 
 /* ---------- browse ---------- */
+body.force-land #view-home{transform:rotate(90deg);transform-origin:center center;width:100vh;height:100vw;position:fixed;top:50%;left:50%;margin-left:-50vw;margin-top:-50vh}
 .pills{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;margin:0 -16px}
 .gdrop{position:relative;margin:10px 0 4px}
 .gdrop-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#101016;color:var(--txt);font-size:16px;font-weight:800;cursor:pointer}
@@ -641,6 +642,19 @@ function frameModeClass(t,fit){
   if(t.orientation==="vertical"||t.vertical||isVertMain(t))return "vert";
   return fit?"fit":"cover";
 }
+/* rotate: tap once → landscape, tap again → back to portrait */
+let _rotated=false;
+function toggleRotate(){
+  _rotated=!_rotated;
+  const canLock=!!(screen.orientation&&screen.orientation.lock);
+  if(_rotated){
+    if(canLock){ screen.orientation.lock("landscape").catch(()=>document.body.classList.add("force-land")); }
+    else{ document.body.classList.add("force-land"); }
+  }else{
+    document.body.classList.remove("force-land");
+    if(canLock){ try{screen.orientation.unlock();}catch(e){} }
+  }
+}
 function toggleFit(slide){
   const t=(slide&&slide._t)||feed.cur; if(!t)return;
   const fv=slide.querySelector("[data-fv]");
@@ -706,6 +720,7 @@ function slideHTML(){
       <div class="ric"><button data-a="cc" data-cc>CC</button><span>Subs</span></div>
       <div class="ric"><button data-a="pip">⧉</button><span>PiP</span></div>
       <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
+      <div class="ric"><button data-a="rot">⟳</button><span>Rotate</span></div>
     </div>
     <button class="soundprompt" data-sound>🔊 Tap for sound</button>
     <div class="feed-bottom">
@@ -798,6 +813,7 @@ function railAction(a,slide){
     saveList();updateRailIn(slide,t);
   }else if(a==="info"){openDetail(t.id)}
   else if(a==="fit"){toggleFit(slide)}
+  else if(a==="rot"){toggleRotate()}
   else if(a==="cc"){openCc(slide)}
   else if(a==="pip"){try{if(window.Android&&window.Android.enterPip)window.Android.enterPip()}catch(e){}}
 }
