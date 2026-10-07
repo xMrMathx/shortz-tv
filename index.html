@@ -1437,23 +1437,36 @@ function shareCur(){
     else{try{await navigator.clipboard.writeText(txt+" — "+location.href);toast("Link copied")}catch(e){toast("Copy this link: "+location.href)}}
   })();
 }
+let commentTarget=null; // when set, comments attach here instead of feed.cur (used by sports reel)
 function renderComments(){
-  const t=feed.cur; if(!t)return;
-  const cl=comments[t.id]||[];
+  const tid=commentTarget||(feed.cur&&feed.cur.id); if(!tid)return;
+  const cl=comments[tid]||[];
   $("#clist").innerHTML=cl.length?cl.map(c=>
     `<div class="citem"><span class="cn">${esc(c.n)}</span><span class="ct">${new Date(c.ts).toLocaleDateString()}</span><div>${esc(c.x)}</div></div>`
   ).join(""):'<div class="empty">No comments yet.<br>Be the first to say something.</div>';
 }
 $("#cform").addEventListener("submit",e=>{
   e.preventDefault();
-  const t=feed.cur; if(!t)return;
+  const tid=commentTarget||(feed.cur&&feed.cur.id); if(!tid)return;
   const v=$("#cinput").value.trim();if(!v)return;
-  (comments[t.id]=comments[t.id]||[]).push({n:"You",x:v,ts:Date.now()});
+  (comments[tid]=comments[tid]||[]).push({n:"You",x:v,ts:Date.now()});
   store.set("comments",comments);$("#cinput").value="";
-  renderComments();updateRail(t);toast("Comment posted");
+  renderComments();
+  if(!commentTarget&&feed.cur)updateRail(feed.cur);
+  // refresh sports reel comment counts if commenting on a highlight
+  if(commentTarget&&commentTarget.indexOf("sport_")===0){
+    const vid=commentTarget.slice(6);
+    document.querySelectorAll('#sreelScroll .sreel-slide').forEach(sl=>{
+      const ph=sl.querySelector("[data-ph]");
+      if(ph&&ph.dataset.ph===vid){
+        const c=sl.querySelector("[data-com]+span"); if(c)c.textContent=(comments[commentTarget]||[]).length||"0";
+      }
+    });
+  }
+  toast("Comment posted");
 });
 $("#cdraw").addEventListener("click",e=>{if(e.target.id==="cdraw")closeComments()});
-function closeComments(){$("#cdraw").classList.remove("open");$("#cscrim").classList.remove("open")}
+function closeComments(){$("#cdraw").classList.remove("open");$("#cscrim").classList.remove("open");commentTarget=null;}
 $("#cclose").addEventListener("click",closeComments);
 $("#cscrim").addEventListener("click",()=>{closeComments();closeCc();});
 $("#ccclose").addEventListener("click",closeCc);
@@ -1734,7 +1747,7 @@ function openSportsReel(sport){
       <div class="sreel-sport">${esc(sport)} highlights</div>
       <div class="sreel-rail">
         <div class="sreel-ric"><button data-like>♥</button><span>Like</span></div>
-        <div class="sreel-ric"><button data-com>💬</button><span>0</span></div>
+        <div class="sreel-ric"><button data-com>💬</button><span>${(comments["sport_"+ep.video_id]||[]).length||"0"}</span></div>
         <div class="sreel-ric"><button data-share>↗</button><span>Share</span></div>
         <div class="sreel-ric"><button data-spip>⧉</button><span>PiP</span></div>
       </div>
@@ -1807,7 +1820,24 @@ function openSportsReel(sport){
     });
   });
   ov.querySelectorAll("[data-like]").forEach(b=>b.onclick=()=>{ b.style.color="#e00"; b.textContent="♥"; });
-  ov.querySelectorAll("[data-share]").forEach(b=>b.onclick=()=>{ try{ navigator.share({title:sport+" highlights",url:location.href}); }catch(e){ toast("Share not available"); } });
+  ov.querySelectorAll("[data-share]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation();
+    const sl=b.closest(".sreel-slide"); const ph=sl&&sl.querySelector("[data-ph]");
+    const vid=ph&&ph.dataset.ph; if(!vid)return;
+    const url="https://www.youtube.com/watch?v="+vid;
+    const done=()=>toast("Link copied");
+    try{
+      if(navigator.share){ navigator.share({title:sport+" highlight",url:url}).catch(()=>{}); }
+      else if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done).catch(()=>toast("Share not available")); }
+      else toast("Share not available");
+    }catch(err){ toast("Share not available"); }
+  });
+  ov.querySelectorAll("[data-com]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation();
+    const sl=b.closest(".sreel-slide"); const ph=sl&&sl.querySelector("[data-ph]");
+    const vid=ph&&ph.dataset.ph; if(!vid)return;
+    commentTarget="sport_"+vid;
+    renderComments();
+    $("#cdraw").classList.add("open");$("#cscrim").classList.add("open");
+  });
   ov.querySelectorAll("[data-spip]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation(); try{ if(window.Android&&window.Android.enterPip)window.Android.enterPip(); else toast("PiP needs the app"); }catch(err){ toast("PiP not available"); } });
 }
 // sports reel has its OWN sound state, fully independent from the Home feed:
