@@ -2283,11 +2283,21 @@ function renderProfile(){
   const ib=$("#installAppBtn");
   if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
   initFriendsUI();
+  // show cached friends instantly — never leave "Loading..." hanging
+  try{
+    const cached=store.get("friendsCache",null);
+    if(cached&&Object.keys(cached).length){
+      Live.friendsSnap=cached;
+      renderFriendList();
+      const n=$("#profFriendN"); if(n)n.textContent=Object.keys(cached).length;
+    }
+  }catch(_){}
   // keep friend count fresh
   liveEnsure().then(ok=>{
     if(!ok)return;
     Live.db.ref("users/"+Live.uid+"/friends").on("value",s=>{
       Live.friendsSnap=s.val()||{};
+      try{store.set("friendsCache",Live.friendsSnap);}catch(_){}
       const n=$("#profFriendN"); if(n)n.textContent=Object.keys(Live.friendsSnap).length;
       renderFriendList();
     });
