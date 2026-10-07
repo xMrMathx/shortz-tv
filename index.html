@@ -351,9 +351,11 @@ const byId = id => C.find(t=>t.id===id);
 /* early release: computed live — exactly 1 verified episode; auto-graduates as the hunt verifies more */
 function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length===1}
 const EARLY="__early__";
+const AI="__ai__";
 function browseList(){
   const qf=browseListFiltered();
   if(qf)return qf;
+  if(browseGenre===AI)return C.filter(t=>t.ai_made===true);
   return browseGenre===EARLY?C.filter(isEarlyRelease):C.filter(t=>t.genre===browseGenre);
 }
 const store = {
@@ -466,6 +468,7 @@ function slideHTML(){
       <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
       <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
       <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
+      <div class="ric"><button data-a="pip">⧉</button><span>PiP</span></div>
       <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
     </div>
     <button class="soundprompt" data-sound>🔊 Tap for sound</button>
@@ -558,6 +561,7 @@ function railAction(a,slide){
     saveList();updateRailIn(slide,t);
   }else if(a==="info"){openDetail(t.id)}
   else if(a==="fit"){toggleFit(slide)}
+  else if(a==="pip"){try{if(window.Android&&window.Android.enterPip)window.Android.enterPip()}catch(e){}}
 }
 function mountFeed(){
   document.body.classList.add("feedfull");
@@ -1111,6 +1115,7 @@ function renderBrowse(g){
   browseGenre=g||browseGenre;
   const list=browseList();
   const earlyN=C.filter(isEarlyRelease).length;
+  const aiN=C.filter(t=>t.ai_made===true).length;
   $("#view-browse").innerHTML=`
     <div class="wrap" style="padding-top:18px">
       <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span id="bcount">${browseQuery.trim()?"":"14 genres"}</span></div>
@@ -1121,6 +1126,7 @@ function renderBrowse(g){
     </div>
     <div class="wrap"><div class="pills">
       <button class="pill${EARLY===browseGenre?" on":""}" data-g="${EARLY}">🌱 Early Release · ${earlyN}</button>
+      <button class="pill${AI===browseGenre?" on":""}" data-g="${AI}">✦ AI Shorts · ${aiN}</button>
       ${GENRES.map(x=>
       `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${GICON[x]} ${x}</button>`).join("")}</div></div>
     <div class="wrap"><div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>
