@@ -475,7 +475,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script>
 "use strict";
 const C = window.SHORTZ_CATALOG || [];
-const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation","Anime","Reality","Sports"];
+const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation","Anime","Reality","Sports","Rebirth"];
 const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️",};
 
 /* ---------- utils ---------- */
@@ -503,7 +503,7 @@ function browseList(){
   const qf=browseListFiltered();
   if(qf)return alphaSort(qf);
   if(browseGenre===AI)return alphaSort(C.filter(t=>t.ai_made===true));
-  if(browseGenre===REBIRTH)return alphaSort(C.filter(t=>t.rebirth===true));
+  if(browseGenre==="Rebirth"||browseGenre===REBIRTH)return alphaSort(C.filter(t=>t.rebirth===true));
   return alphaSort(browseGenre===EARLY?C.filter(isEarlyRelease):C.filter(t=>t.genre===browseGenre));
 }
 const store = {
@@ -1625,9 +1625,8 @@ function renderBrowse(g){
     <div class="wrap"><div class="pills">
       <button class="pill${EARLY===browseGenre?" on":""}" data-g="${EARLY}">Early Release · ${earlyN}</button>
       <button class="pill${AI===browseGenre?" on":""}" data-g="${AI}">AI Shorts · ${aiN}</button>
-      <button class="pill${REBIRTH===browseGenre?" on":""}" data-g="${REBIRTH}">Rebirth · ${rebirthN}</button>
       ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
-      `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${x} · ${C.filter(t=>t.genre===x).length}</button>`).join("")}</div></div>
+      `<button class="pill${x===browseGenre?" on":""}" data-g="${x}">${x} · ${x==="Rebirth"?rebirthN:C.filter(t=>t.genre===x).length}</button>`).join("")}</div></div>
     <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
       ? `<div class="sect" style="margin-top:4px">Pick your sport</div><div class="sportpick" id="sportpick"></div>`
       : `<div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>`}
