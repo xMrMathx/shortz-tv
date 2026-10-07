@@ -263,7 +263,33 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .empty{text-align:center;color:var(--mut);padding:50px 20px;font-size:14px;line-height:1.7}
 .profhead{display:flex;gap:14px;align-items:center;margin:22px 0 16px}
 .avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--red),#7a0d18);
-  display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;box-shadow:0 8px 24px rgba(229,9,20,.4)}
+  display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;box-shadow:0 8px 24px rgba(229,9,20,.4);overflow:hidden;flex-shrink:0}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar.lg{width:84px;height:84px;font-size:34px}
+.avatar.sm{width:40px;height:40px;font-size:16px;box-shadow:none}
+/* preset avatar gradients */
+.pav0{background:linear-gradient(135deg,#e50914,#7a0d18)}.pav1{background:linear-gradient(135deg,#7b2ff7,#2f80ed)}
+.pav2{background:linear-gradient(135deg,#11998e,#38ef7d)}.pav3{background:linear-gradient(135deg,#fc4a1a,#f7b733)}
+.pav4{background:linear-gradient(135deg,#8e2de2,#4a00e0)}.pav5{background:linear-gradient(135deg,#2193b0,#6dd5ed)}
+.pav6{background:linear-gradient(135deg,#cc2b5e,#753a88)}.pav7{background:linear-gradient(135deg,#134e5e,#71b280)}
+.pav8{background:linear-gradient(135deg,#232526,#414345)}.pav9{background:linear-gradient(135deg,#f857a6,#ff5858)}
+/* profile */
+.biochips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.biochip{font-size:12px;font-weight:700;padding:6px 12px;border-radius:20px;background:#1c1c26;border:1px solid var(--line);color:var(--txt)}
+.prow{display:flex;align-items:center;gap:12px;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.06)}
+.pinput{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:#101016;color:var(--txt);font-size:15px;margin:6px 0}
+.gpick{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.gpick .gpill{padding:9px 14px;border-radius:20px;border:1px solid var(--line);background:#14141c;color:var(--txt);font-size:13px;font-weight:700;cursor:pointer}
+.gpick .gpill.on{background:var(--red);border-color:var(--red);color:#fff}
+.presetrow{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.presetrow .avatar{cursor:pointer;border:2px solid transparent}
+.presetrow .avatar.sel{border-color:#fff}
+.friendsearch{display:flex;gap:8px;margin:10px 0}
+.friendsearch .pinput{margin:0}
+.secttl{font-size:14px;font-weight:800;margin:18px 0 4px;color:var(--txt)}
+.pbtn{padding:12px 20px;border-radius:12px;border:none;background:var(--red);color:#fff;font-size:15px;font-weight:800;cursor:pointer}
+.pbtn.ghost{background:#1c1c26;border:1px solid var(--line)}
+.pbtn.sm{padding:8px 14px;font-size:13px}
 .statrow{display:flex;gap:10px;margin-bottom:16px}
 .stat{flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 8px;text-align:center}
 .stat b{font-size:22px;display:block}
@@ -531,6 +557,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
 <script src="catalog.js"></script>
 <script>
 "use strict";
@@ -2054,20 +2081,157 @@ function renderMyList(){
 }
 
 /* ---------- profile ---------- */
+/* ============================================================
+   USER PROFILES (v1.2.46)
+   users/{uid}/profile = {name, photo, favGenres[], createdAt}
+   photo: "preset:N" or an https URL (Firebase Storage)
+   ============================================================ */
+const PRESET_N=10;
+function presetClass(i){return "pav"+((i%PRESET_N+PRESET_N)%PRESET_N);}
+function avatarHTML(prof,cls){
+  cls=cls||"";
+  const nm=(prof&&prof.name)||"V";
+  const init=esc(nm[0].toUpperCase());
+  const ph=prof&&prof.photo||"";
+  if(ph.indexOf("preset:")===0){
+    return `<div class="avatar ${cls} ${presetClass(parseInt(ph.slice(7),10)||0)}">${init}</div>`;
+  }
+  if(ph.indexOf("http")===0){
+    return `<div class="avatar ${cls}"><img src="${esc(ph)}" alt="" onerror="this.remove()">${init}</div>`;
+  }
+  return `<div class="avatar ${cls} pav0">${init}</div>`;
+}
+function getProfile(){
+  return store.get("profile",null);
+}
+async function loadProfile(){
+  let p=getProfile();
+  if(p) return p;
+  // try remote
+  try{
+    const ok=await liveEnsure();
+    if(ok&&Live.db){
+      const snap=await Live.db.ref("users/"+Live.uid+"/profile").once("value");
+      const rp=snap.val();
+      if(rp){ store.set("profile",rp); return rp; }
+    }
+  }catch(e){}
+  return null;
+}
+async function saveProfile(p){
+  p.createdAt=p.createdAt||Date.now();
+  store.set("profile",p);
+  try{
+    const ok=await liveEnsure();
+    if(ok&&Live.db){
+      await Live.db.ref("users/"+Live.uid+"/profile").set(p);
+      await Live.db.ref("users/"+Live.uid+"/name").set(p.name||"Viewer");
+      Live.name=p.name||Live.name;
+    }
+  }catch(e){}
+}
+function bioLine(p){
+  const g=(p&&p.favGenres)||[];
+  return g.length?("Into: "+g.join(", ")):"Pick your favorite genres below";
+}
+
 function renderProfile(){
+  const aiN=C.filter(t=>t.ai_made).length;
+  const p=getProfile();
+  if(!p){ renderProfileSetup(); return; }
+  const friendsN=(Live.friendsSnap&&Object.keys(Live.friendsSnap).length)||0;
+  $("#view-profile").innerHTML=`<div class="wrap">
+    <div class="profhead">
+      ${avatarHTML(p,"lg")}
+      <div style="flex:1"><div style="font-size:19px;font-weight:800">${esc(p.name||"Viewer")}</div>
+      <div style="font-size:12px;color:var(--mut);margin-top:4px">${esc(bioLine(p))}</div></div>
+      <button class="pbtn ghost sm" id="profEdit">Edit</button>
+    </div>
+    <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
+    <div class="statrow" style="margin-top:14px">
+      <div class="stat"><b>${C.length}</b><small>SERIES</small></div>
+      <div class="stat"><b>${GENRES.length}</b><small>GENRES</small></div>
+      <div class="stat"><b id="profFriendN">${friendsN}</b><small>FRIENDS</small></div>
+    </div>
+    <div class="secttl">Friends</div>
+    <div class="friendsearch">
+      <input id="frSearch" class="pinput" placeholder="Search users by name…" autocomplete="off">
+      <button class="pbtn sm" id="frGo">Find</button>
+    </div>
+    <div id="frResults"></div>
+    <div class="secttl">Requests <span id="frReqN"></span></div>
+    <div id="frRequests"><div style="color:var(--mut);font-size:13px">Loading…</div></div>
+    <div class="secttl">My friends</div>
+    <div id="frList"><div style="color:var(--mut);font-size:13px">Loading…</div></div>
+    <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
+    <div class="freebanner" style="margin-top:14px"><b>✓ 100% FREE — FOREVER</b>
+      <p>No coins. No paywall. No locked episodes. No subscription. Every short in Shortz TV is free to watch, always.</p></div>
+    <div style="margin-top:6px">
+      <div class="setitem">🔔 New series alerts <small>On ›</small></div>
+      <div class="setitem">📺 Autoplay <small>Up next feed ›</small></div>
+      <div class="setitem">💾 My List <small>${mylist.size} saved ›</small></div>
+      <div class="setitem">ℹ️ Sources &amp; licenses <small>${C.length} embeds ›</small></div>
+    </div>
+    <div style="padding:20px 0 10px;color:var(--mut);font-size:11px;line-height:1.7">
+      All series stream from their official, studio, or creator channels via embed — nothing pirated.
+      ${aiN} series are labeled ✦ Made with AI, the same way YouTube labels them.
+      <br>Shortz TV v1.2.46</div>
+  </div>`;
+  $("#profEdit").onclick=()=>renderProfileEdit();
+  const ib=$("#installAppBtn");
+  if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
+  initFriendsUI();
+  // keep friend count fresh
+  liveEnsure().then(ok=>{
+    if(!ok)return;
+    Live.db.ref("users/"+Live.uid+"/friends").on("value",s=>{
+      Live.friendsSnap=s.val()||{};
+      const n=$("#profFriendN"); if(n)n.textContent=Object.keys(Live.friendsSnap).length;
+      renderFriendList();
+    });
+    Live.db.ref("users/"+Live.uid+"/friendRequests").on("value",s=>renderFriendRequests(s.val()||{}));
+  });
+}
+
+/* ---------- first-launch profile setup (skippable) ---------- */
+function renderProfileSetup(){
+  $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
+    <div style="font-size:22px;font-weight:800">Create your profile</div>
+    <div style="font-size:13px;color:var(--mut);margin:4px 0 14px">Pick a name, a photo, and your favorite genres.</div>
+    <div id="profSetupForm"></div>
+    <div style="display:flex;gap:10px;margin-top:14px">
+      <button class="pbtn" id="profSetupSave" style="flex:1">Save profile</button>
+      <button class="pbtn ghost" id="profSetupSkip">Skip</button>
+    </div>
+  </div>`;
+  renderProfileForm($("#profSetupForm"),{name:"",photo:"preset:0",favGenres:[]});
+  $("#profSetupSave").onclick=async()=>{
+    const p=collectProfileForm($("#profSetupForm"));
+    if(!p.name){toast("Add a display name");return;}
+    await saveProfile(p);
+    toast("Profile created ✓");
+    renderProfile();
+  };
+  $("#profSetupSkip").onclick=()=>{
+    store.set("profile_skipped",1);
+    renderProfileLegacy();
+  };
+}
+/* legacy read-only view for users who skip setup */
+function renderProfileLegacy(){
   const aiN=C.filter(t=>t.ai_made).length;
   $("#view-profile").innerHTML=`<div class="wrap">
     <div class="profhead">
       <div class="avatar">S</div>
-      <div><div style="font-size:17px;font-weight:800">Shortz TV viewer</div>
+      <div style="flex:1"><div style="font-size:17px;font-weight:800">Shortz TV viewer</div>
       <div style="font-size:12px;color:var(--mut);margin-top:2px">Watching free since day one</div></div>
+      <button class="pbtn sm" id="profCreate">Create profile</button>
     </div>
     <div class="statrow">
       <div class="stat"><b>${C.length}</b><small>SERIES</small></div>
       <div class="stat"><b>${GENRES.length}</b><small>GENRES</small></div>
       <div class="stat"><b>∞</b><small>FREE</small></div>
     </div>
-    <button id="installAppBtn" class="btn-play installbtn" style="display:none">📲 Install App</button>
     <div class="freebanner"><b>✓ 100% FREE — FOREVER</b>
       <p>No coins. No paywall. No locked episodes. No subscription. Every short in Shortz TV is free to watch, always.</p></div>
     <div style="margin-top:6px">
@@ -2079,10 +2243,178 @@ function renderProfile(){
     <div style="padding:20px 0 10px;color:var(--mut);font-size:11px;line-height:1.7">
       All series stream from their official, studio, or creator channels via embed — nothing pirated.
       ${aiN} series are labeled ✦ Made with AI, the same way YouTube labels them.
-      <br>Shortz TV v1.0.2</div>
+      <br>Shortz TV v1.2.46</div>
   </div>`;
-  const ib=$("#installAppBtn");
-  if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
+  $("#profCreate").onclick=()=>{store.set("profile_skipped",0);renderProfileSetup();};
+}
+
+/* ---------- profile edit form ---------- */
+function renderProfileEdit(){
+  const p=getProfile()||{name:"",photo:"preset:0",favGenres:[]};
+  $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:20px">
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="pbtn ghost sm" id="profBack">‹ Back</button>
+      <div style="font-size:19px;font-weight:800">Edit profile</div>
+    </div>
+    <div id="profEditForm" style="margin-top:10px"></div>
+    <button class="pbtn" id="profSave" style="width:100%;margin-top:14px">Save</button>
+  </div>`;
+  renderProfileForm($("#profEditForm"),p);
+  $("#profBack").onclick=()=>renderProfile();
+  $("#profSave").onclick=async()=>{
+    const np=collectProfileForm($("#profEditForm"));
+    if(!np.name){toast("Add a display name");return;}
+    np.createdAt=p.createdAt||Date.now();
+    await saveProfile(np);
+    toast("Saved ✓");
+    renderProfile();
+  };
+}
+function renderProfileForm(box,p){
+  const cur=p.photo||"preset:0";
+  const curIdx=cur.indexOf("preset:")===0?parseInt(cur.slice(7),10)||0:-1;
+  const nm=(p.name||"V")[0].toUpperCase();
+  box.innerHTML=`
+    <div class="plabel">DISPLAY NAME</div>
+    <input id="pfName" class="pinput" maxlength="24" placeholder="Your name" value="${esc(p.name||"")}">
+    <div class="plabel" style="margin-top:10px">PROFILE PHOTO</div>
+    <div style="display:flex;align-items:center;gap:12px;margin:8px 0">
+      <div id="pfPreview">${avatarHTML({name:p.name||"V",photo:cur},"lg")}</div>
+      <div>
+        <input type="file" id="pfFile" accept="image/*" style="display:none">
+        <button type="button" class="pbtn ghost sm" id="pfUpload">Upload photo</button>
+        <div style="font-size:11px;color:var(--mut);margin-top:6px">or pick one below</div>
+      </div>
+    </div>
+    <div class="presetrow" id="pfPresets">
+      ${Array.from({length:PRESET_N},(_,i)=>`<div class="avatar ${presetClass(i)}${i===curIdx?" sel":""}" data-pi="${i}">${esc(nm)}</div>`).join("")}
+    </div>
+    <div class="plabel" style="margin-top:10px">FAVORITE GENRES <span style="color:var(--mut);font-weight:400">(tap to pick)</span></div>
+    <div class="gpick" id="pfGenres">
+      ${GENRES.map(g=>`<button type="button" class="gpill${(p.favGenres||[]).includes(g)?" on":""}" data-g="${esc(g)}">${esc(g)}</button>`).join("")}
+    </div>`;
+  let photo=cur;
+  const setPhoto=ph=>{photo=ph;$("#pfPreview").innerHTML=avatarHTML({name:$("#pfName").value||"V",photo:ph},"lg");
+    box.querySelectorAll("#pfPresets .avatar").forEach(a=>a.classList.toggle("sel",a.dataset.pi===String(curIdx2(ph))));};
+  const curIdx2=ph=>ph.indexOf("preset:")===0?parseInt(ph.slice(7),10)||0:-1;
+  box.querySelectorAll("#pfPresets .avatar").forEach(a=>a.onclick=()=>setPhoto("preset:"+a.dataset.pi));
+  box.querySelector("#pfName").oninput=e=>{box.querySelector("#pfPreview").innerHTML=avatarHTML({name:e.target.value||"V",photo:photo},"lg");};
+  box.querySelector("#pfUpload").onclick=()=>box.querySelector("#pfFile").click();
+  box.querySelector("#pfFile").onchange=async e=>{
+    const f=e.target.files&&e.target.files[0]; if(!f)return;
+    toast("Uploading…");
+    try{
+      const url=await uploadProfilePhoto(f);
+      if(url){setPhoto(url);toast("Photo uploaded ✓");}
+      else{toast("Upload unavailable — pick a preset");}
+    }catch(_){toast("Upload unavailable — pick a preset");}
+  };
+  box.querySelectorAll("#pfGenres .gpill").forEach(b=>b.onclick=()=>b.classList.toggle("on"));
+  box._getPhoto=()=>photo;
+}
+function collectProfileForm(box){
+  const name=(box.querySelector("#pfName").value||"").trim().slice(0,24);
+  const photo=box._getPhoto?box._getPhoto():"preset:0";
+  const favGenres=[...box.querySelectorAll("#pfGenres .gpill.on")].map(b=>b.dataset.g);
+  return {name:name||"Viewer",photo:photo,favGenres:favGenres};
+}
+async function uploadProfilePhoto(file){
+  try{
+    const ok=await liveEnsure();
+    if(!ok||!firebase.storage) return null;
+    const st=firebase.storage();
+    const ref=st.ref("avatars/"+Live.uid+"/"+Date.now()+"_"+(file.name||"photo.jpg").replace(/[^\w.]/g,"_"));
+    await ref.put(file,{contentType:file.type||"image/jpeg"});
+    return await ref.getDownloadURL();
+  }catch(e){ return null; }
+}
+
+/* ---------- friends: search, requests, list ---------- */
+function initFriendsUI(){
+  const go=$("#frGo"), inp=$("#frSearch");
+  if(go) go.onclick=()=>searchUsers(inp.value.trim());
+  if(inp) inp.addEventListener("keydown",e=>{if(e.key==="Enter")searchUsers(inp.value.trim());});
+}
+async function searchUsers(q){
+  const box=$("#frResults");
+  if(!q){box.innerHTML="";return;}
+  box.innerHTML=`<div style="color:var(--mut);font-size:13px">Searching…</div>`;
+  try{
+    const ok=await liveEnsure(); if(!ok){box.innerHTML="";return;}
+    const snap=await Live.db.ref("users").limitToFirst(200).once("value");
+    const all=snap.val()||{};
+    const ql=q.toLowerCase();
+    const hits=[];
+    Object.keys(all).forEach(uid=>{
+      if(uid===Live.uid)return;
+      const u=all[uid]||{};
+      const prof=u.profile||{};
+      const nm=(prof.name||u.name||"").toString();
+      if(nm.toLowerCase().includes(ql)) hits.push({uid:uid,name:nm,photo:prof.photo||""});
+    });
+    if(!hits.length){box.innerHTML=`<div style="color:var(--mut);font-size:13px">No users named “${esc(q)}”.</div>`;return;}
+    const friends=Live.friendsSnap||{};
+    box.innerHTML=hits.slice(0,20).map(h=>`
+      <div class="prow">${avatarHTML(h,"sm")}
+        <div style="flex:1"><div style="font-weight:700;font-size:14px">${esc(h.name||"Viewer")}</div></div>
+        ${friends[h.uid]?`<span style="color:var(--mut);font-size:12px">Friends ✓</span>`
+          :`<button class="pbtn ghost sm" data-add="${h.uid}" data-nm="${esc(h.name||"Viewer")}" data-ph="${esc(h.photo||"")}">Add</button>`}
+      </div>`).join("");
+    box.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>sendFriendRequest(b.dataset.add,{name:b.dataset.nm,photo:b.dataset.ph}));
+  }catch(e){ box.innerHTML=`<div style="color:var(--mut);font-size:13px">Search failed — try again.</div>`; }
+}
+async function sendFriendRequest(toUid,info){
+  try{
+    const ok=await liveEnsure(); if(!ok)return;
+    const me=getProfile()||{};
+    await Live.db.ref("users/"+toUid+"/friendRequests/"+Live.uid).set({
+      name:me.name||Live.name||"Viewer", photo:me.photo||"", ts:Date.now()
+    });
+    toast("Request sent ✓");
+    searchUsers(($("#frSearch")||{}).value||"");
+  }catch(e){ toast("Couldn't send — try again"); }
+}
+function renderFriendRequests(reqs){
+  const box=$("#frRequests"); if(!box)return;
+  const ids=Object.keys(reqs||{});
+  const n=$("#frReqN"); if(n)n.textContent=ids.length?`(${ids.length})`:"";
+  if(!ids.length){box.innerHTML=`<div style="color:var(--mut);font-size:13px">No pending requests.</div>`;return;}
+  box.innerHTML=ids.map(uid=>{
+    const r=reqs[uid]||{};
+    return `<div class="prow">${avatarHTML(r,"sm")}
+      <div style="flex:1"><div style="font-weight:700;font-size:14px">${esc(r.name||"Viewer")}</div>
+      <div style="font-size:12px;color:var(--mut)">wants to be friends</div></div>
+      <button class="pbtn sm" data-acc="${uid}" data-nm="${esc(r.name||"Viewer")}" data-ph="${esc(r.photo||"")}">Accept</button>
+      <button class="pbtn ghost sm" data-dec="${uid}">Decline</button>
+    </div>`;
+  }).join("");
+  box.querySelectorAll("[data-acc]").forEach(b=>b.onclick=()=>acceptFriend(b.dataset.acc,{name:b.dataset.nm,photo:b.dataset.ph}));
+  box.querySelectorAll("[data-dec]").forEach(b=>b.onclick=async()=>{
+    try{await Live.db.ref("users/"+Live.uid+"/friendRequests/"+b.dataset.dec).remove();}catch(e){}
+  });
+}
+async function acceptFriend(uid,info){
+  try{
+    const me=getProfile()||{};
+    const batch={};
+    batch["users/"+Live.uid+"/friends/"+uid]={name:info.name||"Viewer",photo:info.photo||"",since:Date.now()};
+    batch["users/"+uid+"/friends/"+Live.uid]={name:me.name||Live.name||"Viewer",photo:me.photo||"",since:Date.now()};
+    batch["users/"+Live.uid+"/friendRequests/"+uid]=null;
+    await Live.db.ref().update(batch);
+    toast("Friends ✓");
+  }catch(e){ toast("Couldn't accept — try again"); }
+}
+function renderFriendList(){
+  const box=$("#frList"); if(!box)return;
+  const friends=Live.friendsSnap||{};
+  const ids=Object.keys(friends);
+  if(!ids.length){box.innerHTML=`<div style="color:var(--mut);font-size:13px">No friends yet — search above to add some.</div>`;return;}
+  box.innerHTML=ids.map(fid=>{
+    const f=friends[fid]||{};
+    return `<div class="prow">${avatarHTML(f,"sm")}
+      <div style="flex:1"><div style="font-weight:700;font-size:14px">${esc(f.name||"Viewer")}</div></div>
+    </div>`;
+  }).join("");
 }
 
 /* ---------- PWA install ---------- */
@@ -2191,7 +2523,12 @@ async function liveEnsure(){
       const cred = await Live.auth.signInAnonymously();
       Live.uid = cred.user.uid;
       let nm = store.get("live_name","");
-      if(!nm){ nm = await liveAskName(); store.set("live_name",nm); }
+      if(!nm){
+        const prof=store.get("profile",null);
+        if(prof&&prof.name){ nm=prof.name; }
+        else{ nm = await liveAskName(); }
+        store.set("live_name",nm);
+      }
       Live.name = nm;
       Live.authed = true;
       await Live.db.ref("users/"+Live.uid+"/name").set(nm);
