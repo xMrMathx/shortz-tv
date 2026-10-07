@@ -1,5 +1,5 @@
 {
- "note": "v1.2.30 live: Short Films genre (63 films), 627 series total",
+ "note": "v1.2.31 live (627 series): Home feed sound ON by default, pause/resume race fix",
  "phases": [
   {
    "id": "mockup",
@@ -44,6 +44,6 @@
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.30",
- "updatedAt": "2026-10-07T20:22:00+00:00"
+ "shipped": "v1.2.31",
+ "updatedAt": "2026-10-07T20:23:00+00:00"
 }
