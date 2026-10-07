@@ -30,8 +30,8 @@
   },
   {
    "id": "release",
-   "label": "Build + ship v1.2.2",
-   "note": "versionCode 23 \u2014 picker rows with posters + descriptions, shipped",
+   "label": "Build + ship v1.2.3",
+   "note": "versionCode 24 \u2014 136 rebirth shorts added, 319 series",
    "pct": 100,
    "status": "done"
   },
@@ -44,6 +44,6 @@
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.2 \u00b7 Live picker posters + descriptions",
- "updatedAt": "2026-10-07T10:46:00-05:00"
+ "shipped": "v1.2.3 \u00b7 136 rebirth shorts, 319 series",
+ "updatedAt": "2026-10-07T10:49:00-05:00"
 }
