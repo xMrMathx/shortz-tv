@@ -584,7 +584,7 @@ function renderView(v){
 const feed={cur:null, curEp:null};
 function curUrl(){return (feed.curEp&&feed.curEp.url)||(feed.cur&&feed.cur.url)||""}
 function curIsVimeo(){return curUrl().indexOf("vimeo.com")>=0}
-let soundOn=false, feedMounted=false;
+let soundOn=true, feedMounted=false; // sound ON by default — no tap needed, ever
 let lastTapT=0, tapTimer=null; // single/double-tap disambiguation
 let feedStack=[], feedPos=-1;          // ordered visit history; feedPos = current index
 let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,next]
@@ -1053,10 +1053,12 @@ function togglePause(){
   flashPauseIcon(slide,paused);
 }
 /* auto-pause the feed video when navigating away from home */
+let _nukeTimer=null;
 function pauseFeedVideo(){
   const slide=curSlide();if(!slide||!feed.cur)return;
   const fr=slide.querySelector("[data-frame]");
   slide._paused=true;
+  if(_nukeTimer){clearTimeout(_nukeTimer);_nukeTimer=null;}
   if(!fr)return;
   const kill=()=>{
     try{
@@ -1074,11 +1076,13 @@ function pauseFeedVideo(){
   };
   kill();
   setTimeout(kill,300);
-  setTimeout(()=>{ // nuclear fallback: nuke the iframe so audio CANNOT continue
+  _nukeTimer=setTimeout(()=>{ // nuclear fallback: nuke the iframe so audio CANNOT continue
+    _nukeTimer=null;
     try{ if(fr.parentNode){ fr.src="about:blank"; slide._nuked=true; } }catch(e){}
   },800);
 }
 function resumeFeedVideo(){
+  if(_nukeTimer){clearTimeout(_nukeTimer);_nukeTimer=null;} // cancel pending nuke — we're back
   const slide=curSlide();if(!slide||!feed.cur||!slide._nuked)return;
   slide._nuked=false;slide._paused=false;
   loadVideoInto(slide,curUrl(),vidOf(curUrl()));
