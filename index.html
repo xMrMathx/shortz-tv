@@ -203,6 +203,18 @@ body.rot-full #rotexit{display:block}
 .feat-hero .fh-k{font-size:11px;font-weight:800;letter-spacing:2px;color:#ff3b3b;text-transform:uppercase}
 .feat-hero .fh-t{font-size:19px;font-weight:800;color:#fff;margin:2px 0}
 .feat-hero .fh-s{font-size:12px;color:#ccc}
+/* ---------- Top 10 (Netflix-style) ---------- */
+.top10-sec{margin:16px -16px 8px}
+.top10-head{display:flex;align-items:baseline;gap:8px;padding:0 16px;margin-bottom:6px}
+.top10-head h3{font-size:17px;font-weight:800;color:#fff;margin:0}
+.top10-head span{font-size:12px;color:var(--mut)}
+.top10-row{display:flex;gap:2px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.top10-row::-webkit-scrollbar{display:none}
+.top10-item{position:relative;flex:0 0 auto;width:152px;cursor:pointer}
+.top10-num{position:absolute;left:0;bottom:36px;font-family:Arial,Helvetica,sans-serif;font-size:118px;font-weight:900;line-height:.8;color:#0a0a0a;-webkit-text-stroke:4px #e5e5e5;z-index:0;user-select:none}
+.top10-item img{position:relative;z-index:1;display:block;width:104px;height:148px;object-fit:cover;border-radius:8px;margin-left:46px;box-shadow:0 6px 18px rgba(0,0,0,.55);background:#1a1a1a}
+.top10-t{position:relative;z-index:1;font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0 46px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100px}
+.top10-v{position:relative;z-index:1;font-size:10px;color:var(--mut);margin:1px 0 0 46px}
 /* ---------- browse ---------- */
 body.force-land #view-home{transform:rotate(90deg);transform-origin:center center;width:100vh;height:100vw;position:fixed;top:50%;left:50%;margin-left:-50vw;margin-top:-50vh}
 .pills{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;margin:0 -16px}
@@ -1847,6 +1859,42 @@ function browseListFiltered(){
   if(!q)return null;
   return C.filter(t=>((t.title||"")+" "+(t.genre||"")+" "+(t.desc||"")).toLowerCase().indexOf(q)>=0);
 }
+/* ---------- Top 10: most-watched series, from top10.json ---------- */
+let top10Cache=null;
+function fmtViews(v){
+  if(v>=1e9) return (v/1e9).toFixed(1).replace(/\.0$/,"")+"B views";
+  if(v>=1e6) return (v/1e6).toFixed(1).replace(/\.0$/,"")+"M views";
+  if(v>=1e3) return (v/1e3).toFixed(1).replace(/\.0$/,"")+"K views";
+  return v+" views";
+}
+async function loadTop10(){
+  const sec=$("#top10sec"), row=$("#top10row");
+  if(!sec||!row) return;
+  try{
+    if(!top10Cache){
+      // absolute URL works in both the web app and the APK (base URL is the domain root)
+      let r=null;
+      try{ r=await fetch("https://xmrmathx.github.io/shortz-tv/top10.json",{cache:"no-cache"}); }catch(e){}
+      if(!r||!r.ok){ r=await fetch("top10.json",{cache:"no-cache"}); }
+      if(!r.ok) throw 0;
+      top10Cache=await r.json();
+    }
+    const list=(top10Cache||[]).slice(0,10);
+    if(!list.length) return;
+    row.innerHTML=list.map((t,i)=>`
+      <div class="top10-item" data-tid="${esc(t.id)}">
+        <div class="top10-num">${i+1}</div>
+        <img src="${esc(t.thumb)}" alt="" loading="lazy" onerror="this.style.display='none'">
+        <div class="top10-t">${esc(t.title)}</div>
+        <div class="top10-v">${fmtViews(t.views||0)}</div>
+      </div>`).join("");
+    row.querySelectorAll("[data-tid]").forEach(el=>{
+      el.onclick=()=>{ const t=byId(el.dataset.tid); if(t) openDetail(t.id); };
+    });
+    sec.style.display="";
+  }catch(e){ /* Top 10 stays hidden if the file is missing */ }
+}
+
 function renderBrowse(g){
   browseGenre=g||browseGenre;
   const list=browseList();
@@ -1864,6 +1912,10 @@ function renderBrowse(g){
         <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
       </div>
     </div>
+    <div class="wrap"><div class="top10-sec" id="top10sec" style="display:none">
+      <div class="top10-head"><h3>Top 10</h3><span>Most watched</span></div>
+      <div class="top10-row" id="top10row"></div>
+    </div></div>
     <div class="wrap"><div class="gdrop" id="gdrop">
       <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
@@ -1881,6 +1933,7 @@ function renderBrowse(g){
   else { bindCards($("#view-browse")); }
   const fh=$("#view-browse .feat-hero");
   if(fh) fh.onclick=()=>{ const t=byId(fh.dataset.feat); if(t){ openDetail(t.id); } };
+  loadTop10(); // Netflix-style Top 10 row under the search bar
   const si=$("#bsearch"),sx=$("#bsearchx"),bc=$("#bcount"),gr=$("#bgrid"),nr=$("#bnores");
   const applySearch=()=>{
     browseQuery=si.value;
