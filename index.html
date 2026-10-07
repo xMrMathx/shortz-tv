@@ -455,8 +455,8 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script>
 "use strict";
 const C = window.SHORTZ_CATALOG || [];
-const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation"];
-const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨"};
+const GENRES = ["Romance","Thriller","Mystery","Sci-Fi","Horror","Comedy","Hood","Fantasy","Family","Action","Revenge","Western","Faith","Animation","Anime"];
+const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️"};
 
 /* ---------- utils ---------- */
 const $ = s => document.querySelector(s);
@@ -1570,7 +1570,7 @@ function renderBrowse(g){
   const rebirthN=C.filter(t=>t.rebirth===true).length;
   $("#view-browse").innerHTML=`
     <div class="wrap" style="padding-top:18px">
-      <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span id="bcount">${browseQuery.trim()?"":"14 genres"}</span></div>
+      <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
       <div class="searchbar">
         <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
         <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
@@ -1593,7 +1593,7 @@ function renderBrowse(g){
     bindCards(gr);
     nr.style.display=l.length?"none":"";
     sx.style.display=si.value?"":"none";
-    bc.textContent=si.value.trim()?`${l.length} result${l.length===1?"":"s"}`:"14 genres";
+    bc.textContent=si.value.trim()?`${l.length} result${l.length===1?"":"s"}`:`${GENRES.length} genres`;
   };
   si.addEventListener("input",applySearch);
   sx.onclick=()=>{si.value="";applySearch();si.focus();};
@@ -1609,7 +1609,7 @@ function renderBrowse(g){
         browseGenre=p.dataset.g;
         gr.innerHTML=browseList().map(cardHTML).join("");
         bindCards(gr);gr.classList.remove("fading");
-        nr.style.display="none";sx.style.display="none";bc.textContent="14 genres";
+        nr.style.display="none";sx.style.display="none";bc.textContent=`${GENRES.length} genres`;
       },320);
     };
   });

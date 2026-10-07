@@ -30,8 +30,8 @@
   },
   {
    "id": "release",
-   "label": "Build + ship v1.2.4",
-   "note": "versionCode 25 \u2014 61 hood shorts integrated, QA pass, shipped",
+   "label": "Build + ship v1.2.5",
+   "note": "versionCode 26 \u2014 237 anime shorts, QA 9/9, shipped",
    "pct": 100,
    "status": "done"
   },
@@ -44,6 +44,6 @@
   }
  ],
  "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.4 \u00b7 61 hood shorts, 380 series",
- "updatedAt": "2026-10-07T11:15:00-05:00"
+ "shipped": "v1.2.5 \u00b7 237 anime shorts, 617 series",
+ "updatedAt": "2026-10-07T11:20:00-05:00"
 }
