@@ -227,6 +227,22 @@ body.pip .scrub{display:none!important}
 #cform input{flex:1;background:#1a1a24;border:1px solid var(--line);border-radius:22px;padding:12px 16px;color:#fff;font-size:14px;outline:none}
 #cform button{background:var(--red);color:#fff;font-weight:800;padding:12px 20px;border-radius:22px}
 
+/* ---------- subtitles & audio sheet (v1.1.8) ---------- */
+#ccsheet{position:fixed;left:0;right:0;bottom:0;z-index:110;max-height:70vh;background:#101016;border-radius:22px 22px 0 0;
+  border-top:1px solid var(--line);transform:translateY(105%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
+#ccsheet.open{transform:none}
+#ccsheet .grab{width:44px;height:5px;border-radius:3px;background:#333;margin:10px auto 4px;flex-shrink:0}
+#ccbody{overflow-y:auto;padding:6px 18px calc(18px + env(safe-area-inset-bottom))}
+.ccsec-h{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--mut);margin:14px 0 4px}
+.ccrow{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:13px 2px;
+  border-bottom:1px solid rgba(255,255,255,.05);font-size:14px;font-weight:600;color:var(--txt)}
+.ccrow:active{background:rgba(255,255,255,.06)}
+.ccrow .ck{margin-left:auto;color:var(--red);font-weight:900;font-size:16px;opacity:0}
+.ccrow.sel .ck{opacity:1}
+.ccnone{padding:13px 2px;font-size:13px;color:var(--mut)}
+.ccnote{font-size:11px;color:var(--mut);margin-top:14px;line-height:1.55}
+.ric button.ccon{color:var(--red)}
+
 #toast{position:fixed;bottom:110px;left:50%;transform:translateX(-50%) translateY(20px);z-index:130;background:#1c1c26;
   border:1px solid var(--line);padding:12px 22px;border-radius:26px;font-size:13px;font-weight:700;opacity:0;
   transition:all .4s var(--ease);pointer-events:none;white-space:nowrap}
@@ -275,7 +291,7 @@ body.feedfull #tabbar{background:linear-gradient(transparent,rgba(5,5,10,.9) 55%
 /* PiP mini window: video only, all chrome hidden */
 body.pip #topbar,body.pip #tabbar,body.pip #viewpad,
 body.pip .feed-rail,body.pip .feed-bottom,body.pip .soundprompt,
-body.pip #edraw,body.pip #escrim,body.pip #cdraw,body.pip #cscrim{display:none!important}
+body.pip #edraw,body.pip #escrim,body.pip #cdraw,body.pip #cscrim,body.pip #ccsheet{display:none!important}
 /* PiP mini window: video fills edge-to-edge, always cover (no dvh units, no fit mode).
    Iframe geometry is set by applyPipLayout() (pure cover math) so it fills at ANY window ratio. */
 body.pip{overflow:hidden!important}
@@ -315,6 +331,15 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <div class="chead"><button id="cclose" aria-label="Close comments">✕</button><h3>💬 Comments</h3></div>
     <div id="clist"></div>
     <form id="cform"><input id="cinput" placeholder="Add a comment…" maxlength="300" autocomplete="off"><button type="submit">Post</button></form>
+  </div>
+  <div id="ccsheet">
+    <div class="grab"></div>
+    <div class="chead"><button id="ccclose" aria-label="Close">✕</button><h3>Subtitles &amp; audio</h3></div>
+    <div id="ccbody">
+      <div class="ccsec-h">SUBTITLES</div><div id="ccSubs"></div>
+      <div class="ccsec-h">AUDIO</div><div id="ccAudio"></div>
+      <div class="ccnote">English audio appears only when the uploader provided it — most reuploads carry a single audio track.</div>
+    </div>
   </div>
 
   <div id="escrim"></div>
@@ -387,6 +412,10 @@ let comments = store.get("comments",{});
 let history = store.get("history",[]);
 if(!Array.isArray(history))history=[]; // corrupted storage must never break recents
 let seen = store.get("seen",[]);
+// v1.1.8: persisted subtitle + audio preferences ("" = off / original)
+let ccLang = store.get("cc_lang","")||"";
+let audioLang = store.get("audio_lang","")||"";
+let ccSlide = null, ccTracks = [], ccLoading = false;
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800)}
 function saveList(){store.set("mylist",[...mylist])}
 function aiChip(t){return t.ai_made?'<span class="ai-chip">✦ Made with AI</span>':""}
@@ -532,6 +561,7 @@ function slideHTML(){
       <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
       <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
       <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
+      <div class="ric"><button data-a="cc" data-cc>CC</button><span>Subs</span></div>
       <div class="ric"><button data-a="pip">⧉</button><span>PiP</span></div>
       <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
     </div>
@@ -577,6 +607,7 @@ function fillSlide(node,t,mode){
   node._t=t||null;
   const bd=node.querySelector("[data-backdrop]");
   node._fit=false; // every video starts in fill
+  markCc(node,false); // captions reset per video; applySavedTracks re-arms on ready
   if(!t){
     fr.removeAttribute("src");fr.onload=null;
     node.querySelector("[data-title]").textContent="";
@@ -625,7 +656,150 @@ function railAction(a,slide){
     saveList();updateRailIn(slide,t);
   }else if(a==="info"){openDetail(t.id)}
   else if(a==="fit"){toggleFit(slide)}
+  else if(a==="cc"){openCc(slide)}
   else if(a==="pip"){try{if(window.Android&&window.Android.enterPip)window.Android.enterPip()}catch(e){}}
+}
+
+/* ---------- subtitles & audio (v1.1.8) ---------- */
+// YouTube captions module: per the IFrame API docs, poll getOptions('captions')
+// — 'tracklist'/'track' are only usable when the module exposes them.
+function ytCcTracks(p){
+  try{
+    if(!p||!p.getOptions)return[];
+    const opts=p.getOptions("captions")||[];
+    if(opts.indexOf("tracklist")<0)return[];
+    return p.getOption("captions","tracklist")||[];
+  }catch(e){return[];}
+}
+function ytSetCc(p,code){
+  try{
+    if(code)p.setOption("captions","track",{languageCode:code});
+    else p.setOption("captions","track",{});
+    return true;
+  }catch(e){return false;}
+}
+// setAudioTrack is NOT in the public IFrame API docs — feature-detect it;
+// most uploads expose no alternate audio, so the menu stays honest.
+function ytHasAudioSwitch(p){return !!(p&&typeof p.setAudioTrack==="function");}
+function markCc(slide,on){
+  const b=slide&&slide.querySelector("[data-cc]");
+  if(b)b.classList.toggle("ccon",!!on);
+}
+function slideIsVimeo(slide){
+  const fr=slide&&slide.querySelector("[data-frame]");
+  return fr&&fr.src?fr.src.indexOf("vimeo")>=0:false;
+}
+function applySavedTracks(node,p){
+  if(!node||!p||node._player!==p)return;
+  if(ccLang){
+    const tl=ytCcTracks(p);
+    const ok=!tl.length||tl.some(t=>{const c=(t.languageCode||"");return c===ccLang||c.indexOf(ccLang+"-")===0;});
+    ytSetCc(p,ccLang);
+    markCc(node,ok);
+  }else markCc(node,false);
+  if(audioLang==="en"&&ytHasAudioSwitch(p)){try{p.setAudioTrack("en")}catch(e){}}
+}
+function vimeoCc(node,code){
+  const fr=node&&node.querySelector("[data-frame]");
+  if(!fr||!fr.contentWindow)return;
+  try{
+    if(code)fr.contentWindow.postMessage(JSON.stringify({method:"enableTextTrack",value:{language:code,kind:"captions"}}),"*");
+    else fr.contentWindow.postMessage(JSON.stringify({method:"disableTextTrack"}),"*");
+  }catch(e){}
+}
+function ccRowEl(label,sel,fn){
+  const b=document.createElement("button");
+  b.className="ccrow"+(sel?" sel":"");
+  const sp=document.createElement("span");sp.textContent=label;
+  const ck=document.createElement("span");ck.className="ck";ck.textContent="✓";
+  b.appendChild(sp);b.appendChild(ck);
+  b.onclick=fn;
+  return b;
+}
+function ccTrackName(tr){
+  return String(tr.displayName||tr.label||tr.languageName||tr.languageCode||tr.language||"Unknown");
+}
+function ccTrackCode(tr){return String(tr.languageCode||tr.language||"");}
+function renderCcSheet(){
+  const subs=$("#ccSubs"),au=$("#ccAudio");
+  subs.innerHTML="";au.innerHTML="";
+  const slide=ccSlide,vimeo=slideIsVimeo(slide);
+  if(ccLoading){
+    subs.innerHTML='<div class="ccnone">Loading…</div>';
+  }else if(!ccTracks.length){
+    subs.innerHTML='<div class="ccnone">None available</div>';
+  }else{
+    subs.appendChild(ccRowEl("Off",!ccLang,()=>setCc("")));
+    const sorted=[...ccTracks].sort((a,b)=>{
+      const ae=ccTrackCode(a).toLowerCase().indexOf("en")===0?1:0;
+      const be=ccTrackCode(b).toLowerCase().indexOf("en")===0?1:0;
+      return be-ae;
+    });
+    sorted.forEach(tr=>{
+      const code=ccTrackCode(tr);
+      subs.appendChild(ccRowEl(ccTrackName(tr),!!ccLang&&ccLang===code,()=>setCc(code)));
+    });
+  }
+  au.appendChild(ccRowEl("Original",!audioLang,()=>setAudio("")));
+  if(vimeo){
+    const d=document.createElement("div");d.className="ccnone";d.textContent="Original audio only";
+    au.appendChild(d);
+  }else{
+    const p=slide&&slide._player;
+    if(ytHasAudioSwitch(p)){
+      au.appendChild(ccRowEl("English",audioLang==="en",()=>setAudio("en")));
+    }else{
+      const d=document.createElement("div");d.className="ccnone";d.textContent="No alternate audio tracks available";
+      au.appendChild(d);
+    }
+  }
+}
+function openCc(slide){
+  const t=(slide&&slide._t)||feed.cur;if(!t||!slide)return;
+  ccSlide=slide;ccTracks=[];ccLoading=true;renderCcSheet();
+  $("#ccsheet").classList.add("open");$("#cscrim").classList.add("open");
+  const done=(tracks)=>{ccTracks=tracks||[];ccLoading=false;renderCcSheet();};
+  if(slideIsVimeo(slide)){
+    const fr=slide.querySelector("[data-frame]");
+    window._ccVimeoCb=done;
+    try{fr.contentWindow.postMessage(JSON.stringify({method:"getTextTracks"}),"*")}catch(e){done([])}
+    setTimeout(()=>{if(window._ccVimeoCb){window._ccVimeoCb=null;done([])}},4000);
+  }else{
+    done(ytCcTracks(slide._player));
+  }
+}
+function closeCc(){
+  $("#ccsheet").classList.remove("open");
+  if(!$("#cdraw").classList.contains("open"))$("#cscrim").classList.remove("open");
+  ccSlide=null;window._ccVimeoCb=null;
+}
+function setCc(code){
+  ccLang=code||"";
+  try{store.set("cc_lang",ccLang)}catch(e){}
+  const slide=ccSlide||curSlide();
+  if(slide){
+    if(slideIsVimeo(slide))vimeoCc(slide,ccLang);
+    else ytSetCc(slide._player,ccLang);
+    markCc(slide,!!ccLang);
+  }
+  renderCcSheet();
+  toast(ccLang?"Subtitles on":"Subtitles off");
+}
+function setAudio(code){
+  const slide=ccSlide||curSlide();
+  if(code==="en"){
+    const p=slide&&!slideIsVimeo(slide)&&slide._player;
+    if(ytHasAudioSwitch(p)){
+      try{p.setAudioTrack("en");audioLang="en";store.set("audio_lang","en");toast("Audio: English");}
+      catch(e){toast("Couldn't switch audio");}
+    }else{toast("No alternate audio on this video");return;}
+  }else{
+    // no public API to switch a YouTube video back mid-play; clearing the
+    // preference stops future videos from being switched.
+    audioLang="";try{store.set("audio_lang","")}catch(e){}
+    toast("Audio: Original");
+  }
+  renderCcSheet();
 }
 function mountFeed(){
   document.body.classList.add("feedfull");
@@ -946,6 +1120,7 @@ function loadVideoInto(node,url,vid){
         try{fr.contentWindow.postMessage(JSON.stringify({method:"seekTo",value:s}),"*")}catch(e){}
         flashResume(node,s);
       }
+      if(ccLang){vimeoCc(node,ccLang);markCc(node,true);}
       node._seekDone=true;
     },2500);
     return;
@@ -954,7 +1129,8 @@ function loadVideoInto(node,url,vid){
     if(node._vid!==vid)return;
     try{
       node._player=new YT.Player(fr,{events:{
-        onReady:ev=>{maybeResume(node,ev.target)},
+        onReady:ev=>{maybeResume(node,ev.target);applySavedTracks(node,ev.target)},
+        onApiChange:ev=>{try{applySavedTracks(node,ev.target)}catch(e){}},
         onStateChange:ev=>{
           try{
             if(ev.data===YT.PlayerState.PAUSED)saveProg(node);
@@ -984,6 +1160,10 @@ window.addEventListener("message",e=>{
         const fr=n.querySelector("[data-frame]");
         if(n._vid&&fr&&fr.contentWindow===e.source){try{autoNext(n,n._vid)}catch(_){}}
       });
+      return;
+    }
+    if(d&&d.method==="getTextTracks"&&Array.isArray(d.value)){
+      if(window._ccVimeoCb){try{window._ccVimeoCb(d.value)}catch(_){}window._ccVimeoCb=null;}
       return;
     }
     if(d&&d.method==="getDuration"&&typeof d.value==="number"){
@@ -1093,7 +1273,8 @@ $("#cform").addEventListener("submit",e=>{
 $("#cdraw").addEventListener("click",e=>{if(e.target.id==="cdraw")closeComments()});
 function closeComments(){$("#cdraw").classList.remove("open");$("#cscrim").classList.remove("open")}
 $("#cclose").addEventListener("click",closeComments);
-$("#cscrim").addEventListener("click",closeComments);
+$("#cscrim").addEventListener("click",()=>{closeComments();closeCc();});
+$("#ccclose").addEventListener("click",closeCc);
 
 /* ---------- episode drawer: real verified episodes ---------- */
 function epCount(t){
