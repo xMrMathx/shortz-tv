@@ -2987,9 +2987,23 @@ function sstreamFill(node,s,mode){
   if(s.platform!=="twitch"&&!s.live&&s.vod_hls){
     fr.innerHTML=sstreamVodHTML(s,streamMuted);
   }else if(s.platform==="twitch"&&!s.live&&s.vod_id){
-    // offline Twitch with VOD: Twitch player VOD embed
-    const m=streamMuted?"true":"false";
-    fr.innerHTML=`<iframe src="https://player.twitch.tv/?video=${encodeURIComponent(s.vod_id)}&parent=xmrmathx.github.io&autoplay=true&muted=${m}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+    // offline Twitch with VOD: use Twitch Embed JS API for reliable autoplay
+    const vidId=String(s.vod_id).replace(/^v/,"");
+    const divId="twitch-vod-"+Math.random().toString(36).slice(2,8);
+    fr.innerHTML=`<div id="${divId}" style="width:100%;height:100%"></div>`;
+    const initTwitch=()=>{
+      try{
+        const emb=new Twitch.Embed(divId,{width:"100%",height:"100%",video:vidId,layout:"video",autoplay:true,muted:streamMuted,parent:["xmrmathx.github.io"]});
+        emb.addEventListener(Twitch.Embed.VIDEO_READY,()=>{ try{ const p=emb.getPlayer(); p.play(); if(streamMuted)p.setMuted(true); }catch(e){} });
+      }catch(e){}
+    };
+    if(window.Twitch&&Twitch.Embed){ initTwitch(); }
+    else{
+      const sc=document.createElement("script");
+      sc.src="https://embed.twitch.tv/embed/v1.js";
+      sc.onload=initTwitch;
+      document.head.appendChild(sc);
+    }
   }else{
     fr.innerHTML=`<iframe src="${sstreamEmbed(s,streamMuted)}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
   }
