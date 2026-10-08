@@ -2573,13 +2573,16 @@ function renderFriendRequests(reqs){
 async function acceptFriend(uid,info){
   try{
     const me=getProfile()||{};
-    // Write to MY friends list only (Firebase rules block writing to their list).
-    // Also drop an accepted-flag on their side so their app auto-adds me back.
+    // Step 1: write to MY node only (always allowed) — add friend + remove request
     const batch={};
     batch["users/"+Live.uid+"/friends/"+uid]={name:info.name||"Viewer",photo:info.photo||"",since:Date.now()};
     batch["users/"+Live.uid+"/friendRequests/"+uid]=null;
-    batch["users/"+uid+"/friendAccepted/"+Live.uid]={name:me.name||Live.name||"Viewer",photo:me.photo||"",since:Date.now()};
     await Live.db.ref().update(batch);
+    // Step 2 (best-effort): notify them so their app auto-adds me back.
+    // If Firebase rules block this, the friendship still saved on my side.
+    try{
+      await Live.db.ref("users/"+uid+"/friendAccepted/"+Live.uid).set({name:me.name||Live.name||"Viewer",photo:me.photo||"",since:Date.now()});
+    }catch(e2){}
     toast("Friends ✓");
   }catch(e){ toast("Couldn't accept — try again"); }
 }
