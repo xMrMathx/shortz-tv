@@ -651,7 +651,12 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .mg-rnav:disabled{opacity:.3}
 .mg-rnav:active{background:#2a2a33}
 /* TV Guide (Profile tab): classic guide — preview player on top, channel list below */
-.tg-preview{position:sticky;top:0;z-index:5;background:#0a0a0e;border:1px solid #26262e;border-radius:14px;overflow:hidden;margin:8px 0 10px;cursor:pointer}
+.tg-preview{position:sticky;top:0;z-index:5;background:#0a0a0e;border:1px solid #26262e;border-radius:14px;overflow:hidden;margin:8px 0 10px;cursor:pointer;transition:box-shadow .2s}
+/* when stuck while scrolling: compact floating mini-player, whole video visible */
+.tg-preview.stuck{position:fixed;top:8px;left:12px;right:12px;margin:0;box-shadow:0 12px 40px rgba(0,0,0,.7)}
+.tg-preview.stuck .tg-frame{aspect-ratio:16/7;max-height:180px}
+.tg-preview.stuck .tg-meta{display:none}
+.tg-preview.stuck .tg-ph{display:none}
 .tg-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
 .tg-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .tg-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;background:rgba(0,0,0,.55);font-size:14px;font-weight:700}
@@ -3351,7 +3356,40 @@ function renderTvGuide(){
       if(curView!=="profile")return;
       const l=$("#tgList"); if(!l||!tgList)return;
       try{if(l.getBoundingClientRect().bottom<window.innerHeight+900)tgMore();}catch(e){}
+      tgStickCheck();
     },{passive:true});
+  }
+  tgStickInit();
+}
+/* keep the guide preview fully visible while it follows the scroll */
+function tgStickInit(){
+  const pv=$("#tgPreviewBox"); if(!pv)return;
+  pv.classList.remove("stuck");
+  const ph=$("#tgStickPh"); if(ph)ph.remove();
+  pv._stickTop=null;
+}
+function tgStickCheck(){
+  const pv=$("#tgPreviewBox"); if(!pv||curView!=="profile")return;
+  const stuck=pv.classList.contains("stuck");
+  if(!stuck){
+    if(pv._stickTop==null){
+      try{pv._stickTop=pv.getBoundingClientRect().top+window.scrollY;}catch(e){return;}
+    }
+    if(window.scrollY>pv._stickTop+40){
+      const ph=document.createElement("div");
+      ph.id="tgStickPh"; ph.style.height=pv.offsetHeight+"px";
+      pv.parentNode.insertBefore(ph,pv);
+      pv.classList.add("stuck");
+    }
+  }else{
+    const ph=$("#tgStickPh");
+    if(ph){
+      let phTop=0;
+      try{phTop=ph.getBoundingClientRect().top+window.scrollY;}catch(e){}
+      if(window.scrollY<=phTop){
+        pv.classList.remove("stuck"); ph.remove(); pv._stickTop=null;
+      }
+    }else{pv.classList.remove("stuck");pv._stickTop=null;}
   }
 }
 
