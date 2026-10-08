@@ -640,10 +640,10 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .mg-rnav:disabled{opacity:.3}
 .mg-rnav:active{background:#2a2a33}
 /* TV Guide (Profile tab): classic guide — preview player on top, channel list below */
-.tg-preview{position:sticky;top:0;z-index:5;background:#0a0a0e;border:1px solid #26262e;border-radius:14px;overflow:hidden;margin:8px 0 10px;cursor:pointer;transition:box-shadow .2s}
+.tg-preview{position:relative;z-index:5;background:#0a0a0e;border:1px solid #26262e;border-radius:14px;overflow:hidden;margin:8px 0 10px;cursor:pointer;transition:box-shadow .2s}
 /* when stuck while scrolling: compact floating mini-player, whole video visible */
-.tg-preview.stuck{position:fixed;top:8px;left:12px;right:12px;margin:0;box-shadow:0 12px 40px rgba(0,0,0,.7)}
-.tg-preview.stuck .tg-frame{aspect-ratio:16/7;max-height:180px}
+.tg-preview.stuck{position:fixed;top:calc(76px + env(safe-area-inset-top));left:12px;right:12px;z-index:45;margin:0;box-shadow:0 12px 40px rgba(0,0,0,.7)}
+.tg-preview.stuck .tg-frame{aspect-ratio:16/9;max-height:200px}
 .tg-preview.stuck .tg-meta{display:none}
 .tg-preview.stuck .tg-ph{display:none}
 .tg-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
