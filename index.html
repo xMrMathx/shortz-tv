@@ -691,8 +691,40 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script>
 // Auto-update: check version.json with no-cache; reload if a newer build is live.
 // This enforces the no-cache law — viewers never clear data, the page updates itself.
+// LAW: never cut off active playback — only reload when nothing is playing and the user is idle.
 (function(){
   var CHECK_MS = 60000;
+  var pendingUpdate = false;
+  // track last user interaction
+  var lastTouch = Date.now();
+  ["touchstart","mousedown","keydown","scroll"].forEach(function(ev){
+    window.addEventListener(ev, function(){ lastTouch = Date.now(); }, {passive:true});
+  });
+  function playbackActive(){
+    try{
+      // home feed: a video is loaded and not paused
+      if(typeof curSlide==="function"&&typeof curView!=="undefined"&&curView==="home"){
+        var s=curSlide();
+        if(s&&s._vid&&!s._paused)return true;
+      }
+      // tv guide preview playing
+      var pv=document.getElementById("tgPreviewBox");
+      if(pv&&pv._tid)return true;
+      // any html5 video playing
+      var vs=document.querySelectorAll("video");
+      for(var i=0;i<vs.length;i++){ if(!vs[i].paused&&!vs[i].ended)return true; }
+      // streaming tab live
+      if(typeof curView!=="undefined"&&curView==="streaming")return true;
+      // manga reader open
+      if(typeof Manga!=="undefined"&&Manga.readerOpen)return true;
+    }catch(e){}
+    return false;
+  }
+  function safeToReload(){
+    if(playbackActive())return false;
+    if(Date.now()-lastTouch<3*60*1000)return false; // user active in last 3 min
+    return true;
+  }
   function check(){
     fetch('version.json?t='+Date.now(), {cache:'no-cache'})
       .then(function(r){ return r.ok ? r.json() : null; })
@@ -700,12 +732,17 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
         if(!v || !v.v) return;
         var mine = window.__SHORTZ_BUILD || null;
         if(mine && mine !== v.v){
-          location.reload();
+          if(safeToReload()){ location.reload(); }
+          else{ pendingUpdate = true; } // wait until safe
         } else if(!mine){
           window.__SHORTZ_BUILD = v.v;
         }
       }).catch(function(){});
   }
+  // if an update is pending, apply it the moment playback stops and user is idle
+  setInterval(function(){
+    if(pendingUpdate&&safeToReload()){ location.reload(); }
+  }, 30000);
   // Stamp this build's version as early as possible
   fetch('version.json?t='+Date.now(), {cache:'no-cache'})
     .then(function(r){ return r.ok ? r.json() : null; })
