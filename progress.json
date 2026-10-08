@@ -1,147 +1,177 @@
 {
-  "project": "Shortz TV \u2014 60+ series per genre",
-  "updatedAt": "2026-10-08T05:47:06.429884+00:00",
-  "shipped": 2326,
-  "phases": [
-    {
-      "id": "action",
-      "label": "Action \u00b7 70/60",
-      "pct": 100,
-      "status": "done",
-      "note": "70 series"
-    },
-    {
-      "id": "animation",
-      "label": "Animation \u00b7 80/60",
-      "pct": 100,
-      "status": "done",
-      "note": "80 series"
-    },
-    {
-      "id": "anime",
-      "label": "Anime \u00b7 172/60",
-      "pct": 100,
-      "status": "done",
-      "note": "172 series"
-    },
-    {
-      "id": "body-cam",
-      "label": "Body Cam \u00b7 82/60",
-      "pct": 100,
-      "status": "done",
-      "note": "82 series"
-    },
-    {
-      "id": "comedy",
-      "label": "Comedy \u00b7 57/60",
-      "pct": 95,
-      "status": "running",
-      "note": "57 series"
-    },
-    {
-      "id": "faith",
-      "label": "Faith \u00b7 92/60",
-      "pct": 100,
-      "status": "done",
-      "note": "92 series"
-    },
-    {
-      "id": "family",
-      "label": "Family \u00b7 43/60",
-      "pct": 72,
-      "status": "running",
-      "note": "43 series"
-    },
-    {
-      "id": "fantasy",
-      "label": "Fantasy \u00b7 61/60",
-      "pct": 100,
-      "status": "done",
-      "note": "61 series"
-    },
-    {
-      "id": "hood",
-      "label": "Hood \u00b7 98/60",
-      "pct": 100,
-      "status": "done",
-      "note": "98 series"
-    },
-    {
-      "id": "horror",
-      "label": "Horror \u00b7 57/60",
-      "pct": 95,
-      "status": "running",
-      "note": "57 series"
-    },
-    {
-      "id": "mr.-ballin",
-      "label": "Mr. Ballin \u00b7 701/60",
-      "pct": 100,
-      "status": "done",
-      "note": "701 series"
-    },
-    {
-      "id": "mystery",
-      "label": "Mystery \u00b7 31/60",
-      "pct": 52,
-      "status": "running",
-      "note": "31 series"
-    },
-    {
-      "id": "reality",
-      "label": "Reality \u00b7 57/60",
-      "pct": 95,
-      "status": "running",
-      "note": "57 series"
-    },
-    {
-      "id": "revenge",
-      "label": "Revenge \u00b7 75/60",
-      "pct": 100,
-      "status": "done",
-      "note": "75 series"
-    },
-    {
-      "id": "romance",
-      "label": "Romance \u00b7 80/60",
-      "pct": 100,
-      "status": "done",
-      "note": "80 series"
-    },
-    {
-      "id": "sci-fi",
-      "label": "Sci-Fi \u00b7 70/60",
-      "pct": 100,
-      "status": "done",
-      "note": "70 series"
-    },
-    {
-      "id": "short-films",
-      "label": "Short Films \u00b7 139/60",
-      "pct": 100,
-      "status": "done",
-      "note": "139 series"
-    },
-    {
-      "id": "sports",
-      "label": "Sports \u00b7 97/60",
-      "pct": 100,
-      "status": "done",
-      "note": "97 series"
-    },
-    {
-      "id": "thriller",
-      "label": "Thriller \u00b7 188/60",
-      "pct": 100,
-      "status": "done",
-      "note": "188 series"
-    },
-    {
-      "id": "western",
-      "label": "Western \u00b7 69/60",
-      "pct": 100,
-      "status": "done",
-      "note": "69 series"
-    }
-  ]
+ "project": "Shortz TV catalog hunt",
+ "updatedAt": "2026-10-08T07:28:20.365389+00:00",
+ "shipped": 3558,
+ "target": 4050,
+ "overall_pct": 87.9,
+ "phases": [
+  {
+   "id": "action",
+   "label": "Action",
+   "count": 144,
+   "pct": 3.6,
+   "status": "running",
+   "note": "144 series"
+  },
+  {
+   "id": "animation",
+   "label": "Animation",
+   "count": 200,
+   "pct": 4.9,
+   "status": "running",
+   "note": "200 series"
+  },
+  {
+   "id": "anime",
+   "label": "Anime",
+   "count": 227,
+   "pct": 5.6,
+   "status": "running",
+   "note": "227 series"
+  },
+  {
+   "id": "body-cam",
+   "label": "Body Cam",
+   "count": 142,
+   "pct": 3.5,
+   "status": "running",
+   "note": "142 series"
+  },
+  {
+   "id": "comedy",
+   "label": "Comedy",
+   "count": 120,
+   "pct": 3.0,
+   "status": "running",
+   "note": "120 series"
+  },
+  {
+   "id": "drama",
+   "label": "Drama",
+   "count": 7,
+   "pct": 0.2,
+   "status": "running",
+   "note": "7 series"
+  },
+  {
+   "id": "faith",
+   "label": "Faith",
+   "count": 187,
+   "pct": 4.6,
+   "status": "running",
+   "note": "187 series"
+  },
+  {
+   "id": "family",
+   "label": "Family",
+   "count": 108,
+   "pct": 2.7,
+   "status": "running",
+   "note": "108 series"
+  },
+  {
+   "id": "fantasy",
+   "label": "Fantasy",
+   "count": 86,
+   "pct": 2.1,
+   "status": "running",
+   "note": "86 series"
+  },
+  {
+   "id": "hood",
+   "label": "Hood",
+   "count": 154,
+   "pct": 3.8,
+   "status": "running",
+   "note": "154 series"
+  },
+  {
+   "id": "horror",
+   "label": "Horror",
+   "count": 106,
+   "pct": 2.6,
+   "status": "running",
+   "note": "106 series"
+  },
+  {
+   "id": "mr.-ballin",
+   "label": "Mr. Ballin",
+   "count": 701,
+   "pct": 17.3,
+   "status": "done",
+   "note": "701 series"
+  },
+  {
+   "id": "mystery",
+   "label": "Mystery",
+   "count": 70,
+   "pct": 1.7,
+   "status": "running",
+   "note": "70 series"
+  },
+  {
+   "id": "reality",
+   "label": "Reality",
+   "count": 92,
+   "pct": 2.3,
+   "status": "running",
+   "note": "92 series"
+  },
+  {
+   "id": "revenge",
+   "label": "Revenge",
+   "count": 142,
+   "pct": 3.5,
+   "status": "running",
+   "note": "142 series"
+  },
+  {
+   "id": "romance",
+   "label": "Romance",
+   "count": 125,
+   "pct": 3.1,
+   "status": "running",
+   "note": "125 series"
+  },
+  {
+   "id": "sci-fi",
+   "label": "Sci-Fi",
+   "count": 94,
+   "pct": 2.3,
+   "status": "running",
+   "note": "94 series"
+  },
+  {
+   "id": "short-films",
+   "label": "Short Films",
+   "count": 202,
+   "pct": 5.0,
+   "status": "running",
+   "note": "202 series"
+  },
+  {
+   "id": "sports",
+   "label": "Sports",
+   "count": 206,
+   "pct": 5.1,
+   "status": "running",
+   "note": "206 series"
+  },
+  {
+   "id": "thriller",
+   "label": "Thriller",
+   "count": 327,
+   "pct": 8.1,
+   "status": "running",
+   "note": "327 series"
+  },
+  {
+   "id": "western",
+   "label": "Western",
+   "count": 118,
+   "pct": 2.9,
+   "status": "running",
+   "note": "118 series"
+  }
+ ]
 }
