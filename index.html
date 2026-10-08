@@ -2303,18 +2303,6 @@ function renderProfile(){
     <div class="secttl"><span class="livedot">●</span> My live watch parties</div>
     <div id="profLive"><div style="color:var(--mut);font-size:13px">Checking…</div></div>
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
-    <div class="freebanner" style="margin-top:14px"><b>✓ 100% FREE — FOREVER</b>
-      <p>No coins. No paywall. No locked episodes. No subscription. Every short in Shortz TV is free to watch, always.</p></div>
-    <div style="margin-top:6px">
-      <div class="setitem">🔔 New series alerts <small>On ›</small></div>
-      <div class="setitem">📺 Autoplay <small>Up next feed ›</small></div>
-      <div class="setitem">💾 My List <small>${mylist.size} saved ›</small></div>
-      <div class="setitem">ℹ️ Sources &amp; licenses <small>${C.length} embeds ›</small></div>
-    </div>
-    <div style="padding:20px 0 10px;color:var(--mut);font-size:11px;line-height:1.7">
-      All series stream from their official, studio, or creator channels via embed — nothing pirated.
-      ${aiN} series are labeled ✦ Made with AI, the same way YouTube labels them.
-      <br>Shortz TV v1.2.46</div>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
   const ib=$("#installAppBtn");
@@ -2390,18 +2378,6 @@ function renderProfileLegacy(){
       <div style="font-size:12px;color:var(--mut);margin-top:2px">Watching free since day one</div></div>
       <button class="pbtn sm" id="profCreate">Create profile</button>
     </div>
-    <div class="freebanner"><b>✓ 100% FREE — FOREVER</b>
-      <p>No coins. No paywall. No locked episodes. No subscription. Every short in Shortz TV is free to watch, always.</p></div>
-    <div style="margin-top:6px">
-      <div class="setitem">🔔 New series alerts <small>On ›</small></div>
-      <div class="setitem">📺 Autoplay <small>Up next feed ›</small></div>
-      <div class="setitem">💾 My List <small>${mylist.size} saved ›</small></div>
-      <div class="setitem">ℹ️ Sources &amp; licenses <small>${C.length} embeds ›</small></div>
-    </div>
-    <div style="padding:20px 0 10px;color:var(--mut);font-size:11px;line-height:1.7">
-      All series stream from their official, studio, or creator channels via embed — nothing pirated.
-      ${aiN} series are labeled ✦ Made with AI, the same way YouTube labels them.
-      <br>Shortz TV v1.2.46</div>
   </div>`;
   $("#profCreate").onclick=()=>{store.set("profile_skipped",0);renderProfileSetup();};
 }
