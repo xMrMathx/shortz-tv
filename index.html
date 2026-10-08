@@ -4184,7 +4184,7 @@ function mgDrawGrid(){
    network; the live API refreshes in the background and merges (live wins). */
 function mgBundledChapters(mid){
   const raw=(window.MANGA_CHAPTERS||{})[mid]||[];
-  return raw.map(c=>({id:c.id,attributes:{chapter:c.ch,title:c.title,publishAt:c.pub||""}}));
+  return raw.map(c=>({id:c.id,attributes:{chapter:c.ch,title:c.title,publishAt:c.pub||"",pages:c.pages,externalUrl:c.ext||""}}));
 }
 function mgChapterKey(c){
   const ch=(c.attributes||{}).chapter;
@@ -4194,16 +4194,16 @@ function mgChapterRank(c){
   const n=parseFloat((c.attributes||{}).chapter);
   return isNaN(n)?-1:n;
 }
-function mgMergeChapters(live,bundled){ // live wins on conflicts; newest-first
+function mgMergeChapters(live,bundled){ // live wins on conflicts; oldest-first (Ch 1 at top)
   const seen={},out=[];
   live.concat(bundled).forEach(c=>{const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;out.push(c);});
-  out.sort((x,y)=>mgChapterRank(y)-mgChapterRank(x));
+  out.sort((x,y)=>mgChapterRank(x)-mgChapterRank(y));
   return out;
 }
 function mgShowChapterUI(){
   mgDrawChapters();
   const rb=$("#mgReadBtn");
-  if(rb&&Manga.chapters.length){rb.style.display="";rb.onclick=()=>mgOpenReader(Manga.chapters.length-1);}
+  if(rb&&Manga.chapters.length){rb.style.display="";rb.onclick=()=>mgOpenReader(0);}
 }
 function mgOpenDetail(mid){
   const m=Manga.list.find(x=>x.id===mid); if(!m)return;
@@ -4249,7 +4249,8 @@ function mgDrawChapters(){
     const num=(a.chapter!=null&&a.chapter!=="")?("Ch. "+a.chapter):"Oneshot";
     const ttl=a.title?(" — "+a.title):"";
     let dt=""; try{dt=new Date(a.publishAt).toLocaleDateString();}catch(e){}
-    h+='<div class="mg-ch" data-i="'+i+'"><span>'+mgEsc(num+ttl)+'</span><span class="mg-chd">'+mgEsc(dt)+'</span></div>';
+    const ext=a.pages===0&&a.externalUrl?' <span class="mg-ext">↗</span>':"";
+    h+='<div class="mg-ch" data-i="'+i+'"><span>'+mgEsc(num+ttl)+ext+'</span><span class="mg-chd">'+mgEsc(dt)+'</span></div>';
   });
   el.innerHTML=h;
   el.querySelectorAll(".mg-ch").forEach(x=>x.onclick=()=>mgOpenReader(parseInt(x.dataset.i,10)));
@@ -4270,9 +4271,22 @@ function mgOpenReader(idx){
     +'<div class="mg-rbot"><button class="mg-rnav" id="mgPrev">‹ Prev</button><button class="mg-rnav" id="mgNext">Next ›</button></div>';
   r.style.display="flex";
   $("#mgRx").onclick=()=>mangaCloseReader();
-  $("#mgPrev").onclick=()=>mgChapterNav(1);
-  $("#mgNext").onclick=()=>mgChapterNav(-1);
+  $("#mgPrev").onclick=()=>mgChapterNav(-1);
+  $("#mgNext").onclick=()=>mgChapterNav(1);
   mgNavBtns();
+  // External-only chapter: MangaDex hosts no pages for it (pages===0).
+  // Be honest instead of showing a dead "Couldn't load pages".
+  const a0=c.attributes||{};
+  if(a0.pages===0){
+    const p=$("#mgRpage");
+    if(a0.externalUrl){
+      p.innerHTML='<div class="mg-center">This chapter isn\'t hosted here — it reads on the publisher\'s site.<br><br><button class="mg-retry" id="mgExtOpen">Read Chapter</button></div>';
+      $("#mgExtOpen").onclick=()=>{try{window.open(a0.externalUrl,"_blank");}catch(e){location.href=a0.externalUrl;}};
+    }else{
+      p.innerHTML='<div class="mg-center">No pages available for this chapter.</div>';
+    }
+    return;
+  }
   mdxGet(MDX+"/at-home/server/"+c.id,15000).then(d=>{
     if(gen!==Manga.gen||!Manga.readerOpen)return;
     const ch=d.chapter,base=d.baseUrl+"/data-saver/"+ch.hash+"/";
@@ -4304,15 +4318,15 @@ function mgPage(d){
   if(n<0||n>=Manga.pages.length)return;
   Manga.pageIdx=n; mgDrawPage();
 }
-function mgChapterNav(d){ // d=1 → older (prev), d=-1 → newer (next); chapters are newest-first
+function mgChapterNav(d){ // chapters are oldest-first: d=-1 → older (prev), d=1 → newer (next)
   const n=Manga.chIdx+d;
   if(n<0||n>=Manga.chapters.length)return;
   mgOpenReader(n);
 }
 function mgNavBtns(){
   const pv=$("#mgPrev"),nx=$("#mgNext"); if(!pv||!nx)return;
-  pv.disabled=Manga.chIdx>=Manga.chapters.length-1;
-  nx.disabled=Manga.chIdx<=0;
+  pv.disabled=Manga.chIdx<=0;
+  nx.disabled=Manga.chIdx>=Manga.chapters.length-1;
 }
 function mangaCloseReader(silent){
   Manga.readerOpen=false; Manga.gen++;
