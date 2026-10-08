@@ -839,6 +839,8 @@ const C = window.SHORTZ_CATALOG || [];
 const IDX = {
   byId: new Map(),       // id -> series
   vertPool: [],          // precomputed vertical-video series
+  homePool: [],          // Home feed pool: 5+ verified episodes only
+  homeVertPool: [],      // Home feed pool, vertical-first
   genreCount: {},        // genre -> count
   earlyList: [],         // early-release series
   earlyN: 0, aiN: 0, rebirthN: 0,
@@ -850,6 +852,7 @@ function buildCatalogIndexes(){
   if(IDX.rev === rev) return;
   IDX.byId.clear(); IDX.vertPool.length = 0; IDX.sorted.clear();
   IDX.genreCount = {}; IDX.earlyList = [];
+  IDX.homePool = []; IDX.homeVertPool = []; // Home feed: 5+ verified episodes only (his law)
   IDX.earlyN = 0; IDX.aiN = 0; IDX.rebirthN = 0;
   for(let i = 0; i < C.length; i++){
     const t = C[i];
@@ -859,6 +862,10 @@ function buildCatalogIndexes(){
     if(t.rebirth === true) IDX.rebirthN++;
     if(isEarlyRelease(t)){ IDX.earlyN++; IDX.earlyList.push(t); }
     if(isVertMain(t)) IDX.vertPool.push(t);
+    if((t.episodes||[]).filter(e=>e.verified).length>=5){
+      IDX.homePool.push(t);
+      if(isVertMain(t)) IDX.homeVertPool.push(t);
+    }
   }
   IDX.rev = rev;
 }
@@ -1155,9 +1162,11 @@ function isVertMain(t){
   t._vmain=v;return v;
 }
 function pickRandom(exceptId){
-  // O(1) amortized: precomputed vertical pool, no regex, no full scan.
+  // O(1) amortized: precomputed pools, no regex, no full scan.
   // (Home feed prefers natively-vertical series so video fills the screen.)
-  const pool = IDX.vertPool.length ? IDX.vertPool : C;
+  // HIS LAW: Home only ever shows series with 5+ verified episodes.
+  // 1-episode series live in the Early Release folder, never on Home.
+  const pool = IDX.homeVertPool.length ? IDX.homeVertPool : (IDX.homePool.length ? IDX.homePool : C);
   let t = pool[(Math.random() * pool.length) | 0];
   let guard = 0;
   while((!t || t.id === exceptId || seen.indexOf(t.id) >= 0) && guard++ < 12){
