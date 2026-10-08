@@ -2194,6 +2194,11 @@ function epRowTitle(e,partIdx){
 /* ---------- autoplay: when a video ends, play the next verified episode ---------- */
 function autoNext(node,vid){
   if(!node||!vid||node!==curSlide()||node._vid!==vid)return; // stale slide/video: do nothing
+  // DEDUP: YouTube reports the same video end twice (player API + postMessage).
+  // The 2nd report arrives after the next episode already started and would skip it.
+  const now=Date.now();
+  if(now-(node._lastAdvanceT||0)<5000)return;
+  node._lastAdvanceT=now;
   try{clearProg(node)}catch(e){}
   // BINGE LAW: the next episode must play, no clicks. Find the series that actually
   // owns this video — feed.cur can be out of sync (shared link, stale state), and
