@@ -492,6 +492,23 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .levent{background:#101016;border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:8px;font-size:13px}
 #lnsheet input{width:100%;background:#1a1a24;border:1px solid var(--line);border-radius:14px;padding:14px;color:#fff;font-size:16px;outline:none}
 
+/* ---------- live streaming directory ---------- */
+.st-head{font-size:22px;font-weight:900;margin:14px 0 4px}
+.st-plat{font-size:16px;font-weight:800;margin:18px 0 10px;color:var(--txt)}
+.sgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.scard{background:#101016;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.sav{position:relative;width:72px;height:72px;margin:0 auto 8px;border-radius:50%;overflow:hidden;background:linear-gradient(135deg,var(--red),#7b2ff7);display:flex;align-items:center;justify-content:center}
+.sav img{width:100%;height:100%;object-fit:cover}
+.sav-fallback{font-size:28px;font-weight:900;color:#fff}
+.slive{position:absolute;bottom:2px;left:50%;transform:translateX(-50%);background:#ff2d2d;color:#fff;font-size:9px;font-weight:900;padding:2px 8px;border-radius:8px;letter-spacing:1px;animation:pulse 1.5s infinite}
+.sname{font-size:14px;font-weight:800;margin-bottom:2px}
+.stitle{font-size:11px;color:var(--mut);margin-bottom:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.smeta{font-size:11px;margin-bottom:8px}
+.sview{color:#4ade80;font-weight:700}
+.soff{color:var(--mut)}
+.swatch{width:100%;background:var(--red);border:none;border-radius:10px;padding:9px;color:#fff;font-size:13px;font-weight:800;cursor:pointer}
+.sempty{grid-column:1/-1;text-align:center;color:var(--mut);font-size:13px;padding:20px 0}
+
 </style>
 </head>
 <body>
@@ -506,6 +523,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <section class="view active" id="view-home"></section>
     <section class="view" id="view-browse"></section>
     <section class="view" id="view-live"></section>
+    <section class="view" id="view-streaming"></section>
     <section class="view" id="view-mylist"></section>
     <section class="view" id="view-profile"></section>
     <section class="view" id="view-detail"></section>
@@ -516,6 +534,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <button class="tab on" data-v="home"><span class="ico">⌂</span>Home</button>
     <button class="tab" data-v="browse"><span class="ico">▦</span>Browse</button>
     <button class="tab" data-v="live"><span class="ico liveico">●</span>Live</button>
+    <button class="tab" data-v="streaming"><span class="ico">📡</span>Streaming</button>
     <button class="tab" data-v="mylist"><span class="ico">♥</span>My List</button>
     <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
   </nav>
@@ -701,6 +720,7 @@ function renderView(v){
   if(v==="home")mountFeed();
   if(v==="browse")renderBrowse(browseGenre);
   if(v==="live")renderLive();
+  if(v==="streaming")renderStreaming();
   if(v==="mylist")renderMyList(); if(v==="profile")renderProfile();
 }
 
@@ -2801,6 +2821,44 @@ function liveShellHTML(){
     <div id="livebody"></div>
   </div>`;
 }
+/* ---------- LIVE STREAMING: Kick + Twitch directory ---------- */
+let STREAMERS={kick:[],twitch:[]}, STREAMERS_LOADED=false;
+async function loadStreamers(){
+  if(STREAMERS_LOADED)return;
+  STREAMERS_LOADED=true;
+  try{
+    const r=await fetch("streamers.json",{cache:"no-store"});
+    if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; }
+  }catch(e){ /* empty directory until streamers.json ships */ }
+}
+function streamerCard(s,platform){
+  const live=!!s.live;
+  const av=s.avatar?`<img src="${s.avatar}" alt="" loading="lazy" onerror="this.style.display='none'">`:`<div class="sav-fallback">${(s.name||"?").slice(0,1).toUpperCase()}</div>`;
+  return `<div class="scard">
+    <div class="sav">${av}${live?`<span class="slive">LIVE</span>`:""}</div>
+    <div class="sname">${s.name||"Unknown"}</div>
+    ${s.title?`<div class="stitle">${s.title}</div>`:""}
+    <div class="smeta">${live&&s.viewers?`<span class="sview">${s.viewers} watching</span>`:live?`<span class="sview">Live now</span>`:`<span class="soff">Offline</span>`}</div>
+    <button class="swatch" data-surl="${s.url||""}" data-sname="${s.name||""}">Watch</button>
+  </div>`;
+}
+async function renderStreaming(){
+  const v=$("#view-streaming");
+  await loadStreamers();
+  const k=STREAMERS.kick, t=STREAMERS.twitch;
+  v.innerHTML=`<div class="wrap">
+    <h2 class="st-head">Live Streaming</h2>
+    <h3 class="st-plat">Kick</h3>
+    <div class="sgrid">${k.length?k.map(s=>streamerCard(s,"kick")).join(""):`<div class="sempty">No Kick streamers yet — check back soon.</div>`}</div>
+    <h3 class="st-plat">Twitch</h3>
+    <div class="sgrid">${t.length?t.map(s=>streamerCard(s,"twitch")).join(""):`<div class="sempty">No Twitch streamers yet — check back soon.</div>`}</div>
+  </div>`;
+  v.querySelectorAll(".swatch").forEach(b=>b.onclick=()=>{
+    const u=b.dataset.surl;
+    if(u){ window.open(u,"_blank"); }
+  });
+}
+
 async function renderLive(){
   const v=$("#view-live");
   liveRoomOffAll();
