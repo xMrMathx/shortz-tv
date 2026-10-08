@@ -602,8 +602,8 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .mg-rtop{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(0,0,0,.92)}
 .mg-rx{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 12px}
 .mg-rtitle{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:68%}
-.mg-rpage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:0;background:#000}
-.mg-rpage img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.mg-rpage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:0;background:#000;touch-action:none}
+.mg-rpage img{max-width:100%;max-height:100%;object-fit:contain;display:block;transition:transform .18s ease}
 .mg-zone{position:absolute;top:0;bottom:0;width:35%;z-index:2;cursor:pointer}
 .mg-zone.l{left:0}.mg-zone.r{right:0}
 .mg-pnum{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:12px;color:#fff;background:rgba(0,0,0,.62);padding:6px 16px;border-radius:16px;z-index:2;white-space:nowrap}
@@ -4408,7 +4408,12 @@ function mgNorm(m){
 function mdxIsBL(m){ // server excludes via excludedTags; client backstops
   return (m.tags||[]).some(t=>String(t).toLowerCase()==="boys' love");
 }
-function mdxCover(m,size){ return m.cover?("https://uploads.mangadex.org/covers/"+m.id+"/"+m.cover+"."+size+".jpg"):""; }
+function mdxCover(m,size){
+  if(!m||!m.cover)return "";
+  // catalog stores the full filename ("xxx.jpg"); MangaDex serves ONLY that exact
+  // file — the .256.jpg/.512.jpg size variants 404, so use the plain URL.
+  return "https://uploads.mangadex.org/covers/"+m.id+"/"+m.cover;
+}
 function mdxTitle(m){ return m.title||"Untitled"; }
 function mdxAuthor(m){ return m.author||""; }
 function mdxTags(m){ return m.tags||[]; }
@@ -4586,6 +4591,7 @@ function mgOpenReader(idx){
   $("#mgPrev").onclick=()=>mgPage(-1);
   $("#mgNext").onclick=()=>mgPage(1);
   mgNavBtns();
+  mgBindZoom(); // pinch / pan / double-tap zoom on every page
   // External-only chapter: MangaDex hosts no pages for it (pages===0).
   // Be honest instead of showing a dead "Couldn't load pages".
   const a0=c.attributes||{};
@@ -4621,11 +4627,84 @@ function mgDrawPage(){
   $("#mgZL").onclick=()=>mgPage(-1);
   $("#mgZR").onclick=()=>mgPage(1);
   mgNavBtns();
+  mgResetZoom(); // every page starts unzoomed
   const nx=Manga.pages[Manga.pageIdx+1]; if(nx){const im=new Image();im.src=nx;}
   $("#mgImg").onerror=()=>{
     if(!$("#mgRpage"))return;
     $("#mgRpage").innerHTML='<div class="mg-center">Page failed to load.<br><button class="mg-retry" onclick="mgDrawPage()">Retry</button></div>';
   };
+}
+/* ---------- reader zoom: pinch to zoom, drag to pan, double-tap to toggle ---------- */
+const mgZoom={scale:1,tx:0,ty:0};
+const mgPtrs=new Map();
+let mgPinch0=null, mgLastTap=0, mgDownOnImg=false;
+function mgApplyZoom(){
+  const img=$("#mgImg"); if(!img)return;
+  // keep the page from being flung off-screen (skip while the image has no size yet)
+  const cw=img.clientWidth, ch=img.clientHeight;
+  if(cw>0&&ch>0){
+    const mx=cw*mgZoom.scale/2, my=ch*mgZoom.scale/2;
+    mgZoom.tx=Math.max(-mx,Math.min(mx,mgZoom.tx));
+    mgZoom.ty=Math.max(-my,Math.min(my,mgZoom.ty));
+  }
+  img.style.transform="translate("+mgZoom.tx+"px,"+mgZoom.ty+"px) scale("+mgZoom.scale+")";
+  // tap zones only navigate when not zoomed — when zoomed the whole page pans
+  const z=mgZoom.scale>1.02, zl=$("#mgZL"), zr=$("#mgZR");
+  if(zl)zl.style.pointerEvents=z?"none":"";
+  if(zr)zr.style.pointerEvents=z?"none":"";
+}
+function mgResetZoom(){
+  mgZoom.scale=1; mgZoom.tx=0; mgZoom.ty=0;
+  mgPtrs.clear(); mgPinch0=null; mgLastTap=0; mgDownOnImg=false;
+  mgApplyZoom();
+}
+function mgBindZoom(){
+  const p=$("#mgRpage"); if(!p||p._zoomBound)return; p._zoomBound=true;
+  p.addEventListener("pointerdown",e=>{
+    mgPtrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(e.target&&e.target.id==="mgImg")mgDownOnImg=true; // capture retargets later events — record the true start target now
+    const img=$("#mgImg"); if(img)img.style.transition="none"; // direct 1:1 while gesturing
+    if(mgPtrs.size===2){
+      const v=[...mgPtrs.values()];
+      mgPinch0={dist:Math.hypot(v[0].x-v[1].x,v[0].y-v[1].y)||1,scale:mgZoom.scale,
+        midx:(v[0].x+v[1].x)/2,midy:(v[0].y+v[1].y)/2,tx:mgZoom.tx,ty:mgZoom.ty};
+    }
+    try{p.setPointerCapture(e.pointerId);}catch(_){}
+  });
+  p.addEventListener("pointermove",e=>{
+    if(!mgPtrs.has(e.pointerId))return;
+    const prev=mgPtrs.get(e.pointerId);
+    mgPtrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    if(mgPtrs.size===2&&mgPinch0){
+      const v=[...mgPtrs.values()];
+      const dist=Math.hypot(v[0].x-v[1].x,v[0].y-v[1].y)||1;
+      const midx=(v[0].x+v[1].x)/2, midy=(v[0].y+v[1].y)/2;
+      mgZoom.scale=Math.min(5,Math.max(1,mgPinch0.scale*dist/mgPinch0.dist));
+      mgZoom.tx=mgPinch0.tx+(midx-mgPinch0.midx);
+      mgZoom.ty=mgPinch0.ty+(midy-mgPinch0.midy);
+      mgApplyZoom();
+    }else if(mgPtrs.size===1&&mgZoom.scale>1.02){
+      mgZoom.tx+=e.clientX-prev.x; mgZoom.ty+=e.clientY-prev.y;
+      mgApplyZoom();
+    }
+  });
+  const up=e=>{
+    mgPtrs.delete(e.pointerId);
+    if(mgPtrs.size<2)mgPinch0=null;
+    const img=$("#mgImg"); if(img)img.style.transition=""; // smooth again
+    if(mgPtrs.size===0){
+      if(e.type==="pointerup"&&mgDownOnImg){
+        const now=Date.now(); // double-tap the page toggles zoom
+        if(now-mgLastTap<300){
+          mgZoom.scale=mgZoom.scale>1.02?1:2.5; mgZoom.tx=0; mgZoom.ty=0;
+          mgApplyZoom(); mgLastTap=0;
+        }else mgLastTap=now;
+      }
+      mgDownOnImg=false;
+    }
+  };
+  p.addEventListener("pointerup",up);
+  p.addEventListener("pointercancel",up);
 }
 function mgPage(d){
   const n=Manga.pageIdx+d;
