@@ -2875,6 +2875,7 @@ function kickFetchVod(s){
       const vod=vids.find(v=>!v.is_live)||vids[0];
       s.vod_id=vod.id;
       s.vod_title=vod.session_title||"";
+      s.vod_hls=vod.source||""; // direct HLS URL — play in <video> tag, bypasses Kick player
     }).catch(()=>{});
 }
 async function loadStreamers(){
@@ -2904,10 +2905,12 @@ function sstreamEmbed(s,muted){
   const ch=encodeURIComponent(sstreamChannel(s)), m=muted?"true":"false";
   if(s.platform==="twitch")
     return "https://player.twitch.tv/?channel="+ch+"&parent=xmrmathx.github.io&autoplay=true&muted="+m;
-  // offline Kick channel with a recent VOD: play the replay instead of an empty player
-  if(!s.live&&s.vod_id)
-    return "https://player.kick.com/?vod="+encodeURIComponent(s.vod_id)+"&parent=xmrmathx.github.io&autoplay=true&muted="+m;
   return "https://player.kick.com/"+ch+"?autoplay=true&muted="+m;
+}
+// VOD playback uses a native <video> tag with the direct HLS URL (bypasses Kick player misconfiguration)
+function sstreamVodHTML(s,muted){
+  const m=muted?"muted":"";
+  return `<video src="${s.vod_hls}" ${m} autoplay playsinline controls style="width:100%;height:100%;object-fit:contain;background:#000"></video>`;
 }
 let sstreamStack=[], sstreamPos=-1, sstreamSlots=[], sstreamMounted=false;
 let sdragging=false, sdragDy=0, sdragX0=0, sdragY0=0, sdragT0=0, smovedPx=0;
@@ -2942,7 +2945,12 @@ function sstreamFill(node,s,mode){
   mt.style.display=mt.textContent?"":"none";
   node.querySelector("[data-s-sound]").style.display=streamMuted?"":"none";
   if(mode==="unload"){ fr.innerHTML=""; return; }
-  fr.innerHTML=`<iframe src="${sstreamEmbed(s,streamMuted)}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  // offline Kick with VOD: native <video> tag with direct HLS (bypasses broken Kick player embed)
+  if(s.platform!=="twitch"&&!s.live&&s.vod_hls){
+    fr.innerHTML=sstreamVodHTML(s,streamMuted);
+  }else{
+    fr.innerHTML=`<iframe src="${sstreamEmbed(s,streamMuted)}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+  }
 }
 function sstreamLayout(){ sstreamSlots.forEach((n,i)=>{ n.style.transform=`translateY(${(i-1)*100}%)`; }); }
 function sstreamCur(){ return sstreamSlots[1]; }
