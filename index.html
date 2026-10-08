@@ -2178,16 +2178,29 @@ function epRowTitle(e,partIdx){
 function autoNext(node,vid){
   if(!node||!vid||node!==curSlide()||node._vid!==vid)return; // stale slide/video: do nothing
   try{clearProg(node)}catch(e){}
-  const t=feed.cur, eps=(t&&t.episodes)||[];
-  let idx=-1;
-  for(let i=0;i<eps.length;i++){
-    const id=eps[i].video_id||vidOf(eps[i].url||"");
-    if(id&&id===vid){idx=i;break;}
+  // BINGE LAW: the next episode must play, no clicks. Find the series that actually
+  // owns this video — feed.cur can be out of sync (shared link, stale state), and
+  // vid-matching the wrong series is what wrongly jumped to another series.
+  let t=feed.cur, eps=(t&&t.episodes)||[];
+  let idx=epIdxOf(eps,vid);
+  if(idx<0){
+    const owner=(typeof byVid==="function")?byVid(vid):null;
+    if(owner&&owner.episodes){
+      feed.cur=owner; t=owner; eps=owner.episodes;
+      idx=epIdxOf(eps,vid);
+    }
   }
   for(let i=idx+1;i<eps.length;i++){
     if(eps[i].verified&&eps[i].url){playEpisode(eps[i]);return;}
   }
   advanceAnimated(1); // not in list, or last verified episode: binge on
+}
+function epIdxOf(eps,vid){
+  for(let i=0;i<eps.length;i++){
+    const id=eps[i].video_id||vidOf(eps[i].url||"");
+    if(id&&id===vid)return i;
+  }
+  return -1;
 }
 function playEpisode(e){
   const t=feed.cur; if(!t||!e||!e.verified||!e.url)return;
