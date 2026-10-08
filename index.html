@@ -681,7 +681,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
    On every launch, pull the fresh catalog.json from the live site. The bundled
    catalog.js copy above is only the offline fallback. Fresh data is spliced
    into the SAME array object (not replaced) so every existing reference keeps
-   working. Boot waits for this (or an 8s timeout) before rendering. */
+   working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_CATALOG || [];
 window.SHORTZ_CATALOG_READY = (function(){
   var url = "https://xmrmathx.github.io/shortz-tv/catalog.json";
@@ -695,6 +695,8 @@ window.SHORTZ_CATALOG_READY = (function(){
       var c = window.SHORTZ_CATALOG;
       c.length = 0;
       for (var i = 0; i < data.length; i++) c.push(data[i]);
+      // contents swapped (same object): invalidate catalog-derived caches
+      window.__catRev = (window.__catRev || 0) + 1;
     }
   }).catch(function(){ /* offline: keep bundled fallback */ });
   return Promise.race([fresh, timeout]);
@@ -818,6 +820,28 @@ function shareUrl(id, epIdx){
 function byVid(vid){ return C.find(t=>t.video_id===vid || (t.episodes&&t.episodes.some(e=>e.video_id===vid))); }
 /* early release: computed live — exactly 1 verified episode; auto-graduates as the hunt verifies more */
 function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length===1}
+/* ---------- catalog-derived count cache (tab-switch speed) ----------
+   The browse genre dropdown used to run ~24 full C.filter() scans over 4,220+
+   series on EVERY render, blocking first paint. All counts are computed here
+   in ONE pass and cached per catalog revision. The fresh catalog.json splice
+   bumps window.__catRev, which invalidates the cache; the next call rebuilds
+   it in the background-friendly single pass. */
+function catalogCounts(){
+  const rev=window.__catRev||0;
+  if(catalogCounts._c&&catalogCounts._rev===rev)return catalogCounts._c;
+  const counts={early:0,ai:0,rebirth:0,earlyList:[],genre:{}};
+  for(let i=0;i<C.length;i++){
+    const t=C[i];
+    if(t.ai_made===true)counts.ai++;
+    if(t.rebirth===true)counts.rebirth++;
+    const g=t.genre;counts.genre[g]=(counts.genre[g]||0)+1;
+    const eps=t.episodes||[];
+    let vn=0;for(let j=0;j<eps.length;j++)if(eps[j].verified)vn++;
+    if(vn===1){counts.early++;counts.earlyList.push(t);}
+  }
+  catalogCounts._c=counts;catalogCounts._rev=rev;
+  return counts;
+}
 const EARLY="__early__";
 const AI="__ai__";
 const REBIRTH="__rebirth__";
@@ -827,7 +851,8 @@ function browseList(){
   if(qf)return alphaSort(qf);
   if(browseGenre===AI)return alphaSort(C.filter(t=>t.ai_made===true));
   if(browseGenre==="Rebirth"||browseGenre===REBIRTH)return alphaSort(C.filter(t=>t.rebirth===true));
-  return alphaSort(browseGenre===EARLY?C.filter(isEarlyRelease):C.filter(t=>t.genre===browseGenre));
+  // SPEED: the early-release list is cached in catalogCounts() (one pass), not re-filtered
+  return alphaSort(browseGenre===EARLY?catalogCounts().earlyList:C.filter(t=>t.genre===browseGenre));
 }
 const store = {
   get(k,d){try{const v=localStorage.getItem("shortztv_"+k);return v?JSON.parse(v):d}catch(e){return d}},
@@ -2116,9 +2141,9 @@ function browseMore(grid){
 }
 function renderBrowse(g){
   browseGenre=g||browseGenre;  const list=browseList();
-  const earlyN=C.filter(isEarlyRelease).length;
-  const aiN=C.filter(t=>t.ai_made===true).length;
-  const rebirthN=C.filter(t=>t.rebirth===true).length;
+  // SPEED: dropdown counts come from the one-pass cache — the shell paints immediately.
+  // (Cache is idle-precomputed after boot, so the first Browse tap is warm.)
+  const cc=catalogCounts();
   $("#view-browse").innerHTML=`
     <div class="wrap" style="padding-top:18px">
       <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
@@ -2137,10 +2162,10 @@ function renderBrowse(g){
     <div class="wrap"><div class="gdrop" id="gdrop">
       <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
-        <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${earlyN}</span></button>
-        <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${aiN}</span></button>
+        <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
+        <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
         ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
-        `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?rebirthN:C.filter(t=>t.genre===x).length}</span></button>`).join("")}
+        `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:(cc.genre[x]||0)}</span></button>`).join("")}
       </div>
     </div></div>
     <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
@@ -2455,7 +2480,6 @@ function bioLine(p){
 
 function renderProfile(){
   checkAcceptedFriends();
-  const aiN=C.filter(t=>t.ai_made).length;
   const p=getProfile();
   if(!p){ renderProfileSetup(); return; }
   const friendsN=(Live.friendsSnap&&Object.keys(Live.friendsSnap).length)||0;
@@ -2484,9 +2508,12 @@ function renderProfile(){
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
   // My List + Recently Watched live inside the profile now (same cards as before)
+  // SPEED: one id->series Map — byId is a full C.find() scan per lookup
   (function(){
-    const saved=[...mylist].map(byId).filter(Boolean);
-    const hist=history.map(h=>byId(h.id)).filter(Boolean);
+    const idx=new Map();
+    for(const t of C) idx.set(t.id,t);
+    const saved=[...mylist].map(id=>idx.get(id)).filter(Boolean);
+    const hist=history.map(h=>idx.get(h.id)).filter(Boolean);
     const row=list=>`<div class="hrow">${list.map(cardHTML).join("")}</div>`;
     const box=$("#profMyList");
     if(box){
@@ -2512,9 +2539,10 @@ function renderProfile(){
       const n=$("#profFriendN"); if(n)n.textContent=Object.keys(cached).length;
     }
   }catch(_){}
-  // keep friend count fresh
+  // keep friend count fresh (listeners attach once per session — not per profile visit)
   liveEnsure().then(ok=>{
-    if(!ok)return;
+    if(!ok||Live._profListen)return;
+    Live._profListen=true;
     Live.db.ref("users/"+Live.uid+"/friends").on("value",s=>{
       Live.friendsSnap=s.val()||{};
       try{store.set("friendsCache",Live.friendsSnap);}catch(_){}
@@ -2565,7 +2593,6 @@ function renderProfileSetup(){
 }
 /* legacy read-only view for users who skip setup */
 function renderProfileLegacy(){
-  const aiN=C.filter(t=>t.ai_made).length;
   $("#view-profile").innerHTML=`<div class="wrap">
     <div class="profhead">
       <div class="avatar">S</div>
@@ -3025,6 +3052,8 @@ function liveShellHTML(){
 /* ---------- LIVE STREAMING: TikTok-style vertical swipe feed ---------- */
 let STREAMERS={kick:[],twitch:[]}, STREAMERS_LOADED=false;
 /* refresh one Kick channel: live status via v1, most-recent VOD via v2 when offline */
+/* 4s ceiling for EVERY network call in the streaming refresh path —
+   a single slow API can never hang the whole tab */
 function kickFetchTimeout(ms){
   return new Promise((_,rej)=>setTimeout(()=>rej(new Error("timeout")),ms));
 }
@@ -3034,7 +3063,7 @@ function kickRefreshOne(s){
   const before=!!s.live;
   return Promise.race([
     fetch("https://kick.com/api/v1/channels/"+encodeURIComponent(ch),{cache:"no-store"}),
-    kickFetchTimeout(8000)
+    kickFetchTimeout(4000)
   ])
     .then(r=>r.ok?r.json():null)
     .then(d=>{
@@ -3052,7 +3081,7 @@ function kickFetchVod(s){
   if(!ch)return Promise.resolve();
   return Promise.race([
     fetch("https://kick.com/api/v2/channels/"+encodeURIComponent(ch)+"/videos",{cache:"no-store"}),
-    kickFetchTimeout(8000)
+    kickFetchTimeout(4000)
   ])
     .then(r=>r.ok?r.json():null)
     .then(vids=>{
@@ -3063,27 +3092,30 @@ function kickFetchVod(s){
       s.vod_hls=vod.source||""; // direct HLS URL — play in <video> tag, bypasses Kick player
     }).catch(()=>{});
 }
-// Twitch VOD via public GraphQL (no auth needed)
+// Twitch VOD via public GraphQL (no auth needed) — resolves true when VOD data changed
 function twitchFetchVod(s){
   const ch=String(s.url||"").split("/").filter(Boolean).pop();
-  if(!ch)return Promise.resolve();
+  if(!ch)return Promise.resolve(false);
+  const before=s.vod_id||null;
   return Promise.race([
     fetch("https://gql.twitch.tv/gql",{
       method:"POST",
       headers:{"Client-ID":"kimne78kx3ncx6brgo4mv6wki5h1ko","Content-Type":"application/json"},
       body:JSON.stringify({query:"query($login:String!){user(login:$login){videos(first:1){edges{node{id title}}}}}","variables":{login:ch.toLowerCase()}})
     }),
-    kickFetchTimeout(8000)
+    kickFetchTimeout(4000)
   ])
     .then(r=>r.ok?r.json():null)
     .then(d=>{
       const edge=d&&d.data&&d.data.user&&d.data.user.videos&&d.data.user.videos.edges&&d.data.user.videos.edges[0];
-      if(!edge)return;
-      s.vod_id="v"+edge.node.id; // Twitch VOD IDs need "v" prefix
+      if(!edge)return false;
+      const nid="v"+edge.node.id; // Twitch VOD IDs need "v" prefix
+      const changed=(nid!==before)||((edge.node.title||"")!==(s.vod_title||""));
+      s.vod_id=nid;
       s.vod_title=edge.node.title||"";
       // Also fetch the direct HLS stream URL (bypasses Twitch's embed player)
-      return twitchFetchVodStream(s,edge.node.id);
-    }).catch(()=>{});
+      return twitchFetchVodStream(s,edge.node.id).then(()=>changed);
+    }).catch(()=>false);
 }
 // Get direct HLS URL for a Twitch VOD via playback access token (no embed player needed)
 function twitchFetchVodStream(s,vodId){
@@ -3097,7 +3129,7 @@ function twitchFetchVodStream(s,vodId){
         variables:{vodID:String(vodId)}
       })
     }),
-    kickFetchTimeout(8000)
+    kickFetchTimeout(4000)
   ])
     .then(r=>r.ok?r.json():null)
     .then(d=>{
@@ -3107,6 +3139,8 @@ function twitchFetchVodStream(s,vodId){
       s.vod_hls="https://usher.ttvnw.net/vod/"+vid+".m3u8?sig="+encodeURIComponent(tok.signature)+"&token="+encodeURIComponent(tok.value)+"&allow_source=true";
     }).catch(()=>{});
 }
+/* Cache load ONLY — renders instantly, never touches live APIs.
+   Order: window.SHORTZ_STREAMERS (bundled) -> localStorage (last background refresh) -> streamers.json */
 async function loadStreamers(){
   if(STREAMERS_LOADED)return;
   STREAMERS_LOADED=true;
@@ -3115,14 +3149,44 @@ async function loadStreamers(){
       STREAMERS.kick=window.SHORTZ_STREAMERS.kick||[];
       STREAMERS.twitch=window.SHORTZ_STREAMERS.twitch||[];
     }else{
-      const r=await fetch("streamers.json",{cache:"no-store"});
-      if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; }
+      let cached=null;
+      try{ cached=JSON.parse(localStorage.getItem("shortz_streamers")||"null"); }catch(e){}
+      if(cached&&Array.isArray(cached.kick)&&Array.isArray(cached.twitch)){
+        STREAMERS.kick=cached.kick; STREAMERS.twitch=cached.twitch;
+      }else{
+        // bundled streamers.json — 4s ceiling, a slow file fetch never blocks the tab
+        const r=await Promise.race([fetch("streamers.json",{cache:"no-store"}),kickFetchTimeout(4000)]);
+        if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; }
+      }
     }
   }catch(e){ /* empty directory until streamers.json ships */ }
-  // refresh live status for Kick channels (no auth needed); fetch most-recent VOD for offline ones
-  await Promise.all(STREAMERS.kick.map(kickRefreshOne));
-  // fetch most-recent VOD for Twitch streamers (assume offline — no auth for live check)
-  await Promise.all(STREAMERS.twitch.map(s=>{ s.live=false; return twitchFetchVod(s); }));
+}
+/* Background live refresh — fired and NOT awaited by the render path.
+   Live badges / replay data land via restackStreams() when they arrive. */
+let streamersRefreshing=false;
+async function refreshStreamersLive(){
+  if(streamersRefreshing)return;
+  streamersRefreshing=true;
+  try{
+    if(!STREAMERS.kick.length&&!STREAMERS.twitch.length){
+      // cache fetch may have raced out; retry the bundled data once before refreshing
+      try{
+        const r=await Promise.race([fetch("streamers.json",{cache:"no-store"}),kickFetchTimeout(4000)]);
+        if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; }
+      }catch(e){}
+    }
+    // refresh live status for Kick channels (no auth needed); fetch most-recent VOD for offline ones
+    const kc=await Promise.all(STREAMERS.kick.map(kickRefreshOne));
+    // fetch most-recent VOD for Twitch streamers (assume offline — no auth for live check)
+    const tc=await Promise.all(STREAMERS.twitch.map(s=>{ s.live=false; return twitchFetchVod(s); }));
+    try{ localStorage.setItem("shortz_streamers",JSON.stringify(STREAMERS)); }catch(e){}
+    // live badges (or new replays) arrived — re-sort and re-fill visible slots if the tab is still open
+    if(curView==="streaming"&&(kc.some(Boolean)||tc.some(Boolean)))restackStreams();
+  }catch(e){
+    /* every per-call path already catches; belt-and-braces so this can never reject unhandled */
+  }finally{
+    streamersRefreshing=false;
+  }
 }
 /* unified list: Kick first, then Twitch; live streamers first within each */
 function sstreamList(){
@@ -3284,7 +3348,8 @@ function stopStreamFeed(){
 }
 async function mountStreamFeed(){
   document.body.classList.add("feedfull");
-  await loadStreamers();
+  await loadStreamers(); // cache only — streamer list renders immediately
+  refreshStreamersLive(); // fire-and-forget: live badges + replays refresh in the background
   const list=sstreamList();
   const v=$("#view-streaming");
   if(!list.length){
@@ -3691,11 +3756,16 @@ function liveReminders(){
 }
 
 /* ---------- boot: cold open straight into the feed ---------- */
-/* wait for the live catalog (or the 8s timeout / bundled fallback), then render */
+/* wait for the live catalog (or the 2s timeout / bundled fallback), then render */
 (function(){
   var ready = window.SHORTZ_CATALOG_READY;
   if (ready && typeof ready.then === "function") ready.then(function(){ mountFeed(); });
   else mountFeed();
+  // SPEED (tab-switch): warm the one-pass catalog count cache while idle, so the
+  // first Browse/Profile tap never pays for it. Rebuild after a fresh catalog lands.
+  var idlePre=function(fn){ try{ if("requestIdleCallback" in window) requestIdleCallback(fn,{timeout:5000}); else setTimeout(fn,1200); }catch(e){ setTimeout(fn,1200); } };
+  idlePre(function(){ try{ catalogCounts(); }catch(e){} });
+  if (ready && typeof ready.then === "function") ready.then(function(){ idlePre(function(){ try{ catalogCounts(); }catch(e){} }); });
 })();
 
 /* PWA: service worker */
