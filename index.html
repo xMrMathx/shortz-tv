@@ -2196,6 +2196,7 @@ window.addEventListener("message",e=>{
 function playSeries(t){
   if(!t)return;
   try{if(feedMounted&&slotNodes[1])saveProg(slotNodes[1])}catch(e){}
+  try{if(!window._pillDismissedSid||window._pillDismissedSid!==t.id)window._pillDismissedSid=null;}catch(e){}
   const nx=pickRandom(t.id);
   feedStack=[t,nx];feedPos=0;
   feed.cur=t;feed.curEp=null;
@@ -4771,6 +4772,8 @@ function updateContinuePill(){
     const pill=document.getElementById("contPill");
     if(!pill)return;
     const c=(typeof curView!=="undefined"&&curView==="home")?findContinue():null;
+    // if the user dismissed this series, keep it gone until they watch something else
+    if(c&&window._pillDismissedSid&&c.t.id===window._pillDismissedSid){pill.classList.remove("show");pill._cont=null;return;}
     if(c){
       document.getElementById("contPillT").textContent=(c.t.title||"")+" · "+(c.ep.n||"");
       pill.classList.add("show"); pill._cont=c;
@@ -4794,7 +4797,18 @@ function updateContinuePill(){
   });
   document.getElementById("contPillX").addEventListener("click",e=>{
     e.stopPropagation();
-    try{ if(pill._cont&&pill._cont.ep){const vid=pill._cont.ep.video_id||vidOf(pill._cont.ep.url||""); if(vid){delete prog[vid];store.set("progress",prog);} } }catch(err){}
+    try{
+      if(pill._cont&&pill._cont.t){
+        window._pillDismissedSid=pill._cont.t.id; // dismiss the whole series, not just one episode
+        // clear progress for all episodes of this series so it stops resurfacing
+        const eps=pill._cont.t.episodes||[];
+        for(const ep of eps){
+          const vid=ep.video_id||vidOf(ep.url||"");
+          if(vid){delete prog[vid];delete progTime[vid];}
+        }
+        store.set("progress",prog); store.set("progressTime",progTime);
+      }
+    }catch(err){}
     pill.classList.remove("show"); pill._cont=null;
   });
   setInterval(updateContinuePill,4000);
