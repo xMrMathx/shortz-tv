@@ -888,7 +888,7 @@ function go(v){
   if(v===curView&&v!=="detail")return;
   if(curView==="home"&&v!=="home")pauseFeedVideo();
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
-  if(v==="home"&&curView!=="home")setTimeout(resumeFeedVideo,600);
+  if(v==="home"&&curView!=="home")resumeFeedVideo(); // instant: iframe stayed warm
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
   document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
   const cur=$("#view-"+curView), nxt=$("#view-"+v);
@@ -1431,42 +1431,35 @@ function togglePause(){
   slide._paused=paused;
   flashPauseIcon(slide,paused);
 }
-/* auto-pause the feed video when navigating away from home */
-let _nukeTimer=null;
+/* auto-pause the feed video when navigating away from home.
+   SPEED: the iframe stays warm (never nuked) so coming back to Home
+   resumes instantly instead of a full YouTube reload. */
 function pauseFeedVideo(){
   const slide=curSlide();if(!slide||!feed.cur)return;
-  const fr=slide.querySelector("[data-frame]");
   slide._paused=true;
-  if(_nukeTimer){clearTimeout(_nukeTimer);_nukeTimer=null;}
-  if(!fr)return;
-  const kill=()=>{
-    try{
-      if(!fr.contentWindow)return;
-      if(curIsVimeo()){
-        fr.contentWindow.postMessage(JSON.stringify({method:"pause"}),"*");
-        fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:0}),"*");
-      }else{
-        const msg=(func)=>{try{fr.contentWindow.postMessage(JSON.stringify({event:"command",func,args:""}),"*");}catch(e){}};
-        msg("pauseVideo");
-        msg("mute");
-        msg("stopVideo");
-      }
-    }catch(e){}
-  };
-  kill();
-  setTimeout(kill,300);
-  _nukeTimer=setTimeout(()=>{ // nuclear fallback: nuke the iframe so audio CANNOT continue
-    _nukeTimer=null;
-    try{ if(fr.parentNode){ fr.src="about:blank"; slide._nuked=true; } }catch(e){}
-  },800);
+  try{if(slide._player&&slide._player.pauseVideo)slide._player.pauseVideo();}catch(e){}
+  const fr=slide.querySelector("[data-frame]");
+  if(!fr||!fr.contentWindow)return;
+  try{
+    if(curIsVimeo()){
+      fr.contentWindow.postMessage(JSON.stringify({method:"pause"}),"*");
+      fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:0}),"*");
+    }else{
+      const msg=(func)=>{try{fr.contentWindow.postMessage(JSON.stringify({event:"command",func,args:""}),"*");}catch(e){}};
+      msg("pauseVideo");msg("mute");
+    }
+  }catch(e){}
 }
 function resumeFeedVideo(){
-  if(_nukeTimer){clearTimeout(_nukeTimer);_nukeTimer=null;} // cancel pending nuke — we're back
-  const slide=curSlide();if(!slide||!feed.cur||!slide._nuked)return;
-  slide._nuked=false;slide._paused=false;
-  loadVideoInto(slide,curUrl(),vidOf(curUrl()));
+  const slide=curSlide();if(!slide||!feed.cur||!slide._paused)return;
+  slide._paused=false;
+  try{if(slide._player&&slide._player.playVideo){slide._player.playVideo();return;}}catch(e){}
   const fr=slide.querySelector("[data-frame]");
-  if(fr&&soundOn){fr.onload=()=>setTimeout(unmuteFrame,900);}
+  if(!fr||!fr.contentWindow)return;
+  try{
+    if(curIsVimeo())fr.contentWindow.postMessage(JSON.stringify({method:"play"}),"*");
+    else fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"playVideo",args:""}),"*");
+  }catch(e){}
 }
 /* ---------- tap: single = pause/resume, double-tap left = -10s, right = +10s ---------- */
 function handleTap(x){
@@ -2107,9 +2100,22 @@ async function loadTop10(){
   }catch(e){ /* Top 10 stays hidden if the file is missing */ }
 }
 
+/* SPEED: chunked grid rendering — first 60 cards paint instantly, rest stream in on scroll */
+let browseChunks=null;
+const BROWSE_CHUNK=60;
+function browseMore(grid){
+  if(!browseChunks||!grid)return;
+  const {list}=browseChunks;
+  const next=Math.min(list.length,browseChunks.shown+BROWSE_CHUNK);
+  if(next<=browseChunks.shown)return;
+  const frag=document.createElement("div");
+  frag.innerHTML=list.slice(browseChunks.shown,next).map(cardHTML).join("");
+  while(frag.firstChild)grid.appendChild(frag.firstChild);
+  browseChunks.shown=next;
+  bindCards(grid);
+}
 function renderBrowse(g){
-  browseGenre=g||browseGenre;
-  const list=browseList();
+  browseGenre=g||browseGenre;  const list=browseList();
   const earlyN=C.filter(isEarlyRelease).length;
   const aiN=C.filter(t=>t.ai_made===true).length;
   const rebirthN=C.filter(t=>t.rebirth===true).length;
@@ -2139,10 +2145,25 @@ function renderBrowse(g){
     </div></div>
     <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
       ? `<div class="sect" style="margin-top:4px">Pick your sport</div><div class="sportpick" id="sportpick"></div>`
-      : `<div class="grid" id="bgrid">${list.map(cardHTML).join("")}</div>`}
+      : `<div class="grid" id="bgrid"></div>`}
     <div id="bnores" class="empty" style="display:${list.length||(browseGenre==="Sports"&&!browseQuery.trim())?"none":""}">No shows found.<br>Try another search.</div></div>`;
   if(browseGenre==="Sports"&&!browseQuery.trim()){ renderSportPicker(); }
-  else { bindCards($("#view-browse")); }
+  else {
+    // SPEED: render first chunk instantly, append more on scroll (never all at once)
+    const gr0=$("#bgrid");
+    browseChunks={list:list,shown:0};
+    browseMore(gr0);
+    bindCards($("#view-browse"));
+    const scroller=$("#views");
+    if(scroller&&!scroller._browseHook){
+      scroller._browseHook=true;
+      scroller.addEventListener("scroll",()=>{
+        if(curView!=="browse"||!browseChunks)return;
+        const g=$("#bgrid");if(!g)return;
+        if(scroller.scrollTop+scroller.clientHeight>g.offsetTop+g.offsetHeight-900)browseMore(g);
+      },{passive:true});
+    }
+  }
   const fh=$("#view-browse .feat-hero");
   if(fh) fh.onclick=()=>{ const t=byId(fh.dataset.feat); if(t){ openDetail(t.id); } };
   loadTop10(); // Netflix-style Top 10 row under the search bar
@@ -2152,8 +2173,7 @@ function renderBrowse(g){
     const l=browseList();
     if(browseGenre==="Sports"&&!browseQuery.trim()){ return; } // picker stays
     if(!gr){ renderBrowse(); return; }
-    gr.innerHTML=l.map(cardHTML).join("");
-    bindCards(gr);
+    gr.innerHTML="";browseChunks={list:l,shown:0};browseMore(gr);
     nr.style.display=l.length?"none":"";
     sx.style.display=si.value?"":"none";
     bc.textContent=si.value.trim()?`${l.length} result${l.length===1?"":"s"}`:`${GENRES.length} genres`;
@@ -2177,8 +2197,8 @@ function renderBrowse(g){
       gr.classList.add("fading");
       setTimeout(()=>{
         browseGenre=p.dataset.g;
-        gr.innerHTML=browseList().map(cardHTML).join("");
-        bindCards(gr);gr.classList.remove("fading");
+        gr.innerHTML="";browseChunks={list:browseList(),shown:0};browseMore(gr);
+        gr.classList.remove("fading");
         nr.style.display="none";sx.style.display="none";bc.textContent=`${GENRES.length} genres`;
       },320);
     };
