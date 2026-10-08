@@ -1757,15 +1757,16 @@ function shareCur(){
       }
     }catch(e){}
     try{
+      const _epIdx=(feed.curEp&&(t.episodes||[]).indexOf(feed.curEp));
+      const _shareLink=shareUrl(t.id,_epIdx>=0?_epIdx:undefined);
       if(navigator.share){
-        const _epIdx=(feed.curEp&&(t.episodes||[]).indexOf(feed.curEp));
-    const p={title:"Shortz TV",text:txt,url:shareUrl(t.id,_epIdx>=0?_epIdx:undefined)};
+        const p={title:"Shortz TV",text:txt,url:_shareLink};
         if(files.length)p.files=files;
         await navigator.share(p);
       }
-      else{await navigator.clipboard.writeText(txt+" — "+shareUrl(t.id));toast("Link copied")}
+      else{await navigator.clipboard.writeText(txt+" — "+_shareLink);toast("Link copied")}
     }catch(e){
-      try{await navigator.clipboard.writeText(txt+" — "+shareUrl(t.id));toast("Link copied")}catch(_){}
+      try{await navigator.clipboard.writeText(txt+" — "+_shareLink);toast("Link copied")}catch(_){}
     }
   })();
 }
@@ -2379,6 +2380,7 @@ function renderProfile(){
       <div style="flex:1"><div style="font-size:19px;font-weight:800">${esc(p.name||"Viewer")}</div>
       <div style="font-size:12px;color:var(--mut);margin-top:4px">${esc(bioLine(p))}</div></div>
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
+      <button class="pbtn sm" id="profShareApp" style="margin-left:8px">↗ Share App</button>
     </div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
     <div class="secttl">Friends</div>
@@ -2396,6 +2398,21 @@ function renderProfile(){
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
+  const _psa=$("#profShareApp");
+  if(_psa)_psa.onclick=()=>{
+    const url=SHARE_BASE;
+    const txt="Watch free short series on Shortz TV";
+    const done=()=>toast("Link copied");
+    (async()=>{
+      try{
+        if(navigator.share){ await navigator.share({title:"Shortz TV",text:txt,url:url}); }
+        else if(navigator.clipboard&&navigator.clipboard.writeText){ await navigator.clipboard.writeText(txt+" — "+url); done(); }
+        else toast("Share not available");
+      }catch(e){
+        try{ if(navigator.clipboard&&navigator.clipboard.writeText){ await navigator.clipboard.writeText(txt+" — "+url); done(); } }catch(_){}
+      }
+    })();
+  };
   const ib=$("#installAppBtn");
   if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
   initFriendsUI();
