@@ -667,6 +667,30 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script src="catalog.js?v=37e7021c"></script>
 <script>
 "use strict";
+/* ---------- live catalog: the app is data-driven, not hard-coded ----------
+   On every launch, pull the fresh catalog.json from the live site. The bundled
+   catalog.js copy above is only the offline fallback. Fresh data is spliced
+   into the SAME array object (not replaced) so every existing reference keeps
+   working. Boot waits for this (or an 8s timeout) before rendering. */
+window.SHORTZ_CATALOG = window.SHORTZ_CATALOG || [];
+window.SHORTZ_CATALOG_READY = (function(){
+  var url = "https://xmrmathx.github.io/shortz-tv/catalog.json";
+  var timeout = new Promise(function(res){ setTimeout(res, 8000); });
+  var fresh = fetch(url, {cache: "no-store"}).then(function(r){
+    if (!r.ok) throw 0;
+    return r.json();
+  }).then(function(data){
+    if (Array.isArray(data) && data.length > 0) {
+      var c = window.SHORTZ_CATALOG;
+      c.length = 0;
+      for (var i = 0; i < data.length; i++) c.push(data[i]);
+    }
+  }).catch(function(){ /* offline: keep bundled fallback */ });
+  return Promise.race([fresh, timeout]);
+})();
+</script>
+<script>
+"use strict";
 /* ---------- micro-interactions ---------- */
 function buzz(ms){ try{ if(navigator.vibrate) navigator.vibrate(ms||12); }catch(e){} }
 // pull-to-refresh: spinner + haptic only (content reshuffles via swipe; never reload the WebView)
@@ -3634,7 +3658,12 @@ function liveReminders(){
 }
 
 /* ---------- boot: cold open straight into the feed ---------- */
-mountFeed();
+/* wait for the live catalog (or the 8s timeout / bundled fallback), then render */
+(function(){
+  var ready = window.SHORTZ_CATALOG_READY;
+  if (ready && typeof ready.then === "function") ready.then(function(){ mountFeed(); });
+  else mountFeed();
+})();
 
 /* PWA: service worker */
 if("serviceWorker" in navigator){

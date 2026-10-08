@@ -6,7 +6,7 @@ const PAGE = ["index.html"];
 
 function isCatalog(url) {
   if (url.origin !== location.origin) return false;
-  return url.pathname.endsWith("/catalog.js");
+  return url.pathname.endsWith("/catalog.js") || url.pathname.endsWith("/catalog.json");
 }
 
 function isPage(url) {
