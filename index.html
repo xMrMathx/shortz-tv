@@ -917,7 +917,7 @@ function shareWholeApp(){
   })();
 }
 document.addEventListener("click",e=>{ if(e.target.closest("#topShareApp")) shareWholeApp(); });
-const SHARE_BASE = "https://xmrmathx.github.io/shortz-tv/";
+const SHARE_BASE = "https://shortz-tv.pages.dev/";
 function shareUrl(id, epIdx){
   // pretty share pages with OG cover art (redirect to ?watch= on open)
   let u = SHARE_BASE + "watch/" + encodeURIComponent(id) + "/";
