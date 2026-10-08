@@ -1662,20 +1662,24 @@ function togglePause(){
    SPEED: the iframe stays warm (never nuked) so coming back to Home
    resumes instantly instead of a full YouTube reload. */
 function pauseFeedVideo(){
-  const slide=curSlide();if(!slide||!feed.cur)return;
-  slide._paused=true;
-  try{if(slide._player&&slide._player.pauseVideo)slide._player.pauseVideo();}catch(e){}
-  const fr=slide.querySelector("[data-frame]");
-  if(!fr||!fr.contentWindow)return;
-  try{
-    if(curIsVimeo()){
-      fr.contentWindow.postMessage(JSON.stringify({method:"pause"}),"*");
-      fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:0}),"*");
-    }else{
-      const msg=(func)=>{try{fr.contentWindow.postMessage(JSON.stringify({event:"command",func,args:""}),"*");}catch(e){}};
-      msg("pauseVideo");msg("mute");
-    }
-  }catch(e){}
+  // BULLETPROOF: pause AND mute EVERY feed slot via every channel.
+  // Pausing only the current slide leaked audio from neighbor slots and from
+  // players where a single channel (YT API or postMessage) didn't take.
+  (slotNodes||[]).forEach(n=>{
+    if(!n)return;
+    n._paused=true;
+    try{if(n._player){ if(n._player.pauseVideo)n._player.pauseVideo(); if(n._player.mute)n._player.mute(); }}catch(e){}
+    try{
+      const fr=n.querySelector("[data-frame]");
+      if(fr&&fr.contentWindow){
+        const cw=fr.contentWindow, pm=o=>{try{cw.postMessage(JSON.stringify(o),"*");}catch(e){}};
+        pm({event:"command",func:"pauseVideo",args:""});
+        pm({event:"command",func:"mute",args:""});
+        pm({method:"pause"});
+        pm({method:"setVolume",value:0});
+      }
+    }catch(e){}
+  });
 }
 function resumeFeedVideo(){
   const slide=curSlide();if(!slide||!feed.cur||!slide._paused)return;
