@@ -506,6 +506,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .smeta{font-size:11px;margin-bottom:8px}
 .sview{color:#4ade80;font-weight:700}
 .soff{color:var(--mut)}
+.sreplay{background:#7c3aed;color:#fff;font-size:12px;font-weight:900;padding:4px 10px;border-radius:8px;letter-spacing:1px}
 .swatch{width:100%;background:var(--red);border:none;border-radius:10px;padding:9px;color:#fff;font-size:13px;font-weight:800;cursor:pointer}
 .sempty{grid-column:1/-1;text-align:center;color:var(--mut);font-size:13px;padding:20px 0}
 /* ---------- STREAMING FEED: TikTok-style vertical swipe pager ---------- */
@@ -1558,7 +1559,7 @@ window.addEventListener("pagehide",()=>{try{pollProg()}catch(e){}});
 window.addEventListener("message",e=>{
   try{
     const d=typeof e.data==="string"?JSON.parse(e.data):e.data;
-    if(d&&d.event==="ended"){
+    if(d&&(d.event==="ended"||(d.event==="onStateChange"&&d.info===0))){
       slotNodes.forEach(n=>{
         const fr=n.querySelector("[data-frame]");
         if(n._vid&&fr&&fr.contentWindow===e.source){try{autoNext(n,n._vid)}catch(_){}}
@@ -2838,6 +2839,35 @@ function liveShellHTML(){
 }
 /* ---------- LIVE STREAMING: TikTok-style vertical swipe feed ---------- */
 let STREAMERS={kick:[],twitch:[]}, STREAMERS_LOADED=false;
+/* refresh one Kick channel: live status via v1, most-recent VOD via v2 when offline */
+function kickRefreshOne(s){
+  const ch=String(s.url||"").split("/").filter(Boolean).pop();
+  if(!ch)return Promise.resolve(false);
+  const before=!!s.live;
+  return fetch("https://kick.com/api/v1/channels/"+encodeURIComponent(ch),{cache:"no-store"})
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{
+      if(!d)return false;
+      const ls=d.livestream||null;
+      s.live=!!ls;
+      if(ls){ s.title=ls.session_title||s.title; s.viewers=ls.viewer_count!=null?String(ls.viewer_count):s.viewers; return (!!s.live)!==before; }
+      if(!s.vod_id)return kickFetchVod(s).then(()=>((!!s.live)!==before));
+      return (!!s.live)!==before;
+    }).catch(()=>false);
+}
+/* most recent offline VOD for a Kick channel */
+function kickFetchVod(s){
+  const ch=String(s.url||"").split("/").filter(Boolean).pop();
+  if(!ch)return Promise.resolve();
+  return fetch("https://kick.com/api/v2/channels/"+encodeURIComponent(ch)+"/videos",{cache:"no-store"})
+    .then(r=>r.ok?r.json():null)
+    .then(vids=>{
+      if(!vids||!vids.length)return;
+      const vod=vids.find(v=>!v.is_live)||vids[0];
+      s.vod_id=vod.id;
+      s.vod_title=vod.session_title||"";
+    }).catch(()=>{});
+}
 async function loadStreamers(){
   if(STREAMERS_LOADED)return;
   STREAMERS_LOADED=true;
@@ -2850,19 +2880,8 @@ async function loadStreamers(){
       if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; }
     }
   }catch(e){ /* empty directory until streamers.json ships */ }
-  // refresh live status for Kick channels (no auth needed)
-  STREAMERS.kick.forEach(s=>{
-    const ch=String(s.url||"").split("/").filter(Boolean).pop();
-    if(!ch)return;
-    fetch("https://kick.com/api/v1/channels/"+encodeURIComponent(ch),{cache:"no-store"})
-      .then(r=>r.ok?r.json():null)
-      .then(d=>{
-        if(!d)return;
-        const ls=d.livestream||null;
-        s.live=!!ls;
-        if(ls){ s.title=ls.session_title||s.title; s.viewers=ls.viewer_count!=null?String(ls.viewer_count):s.viewers; }
-      }).catch(()=>{});
-  });
+  // refresh live status for Kick channels (no auth needed); fetch most-recent VOD for offline ones
+  await Promise.all(STREAMERS.kick.map(kickRefreshOne));
 }
 /* unified list: Kick first, then Twitch; live streamers first within each */
 function sstreamList(){
@@ -2876,12 +2895,15 @@ function sstreamEmbed(s,muted){
   const ch=encodeURIComponent(sstreamChannel(s)), m=muted?"true":"false";
   if(s.platform==="twitch")
     return "https://player.twitch.tv/?channel="+ch+"&parent=xmrmathx.github.io&autoplay=true&muted="+m;
+  // offline Kick channel with a recent VOD: play the replay instead of an empty player
+  if(!s.live&&s.vod_id)
+    return "https://player.kick.com/?vod="+encodeURIComponent(s.vod_id)+"&parent=xmrmathx.github.io&autoplay=true&muted="+m;
   return "https://player.kick.com/"+ch+"?autoplay=true&muted="+m;
 }
 let sstreamStack=[], sstreamPos=-1, sstreamSlots=[], sstreamMounted=false;
 let sdragging=false, sdragDy=0, sdragX0=0, sdragY0=0, sdragT0=0, smovedPx=0;
 let svelSamples=[], ssnapAnim=false, ssuppressClick=false, sskipMouseUntil=0;
-let streamMuted=true;
+let streamMuted=true, streamPollTimer=null;
 function sstreamSlideHTML(){
   return `<div class="sstream-frame" data-sframe></div>
   <div class="sstream-ov" data-sov>
@@ -2899,14 +2921,15 @@ function sstreamFill(node,s,mode){
   node._s=s||null;
   if(!s||mode==="blank"){ fr.innerHTML=""; ov.style.display="none"; return; }
   ov.style.display="";
-  const live=!!s.live;
-  node.querySelector("[data-s-live]").innerHTML=live?`<span class="slive" style="position:static;transform:none">● LIVE</span>`:`<span class="soff">OFFLINE</span>`;
+  const live=!!s.live, replay=!live&&!!s.vod_id;
+  node.querySelector("[data-s-live]").innerHTML=live?`<span class="slive" style="position:static;transform:none">● LIVE</span>`:replay?`<span class="sreplay">▶ REPLAY</span>`:`<span class="soff">OFFLINE</span>`;
   node.querySelector("[data-s-plat]").textContent=s.platform==="twitch"?"Twitch":"Kick";
   node.querySelector("[data-s-name]").textContent="@"+(s.name||"unknown");
   const tt=node.querySelector("[data-s-title]");
-  tt.textContent=s.title||""; tt.style.display=s.title?"":"none";
+  const showTitle=replay?(s.vod_title||""):s.title;
+  tt.textContent=showTitle||""; tt.style.display=showTitle?"":"none";
   const mt=node.querySelector("[data-s-meta]");
-  mt.textContent=live&&s.viewers?(s.viewers+" watching"):live?"Live now":"";
+  mt.textContent=live&&s.viewers?(s.viewers+" watching"):live?"Live now":replay?"Most recent stream":"";
   mt.style.display=mt.textContent?"":"none";
   node.querySelector("[data-s-sound]").style.display=streamMuted?"":"none";
   if(mode==="unload"){ fr.innerHTML=""; return; }
@@ -2914,6 +2937,32 @@ function sstreamFill(node,s,mode){
 }
 function sstreamLayout(){ sstreamSlots.forEach((n,i)=>{ n.style.transform=`translateY(${(i-1)*100}%)`; }); }
 function sstreamCur(){ return sstreamSlots[1]; }
+/* re-sort the feed after live-status changes; keep the user on the same streamer when possible */
+function restackStreams(){
+  if(!sstreamMounted||!sstreamStack.length)return;
+  const curUrl=sstreamStack[sstreamPos]?sstreamStack[sstreamPos].url:null;
+  sstreamStack=sstreamList();
+  if(curUrl){
+    const ni=sstreamStack.findIndex(s=>s.url===curUrl);
+    sstreamPos=ni>=0?ni:Math.min(sstreamPos,sstreamStack.length-1);
+  }else sstreamPos=0;
+  sstreamFill(sstreamSlots[1],sstreamStack[sstreamPos],"current");
+  sstreamFill(sstreamSlots[0],sstreamStack[sstreamPos-1]||null,sstreamStack[sstreamPos-1]?"unload":"blank");
+  sstreamFill(sstreamSlots[2],sstreamStack[sstreamPos+1]||null,sstreamStack[sstreamPos+1]?"unload":"blank");
+}
+/* poll Kick live status every 60s while the Streaming tab is open */
+async function pollKickLive(){
+  if(curView!=="streaming"||!STREAMERS.kick.length)return;
+  const changed=await Promise.all(STREAMERS.kick.map(kickRefreshOne));
+  if(curView==="streaming"&&changed.some(Boolean))restackStreams();
+}
+function startStreamPoll(){
+  stopStreamPoll();
+  streamPollTimer=setInterval(pollKickLive,60000);
+}
+function stopStreamPoll(){
+  if(streamPollTimer){clearInterval(streamPollTimer);streamPollTimer=null;}
+}
 function sstreamAdvance(dir){
   const stage=$("#sstreamStage"), track=$("#sstreamTrack");
   if(!stage||!track||ssnapAnim)return;
@@ -2959,6 +3008,7 @@ function sstreamToggleSound(){
   toast(streamMuted?"🔇 Muted":"🔊 Sound on");
 }
 function stopStreamFeed(){
+  stopStreamPoll();
   sstreamSlots.forEach(n=>{ const f=n.querySelector("[data-sframe]"); if(f)f.innerHTML=""; });
 }
 async function mountStreamFeed(){
@@ -3030,6 +3080,7 @@ async function mountStreamFeed(){
   sstreamFill(sstreamSlots[0],null,"blank");
   sstreamFill(sstreamSlots[2],sstreamStack[1]||null,sstreamStack[1]?"unload":"blank");
   sstreamLayout();
+  startStreamPoll();
 }
 async function renderStreaming(){ await mountStreamFeed(); }
 
