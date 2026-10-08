@@ -730,7 +730,11 @@ function thumb(t,sz){
 }
 const byId = id => C.find(t=>t.id===id);
 const SHARE_BASE = "https://xmrmathx.github.io/shortz-tv/";
-function shareUrl(id){ return SHARE_BASE + "?watch=" + encodeURIComponent(id); }
+function shareUrl(id, epIdx){
+  let u = SHARE_BASE + "?watch=" + encodeURIComponent(id);
+  if(epIdx !== undefined && epIdx !== null && epIdx >= 0) u += "&ep=" + epIdx;
+  return u;
+}
 function byVid(vid){ return C.find(t=>t.video_id===vid || (t.episodes&&t.episodes.some(e=>e.video_id===vid))); }
 /* early release: computed live — exactly 1 verified episode; auto-graduates as the hunt verifies more */
 function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length===1}
@@ -1754,7 +1758,8 @@ function shareCur(){
     }catch(e){}
     try{
       if(navigator.share){
-        const p={title:"Shortz TV",text:txt,url:shareUrl(t.id)};
+        const _epIdx=(feed.curEp&&(t.episodes||[]).indexOf(feed.curEp));
+    const p={title:"Shortz TV",text:txt,url:shareUrl(t.id,_epIdx>=0?_epIdx:undefined)};
         if(files.length)p.files=files;
         await navigator.share(p);
       }
@@ -2205,7 +2210,10 @@ function openSportsReel(sport){
   ov.querySelectorAll("[data-share]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation();
     const sl=b.closest(".sreel-slide"); const ph=sl&&sl.querySelector("[data-ph]");
     const vid=ph&&ph.dataset.ph; if(!vid)return;
-    const _t=byVid(vid); const url=_t?shareUrl(_t.id):"https://www.youtube.com/watch?v="+vid;
+    const _t=byVid(vid);
+    let _ei=-1;
+    if(_t&&_t.episodes) _ei=_t.episodes.findIndex(e=>(e.video_id||vidOf(e.url||""))===vid);
+    const url=_t?shareUrl(_t.id,_ei>=0?_ei:undefined):"https://www.youtube.com/watch?v="+vid;
     const done=()=>toast("Link copied");
     (async()=>{
       let files=[];
@@ -3583,9 +3591,19 @@ if("serviceWorker" in navigator){
     try{
       const q=new URLSearchParams(location.search);
       const wid=q.get("watch");
+      const wep=q.get("ep");
       if(wid && typeof openDetail==="function"){
-        // wait for catalog to be ready, then open the shared series
-        const tryOpen=()=>{ const t=byId(wid); if(t){ openDetail(wid); } else setTimeout(tryOpen,300); };
+        // wait for catalog to be ready, then open the shared series + exact episode
+        const tryOpen=()=>{
+          const t=byId(wid);
+          if(t){
+            openDetail(wid);
+            const ei=parseInt(wep||"-1",10);
+            if(ei>=0 && t.episodes && t.episodes[ei] && typeof playEpisode==="function"){
+              setTimeout(()=>{ feed.cur=t; playEpisode(t.episodes[ei]); },1200);
+            }
+          } else setTimeout(tryOpen,300);
+        };
         setTimeout(tryOpen,800);
       }
     }catch(e){}
