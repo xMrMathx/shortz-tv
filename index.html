@@ -4501,9 +4501,9 @@ function mdxIsBL(m){ // server excludes via excludedTags; client backstops
 }
 function mdxCover(m,size){
   if(!m||!m.cover)return "";
-  // catalog stores the full filename ("xxx.jpg"); MangaDex serves ONLY that exact
-  // file — the .256.jpg/.512.jpg size variants 404, so use the plain URL.
-  return "https://uploads.mangadex.org/covers/"+m.id+"/"+m.cover;
+  // Covers are hosted locally (mg-covers/<id>.jpg) — zero dependence on
+  // MangaDex's CDN, so they can never break from outside changes.
+  return "mg-covers/"+m.id+".jpg";
 }
 function mdxTitle(m){ return m.title||"Untitled"; }
 function mdxAuthor(m){ return m.author||""; }
