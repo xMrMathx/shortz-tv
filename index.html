@@ -729,6 +729,9 @@ function thumb(t,sz){
   return "https://i.ytimg.com/vi/"+id+"/"+sz+"default.jpg";
 }
 const byId = id => C.find(t=>t.id===id);
+const SHARE_BASE = "https://xmrmathx.github.io/shortz-tv/";
+function shareUrl(id){ return SHARE_BASE + "?watch=" + encodeURIComponent(id); }
+function byVid(vid){ return C.find(t=>t.video_id===vid || (t.episodes&&t.episodes.some(e=>e.video_id===vid))); }
 /* early release: computed live — exactly 1 verified episode; auto-graduates as the hunt verifies more */
 function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length===1}
 const EARLY="__early__";
@@ -1751,13 +1754,13 @@ function shareCur(){
     }catch(e){}
     try{
       if(navigator.share){
-        const p={title:"Shortz TV",text:txt,url:location.href};
+        const p={title:"Shortz TV",text:txt,url:shareUrl(t.id)};
         if(files.length)p.files=files;
         await navigator.share(p);
       }
-      else{await navigator.clipboard.writeText(txt+" — "+location.href);toast("Link copied")}
+      else{await navigator.clipboard.writeText(txt+" — "+shareUrl(t.id));toast("Link copied")}
     }catch(e){
-      try{await navigator.clipboard.writeText(txt+" — "+location.href);toast("Link copied")}catch(_){}
+      try{await navigator.clipboard.writeText(txt+" — "+shareUrl(t.id));toast("Link copied")}catch(_){}
     }
   })();
 }
@@ -2202,7 +2205,7 @@ function openSportsReel(sport){
   ov.querySelectorAll("[data-share]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation();
     const sl=b.closest(".sreel-slide"); const ph=sl&&sl.querySelector("[data-ph]");
     const vid=ph&&ph.dataset.ph; if(!vid)return;
-    const url="https://www.youtube.com/watch?v="+vid;
+    const _t=byVid(vid); const url=_t?shareUrl(_t.id):"https://www.youtube.com/watch?v="+vid;
     const done=()=>toast("Link copied");
     (async()=>{
       let files=[];
@@ -3577,6 +3580,15 @@ mountFeed();
 /* PWA: service worker */
 if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
+    try{
+      const q=new URLSearchParams(location.search);
+      const wid=q.get("watch");
+      if(wid && typeof openDetail==="function"){
+        // wait for catalog to be ready, then open the shared series
+        const tryOpen=()=>{ const t=byId(wid); if(t){ openDetail(wid); } else setTimeout(tryOpen,300); };
+        setTimeout(tryOpen,800);
+      }
+    }catch(e){}
     navigator.serviceWorker.register("sw.js").catch(()=>{});
   });
 }
