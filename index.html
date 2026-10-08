@@ -1680,10 +1680,34 @@ function pauseFeedVideo(){
       }
     }catch(e){}
   });
+  // WATCHDOG: 1.2s after leaving, any feed player still audible gets its src
+  // nuked (about:blank). Soft-pause keeps instant resume; the nuke only fires
+  // when the soft pause failed — silence is guaranteed either way.
+  clearTimeout(pauseFeedVideo._wd);
+  pauseFeedVideo._wd=setTimeout(()=>{
+    if(curView==="home")return;
+    (slotNodes||[]).forEach(n=>{
+      if(!n)return;
+      let playing=false;
+      try{ const st=n._player&&n._player.getPlayerState&&n._player.getPlayerState(); playing=(st===1||st===3); }catch(e){}
+      if(playing){
+        try{if(n._player&&n._player.destroy)n._player.destroy();}catch(e){}
+        n._player=null;
+        try{const fr=n.querySelector("[data-frame]"); if(fr){fr._src=fr.src; fr.src="about:blank";}}catch(e){}
+      }
+    });
+  },1200);
 }
 function resumeFeedVideo(){
   const slide=curSlide();if(!slide||!feed.cur||!slide._paused)return;
   slide._paused=false;
+  // restore any slot the watchdog nuked
+  (slotNodes||[]).forEach(n=>{
+    try{
+      const fr=n&&n.querySelector("[data-frame]");
+      if(fr&&fr.src==="about:blank"&&fr._src){ fr.src=fr._src; fr._src=null; }
+    }catch(e){}
+  });
   // ROOT FIX: pauseFeedVideo() mutes the frame when leaving Home, but resume never
   // unmuted — every return to Home played muted. soundOn defaults true
   // ("no tap needed, ever"), so restore audio on resume.
@@ -1837,6 +1861,7 @@ setInterval(()=>{try{
   }
 }catch(e){}},500);
 function unmuteFrame(){
+  if(curView!=="home")return; // never restart audio from another tab (iframe reload race)
   const fr=curSlide().querySelector("[data-frame]");if(!fr||!fr.contentWindow||!feed.cur)return;
   try{
     if(curIsVimeo()){
