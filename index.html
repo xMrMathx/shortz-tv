@@ -2884,8 +2884,32 @@ function twitchFetchVod(s){
     .then(d=>{
       const edge=d&&d.data&&d.data.user&&d.data.user.videos&&d.data.user.videos.edges&&d.data.user.videos.edges[0];
       if(!edge)return;
-      s.vod_id="v"+edge.node.id; // Twitch VOD IDs need "v" prefix for embed
+      s.vod_id="v"+edge.node.id; // Twitch VOD IDs need "v" prefix
       s.vod_title=edge.node.title||"";
+      // Also fetch the direct HLS stream URL (bypasses Twitch's embed player)
+      return twitchFetchVodStream(s,edge.node.id);
+    }).catch(()=>{});
+}
+// Get direct HLS URL for a Twitch VOD via playback access token (no embed player needed)
+function twitchFetchVodStream(s,vodId){
+  return Promise.race([
+    fetch("https://gql.twitch.tv/gql",{
+      method:"POST",
+      headers:{"Client-ID":"kimne78kx3ncx6brgo4mv6wki5h1ko","Content-Type":"application/json"},
+      body:JSON.stringify({
+        operationName:"PlaybackAccessToken",
+        query:"query PlaybackAccessToken($isLive:Boolean!,$login:String!,$isVod:Boolean!,$vodID:String!,$playerType:String!){streamPlaybackAccessToken(isLive:$isLive,login:$login,isVod:$isVod,vodID:$vodID,playerType:$playerType){value signature}}",
+        variables:{isLive:false,login:String(s.url||"").split("/").filter(Boolean).pop().toLowerCase(),isVod:true,vodID:String(vodId),playerType:"site"}
+      })
+    }),
+    kickFetchTimeout(8000)
+  ])
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{
+      const tok=d&&d.data&&d.data.streamPlaybackAccessToken;
+      if(!tok||!tok.value||!tok.signature)return;
+      const vid=String(vodId);
+      s.vod_hls="https://usher.ttvnw.net/vod/"+vid+".m3u8?sig="+encodeURIComponent(tok.signature)+"&token="+encodeURIComponent(tok.value)+"&allow_source=true";
     }).catch(()=>{});
 }
 async function loadStreamers(){
@@ -2960,8 +2984,18 @@ function sstreamFill(node,s,mode){
   // offline Kick with VOD: native <video> tag with direct HLS (bypasses broken Kick player embed)
   if(s.platform!=="twitch"&&!s.live&&s.vod_hls){
     fr.innerHTML=sstreamVodHTML(s,streamMuted);
+  }else if(s.platform==="twitch"&&!s.live&&s.vod_hls){
+    // offline Twitch with VOD: direct HLS in native video (bypasses Twitch's blocked embed player)
+    fr.innerHTML=`<video src="${s.vod_hls}" style="width:100%;height:100%;background:#000" playsinline webkit-playsinline ${streamMuted?"muted":""} loop></video>`;
+    const vid=fr.querySelector("video");
+    if(vid){
+      vid.muted=!!streamMuted;
+      const tryPlay=()=>{ const pr=vid.play(); if(pr&&pr.catch)pr.catch(()=>{}); };
+      tryPlay(); setTimeout(tryPlay,800);
+      node._svid=vid;
+    }
   }else if(s.platform==="twitch"&&!s.live&&s.vod_id){
-    // offline Twitch with VOD: direct iframe VOD embed — Twitch wants the "v" prefix on video IDs
+    // fallback: Twitch iframe embed (if HLS not available)
     let vidId=String(s.vod_id);
     if(vidId.charAt(0)!=="v")vidId="v"+vidId;
     const host=(window.location&&window.location.hostname)||"";
