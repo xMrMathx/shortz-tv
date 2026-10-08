@@ -379,17 +379,6 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 #toTop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
 #toTop:active{transform:scale(.92)}
 /* ---------- continue watching pill (Home) ---------- */
-#contPill{position:fixed;top:calc(64px + env(safe-area-inset-top));left:12px;right:12px;z-index:55;
-  display:none;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;cursor:pointer;
-  background:rgba(16,16,24,.92);border:1px solid var(--line);backdrop-filter:blur(12px);
-  box-shadow:0 6px 20px rgba(0,0,0,.5)}
-#contPill.show{display:flex}
-#contPill .cp-play{width:34px;height:34px;flex:0 0 34px;border-radius:50%;border:none;cursor:pointer;
-  background:linear-gradient(135deg,#e50914,#b00610);color:#fff;font-size:14px}
-#contPill .cp-tx{flex:1;min-width:0}
-#contPill .cp-k{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#e50914;text-transform:uppercase}
-#contPill .cp-t{font-size:14px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-#contPill .cp-x{background:none;border:none;color:#888;font-size:16px;cursor:pointer;padding:4px}
 /* ---------- next-episode countdown ---------- */
 #nextCd{position:fixed;left:12px;right:12px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:65;
   display:none;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;
@@ -782,7 +771,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
   </nav>
   <button id="toTop" aria-label="Back to top">↑</button>
-  <div id="contPill"><button class="cp-play" aria-label="Resume">▶</button><div class="cp-tx"><div class="cp-k">Continue watching</div><div class="cp-t" id="contPillT"></div></div><button class="cp-x" id="contPillX" aria-label="Dismiss">✕</button></div>
+
   <div id="nextCd"><div class="nc-num" id="nextCdN">5</div><div class="nc-tx"><div class="nc-k">Next episode</div><div class="nc-t" id="nextCdT"></div></div><button class="nc-x" id="nextCdX">Cancel</button></div>
 
   <div id="cscrim"></div>
@@ -2233,7 +2222,6 @@ window.addEventListener("message",e=>{
 function playSeries(t){
   if(!t)return;
   try{if(feedMounted&&slotNodes[1])saveProg(slotNodes[1])}catch(e){}
-  try{if(!window._pillDismissedSid||window._pillDismissedSid!==t.id)window._pillDismissedSid=null;}catch(e){}
   const nx=pickRandom(t.id);
   feedStack=[t,nx];feedPos=0;
   feed.cur=t;feed.curEp=null;
@@ -4781,74 +4769,6 @@ mountFeed();
   btn.addEventListener("click",()=>{try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){window.scrollTo(0,0)}});
   window.addEventListener("scroll",upd,{passive:true});
   setInterval(upd,1500); // catch view changes (go() resets scroll)
-})();
-
-/* continue watching: floating pill on Home for the most recent unfinished episode */
-function findContinue(){
-  try{
-    let best=null, bestT=0;
-    for(const h of (history||[])){
-      if(!h||!h.id)continue;
-      const t=byId(h.id);
-      if(!t||!t.episodes)continue;
-      if(typeof feed!=="undefined"&&feed.cur&&feed.cur.id===t.id)continue; // already watching it
-      for(const e of t.episodes){
-        const vid=e.video_id||vidOf(e.url||"");
-        if(vid&&prog[vid]>5){
-          const wt=progTime[vid]||0;
-          if(wt>=bestT){bestT=wt;best={t:t,ep:e};}
-        }
-      }
-    }
-    return best;
-  }catch(e){}
-  return null;
-}
-function updateContinuePill(){
-  try{
-    const pill=document.getElementById("contPill");
-    if(!pill)return;
-    const c=(typeof curView!=="undefined"&&curView==="home")?findContinue():null;
-    // if the user dismissed this series, keep it gone until they watch something else
-    if(c&&window._pillDismissedSid&&c.t.id===window._pillDismissedSid){pill.classList.remove("show");pill._cont=null;return;}
-    if(c){
-      document.getElementById("contPillT").textContent=(c.t.title||"")+" · "+(c.ep.n||"");
-      pill.classList.add("show"); pill._cont=c;
-    }else{ pill.classList.remove("show"); pill._cont=null; }
-  }catch(e){}
-}
-(function(){
-  const pill=document.getElementById("contPill");
-  if(!pill)return;
-  pill.addEventListener("click",e=>{
-    if(e.target.closest("#contPillX"))return;
-    try{
-      const c=pill._cont; if(!c)return;
-      if(typeof go==="function")go("home");
-      // use playSeries so the feed stack resets cleanly (no stale neighbors)
-      playSeries(c.t);
-      // then jump to the exact saved episode
-      setTimeout(()=>{try{feed.cur=c.t;playEpisode(c.ep);}catch(_){}},150);
-      pill.classList.remove("show"); pill._cont=null;
-    }catch(err){}
-  });
-  document.getElementById("contPillX").addEventListener("click",e=>{
-    e.stopPropagation();
-    try{
-      if(pill._cont&&pill._cont.t){
-        window._pillDismissedSid=pill._cont.t.id; // dismiss the whole series, not just one episode
-        // clear progress for all episodes of this series so it stops resurfacing
-        const eps=pill._cont.t.episodes||[];
-        for(const ep of eps){
-          const vid=ep.video_id||vidOf(ep.url||"");
-          if(vid){delete prog[vid];delete progTime[vid];}
-        }
-        store.set("progress",prog); store.set("progressTime",progTime);
-      }
-    }catch(err){}
-    pill.classList.remove("show"); pill._cont=null;
-  });
-  setInterval(updateContinuePill,4000);
 })();
 
 /* PWA: service worker */
