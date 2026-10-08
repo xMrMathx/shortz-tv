@@ -549,7 +549,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <div class="logo">SHORTZ <b>TV</b></div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
       <div class="free-tag">100% FREE</div>
-      <button id="topShareApp" class="free-tag" style="border:none;cursor:pointer;background:linear-gradient(135deg,#e50914,#b00610);color:#fff;box-shadow:0 0 14px rgba(229,9,20,.35)">&#8599; SHARE APP</button>
+      <button id="topShareApp" class="free-tag" style="display:none;border:none;cursor:pointer;background:linear-gradient(135deg,#e50914,#b00610);color:#fff;box-shadow:0 0 14px rgba(229,9,20,.35)">&#8599; SHARE APP</button>
     </div>
   </header>
 
@@ -834,6 +834,7 @@ function go(v){
   setTimeout(()=>cur.classList.remove("leaving"),550);
   nxt.classList.add("active");
   curView=v;
+  try{ const _sa=document.getElementById("topShareApp"); if(_sa) _sa.style.display=(v==="profile")?"":"none"; }catch(e){}
   document.body.classList.toggle("feedfull",v==="home"||v==="streaming");
   try{if(window.Android&&window.Android.onWatching)window.Android.onWatching(v==="home")}catch(e){}
   $("#views").scrollIntoView({block:"start"});
