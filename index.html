@@ -1360,11 +1360,13 @@ function pickRandom(exceptId){
 function embedSrc(u,autoplay){
   const vimeo=u.indexOf("vimeo.com")>=0;
   const sep=u.indexOf("?")>=0?"&":"?";
+  // HD ENGINE: vq=hd1080 forces YouTube to serve the highest available quality
+  // (up to 1080p) instead of auto-dropping to 480p on mobile data.
   if(autoplay===false)
     return vimeo ? u+sep+"title=0&byline=0&portrait=0"
-                 : u+sep+"enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
+                 : u+sep+"enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080";
   return vimeo ? u+sep+"autoplay=1&muted=1&title=0&byline=0&portrait=0"
-               : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1";
+               : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080";
 }
 function frameModeClass(t,fit){
   if(t.orientation==="vertical"||t.vertical||isVertMain(t))return "vert";
@@ -2154,7 +2156,7 @@ function loadVideoInto(node,url,vid){
     if(node._vid!==vid)return;
     try{
       node._player=new YT.Player(fr,{events:{
-        onReady:ev=>{maybeResume(node,ev.target);applySavedTracks(node,ev.target)},
+        onReady:ev=>{maybeResume(node,ev.target);applySavedTracks(node,ev.target);try{ev.target.setPlaybackQuality("hd1080")}catch(e){}},
         onApiChange:ev=>{try{applySavedTracks(node,ev.target)}catch(e){}},
         onStateChange:ev=>{
           try{
@@ -2938,7 +2940,7 @@ function openSportsReel(sport){
     const ph=sl.querySelector("[data-ph]"); if(!ph||ph.dataset.done) return;
     ph.dataset.done="1";
     const vid=ph.dataset.ph;
-    ph.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&mute=1&enablejsapi=1&playsinline=1&rel=0&modestbranding=1" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Sports highlight"></iframe>`;
+    ph.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&mute=1&enablejsapi=1&playsinline=1&rel=0&modestbranding=1&vq=hd1080" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Sports highlight"></iframe>`;
     const fr=ph.querySelector("iframe");
     // match Home feed: if user already enabled sound, unmute shortly after load
     fr.onload=()=>{ setTimeout(()=>{ if(sportsSoundOn) unmuteSportsReel(); },900); };
@@ -3246,7 +3248,7 @@ function tgEmbed(t){
     return m?"https://player.vimeo.com/video/"+m[1]+"?autoplay=1&muted=1&title=0&byline=0&portrait=0":"";
   }
   const id=ytId(u); if(!id)return "";
-  return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1";
+  return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080";
 }
 function tgRowHTML(t){
   const sm=thumb(t,"mq");
@@ -3479,7 +3481,7 @@ function tgPlayHighlight(i){
   $("#tgSub").textContent=`${h.sport} · ${h.channel||""} · ${agoStr(h.publishedAt)}`;
   const im=$("#tgThumb"); if(im){im.src=h.thumb;im.style.display=h.thumb?"":"none";}
   const ph=$("#tgPh"); if(ph)ph.style.display="none";
-  fr.innerHTML=`<iframe src="https://www.youtube.com/embed/${h.vid}?autoplay=1&rel=0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+  fr.innerHTML=`<iframe src="https://www.youtube.com/embed/${h.vid}?autoplay=1&rel=0&vq=hd1080" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
   fr._tid="hl:"+h.vid;
   const pv=$("#tgPreviewBox"); if(pv)pv._tid="hl:"+h.vid;
   const wb=$("#tgWatch"); if(wb)wb.style.display="none"; // highlights play in the preview; no fullscreen series view
