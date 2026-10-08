@@ -640,6 +640,8 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 "use strict";
 /* ---------- micro-interactions ---------- */
 function buzz(ms){ try{ if(navigator.vibrate) navigator.vibrate(ms||12); }catch(e){} }
+// pull-to-refresh: spinner + haptic only (content reshuffles via swipe; never reload the WebView)
+window.refreshFeed=function(){ buzz(15); };
 // ripple on all buttons/tappable
 document.addEventListener("pointerdown",function(e){
   const t=e.target.closest("button,.btn-play,.btn,.ric button,.sreel-ric button,.setitem,.tab");
@@ -700,7 +702,7 @@ document.addEventListener("click",function(e){
     if(!pulling)return; pulling=false;
     const h=parseInt(ptr.style.height)||0;
     ptr.style.height="0px";
-    if(h>50){ buzz(20); if(window.refreshFeed)refreshFeed(); else location.reload(); }
+    if(h>50){ buzz(20); if(window.refreshFeed)refreshFeed(); /* never location.reload() in app WebView */ }
   });
 })();
 const C = window.SHORTZ_CATALOG || [];
