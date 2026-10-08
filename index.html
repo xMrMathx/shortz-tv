@@ -662,6 +662,20 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .tg-watch{margin-left:auto;flex:none}
 .tg-row{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:12px;cursor:pointer;border:1px solid transparent}
 .tg-row:active,.tg-row.sel{background:#15151c;border-color:#2c2c36}
+/* live sports highlights strip in TV Guide */
+#tgHL{margin:14px 0 4px}
+.tg-hl-h{display:flex;align-items:center;justify-content:space-between;margin:0 2px 8px}
+.tg-hl-h .t{font-size:14px;font-weight:800;display:flex;align-items:center;gap:7px}
+.tg-hl-h .live{width:8px;height:8px;border-radius:50%;background:#e50914;display:inline-block;animation:hlblink 1.6s infinite}
+@keyframes hlblink{0%,100%{opacity:1}50%{opacity:.35}}
+.tg-hl-h .upd{font-size:10px;color:var(--mut)}
+.tg-hl-play{background:#e50914;border:0;color:#fff;font-size:12px;font-weight:800;border-radius:18px;padding:7px 14px;cursor:pointer}
+.tg-hl-row{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none}
+.tg-hl-c{flex:0 0 150px;background:#14141c;border:1px solid rgba(255,255,255,.07);border-radius:10px;overflow:hidden;cursor:pointer;position:relative}
+.tg-hl-c img{width:150px;height:84px;object-fit:cover;display:block}
+.tg-hl-c .sb{position:absolute;top:5px;left:5px;background:#e50914;color:#fff;font-size:9px;font-weight:800;padding:2px 7px;border-radius:6px}
+.tg-hl-c .ti{font-size:11px;font-weight:700;line-height:1.3;padding:7px 8px 3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tg-hl-c .ag{font-size:10px;color:var(--mut);padding:0 8px 8px}
 .tg-rt{width:76px;height:43px;border-radius:8px;object-fit:cover;background:#1b1b22;flex:none}
 .tg-rtitle{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tg-rsub{font-size:11px;color:var(--mut);margin-top:2px}
@@ -3238,6 +3252,7 @@ function tgPreview(id){
   if(url){fr.innerHTML=`<iframe src="${url}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;tgArmEnd(t);}
   fr._tid=t.id;
   const pv=$("#tgPreviewBox"); if(pv)pv._tid=t.id;
+  const wb2=$("#tgWatch"); if(wb2)wb2.style.display="";
 }
 function tgPause(){
   const fr=$("#tgFrame");
@@ -3313,11 +3328,13 @@ function renderTvGuide(){
       </div>
     </div>
     <div class="searchbar"><input id="tgSearch" type="text" placeholder="🔍 Search the guide…" autocomplete="off" enterkeyhint="search"></div>
+    <div id="tgHL"></div>
     <div id="tgList"></div>
     <div id="tgEmpty" class="empty" style="display:none">No shows found.</div>`;
   tgMore();
   // preview the first show so the box isn't empty
   if(tgList.length)tgPreview(tgList[0].id);
+  renderTgHighlights();
   const pb=$("#tgPreviewBox");
   const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); go("home"); playSeries(t);};
   pb.onclick=goFull;
@@ -3338,7 +3355,88 @@ function renderTvGuide(){
   }
 }
 
-/* ---------- first-launch profile setup (skippable) ---------- */
+/* ---------- live sports highlights in TV Guide ---------- */
+let tgHLData=null, tgHLAt=0, tgHLIdx=-1;
+function loadHighlights(cb){
+  const now=Date.now();
+  if(tgHLData&&now-tgHLAt<30*60*1000){cb&&cb(tgHLData);return;}
+  fetch("sports-highlights.json?"+now).then(r=>r.ok?r.json():null).then(d=>{
+    if(d&&d.highlights&&d.highlights.length){tgHLData=d;tgHLAt=now;}
+    cb&&cb(tgHLData);
+  }).catch(()=>cb&&cb(tgHLData));
+}
+function agoStr(iso){
+  try{
+    const m=Math.max(1,Math.round((Date.now()-new Date(iso).getTime())/60000));
+    if(m<60)return m+"m ago";
+    const h=Math.round(m/60);
+    if(h<24)return h+"h ago";
+    return Math.round(h/24)+"d ago";
+  }catch(e){return""}
+}
+function renderTgHighlights(){
+  const box=$("#tgHL"); if(!box)return;
+  loadHighlights(d=>{
+    if(!d||!d.highlights||!d.highlights.length){box.innerHTML="";return;}
+    const upd=agoStr(d.updatedAt);
+    box.innerHTML=`
+      <div class="tg-hl-h">
+        <div><div class="t"><span class="live"></span>SPORTS HIGHLIGHTS</div>
+        <div class="upd">Fresh from official channels · updated ${upd}</div></div>
+        <button class="tg-hl-play" id="tgHLPlay">▶ Play all</button>
+      </div>
+      <div class="tg-hl-row">
+        ${d.highlights.map((h,i)=>`
+          <div class="tg-hl-c" data-i="${i}">
+            <img src="${esc(h.thumb)}" loading="lazy" alt="">
+            <div class="sb">${esc(h.sport)}</div>
+            <div class="ti">${esc(h.title)}</div>
+            <div class="ag">${agoStr(h.publishedAt)}</div>
+          </div>`).join("")}
+      </div>`;
+    box.querySelectorAll(".tg-hl-c").forEach(c=>{
+      c.onclick=(e)=>{e.stopPropagation();tgPlayHighlight(+c.dataset.i);};
+    });
+    const pa=$("#tgHLPlay");
+    if(pa)pa.onclick=(e)=>{e.stopPropagation();tgPlayHighlight(0);};
+  });
+}
+function tgPlayHighlight(i){
+  if(!tgHLData||!tgHLData.highlights.length)return;
+  tgHLIdx=((i%tgHLData.highlights.length)+tgHLData.highlights.length)%tgHLData.highlights.length;
+  const h=tgHLData.highlights[tgHLIdx];
+  document.querySelectorAll("#tgList .tg-row").forEach(r=>r.classList.remove("sel"));
+  const fr=$("#tgFrame"); if(!fr)return;
+  $("#tgTitle").textContent=h.title||"";
+  $("#tgSub").textContent=`${h.sport} · ${h.channel||""} · ${agoStr(h.publishedAt)}`;
+  const im=$("#tgThumb"); if(im){im.src=h.thumb;im.style.display=h.thumb?"":"none";}
+  const ph=$("#tgPh"); if(ph)ph.style.display="none";
+  fr.innerHTML=`<iframe src="https://www.youtube.com/embed/${h.vid}?autoplay=1&rel=0" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+  fr._tid="hl:"+h.vid;
+  const pv=$("#tgPreviewBox"); if(pv)pv._tid="hl:"+h.vid;
+  const wb=$("#tgWatch"); if(wb)wb.style.display="none"; // highlights play in the preview; no fullscreen series view
+  tgArmHighlightEnd();
+}
+function tgArmHighlightEnd(){
+  tgWatchEnd();
+  const fr=$("#tgFrame"); if(!fr)return;
+  const iframe=fr.querySelector("iframe"); if(!iframe)return;
+  const token=fr._tid;
+  const fire=()=>{
+    const pv=$("#tgPreviewBox");
+    if(!pv||pv._tid!==token)return;
+    const now=Date.now();
+    if(now-tgAdvanceAt<5000)return;
+    tgAdvanceAt=now;
+    tgPlayHighlight(tgHLIdx+1); // next highlight, loops at the end
+  };
+  const mk=()=>{try{
+    if(token!==($("#tgPreviewBox")||{})._tid)return;
+    tgPlayerKind="yt";
+    tgPlayer=new YT.Player(iframe,{events:{onStateChange:(e)=>{if(e.data===0)fire();}}});
+  }catch(e){}};
+  if(window.YT&&window.YT.Player)mk(); else ensureYT(mk);
+}
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
     <div style="font-size:22px;font-weight:800">Create your profile</div>
