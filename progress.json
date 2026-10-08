@@ -1,127 +1,147 @@
 {
-  "project": "Shortz TV \u2014 60+ series per category",
-  "updatedAt": "2026-10-08T02:00:00Z",
-  "shipped": "v1.2.76",
+  "project": "Shortz TV \u2014 60+ series per genre",
+  "updatedAt": "2026-10-08T04:45:17.986333+00:00",
+  "shipped": 1741,
   "phases": [
     {
       "id": "action",
-      "label": "Action (4/60)",
-      "pct": 6,
-      "status": "queued"
+      "label": "Action \u00b7 21/60",
+      "pct": 35,
+      "status": "running",
+      "note": "21 series"
     },
     {
       "id": "animation",
-      "label": "Animation (12/60)",
-      "pct": 20,
-      "status": "queued"
+      "label": "Animation \u00b7 31/60",
+      "pct": 52,
+      "status": "running",
+      "note": "31 series"
     },
     {
       "id": "anime",
-      "label": "Anime (114/60)",
+      "label": "Anime \u00b7 120/60",
       "pct": 100,
-      "status": "done"
+      "status": "done",
+      "note": "120 series"
     },
     {
       "id": "body-cam",
-      "label": "Body Cam (55/60)",
-      "pct": 91,
-      "status": "running"
+      "label": "Body Cam \u00b7 67/60",
+      "pct": 100,
+      "status": "done",
+      "note": "67 series"
     },
     {
       "id": "comedy",
-      "label": "Comedy (24/60)",
-      "pct": 40,
-      "status": "queued"
+      "label": "Comedy \u00b7 39/60",
+      "pct": 65,
+      "status": "running",
+      "note": "39 series"
     },
     {
       "id": "faith",
-      "label": "Faith (8/60)",
-      "pct": 13,
-      "status": "queued"
+      "label": "Faith \u00b7 26/60",
+      "pct": 43,
+      "status": "running",
+      "note": "26 series"
     },
     {
       "id": "family",
-      "label": "Family (5/60)",
-      "pct": 8,
-      "status": "queued"
+      "label": "Family \u00b7 20/60",
+      "pct": 33,
+      "status": "running",
+      "note": "20 series"
     },
     {
       "id": "fantasy",
-      "label": "Fantasy (24/60)",
-      "pct": 40,
-      "status": "queued"
+      "label": "Fantasy \u00b7 49/60",
+      "pct": 82,
+      "status": "running",
+      "note": "49 series"
     },
     {
       "id": "hood",
-      "label": "Hood (77/60)",
+      "label": "Hood \u00b7 85/60",
       "pct": 100,
-      "status": "done"
+      "status": "done",
+      "note": "85 series"
     },
     {
       "id": "horror",
-      "label": "Horror (12/60)",
-      "pct": 20,
-      "status": "queued"
+      "label": "Horror \u00b7 34/60",
+      "pct": 57,
+      "status": "running",
+      "note": "34 series"
     },
     {
       "id": "mr.-ballin",
-      "label": "Mr. Ballin (701/60)",
+      "label": "Mr. Ballin \u00b7 701/60",
       "pct": 100,
-      "status": "done"
+      "status": "done",
+      "note": "701 series"
     },
     {
       "id": "mystery",
-      "label": "Mystery (12/60)",
-      "pct": 20,
-      "status": "queued"
+      "label": "Mystery \u00b7 26/60",
+      "pct": 43,
+      "status": "running",
+      "note": "26 series"
     },
     {
       "id": "reality",
-      "label": "Reality (21/60)",
-      "pct": 35,
-      "status": "queued"
+      "label": "Reality \u00b7 37/60",
+      "pct": 62,
+      "status": "running",
+      "note": "37 series"
     },
     {
       "id": "revenge",
-      "label": "Revenge (24/60)",
-      "pct": 40,
-      "status": "queued"
+      "label": "Revenge \u00b7 41/60",
+      "pct": 68,
+      "status": "running",
+      "note": "41 series"
     },
     {
       "id": "romance",
-      "label": "Romance (45/60)",
-      "pct": 75,
-      "status": "running"
+      "label": "Romance \u00b7 60/60",
+      "pct": 100,
+      "status": "done",
+      "note": "60 series"
     },
     {
       "id": "sci-fi",
-      "label": "Sci-Fi (26/60)",
-      "pct": 43,
-      "status": "queued"
+      "label": "Sci-Fi \u00b7 42/60",
+      "pct": 70,
+      "status": "running",
+      "note": "42 series"
     },
     {
       "id": "short-films",
-      "label": "Short Films (105/60)",
+      "label": "Short Films \u00b7 114/60",
       "pct": 100,
-      "status": "done"
+      "status": "done",
+      "note": "114 series"
     },
     {
       "id": "sports",
-      "label": "Sports (10/60)",
-      "pct": 16,
-      "status": "queued"
+      "label": "Sports \u00b7 49/60",
+      "pct": 82,
+      "status": "running",
+      "note": "49 series"
     },
     {
       "id": "thriller",
-      "label": "Thriller (142/60)",
+      "label": "Thriller \u00b7 146/60",
       "pct": 100,
-      "status": "done"
+      "status": "done",
+      "note": "146 series"
     },
     {
       "id": "western",
-      "label": "Western (3/60)",
-      "pct": 5,
-      "status": "queued"
+      "label": "Western \u00b7 33/60",
+      "pct": 55,
+      "status": "running",
+      "note": "33 series"
     }
   ]
 }
