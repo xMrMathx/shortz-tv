@@ -4163,10 +4163,11 @@ function mgLoadList(){
     body.innerHTML='<div class="mg-center"><div class="mg-spin"></div>Loading manga…</div>';
   }
   // 2. Refresh silently from the live API; live titles first, bundled-only extras appended.
+  // Only titles with readable chapters — never re-add purged titles (e.g. Solo Leveling).
   const url=MDX+"/manga?limit=48&order%5BfollowedCount%5D=desc&"+MDX_RATINGS+"&"+MDX_BL_EXCL+"&includes%5B%5D=cover_art&includes%5B%5D=author";
   mdxGet(url).then(d=>{
     if(gen!==Manga.gen)return;
-    const live=(d.data||[]).map(mgNorm).filter(m=>!mdxIsBL(m));
+    const live=(d.data||[]).map(mgNorm).filter(m=>!mdxIsBL(m)&&((window.MANGA_CHAPTERS||{})[m.id]||[]).length>0);
     const seen={}; live.forEach(m=>{seen[m.id]=1;});
     const merged=live.concat(bundled.filter(m=>!seen[m.id]));
     if(merged.length){
