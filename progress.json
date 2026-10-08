@@ -1,49 +1,127 @@
 {
- "note": "v1.2.40 live (669 series): rotate fullscreen cover technique \u2014 video fills screen edge-to-edge like YouTube",
- "phases": [
-  {
-   "id": "mockup",
-   "label": "Visual mockup",
-   "pct": 100,
-   "status": "done"
-  },
-  {
-   "id": "approval",
-   "label": "His approval",
-   "note": "Build it.",
-   "pct": 100,
-   "status": "done"
-  },
-  {
-   "id": "build",
-   "label": "Build Live/Chat (app side)",
-   "note": "Client done, config wired in",
-   "pct": 100,
-   "status": "done"
-  },
-  {
-   "id": "backend",
-   "label": "Firebase project (his Google account)",
-   "note": "LIVE: shortz-tv, anon auth on, RTDB rules published",
-   "pct": 100,
-   "status": "done"
-  },
-  {
-   "id": "release",
-   "label": "Build + ship v1.2.6",
-   "note": "v1.2.17 live: 532 series, Reality=19 (14 P. Royal Lit Shade Network series, 207 eps)",
-   "pct": 100,
-   "status": "done"
-  },
-  {
-   "id": "test",
-   "label": "Private test: him + Ivory + James",
-   "note": "Ivory test PASSED (live chat both ways) \u2014 James pending",
-   "pct": 50,
-   "status": "running"
-  }
- ],
- "project": "Shortz TV \u2014 Live/Chat",
- "shipped": "v1.2.46",
- "updatedAt": "2026-10-07T22:19:03.546258+00:00"
+  "project": "Shortz TV \u2014 60+ series per category",
+  "updatedAt": "2026-10-08T02:00:00Z",
+  "shipped": "v1.2.76",
+  "phases": [
+    {
+      "id": "action",
+      "label": "Action (4/60)",
+      "pct": 6,
+      "status": "queued"
+    },
+    {
+      "id": "animation",
+      "label": "Animation (12/60)",
+      "pct": 20,
+      "status": "queued"
+    },
+    {
+      "id": "anime",
+      "label": "Anime (114/60)",
+      "pct": 100,
+      "status": "done"
+    },
+    {
+      "id": "body-cam",
+      "label": "Body Cam (55/60)",
+      "pct": 91,
+      "status": "running"
+    },
+    {
+      "id": "comedy",
+      "label": "Comedy (24/60)",
+      "pct": 40,
+      "status": "queued"
+    },
+    {
+      "id": "faith",
+      "label": "Faith (8/60)",
+      "pct": 13,
+      "status": "queued"
+    },
+    {
+      "id": "family",
+      "label": "Family (5/60)",
+      "pct": 8,
+      "status": "queued"
+    },
+    {
+      "id": "fantasy",
+      "label": "Fantasy (24/60)",
+      "pct": 40,
+      "status": "queued"
+    },
+    {
+      "id": "hood",
+      "label": "Hood (77/60)",
+      "pct": 100,
+      "status": "done"
+    },
+    {
+      "id": "horror",
+      "label": "Horror (12/60)",
+      "pct": 20,
+      "status": "queued"
+    },
+    {
+      "id": "mr.-ballin",
+      "label": "Mr. Ballin (701/60)",
+      "pct": 100,
+      "status": "done"
+    },
+    {
+      "id": "mystery",
+      "label": "Mystery (12/60)",
+      "pct": 20,
+      "status": "queued"
+    },
+    {
+      "id": "reality",
+      "label": "Reality (21/60)",
+      "pct": 35,
+      "status": "queued"
+    },
+    {
+      "id": "revenge",
+      "label": "Revenge (24/60)",
+      "pct": 40,
+      "status": "queued"
+    },
+    {
+      "id": "romance",
+      "label": "Romance (45/60)",
+      "pct": 75,
+      "status": "running"
+    },
+    {
+      "id": "sci-fi",
+      "label": "Sci-Fi (26/60)",
+      "pct": 43,
+      "status": "queued"
+    },
+    {
+      "id": "short-films",
+      "label": "Short Films (105/60)",
+      "pct": 100,
+      "status": "done"
+    },
+    {
+      "id": "sports",
+      "label": "Sports (10/60)",
+      "pct": 16,
+      "status": "queued"
+    },
+    {
+      "id": "thriller",
+      "label": "Thriller (142/60)",
+      "pct": 100,
+      "status": "done"
+    },
+    {
+      "id": "western",
+      "label": "Western (3/60)",
+      "pct": 5,
+      "status": "queued"
+    }
+  ]
 }
