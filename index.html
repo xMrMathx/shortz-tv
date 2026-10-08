@@ -3389,13 +3389,31 @@ async function refreshStreamersLive(){
         if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; }
       }catch(e){}
     }
+    // ROOT FIX: the cached list never expired, so newly-added channels in
+    // streamers.json never appeared. Merge in any new channels (by URL) every
+    // refresh — no cache-clearing needed, ever.
+    let addedNew=false;
+    try{
+      const r2=await Promise.race([fetch("streamers.json",{cache:"no-store"}),kickFetchTimeout(4000)]);
+      if(r2.ok){
+        const d=await r2.json();
+        const seen=new Set();
+        ["kick","twitch"].forEach(p=>{(STREAMERS[p]||[]).forEach(s=>seen.add(String(s.url||"").toLowerCase()))});
+        ["kick","twitch"].forEach(p=>{
+          (d[p]||[]).forEach(s=>{
+            const u=String((s&&s.url)||"").toLowerCase();
+            if(u&&!seen.has(u)){ seen.add(u); (STREAMERS[p]=STREAMERS[p]||[]).push(s); addedNew=true; }
+          });
+        });
+      }
+    }catch(e){}
     // refresh live status for Kick channels (no auth needed); fetch most-recent VOD for offline ones
     const kc=await Promise.all(STREAMERS.kick.map(kickRefreshOne));
     // fetch most-recent VOD for Twitch streamers (assume offline — no auth for live check)
     const tc=await Promise.all(STREAMERS.twitch.map(s=>{ s.live=false; return twitchFetchVod(s); }));
     try{ localStorage.setItem("shortz_streamers",JSON.stringify(STREAMERS)); }catch(e){}
     // live badges (or new replays) arrived — re-sort and re-fill visible slots if the tab is still open
-    if(curView==="streaming"&&(kc.some(Boolean)||tc.some(Boolean)))restackStreams();
+    if(curView==="streaming"&&(addedNew||kc.some(Boolean)||tc.some(Boolean)))restackStreams();
   }catch(e){
     /* every per-call path already catches; belt-and-braces so this can never reject unhandled */
   }finally{
