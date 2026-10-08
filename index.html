@@ -286,6 +286,15 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .searchbar input::placeholder{color:rgba(255,255,255,.35)}
 .searchbar button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);
   border:0;color:#fff;width:28px;height:28px;border-radius:50%;font-size:12px;cursor:pointer;line-height:1}
+#recentSrch{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:60;
+  background:#16161e;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+#recentSrch.show{display:block}
+#recentSrch .rs-h{padding:10px 16px 4px;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#8b8b96;text-transform:uppercase}
+#recentSrch .rs-i{display:flex;align-items:center;gap:10px;width:100%;padding:11px 16px;background:none;border:none;
+  border-bottom:1px solid rgba(255,255,255,.05);color:#fff;font-size:14px;cursor:pointer;text-align:left}
+#recentSrch .rs-i:last-child{border-bottom:none}
+#recentSrch .rs-i:active{background:#22222e}
+#recentSrch .rs-x{margin-left:auto;background:none;border:none;color:#666;font-size:14px;cursor:pointer;padding:4px 8px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:14px;padding:14px 0 30px;
   transition:opacity .4s var(--ease),transform .4s var(--ease)}
 .grid.fading{opacity:0;transform:translateY(12px)}
@@ -361,6 +370,37 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .tab .ico{font-size:20px;display:block;margin-bottom:3px}
 .tab.on{color:#fff}
 #viewpad{height:calc(70px + env(safe-area-inset-bottom))}
+/* ---------- back-to-top floating button ---------- */
+#toTop{position:fixed;right:16px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:60;
+  width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#e50914,#b00610);color:#fff;font-size:20px;font-weight:800;
+  box-shadow:0 4px 16px rgba(0,0,0,.5);opacity:0;pointer-events:none;transform:translateY(8px);
+  transition:opacity .25s,transform .25s}
+#toTop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+#toTop:active{transform:scale(.92)}
+/* ---------- continue watching pill (Home) ---------- */
+#contPill{position:fixed;top:calc(64px + env(safe-area-inset-top));left:12px;right:12px;z-index:55;
+  display:none;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;cursor:pointer;
+  background:rgba(16,16,24,.92);border:1px solid var(--line);backdrop-filter:blur(12px);
+  box-shadow:0 6px 20px rgba(0,0,0,.5)}
+#contPill.show{display:flex}
+#contPill .cp-play{width:34px;height:34px;flex:0 0 34px;border-radius:50%;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#e50914,#b00610);color:#fff;font-size:14px}
+#contPill .cp-tx{flex:1;min-width:0}
+#contPill .cp-k{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#e50914;text-transform:uppercase}
+#contPill .cp-t{font-size:14px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#contPill .cp-x{background:none;border:none;color:#888;font-size:16px;cursor:pointer;padding:4px}
+/* ---------- next-episode countdown ---------- */
+#nextCd{position:fixed;left:12px;right:12px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:65;
+  display:none;align-items:center;gap:12px;padding:12px 14px;border-radius:14px;
+  background:rgba(16,16,24,.94);border:1px solid var(--line);box-shadow:0 6px 20px rgba(0,0,0,.5)}
+#nextCd.show{display:flex}
+#nextCd .nc-num{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#e50914,#b00610);color:#fff;font-size:18px;font-weight:800}
+#nextCd .nc-tx{flex:1;min-width:0}
+#nextCd .nc-k{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#e50914;text-transform:uppercase}
+#nextCd .nc-t{font-size:14px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#nextCd .nc-x{background:#26262e;border:none;color:#fff;font-size:13px;font-weight:700;padding:10px 16px;border-radius:10px;cursor:pointer}
 
 /* ---------- comments drawer ---------- */
 #cscrim{position:fixed;inset:0;z-index:205;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
@@ -685,6 +725,9 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <button class="tab" data-v="manga"><span class="ico">📚</span>Manga</button>
     <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
   </nav>
+  <button id="toTop" aria-label="Back to top">↑</button>
+  <div id="contPill"><button class="cp-play" aria-label="Resume">▶</button><div class="cp-tx"><div class="cp-k">Continue watching</div><div class="cp-t" id="contPillT"></div></div><button class="cp-x" id="contPillX" aria-label="Dismiss">✕</button></div>
+  <div id="nextCd"><div class="nc-num" id="nextCdN">5</div><div class="nc-tx"><div class="nc-k">Next episode</div><div class="nc-t" id="nextCdT"></div></div><button class="nc-x" id="nextCdX">Cancel</button></div>
 
   <div id="cscrim"></div>
   <div id="cdraw">
@@ -2034,7 +2077,15 @@ function loadVideoInto(node,url,vid){
   // must be (re)created after — never hold a reference across destroy().
   try{if(node._player&&node._player.destroy)node._player.destroy()}catch(e){}
   node._player=null;
-  const fr=ensureFrame(node);
+  let fr=takePreloaded(vid);
+  if(fr){
+    // warmed iframe available: move it into this slide's frame slot
+    const slot=ensureFrame(node);
+    try{slot.replaceWith(fr)}catch(e){fr=slot}
+    fr.style.cssText="";
+  }else{
+    fr=ensureFrame(node);
+  }
   node._vid=vid||null;node._seekDone=false;node._dur=0;node._durReq=0;
   if(!fr)return;
   fr.src=embedSrc(url,true);
@@ -2277,8 +2328,7 @@ function playedToEnd(node){
   }catch(e){ return true; }
 }
 /* phantom end (error/blip): resume where it cut off instead of switching series */
-function tryRecover(node){
-  try{
+function tryRecover(node){  try{
     const pl=node._player;
     if(pl&&pl.seekTo&&pl.getCurrentTime&&pl.playVideo){
       const c=pl.getCurrentTime()||0;
@@ -2287,6 +2337,69 @@ function tryRecover(node){
     }
   }catch(e){}
 }
+/* next-episode preload: warm the upcoming video in a hidden iframe so the
+   switch is instant. Called when the countdown starts (5s head start) and
+   when an episode begins (preload the one after it). */
+function preloadNext(url,vid){
+  try{
+    if(!url||!vid)return;
+    if(window._preloaded&&window._preloaded.vid===vid)return; // already warm
+    // drop any stale preload
+    if(window._preloaded&&window._preloaded.fr){try{window._preloaded.fr.remove()}catch(e){}}
+    const fr=document.createElement("iframe");
+    fr.setAttribute("data-frame","");
+    fr.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
+    fr.setAttribute("allow","autoplay; fullscreen; encrypted-media; picture-in-picture");
+    fr.style.cssText="position:absolute;width:2px;height:2px;opacity:0;pointer-events:none";
+    fr.src=embedSrc(url,false); // no autoplay — just buffer
+    document.body.appendChild(fr);
+    window._preloaded={vid:vid,fr:fr};
+  }catch(e){}
+}
+function takePreloaded(vid){
+  try{
+    if(window._preloaded&&window._preloaded.vid===vid){
+      const fr=window._preloaded.fr;
+      window._preloaded=null;
+      return fr||null;
+    }
+  }catch(e){}
+  return null;
+}
+let nextCdTimer=null, nextCdEp=null, nextCdNode=null;
+function cancelNextCountdown(){
+  try{if(nextCdTimer)clearInterval(nextCdTimer)}catch(e){}
+  nextCdTimer=null; nextCdEp=null; nextCdNode=null;
+  try{document.getElementById("nextCd").classList.remove("show")}catch(e){}
+}
+function startNextCountdown(node,ep){
+  cancelNextCountdown();
+  nextCdEp=ep; nextCdNode=node;
+  let s=5;
+  try{
+    document.getElementById("nextCdT").textContent=(ep.n||"")+" "+(ep.title||"");
+    document.getElementById("nextCdN").textContent=s;
+    document.getElementById("nextCd").classList.add("show");
+  }catch(e){}
+  try{preloadNext(ep.url,ep.video_id||vidOf(ep.url||""));}catch(e){} // warm it during the 5s
+  nextCdTimer=setInterval(()=>{
+    try{
+      // user swiped away or video changed: drop the countdown silently
+      if(!nextCdNode||nextCdNode!==curSlide()){cancelNextCountdown();return;}
+      s--;
+      if(s<=0){
+        const e2=nextCdEp; cancelNextCountdown();
+        if(e2)playEpisode(e2);
+      }else{
+        document.getElementById("nextCdN").textContent=s;
+      }
+    }catch(e){cancelNextCountdown();}
+  },1000);
+}
+(function(){
+  const x=document.getElementById("nextCdX");
+  if(x)x.addEventListener("click",e=>{e.stopPropagation();cancelNextCountdown();});
+})();
 function autoNext(node,vid){
   if(!node||!vid||node!==curSlide()||node._vid!==vid)return; // stale slide/video: do nothing
   const now=Date.now();
@@ -2309,7 +2422,7 @@ function autoNext(node,vid){
     }
   }
   for(let i=idx+1;i<eps.length;i++){
-    if(eps[i].verified&&eps[i].url){playEpisode(eps[i]);return;}
+    if(eps[i].verified&&eps[i].url){startNextCountdown(node,eps[i]);return;}
   }
   // No next verified episode: STOP. Never jump to a random series mid-binge —
   // a missing/unverified next episode is a data gap, not a reason to switch.
@@ -2342,6 +2455,13 @@ function playEpisode(e){
   if(meta)meta.textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
   pushHistory(t);
   toast("▶ "+epRowTitle(e,partIdxOf(t,e)));
+  // warm the NEXT verified episode now so the switch is instant later
+  try{
+    const eps=t.episodes||[], idx=epIdxOf(eps,e.video_id||vidOf(e.url||""));
+    for(let i=idx+1;i<eps.length;i++){
+      if(eps[i].verified&&eps[i].url){preloadNext(eps[i].url,eps[i].video_id||vidOf(eps[i].url||""));break;}
+    }
+  }catch(err){}
 }
 function partIdxOf(t,e){
   if((e.kind||"episode")!=="part")return 0;
@@ -2610,6 +2730,7 @@ function renderBrowse(g){
       <div class="searchbar">
         <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
         <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
+        <div id="recentSrch"></div>
       </div>
     </div>
     <div class="wrap"><div class="top10-sec" id="top10sec" style="display:none">
@@ -2665,6 +2786,42 @@ function renderBrowse(g){
   };
   si.addEventListener("input",applySearch);
   sx.onclick=()=>{si.value="";applySearch();si.focus();};
+  // recent searches: save on Enter, show on focus when empty
+  const rsBox=$("#recentSrch");
+  const getRecent=()=>{try{return store.get("recentSearch",[]).filter(x=>typeof x==="string")}catch(e){return[]}};
+  const saveRecent=q=>{
+    q=(q||"").trim(); if(q.length<2)return;
+    try{
+      const r=[q,...getRecent().filter(x=>x.toLowerCase()!==q.toLowerCase())].slice(0,8);
+      store.set("recentSearch",r);
+    }catch(e){}
+  };
+  const hideRecent=()=>{try{rsBox.classList.remove("show")}catch(e){}};
+  const showRecent=()=>{
+    try{
+      if(si.value.trim()){hideRecent();return;}
+      const r=getRecent();
+      if(!r.length){hideRecent();return;}
+      rsBox.innerHTML=`<div class="rs-h">Recent searches</div>`+r.map(q=>
+        `<button class="rs-i" data-q="${esc(q)}"><span style="color:#8b8b96">🕘</span><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(q)}</span><span class="rs-x" data-del="${esc(q)}">✕</span></button>`
+      ).join("");
+      rsBox.classList.add("show");
+      rsBox.querySelectorAll(".rs-i").forEach(b=>b.addEventListener("click",ev=>{
+        const del=ev.target.closest("[data-del]");
+        if(del){
+          ev.stopPropagation();
+          try{store.set("recentSearch",getRecent().filter(x=>x!==del.dataset.del));}catch(e){}
+          showRecent(); return;
+        }
+        si.value=b.dataset.q; hideRecent(); applySearch(); si.blur();
+      }));
+    }catch(e){}
+  };
+  si.addEventListener("focus",showRecent);
+  si.addEventListener("blur",()=>setTimeout(hideRecent,200));
+  si.addEventListener("keydown",e=>{if(e.key==="Enter"){saveRecent(si.value);hideRecent();si.blur();}});
+  let rsT=null;
+  si.addEventListener("input",()=>{clearTimeout(rsT);rsT=setTimeout(()=>saveRecent(si.value),1500);});
   if(bc&&browseQuery.trim())bc.textContent=`${list.length} result${list.length===1?"":"s"}`;
   const gd=$("#gdrop"),gb=$("#gdropbtn"),gm=$("#gmenu"),gc=$("#gdropcur");
   gb.onclick=(e)=>{e.stopPropagation();gd.classList.toggle("open");};
@@ -4430,6 +4587,69 @@ mountFeed();
     }catch(e){}
     idlePre(function(){ try{ buildCatalogIndexes(); }catch(e){} });
   });
+})();
+
+/* back-to-top: floating arrow on long lists (Browse, Profile/Guide, Manga, detail) */
+(function(){
+  const btn=document.getElementById("toTop");
+  if(!btn)return;
+  const OK_VIEWS={browse:1,profile:1,detail:1,manga:1};
+  function upd(){
+    try{
+      const show=OK_VIEWS[curView]&&window.scrollY>700;
+      btn.classList.toggle("show",!!show);
+    }catch(e){}
+  }
+  btn.addEventListener("click",()=>{try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){window.scrollTo(0,0)}});
+  window.addEventListener("scroll",upd,{passive:true});
+  setInterval(upd,1500); // catch view changes (go() resets scroll)
+})();
+
+/* continue watching: floating pill on Home for the most recent unfinished episode */
+function findContinue(){
+  try{
+    for(const h of (history||[])){
+      if(!h||!h.id)continue;
+      const t=byId(h.id);
+      if(!t||!t.episodes)continue;
+      if(typeof feed!=="undefined"&&feed.cur&&feed.cur.id===t.id)continue; // already watching it
+      for(const e of t.episodes){
+        const vid=e.video_id||vidOf(e.url||"");
+        if(vid&&prog[vid]>5)return{t:t,ep:e};
+      }
+    }
+  }catch(e){}
+  return null;
+}
+function updateContinuePill(){
+  try{
+    const pill=document.getElementById("contPill");
+    if(!pill)return;
+    const c=(typeof curView!=="undefined"&&curView==="home")?findContinue():null;
+    if(c){
+      document.getElementById("contPillT").textContent=(c.t.title||"")+" · "+(c.ep.n||"");
+      pill.classList.add("show"); pill._cont=c;
+    }else{ pill.classList.remove("show"); pill._cont=null; }
+  }catch(e){}
+}
+(function(){
+  const pill=document.getElementById("contPill");
+  if(!pill)return;
+  pill.addEventListener("click",e=>{
+    if(e.target.closest("#contPillX"))return;
+    try{
+      const c=pill._cont; if(!c)return;
+      if(typeof go==="function")go("home");
+      feed.cur=c.t; playEpisode(c.ep);
+      pill.classList.remove("show"); pill._cont=null;
+    }catch(err){}
+  });
+  document.getElementById("contPillX").addEventListener("click",e=>{
+    e.stopPropagation();
+    try{ if(pill._cont&&pill._cont.ep){const vid=pill._cont.ep.video_id||vidOf(pill._cont.ep.url||""); if(vid){delete prog[vid];store.set("progress",prog);} } }catch(err){}
+    pill.classList.remove("show"); pill._cont=null;
+  });
+  setInterval(updateContinuePill,4000);
 })();
 
 /* PWA: service worker */
