@@ -622,7 +622,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=3090a8f"></script>
+<script src="catalog.js?v=4461ba2"></script>
 <script>
 "use strict";
 const C = window.SHORTZ_CATALOG || [];
@@ -2898,15 +2898,15 @@ function twitchFetchVodStream(s,vodId){
       headers:{"Client-ID":"kimne78kx3ncx6brgo4mv6wki5h1ko","Content-Type":"application/json"},
       body:JSON.stringify({
         operationName:"PlaybackAccessToken",
-        query:"query PlaybackAccessToken($isLive:Boolean!,$login:String!,$isVod:Boolean!,$vodID:String!,$playerType:String!){streamPlaybackAccessToken(isLive:$isLive,login:$login,isVod:$isVod,vodID:$vodID,playerType:$playerType){value signature}}",
-        variables:{isLive:false,login:String(s.url||"").split("/").filter(Boolean).pop().toLowerCase(),isVod:true,vodID:String(vodId),playerType:"site"}
+        query:"query PlaybackAccessToken($vodID: ID!){videoPlaybackAccessToken(id: $vodID, params: {platform: \"web\", playerBackend: \"mediaplayer\", playerType: \"site\"}){value signature}}",
+        variables:{vodID:String(vodId)}
       })
     }),
     kickFetchTimeout(8000)
   ])
     .then(r=>r.ok?r.json():null)
     .then(d=>{
-      const tok=d&&d.data&&d.data.streamPlaybackAccessToken;
+      const tok=d&&d.data&&d.data.videoPlaybackAccessToken;
       if(!tok||!tok.value||!tok.signature)return;
       const vid=String(vodId);
       s.vod_hls="https://usher.ttvnw.net/vod/"+vid+".m3u8?sig="+encodeURIComponent(tok.signature)+"&token="+encodeURIComponent(tok.value)+"&allow_source=true";
