@@ -218,7 +218,7 @@ body.rot-full #view-home .feed-video iframe{position:fixed!important;top:50%!imp
 #rotexit{display:none;position:fixed;top:14px;right:14px;z-index:999;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.6);color:#fff;font-size:20px;cursor:pointer}
 body.rot-full #rotexit{display:block}
 /* featured hero: Blood In The Pines cover art as Browse background banner */
-.feat-hero{position:relative;margin:0 -16px 4px;height:190px;border-radius:0;overflow:hidden;cursor:pointer;
+.feat-hero{position:relative;margin:0 -16px 4px;height:190px;border-radius:0;overflow:hidden;cursor:pointer;transition:opacity .18s ease;
   background:url('https://i.ytimg.com/vi/z71-9ru1YgI/maxresdefault.jpg') center 30%/cover no-repeat #000}
 .feat-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 55%,rgba(0,0,0,.35) 100%)}
 .feat-hero .fh-in{position:absolute;left:16px;right:16px;bottom:12px;z-index:2}
@@ -1129,6 +1129,7 @@ function go(v){
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
   if(curView==="profile"&&v!=="profile"&&typeof tgPause==="function")tgPause(); // stop the TV Guide preview
+  if(curView==="browse"&&v!=="browse"&&typeof featStop==="function")featStop(); // stop featured carousel
   if(curView==="manga"&&v!=="manga"&&typeof mangaExit==="function")mangaExit();
   if(v==="home"&&curView!=="home")resumeFeedVideo(); // instant: iframe stayed warm
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
@@ -2426,6 +2427,41 @@ function browseMore(grid){
   browseChunks.shown=next;
   bindCards(grid);
 }
+const FEAT_IDS=["stv-678", "stv-690", "stv-401", "stv-2959", "stv-2376", "stv-2382", "stv-1971", "stv-3688", "stv-483", "stv-500", "stv-2110", "stv-2338", "stv-2957", "stv-3039", "stv-3426", "stv-685", "stv-705", "stv-3010", "stv-686", "stv-2214", "stv-3427", "stv-1822", "stv-3555", "stv-2430", "stv-1745", "stv-3490", "stv-3976", "stv-4258", "stv-2372", "stv-1823", "stv-2650", "stv-3034", "stv-2217", "stv-1571", "stv-3253", "stv-2111", "stv-693", "stv-2958", "stv-3020", "stv-2112", "stv-3927", "stv-683", "stv-3004", "stv-698", "stv-2969", "stv-4000", "stv-2464", "stv-688", "stv-3019", "stv-692", "stv-3031", "stv-3916", "stv-2113", "stv-3032", "stv-3209", "stv-1775", "stv-689", "stv-684", "stv-1744", "stv-681", "stv-699", "stv-4009", "stv-691", "stv-1738", "stv-1842", "stv-682", "stv-680", "stv-694", "stv-4245", "stv-2354", "stv-749", "stv-013", "stv-054", "stv-3648", "stv-2739", "stv-1834", "stv-3422", "stv-3774", "stv-2353", "stv-687", "stv-1778", "stv-2355", "stv-3021", "stv-2352", "stv-706", "stv-1593", "stv-3038", "stv-2973", "stv-011", "stv-624", "stv-711", "stv-714", "stv-718", "stv-724", "stv-765", "stv-2941", "stv-2946", "stv-4381", "stv-4383", "stv-4384", "stv-4412", "stv-4413", "stv-4418", "stv-4431", "stv-4440", "stv-4446", "stv-4449", "stv-4458", "stv-4461", "stv-4463", "stv-4464", "stv-4469"];
+/* Featured hero carousel: rotates through award-winning shorts every 3s. Tap -> watch. */
+let featIdx=0, featTimer=null;
+function featTitle(t){
+  let s=String(t.title||"");
+  s=s.replace(/\s*[-–—:|([]\s*(award|oscar|bafta|winner).*/i,"");
+  return s.trim()||t.title;
+}
+function featShow(i){
+  const id=FEAT_IDS[i]; const t=byId(id); if(!t)return;
+  const fh=document.querySelector("#view-browse .feat-hero"); if(!fh)return;
+  fh._featToken=i;
+  const src=thumb(t,"hq");
+  fh.style.opacity="0";
+  setTimeout(()=>{
+    if(!document.body.contains(fh)||fh._featToken!==i)return;
+    fh.dataset.feat=t.id;
+    if(src)fh.style.backgroundImage="url('"+src.replace(/'/g,"%27")+"')";
+    fh.style.backgroundPosition="center 30%"; fh.style.backgroundSize="cover";
+    const tt=fh.querySelector(".fh-t"), ss=fh.querySelector(".fh-s");
+    if(tt)tt.textContent=featTitle(t);
+    if(ss)ss.textContent=(i<2?"★ Featured":"★ Featured · Award-Winning")+" · Tap to watch";
+    fh.style.opacity="1";
+  },160);
+}
+function featStart(){
+  featStop();
+  featIdx=0; featShow(0);
+  featTimer=setInterval(()=>{
+    featIdx=(featIdx+1)%FEAT_IDS.length;
+    featShow(featIdx);
+  },3000);
+}
+function featStop(){ if(featTimer){clearInterval(featTimer);featTimer=null;} }
+
 function renderBrowse(g){
   browseGenre=g||browseGenre;  const list=browseList();
   // SPEED: dropdown counts come from the one-pass cache — the shell paints immediately.
@@ -2481,6 +2517,7 @@ function renderBrowse(g){
   }
   const fh=$("#view-browse .feat-hero");
   if(fh) fh.onclick=()=>{ const t=byId(fh.dataset.feat); if(t){ openDetail(t.id); } };
+  featStart(); // rotate the featured award-winning shorts every 3s
   loadTop10(); // Netflix-style Top 10 row under the search bar
   const si=$("#bsearch"),sx=$("#bsearchx"),bc=$("#bcount"),gr=$("#bgrid"),nr=$("#bnores");
   const applySearch=()=>{
