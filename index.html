@@ -2878,6 +2878,26 @@ function kickFetchVod(s){
       s.vod_hls=vod.source||""; // direct HLS URL — play in <video> tag, bypasses Kick player
     }).catch(()=>{});
 }
+// Twitch VOD via public GraphQL (no auth needed)
+function twitchFetchVod(s){
+  const ch=String(s.url||"").split("/").filter(Boolean).pop();
+  if(!ch)return Promise.resolve();
+  return Promise.race([
+    fetch("https://gql.twitch.tv/gql",{
+      method:"POST",
+      headers:{"Client-ID":"kimne78kx3ncx6brgo4mv6wki5h1ko","Content-Type":"application/json"},
+      body:JSON.stringify({query:"query($login:String!){user(login:$login){videos(first:1){edges{node{id title}}}}}","variables":{login:ch.toLowerCase()}})
+    }),
+    kickFetchTimeout(8000)
+  ])
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{
+      const edge=d&&d.data&&d.data.user&&d.data.user.videos&&d.data.user.videos.edges&&d.data.user.videos.edges[0];
+      if(!edge)return;
+      s.vod_id="v"+edge.node.id; // Twitch VOD IDs need "v" prefix for embed
+      s.vod_title=edge.node.title||"";
+    }).catch(()=>{});
+}
 async function loadStreamers(){
   if(STREAMERS_LOADED)return;
   STREAMERS_LOADED=true;
@@ -2892,6 +2912,8 @@ async function loadStreamers(){
   }catch(e){ /* empty directory until streamers.json ships */ }
   // refresh live status for Kick channels (no auth needed); fetch most-recent VOD for offline ones
   await Promise.all(STREAMERS.kick.map(kickRefreshOne));
+  // fetch most-recent VOD for Twitch streamers (assume offline — no auth for live check)
+  await Promise.all(STREAMERS.twitch.map(s=>{ s.live=false; return twitchFetchVod(s); }));
 }
 /* unified list: Kick first, then Twitch; live streamers first within each */
 function sstreamList(){
@@ -2948,6 +2970,10 @@ function sstreamFill(node,s,mode){
   // offline Kick with VOD: native <video> tag with direct HLS (bypasses broken Kick player embed)
   if(s.platform!=="twitch"&&!s.live&&s.vod_hls){
     fr.innerHTML=sstreamVodHTML(s,streamMuted);
+  }else if(s.platform==="twitch"&&!s.live&&s.vod_id){
+    // offline Twitch with VOD: Twitch player VOD embed
+    const m=streamMuted?"true":"false";
+    fr.innerHTML=`<iframe src="https://player.twitch.tv/?video=${encodeURIComponent(s.vod_id)}&parent=xmrmathx.github.io&autoplay=true&muted=${m}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
   }else{
     fr.innerHTML=`<iframe src="${sstreamEmbed(s,streamMuted)}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
   }
