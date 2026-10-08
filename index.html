@@ -4226,7 +4226,8 @@ function mgChapterRank(c){
 function mgMergeChapters(live,bundled){ // live wins on conflicts; oldest-first (Ch 1 at top)
   const seen={},out=[];
   live.concat(bundled).forEach(c=>{
-    if((c.attributes.pages||0)===0)return; // never show a chapter with no hosted pages
+    const a=c.attributes||{};
+    if((a.pages||0)===0||a.externalUrl)return; // never show a chapter with no real hosted pages
     const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;out.push(c);
   });
   out.sort((x,y)=>mgChapterRank(x)-mgChapterRank(y));
@@ -4260,7 +4261,7 @@ function mgOpenDetail(mid){
   mdxGet(url).then(d=>{
     if(gen!==Manga.gen)return;
     const seen={},live=[];
-    (d.data||[]).forEach(c=>{const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;if((c.attributes.pages||0)>0)live.push(c);});
+    (d.data||[]).forEach(c=>{const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;const a=c.attributes||{};if((a.pages||0)>0&&!a.externalUrl)live.push(c);});
     const merged=mgMergeChapters(live,bundled);
     if(merged.length&&merged.length!==Manga.chapters.length){Manga.chapters=merged;mgShowChapterUI();}
     else if(!Manga.chapters.length){mgShowChapterUI();}
