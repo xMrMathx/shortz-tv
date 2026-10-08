@@ -2277,6 +2277,7 @@ function bioLine(p){
 }
 
 function renderProfile(){
+  checkAcceptedFriends();
   const aiN=C.filter(t=>t.ai_made).length;
   const p=getProfile();
   if(!p){ renderProfileSetup(); return; }
@@ -2289,11 +2290,6 @@ function renderProfile(){
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
     </div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
-    <div class="statrow" style="margin-top:14px">
-      <div class="stat"><b>${C.length}</b><small>SERIES</small></div>
-      <div class="stat"><b>${GENRES.length}</b><small>GENRES</small></div>
-      <div class="stat"><b id="profFriendN">${friendsN}</b><small>FRIENDS</small></div>
-    </div>
     <div class="secttl">Friends</div>
     <div class="friendsearch">
       <input id="frSearch" class="pinput" placeholder="Search users by name…" autocomplete="off">
@@ -2582,13 +2578,30 @@ function renderFriendRequests(reqs){
 async function acceptFriend(uid,info){
   try{
     const me=getProfile()||{};
+    // Write to MY friends list only (Firebase rules block writing to their list).
+    // Also drop an accepted-flag on their side so their app auto-adds me back.
     const batch={};
     batch["users/"+Live.uid+"/friends/"+uid]={name:info.name||"Viewer",photo:info.photo||"",since:Date.now()};
-    batch["users/"+uid+"/friends/"+Live.uid]={name:me.name||Live.name||"Viewer",photo:me.photo||"",since:Date.now()};
     batch["users/"+Live.uid+"/friendRequests/"+uid]=null;
+    batch["users/"+uid+"/friendAccepted/"+Live.uid]={name:me.name||Live.name||"Viewer",photo:me.photo||"",since:Date.now()};
     await Live.db.ref().update(batch);
     toast("Friends ✓");
   }catch(e){ toast("Couldn't accept — try again"); }
+}
+// Auto-add friends who accepted my request (their accept wrote to my friendAccepted node)
+async function checkAcceptedFriends(){
+  try{
+    const snap=await Live.db.ref("users/"+Live.uid+"/friendAccepted").once("value");
+    const acc=snap.val()||{};
+    const uids=Object.keys(acc);
+    if(!uids.length)return;
+    const batch={};
+    uids.forEach(uid=>{
+      batch["users/"+Live.uid+"/friends/"+uid]={name:acc[uid].name||"Viewer",photo:acc[uid].photo||"",since:acc[uid].since||Date.now()};
+      batch["users/"+Live.uid+"/friendAccepted/"+uid]=null;
+    });
+    await Live.db.ref().update(batch);
+  }catch(e){}
 }
 function renderFriendList(){
   const box=$("#frList"); if(!box)return;
