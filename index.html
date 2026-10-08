@@ -1125,6 +1125,70 @@ function likesWatch(root){
   });
 }
 
+/* ---------- MANGA LIKES: long-press a manga cover — same social likes as Browse ----------
+   likes/{mangaId}/{uid} = {name, ts}. Reuses the Likes Firebase infra. */
+function mgLikePaint(card,v){
+  card.querySelectorAll(".likebadge").forEach(b=>b.remove());
+  const uids=Object.keys(v||{});
+  if(!uids.length)return;
+  const names=uids.map(u=>(v[u]&&v[u].name)||"").filter(Boolean);
+  if(!names.length)return;
+  const label=names.slice(0,2).join(", ")+(names.length>2?" +"+(names.length-2):"");
+  const b=document.createElement("div");
+  b.className="likebadge"+(Likes.uid&&v[Likes.uid]?" mine":"");
+  b.innerHTML='<span class="h">♥</span>'+esc(label);
+  b.title=names.join(", ");
+  b.onclick=e=>{e.stopPropagation();likeToggle(card.dataset.mid);};
+  const th=card.querySelector(".mg-cov");
+  if(th)th.appendChild(b);
+}
+function mgLikesWatch(root){
+  if(!FIREBASE_READY)return;
+  const cards=[...root.querySelectorAll(".mg-card[data-mid]")];
+  const ids={};cards.forEach(c=>{ids[c.dataset.mid]=1;});
+  Object.keys(Likes.listeners).filter(id=>!ids[id]&&!String(id).startsWith("stv-")).forEach(id=>{
+    const r=Likes.listeners[id]; if(r){try{r.off();}catch(e){}delete Likes.listeners[id];}
+  });
+  if(!window.firebase){
+    if(!mgLikesWatch._rt)mgLikesWatch._rt=setTimeout(()=>{mgLikesWatch._rt=null;
+      if(curView==="manga"){const v=$("#view-manga");if(v)mgLikesWatch(v);}},3000);
+    return;
+  }
+  likesEnsure().then(ok=>{
+    if(!ok)return;
+    cards.forEach(c=>{
+      const id=c.dataset.mid;
+      if(Likes.listeners[id]){if(Likes.cache[id])mgLikePaint(c,Likes.cache[id]);return;}
+      const ref=Likes.db.ref("likes/"+id);
+      Likes.listeners[id]=ref;
+      ref.on("value",snap=>{
+        const v=snap.val()||{};
+        Likes.cache[id]=v;
+        document.querySelectorAll('.mg-card[data-mid="'+id+'"]').forEach(x=>mgLikePaint(x,v));
+      },()=>{/* permission-denied until rules publish: stay silent */});
+    });
+  });
+}
+function mgBindLikes(root){
+  root.querySelectorAll(".mg-card").forEach(c=>{
+    if(c._mgLpBound)return; c._mgLpBound=true;
+    const open=c.onclick;
+    c.onclick=()=>{ if(c._lpFired){c._lpFired=false;return;} if(open)open(); };
+    let lpT=null;
+    const arm=()=>{lpT=setTimeout(()=>{lpT=null;c._lpFired=true;buzz(25);likeToggle(c.dataset.mid);},500);};
+    const dis=()=>{if(lpT){clearTimeout(lpT);lpT=null;}};
+    c.addEventListener("touchstart",arm,{passive:true});
+    c.addEventListener("touchmove",dis,{passive:true});
+    c.addEventListener("touchend",dis,{passive:true});
+    c.addEventListener("touchcancel",dis,{passive:true});
+    c.addEventListener("mousedown",arm);
+    c.addEventListener("mouseup",dis);
+    c.addEventListener("mouseleave",dis);
+    c.addEventListener("contextmenu",e=>e.preventDefault());
+  });
+  mgLikesWatch(root);
+}
+
 /* ---------- seamless view switching ---------- */
 let curView="home", returnView="home";
 function go(v){
@@ -1132,6 +1196,7 @@ function go(v){
   if(curView==="home"&&v!=="home")pauseFeedVideo();
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
+  if(curView==="manga"&&v!=="manga")likesDetach(); // same for manga likes
   if(curView==="profile"&&v!=="profile"&&typeof tgPause==="function")tgPause(); // stop the TV Guide preview
   if(curView==="browse"&&v!=="browse"&&typeof featStop==="function")featStop(); // stop featured carousel
   if(v==="browse"&&typeof featBegin==="function")featBegin(); // (re)start featured carousel on entering Browse
@@ -2198,12 +2263,35 @@ function epRowTitle(e,partIdx){
   return e.title||("Episode "+(e.n||""));
 }
 /* ---------- autoplay: when a video ends, play the next verified episode ---------- */
+/* true only if the video actually played to (near) the end.
+   Vimeo/native can't be verified here — their "ended" is trustworthy already. */
+function playedToEnd(node){
+  try{
+    const pl=node._player;
+    if(!pl||!pl.getCurrentTime||!pl.getDuration)return true;
+    const d=pl.getDuration(), c=pl.getCurrentTime();
+    if(!d||d<=0)return c>10; // live/unknown duration: require real watch time
+    return c>=d-3;
+  }catch(e){ return true; }
+}
+/* phantom end (error/blip): resume where it cut off instead of switching series */
+function tryRecover(node){
+  try{
+    const pl=node._player;
+    if(pl&&pl.seekTo&&pl.getCurrentTime&&pl.playVideo){
+      const c=pl.getCurrentTime()||0;
+      try{pl.seekTo(Math.max(0,c-2),true);}catch(e){}
+      try{pl.playVideo();}catch(e){}
+    }
+  }catch(e){}
+}
 function autoNext(node,vid){
   if(!node||!vid||node!==curSlide()||node._vid!==vid)return; // stale slide/video: do nothing
-  // DEDUP: YouTube reports the same video end twice (player API + postMessage).
-  // The 2nd report arrives after the next episode already started and would skip it.
   const now=Date.now();
   if(now-(node._lastAdvanceT||0)<5000)return;
+  // VERIFY the video truly ended: YouTube fires phantom ENDED on player errors /
+  // network blips, which used to "cut off" playback and jump to a random series.
+  if(!playedToEnd(node)){ tryRecover(node); return; }
   node._lastAdvanceT=now;
   try{clearProg(node)}catch(e){}
   // BINGE LAW: the next episode must play, no clicks. Find the series that actually
@@ -4486,6 +4574,7 @@ function mgDrawGrid(){
   });
   body.innerHTML=h+'</div>';
   body.querySelectorAll(".mg-card").forEach(c=>c.onclick=()=>mgOpenDetail(c.dataset.mid));
+  mgBindLikes(body); // long-press a manga cover to like it (social likes)
 }
 
 /* ---------- detail ---------- */
@@ -4624,8 +4713,8 @@ function mgDrawPage(){
   const n=Manga.pageIdx+1,total=Manga.pages.length;
   p.innerHTML='<div class="mg-zone l" id="mgZL"></div><img id="mgImg" referrerpolicy="no-referrer" src="'+Manga.pages[Manga.pageIdx]+'" alt="page '+n+'">'
     +'<div class="mg-zone r" id="mgZR"></div><div class="mg-pnum">Page '+n+' / '+total+'</div>';
-  $("#mgZL").onclick=()=>mgPage(-1);
-  $("#mgZR").onclick=()=>mgPage(1);
+  $("#mgZL").onclick=()=>{ if(mgSwiped){mgSwiped=false;return;} mgPage(-1); };
+  $("#mgZR").onclick=()=>{ if(mgSwiped){mgSwiped=false;return;} mgPage(1); };
   mgNavBtns();
   mgResetZoom(); // every page starts unzoomed
   const nx=Manga.pages[Manga.pageIdx+1]; if(nx){const im=new Image();im.src=nx;}
@@ -4637,7 +4726,7 @@ function mgDrawPage(){
 /* ---------- reader zoom: pinch to zoom, drag to pan, double-tap to toggle ---------- */
 const mgZoom={scale:1,tx:0,ty:0};
 const mgPtrs=new Map();
-let mgPinch0=null, mgLastTap=0, mgDownOnImg=false;
+let mgPinch0=null, mgLastTap=0, mgDownOnImg=false, mgSwipeX=0, mgSwipeY=0, mgSwiped=false;
 function mgApplyZoom(){
   const img=$("#mgImg"); if(!img)return;
   // keep the page from being flung off-screen (skip while the image has no size yet)
@@ -4662,6 +4751,7 @@ function mgBindZoom(){
   const p=$("#mgRpage"); if(!p||p._zoomBound)return; p._zoomBound=true;
   p.addEventListener("pointerdown",e=>{
     mgPtrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    mgSwipeX=e.clientX; mgSwipeY=e.clientY; mgSwiped=false;
     if(e.target&&e.target.id==="mgImg")mgDownOnImg=true; // capture retargets later events — record the true start target now
     const img=$("#mgImg"); if(img)img.style.transition="none"; // direct 1:1 while gesturing
     if(mgPtrs.size===2){
@@ -4693,6 +4783,11 @@ function mgBindZoom(){
     if(mgPtrs.size<2)mgPinch0=null;
     const img=$("#mgImg"); if(img)img.style.transition=""; // smooth again
     if(mgPtrs.size===0){
+      // swipe (not zoomed): horizontal fling turns the page
+      if(e.type==="pointerup"&&typeof e.clientX==="number"&&mgZoom.scale<=1.02){
+        const dx=e.clientX-mgSwipeX, dy=e.clientY-mgSwipeY;
+        if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5){ mgSwiped=true; mgPage(dx<0?1:-1); }
+      }
       if(e.type==="pointerup"&&mgDownOnImg){
         const now=Date.now(); // double-tap the page toggles zoom
         if(now-mgLastTap<300){
