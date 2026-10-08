@@ -130,6 +130,13 @@ body.pip .scrub{display:none!important}
   padding:4px 8px;border-radius:9px;z-index:2}
 .aibadge{position:absolute;bottom:8px;right:8px;font-size:8px;font-weight:800;color:#cfe3ff;
   background:rgba(10,20,40,.72);border:1px solid rgba(140,180,255,.4);padding:3px 7px;border-radius:8px;z-index:2}
+/* social likes: who liked this — long-press a browse cover to like */
+.likebadge{position:absolute;top:8px;left:8px;z-index:3;max-width:calc(100% - 60px);
+  font-size:9px;font-weight:800;color:#fff;background:rgba(0,0,0,.62);
+  border:1px solid rgba(255,90,120,.55);padding:4px 8px;border-radius:10px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.likebadge.mine{border-color:#e50914;background:rgba(229,9,20,.85)}
+.likebadge .h{color:#ff5a78;margin-right:3px}
 /* compact cards inside the profile's My List / Recently Watched */
 #profMyList .hrow{gap:8px}
 #profMyList .vcard{width:76px;contain-intrinsic-size:76px 134px}
@@ -975,13 +982,30 @@ function cardHTML(t){
     </div></div>`;
 }
 function bindCards(root){
+  const browseLike=root.id==="view-browse"||root.id==="bgrid"; // social likes: browse only
   root.querySelectorAll(".vcard").forEach(c=>{
     let tapTimer=null;
     c.onclick=()=>{
+      if(c._lpFired){c._lpFired=false;return;} // long-press fired: swallow the click
       if(tapTimer){clearTimeout(tapTimer);tapTimer=null;dblSave(c.dataset.id);return;}
       tapTimer=setTimeout(()=>{tapTimer=null;openDetail(c.dataset.id);},300);
     };
+    if(browseLike&&!c._lpBound){
+      c._lpBound=true;
+      let lpT=null;
+      const arm=()=>{lpT=setTimeout(()=>{lpT=null;c._lpFired=true;buzz(25);likeToggle(c.dataset.id);},500);};
+      const dis=()=>{if(lpT){clearTimeout(lpT);lpT=null;}};
+      c.addEventListener("touchstart",arm,{passive:true});
+      c.addEventListener("touchmove",dis,{passive:true});
+      c.addEventListener("touchend",dis,{passive:true});
+      c.addEventListener("touchcancel",dis,{passive:true});
+      c.addEventListener("mousedown",arm);
+      c.addEventListener("mouseup",dis);
+      c.addEventListener("mouseleave",dis);
+      c.addEventListener("contextmenu",e=>e.preventDefault());
+    }
   });
+  if(browseLike)likesWatch(root);
 }
 /* double-tap a card = save to My List */
 function dblSave(id){
@@ -990,12 +1014,97 @@ function dblSave(id){
   mylist.add(id);saveList();toast("♥ Saved to My List");
 }
 
+/* ---------- SOCIAL LIKES: long-press any browse cover ----------
+   likes/{seriesId}/{uid} = {name, ts}. Social only — never touches
+   My List or Profile. Badges update in realtime for rendered cards.
+   Needs the "likes" rule in database.rules.json published to Firebase. */
+const Likes={auth:null,db:null,uid:null,name:"",_ensuring:null,listeners:{},cache:{}};
+async function likesEnsure(){
+  if(!FIREBASE_READY||!window.firebase)return false;
+  if(Likes.uid&&Likes.db)return true;
+  if(Likes._ensuring)return Likes._ensuring;
+  Likes._ensuring=(async()=>{
+    try{
+      if(!Live.app){
+        try{firebase.initializeApp(FIREBASE_CONFIG);}catch(e){/* already initialized */}
+        Live.app=firebase.app();Live.auth=firebase.auth();Live.db=firebase.database();
+      }
+      Likes.auth=Live.auth;Likes.db=Live.db;
+      const cred=await Likes.auth.signInAnonymously();
+      Likes.uid=cred.user.uid;
+      const prof=store.get("profile",null);
+      Likes.name=(((prof&&prof.name)||store.get("live_name","")||"Someone")+"").slice(0,40);
+      return true;
+    }catch(e){return false;}
+  })();
+  const r=await Likes._ensuring;Likes._ensuring=null;return r;
+}
+async function likeToggle(id){
+  const ok=await likesEnsure();
+  if(!ok){toast("Couldn't connect — try again");return;}
+  const mine=Likes.cache[id]&&Likes.cache[id][Likes.uid];
+  try{
+    const ref=Likes.db.ref("likes/"+id+"/"+Likes.uid);
+    if(mine){await ref.remove();toast("Unliked");}
+    else{await ref.set({name:Likes.name,ts:Date.now()});toast("♥ Liked");}
+  }catch(e){toast("Couldn't save — check connection");}
+  /* badge flips via the realtime listener */
+}
+function likePaint(card,v){
+  card.querySelectorAll(".likebadge").forEach(b=>b.remove());
+  const uids=Object.keys(v||{});
+  if(!uids.length)return;
+  const names=uids.map(u=>(v[u]&&v[u].name)||"").filter(Boolean);
+  if(!names.length)return;
+  const label=names.slice(0,2).join(", ")+(names.length>2?" +"+(names.length-2):"");
+  const b=document.createElement("div");
+  b.className="likebadge"+(Likes.uid&&v[Likes.uid]?" mine":"");
+  b.innerHTML='<span class="h">♥</span>'+esc(label);
+  b.title=names.join(", ");
+  b.onclick=e=>{e.stopPropagation();likeToggle(card.dataset.id);};
+  const th=card.querySelector(".vthumb");
+  if(th)th.appendChild(b);
+}
+function likesDetach(ids){
+  (ids||Object.keys(Likes.listeners)).forEach(id=>{
+    const r=Likes.listeners[id];
+    if(r){try{r.off();}catch(e){}delete Likes.listeners[id];}
+  });
+}
+function likesWatch(root){
+  if(!FIREBASE_READY)return;
+  const cards=[...root.querySelectorAll(".vcard[data-id]")];
+  const ids={};cards.forEach(c=>{ids[c.dataset.id]=1;});
+  likesDetach(Object.keys(Likes.listeners).filter(id=>!ids[id])); // drop off-screen
+  if(!window.firebase){
+    // firebase scripts are deferred — retry once shortly
+    if(!likesWatch._rt)likesWatch._rt=setTimeout(()=>{likesWatch._rt=null;
+      if(curView==="browse"){const v=$("#view-browse");if(v)likesWatch(v);}},3000);
+    return;
+  }
+  likesEnsure().then(ok=>{
+    if(!ok)return;
+    cards.forEach(c=>{
+      const id=c.dataset.id;
+      if(Likes.listeners[id]){if(Likes.cache[id])likePaint(c,Likes.cache[id]);return;}
+      const ref=Likes.db.ref("likes/"+id);
+      Likes.listeners[id]=ref;
+      ref.on("value",snap=>{
+        const v=snap.val()||{};
+        Likes.cache[id]=v;
+        document.querySelectorAll('.vcard[data-id="'+id+'"]').forEach(x=>likePaint(x,v));
+      },()=>{/* permission-denied until rules publish: stay silent */});
+    });
+  });
+}
+
 /* ---------- seamless view switching ---------- */
 let curView="home", returnView="home";
 function go(v){
   if(v===curView&&v!=="detail")return;
   if(curView==="home"&&v!=="home")pauseFeedVideo();
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
+  if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
   if(curView==="manga"&&v!=="manga"&&typeof mangaExit==="function")mangaExit();
   if(v==="home"&&curView!=="home")resumeFeedVideo(); // instant: iframe stayed warm
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
