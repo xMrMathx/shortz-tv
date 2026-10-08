@@ -2454,13 +2454,27 @@ function featShow(i){
 }
 function featStart(){
   featStop();
-  featIdx=0; featShow(0);
   featTimer=setInterval(()=>{
     featIdx=(featIdx+1)%FEAT_IDS.length;
     featShow(featIdx);
   },3000);
 }
+function featBegin(){ featIdx=0; featShow(0); featStart(); }
+function featGo(d){
+  featIdx=(featIdx+d+FEAT_IDS.length)%FEAT_IDS.length;
+  featShow(featIdx);
+  featStart(); // manual swipe restarts the 3s auto-rotate clock
+}
 function featStop(){ if(featTimer){clearInterval(featTimer);featTimer=null;} }
+/* swipe the hero: left = next featured, right = previous (tap still opens it) */
+function bindFeatSwipe(fh){
+  let sx=0, sy=0;
+  fh.addEventListener("pointerdown",e=>{sx=e.clientX;sy=e.clientY;fh._swiped=false;},{passive:true});
+  fh.addEventListener("pointerup",e=>{
+    const dx=e.clientX-sx, dy=e.clientY-sy;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){ fh._swiped=true; featGo(dx<0?1:-1); }
+  },{passive:true});
+}
 
 function renderBrowse(g){
   browseGenre=g||browseGenre;  const list=browseList();
@@ -2516,8 +2530,11 @@ function renderBrowse(g){
     }
   }
   const fh=$("#view-browse .feat-hero");
-  if(fh) fh.onclick=()=>{ const t=byId(fh.dataset.feat); if(t){ openDetail(t.id); } };
-  featStart(); // rotate the featured award-winning shorts every 3s
+  if(fh){
+    fh.onclick=()=>{ if(fh._swiped){fh._swiped=false;return;} const t=byId(fh.dataset.feat); if(t){ openDetail(t.id); } };
+    bindFeatSwipe(fh);
+  }
+  featBegin(); // rotate the featured award-winning shorts every 3s
   loadTop10(); // Netflix-style Top 10 row under the search bar
   const si=$("#bsearch"),sx=$("#bsearchx"),bc=$("#bcount"),gr=$("#bgrid"),nr=$("#bnores");
   const applySearch=()=>{
