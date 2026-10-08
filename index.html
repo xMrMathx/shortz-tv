@@ -551,6 +551,55 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 @keyframes ptrspin{to{transform:rotate(360deg)}}
 .btn-press{transition:transform .12s ease}
 .btn-press:active{transform:scale(.93)}
+/* ---------- manga (MangaDex) ---------- */
+.mg-head{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 4px}
+.mg-title{font-size:22px;font-weight:900;letter-spacing:.5px}
+.mg-title b{color:#e50914}
+.mg-pills{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+.mg-pills::-webkit-scrollbar{display:none}
+.mg-pill{flex:0 0 auto;padding:8px 16px;border-radius:20px;background:#16161c;font-size:13px;color:#bbb;border:1px solid #26262e;cursor:pointer}
+.mg-pill.on{background:#e50914;border-color:#e50914;color:#fff;font-weight:700}
+.mg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:6px 16px 48px}
+.mg-card{cursor:pointer;min-width:0}
+.mg-cov{position:relative;border-radius:10px;overflow:hidden;aspect-ratio:3/4;background:#141419}
+.mg-cov img{width:100%;height:100%;object-fit:cover;display:block}
+.mg-st{position:absolute;top:6px;left:6px;background:rgba(0,0,0,.72);font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;color:#4ade80;letter-spacing:.5px}
+.mg-t{font-size:12px;font-weight:700;margin-top:7px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mg-m{font-size:10px;color:#777;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mg-center{padding:60px 20px;text-align:center;color:#888;font-size:14px;line-height:1.6}
+.mg-retry{background:#e50914;color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:800;font-size:14px;margin-top:14px;cursor:pointer}
+.mg-spin{width:34px;height:34px;border:3px solid rgba(255,255,255,.15);border-top-color:#e50914;border-radius:50%;margin:0 auto 12px;animation:ptrspin .7s linear infinite}
+/* detail */
+.mg-dhero{position:relative;height:290px;overflow:hidden;background:#0a0a0e}
+.mg-dhero img{width:100%;height:100%;object-fit:cover;object-position:top}
+.mg-dhero::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,#000)}
+.mg-back{position:absolute;top:14px;left:14px;z-index:2;background:rgba(0,0,0,.6);border:none;color:#fff;font-size:22px;width:40px;height:40px;border-radius:50%;cursor:pointer;line-height:1}
+.mg-dbody{padding:0 18px 48px;margin-top:-64px;position:relative;z-index:1}
+.mg-dtitle{font-size:24px;font-weight:900;line-height:1.25}
+.mg-dmeta{color:#888;font-size:13px;margin:8px 0 10px}
+.mg-dtags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.mg-tag{font-size:11px;background:#16161c;border:1px solid #2a2a32;padding:5px 12px;border-radius:14px;color:#bbb}
+.mg-ddesc{font-size:14px;color:#b5b5bd;line-height:1.6;margin-bottom:18px}
+.mg-readbtn{width:100%;background:#e50914;color:#fff;border:none;font-size:16px;font-weight:800;padding:15px;border-radius:12px;cursor:pointer;margin-bottom:22px}
+.mg-chhead{font-size:16px;font-weight:800;margin-bottom:6px}
+.mg-ch{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 4px;border-bottom:1px solid #1c1c20;cursor:pointer;font-size:14px}
+.mg-ch:active{background:#141419}
+.mg-ch span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mg-chd{color:#666;font-size:12px;flex:0 0 auto}
+/* reader overlay */
+.mg-reader{position:fixed;inset:0;z-index:60;background:#000;display:none;flex-direction:column}
+.mg-rtop{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;background:rgba(0,0,0,.92)}
+.mg-rx{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 12px}
+.mg-rtitle{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:68%}
+.mg-rpage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;min-height:0;background:#000}
+.mg-rpage img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.mg-zone{position:absolute;top:0;bottom:0;width:35%;z-index:2;cursor:pointer}
+.mg-zone.l{left:0}.mg-zone.r{right:0}
+.mg-pnum{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:12px;color:#fff;background:rgba(0,0,0,.62);padding:6px 16px;border-radius:16px;z-index:2;white-space:nowrap}
+.mg-rbot{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(0,0,0,.92)}
+.mg-rnav{background:#1b1b22;border:1px solid #33333c;color:#fff;font-size:13px;font-weight:700;padding:10px 20px;border-radius:10px;cursor:pointer}
+.mg-rnav:disabled{opacity:.3}
+.mg-rnav:active{background:#2a2a33}
 </style>
 </head>
 <body>
@@ -596,6 +645,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <section class="view" id="view-browse"></section>
     <section class="view" id="view-live"></section>
     <section class="view" id="view-streaming"></section>
+    <section class="view" id="view-manga"></section>
     <section class="view" id="view-profile"></section>
     <section class="view" id="view-detail"></section>
   </main>
@@ -606,6 +656,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <button class="tab" data-v="browse"><span class="ico">▦</span>Browse</button>
     <button class="tab" data-v="live"><span class="ico liveico">●</span>Live</button>
     <button class="tab" data-v="streaming"><span class="ico">📡</span>Streaming</button>
+    <button class="tab" data-v="manga"><span class="ico">📚</span>Manga</button>
     <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
   </nav>
 
@@ -943,6 +994,7 @@ function go(v){
   if(v===curView&&v!=="detail")return;
   if(curView==="home"&&v!=="home")pauseFeedVideo();
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
+  if(curView==="manga"&&v!=="manga"&&typeof mangaExit==="function")mangaExit();
   if(v==="home"&&curView!=="home")resumeFeedVideo(); // instant: iframe stayed warm
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
   TAB_BTNS.forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
@@ -965,6 +1017,7 @@ function renderView(v){
   if(v==="browse")renderBrowse(browseGenre);
   if(v==="live")renderLive();
   if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
+  if(v==="manga")renderManga();
   if(v==="profile")renderProfile();
 }
 
@@ -3859,6 +3912,224 @@ if("serviceWorker" in navigator){
     navigator.serviceWorker.register("sw.js").catch(()=>{});
   });
 }
+</script>
+<script>
+/* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
+const MDX="https://api.mangadex.org";
+const MDX_BL="5920b825-4181-4a17-beeb-9918b0ff7a30"; // Boys' Love tag — never shown, his standing rule
+const MDX_RATINGS="contentRating%5B%5D=safe&contentRating%5B%5D=suggestive";
+const MDX_BL_EXCL="excludedTags%5B%5D="+MDX_BL;
+const Manga={screen:"browse",list:[],genre:"All",detail:null,chapters:[],chIdx:0,pageIdx:0,pages:[],gen:0,readerOpen:false};
+const MG_GENRES=["All","Action","Adventure","Comedy","Drama","Fantasy","Horror","Mystery","Psychological","Romance","Sci-Fi","Slice of Life","Sports","Thriller"];
+
+// throttled fetch: max ~5 req/sec, 12s timeout — never a blank hang
+let _mdxLast=0,_mdxQ=Promise.resolve();
+function mdxGet(url,ms){
+  ms=ms||12000;
+  _mdxQ=_mdxQ.then(()=>new Promise(r=>setTimeout(r,Math.max(0,210-(Date.now()-_mdxLast)))));
+  return _mdxQ.then(()=>{_mdxLast=Date.now();
+    const c=new AbortController(),t=setTimeout(()=>c.abort(),ms);
+    return fetch(url,{signal:c.signal}).then(r=>{clearTimeout(t);if(!r.ok)throw new Error("mdx "+r.status);return r.json();})
+      .catch(e=>{clearTimeout(t);throw e;});
+  });
+}
+function mgEsc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function mdxIsBL(m){ // server excludes via excludedTags; client backstops
+  return ((m.attributes||{}).tags||[]).some(t=>t.id===MDX_BL||((t.attributes.name||{}).en||"").toLowerCase()==="boys' love");
+}
+function mdxTitle(a){
+  if(a.title&&a.title.en)return a.title.en;
+  const alt=((a.altTitles||[]).map(o=>o.en).find(Boolean)); if(alt)return alt;
+  if(a.title&&a.title["ja-ro"])return a.title["ja-ro"];
+  const k=a.title?Object.keys(a.title)[0]:null; return k?a.title[k]:"Untitled";
+}
+function mdxCover(m,size){
+  const r=(m.relationships||[]).find(r=>r.type==="cover_art");
+  if(!r||!r.attributes||!r.attributes.fileName)return "";
+  return "https://uploads.mangadex.org/covers/"+m.id+"/"+r.attributes.fileName+"."+size+".jpg";
+}
+function mdxAuthor(m){
+  const r=(m.relationships||[]).find(r=>r.type==="author");
+  return (r&&r.attributes&&r.attributes.name)||"";
+}
+function mdxTags(m){return ((m.attributes||{}).tags||[]).map(t=>((t.attributes||{}).name||{}).en).filter(Boolean);}
+function mdxDesc(a){
+  let d=(a.description&&a.description.en)||"";
+  d=d.replace(/\[([^\]]*)\]\([^)]*\)/g,"$1").replace(/\r/g,"").trim();
+  return d.length>600?d.slice(0,600)+"…":d;
+}
+
+/* ---------- browse ---------- */
+function renderManga(){
+  mangaCloseReader(true);
+  Manga.screen="browse"; Manga.gen++;
+  const v=$("#view-manga"); if(!v)return;
+  v.innerHTML='<div class="mg-head"><div class="mg-title">MANGA <b>·</b> <span style="font-size:14px;font-weight:600;color:#888">free reads</span></div></div>'
+    +'<div class="mg-pills" id="mgPills"></div><div id="mgBody"></div>';
+  const pe=$("#mgPills");
+  MG_GENRES.forEach((g,i)=>{
+    const d=document.createElement("div");d.className="mg-pill"+(i===0?" on":"");d.textContent=g;
+    d.onclick=()=>{Manga.genre=g;pe.querySelectorAll(".mg-pill").forEach(x=>x.classList.remove("on"));d.classList.add("on");mgDrawGrid();};
+    pe.appendChild(d);
+  });
+  mgLoadList();
+}
+function mgLoadList(){
+  const body=$("#mgBody"); if(!body)return;
+  if(Manga.list.length){mgDrawGrid();return;}
+  const gen=Manga.gen;
+  body.innerHTML='<div class="mg-center"><div class="mg-spin"></div>Loading manga…</div>';
+  const url=MDX+"/manga?limit=48&order%5BfollowedCount%5D=desc&"+MDX_RATINGS+"&"+MDX_BL_EXCL+"&includes%5B%5D=cover_art&includes%5B%5D=author";
+  mdxGet(url).then(d=>{
+    if(gen!==Manga.gen)return;
+    Manga.list=(d.data||[]).filter(m=>!mdxIsBL(m));
+    mgDrawGrid();
+  }).catch(()=>{
+    if(gen!==Manga.gen)return;
+    body.innerHTML='<div class="mg-center">Couldn\'t load manga.<br><button class="mg-retry" onclick="mgLoadList()">Retry</button></div>';
+  });
+}
+function mgDrawGrid(){
+  const body=$("#mgBody"); if(!body)return;
+  const g=Manga.genre;
+  const list=Manga.list.filter(m=>{
+    if(g==="All")return true;
+    return mdxTags(m).some(t=>t.toLowerCase().indexOf(g.toLowerCase())>=0);
+  });
+  if(!list.length){body.innerHTML='<div class="mg-center">No '+mgEsc(g)+' titles right now.</div>';return;}
+  let h='<div class="mg-grid">';
+  list.forEach(m=>{
+    const a=m.attributes,cov=mdxCover(m,"256"),t=mdxTitle(a);
+    const lc=a.lastChapter?("Ch. "+a.lastChapter):(a.status?a.status.charAt(0).toUpperCase()+a.status.slice(1):"");
+    const tags=mdxTags(m).slice(0,2).join(" · ");
+    h+='<div class="mg-card" data-mid="'+m.id+'"><div class="mg-cov">'
+      +(cov?'<img loading="lazy" decoding="async" src="'+cov+'" alt="">':"")
+      +'<span class="mg-st">FREE</span></div><div class="mg-t">'+mgEsc(t)+'</div>'
+      +'<div class="mg-m">'+mgEsc(tags+(lc?" · "+lc:""))+'</div></div>';
+  });
+  body.innerHTML=h+'</div>';
+  body.querySelectorAll(".mg-card").forEach(c=>c.onclick=()=>mgOpenDetail(c.dataset.mid));
+}
+
+/* ---------- detail ---------- */
+function mgOpenDetail(mid){
+  const m=Manga.list.find(x=>x.id===mid); if(!m)return;
+  Manga.screen="detail"; Manga.detail=m; Manga.chapters=[]; Manga.gen++;
+  const gen=Manga.gen,v=$("#view-manga"),a=m.attributes;
+  const cov=mdxCover(m,"512"),t=mdxTitle(a),au=mdxAuthor(m);
+  const meta=[au,a.status?a.status.charAt(0).toUpperCase()+a.status.slice(1):"",a.year].filter(Boolean).join(" · ");
+  v.innerHTML='<div class="mg-dhero">'+(cov?'<img src="'+cov+'" alt="">':"")
+    +'<button class="mg-back" onclick="renderManga()">‹</button></div>'
+    +'<div class="mg-dbody"><div class="mg-dtitle">'+mgEsc(t)+'</div>'
+    +'<div class="mg-dmeta">'+mgEsc(meta)+'</div>'
+    +'<div class="mg-dtags">'+mdxTags(m).slice(0,5).map(x=>'<span class="mg-tag">'+mgEsc(x)+'</span>').join("")+'</div>'
+    +'<div class="mg-ddesc" id="mgDesc"></div>'
+    +'<button class="mg-readbtn" id="mgReadBtn" style="display:none">▶ Start Reading</button>'
+    +'<div class="mg-chhead">Chapters</div><div id="mgChapters"><div class="mg-center"><div class="mg-spin"></div>Loading chapters…</div></div></div>';
+  $("#mgDesc").textContent=mdxDesc(a)||"No description available.";
+  const url=MDX+"/manga/"+mid+"/feed?limit=100&order%5Bchapter%5D=desc&translatedLanguage%5B%5D=en&"+MDX_RATINGS;
+  mdxGet(url).then(d=>{
+    if(gen!==Manga.gen)return;
+    const seen={},chs=[];
+    (d.data||[]).forEach(c=>{
+      const ch=c.attributes.chapter,key=(ch==null||ch==="")?"oneshot":String(ch);
+      if(seen[key])return; seen[key]=1; chs.push(c);
+    });
+    Manga.chapters=chs;
+    mgDrawChapters();
+    const rb=$("#mgReadBtn");
+    if(rb&&chs.length){rb.style.display="";rb.onclick=()=>mgOpenReader(chs.length-1);}
+  }).catch(()=>{
+    if(gen!==Manga.gen)return;
+    const el=$("#mgChapters");
+    if(el)el.innerHTML='<div class="mg-center">Couldn\'t load chapters.<br><button class="mg-retry" onclick="mgOpenDetail(\''+mid+'\')">Retry</button></div>';
+  });
+  const vs=$("#views"); if(vs)vs.scrollTop=0; window.scrollTo(0,0);
+}
+function mgDrawChapters(){
+  const el=$("#mgChapters"); if(!el)return;
+  if(!Manga.chapters.length){el.innerHTML='<div class="mg-center">No English chapters available.</div>';return;}
+  let h="";
+  Manga.chapters.forEach((c,i)=>{
+    const a=c.attributes;
+    const num=(a.chapter!=null&&a.chapter!=="")?("Ch. "+a.chapter):"Oneshot";
+    const ttl=a.title?(" — "+a.title):"";
+    let dt=""; try{dt=new Date(a.publishAt).toLocaleDateString();}catch(e){}
+    h+='<div class="mg-ch" data-i="'+i+'"><span>'+mgEsc(num+ttl)+'</span><span class="mg-chd">'+mgEsc(dt)+'</span></div>';
+  });
+  el.innerHTML=h;
+  el.querySelectorAll(".mg-ch").forEach(x=>x.onclick=()=>mgOpenReader(parseInt(x.dataset.i,10)));
+}
+
+/* ---------- reader ---------- */
+function mgOpenReader(idx){
+  Manga.chIdx=idx; Manga.pageIdx=0; Manga.pages=[]; Manga.gen++;
+  const gen=Manga.gen,c=Manga.chapters[idx]; if(!c)return;
+  const m=Manga.detail,t=mdxTitle(m.attributes);
+  const num=(c.attributes.chapter!=null&&c.attributes.chapter!=="")?("Ch. "+c.attributes.chapter):"Oneshot";
+  let r=document.getElementById("mgReader");
+  if(!r){r=document.createElement("div");r.id="mgReader";r.className="mg-reader";document.body.appendChild(r);}
+  Manga.readerOpen=true;
+  r.innerHTML='<div class="mg-rtop"><button class="mg-rx" id="mgRx">✕</button>'
+    +'<div class="mg-rtitle">'+mgEsc(t+" — "+num)+'</div><div style="width:48px"></div></div>'
+    +'<div class="mg-rpage" id="mgRpage"><div class="mg-center"><div class="mg-spin"></div>Loading pages…</div></div>'
+    +'<div class="mg-rbot"><button class="mg-rnav" id="mgPrev">‹ Prev</button><button class="mg-rnav" id="mgNext">Next ›</button></div>';
+  r.style.display="flex";
+  $("#mgRx").onclick=()=>mangaCloseReader();
+  $("#mgPrev").onclick=()=>mgChapterNav(1);
+  $("#mgNext").onclick=()=>mgChapterNav(-1);
+  mgNavBtns();
+  mdxGet(MDX+"/at-home/server/"+c.id,15000).then(d=>{
+    if(gen!==Manga.gen||!Manga.readerOpen)return;
+    const ch=d.chapter,base=d.baseUrl+"/data-saver/"+ch.hash+"/";
+    Manga.pages=(ch.dataSaver||[]).map(f=>base+f);
+    if(!Manga.pages.length)throw new Error("no pages");
+    mgDrawPage();
+  }).catch(()=>{
+    if(gen!==Manga.gen||!Manga.readerOpen)return;
+    const p=$("#mgRpage"); if(!p)return;
+    p.innerHTML='<div class="mg-center">Couldn\'t load pages.<br><button class="mg-retry" id="mgPgRetry">Retry</button></div>';
+    $("#mgPgRetry").onclick=()=>mgOpenReader(Manga.chIdx);
+  });
+}
+function mgDrawPage(){
+  const p=$("#mgRpage"); if(!p||!Manga.pages.length)return;
+  const n=Manga.pageIdx+1,total=Manga.pages.length;
+  p.innerHTML='<div class="mg-zone l" id="mgZL"></div><img id="mgImg" src="'+Manga.pages[Manga.pageIdx]+'" alt="page '+n+'">'
+    +'<div class="mg-zone r" id="mgZR"></div><div class="mg-pnum">Page '+n+' / '+total+'</div>';
+  $("#mgZL").onclick=()=>mgPage(-1);
+  $("#mgZR").onclick=()=>mgPage(1);
+  const nx=Manga.pages[Manga.pageIdx+1]; if(nx){const im=new Image();im.src=nx;}
+  $("#mgImg").onerror=()=>{
+    if(!$("#mgRpage"))return;
+    $("#mgRpage").innerHTML='<div class="mg-center">Page failed to load.<br><button class="mg-retry" onclick="mgDrawPage()">Retry</button></div>';
+  };
+}
+function mgPage(d){
+  const n=Manga.pageIdx+d;
+  if(n<0||n>=Manga.pages.length)return;
+  Manga.pageIdx=n; mgDrawPage();
+}
+function mgChapterNav(d){ // d=1 → older (prev), d=-1 → newer (next); chapters are newest-first
+  const n=Manga.chIdx+d;
+  if(n<0||n>=Manga.chapters.length)return;
+  mgOpenReader(n);
+}
+function mgNavBtns(){
+  const pv=$("#mgPrev"),nx=$("#mgNext"); if(!pv||!nx)return;
+  pv.disabled=Manga.chIdx>=Manga.chapters.length-1;
+  nx.disabled=Manga.chIdx<=0;
+}
+function mangaCloseReader(silent){
+  Manga.readerOpen=false; Manga.gen++;
+  const r=document.getElementById("mgReader"); if(r)r.style.display="none";
+  if(!silent&&Manga.screen==="detail"&&Manga.detail){/* stays on detail behind overlay */}
+}
+function mangaExit(){ mangaCloseReader(true); }
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&Manga.readerOpen)mangaCloseReader();
+});
+
 </script>
 </body>
 </html>
