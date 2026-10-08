@@ -2231,9 +2231,9 @@ function openSportsReel(sport){
   ov.querySelectorAll("[data-share]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation();
     const sl=b.closest(".sreel-slide"); const ph=sl&&sl.querySelector("[data-ph]");
     const vid=ph&&ph.dataset.ph; if(!vid)return;
-    const _t=byVid(vid);
-    let _ei=-1;
-    if(_t&&_t.episodes) _ei=_t.episodes.findIndex(e=>(e.video_id||vidOf(e.url||""))===vid);
+    // use the reel's own sports entry + the slide's exact episode index
+    const _t=(typeof sportEntry==="function"&&typeof sportsSport!=="undefined")?sportEntry(sportsSport):byVid(vid);
+    const _ei=sl&&sl.dataset.i!==undefined?parseInt(sl.dataset.i,10):-1;
     const url=_t?shareUrl(_t.id,_ei>=0?_ei:undefined):"https://www.youtube.com/watch?v="+vid;
     const done=()=>toast("Link copied");
     (async()=>{
