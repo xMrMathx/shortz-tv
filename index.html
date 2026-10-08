@@ -2840,11 +2840,17 @@ function liveShellHTML(){
 /* ---------- LIVE STREAMING: TikTok-style vertical swipe feed ---------- */
 let STREAMERS={kick:[],twitch:[]}, STREAMERS_LOADED=false;
 /* refresh one Kick channel: live status via v1, most-recent VOD via v2 when offline */
+function kickFetchTimeout(ms){
+  return new Promise((_,rej)=>setTimeout(()=>rej(new Error("timeout")),ms));
+}
 function kickRefreshOne(s){
   const ch=String(s.url||"").split("/").filter(Boolean).pop();
   if(!ch)return Promise.resolve(false);
   const before=!!s.live;
-  return fetch("https://kick.com/api/v1/channels/"+encodeURIComponent(ch),{cache:"no-store"})
+  return Promise.race([
+    fetch("https://kick.com/api/v1/channels/"+encodeURIComponent(ch),{cache:"no-store"}),
+    kickFetchTimeout(8000)
+  ])
     .then(r=>r.ok?r.json():null)
     .then(d=>{
       if(!d)return false;
@@ -2859,7 +2865,10 @@ function kickRefreshOne(s){
 function kickFetchVod(s){
   const ch=String(s.url||"").split("/").filter(Boolean).pop();
   if(!ch)return Promise.resolve();
-  return fetch("https://kick.com/api/v2/channels/"+encodeURIComponent(ch)+"/videos",{cache:"no-store"})
+  return Promise.race([
+    fetch("https://kick.com/api/v2/channels/"+encodeURIComponent(ch)+"/videos",{cache:"no-store"}),
+    kickFetchTimeout(8000)
+  ])
     .then(r=>r.ok?r.json():null)
     .then(vids=>{
       if(!vids||!vids.length)return;
