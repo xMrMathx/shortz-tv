@@ -1949,7 +1949,7 @@ function scrubSeekTo(slide,t){
     if(curIsVimeo()){
       const fr=slide.querySelector("[data-frame]");
       if(fr&&fr.contentWindow)fr.contentWindow.postMessage(JSON.stringify({method:"setCurrentTime",value:t}),"*");
-      prog[vid]=t;
+      prog[vid]=t; progTime[vid]=Date.now();
     }else if(slide._player&&slide._player.seekTo){
       slide._player.seekTo(t,true);
     }else{
@@ -2039,6 +2039,7 @@ function updateRail(t){const s=curSlide();if(s)updateRailIn(s,t)}
 
 /* ---------- resume playback: per-video progress ---------- */
 let prog={}; try{prog=store.get("progress",{})||{}}catch(e){prog={}}
+let progTime={}; try{progTime=store.get("progressTime",{})||{}}catch(e){progTime={}}
 function vidOf(u){
   let m=String(u||"").match(/embed\/([A-Za-z0-9_-]+)/);
   if(m)return m[1];
@@ -2057,11 +2058,12 @@ function saveProg(node){
   if(!node||!node._vid||!node._player||!node._player.getCurrentTime)return;
   try{
     const s=Math.floor(node._player.getCurrentTime());
-    if(s>5)prog[node._vid]=s; else delete prog[node._vid];
-    store.set("progress",prog);
+    if(s>5){prog[node._vid]=s;progTime[node._vid]=Date.now();}
+    else{delete prog[node._vid];delete progTime[node._vid];}
+    store.set("progress",prog); store.set("progressTime",progTime);
   }catch(e){}
 }
-function clearProg(node){if(node&&node._vid){delete prog[node._vid];store.set("progress",prog)}}
+function clearProg(node){if(node&&node._vid){delete prog[node._vid];delete progTime[node._vid];store.set("progress",prog);store.set("progressTime",progTime)}}
 function maybeResume(node,player){
   const vid=node._vid; if(!vid||node._seekDone)return;
   const s=prog[vid]||0;
@@ -2069,7 +2071,7 @@ function maybeResume(node,player){
   const attempt=()=>{
     if(node._vid!==vid)return;
     let dur=0; try{dur=player.getDuration?player.getDuration():0}catch(e){}
-    if(dur>0&&s>dur-10){delete prog[vid];store.set("progress",prog);node._seekDone=true;return}
+    if(dur>0&&s>dur-10){delete prog[vid];delete progTime[vid];store.set("progress",prog);store.set("progressTime",progTime);node._seekDone=true;return}
     try{player.seekTo(s,true)}catch(e){}
     node._seekDone=true;flashResume(node,s);
   };
@@ -2183,8 +2185,9 @@ window.addEventListener("message",e=>{
         const fr=n.querySelector("[data-frame]");
         if(n._vid&&fr&&fr.contentWindow===e.source){
           const s=Math.floor(d.value);
-          if(s>5)prog[n._vid]=s; else delete prog[n._vid];
-          store.set("progress",prog);
+          if(s>5){prog[n._vid]=s;progTime[n._vid]=Date.now();}
+          else{delete prog[n._vid];delete progTime[n._vid];}
+          store.set("progress",prog); store.set("progressTime",progTime);
         }
       });
     }
@@ -2470,6 +2473,7 @@ function playEpisode(e){
   if(soundOn){if(spA)spA.style.display="none";if(frA)frA.onload=()=>setTimeout(unmuteFrame,900);}
   else{if(spA)spA.style.display="";if(frA)frA.onload=null;}
   const fl=slide.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
+  const ttl=slide.querySelector("[data-title]"); if(ttl)ttl.textContent=t.title||"";
   const meta=slide.querySelector("[data-meta]");
   if(meta)meta.textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
   pushHistory(t);
@@ -4744,6 +4748,7 @@ mountFeed();
 /* continue watching: floating pill on Home for the most recent unfinished episode */
 function findContinue(){
   try{
+    let best=null, bestT=0;
     for(const h of (history||[])){
       if(!h||!h.id)continue;
       const t=byId(h.id);
@@ -4751,9 +4756,13 @@ function findContinue(){
       if(typeof feed!=="undefined"&&feed.cur&&feed.cur.id===t.id)continue; // already watching it
       for(const e of t.episodes){
         const vid=e.video_id||vidOf(e.url||"");
-        if(vid&&prog[vid]>5)return{t:t,ep:e};
+        if(vid&&prog[vid]>5){
+          const wt=progTime[vid]||0;
+          if(wt>=bestT){bestT=wt;best={t:t,ep:e};}
+        }
       }
     }
+    return best;
   }catch(e){}
   return null;
 }
@@ -4776,7 +4785,10 @@ function updateContinuePill(){
     try{
       const c=pill._cont; if(!c)return;
       if(typeof go==="function")go("home");
-      feed.cur=c.t; playEpisode(c.ep);
+      // use playSeries so the feed stack resets cleanly (no stale neighbors)
+      playSeries(c.t);
+      // then jump to the exact saved episode
+      setTimeout(()=>{try{feed.cur=c.t;playEpisode(c.ep);}catch(_){}},150);
       pill.classList.remove("show"); pill._cont=null;
     }catch(err){}
   });
@@ -4880,7 +4892,7 @@ function renderManga(){
     +'<div class="mg-pills" id="mgPills"></div><div id="mgBody"></div>';
   const pe=$("#mgPills");
   MG_GENRES.forEach((g,i)=>{
-    const d=document.createElement("div");d.className="mg-pill"+(i===0?" on":"");d.textContent=g;
+    const d=document.createElement("div");d.className="mg-pill"+(g===Manga.genre?" on":"");d.textContent=g;
     d.onclick=()=>{Manga.genre=g;pe.querySelectorAll(".mg-pill").forEach(x=>x.classList.remove("on"));d.classList.add("on");mgDrawGrid();};
     pe.appendChild(d);
   });
