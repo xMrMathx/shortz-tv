@@ -2422,13 +2422,16 @@ function renderBrowse(g){
     browseChunks={list:list,shown:0};
     browseMore(gr0);
     bindCards($("#view-browse"));
-    const scroller=$("#views");
-    if(scroller&&!scroller._browseHook){
-      scroller._browseHook=true;
-      scroller.addEventListener("scroll",()=>{
+    // Infinite scroll: the DOCUMENT scrolls (#views has overflow:visible and never
+    // moves), so the chunk loader must listen on window with viewport-relative math.
+    if(!window._browseHook){
+      window._browseHook=true;
+      window.addEventListener("scroll",()=>{
         if(curView!=="browse"||!browseChunks)return;
         const g=$("#bgrid");if(!g)return;
-        if(scroller.scrollTop+scroller.clientHeight>g.offsetTop+g.offsetHeight-900)browseMore(g);
+        try{
+          if(g.getBoundingClientRect().bottom < window.innerHeight+900)browseMore(g);
+        }catch(e){}
       },{passive:true});
     }
   }
