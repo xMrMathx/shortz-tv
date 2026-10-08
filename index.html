@@ -2923,7 +2923,6 @@ async function saveProfile(p){
     const ok=await liveEnsure();
     if(ok&&Live.db){
       await Live.db.ref("users/"+Live.uid+"/profile").set(p);
-      await Live.db.ref("users/"+Live.uid+"/name").set(p.name||"Viewer");
       await Live.db.ref("directory/"+Live.uid).set({name:p.name||"Viewer",photo:p.photo||"",ts:Date.now()});
       Live.name=p.name||Live.name;
       syncHistoryRemote(); syncMyListRemote(); // backfill recents/saved
@@ -3620,8 +3619,9 @@ async function liveEnsure(){
       }
       Live.name = nm;
       Live.authed = true;
-      await Live.db.ref("users/"+Live.uid+"/name").set(nm);
       // keep the public directory fresh on every launch so search works
+      // (NOTE: never write to users/<uid>/name — no rule allows it and a
+      // denied write here aborts everything below it)
       try{
         const prof=store.get("profile",null)||{};
         await Live.db.ref("directory/"+Live.uid).set({name:prof.name||nm||"Viewer",photo:prof.photo||"",ts:Date.now()});
