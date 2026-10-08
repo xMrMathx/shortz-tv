@@ -2963,7 +2963,11 @@ function sstreamFill(node,s,mode){
   }else if(s.platform==="twitch"&&!s.live&&s.vod_id){
     // offline Twitch with VOD: direct iframe VOD embed (simple, reliable)
     const vidId=String(s.vod_id).replace(/^v/,"");
-    fr.innerHTML=`<iframe src="https://player.twitch.tv/?video=${encodeURIComponent(vidId)}&parent=xmrmathx.github.io&autoplay=false" frameborder="0" allowfullscreen allow="autoplay; fullscreen" style="width:100%;height:100%;border:0"></iframe>`;
+    const host=(window.location&&window.location.hostname)||"";
+    const parents=["xmrmathx.github.io"];
+    if(host&&parents.indexOf(host)<0)parents.push(host);
+    const pstr=parents.map(p=>"&parent="+encodeURIComponent(p)).join("");
+    fr.innerHTML=`<iframe src="https://player.twitch.tv/?video=${encodeURIComponent(vidId)}${pstr}&autoplay=false" frameborder="0" allowfullscreen allow="autoplay; fullscreen" style="width:100%;height:100%;border:0"></iframe>`;
   }else{
     fr.innerHTML=`<iframe src="${sstreamEmbed(s,streamMuted)}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
   }
