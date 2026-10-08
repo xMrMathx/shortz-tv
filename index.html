@@ -964,7 +964,7 @@ function renderView(v){
   if(v==="home")mountFeed();
   if(v==="browse")renderBrowse(browseGenre);
   if(v==="live")renderLive();
-  if(v==="streaming")renderStreaming();
+  if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
   if(v==="profile")renderProfile();
 }
 
