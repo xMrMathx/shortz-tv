@@ -4,6 +4,11 @@ const SHELL = ["catalog.js", "manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
 const PAGE = ["index.html"];
 
+function isCatalog(url) {
+  if (url.origin !== location.origin) return false;
+  return url.pathname.endsWith("/catalog.js");
+}
+
 function isPage(url) {
   if (url.origin !== location.origin) return false;
   const p = url.pathname;
@@ -47,6 +52,20 @@ self.addEventListener("fetch", e => {
     return;
   }
   if (!isShell(url)) return; // thumbnails/embeds: network
+  if (isCatalog(url)) {
+    // Catalog DATA (not shell): network first, so a fresh catalog reaches
+    // repeat viewers with no cache clearing. Full-URL match (no ignoreSearch)
+    // so catalog.js?v=<new> can never serve a stale cached copy. Offline falls
+    // back to the cached copy.
+    e.respondWith(
+      fetch(e.request).then(res => {
+        const copy = res.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copy));
+        return res;
+      }).catch(() => caches.match(e.request))
+    );
+    return;
+  }
   e.respondWith(
     caches.match(e.request, { ignoreSearch: true }).then(hit => {
       if (hit) return hit;
