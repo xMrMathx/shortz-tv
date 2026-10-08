@@ -584,7 +584,6 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <section class="view" id="view-browse"></section>
     <section class="view" id="view-live"></section>
     <section class="view" id="view-streaming"></section>
-    <section class="view" id="view-mylist"></section>
     <section class="view" id="view-profile"></section>
     <section class="view" id="view-detail"></section>
   </main>
@@ -595,7 +594,6 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
     <button class="tab" data-v="browse"><span class="ico">▦</span>Browse</button>
     <button class="tab" data-v="live"><span class="ico liveico">●</span>Live</button>
     <button class="tab" data-v="streaming"><span class="ico">📡</span>Streaming</button>
-    <button class="tab" data-v="mylist"><span class="ico">♥</span>My List</button>
     <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
   </nav>
 
@@ -897,7 +895,7 @@ function renderView(v){
   if(v==="browse")renderBrowse(browseGenre);
   if(v==="live")renderLive();
   if(v==="streaming")renderStreaming();
-  if(v==="mylist")renderMyList(); if(v==="profile")renderProfile();
+  if(v==="profile")renderProfile();
 }
 
 /* ---------- FEED: TikTok-style vertical pager ---------- */
@@ -2348,22 +2346,6 @@ function closeSportsReel(){
   sportsSport=null; sportsActiveSlide=null;
 }
 
-/* ---------- my list ---------- */
-function renderMyList(){
-  const saved=[...mylist].map(byId).filter(Boolean);
-  const hist=history.map(h=>byId(h.id)).filter(Boolean);
-  const row=list=>`<div class="hrow">${list.map(cardHTML).join("")}</div>`;
-  $("#view-mylist").innerHTML=`<div class="wrap">
-    <div class="sect">♥ My List ${saved.length?`(${saved.length})`:""}</div>
-    ${saved.length?row(saved)
-      :'<div class="empty">Nothing saved yet.<br>Tap ＋ Save on any short to keep it here.</div>'}
-    <div class="sect">🕘 Recently watched ${hist.length?`(${hist.length})`:""}</div>
-    ${hist.length?row(hist)
-      :'<div class="empty">No watch history yet.</div>'}
-  </div>`;
-  bindCards($("#view-mylist"));
-}
-
 /* ---------- profile ---------- */
 /* ============================================================
    USER PROFILES (v1.2.46)
@@ -2452,6 +2434,7 @@ function renderProfile(){
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
     </div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
+    <div id="profMyList"></div>
     <div class="secttl">Friends</div>
     <div class="friendsearch">
       <input id="frSearch" class="pinput" placeholder="Search users by name…" autocomplete="off">
@@ -2467,6 +2450,23 @@ function renderProfile(){
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
+  // My List + Recently Watched live inside the profile now (same cards as before)
+  (function(){
+    const saved=[...mylist].map(byId).filter(Boolean);
+    const hist=history.map(h=>byId(h.id)).filter(Boolean);
+    const row=list=>`<div class="hrow">${list.map(cardHTML).join("")}</div>`;
+    const box=$("#profMyList");
+    if(box){
+      box.innerHTML=`
+        <div class="sect">♥ My List ${saved.length?`(${saved.length})`:""}</div>
+        ${saved.length?row(saved)
+          :'<div class="empty">Nothing saved yet.<br>Tap ＋ Save on any short to keep it here.</div>'}
+        <div class="sect">🕘 Recently watched ${hist.length?`(${hist.length})`:""}</div>
+        ${hist.length?row(hist)
+          :'<div class="empty">No watch history yet.</div>'}`;
+      bindCards(box);
+    }
+  })();
   const ib=$("#installAppBtn");
   if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
   initFriendsUI();
