@@ -4085,7 +4085,7 @@ if("serviceWorker" in navigator){
 </script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
-const MDX="https://api.mangadex.org";
+const MDX="/api/mdx"; // same-origin proxy (functions/api/mdx) — MangaDex sends no CORS headers
 const MDX_BL="5920b825-4181-4a17-beeb-9918b0ff7a30"; // Boys' Love tag — never shown, his standing rule
 const MDX_RATINGS="contentRating%5B%5D=safe&contentRating%5B%5D=suggestive";
 const MDX_BL_EXCL="excludedTags%5B%5D="+MDX_BL;
@@ -4322,7 +4322,8 @@ function mgOpenReader(idx){
   mdxGet(MDX+"/at-home/server/"+c.id,15000).then(d=>{
     if(gen!==Manga.gen||!Manga.readerOpen)return;
     const ch=d.chapter,base=d.baseUrl+"/data-saver/"+ch.hash+"/";
-    Manga.pages=(ch.dataSaver||[]).map(f=>base+f);
+    // page images via same-origin proxy — guaranteed reachable, no CORS
+    Manga.pages=(ch.dataSaver||[]).map(f=>"/api/mdximg?u="+encodeURIComponent(base+f));
     if(!Manga.pages.length)throw new Error("no pages");
     mgDrawPage();
   }).catch(()=>{
