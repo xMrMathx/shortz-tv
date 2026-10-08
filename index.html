@@ -726,6 +726,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
 <script src="catalog.js?v=c4b4bd1"></script>
+<script defer src="manga-catalog.js?v=c5cd6f9"></script>
 <script>
 "use strict";
 /* ---------- live catalog: the app is data-driven, not hard-coded ----------
@@ -3934,30 +3935,36 @@ function mdxGet(url,ms){
   });
 }
 function mgEsc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+/* Bundled catalog (manga-catalog.js) and live API results are both normalized
+   to this flat shape, so the shelf renders instantly with zero network and the
+   live refresh merges silently. */
+function mgNorm(m){
+  const a=m.attributes||{};
+  const rel=n=>{const r=(m.relationships||[]).find(x=>x.type===n);return (r&&r.attributes&&r.attributes.name)||"";};
+  const covR=(m.relationships||[]).find(x=>x.type==="cover_art");
+  let t=(a.title&&a.title.en)||"";
+  if(!t){const alt=(a.altTitles||[]).map(o=>o.en).find(Boolean);if(alt)t=alt;}
+  if(!t&&a.title&&a.title["ja-ro"])t=a.title["ja-ro"];
+  if(!t&&a.title){const k=Object.keys(a.title)[0];if(k)t=a.title[k];}
+  let d=((a.description&&a.description.en)||"").replace(/\[([^\]]*)\]\([^)]*\)/g,"$1").replace(/\r/g,"").trim();
+  if(d.length>600)d=d.slice(0,600)+"…";
+  return {
+    id:m.id, title:t||"Untitled",
+    author:rel("author"), artist:rel("artist"),
+    desc:d,
+    tags:(a.tags||[]).map(x=>((x.attributes||{}).name||{}).en).filter(Boolean),
+    status:a.status||"", year:a.year||"",
+    cover:(covR&&covR.attributes&&covR.attributes.fileName)||"",
+    lastChapter:a.lastChapter||""
+  };
+}
 function mdxIsBL(m){ // server excludes via excludedTags; client backstops
-  return ((m.attributes||{}).tags||[]).some(t=>t.id===MDX_BL||((t.attributes.name||{}).en||"").toLowerCase()==="boys' love");
+  return (m.tags||[]).some(t=>String(t).toLowerCase()==="boys' love");
 }
-function mdxTitle(a){
-  if(a.title&&a.title.en)return a.title.en;
-  const alt=((a.altTitles||[]).map(o=>o.en).find(Boolean)); if(alt)return alt;
-  if(a.title&&a.title["ja-ro"])return a.title["ja-ro"];
-  const k=a.title?Object.keys(a.title)[0]:null; return k?a.title[k]:"Untitled";
-}
-function mdxCover(m,size){
-  const r=(m.relationships||[]).find(r=>r.type==="cover_art");
-  if(!r||!r.attributes||!r.attributes.fileName)return "";
-  return "https://uploads.mangadex.org/covers/"+m.id+"/"+r.attributes.fileName+"."+size+".jpg";
-}
-function mdxAuthor(m){
-  const r=(m.relationships||[]).find(r=>r.type==="author");
-  return (r&&r.attributes&&r.attributes.name)||"";
-}
-function mdxTags(m){return ((m.attributes||{}).tags||[]).map(t=>((t.attributes||{}).name||{}).en).filter(Boolean);}
-function mdxDesc(a){
-  let d=(a.description&&a.description.en)||"";
-  d=d.replace(/\[([^\]]*)\]\([^)]*\)/g,"$1").replace(/\r/g,"").trim();
-  return d.length>600?d.slice(0,600)+"…":d;
-}
+function mdxCover(m,size){ return m.cover?("https://uploads.mangadex.org/covers/"+m.id+"/"+m.cover+"."+size+".jpg"):""; }
+function mdxTitle(m){ return m.title||"Untitled"; }
+function mdxAuthor(m){ return m.author||""; }
+function mdxTags(m){ return m.tags||[]; }
 
 /* ---------- browse ---------- */
 function renderManga(){
@@ -3978,15 +3985,32 @@ function mgLoadList(){
   const body=$("#mgBody"); if(!body)return;
   if(Manga.list.length){mgDrawGrid();return;}
   const gen=Manga.gen;
-  body.innerHTML='<div class="mg-center"><div class="mg-spin"></div>Loading manga…</div>';
+  // 1. Render INSTANTLY from the bundled catalog — zero network needed.
+  const bundled=(window.MANGA_CATALOG||[]).filter(m=>!mdxIsBL(m));
+  if(bundled.length){
+    Manga.list=bundled.slice();
+    mgDrawGrid();
+  }else{
+    body.innerHTML='<div class="mg-center"><div class="mg-spin"></div>Loading manga…</div>';
+  }
+  // 2. Refresh silently from the live API; live titles first, bundled-only extras appended.
   const url=MDX+"/manga?limit=48&order%5BfollowedCount%5D=desc&"+MDX_RATINGS+"&"+MDX_BL_EXCL+"&includes%5B%5D=cover_art&includes%5B%5D=author";
   mdxGet(url).then(d=>{
     if(gen!==Manga.gen)return;
-    Manga.list=(d.data||[]).filter(m=>!mdxIsBL(m));
-    mgDrawGrid();
+    const live=(d.data||[]).map(mgNorm).filter(m=>!mdxIsBL(m));
+    const seen={}; live.forEach(m=>{seen[m.id]=1;});
+    const merged=live.concat(bundled.filter(m=>!seen[m.id]));
+    if(merged.length){
+      Manga.list=merged;
+      if(Manga.screen==="browse")mgDrawGrid();
+    }else if(!Manga.list.length){
+      body.innerHTML='<div class="mg-center">Couldn\'t load manga.<br><button class="mg-retry" onclick="mgLoadList()">Retry</button></div>';
+    }
   }).catch(()=>{
     if(gen!==Manga.gen)return;
-    body.innerHTML='<div class="mg-center">Couldn\'t load manga.<br><button class="mg-retry" onclick="mgLoadList()">Retry</button></div>';
+    if(!Manga.list.length){ // bundled shelf stays up if it rendered; only show error when truly empty
+      body.innerHTML='<div class="mg-center">Couldn\'t load manga.<br><button class="mg-retry" onclick="mgLoadList()">Retry</button></div>';
+    }
   });
 }
 function mgDrawGrid(){
@@ -3999,8 +4023,8 @@ function mgDrawGrid(){
   if(!list.length){body.innerHTML='<div class="mg-center">No '+mgEsc(g)+' titles right now.</div>';return;}
   let h='<div class="mg-grid">';
   list.forEach(m=>{
-    const a=m.attributes,cov=mdxCover(m,"256"),t=mdxTitle(a);
-    const lc=a.lastChapter?("Ch. "+a.lastChapter):(a.status?a.status.charAt(0).toUpperCase()+a.status.slice(1):"");
+    const cov=mdxCover(m,"256"),t=mdxTitle(m);
+    const lc=m.lastChapter?("Ch. "+m.lastChapter):(m.status?m.status.charAt(0).toUpperCase()+m.status.slice(1):"");
     const tags=mdxTags(m).slice(0,2).join(" · ");
     h+='<div class="mg-card" data-mid="'+m.id+'"><div class="mg-cov">'
       +(cov?'<img loading="lazy" decoding="async" src="'+cov+'" alt="">':"")
@@ -4015,9 +4039,9 @@ function mgDrawGrid(){
 function mgOpenDetail(mid){
   const m=Manga.list.find(x=>x.id===mid); if(!m)return;
   Manga.screen="detail"; Manga.detail=m; Manga.chapters=[]; Manga.gen++;
-  const gen=Manga.gen,v=$("#view-manga"),a=m.attributes;
-  const cov=mdxCover(m,"512"),t=mdxTitle(a),au=mdxAuthor(m);
-  const meta=[au,a.status?a.status.charAt(0).toUpperCase()+a.status.slice(1):"",a.year].filter(Boolean).join(" · ");
+  const gen=Manga.gen,v=$("#view-manga");
+  const cov=mdxCover(m,"512"),t=mdxTitle(m),au=mdxAuthor(m);
+  const meta=[au,m.status?m.status.charAt(0).toUpperCase()+m.status.slice(1):"",m.year].filter(Boolean).join(" · ");
   v.innerHTML='<div class="mg-dhero">'+(cov?'<img src="'+cov+'" alt="">':"")
     +'<button class="mg-back" onclick="renderManga()">‹</button></div>'
     +'<div class="mg-dbody"><div class="mg-dtitle">'+mgEsc(t)+'</div>'
@@ -4026,7 +4050,7 @@ function mgOpenDetail(mid){
     +'<div class="mg-ddesc" id="mgDesc"></div>'
     +'<button class="mg-readbtn" id="mgReadBtn" style="display:none">▶ Start Reading</button>'
     +'<div class="mg-chhead">Chapters</div><div id="mgChapters"><div class="mg-center"><div class="mg-spin"></div>Loading chapters…</div></div></div>';
-  $("#mgDesc").textContent=mdxDesc(a)||"No description available.";
+  $("#mgDesc").textContent=m.desc||"No description available.";
   const url=MDX+"/manga/"+mid+"/feed?limit=100&order%5Bchapter%5D=desc&translatedLanguage%5B%5D=en&"+MDX_RATINGS;
   mdxGet(url).then(d=>{
     if(gen!==Manga.gen)return;
@@ -4065,7 +4089,7 @@ function mgDrawChapters(){
 function mgOpenReader(idx){
   Manga.chIdx=idx; Manga.pageIdx=0; Manga.pages=[]; Manga.gen++;
   const gen=Manga.gen,c=Manga.chapters[idx]; if(!c)return;
-  const m=Manga.detail,t=mdxTitle(m.attributes);
+  const m=Manga.detail,t=mdxTitle(m);
   const num=(c.attributes.chapter!=null&&c.attributes.chapter!=="")?("Ch. "+c.attributes.chapter):"Oneshot";
   let r=document.getElementById("mgReader");
   if(!r){r=document.createElement("div");r.id="mgReader";r.className="mg-reader";document.body.appendChild(r);}
