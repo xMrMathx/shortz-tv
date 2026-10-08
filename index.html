@@ -2311,7 +2311,10 @@ function autoNext(node,vid){
   for(let i=idx+1;i<eps.length;i++){
     if(eps[i].verified&&eps[i].url){playEpisode(eps[i]);return;}
   }
-  advanceAnimated(1); // not in list, or last verified episode: binge on
+  // No next verified episode: STOP. Never jump to a random series mid-binge —
+  // a missing/unverified next episode is a data gap, not a reason to switch.
+  // The user swipes up when they want something new.
+  try{clearProg(node)}catch(e){}
 }
 function epIdxOf(eps,vid){
   for(let i=0;i<eps.length;i++){
