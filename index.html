@@ -542,6 +542,32 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 </style>
 </head>
 <body>
+<script>
+// Auto-update: check version.json with no-cache; reload if a newer build is live.
+// This enforces the no-cache law — viewers never clear data, the page updates itself.
+(function(){
+  var CHECK_MS = 60000;
+  function check(){
+    fetch('version.json?t='+Date.now(), {cache:'no-cache'})
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(v){
+        if(!v || !v.v) return;
+        var mine = window.__SHORTZ_BUILD || null;
+        if(mine && mine !== v.v){
+          location.reload();
+        } else if(!mine){
+          window.__SHORTZ_BUILD = v.v;
+        }
+      }).catch(function(){});
+  }
+  // Stamp this build's version as early as possible
+  fetch('version.json?t='+Date.now(), {cache:'no-cache'})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(v){ if(v && v.v && !window.__SHORTZ_BUILD) window.__SHORTZ_BUILD = v.v; })
+    .catch(function(){});
+  setInterval(check, CHECK_MS);
+})();
+</script>
 <div id="ptr"><div class="ptr-spin"></div></div>
 <button id="rotexit" aria-label="Exit rotate" onclick="toggleRotate()">✕</button>
 <div id="app">
