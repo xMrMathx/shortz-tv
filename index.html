@@ -4409,6 +4409,9 @@ mountFeed();
   var idlePre=function(fn){ try{ if("requestIdleCallback" in window) requestIdleCallback(fn,{timeout:5000}); else setTimeout(fn,1200); }catch(e){ setTimeout(fn,1200); } };
   // YT IFrame API warm at idle: first video must not wait on API download (FIX 4)
   idlePre(function(){ try{ ensureYT(); }catch(e){} });
+  // register this user in the searchable directory on every launch (fire-and-
+  // forget) so friends can find each other without opening the Live tab first
+  idlePre(function(){ try{ liveEnsure(); }catch(e){} });
   // warm the one-pass catalog index cache while idle, so the first Browse/Profile
   // tap never pays for it. Rebuild after a fresh catalog lands.
   idlePre(function(){ try{ buildCatalogIndexes(); }catch(e){} });
