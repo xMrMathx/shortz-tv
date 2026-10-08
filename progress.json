@@ -1,77 +1,77 @@
 {
   "project": "Shortz TV \u2014 60+ series per genre",
-  "updatedAt": "2026-10-08T04:45:17.986333+00:00",
-  "shipped": 1741,
+  "updatedAt": "2026-10-08T05:47:06.429884+00:00",
+  "shipped": 2326,
   "phases": [
     {
       "id": "action",
-      "label": "Action \u00b7 21/60",
-      "pct": 35,
-      "status": "running",
-      "note": "21 series"
+      "label": "Action \u00b7 70/60",
+      "pct": 100,
+      "status": "done",
+      "note": "70 series"
     },
     {
       "id": "animation",
-      "label": "Animation \u00b7 31/60",
-      "pct": 52,
-      "status": "running",
-      "note": "31 series"
+      "label": "Animation \u00b7 80/60",
+      "pct": 100,
+      "status": "done",
+      "note": "80 series"
     },
     {
       "id": "anime",
-      "label": "Anime \u00b7 120/60",
+      "label": "Anime \u00b7 172/60",
       "pct": 100,
       "status": "done",
-      "note": "120 series"
+      "note": "172 series"
     },
     {
       "id": "body-cam",
-      "label": "Body Cam \u00b7 67/60",
+      "label": "Body Cam \u00b7 82/60",
       "pct": 100,
       "status": "done",
-      "note": "67 series"
+      "note": "82 series"
     },
     {
       "id": "comedy",
-      "label": "Comedy \u00b7 39/60",
-      "pct": 65,
+      "label": "Comedy \u00b7 57/60",
+      "pct": 95,
       "status": "running",
-      "note": "39 series"
+      "note": "57 series"
     },
     {
       "id": "faith",
-      "label": "Faith \u00b7 26/60",
-      "pct": 43,
-      "status": "running",
-      "note": "26 series"
+      "label": "Faith \u00b7 92/60",
+      "pct": 100,
+      "status": "done",
+      "note": "92 series"
     },
     {
       "id": "family",
-      "label": "Family \u00b7 20/60",
-      "pct": 33,
+      "label": "Family \u00b7 43/60",
+      "pct": 72,
       "status": "running",
-      "note": "20 series"
+      "note": "43 series"
     },
     {
       "id": "fantasy",
-      "label": "Fantasy \u00b7 49/60",
-      "pct": 82,
-      "status": "running",
-      "note": "49 series"
+      "label": "Fantasy \u00b7 61/60",
+      "pct": 100,
+      "status": "done",
+      "note": "61 series"
     },
     {
       "id": "hood",
-      "label": "Hood \u00b7 85/60",
+      "label": "Hood \u00b7 98/60",
       "pct": 100,
       "status": "done",
-      "note": "85 series"
+      "note": "98 series"
     },
     {
       "id": "horror",
-      "label": "Horror \u00b7 34/60",
-      "pct": 57,
+      "label": "Horror \u00b7 57/60",
+      "pct": 95,
       "status": "running",
-      "note": "34 series"
+      "note": "57 series"
     },
     {
       "id": "mr.-ballin",
@@ -82,66 +82,66 @@
     },
     {
       "id": "mystery",
-      "label": "Mystery \u00b7 26/60",
-      "pct": 43,
+      "label": "Mystery \u00b7 31/60",
+      "pct": 52,
       "status": "running",
-      "note": "26 series"
+      "note": "31 series"
     },
     {
       "id": "reality",
-      "label": "Reality \u00b7 37/60",
-      "pct": 62,
+      "label": "Reality \u00b7 57/60",
+      "pct": 95,
       "status": "running",
-      "note": "37 series"
+      "note": "57 series"
     },
     {
       "id": "revenge",
-      "label": "Revenge \u00b7 41/60",
-      "pct": 68,
-      "status": "running",
-      "note": "41 series"
+      "label": "Revenge \u00b7 75/60",
+      "pct": 100,
+      "status": "done",
+      "note": "75 series"
     },
     {
       "id": "romance",
-      "label": "Romance \u00b7 60/60",
+      "label": "Romance \u00b7 80/60",
       "pct": 100,
       "status": "done",
-      "note": "60 series"
+      "note": "80 series"
     },
     {
       "id": "sci-fi",
-      "label": "Sci-Fi \u00b7 42/60",
-      "pct": 70,
-      "status": "running",
-      "note": "42 series"
+      "label": "Sci-Fi \u00b7 70/60",
+      "pct": 100,
+      "status": "done",
+      "note": "70 series"
     },
     {
       "id": "short-films",
-      "label": "Short Films \u00b7 114/60",
+      "label": "Short Films \u00b7 139/60",
       "pct": 100,
       "status": "done",
-      "note": "114 series"
+      "note": "139 series"
     },
     {
       "id": "sports",
-      "label": "Sports \u00b7 49/60",
-      "pct": 82,
-      "status": "running",
-      "note": "49 series"
+      "label": "Sports \u00b7 97/60",
+      "pct": 100,
+      "status": "done",
+      "note": "97 series"
     },
     {
       "id": "thriller",
-      "label": "Thriller \u00b7 146/60",
+      "label": "Thriller \u00b7 188/60",
       "pct": 100,
       "status": "done",
-      "note": "146 series"
+      "note": "188 series"
     },
     {
       "id": "western",
-      "label": "Western \u00b7 33/60",
-      "pct": 55,
-      "status": "running",
-      "note": "33 series"
+      "label": "Western \u00b7 69/60",
+      "pct": 100,
+      "status": "done",
+      "note": "69 series"
     }
   ]
 }
