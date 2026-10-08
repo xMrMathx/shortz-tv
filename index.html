@@ -727,6 +727,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
 <script src="catalog.js?v=c4b4bd1"></script>
 <script defer src="manga-catalog.js?v=c5cd6f9"></script>
+<script defer src="manga-chapters.js?v=1"></script>
 <script>
 "use strict";
 /* ---------- live catalog: the app is data-driven, not hard-coded ----------
@@ -1570,12 +1571,24 @@ function pauseFeedVideo(){
 function resumeFeedVideo(){
   const slide=curSlide();if(!slide||!feed.cur||!slide._paused)return;
   slide._paused=false;
-  try{if(slide._player&&slide._player.playVideo){slide._player.playVideo();return;}}catch(e){}
+  // ROOT FIX: pauseFeedVideo() mutes the frame when leaving Home, but resume never
+  // unmuted — every return to Home played muted. soundOn defaults true
+  // ("no tap needed, ever"), so restore audio on resume.
+  try{if(slide._player&&slide._player.playVideo){
+    if(soundOn){try{slide._player.unMute();slide._player.setVolume(100);}catch(e){}}
+    slide._player.playVideo();return;
+  }}catch(e){}
   const fr=slide.querySelector("[data-frame]");
   if(!fr||!fr.contentWindow)return;
   try{
-    if(curIsVimeo())fr.contentWindow.postMessage(JSON.stringify({method:"play"}),"*");
-    else fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"playVideo",args:""}),"*");
+    if(curIsVimeo()){
+      if(soundOn)fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:1}),"*");
+      fr.contentWindow.postMessage(JSON.stringify({method:"play"}),"*");
+    }else{
+      const msg=(func,args)=>fr.contentWindow.postMessage(JSON.stringify({event:"command",func,args:args||""}),"*");
+      if(soundOn){msg("setVolume",[100]);msg("unMute");}
+      msg("playVideo");
+    }
   }catch(e){}
 }
 /* ---------- tap: single = pause/resume, double-tap left = -10s, right = +10s ---------- */
@@ -4027,7 +4040,7 @@ function mgDrawGrid(){
     const lc=m.lastChapter?("Ch. "+m.lastChapter):(m.status?m.status.charAt(0).toUpperCase()+m.status.slice(1):"");
     const tags=mdxTags(m).slice(0,2).join(" · ");
     h+='<div class="mg-card" data-mid="'+m.id+'"><div class="mg-cov">'
-      +(cov?'<img loading="lazy" decoding="async" src="'+cov+'" alt="">':"")
+      +(cov?'<img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="'+cov+'" alt="">':"")
       +'<span class="mg-st">FREE</span></div><div class="mg-t">'+mgEsc(t)+'</div>'
       +'<div class="mg-m">'+mgEsc(tags+(lc?" · "+lc:""))+'</div></div>';
   });
@@ -4036,13 +4049,38 @@ function mgDrawGrid(){
 }
 
 /* ---------- detail ---------- */
+/* Bundled chapter lists (manga-chapters.js): detail renders instantly with zero
+   network; the live API refreshes in the background and merges (live wins). */
+function mgBundledChapters(mid){
+  const raw=(window.MANGA_CHAPTERS||{})[mid]||[];
+  return raw.map(c=>({id:c.id,attributes:{chapter:c.ch,title:c.title,publishAt:c.pub||""}}));
+}
+function mgChapterKey(c){
+  const ch=(c.attributes||{}).chapter;
+  return (ch==null||ch==="")?"oneshot":String(ch);
+}
+function mgChapterRank(c){
+  const n=parseFloat((c.attributes||{}).chapter);
+  return isNaN(n)?-1:n;
+}
+function mgMergeChapters(live,bundled){ // live wins on conflicts; newest-first
+  const seen={},out=[];
+  live.concat(bundled).forEach(c=>{const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;out.push(c);});
+  out.sort((x,y)=>mgChapterRank(y)-mgChapterRank(x));
+  return out;
+}
+function mgShowChapterUI(){
+  mgDrawChapters();
+  const rb=$("#mgReadBtn");
+  if(rb&&Manga.chapters.length){rb.style.display="";rb.onclick=()=>mgOpenReader(Manga.chapters.length-1);}
+}
 function mgOpenDetail(mid){
   const m=Manga.list.find(x=>x.id===mid); if(!m)return;
   Manga.screen="detail"; Manga.detail=m; Manga.chapters=[]; Manga.gen++;
   const gen=Manga.gen,v=$("#view-manga");
   const cov=mdxCover(m,"512"),t=mdxTitle(m),au=mdxAuthor(m);
   const meta=[au,m.status?m.status.charAt(0).toUpperCase()+m.status.slice(1):"",m.year].filter(Boolean).join(" · ");
-  v.innerHTML='<div class="mg-dhero">'+(cov?'<img src="'+cov+'" alt="">':"")
+  v.innerHTML='<div class="mg-dhero">'+(cov?'<img referrerpolicy="no-referrer" src="'+cov+'" alt="">':"")
     +'<button class="mg-back" onclick="renderManga()">‹</button></div>'
     +'<div class="mg-dbody"><div class="mg-dtitle">'+mgEsc(t)+'</div>'
     +'<div class="mg-dmeta">'+mgEsc(meta)+'</div>'
@@ -4051,20 +4089,21 @@ function mgOpenDetail(mid){
     +'<button class="mg-readbtn" id="mgReadBtn" style="display:none">▶ Start Reading</button>'
     +'<div class="mg-chhead">Chapters</div><div id="mgChapters"><div class="mg-center"><div class="mg-spin"></div>Loading chapters…</div></div></div>';
   $("#mgDesc").textContent=m.desc||"No description available.";
+  // bundled-first: chapter list renders instantly, zero network
+  const bundled=mgBundledChapters(mid);
+  if(bundled.length){Manga.chapters=bundled;mgShowChapterUI();}
+  // background refresh: live chapters merge in silently (live wins on conflicts)
   const url=MDX+"/manga/"+mid+"/feed?limit=100&order%5Bchapter%5D=desc&translatedLanguage%5B%5D=en&"+MDX_RATINGS;
   mdxGet(url).then(d=>{
     if(gen!==Manga.gen)return;
-    const seen={},chs=[];
-    (d.data||[]).forEach(c=>{
-      const ch=c.attributes.chapter,key=(ch==null||ch==="")?"oneshot":String(ch);
-      if(seen[key])return; seen[key]=1; chs.push(c);
-    });
-    Manga.chapters=chs;
-    mgDrawChapters();
-    const rb=$("#mgReadBtn");
-    if(rb&&chs.length){rb.style.display="";rb.onclick=()=>mgOpenReader(chs.length-1);}
+    const seen={},live=[];
+    (d.data||[]).forEach(c=>{const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;live.push(c);});
+    const merged=mgMergeChapters(live,bundled);
+    if(merged.length&&merged.length!==Manga.chapters.length){Manga.chapters=merged;mgShowChapterUI();}
+    else if(!Manga.chapters.length){mgShowChapterUI();}
   }).catch(()=>{
     if(gen!==Manga.gen)return;
+    if(Manga.chapters.length)return; // bundled already showing — stay silent
     const el=$("#mgChapters");
     if(el)el.innerHTML='<div class="mg-center">Couldn\'t load chapters.<br><button class="mg-retry" onclick="mgOpenDetail(\''+mid+'\')">Retry</button></div>';
   });
@@ -4119,7 +4158,7 @@ function mgOpenReader(idx){
 function mgDrawPage(){
   const p=$("#mgRpage"); if(!p||!Manga.pages.length)return;
   const n=Manga.pageIdx+1,total=Manga.pages.length;
-  p.innerHTML='<div class="mg-zone l" id="mgZL"></div><img id="mgImg" src="'+Manga.pages[Manga.pageIdx]+'" alt="page '+n+'">'
+  p.innerHTML='<div class="mg-zone l" id="mgZL"></div><img id="mgImg" referrerpolicy="no-referrer" src="'+Manga.pages[Manga.pageIdx]+'" alt="page '+n+'">'
     +'<div class="mg-zone r" id="mgZR"></div><div class="mg-pnum">Page '+n+' / '+total+'</div>';
   $("#mgZL").onclick=()=>mgPage(-1);
   $("#mgZR").onclick=()=>mgPage(1);
