@@ -607,6 +607,22 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .mg-rnav{background:#1b1b22;border:1px solid #33333c;color:#fff;font-size:13px;font-weight:700;padding:10px 20px;border-radius:10px;cursor:pointer}
 .mg-rnav:disabled{opacity:.3}
 .mg-rnav:active{background:#2a2a33}
+/* TV Guide (Profile tab): classic guide — preview player on top, channel list below */
+.tg-preview{position:sticky;top:0;z-index:5;background:#0a0a0e;border:1px solid #26262e;border-radius:14px;overflow:hidden;margin:8px 0 10px;cursor:pointer}
+.tg-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
+.tg-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tg-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;background:rgba(0,0,0,.55);font-size:14px;font-weight:700}
+.tg-meta{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.tg-thumb{width:64px;height:36px;border-radius:8px;object-fit:cover;background:#1b1b22;flex:none}
+.tg-title{font-size:14px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tg-sub{font-size:11px;color:var(--mut);margin-top:2px}
+.tg-watch{margin-left:auto;flex:none}
+.tg-row{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:12px;cursor:pointer;border:1px solid transparent}
+.tg-row:active,.tg-row.sel{background:#15151c;border-color:#2c2c36}
+.tg-rt{width:76px;height:43px;border-radius:8px;object-fit:cover;background:#1b1b22;flex:none}
+.tg-rtitle{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tg-rsub{font-size:11px;color:var(--mut);margin-top:2px}
+.tg-rplay{margin-left:auto;color:#ff3b30;font-size:18px;flex:none;padding:4px 8px}
 </style>
 </head>
 <body>
@@ -1112,6 +1128,7 @@ function go(v){
   if(curView==="home"&&v!=="home")pauseFeedVideo();
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
+  if(curView==="profile"&&v!=="profile"&&typeof tgPause==="function")tgPause(); // stop the TV Guide preview
   if(curView==="manga"&&v!=="manga"&&typeof mangaExit==="function")mangaExit();
   if(v==="home"&&curView!=="home")resumeFeedVideo(); // instant: iframe stayed warm
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
@@ -2772,9 +2789,12 @@ function renderProfile(){
     <div id="frList"><div style="color:var(--mut);font-size:13px">Loading…</div></div>
     <div class="secttl"><span class="livedot">●</span> My live watch parties</div>
     <div id="profLive"><div style="color:var(--mut);font-size:13px">Checking…</div></div>
+    <div class="secttl">📺 TV Guide</div>
+    <div id="tvGuide"></div>
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
+  renderTvGuide();
   // My List + Recently Watched live inside the profile now (same cards as before)
   // SPEED: one id->series Map — byId is a full C.find() scan per lookup
   (function(){
@@ -2833,6 +2853,104 @@ function renderProfile(){
       box.querySelectorAll("[data-join]").forEach(b=>b.onclick=()=>{ go("live"); setTimeout(()=>joinRoom(b.dataset.join),150); });
     });
   });
+}
+
+/* ---------- TV Guide (Profile): classic guide — preview player + full channel list ----------
+   Tap a row → it plays in the preview box. Tap the preview → fullscreen. */
+let tgList=null, tgShown=0, tgQuery="";
+const TG_CHUNK=60;
+function tgEmbed(t){
+  const u=t.url||"";
+  if(u.indexOf("vimeo.com")>=0){
+    const m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
+    return m?"https://player.vimeo.com/video/"+m[1]+"?autoplay=1&muted=1&title=0&byline=0&portrait=0":"";
+  }
+  const id=ytId(u); if(!id)return "";
+  return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1";
+}
+function tgRowHTML(t){
+  const sm=thumb(t,"mq");
+  return `<div class="tg-row" data-id="${t.id}">
+    <img class="tg-rt" loading="lazy" src="${sm}" alt="" onerror="this.style.display='none'">
+    <div style="flex:1;min-width:0"><div class="tg-rtitle">${esc(t.title)}</div>
+    <div class="tg-rsub">${esc(t.genre||"")} · ${esc(t.eps||"")}</div></div>
+    <span class="tg-rplay">▶</span></div>`;
+}
+function tgFiltered(){
+  const q=tgQuery.trim().toLowerCase();
+  const arr=q?C.filter(t=>((t.title||"")+" "+(t.genre||"")).toLowerCase().indexOf(q)>=0):C;
+  return [...arr].sort((a,b)=>String(a.title||"").localeCompare(String(b.title||""),"en",{sensitivity:"base"}));
+}
+function tgMore(){
+  const box=$("#tgList"); if(!box||!tgList)return;
+  const next=Math.min(tgList.length,tgShown+TG_CHUNK);
+  if(next<=tgShown)return;
+  const frag=document.createElement("div");
+  frag.innerHTML=tgList.slice(tgShown,next).map(tgRowHTML).join("");
+  while(frag.firstChild)box.appendChild(frag.firstChild);
+  tgShown=next;
+  box.querySelectorAll(".tg-row").forEach(r=>{
+    if(r._tg)return; r._tg=true;
+    r.onclick=()=>tgPreview(r.dataset.id);
+  });
+}
+function tgPreview(id){
+  const t=byId(id); if(!t)return;
+  document.querySelectorAll("#tgList .tg-row").forEach(r=>r.classList.toggle("sel",r.dataset.id===id));
+  const fr=$("#tgFrame"); if(!fr)return;
+  const url=tgEmbed(t);
+  const th=thumb(t,"hq");
+  $("#tgTitle").textContent=t.title||"";
+  $("#tgSub").textContent=`${t.genre||""} · ${t.eps||""}${t.runtime?" · "+t.runtime:""}`;
+  const im=$("#tgThumb"); if(im){im.src=th;im.style.display=th?"":"none";}
+  const ph=$("#tgPh"); if(ph)ph.style.display="none";
+  if(url){fr.innerHTML=`<iframe src="${url}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;}
+  fr._tid=t.id;
+  const pv=$("#tgPreviewBox"); if(pv)pv._tid=t.id;
+}
+function tgPause(){
+  const fr=$("#tgFrame");
+  if(fr){fr.innerHTML="";fr._tid=null;}
+}
+function renderTvGuide(){
+  const box=$("#tvGuide"); if(!box)return;
+  tgQuery=""; tgShown=0; tgList=tgFiltered();
+  box.innerHTML=`
+    <div class="tg-preview" id="tgPreviewBox" title="Tap to watch fullscreen">
+      <div class="tg-frame" id="tgFrame">
+        <div class="tg-ph" id="tgPh"><span style="font-size:30px">📺</span><span>Tap a show below to preview it here</span></div>
+      </div>
+      <div class="tg-meta">
+        <img class="tg-thumb" id="tgThumb" alt="" style="display:none" onerror="this.style.display='none'">
+        <div style="flex:1;min-width:0"><div class="tg-title" id="tgTitle">TV Guide</div>
+        <div class="tg-sub" id="tgSub">${C.length} shows · tap one to preview</div></div>
+        <button class="btn-play tg-watch" id="tgWatch" style="display:none">▶ Watch</button>
+      </div>
+    </div>
+    <div class="searchbar"><input id="tgSearch" type="text" placeholder="🔍 Search the guide…" autocomplete="off" enterkeyhint="search"></div>
+    <div id="tgList"></div>
+    <div id="tgEmpty" class="empty" style="display:none">No shows found.</div>`;
+  tgMore();
+  // preview the first show so the box isn't empty
+  if(tgList.length)tgPreview(tgList[0].id);
+  const pb=$("#tgPreviewBox");
+  const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); go("home"); playSeries(t);};
+  pb.onclick=goFull;
+  const wb=$("#tgWatch"); if(wb){wb.style.display="";wb.onclick=(e)=>{e.stopPropagation();goFull();};}
+  const si=$("#tgSearch");
+  si.addEventListener("input",()=>{
+    tgQuery=si.value; tgShown=0; tgList=tgFiltered();
+    const l=$("#tgList"); l.innerHTML=""; tgMore();
+    $("#tgEmpty").style.display=tgList.length?"none":"";
+  });
+  if(!window._tgHook){
+    window._tgHook=true;
+    window.addEventListener("scroll",()=>{
+      if(curView!=="profile")return;
+      const l=$("#tgList"); if(!l||!tgList)return;
+      try{if(l.getBoundingClientRect().bottom<window.innerHeight+900)tgMore();}catch(e){}
+    },{passive:true});
+  }
 }
 
 /* ---------- first-launch profile setup (skippable) ---------- */
