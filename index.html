@@ -2961,8 +2961,9 @@ function sstreamFill(node,s,mode){
   if(s.platform!=="twitch"&&!s.live&&s.vod_hls){
     fr.innerHTML=sstreamVodHTML(s,streamMuted);
   }else if(s.platform==="twitch"&&!s.live&&s.vod_id){
-    // offline Twitch with VOD: direct iframe VOD embed (simple, reliable)
-    const vidId=String(s.vod_id).replace(/^v/,"");
+    // offline Twitch with VOD: direct iframe VOD embed — Twitch wants the "v" prefix on video IDs
+    let vidId=String(s.vod_id);
+    if(vidId.charAt(0)!=="v")vidId="v"+vidId;
     const host=(window.location&&window.location.hostname)||"";
     const parents=["xmrmathx.github.io"];
     if(host&&parents.indexOf(host)<0)parents.push(host);
