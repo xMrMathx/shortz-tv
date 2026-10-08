@@ -4184,7 +4184,11 @@ function mgDrawGrid(){
    network; the live API refreshes in the background and merges (live wins). */
 function mgBundledChapters(mid){
   const raw=(window.MANGA_CHAPTERS||{})[mid]||[];
-  return raw.map(c=>({id:c.id,attributes:{chapter:c.ch,title:c.title,publishAt:c.pub||"",pages:c.pages,externalUrl:c.ext||""}}));
+  // Only chapters with hosted pages — everything visible must read in-app.
+  const out=[];
+  raw.forEach(c=>{ if((c.pages||0)>0) out.push({id:c.id,attributes:{chapter:c.ch,title:c.title,publishAt:c.pub||"",pages:c.pages,externalUrl:c.ext||""}}); });
+  out.sort((x,y)=>mgChapterRank(x)-mgChapterRank(y)); // oldest-first: Ch 1 at top
+  return out;
 }
 function mgChapterKey(c){
   const ch=(c.attributes||{}).chapter;
@@ -4196,7 +4200,10 @@ function mgChapterRank(c){
 }
 function mgMergeChapters(live,bundled){ // live wins on conflicts; oldest-first (Ch 1 at top)
   const seen={},out=[];
-  live.concat(bundled).forEach(c=>{const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;out.push(c);});
+  live.concat(bundled).forEach(c=>{
+    if((c.attributes.pages||0)===0)return; // never show a chapter with no hosted pages
+    const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;out.push(c);
+  });
   out.sort((x,y)=>mgChapterRank(x)-mgChapterRank(y));
   return out;
 }
@@ -4228,7 +4235,7 @@ function mgOpenDetail(mid){
   mdxGet(url).then(d=>{
     if(gen!==Manga.gen)return;
     const seen={},live=[];
-    (d.data||[]).forEach(c=>{const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;live.push(c);});
+    (d.data||[]).forEach(c=>{const k=mgChapterKey(c);if(seen[k])return;seen[k]=1;if((c.attributes.pages||0)>0)live.push(c);});
     const merged=mgMergeChapters(live,bundled);
     if(merged.length&&merged.length!==Manga.chapters.length){Manga.chapters=merged;mgShowChapterUI();}
     else if(!Manga.chapters.length){mgShowChapterUI();}
