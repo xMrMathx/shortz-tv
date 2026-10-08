@@ -752,8 +752,8 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=46c6bd5"></script>
-<script defer src="manga-catalog.js?v=1155b73"></script>
+<script src="catalog.js?v=ce33295"></script>
+<script defer src="manga-catalog.js?v=ce33295"></script>
 <script defer src="manga-chapters.js?v=b0c86cc"></script>
 <script>
 "use strict";
@@ -873,13 +873,14 @@ function buildCatalogIndexes(){
   IDX.byId.clear(); IDX.vertPool.length = 0; IDX.sorted.clear();
   IDX.genreCount = {}; IDX.earlyList = [];
   IDX.homePool = []; IDX.homeVertPool = []; // Home feed: 5+ verified episodes only (his law)
-  IDX.earlyN = 0; IDX.aiN = 0; IDX.rebirthN = 0;
+  IDX.earlyN = 0; IDX.aiN = 0; IDX.rebirthN = 0; IDX.onlyShortzN = 0;
   for(let i = 0; i < C.length; i++){
     const t = C[i];
     IDX.byId.set(t.id, t);
     if(t.genre) IDX.genreCount[t.genre] = (IDX.genreCount[t.genre] || 0) + 1;
     if(t.ai_made === true) IDX.aiN++;
     if(t.rebirth === true) IDX.rebirthN++;
+    if(t.onlyShortz === true) IDX.onlyShortzN++;
     if(isEarlyRelease(t)){ IDX.earlyN++; IDX.earlyList.push(t); }
     if(isVertMain(t)) IDX.vertPool.push(t);
     if((t.episodes||[]).filter(e=>e.verified).length>=5){
@@ -953,18 +954,20 @@ function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length=
 function catalogCounts(){
   buildCatalogIndexes();
   return {
-    early: IDX.earlyN, ai: IDX.aiN, rebirth: IDX.rebirthN,
+    early: IDX.earlyN, ai: IDX.aiN, rebirth: IDX.rebirthN, onlyShortz: IDX.onlyShortzN,
     earlyList: IDX.earlyList, genre: IDX.genreCount,
   };
 }
 const EARLY="__early__";
 const AI="__ai__";
 const REBIRTH="__rebirth__";
+const ONLYSHORTZ="__onlyshortz__";
 function alphaSort(a){return [...a].sort((x,y)=>String(x.title||"").localeCompare(String(y.title||""),"en",{sensitivity:"base"}))}
 function browseList(){
   const qf=browseListFiltered();
   if(qf)return alphaSortCached("q:"+browseQuery,qf);
   if(browseGenre===AI)return alphaSortCached("g:ai",C.filter(t=>t.ai_made===true));
+  if(browseGenre===ONLYSHORTZ)return alphaSortCached("g:onlyshortz",C.filter(t=>t.onlyShortz===true));
   if(browseGenre==="Rebirth"||browseGenre===REBIRTH)return alphaSortCached("g:rebirth",C.filter(t=>t.rebirth===true));
   // SPEED: the early-release list is cached in IDX (one pass), not re-filtered
   return browseGenre===EARLY
@@ -2612,8 +2615,9 @@ function renderBrowse(g){
       <div class="top10-row" id="top10row"></div>
     </div></div>
     <div class="wrap"><div class="gdrop" id="gdrop">
-      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre}</span><span class="arr">▼</span></button>
+      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Only on Shortz":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
+        <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Only on Shortz</span><span class="cnt">${cc.onlyShortz}</span></button>
         <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
         <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
         ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
@@ -2670,7 +2674,7 @@ function renderBrowse(g){
       if(wasSearching){si.value="";browseQuery="";} // selecting a genre clears the search
       if(p.dataset.g===browseGenre&&!wasSearching)return;
       gm.querySelectorAll(".gitem").forEach(q=>q.classList.toggle("sel",q===p));
-      gc.textContent=p.dataset.g===EARLY?"Early Release":p.dataset.g===AI?"AI Shorts":p.dataset.g;
+      gc.textContent=p.dataset.g===ONLYSHORTZ?"Only on Shortz":p.dataset.g===EARLY?"Early Release":p.dataset.g===AI?"AI Shorts":p.dataset.g;
       const toSports=p.dataset.g==="Sports", fromSports=browseGenre==="Sports";
       if(toSports||fromSports){ renderBrowse(p.dataset.g); return; } // full re-render for Sports transitions
       gr.classList.add("fading");
