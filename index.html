@@ -547,7 +547,10 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <div id="app">
   <header id="topbar">
     <div class="logo">SHORTZ <b>TV</b></div>
-    <div class="free-tag">100% FREE</div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+      <div class="free-tag">100% FREE</div>
+      <button id="topShareApp" class="free-tag" style="border:none;cursor:pointer;background:linear-gradient(135deg,#e50914,#b00610);color:#fff;box-shadow:0 0 14px rgba(229,9,20,.35)">&#8599; SHARE APP</button>
+    </div>
   </header>
 
   <main id="views">
@@ -729,6 +732,21 @@ function thumb(t,sz){
   return "https://i.ytimg.com/vi/"+id+"/"+sz+"default.jpg";
 }
 const byId = id => C.find(t=>t.id===id);
+function shareWholeApp(){
+  const url=SHARE_BASE;
+  const txt="Watch free short series on Shortz TV";
+  const done=()=>toast("Link copied");
+  (async()=>{
+    try{
+      if(navigator.share){ await navigator.share({title:"Shortz TV",text:txt,url:url}); }
+      else if(navigator.clipboard&&navigator.clipboard.writeText){ await navigator.clipboard.writeText(txt+" — "+url); done(); }
+      else toast("Share not available");
+    }catch(e){
+      try{ if(navigator.clipboard&&navigator.clipboard.writeText){ await navigator.clipboard.writeText(txt+" — "+url); done(); } }catch(_){}
+    }
+  })();
+}
+document.addEventListener("click",e=>{ if(e.target.closest("#topShareApp")) shareWholeApp(); });
 const SHARE_BASE = "https://xmrmathx.github.io/shortz-tv/";
 function shareUrl(id, epIdx){
   let u = SHARE_BASE + "?watch=" + encodeURIComponent(id);
@@ -2380,7 +2398,6 @@ function renderProfile(){
       <div style="flex:1"><div style="font-size:19px;font-weight:800">${esc(p.name||"Viewer")}</div>
       <div style="font-size:12px;color:var(--mut);margin-top:4px">${esc(bioLine(p))}</div></div>
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
-      <button class="pbtn sm" id="profShareApp" style="margin-left:8px">↗ Share App</button>
     </div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
     <div class="secttl">Friends</div>
@@ -2398,21 +2415,6 @@ function renderProfile(){
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
-  const _psa=$("#profShareApp");
-  if(_psa)_psa.onclick=()=>{
-    const url=SHARE_BASE;
-    const txt="Watch free short series on Shortz TV";
-    const done=()=>toast("Link copied");
-    (async()=>{
-      try{
-        if(navigator.share){ await navigator.share({title:"Shortz TV",text:txt,url:url}); }
-        else if(navigator.clipboard&&navigator.clipboard.writeText){ await navigator.clipboard.writeText(txt+" — "+url); done(); }
-        else toast("Share not available");
-      }catch(e){
-        try{ if(navigator.clipboard&&navigator.clipboard.writeText){ await navigator.clipboard.writeText(txt+" — "+url); done(); } }catch(_){}
-      }
-    })();
-  };
   const ib=$("#installAppBtn");
   if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
   initFriendsUI();
