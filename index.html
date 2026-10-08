@@ -10,6 +10,8 @@
 <meta property="og:title" content="Shortz TV — Free Short Dramas">
 <meta property="og:description" content="Watch free short dramas, films & highlights. 100% free, no sign-up.">
 <meta property="og:image" content="https://i.ytimg.com/vi/IfgesY42oN8/maxresdefault.jpg">
+<link rel="preconnect" href="https://i.ytimg.com">
+<link rel="preconnect" href="https://www.youtube.com">
 <meta property="og:url" content="https://xmrmathx.github.io/shortz-tv/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
@@ -683,7 +685,8 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 window.SHORTZ_CATALOG = window.SHORTZ_CATALOG || [];
 window.SHORTZ_CATALOG_READY = (function(){
   var url = "https://xmrmathx.github.io/shortz-tv/catalog.json";
-  var timeout = new Promise(function(res){ setTimeout(res, 8000); });
+  // Short timeout: render fast with the bundled copy, swap in fresh data silently.
+  var timeout = new Promise(function(res){ setTimeout(res, 2000); });
   var fresh = fetch(url, {cache: "no-store"}).then(function(r){
     if (!r.ok) throw 0;
     return r.json();
@@ -853,7 +856,7 @@ function aiChip(t){return t.ai_made?'<span class="ai-chip">✦ Made with AI</spa
 
 /* ---------- cards (real thumbnails, no initials) ---------- */
 function cardHTML(t){
-  const sm=thumb(t,"hq");
+  const sm=thumb(t,"mq");
   return `<div class="vcard" data-id="${t.id}">
     <div class="vthumb grain" style="background:${artBg(t.title)}">
       <img src="${sm}" alt="" loading="lazy" onerror="this.style.display='none'">
