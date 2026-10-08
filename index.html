@@ -732,9 +732,9 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=c4b4bd1"></script>
-<script defer src="manga-catalog.js?v=c5cd6f9"></script>
-<script defer src="manga-chapters.js?v=1"></script>
+<script src="catalog.js?v=46c6bd5"></script>
+<script defer src="manga-catalog.js?v=1155b73"></script>
+<script defer src="manga-chapters.js?v=b0c86cc"></script>
 <script>
 "use strict";
 /* ---------- live catalog: the app is data-driven, not hard-coded ----------
@@ -4305,8 +4305,8 @@ function mgOpenReader(idx){
     +'<div class="mg-rbot"><button class="mg-rnav" id="mgPrev">‹ Prev</button><button class="mg-rnav" id="mgNext">Next ›</button></div>';
   r.style.display="flex";
   $("#mgRx").onclick=()=>mangaCloseReader();
-  $("#mgPrev").onclick=()=>mgChapterNav(-1);
-  $("#mgNext").onclick=()=>mgChapterNav(1);
+  $("#mgPrev").onclick=()=>mgPage(-1);
+  $("#mgNext").onclick=()=>mgPage(1);
   mgNavBtns();
   // External-only chapter: MangaDex hosts no pages for it (pages===0).
   // Be honest instead of showing a dead "Couldn't load pages".
@@ -4342,6 +4342,7 @@ function mgDrawPage(){
     +'<div class="mg-zone r" id="mgZR"></div><div class="mg-pnum">Page '+n+' / '+total+'</div>';
   $("#mgZL").onclick=()=>mgPage(-1);
   $("#mgZR").onclick=()=>mgPage(1);
+  mgNavBtns();
   const nx=Manga.pages[Manga.pageIdx+1]; if(nx){const im=new Image();im.src=nx;}
   $("#mgImg").onerror=()=>{
     if(!$("#mgRpage"))return;
@@ -4360,8 +4361,8 @@ function mgChapterNav(d){ // chapters are oldest-first: d=-1 → older (prev), d
 }
 function mgNavBtns(){
   const pv=$("#mgPrev"),nx=$("#mgNext"); if(!pv||!nx)return;
-  pv.disabled=Manga.chIdx<=0;
-  nx.disabled=Manga.chIdx>=Manga.chapters.length-1;
+  pv.disabled=Manga.pageIdx<=0;
+  nx.disabled=Manga.pageIdx>=Manga.pages.length-1;
 }
 function mangaCloseReader(silent){
   Manga.readerOpen=false; Manga.gen++;
