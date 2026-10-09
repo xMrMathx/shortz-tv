@@ -6279,10 +6279,11 @@ const Stake={
     }catch(e){}
   },
   async loadMyBets(){
-    this.myBets={};
     try{
       const s=await this.db.ref("directory/"+this.uid+"/stakeBets").once("value");
-      this.myBets=s.val()||{};
+      const fromDb=s.val()||{};
+      // merge: keep in-memory bets (they're the freshest), add anything from DB
+      this.myBets=Object.assign({}, fromDb, this.myBets);
     }catch(e){}
   },
   // auto-credit wins for resolved events (client-side, virtual coins)
@@ -6313,8 +6314,9 @@ const Stake={
   async openSheet(){
     document.getElementById("stkScrim").classList.add("open");
     document.getElementById("stkSheet").classList.add("open");
-    // ensure events are loaded even if the sheet opens before init finishes
-    if(!this.events.length){ await this.loadEvents(); await this.loadMyBets(); }
+    // ensure events AND bets are fresh every time the sheet opens
+    if(!this.events.length){ await this.loadEvents(); }
+    await this.loadMyBets();
     this.renderEvents(); this.renderBoard();
     try{hudWake();}catch(e){}
   },
