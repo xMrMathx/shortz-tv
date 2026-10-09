@@ -291575,32 +291575,6 @@
     "dateAdded": "2026-10-09"
   },
   {
-    "id": "stv-5039",
-    "title": "Star Trek: Strange New Worlds",
-    "genre": "Space",
-    "eps": "1 ep",
-    "runtime": "~45 min",
-    "desc": "The June 2023 limited-time offer — all 10 Season 1 full episodes free on Paramount+'s YouTube channel (US only, expired June 30, 2023) — is gone: every one of the 10 episode uploads is deleted or private (oEmbed HTTP 403 on all; Data API returns no record). This entry records what is still officially there and verified embeddable: the Season 2 trailer.",
-    "url": "https://www.youtube.com/embed/69mzZqcM0qw",
-    "url_status": "ok",
-    "source_channel": "Paramount Plus (official @paramountplus YouTube channel)",
-    "rights_basis": "Official Paramount YouTube",
-    "ai_made": false,
-    "episodes": [
-      {
-        "n": 1,
-        "title": "Star Trek: Strange New Worlds | Season 2 Official Trailer | Paramount+",
-        "url": "https://www.youtube.com/embed/69mzZqcM0qw",
-        "video_id": "69mzZqcM0qw",
-        "platform": "youtube",
-        "verified": true
-      }
-    ],
-    "verified": true,
-    "trek": true,
-    "dateAdded": "2026-10-09"
-  },
-  {
     "id": "stv-5040",
     "title": "Star Trek — Official Clips",
     "genre": "Space",
