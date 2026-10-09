@@ -252,6 +252,16 @@ body.rot-full #rotexit{display:block}
 .top10-item img{position:relative;z-index:1;display:block;width:104px;height:148px;object-fit:cover;border-radius:8px;margin-left:46px;box-shadow:0 6px 18px rgba(0,0,0,.55);background:#1a1a1a}
 .top10-t{position:relative;z-index:1;font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0 46px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100px}
 .top10-v{position:relative;z-index:1;font-size:10px;color:var(--mut);margin:1px 0 0 46px}
+/* award-winning carousels */
+.award-sec{margin:16px -16px 8px}
+.award-head{display:flex;align-items:baseline;gap:8px;padding:0 16px;margin-bottom:6px}
+.award-head h3{font-size:17px;font-weight:800;color:#fff;margin:0}
+.award-row{display:flex;gap:10px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.award-row::-webkit-scrollbar{display:none}
+.award-item{flex:0 0 auto;width:120px;cursor:pointer}
+.award-item img{display:block;width:120px;height:170px;object-fit:cover;border-radius:8px;background:#1a1a1a;box-shadow:0 6px 18px rgba(0,0,0,.55)}
+.award-t{font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.award-e{font-size:10px;color:var(--mut);margin:1px 0 0}
 /* ---------- browse ---------- */
 body.force-land #view-home{transform:rotate(90deg);transform-origin:center center;width:100vh;height:100vw;position:fixed;top:50%;left:50%;margin-left:-50vw;margin-top:-50vh}
 .pills{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;margin:0 -16px}
@@ -2681,6 +2691,48 @@ function fmtViews(v){
   if(v>=1e3) return (v/1e3).toFixed(1).replace(/\.0$/,"")+"K views";
   return v+" views";
 }
+/* award-winning carousels: films + series (IDs curated from catalog award mentions) */
+const AWARD_FILMS=["stv-401","stv-483","stv-624","stv-680","stv-681","stv-682","stv-684","stv-685","stv-686","stv-687","stv-688","stv-689","stv-690","stv-691","stv-692","stv-693","stv-694","stv-749","stv-1738","stv-1775","stv-1778","stv-1822","stv-1823","stv-1834","stv-1842","stv-2111","stv-2113","stv-2214","stv-2352","stv-2355"];
+const AWARD_SERIES=["stv-096","stv-1571","stv-1749","stv-1715"];
+function loadAwardCarousels(){
+  const fs=$("#awardFilmsSec"), fr=$("#awardFilmsRow");
+  const ss=$("#awardSeriesSec"), sr=$("#awardSeriesRow");
+  // fill series list: priority 4 first, then the rest from catalog
+  if(AWARD_SERIES.length<=4){
+    try{
+      const extra=[];
+      for(const s of C){
+        const txt=((s.title||"")+" "+(s.desc||"")+" "+(s.synopsis||"")).toLowerCase();
+        if(!/award-winning|award winning|emmy|oscar|cannes|sundance|bafta|golden globe/.test(txt))continue;
+        const t=(s.title||"").toLowerCase();
+        const isFilm=t.includes("short film")||t.includes("shortfilm");
+        const eps=s.eps||s.episodes||[];
+        if(!isFilm&&eps.length>1&&!AWARD_SERIES.includes(s.id))extra.push(s.id);
+        if(extra.length>=26)break;
+      }
+      AWARD_SERIES.push(...extra);
+    }catch(e){}
+  }
+  const paint=(sec,row,ids)=>{
+    if(!sec||!row)return;
+    const items=ids.map(id=>byId(id)).filter(Boolean);
+    if(!items.length)return;
+    row.innerHTML=items.map(t=>{
+      const eps=t.eps||t.episodes||[];
+      return `<div class="award-item" data-aid="${t.id}">
+        <img decoding="async" src="${esc(thumb(t,"hq"))}" alt="" loading="lazy" onerror="this.style.display='none'">
+        <div class="award-t">${esc(t.title)}</div>
+        <div class="award-e">${eps.length>1?eps.length+" episodes":"Short film"}</div>
+      </div>`;
+    }).join("");
+    row.querySelectorAll("[data-aid]").forEach(el=>{
+      el.onclick=()=>openDetail(el.dataset.aid);
+    });
+    sec.style.display="";
+  };
+  paint(fs,fr,AWARD_FILMS);
+  paint(ss,sr,AWARD_SERIES);
+}
 async function loadTop10(){
   const sec=$("#top10sec"), row=$("#top10row");
   if(!sec||!row) return;
@@ -2813,6 +2865,14 @@ function renderBrowse(g){
         </div>
         <button class="prev-spot-btn" id="prevSpotBtn">Visit ↗</button>
       </div>
+      <div class="wrap"><div class="award-sec" id="awardFilmsSec" style="display:none">
+        <div class="award-head"><h3>🏆 Award-Winning Short Films</h3></div>
+        <div class="award-row" id="awardFilmsRow"></div>
+      </div></div>
+      <div class="wrap"><div class="award-sec" id="awardSeriesSec" style="display:none">
+        <div class="award-head"><h3>🏆 Award-Winning Short Series</h3></div>
+        <div class="award-row" id="awardSeriesRow"></div>
+      </div></div>
       <div class="searchbar">
         <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
         <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
@@ -2859,6 +2919,7 @@ function renderBrowse(g){
   }
   featBegin(); // build the draggable featured carousel (auto-rotates every 3s)
   loadTop10(); // Netflix-style Top 10 row under the search bar
+  loadAwardCarousels(); // award-winning short films + short series carousels
   // Previously spotlight: open James's site in the system browser
   const psb=$("#prevSpotBtn"), psp=$("#prevSpot");
   const openPrev=()=>{ try{ window.open("https://watchpreviously.com/","_blank"); }catch(e){ location.href="https://watchpreviously.com/"; } };
