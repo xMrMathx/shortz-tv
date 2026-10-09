@@ -2118,7 +2118,7 @@ function fillSlide(node,t,mode){
   fitBtnPaint(node);
   if(bd){const bi=thumb(t,"hq");bd.style.backgroundImage=bi?`url("${bi}")`:"none";}
   node.querySelector("[data-title]").textContent=t.title;
-  node.querySelector("[data-meta]").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
+  node.querySelector("[data-meta]").textContent=`${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
   updateRailIn(node,t);
   if(mode==="current"){
     loadVideoInto(node,t.url,vidOf(t.url));
@@ -2528,6 +2528,7 @@ function resumeFeedVideo(){
 }
 /* ---------- tap: single = pause/resume, double-tap left = -10s, right = +10s ---------- */
 function handleTap(x){
+  try{hudWake();}catch(e){} // every tap on the video wakes the HUD (HUD law)
   const now=Date.now();
   if(soundOn&&now-lastTapT<350){
     clearTimeout(tapTimer);tapTimer=null;lastTapT=0;
@@ -3210,7 +3211,7 @@ function playEpisode(e){
   const fl=slide.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
   const ttl=slide.querySelector("[data-title]"); if(ttl)ttl.textContent=t.title||"";
   const meta=slide.querySelector("[data-meta]");
-  if(meta)meta.textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
+  if(meta)meta.textContent=`${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
   pushHistory(t);
   toast("▶ "+epRowTitle(e,partIdxOf(t,e)));
   // warm the NEXT verified episode now so the switch is instant later
@@ -3232,7 +3233,7 @@ function openEpDrawer(){
   th.style.display=""; th.onerror=()=>{th.style.display="none"}; th.src=thumb(t,"hq");
   $("#edTitle").textContent=t.title;
   const eps=(t.episodes&&t.episodes.length)?t.episodes:[];
-  $("#edMeta").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}${eps.length?` · ${eps.length} verified`:""}`;
+  $("#edMeta").textContent=`${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}${eps.length?` · ${eps.length} verified`:""}`;
   const rt=t.runtime||"";
   const list=$("#elist");
   if(!eps.length){
