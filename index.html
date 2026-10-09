@@ -631,6 +631,8 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .sstream-ov{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding:14px 14px 90px}
 .sstream-top{display:flex;gap:8px;align-items:center}
 .sstream-plat{background:rgba(0,0,0,.65);border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:800}
+.sstream-sharebtn{margin-left:auto;background:rgba(0,0,0,.65);border:1px solid var(--line);border-radius:8px;padding:4px 12px;font-size:12px;font-weight:800;color:#fff;cursor:pointer}
+.sstream-sharebtn:active{transform:scale(.94)}
 .sstream-bot{text-shadow:0 2px 10px rgba(0,0,0,.9)}
 .sstream-name{font-size:19px;font-weight:900}
 .sstream-title{font-size:14px;color:#e5e5e5;margin-top:4px}
@@ -5239,10 +5241,46 @@ let sstreamStack=[], sstreamPos=-1, sstreamSlots=[], sstreamMounted=false;
 let sdragging=false, sdragDy=0, sdragX0=0, sdragY0=0, sdragT0=0, smovedPx=0;
 let svelSamples=[], ssnapAnim=false, ssuppressClick=false, sskipMouseUntil=0;
 let streamMuted=true, streamPollTimer=null;
+/* ---------- stream sharing: deep link opens inside Shortz VS, never the platform ---------- */
+function streamShareId(s){
+  if(!s)return"";
+  if(s.platform==="youtube")return"youtube:"+(s.channelId||"");
+  const slug=String(s.url||"").split("/").filter(Boolean).pop()||s.name||"";
+  return(s.platform||"kick")+":"+slug.toLowerCase();
+}
+function shareStream(s){
+  if(!s)return;
+  const id=streamShareId(s);
+  const url="https://shortz-tv.pages.dev/?stream="+encodeURIComponent(id);
+  const title="@"+(s.name||"streamer")+" on Shortz VS";
+  const text=(s.live?"\uD83D\uDD34 LIVE now: ":"\u25B6 Watch ")+"@"+(s.name||"")+" streaming on Shortz VS \u2014 free, no account needed";
+  const done=()=>{ try{ toast("Link copied"); }catch(e){} };
+  if(navigator.share){
+    navigator.share({title:title,text:text,url:url}).catch(()=>{});
+  }else if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(done).catch(()=>{});
+  }else{
+    const ta=document.createElement("textarea");ta.value=url;document.body.appendChild(ta);
+    ta.select();try{document.execCommand("copy");done();}catch(e){}
+    document.body.removeChild(ta);
+  }
+}
+/* jump the stream feed to a shared streamer id (platform:slug) */
+function sstreamJumpTo(id){
+  if(!id||!sstreamStack.length)return false;
+  const idx=sstreamStack.findIndex(x=>streamShareId(x)===id);
+  if(idx<0)return false;
+  sstreamPos=idx;
+  sstreamFill(sstreamSlots[1],sstreamStack[sstreamPos],"current");
+  sstreamFill(sstreamSlots[0],sstreamStack[sstreamPos-1]||null,sstreamStack[sstreamPos-1]?"unload":"blank");
+  sstreamFill(sstreamSlots[2],sstreamStack[sstreamPos+1]||null,sstreamStack[sstreamPos+1]?"unload":"blank");
+  sstreamLayout();
+  return true;
+}
 function sstreamSlideHTML(){
   return `<div class="sstream-frame" data-sframe></div>
   <div class="sstream-ov" data-sov>
-    <div class="sstream-top"><span data-s-live></span><span class="sstream-plat" data-s-plat></span></div>
+    <div class="sstream-top"><span data-s-live></span><span class="sstream-plat" data-s-plat></span><button class="sstream-sharebtn" data-s-share title="Share this stream">↗ Share</button></div>
     <div class="sstream-bot">
       <div class="sstream-name" data-s-name></div>
       <div class="sstream-title" data-s-title></div>
@@ -5267,6 +5305,13 @@ function sstreamFill(node,s,mode){
   mt.textContent=live&&s.viewers?(s.viewers+" watching"):live?"Live now":replay?"Most recent stream":"";
   mt.style.display=mt.textContent?"":"none";
   node.querySelector("[data-s-sound]").style.display=streamMuted?"":"none";
+  const shb=node.querySelector("[data-s-share]");
+  if(shb){
+    shb.onclick=(e)=>{ try{e.stopPropagation();}catch(_){} shareStream(s); };
+    // don't let the tap bubble to the stage's sound-toggle handler
+    shb.ontouchstart=(e)=>{ try{e.stopPropagation();}catch(_){} };
+    shb.onmousedown=(e)=>{ try{e.stopPropagation();}catch(_){} };
+  }
   if(mode==="unload"){ fr.innerHTML=""; return; }
   // offline Kick with VOD: native <video> tag with direct HLS (bypasses broken Kick player embed)
   if(s.platform!=="twitch"&&!s.live&&s.vod_hls){
@@ -5867,6 +5912,24 @@ if("serviceWorker" in navigator){
   window.addEventListener("load",()=>{
     try{
       const q=new URLSearchParams(location.search);
+      const shr=q.get("stream");
+      if(shr){
+        // shared stream link — open Streaming tab and jump to that streamer
+        const tryShr=()=>{
+          try{
+            if(curView!=="streaming"){ try{renderView("streaming");}catch(e){} go("streaming"); }
+            // wait for the stream list to load, then jump
+            let tries=0;
+            const tick=()=>{
+              tries++;
+              if(sstreamJumpTo(shr))return;
+              if(tries<40)setTimeout(tick,300);
+            };
+            setTimeout(tick,600);
+          }catch(e){ setTimeout(tryShr,800); }
+        };
+        setTimeout(tryShr,1200);
+      }
       const wid=q.get("watch");
       const wep=q.get("ep");
       if(wid && typeof openDetail==="function"){
