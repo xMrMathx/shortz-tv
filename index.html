@@ -6310,9 +6310,11 @@ const Stake={
     }
     if(changed)await this.saveCoins();
   },
-  openSheet(){
+  async openSheet(){
     document.getElementById("stkScrim").classList.add("open");
     document.getElementById("stkSheet").classList.add("open");
+    // ensure events are loaded even if the sheet opens before init finishes
+    if(!this.events.length){ await this.loadEvents(); await this.loadMyBets(); }
     this.renderEvents(); this.renderBoard();
     try{hudWake();}catch(e){}
   },
