@@ -6368,6 +6368,8 @@ const Stake={
     });
   },
   async placeBet(evId,pick,amt){
+    // wait for Firebase auth if it isn't ready yet (up to ~10s)
+    for(let i=0;i<20&&( !this.db||!this.uid);i++){ await new Promise(r=>setTimeout(r,500)); }
     if(!this.db||!this.uid)return false;
     try{
       const ev=this.events.find(e=>e.id===evId);
