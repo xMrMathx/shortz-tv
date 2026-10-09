@@ -2891,10 +2891,10 @@ function openDetail(id){
   if(curView!=="detail")returnView=curView;
   const inList=mylist.has(id);
   const isExt=!!t.external_url, extLabel=t.external_label||"web";
-  const big=thumb(t,"sd"), small=thumb(t,"hq");
+  const big=thumb(t,"hq"); // hqdefault always exists for valid videos; sddefault 404s into a placeholder trap on some videos
   $("#view-detail").innerHTML=`
     <section id="detailArt">
-      <div class="art-kb grain" style="background:${artBg(t.title)}">${big?`<img decoding="async" src="${big}" alt="" onerror="this.onerror=null;this.src='${small}'">`:""}</div>
+      <div class="art-kb grain" style="background:${artBg(t.title)}">${big?`<img decoding="async" src="${big}" alt="" onerror="this.style.display='none'">`:""}</div>
       <div class="art-scrim"></div>
       <div class="art-shimmer"></div>
       <button class="backbtn" id="dBack">‹</button>
