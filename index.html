@@ -507,6 +507,9 @@ body.pip .feedstage{position:fixed!important;inset:0!important;width:100%!import
 body.pip #feedTrack{position:absolute!important;inset:0!important}
 body.pip .feed-video{position:absolute!important;inset:0!important}
 body.pip .feed-video iframe{position:absolute!important;transform:none!important;aspect-ratio:auto!important}
+body.pip .feed-video video[data-av]{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
+#pipTap{display:none;position:fixed;inset:0;z-index:99999;background:transparent}
+body.pip #pipTap{display:block!important}
 /* ---------- universal progress bar: every video, everywhere ---------- */
 .uprog{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.18);z-index:10;pointer-events:none}
 .uprog>i{display:block;height:100%;width:0%;background:#e50914;transition:width .3s linear}
@@ -1633,6 +1636,24 @@ function applyPipLayout(){
   });
 }
 window.addEventListener("resize",()=>{if(document.body.classList.contains("pip"))applyPipLayout();});
+/* PiP tap-to-pause: transparent catcher, only alive in PiP mode (body.pip).
+   Taps in PiP fall through to the YouTube iframe which doesn't toggle there,
+   so we toggle through the player API directly. Tap = pause, tap again = play. */
+function pipTapToggle(){
+  try{
+    const slide=curSlide(); if(!slide)return;
+    const pl=slide._player; if(!pl||!pl.getPlayerState)return;
+    let st=-1; try{st=pl.getPlayerState();}catch(e){}
+    if(st===1||st===3){ try{pl.pauseVideo();}catch(e){} }
+    else{ try{pl.playVideo();}catch(e){} }
+  }catch(e){}
+}
+(function(){
+  const d=document.createElement("div");
+  d.id="pipTap";
+  d.addEventListener("click",e=>{e.stopPropagation();pipTapToggle();});
+  document.body.appendChild(d);
+})();
 /* ---------- universal progress bar updater: every video, everywhere ---------- */
 setInterval(()=>{
   try{
