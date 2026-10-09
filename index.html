@@ -805,6 +805,8 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 @keyframes splashOut{to{opacity:0;visibility:hidden}}
 </style>
 <script>
+try{localStorage.removeItem("blockedVids");}catch(e){}
+try{for(let i=localStorage.length-1;i>=0;i--){const k=localStorage.key(i);if(k&&/blockedVids/i.test(k))localStorage.removeItem(k);}}catch(e){}
 // Shortz VS intro sting: "What's Next" clip, plays once per cold launch during the 3s splash
 try{
   const a=new Audio("whats-next-sting.wav");
@@ -1198,9 +1200,10 @@ function thumb(t,sz){
    3. Reports go to Firebase (directory/<uid>/blocked/<vid>) for catalog-wide removal.
    4. A daily cron pulls reported episodes from the catalog (drops series <3 eps).
    Transient errors (2, 5, ...) keep the old retry behavior. */
-function isVidBlocked(vid){ try{const bl=store.get("blockedVids",{});return !!(vid&&bl[vid]);}catch(e){return false;} }
+const _sessBlocked={};
+function isVidBlocked(vid){ try{return !!(vid&&_sessBlocked[vid]);}catch(e){return false;} }
 function markVidBlocked(vid,code){
-  try{const bl=store.get("blockedVids",{});bl[vid]={code:code,ts:Date.now()};store.set("blockedVids",bl);}catch(e){}
+  try{_sessBlocked[vid]={code:code,ts:Date.now()};}catch(e){}
 }
 async function reportBlockedVid(vid,code){
   try{
