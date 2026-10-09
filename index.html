@@ -5142,7 +5142,12 @@ async function loadStreamers(){
       STREAMERS.twitch=window.SHORTZ_STREAMERS.twitch||[];
     }else{
       let cached=null;
-      try{ cached=JSON.parse(localStorage.getItem("shortz_streamers")||"null"); }catch(e){}
+      try{
+        // v2: Chonion removed, YouTube streamers added — old caches are stale
+        const cv=localStorage.getItem("shortz_streamers_ver");
+        if(cv!=="2"){ localStorage.removeItem("shortz_streamers"); localStorage.setItem("shortz_streamers_ver","2"); }
+        cached=JSON.parse(localStorage.getItem("shortz_streamers")||"null");
+      }catch(e){}
       if(cached&&Array.isArray(cached.kick)&&Array.isArray(cached.twitch)){
         STREAMERS.kick=cached.kick; STREAMERS.twitch=cached.twitch; STREAMERS.youtube=cached.youtube||[];
       }else{
