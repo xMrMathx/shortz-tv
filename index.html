@@ -728,7 +728,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 // play the Shortz sting on launch (once per session)
 try{
   const a=new Audio("shortz-sting.wav");
-  a.volume=0.7;
+  a.volume=1.0;
   // browsers block autoplay until user interacts; try now, retry on first touch
   const play=()=>{a.play().catch(()=>{});};
   play();
