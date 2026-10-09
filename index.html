@@ -722,6 +722,8 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .gm-sec{margin-top:16px}
 .gm-sub{font-size:13px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
 .gm-play{font-size:13px;color:#ccc;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);line-height:1.4}
+.gm-pt{font-size:13px;color:#eee;line-height:1.4}
+.gm-pm{font-size:11px;color:var(--mut);margin-top:2px}
 .tg-rt{width:76px;height:43px;border-radius:8px;object-fit:cover;background:#1b1b22;flex:none}
 .tg-rtitle{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tg-rsub{font-size:11px;color:var(--mut);margin-top:2px}
@@ -3742,31 +3744,44 @@ function openGameDetail(gid, league){
       const st=((d.header||{}).status||{}).type||{};
       m.querySelector(".gm-head").innerHTML=`<div class="t">${esc(an)} ${esc(as)} @ ${esc(hn)} ${esc(hs)}</div>`
         +`<div class="gm-status">${esc(st.shortDetail||"")}</div>`;
-      // play-by-play: last 10 plays
+      // play-by-play: real-time from ESPN (NFL: drives.previous[].plays, others: plays[])
       const pbp=document.getElementById("gmPBP");
       const plays=[];
       try{
-        const details=(d.details||[]);
-        details.forEach(p=>{
-          (p.athletesInvolved||[]); // noop
-          if(p.type&&p.type.text)plays.push(p.type.text);
+        let raw=[];
+        if(league==="NFL"){
+          const prev=((d.drives||{}).previous||[]);
+          prev.forEach(dr=>{(dr.plays||[]).forEach(p=>raw.push(p));});
+        }else{
+          raw=d.plays||[];
+        }
+        raw.forEach(p=>{
+          const txt=p.text||"";
+          if(!txt||/^(End of|Start of)/i.test(txt)&&raw.length>20)return;
+          const clk=(p.clock&&p.clock.displayValue)||"";
+          const per=(p.period&&(p.period.displayValue||("Q"+p.period.number)))||"";
+          const meta=[per,clk].filter(Boolean).join(" · ");
+          plays.push({t:txt,m:meta,s:(p.awayScore!=null&&p.homeScore!=null)?p.awayScore+"–"+p.homeScore:""});
         });
       }catch(e){}
-      // fallback: use win probability / leaders if no details
+      // fallback: team leaders with real stats (skip empties)
       if(!plays.length){
         try{
-          const leaders=[];
           (d.leaders||[]).forEach(l=>{
-            (l.leaders||[]).slice(0,2).forEach(x=>{
-              leaders.push(`${x.displayValue||""} — ${(x.athlete||{}).displayName||""}`);
+            (l.leaders||[]).slice(0,3).forEach(x=>{
+              const nm=(x.athlete||{}).displayName||"";
+              const dv=x.displayValue||"";
+              if(nm&&dv)plays.push({t:`${nm} — ${dv}`,m:(l.shortDisplayName||""),s:""});
             });
           });
-          if(leaders.length)plays.push(...leaders);
         }catch(e){}
       }
       pbp.innerHTML=plays.length
-        ? plays.slice(-10).reverse().map(p=>`<div class="gm-play">${esc(p)}</div>`).join("")
-        : `<div style="color:var(--mut);font-size:12px">No play data yet.</div>`;
+        ? plays.slice(-15).reverse().map(p=>
+            `<div class="gm-play"><div class="gm-pt">${esc(p.t)}</div>`+
+            (p.m||p.s?`<div class="gm-pm">${esc(p.m)}${p.s?" · "+esc(p.s):""}</div>`:"")+`</div>`
+          ).join("")
+        : `<div style="color:var(--mut);font-size:12px">No play data yet — game may not have started.</div>`;
       // highlights: search YouTube for this matchup
       const hl=document.getElementById("gmHL");
       const q=encodeURIComponent(`${an} vs ${hn} highlights`);
