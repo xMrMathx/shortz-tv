@@ -83,6 +83,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .ric button{font-size:24px;display:block;margin:0 auto 3px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.6));transition:transform .2s}
 .ric button:active{transform:scale(1.25)}
 .ric button.liked{color:#ff2d55}
+.ric button.fit-on{color:#4ade80}
 .ric button.saved{color:var(--gold)}
 .feed-bottom{position:absolute;left:0;right:76px;bottom:calc(76px + env(safe-area-inset-bottom));padding:14px 16px 12px;z-index:5;
   background:linear-gradient(transparent,rgba(0,0,0,.88))}
@@ -1694,18 +1695,25 @@ function toggleRotate(){
     }catch(e){}
   },300);
 }
+let fitSticky=false; // Fit stays on across swipes until he turns it off
+function fitBtnPaint(slide){
+  try{
+    const b=slide.querySelector('[data-a="fit"]');
+    if(b)b.classList.toggle("fit-on",!!(slide._fit||fitSticky));
+  }catch(e){}
+}
 function toggleFit(slide){
   const t=(slide&&slide._t)||feed.cur; if(!t)return;
   const fv=slide.querySelector("[data-fv]");
-  if(slide._fit){
-    // revert a stuck fit state back to the correct base class for this video
-    slide._fit=false;
+  if(slide._fit||fitSticky){
+    fitSticky=false; slide._fit=false;
     if(fv)fv.className="feed-video "+frameModeClass(t,false);
-    return;
+    fitBtnPaint(slide); toast("Fit off"); return;
   }
   if(isVertMain(t)){toast("Already full screen");return;}
-  slide._fit=true;
+  fitSticky=true; slide._fit=true;
   if(fv)fv.className="feed-video fit";
+  fitBtnPaint(slide);
 }
 /* PiP mini window: pure cover math so the video fills edge-to-edge at ANY
    window aspect ratio (Android may not honor the requested 9:16 exactly). */
@@ -1951,7 +1959,7 @@ function fillSlide(node,t,mode){
   const sp=node.querySelector("[data-sound]");
   node._t=t||null;
   const bd=node.querySelector("[data-backdrop]");
-  node._fit=false; // every video starts in fill
+  node._fit=!!(t&&fitSticky&&!isVertMain(t)); // sticky fit carries to the next video
   markCc(node,false); // captions reset per video; applySavedTracks re-arms on ready
   if(!t){
     fr.removeAttribute("src");fr.onload=null;
@@ -1960,7 +1968,8 @@ function fillSlide(node,t,mode){
     if(bd)bd.style.backgroundImage="none";
     sp.style.display="none";return;
   }
-  fv.className="feed-video "+frameModeClass(t,false);
+  fv.className="feed-video "+(node._fit?"fit":frameModeClass(t,false));
+  fitBtnPaint(node);
   if(bd){const bi=thumb(t,"hq");bd.style.backgroundImage=bi?`url("${bi}")`:"none";}
   node.querySelector("[data-title]").textContent=t.title;
   node.querySelector("[data-meta]").textContent=`${t.eps} · ${t.runtime} each · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
