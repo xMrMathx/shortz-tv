@@ -1,0 +1,15 @@
+{
+  "events": [
+    {
+      "id": "showdown-001",
+      "title": "Showdown: Aydan vs Huskerrs",
+      "sub": "Warzone — who drops more kills tonight?",
+      "optA": "Aydan",
+      "optB": "HusKerrs",
+      "oddsA": "1.8",
+      "oddsB": "2.1",
+      "status": "open",
+      "winner": null
+    }
+  ]
+}

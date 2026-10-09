@@ -765,6 +765,37 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .tg-rtitle{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tg-rsub{font-size:11px;color:var(--mut);margin-top:2px}
 .tg-rplay{margin-left:auto;color:#ff3b30;font-size:18px;flex:none;padding:4px 8px}
+/* ---------- STAKES: coin staking on live streams ---------- */
+.stkPill{background:#1c1c22;border:1px solid #e8b400;color:#ffd34d;font-weight:800;font-size:13px;padding:7px 13px;border-radius:20px;cursor:pointer;white-space:nowrap}
+#stkScrim{position:fixed;inset:0;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .25s;z-index:90}
+#stkScrim.open{opacity:1;pointer-events:auto}
+#stkSheet{position:fixed;left:0;right:0;bottom:0;max-height:88vh;background:#111116;border-top:1px solid #2c2c36;border-radius:18px 18px 0 0;z-index:91;transform:translateY(105%);transition:transform .28s ease;display:flex;flex-direction:column}
+#stkSheet.open{transform:translateY(0)}
+.stkGrab{width:44px;height:5px;border-radius:3px;background:#3a3a44;margin:10px auto 4px}
+.stkBody{overflow-y:auto;padding:6px 16px 26px;-webkit-overflow-scrolling:touch}
+.stkTabs{display:flex;border-bottom:1px solid #26262e;margin-bottom:12px}
+.stkTab{flex:1;text-align:center;padding:11px;font-size:13px;font-weight:800;color:#9a9aa5;cursor:pointer;border:none;background:none}
+.stkTab.sel{color:#fff;border-bottom:3px solid #e50914}
+.stkCard{background:#15151b;border:1px solid #26262e;border-radius:14px;padding:14px;margin-bottom:12px}
+.stkQ{font-weight:800;font-size:15px;margin-bottom:4px}
+.stkSub{color:#9a9aa5;font-size:12px;margin-bottom:12px}
+.stkOpt{display:flex;justify-content:space-between;align-items:center;width:100%;background:#1e1e26;border:2px solid #2c2c36;color:#fff;border-radius:12px;padding:12px;margin-bottom:8px;cursor:pointer;font-size:14px;font-weight:700}
+.stkOpt small{color:#9a9aa5;font-weight:600}
+.stkOpt.sel{border-color:#e50914;background:#2a1416}
+.stkOdds{color:#ffd34d;font-weight:800}
+.stkAmts{display:flex;gap:8px;margin:10px 0}
+.stkAmt{flex:1;background:#1e1e26;border:1px solid #2c2c36;color:#fff;border-radius:10px;padding:9px 0;font-weight:800;font-size:13px;cursor:pointer}
+.stkAmt.sel{border-color:#e8b400;background:#2a2410;color:#ffd34d}
+.stkPlace{width:100%;background:linear-gradient(135deg,#e50914,#b00610);border:none;color:#fff;font-weight:900;font-size:15px;padding:13px;border-radius:12px;cursor:pointer;margin-top:4px}
+.stkPlace:disabled{opacity:.4}
+.stkMsg{text-align:center;font-size:13px;min-height:20px;margin-top:8px;color:#9a9aa5}
+.stkMsg.win{color:#4ade80;font-weight:800}.stkMsg.lose{color:#f87171;font-weight:800}
+.stkLb .row{display:flex;justify-content:space-between;padding:8px 4px;border-bottom:1px solid #1e1e26;font-size:13px}
+.stkLb .row.me{color:#ffd34d;font-weight:800}
+.stkNote{background:#101014;border:1px dashed #33333d;border-radius:12px;padding:12px;font-size:12px;color:#9a9aa5;line-height:1.5;margin-bottom:10px}
+.stkNote b{color:#fff}
+.stkLive{position:relative;background:linear-gradient(135deg,#1a1a24,#0d0d12);border-radius:12px;height:110px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;margin-bottom:12px}
+.stkSec{display:none}.stkSec.sel{display:block}
 </style>
 </head>
 <body>
@@ -966,6 +997,30 @@ try{
     </div>
   </div>
 
+  <div id="stkScrim"></div>
+  <div id="stkSheet">
+    <div class="stkGrab"></div>
+    <div class="stkBody">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div style="font-size:18px;font-weight:900">◉ Stakes</div>
+        <div class="stkPill">◉ <span id="stkBal2">1,000</span></div>
+      </div>
+      <div class="stkTabs">
+        <button class="stkTab sel" data-st="bet">Stake</button>
+        <button class="stkTab" data-st="board">Leaderboard</button>
+        <button class="stkTab" data-st="how" id="stkHowTab">How it works</button>
+      </div>
+      <div class="stkSec sel" id="stkSec-bet"><div id="stkEvents"><div class="stkNote">Loading stake events…</div></div></div>
+      <div class="stkSec" id="stkSec-board"><div class="stkCard stkLb" id="stkLb"><div class="stkNote">Loading…</div></div></div>
+      <div class="stkSec" id="stkSec-how">
+        <div class="stkNote"><b>1. Watch live.</b> Open any live streamer on the Streaming tab.</div>
+        <div class="stkNote"><b>2. A stake event drops.</b> Big matchups get a card — pick who wins.</div>
+        <div class="stkNote"><b>3. Stake your coins.</b> Pick a side, pick an amount. Odds set the payout.</div>
+        <div class="stkNote"><b>4. Climb the board.</b> Wins pay instantly. Everyone starts with 1,000 free coins, refilled daily. No real money — just bragging rights.</div>
+        
+      </div>
+    </div>
+  </div>
   <div id="escrim"></div>
   <div id="edraw">
     <div class="grab" id="edGrab"></div>
@@ -6178,6 +6233,198 @@ function mangaExit(){ mangaCloseReader(true); }
 document.addEventListener("keydown",e=>{
   if(e.key==="Escape"&&Manga.readerOpen)mangaCloseReader();
 });
+
+</script>
+<script>
+/* ================= STAKES: virtual coin staking on streams ================= */
+const Stake={
+  coins:1000, events:[], myBets:{}, admin:false, _taps:0,
+  get db(){ return (window.Live&&Live.db)||null; },
+  get uid(){ return (window.Live&&Live.uid)||null; },
+  fmt(n){ return Math.round(n).toLocaleString(); },
+  async init(){
+    try{ this.admin=!!store.get("stakeAdmin",false); }catch(e){}
+    if(!this.db||!this.uid){ setTimeout(()=>this.init(),3000); return; }
+    await this.loadCoins();
+    await this.loadEvents();
+    await this.loadMyBets();
+    await this.claimWinnings();
+    this.paintPill();
+  },
+  async loadCoins(){
+    try{
+      const snap=await this.db.ref("directory/"+this.uid+"/coins").once("value");
+      let c=snap.val()||{};
+      const today=new Date().toISOString().slice(0,10);
+      if(!(c.balance>=0)){ c.balance=1000; }
+      if(c.balance<100&&c.lastRefill!==today){ c.balance=1000; c.lastRefill=today; }
+      this.coins=c.balance;
+      await this.db.ref("directory/"+this.uid+"/coins").update({balance:c.balance,lastRefill:c.lastRefill||today,totalWon:c.totalWon||0});
+    }catch(e){ this.coins=1000; }
+    this.paintPill();
+  },
+  async saveCoins(){
+    try{ await this.db.ref("directory/"+this.uid+"/coins").update({balance:Math.round(this.coins)}); }catch(e){}
+    this.paintPill();
+  },
+  paintPill(){
+    const el=document.getElementById("stkBal2"); if(el)el.textContent=this.fmt(this.coins);
+    const p=document.getElementById("stkFloatPill");
+    if(p)p.querySelector("span").textContent=this.fmt(this.coins);
+  },
+  async loadEvents(){
+    try{
+      const r=await fetch("stakes.json",{cache:"no-store"});
+      if(r.ok){ const d=await r.json(); this.events=(d.events||[]).filter(e=>e&&e.id); }
+    }catch(e){}
+  },
+  async loadMyBets(){
+    this.myBets={};
+    try{
+      const s=await this.db.ref("directory/"+this.uid+"/stakeBets").once("value");
+      this.myBets=s.val()||{};
+    }catch(e){}
+  },
+  // auto-credit wins for resolved events (client-side, virtual coins)
+  async claimWinnings(){
+    let changed=false;
+    for(const ev of this.events){
+      if(ev.status!=="resolved"||!ev.winner)continue;
+      const bet=this.myBets[ev.id];
+      if(bet&&!bet.claimed&&bet.pick===ev.winner){
+        const odds=parseFloat(ev.winner==="A"?ev.oddsA:ev.oddsB)||2;
+        const payout=Math.round(bet.amount*odds);
+        this.coins+=payout; changed=true;
+        bet.claimed=true;
+        try{
+          await this.db.ref("directory/"+this.uid+"/stakeBets/"+ev.id).update({claimed:true});
+          const cs=await this.db.ref("directory/"+this.uid+"/coins").once("value");
+          const c=cs.val()||{};
+          await this.db.ref("directory/"+this.uid+"/coins").update({totalWon:(c.totalWon||0)+payout});
+        }catch(e){}
+        try{toast("You won "+this.fmt(payout)+" coins on "+ev.title+"!");}catch(e){}
+      } else if(bet&&!bet.claimed){
+        bet.claimed=true;
+        try{await this.db.ref("directory/"+this.uid+"/stakeBets/"+ev.id).update({claimed:true});}catch(e){}
+      }
+    }
+    if(changed)await this.saveCoins();
+  },
+  openSheet(){
+    document.getElementById("stkScrim").classList.add("open");
+    document.getElementById("stkSheet").classList.add("open");
+    this.renderEvents(); this.renderBoard();
+    try{hudWake();}catch(e){}
+  },
+  closeSheet(){
+    document.getElementById("stkScrim").classList.remove("open");
+    document.getElementById("stkSheet").classList.remove("open");
+  },
+  renderEvents(){
+    const w=document.getElementById("stkEvents"); if(!w)return;
+    const open=this.events.filter(e=>e.status==="open");
+    const done=this.events.filter(e=>e.status!=="open").slice(0,3);
+    let h="";
+    if(!open.length)h+='<div class="stkNote">No live stake events right now — check back soon. New matchups drop regularly.</div>';
+    open.forEach(ev=>{
+      const bet=this.myBets[ev.id];
+      h+='<div class="stkCard" data-ev="'+ev.id+'">'
+        +'<div class="stkQ">'+esc(ev.title||"Stake event")+'</div>'
+        +'<div class="stkSub">'+esc(ev.sub||"Stakes lock soon")+'</div>'
+        +'<button class="stkOpt" data-p="A"><span>'+esc(ev.optA||"A")+'</span><span class="stkOdds">'+(ev.oddsA||"2.0")+'×</span></button>'
+        +'<button class="stkOpt" data-p="B"><span>'+esc(ev.optB||"B")+'</span><span class="stkOdds">'+(ev.oddsB||"2.0")+'×</span></button>'
+        +'<div class="stkAmts">'+[10,50,100,250].map(a=>'<button class="stkAmt" data-a="'+a+'">'+a+'</button>').join("")+'</div>'
+        +(bet
+          ?'<div class="stkMsg">Locked in: '+bet.amount+' coins on '+esc(bet.pick==="A"?ev.optA:ev.optB)+'</div>'
+          :'<button class="stkPlace" disabled>Pick a side to stake</button><div class="stkMsg"></div>')
+        +'</div>';
+    });
+    done.forEach(ev=>{
+      const wtxt=ev.winner?("Winner: "+(ev.winner==="A"?ev.optA:ev.optB)):"Closed";
+      h+='<div class="stkCard" style="opacity:.65"><div class="stkQ">'+esc(ev.title||"")+'</div><div class="stkSub">'+esc(wtxt)+'</div></div>';
+    });
+    w.innerHTML=h;
+    w.querySelectorAll(".stkCard[data-ev]").forEach(card=>{
+      const evId=card.dataset.ev, ev=this.events.find(e=>e.id===evId);
+      if(this.myBets[evId])return;
+      let pick=null,amt=50;
+      const opts=card.querySelectorAll(".stkOpt"),amts=card.querySelectorAll(".stkAmt");
+      const place=card.querySelector(".stkPlace"),msg=card.querySelector(".stkMsg");
+      if(!place)return;
+      opts.forEach(o=>o.onclick=()=>{pick=o.dataset.p;opts.forEach(x=>x.classList.remove("sel"));o.classList.add("sel");sync();});
+      amts.forEach(a=>a.onclick=()=>{amt=+a.dataset.a;amts.forEach(x=>x.classList.remove("sel"));a.classList.add("sel");sync();});
+      amts[1].classList.add("sel");
+      function sync(){ if(pick){place.disabled=false;place.textContent="Stake "+amt+" coins";} }
+      place.onclick=async()=>{
+        if(!pick||place.disabled)return;
+        if(Stake.coins<amt){msg.textContent="Not enough coins — daily refill tops you up.";return;}
+        place.disabled=true;place.textContent="Locking in…";
+        const ok=await Stake.placeBet(evId,pick,amt);
+        if(ok){Stake.renderEvents();}
+        else{place.disabled=false;sync();msg.textContent="Couldn't place — try again.";}
+      };
+    });
+  },
+  async placeBet(evId,pick,amt){
+    if(!this.db||!this.uid)return false;
+    try{
+      const ev=this.events.find(e=>e.id===evId);
+      if(!ev||ev.status!=="open")return false;
+      if(this.myBets[evId])return false;
+      if(this.coins<amt)return false;
+      this.coins-=amt;
+      await this.db.ref("directory/"+this.uid+"/stakeBets/"+evId).set({pick:pick,amount:amt,ts:Date.now(),claimed:false});
+      await this.saveCoins();
+      this.myBets[evId]={pick:pick,amount:amt,claimed:false};
+      try{toast("Stake locked in — good luck!");}catch(e){}
+      return true;
+    }catch(e){ return false; }
+  },
+  async renderBoard(){
+    const w=document.getElementById("stkLb"); if(!w||!this.db)return;
+    w.innerHTML='<div class="stkNote">Loading…</div>';
+    try{
+      const snap=await this.db.ref("directory").once("value");
+      const dir=snap.val()||{};
+      const rows=[];
+      Object.keys(dir).forEach(uid=>{
+        const c=dir[uid]&&dir[uid].coins;
+        if(c&&(c.totalWon>0)){
+          let nm="Player";
+          try{nm=(dir[uid].profile&&dir[uid].profile.name)||nm;}catch(e){}
+          rows.push({n:String(nm).slice(0,24),w:c.totalWon||0,me:uid===this.uid});
+        }
+      });
+      rows.sort((a,b)=>b.w-a.w);
+      const top=rows.slice(0,20);
+      w.innerHTML=top.length?top.map((r,i)=>'<div class="row'+(r.me?" me":"")+'"><span>'+(i+1)+". "+esc(r.n)+'</span><span>◉ '+this.fmt(r.w)+' won</span></div>').join("")
+        :'<div class="stkNote">No winners yet — be the first.</div>';
+    }catch(e){ w.innerHTML='<div class="stkNote">Could not load.</div>'; }
+  }
+};
+// floating coin pill on the streaming view
+function stkMountPill(){
+  if(document.getElementById("stkFloatPill"))return;
+  const b=document.createElement("button");
+  b.id="stkFloatPill";b.className="stkPill";
+  b.style.cssText="position:fixed;top:14px;right:14px;z-index:60;display:none";
+  b.innerHTML="◉ <span>1,000</span>";
+  b.onclick=()=>Stake.openSheet();
+  document.body.appendChild(b);
+}
+document.addEventListener("click",e=>{
+  if(e.target.closest("#stkScrim"))Stake.closeSheet();
+  const v=document.getElementById("stkFloatPill");
+  if(v)v.style.display=(typeof curView!=="undefined"&&curView==="streaming")?"":"none";
+});
+document.querySelectorAll(".stkTab").forEach(t=>t.addEventListener("click",()=>{
+  document.querySelectorAll(".stkTab").forEach(x=>x.classList.remove("sel"));t.classList.add("sel");
+  document.querySelectorAll(".stkSec").forEach(x=>x.classList.remove("sel"));
+  document.getElementById("stkSec-"+t.dataset.st).classList.add("sel");
+  if(t.dataset.st==="board")Stake.renderBoard();
+}));
+stkMountPill();
+setTimeout(()=>Stake.init(),2500);
 
 </script>
 </body>
