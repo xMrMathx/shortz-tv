@@ -725,14 +725,23 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 @keyframes splashOut{to{opacity:0;visibility:hidden}}
 </style>
 <script>
-// play the Shortz sting on launch (once per session)
+// play the Shortz sting on launch (once per session, only during splash)
 try{
   const a=new Audio("shortz-sting.wav");
   a.volume=1.0;
-  // browsers block autoplay until user interacts; try now, retry on first touch
-  const play=()=>{a.play().catch(()=>{});};
+  let stingDone=false;
+  const splashAlive=()=>document.getElementById("splash")!==null;
+  const play=()=>{
+    if(stingDone||!splashAlive())return;
+    stingDone=true;
+    a.play().catch(()=>{stingDone=false;}); // if blocked, allow one retry
+  };
   play();
-  const once=()=>{play();document.removeEventListener("touchstart",once);document.removeEventListener("click",once);};
+  const once=()=>{
+    play();
+    document.removeEventListener("touchstart",once);
+    document.removeEventListener("click",once);
+  };
   document.addEventListener("touchstart",once,{passive:true});
   document.addEventListener("click",once);
   setTimeout(()=>{const s=document.getElementById("splash");if(s)s.remove();},3000);
