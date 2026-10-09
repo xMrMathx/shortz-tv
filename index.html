@@ -2890,10 +2890,11 @@ function openDetail(id){
   const t=byId(id);if(!t)return;
   if(curView!=="detail")returnView=curView;
   const inList=mylist.has(id);
+  const isExt=!!t.external_url, extLabel=t.external_label||"web";
   const big=thumb(t,"sd"), small=thumb(t,"hq");
   $("#view-detail").innerHTML=`
     <section id="detailArt">
-      <div class="art-kb grain" style="background:${artBg(t.title)}"><img decoding="async" src="${big}" alt="" onerror="this.onerror=null;this.src='${small}'"></div>
+      <div class="art-kb grain" style="background:${artBg(t.title)}">${big?`<img decoding="async" src="${big}" alt="" onerror="this.onerror=null;this.src='${small}'">`:""}</div>
       <div class="art-scrim"></div>
       <div class="art-shimmer"></div>
       <button class="backbtn" id="dBack">‹</button>
@@ -2901,7 +2902,7 @@ function openDetail(id){
     <div class="wrap"><div class="detail-body">
       <h1>${esc(t.title)}</h1>
       <div class="chips">
-        <span class="chip red">▶ Plays in app</span>
+        ${isExt?`<span class="chip red">↗ Watch free on ${esc(extLabel)}</span>`:`<span class="chip red">▶ Plays in app</span>`}
         ${isEarlyRelease(t)?'<span class="chip">🌱 Early Release</span>':""}
         <span class="chip">📺 ${esc(t.eps)}</span>
         <span class="chip">⏱ ${esc(t.runtime)}</span>
@@ -2915,12 +2916,12 @@ function openDetail(id){
         <div class="r">${esc(t.rights_basis)}</div>
       </div>
       <div class="playrow">
-        <button class="btn-play" id="dPlay" style="flex:1;justify-content:center">▶ Play</button>
+        <button class="btn-play" id="dPlay" style="flex:1;justify-content:center">${isExt?`↗ Watch free on ${esc(extLabel)}`:"▶ Play"}</button>
         <button class="btn-ghost" id="dSave">${inList?"♥ Saved":"＋ My List"}</button>
       </div>
     </div></div>`;
   $("#dBack").onclick=()=>go(returnView);
-  $("#dPlay").onclick=()=>{go("home");loadFeed(t)};
+  $("#dPlay").onclick=isExt?()=>{try{window.open(t.external_url,"_blank")}catch(e){location.href=t.external_url}}:()=>{go("home");loadFeed(t)};
   $("#dSave").onclick=()=>{
     if(mylist.has(id)){mylist.delete(id);toast("Removed from My List")}else{mylist.add(id);toast("Saved to My List")}
     saveList();$("#dSave").textContent=mylist.has(id)?"♥ Saved":"＋ My List";
