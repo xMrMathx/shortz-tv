@@ -272,13 +272,13 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .gdrop-btn{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:14px;border:1px solid var(--line);background:#101016;color:var(--txt);font-size:16px;font-weight:800;cursor:pointer}
 .gdrop-btn .arr{transition:transform .2s}
 .gdrop.open .gdrop-btn .arr{transform:rotate(180deg)}
-.gmenu{position:absolute;top:calc(100% + 6px);left:0;right:0;max-height:50vh;overflow-y:auto;background:#16161e;border:1px solid var(--line);border-radius:14px;z-index:50;display:none;box-shadow:0 12px 40px rgba(0,0,0,.6)}
-.gdrop.open .gmenu{display:block}
-.gitem{display:flex;justify-content:space-between;align-items:center;width:100%;padding:13px 16px;background:none;border:none;border-bottom:1px solid rgba(255,255,255,.06);color:var(--txt);font-size:15px;font-weight:700;cursor:pointer;text-align:left}
-.gitem:last-child{border-bottom:none}
+.gmenu{position:absolute;top:calc(100% + 6px);left:0;right:0;max-height:50vh;overflow-y:auto;background:#16161e;border:1px solid var(--line);border-radius:14px;z-index:50;display:none;box-shadow:0 12px 40px rgba(0,0,0,.6);padding:12px}
+.gdrop.open .gmenu{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.gitem{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;background:#14141c;border:1px solid var(--line);border-radius:20px;color:var(--txt);font-size:13px;font-weight:700;cursor:pointer}
 .gitem:active{background:#22222e}
-.gitem.sel{color:#ff3b3b}
-.gitem .cnt{color:#888;font-weight:400;font-size:13px}
+.gitem.sel{background:var(--red);border-color:var(--red);color:#fff}
+.gitem.sel .cnt{color:#fff}
+.gitem .cnt{background:rgba(255,255,255,.12);border-radius:10px;padding:2px 8px;font-weight:700;font-size:11px;color:#aaa}
 /* ---------- sports picker + reel ---------- */
 .sportpick{display:flex;flex-wrap:wrap;gap:10px;padding:6px 0 20px}
 .sportbtn{font-size:15px;font-weight:800;padding:14px 22px;border-radius:16px;border:1px solid var(--line);background:#101016;color:var(--txt);cursor:pointer}
