@@ -507,6 +507,21 @@ body.pip .feedstage{position:fixed!important;inset:0!important;width:100%!import
 body.pip #feedTrack{position:absolute!important;inset:0!important}
 body.pip .feed-video{position:absolute!important;inset:0!important}
 body.pip .feed-video iframe{position:absolute!important;transform:none!important;aspect-ratio:auto!important}
+/* ---------- universal progress bar: every video, everywhere ---------- */
+.uprog{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.18);z-index:10;pointer-events:none}
+.uprog>i{display:block;height:100%;width:0%;background:#e50914;transition:width .3s linear}
+/* ---------- PIA: Picture In App mini-player ---------- */
+#piaWrap{display:none;position:fixed;top:calc(64px + env(safe-area-inset-top));left:12px;right:12px;z-index:60;background:#0a0a0e;border:1px solid #2c2c36;border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.7)}
+body.pia #piaWrap{display:block}
+#piaWrap .pia-frame{position:relative;width:100%;aspect-ratio:16/9;max-height:220px;background:#000}
+#piaWrap .pia-frame .feed-video{position:absolute!important;inset:0!important}
+#piaWrap .pia-frame iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;transform:none!important}
+#piaWrap .pia-bar{display:flex;align-items:center;gap:8px;padding:8px 10px}
+#piaWrap .pia-title{flex:1;min-width:0;font-size:12px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#piaWrap .pia-btn{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #3a3a46;background:#1a1a22;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#piaWrap .pia-btn:active{background:#2a2a35}
+/* while PIA is active the home feed is parked (video lives in the mini-player) */
+body.pia #view-home{visibility:hidden;pointer-events:none}
 
 /* ---------- live / chat (v1.2.0) ---------- */
 .liveico{color:var(--red)}
@@ -867,6 +882,19 @@ try{
       <button id="topShareApp" class="free-tag" style="display:none;border:none;cursor:pointer;background:linear-gradient(135deg,#e50914,#b00610);color:#fff;box-shadow:0 0 14px rgba(229,9,20,.35)">&#8599; SHARE APP</button>
     </div>
   </header>
+
+  <!-- PIA: Picture In App mini-player -->
+  <div id="piaWrap">
+    <div class="pia-frame" id="piaFrame">
+      <div class="uprog"><i id="piaProg"></i></div>
+    </div>
+    <div class="pia-bar">
+      <div class="pia-title" id="piaTitle"></div>
+      <button class="pia-btn" id="piaMute" title="Mute/Unmute">🔊</button>
+      <button class="pia-btn" id="piaExpand" title="Full screen">⤢</button>
+      <button class="pia-btn" id="piaClose" title="Close">✕</button>
+    </div>
+  </div>
 
   <main id="views">
     <section class="view active" id="view-home"></section>
@@ -1424,7 +1452,7 @@ function mgBindLikes(root){
 let curView="home", returnView="home";
 function go(v){
   if(v===curView&&v!=="detail")return;
-  if(curView==="home"&&v!=="home")pauseFeedVideo();
+  if(curView==="home"&&v!=="home"&&!piaActive)pauseFeedVideo(); // PIA: keep playing while browsing
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
   if(curView==="manga"&&v!=="manga")likesDetach(); // same for manga likes
@@ -1583,6 +1611,107 @@ function applyPipLayout(){
   });
 }
 window.addEventListener("resize",()=>{if(document.body.classList.contains("pip"))applyPipLayout();});
+/* ---------- universal progress bar updater: every video, everywhere ---------- */
+setInterval(()=>{
+  try{
+    // TV Guide preview
+    const tg=document.getElementById("tgProg");
+    if(tg&&tgPlayer){
+      let c=0,d=0;
+      try{
+        if(tgPlayerKind==="yt"){c=tgPlayer.getCurrentTime()||0;d=tgPlayer.getDuration()||0;}
+        else if(tgPlayer.getCurrentTime){tgPlayer.getCurrentTime().then(v=>c=v).catch(()=>{});tgPlayer.getDuration().then(v=>d=v).catch(()=>{});}
+      }catch(e){}
+      if(d>0)tg.style.width=Math.min(100,c/d*100)+"%";
+    }
+    // PIA mini-player
+    const pp=document.getElementById("piaProg");
+    if(pp&&piaActive){
+      const slide=curSlide();
+      let c=0,d=0;
+      try{
+        const pl=slide&&slide._player;
+        if(pl&&pl.getCurrentTime){c=pl.getCurrentTime()||0;d=(pl.getDuration&&pl.getDuration())||0;}
+      }catch(e){}
+      pp.style.width=d>0?Math.min(100,c/d*100)+"%":"0%";
+    }
+  }catch(e){}
+},1000);
+let piaActive=false, piaHome=null, piaMuted=false;
+function piaEnter(){
+  if(piaActive)return;
+  const slide=curSlide(); if(!slide)return;
+  const fv=slide.querySelector("[data-fv]"); if(!fv)return;
+  piaHome={slide:slide, next:fv.nextSibling};
+  const frame=document.getElementById("piaFrame");
+  frame.appendChild(fv); // moving the iframe keeps playback alive, no reload
+  const t=feed.cur; 
+  try{document.getElementById("piaTitle").textContent=(t&&t.title)||"";}catch(e){}
+  piaMuted=false;
+  try{document.getElementById("piaMute").textContent="🔊";}catch(e){}
+  document.body.classList.add("pia");
+  piaActive=true;
+  // make sure it is playing WITH SOUND — never starts muted
+  try{
+    const pl=slide._player;
+    if(pl&&pl.playVideo)pl.playVideo();
+    if(pl&&pl.unMute)pl.unMute();
+    if(pl&&pl.setVolume)pl.setVolume(100);
+  }catch(e){}
+  try{unmuteFrame();}catch(e){}
+}
+function piaExit(){
+  if(!piaActive)return;
+  const frame=document.getElementById("piaFrame");
+  const fv=frame.querySelector("[data-fv]");
+  if(fv&&piaHome&&piaHome.slide){
+    try{
+      if(piaHome.next&&piaHome.next.parentNode===piaHome.slide)piaHome.slide.insertBefore(fv,piaHome.next);
+      else piaHome.slide.appendChild(fv);
+    }catch(e){try{piaHome.slide.appendChild(fv)}catch(e2){}}
+  }
+  document.body.classList.remove("pia");
+  piaActive=false; piaHome=null;
+}
+function piaToggleMute(){
+  piaMuted=!piaMuted;
+  try{document.getElementById("piaMute").textContent=piaMuted?"🔇":"🔊";}catch(e){}
+  const frame=document.getElementById("piaFrame");
+  const fr=frame.querySelector("[data-frame]");
+  try{
+    if(fr&&fr.contentWindow){
+      if(curIsVimeo()){
+        fr.contentWindow.postMessage(JSON.stringify({method:"setMuted",value:piaMuted}),"*");
+      }else{
+        fr.contentWindow.postMessage(JSON.stringify({event:"command",func:piaMuted?"mute":"unMute",args:""}),"*");
+      }
+    }
+    const slide=curSlide();
+    if(slide&&slide._player){
+      if(piaMuted&&slide._player.mute)slide._player.mute();
+      else if(!piaMuted&&slide._player.unMute)slide._player.unMute();
+    }
+  }catch(e){}
+}
+function piaClose(){
+  // stop the video, then exit PIA
+  try{
+    const slide=curSlide();
+    if(slide&&slide._player&&slide._player.stopVideo)slide._player.stopVideo();
+    const frame=document.getElementById("piaFrame");
+    const fr=frame.querySelector("[data-frame]");
+    if(fr)fr.src="about:blank";
+  }catch(e){}
+  piaExit();
+}
+(function(){
+  const m=document.getElementById("piaMute");
+  if(m)m.addEventListener("click",e=>{e.stopPropagation();piaToggleMute();});
+  const x=document.getElementById("piaExpand");
+  if(x)x.addEventListener("click",e=>{e.stopPropagation();piaExit();});
+  const c=document.getElementById("piaClose");
+  if(c)c.addEventListener("click",e=>{e.stopPropagation();piaClose();});
+})();
 function curSlide(){return slotNodes[1]}
 function layoutSlots(){slotNodes.forEach((n,i)=>{n.style.transform=`translateY(${(i-1)*100}%)`})}
 function slideHTML(){
@@ -1609,6 +1738,7 @@ function slideHTML(){
       <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
       <div class="ric"><button data-a="cc" data-cc>CC</button><span>Subs</span></div>
       <div class="ric"><button data-a="pip">⧉</button><span>PiP</span></div>
+      <div class="ric"><button data-a="pia">🖼</button><span>PIA</span></div>
       <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
       <div class="ric"><button data-a="rot">⟳</button><span>Rotate</span></div>
       </div>
@@ -1720,6 +1850,7 @@ function railAction(a,slide){
   }
   else if(a==="cc"){openCc(slide)}
   else if(a==="pip"){try{if(window.Android&&window.Android.enterPip)window.Android.enterPip()}catch(e){}}
+  else if(a==="pia"){try{piaEnter()}catch(e){}}
 }
 
 /* ---------- subtitles & audio (v1.1.8) ---------- */
@@ -1958,6 +2089,21 @@ function mountFeed(){
   });
   playSeries(pickRandom(null));
 }
+/* Fresh home on every app open: when the app comes back to the foreground
+   after being away a while, start a new random video so it never feels
+   like the same stuff. Quick switches (under 30s) keep your place. */
+let _hiddenAt=0;
+document.addEventListener("visibilitychange",()=>{
+  if(document.visibilityState==="hidden"){_hiddenAt=Date.now();return;}
+  if(document.visibilityState!=="visible")return;
+  if(piaActive)return; // don't interrupt PIA
+  if(curView!=="home")return;
+  if(Date.now()-_hiddenAt<30000)return; // quick switch: keep your place
+  try{
+    const t=pickRandom(feed.cur&&feed.cur.id);
+    if(t)playSeries(t);
+  }catch(e){}
+});
 function doUnmute(){
   soundOn=true;unmuteFrame();
   const sp=curSlide().querySelector("[data-sound]");if(sp)sp.style.display="none";
@@ -2191,8 +2337,9 @@ setInterval(()=>{try{
   }
 }catch(e){}},500);
 function unmuteFrame(){
-  if(curView!=="home")return; // never restart audio from another tab (iframe reload race)
-  const fr=curSlide().querySelector("[data-frame]");if(!fr||!fr.contentWindow||!feed.cur)return;
+  if(curView!=="home"&&!piaActive)return; // never restart audio from another tab (iframe reload race) — except PIA
+  const fr=piaActive?document.querySelector("#piaFrame [data-frame]"):curSlide().querySelector("[data-frame]");
+  if(!fr||!fr.contentWindow||!feed.cur)return;
   try{
     if(curIsVimeo()){
       fr.contentWindow.postMessage(JSON.stringify({method:"setVolume",value:1}),"*");
@@ -3130,6 +3277,7 @@ function openSportsReel(sport){
   sc.innerHTML=e.episodes.map((ep,i)=>`
     <div class="sreel-slide" data-i="${i}">
       <div class="sreel-ph" data-ph="${ep.video_id}" style="position:absolute;inset:0"></div>
+      <div class="uprog"><i data-sreelprog></i></div>
       <button class="sreel-back" data-back aria-label="Back to sports">‹</button>
       <button class="sreel-sound" data-sound aria-label="Toggle sound">${sportsSoundOn?"🔊":"🔇"}</button>
       <div class="sreel-sport">${esc(sport)} highlights</div>
@@ -3562,6 +3710,7 @@ function renderTvGuide(){
     <div class="tg-preview" id="tgPreviewBox" title="Tap to watch fullscreen">
       <div class="tg-frame" id="tgFrame">
         <div class="tg-ph" id="tgPh"><span style="font-size:30px">📺</span><span>Tap a show below to preview it here</span></div>
+        <div class="uprog"><i id="tgProg"></i></div>
       </div>
       <div class="tg-meta">
         <img class="tg-thumb" id="tgThumb" alt="" style="display:none" onerror="this.style.display='none'">
