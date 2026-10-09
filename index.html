@@ -2861,7 +2861,7 @@ function renderBrowse(g){
   loadTop10(); // Netflix-style Top 10 row under the search bar
   // Previously spotlight: open James's site in the system browser
   const psb=$("#prevSpotBtn"), psp=$("#prevSpot");
-  const openPrev=()=>{ try{ window.open("https://www.watchpreviously.com/","_blank"); }catch(e){ location.href="https://www.watchpreviously.com/"; } };
+  const openPrev=()=>{ try{ window.open("https://watchpreviously.com/","_blank"); }catch(e){ location.href="https://watchpreviously.com/"; } };
   if(psb)psb.onclick=e=>{e.stopPropagation();openPrev();};
   if(psp)psp.onclick=openPrev;
   const si=$("#bsearch"),sx=$("#bsearchx"),bc=$("#bcount"),gr=$("#bgrid"),nr=$("#bnores");
