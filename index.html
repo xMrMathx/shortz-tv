@@ -128,6 +128,9 @@ body.pip .scrub{display:none!important}
 .vsub{position:relative;font-size:10px;color:rgba(255,255,255,.72);margin-top:3px;z-index:2}
 .epsbadge{position:absolute;top:8px;right:8px;font-size:8px;font-weight:900;letter-spacing:.5px;background:rgba(229,9,20,.95);
   padding:4px 8px;border-radius:9px;z-index:2}
+.newbadge{position:absolute;top:8px;left:8px;font-size:9px;font-weight:900;letter-spacing:1px;color:#fff;
+  background:linear-gradient(135deg,#e50914,#ff6b35);padding:4px 9px;border-radius:9px;z-index:3;
+  box-shadow:0 2px 8px rgba(229,9,20,.5);text-transform:uppercase}
 .aibadge{position:absolute;bottom:8px;right:8px;font-size:8px;font-weight:800;color:#cfe3ff;
   background:rgba(10,20,40,.72);border:1px solid rgba(140,180,255,.4);padding:3px 7px;border-radius:8px;z-index:2}
 /* social likes: who liked this — long-press a browse cover to like */
@@ -707,6 +710,18 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 .tg-sc-status{font-size:10px;font-weight:700;color:#22c55e;text-align:right;min-width:70px}
 .tg-sc-status.pre{color:#8b8b96}
 .tg-sc-status.final{color:#8b8b96}
+/* game detail modal */
+#gameModal{position:fixed;inset:0;z-index:9999}
+.gm-back{position:absolute;inset:0;background:rgba(0,0,0,.7)}
+.gm-box{position:absolute;left:0;right:0;bottom:0;max-height:85vh;overflow-y:auto;background:#14141c;
+  border-radius:18px 18px 0 0;padding:20px 16px 32px}
+.gm-x{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.1);border:none;color:#fff;
+  width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer}
+.gm-head .t{font-size:17px;font-weight:800;color:#fff;padding-right:36px}
+.gm-status{font-size:12px;color:#22c55e;margin-top:4px;font-weight:700}
+.gm-sec{margin-top:16px}
+.gm-sub{font-size:13px;font-weight:800;color:#fff;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.gm-play{font-size:13px;color:#ccc;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);line-height:1.4}
 .tg-rt{width:76px;height:43px;border-radius:8px;object-fit:cover;background:#1b1b22;flex:none}
 .tg-rtitle{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tg-rsub{font-size:11px;color:var(--mut);margin-top:2px}
@@ -1170,12 +1185,20 @@ function syncMyListRemote(){
 function aiChip(t){return t.ai_made?'<span class="ai-chip">✦ Made with AI</span>':""}
 
 /* ---------- cards (real thumbnails, no initials) ---------- */
+function isNewArrival(t){
+  if(!t.dateAdded) return false;
+  const added=new Date(t.dateAdded).getTime();
+  if(!added) return false;
+  return (Date.now()-added) < 14*24*60*60*1000;
+}
 function cardHTML(t){
   const sm=thumb(t,"mq");
+  const newBadge=isNewArrival(t)?'<span class="newbadge">NEW</span>':"";
   return `<div class="vcard" data-id="${t.id}">
     <div class="vthumb" style="background:${artBg(t.title)}">
       <img decoding="async" src="${sm}" alt="" loading="lazy" onerror="this.style.display='none'">
       <span class="epsbadge">${esc(t.eps)}</span>
+      ${newBadge}
       <div class="vtitle">${esc(t.title)}</div>
       <div class="vsub">${esc(t.runtime)} · ${GICON[t.genre]||""} ${esc(t.genre)}</div>
       ${t.ai_made?'<span class="aibadge">✦ AI</span>':""}
@@ -3633,7 +3656,8 @@ function renderTgScoreboard(){
           const cls=st.state==="in"?"":st.state==="post"?"final":"pre";
           const status=st.state==="post"?"Final":st.shortDetail;
           const hw=parseInt(home.score||"0",10), aw=parseInt(away.score||"0",10);
-          html+='<div class="tg-sc-game"><div class="tg-sc-teams">'
+          const gid=e.id||"";
+          html+='<div class="tg-sc-game" data-gid="'+gid+'" data-league="'+r.key+'" style="cursor:pointer"><div class="tg-sc-teams">'
             +'<div class="tg-sc-team '+(aw>hw?"winner":"")+'"><span class="nm">'+esc(away.team.abbreviation)+' '+esc(away.team.displayName)+'</span><span class="sc">'+(away.score||"0")+'</span></div>'
             +'<div class="tg-sc-team '+(hw>aw?"winner":"")+'"><span class="nm">'+esc(home.team.abbreviation)+' '+esc(home.team.displayName)+'</span><span class="sc">'+(home.score||"0")+'</span></div>'
             +'</div><div class="tg-sc-status '+cls+'">'+esc(status)+'</div></div>';
@@ -3642,7 +3666,80 @@ function renderTgScoreboard(){
     });
     if(!any)html+='<div style="color:var(--mut);font-size:12px;padding:8px 2px">No games right now.</div>';
     box.innerHTML=html;
+    // tap a game for highlights + play-by-play
+    box.querySelectorAll(".tg-sc-game[data-gid]").forEach(g=>{
+      g.onclick=()=>openGameDetail(g.dataset.gid, g.dataset.league);
+    });
   });
+}
+/* game detail: highlights + live play-by-play */
+function openGameDetail(gid, league){
+  const leagueUrls={
+    NFL:"https://site.api.espn.com/apis/site/v2/sports/football/nfl",
+    NBA:"https://site.api.espn.com/apis/site/v2/sports/basketball/nba",
+    MLB:"https://site.api.espn.com/apis/site/v2/sports/baseball/mlb",
+    NHL:"https://site.api.espn.com/apis/site/v2/sports/hockey/nhl"
+  };
+  const base=leagueUrls[league]||leagueUrls.NFL;
+  // build modal
+  let m=document.getElementById("gameModal");
+  if(m)m.remove();
+  m=document.createElement("div");
+  m.id="gameModal";
+  m.innerHTML=`<div class="gm-back"></div><div class="gm-box">
+    <button class="gm-x" aria-label="Close">✕</button>
+    <div class="gm-head"><div class="t">Loading game…</div></div>
+    <div class="gm-sec"><div class="gm-sub">Highlights</div><div class="gm-hl" id="gmHL"><div style="color:var(--mut);font-size:12px">Loading…</div></div></div>
+    <div class="gm-sec"><div class="gm-sub">Play by play</div><div class="gm-pbp" id="gmPBP"><div style="color:var(--mut);font-size:12px">Loading…</div></div></div>
+  </div>`;
+  document.body.appendChild(m);
+  m.querySelector(".gm-x").onclick=()=>m.remove();
+  m.querySelector(".gm-back").onclick=()=>m.remove();
+  // fetch game summary (includes play-by-play)
+  fetch(base+"/summary?event="+encodeURIComponent(gid),{cache:"no-store"})
+    .then(r=>r.ok?r.json():null).then(d=>{
+      if(!d)return;
+      const comp=(d.header&&d.header.competitions&&d.header.competitions[0])||{};
+      const teams=comp.competitors||[];
+      const home=teams.find(t=>t.homeAway==="home")||{};
+      const away=teams.find(t=>t.homeAway==="away")||{};
+      const hn=(home.team||{}).displayName||"", an=(away.team||{}).displayName||"";
+      const hs=home.score||"0", as=away.score||"0";
+      const st=((d.header||{}).status||{}).type||{};
+      m.querySelector(".gm-head").innerHTML=`<div class="t">${esc(an)} ${esc(as)} @ ${esc(hn)} ${esc(hs)}</div>`
+        +`<div class="gm-status">${esc(st.shortDetail||"")}</div>`;
+      // play-by-play: last 10 plays
+      const pbp=document.getElementById("gmPBP");
+      const plays=[];
+      try{
+        const details=(d.details||[]);
+        details.forEach(p=>{
+          (p.athletesInvolved||[]); // noop
+          if(p.type&&p.type.text)plays.push(p.type.text);
+        });
+      }catch(e){}
+      // fallback: use win probability / leaders if no details
+      if(!plays.length){
+        try{
+          const leaders=[];
+          (d.leaders||[]).forEach(l=>{
+            (l.leaders||[]).slice(0,2).forEach(x=>{
+              leaders.push(`${x.displayValue||""} — ${(x.athlete||{}).displayName||""}`);
+            });
+          });
+          if(leaders.length)plays.push(...leaders);
+        }catch(e){}
+      }
+      pbp.innerHTML=plays.length
+        ? plays.slice(-10).reverse().map(p=>`<div class="gm-play">${esc(p)}</div>`).join("")
+        : `<div style="color:var(--mut);font-size:12px">No play data yet.</div>`;
+      // highlights: search YouTube for this matchup
+      const hl=document.getElementById("gmHL");
+      const q=encodeURIComponent(`${an} vs ${hn} highlights`);
+      hl.innerHTML=`<a href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener"
+        style="display:block;background:#1a1a22;border-radius:10px;padding:14px;text-align:center;color:#fff;font-weight:700;text-decoration:none">
+        ▶ Watch ${esc(an)} vs ${esc(hn)} highlights on YouTube</a>`;
+    }).catch(()=>{});
 }
 function renderTgHighlights(){
   const box=$("#tgHL"); if(!box)return;
