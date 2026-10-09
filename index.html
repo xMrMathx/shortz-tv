@@ -197,9 +197,24 @@ body.pip .scrub{display:none!important}
 .ai-chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.6px;color:#cfe3ff;
   background:rgba(120,170,255,.14);border:1px solid rgba(140,180,255,.35);padding:4px 10px;border-radius:12px;margin-top:10px}
 
-/* auto-hide HUD: fade UI out after 3s idle, tap to bring back */
-#view-home .feed-rail,#view-home .feed-bottom,#view-home .soundprompt,#topbar{transition:opacity .4s}
-body.hud-hidden #view-home .feed-rail,body.hud-hidden #view-home .feed-bottom,body.hud-hidden #view-home .soundprompt{opacity:0;pointer-events:none}
+/* HUD LAW: 3s idle on ANY watch surface -> every UI over the video fades. Tap brings it back. */
+#view-home .feed-rail,#view-home .feed-bottom,#view-home .soundprompt,
+#topbar,#tabbar,
+.sreel-rail,.sreel-cap,.sreel-sport,.sreel-back,.sreel-sound,
+.sstream-top,.sstream-bot,.sstream-sound{transition:opacity .4s}
+body.hud-hidden #view-home .feed-rail,
+body.hud-hidden #view-home .feed-bottom,
+body.hud-hidden #view-home .soundprompt,
+body.hud-hidden.feedfull #topbar,
+body.hud-hidden.feedfull #tabbar,
+body.hud-hidden .sreel-rail,
+body.hud-hidden .sreel-cap,
+body.hud-hidden .sreel-sport,
+body.hud-hidden .sreel-back,
+body.hud-hidden .sreel-sound,
+body.hud-hidden .sstream-top,
+body.hud-hidden .sstream-bot,
+body.hud-hidden .sstream-sound{opacity:0!important;pointer-events:none!important}
 /* css-land: in-app 90° rotation — video fills screen, no OS rotation needed */
 body.css-land #view-home .feed-rail,
 body.css-land #view-home .feed-bottom,
@@ -1670,10 +1685,15 @@ let _hudT=null;
 function hudWake(){
   document.body.classList.remove("hud-hidden");
   clearTimeout(_hudT);
-  _hudT=setTimeout(()=>{ 
+  _hudT=setTimeout(()=>{
     // don't hide while a drawer/menu/sheet is open or while rotated-full
     if(document.querySelector("#cdraw.open,#edraw.open,.gdrop.open,.ric-more.open")){hudWake();return;}
-    document.body.classList.add("hud-hidden"); 
+    // HUD LAW: only auto-hide on a full-screen watch surface (home feed,
+    // streaming, sports reel) - never on browse/profile/detail
+    const reel=document.getElementById("sportsReel");
+    const watching=document.body.classList.contains("feedfull")||(reel&&reel.classList.contains("open"));
+    if(!watching)return;
+    document.body.classList.add("hud-hidden");
   },3000);
 }
 ["touchstart","mousedown"].forEach(ev=>document.addEventListener(ev,()=>{ 
