@@ -2946,27 +2946,23 @@ function fmtViews(v){
   return v+" views";
 }
 /* award-winning carousels: films + series (IDs curated from catalog award mentions) */
-const AWARD_FILMS=["stv-401","stv-483","stv-624","stv-680","stv-681","stv-682","stv-684","stv-685","stv-686","stv-687","stv-688","stv-689","stv-690","stv-691","stv-692","stv-693","stv-694","stv-749","stv-1738","stv-1775","stv-1778","stv-1822","stv-1823","stv-1834","stv-1842","stv-2111","stv-2113","stv-2214","stv-2352","stv-2355"];
-const AWARD_SERIES=["stv-096","stv-1571","stv-1749","stv-1715"];
+const AWARD_TOP_FILMS=["stv-4670","stv-4669","stv-4668","stv-4886","stv-4740"]; // Oscar winners: Last Repair Shop, Queen of Basketball, Colette, Sing, Sand Castle
+const AWARD_TOP_SERIES=["stv-096","stv-1571","stv-1749","stv-4513","stv-1715"]; // Lizzie Bennet, Creature Comforts, Emma Approved, Zenith Run, Vox Borders
 function loadAwardCarousels(){
   const fs=$("#awardFilmsSec"), fr=$("#awardFilmsRow");
   const ss=$("#awardSeriesSec"), sr=$("#awardSeriesRow");
-  // fill series list: priority 4 first, then the rest from catalog
-  if(AWARD_SERIES.length<=4){
-    try{
-      const extra=[];
-      for(const s of C){
-        const txt=((s.title||"")+" "+(s.desc||"")+" "+(s.synopsis||"")).toLowerCase();
-        if(!/award-winning|award winning|emmy|oscar|cannes|sundance|bafta|golden globe/.test(txt))continue;
-        const t=(s.title||"").toLowerCase();
-        const isFilm=t.includes("short film")||t.includes("shortfilm");
-        const eps=s.eps||s.episodes||[];
-        if(!isFilm&&eps.length>1&&!AWARD_SERIES.includes(s.id))extra.push(s.id);
-        if(extra.length>=26)break;
-      }
-      AWARD_SERIES.push(...extra);
-    }catch(e){}
-  }
+  // LIVE: all award-winning titles from catalog, top 5 pinned first, rest shuffled
+  const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+  const films=[], series=[];
+  try{
+    for(const s of C){
+      if(!s.award)continue;
+      const eps=s.eps||s.episodes||[];
+      (eps.length>1?series:films).push(s.id);
+    }
+  }catch(e){}
+  const filmIds=[...AWARD_TOP_FILMS.filter(id=>byId(id)),...shuffle(films.filter(id=>!AWARD_TOP_FILMS.includes(id)))];
+  const seriesIds=[...AWARD_TOP_SERIES.filter(id=>byId(id)),...shuffle(series.filter(id=>!AWARD_TOP_SERIES.includes(id)))];
   const paint=(sec,row,ids)=>{
     if(!sec||!row)return;
     const items=ids.map(id=>byId(id)).filter(Boolean);
@@ -2984,8 +2980,8 @@ function loadAwardCarousels(){
     });
     sec.style.display="";
   };
-  paint(fs,fr,AWARD_FILMS);
-  paint(ss,sr,AWARD_SERIES);
+  paint(fs,fr,filmIds);
+  paint(ss,sr,seriesIds);
 }
 async function loadTop10(){
   const sec=$("#top10sec"), row=$("#top10row");
