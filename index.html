@@ -808,22 +808,27 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 // Shortz VS intro sting: "What's Next" clip, plays once per cold launch during the 3s splash
 try{
   const a=new Audio("whats-next-sting.wav");
-  a.volume=1.0;
+  a.volume=1.0; a.preload="auto";
   let stingDone=false;
-  const splashAlive=()=>document.getElementById("splash")!==null;
-  const play=()=>{
-    if(stingDone||!splashAlive())return;
-    stingDone=true;
-    a.play().catch(()=>{stingDone=false;});
-  };
-  play();
-  const once=()=>{
-    play();
+  const bootT=Date.now();
+  const cleanup=()=>{
     document.removeEventListener("touchstart",once);
     document.removeEventListener("click",once);
+    document.removeEventListener("keydown",once);
+  };
+  const play=()=>{
+    if(stingDone)return;
+    a.play().then(()=>{stingDone=true;cleanup();}).catch(()=>{/* web blocked it: wait for a gesture */});
+  };
+  const once=()=>{
+    // web browsers block sound until the first tap — the sting still fires on that
+    // first tap even if the 3s splash already faded (within 15s of boot)
+    if(Date.now()-bootT<15000)play(); else cleanup();
   };
   document.addEventListener("touchstart",once,{passive:true});
   document.addEventListener("click",once);
+  document.addEventListener("keydown",once);
+  play(); // native app: plays immediately (its WebView allows autoplay)
   // start each reel at its own speed
   document.querySelectorAll(".splashReel").forEach(r=>{
     r.style.animationDuration=r.dataset.speed+"s";
@@ -1007,8 +1012,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=c30b1eb"></script>
-<script defer src="manga-catalog.js?v=c30b1eb"></script>
+<script src="catalog.js?v=715cdd9"></script>
+<script defer src="manga-catalog.js?v=715cdd9"></script>
 <script defer src="manga-chapters.js?v=b8aa517"></script>
 <script>
 "use strict";
