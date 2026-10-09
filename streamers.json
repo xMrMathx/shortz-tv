@@ -160,5 +160,16 @@
    "name": "DatBoyStronger",
    "game": "Madden 26"
   }
+ ],
+ "youtube": [
+  {
+   "name": "ShowBizzTheAdult",
+   "channelId": "UCYxVAOXX7beQCyXb4OW_Z2g",
+   "url": "https://www.youtube.com/@showbizztheadult",
+   "category": "Boxing",
+   "followers": "368000",
+   "pinned": true,
+   "avatar": "https://yt3.ggpht.com/ytc/default-avatar.jpg"
+  }
  ]
 }

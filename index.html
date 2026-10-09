@@ -5042,7 +5042,7 @@ function liveShellHTML(){
   </div>`;
 }
 /* ---------- LIVE STREAMING: TikTok-style vertical swipe feed ---------- */
-let STREAMERS={kick:[],twitch:[]}, STREAMERS_LOADED=false;
+let STREAMERS={kick:[],twitch:[],youtube:[]}, STREAMERS_LOADED=false;
 /* refresh one Kick channel: live status via v1, most-recent VOD via v2 when offline */
 /* 4s ceiling for EVERY network call in the streaming refresh path —
    a single slow API can never hang the whole tab */
@@ -5138,17 +5138,17 @@ async function loadStreamers(){
   STREAMERS_LOADED=true;
   try{
     if(window.SHORTZ_STREAMERS){
-      STREAMERS.kick=window.SHORTZ_STREAMERS.kick||[];
+      STREAMERS.kick=window.SHORTZ_STREAMERS.kick||[]; STREAMERS.youtube=window.SHORTZ_STREAMERS.youtube||[];
       STREAMERS.twitch=window.SHORTZ_STREAMERS.twitch||[];
     }else{
       let cached=null;
       try{ cached=JSON.parse(localStorage.getItem("shortz_streamers")||"null"); }catch(e){}
       if(cached&&Array.isArray(cached.kick)&&Array.isArray(cached.twitch)){
-        STREAMERS.kick=cached.kick; STREAMERS.twitch=cached.twitch;
+        STREAMERS.kick=cached.kick; STREAMERS.twitch=cached.twitch; STREAMERS.youtube=cached.youtube||[];
       }else{
         // bundled streamers.json — 4s ceiling, a slow file fetch never blocks the tab
         const r=await Promise.race([fetch("streamers.json",{cache:"no-store"}),kickFetchTimeout(4000)]);
-        if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; }
+        if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; STREAMERS.youtube=d.youtube||[]; }
       }
     }
   }catch(e){ /* empty directory until streamers.json ships */ }
@@ -5164,7 +5164,7 @@ async function refreshStreamersLive(){
       // cache fetch may have raced out; retry the bundled data once before refreshing
       try{
         const r=await Promise.race([fetch("streamers.json",{cache:"no-store"}),kickFetchTimeout(4000)]);
-        if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; }
+        if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; STREAMERS.youtube=d.youtube||[]; }
       }catch(e){}
     }
     // ROOT FIX: the cached list never expired, so newly-added channels in
@@ -5201,16 +5201,21 @@ async function refreshStreamersLive(){
 /* unified list: Kick first, then Twitch; live streamers first within each */
 function sstreamList(){
   const out=[];
-  ["kick","twitch"].forEach(p=>{ (STREAMERS[p]||[]).forEach(s=>out.push(Object.assign({platform:p},s))); });
-  out.sort((a,b)=>((b.live?1:0)-(a.live?1:0)));
+  ["kick","twitch","youtube"].forEach(p=>{ (STREAMERS[p]||[]).forEach(s=>out.push(Object.assign({platform:p},s))); });
+  // pinned first (Mr. Moore's favorites), then live, then the rest
+  out.sort((a,b)=>((b.pinned?1:0)-(a.pinned?1:0))||((b.live?1:0)-(a.live?1:0)));
   return out;
 }
 function sstreamChannel(s){ return String(s.url||"").split("/").filter(Boolean).pop()||""; }
 function sstreamEmbed(s,muted){
-  const ch=encodeURIComponent(sstreamChannel(s)), m=muted?"true":"false";
+  const ch=encodeURIComponent(sstreamChannel(s)), m=muted?"1":"0";
   if(s.platform==="twitch")
-    return "https://player.twitch.tv/?channel="+ch+"&parent=xmrmathx.github.io&autoplay=true&muted="+m;
-  return "https://player.kick.com/"+ch+"?autoplay=true&muted="+m;
+    return "https://player.twitch.tv/?channel="+ch+"&parent=xmrmathx.github.io&autoplay=true&muted="+(muted?"true":"false");
+  if(s.platform==="youtube"){
+    const cid=s.channelId||ch;
+    return "https://www.youtube.com/embed/live_stream?channel="+encodeURIComponent(cid)+"&autoplay=1&mute="+m+"&rel=0";
+  }
+  return "https://player.kick.com/"+ch+"?autoplay=true&muted="+(muted?"true":"false");
 }
 // VOD playback uses a native <video> tag with the direct HLS URL (bypasses Kick player misconfiguration)
 function sstreamVodHTML(s,muted){
@@ -5240,7 +5245,7 @@ function sstreamFill(node,s,mode){
   ov.style.display="";
   const live=!!s.live, replay=!live&&!!s.vod_id;
   node.querySelector("[data-s-live]").innerHTML=live?`<span class="slive" style="position:static;transform:none">● LIVE</span>`:replay?`<span class="sreplay">▶ REPLAY</span>`:`<span class="soff">OFFLINE</span>`;
-  node.querySelector("[data-s-plat]").textContent=s.platform==="twitch"?"Twitch":"Kick";
+  node.querySelector("[data-s-plat]").textContent=s.platform==="twitch"?"Twitch":s.platform==="youtube"?"YouTube":"Kick";
   node.querySelector("[data-s-name]").textContent="@"+(s.name||"unknown");
   const tt=node.querySelector("[data-s-title]");
   const showTitle=replay?(s.vod_title||""):s.title;
@@ -5292,6 +5297,21 @@ function restackStreams(){
   sstreamFill(sstreamSlots[2],sstreamStack[sstreamPos+1]||null,sstreamStack[sstreamPos+1]?"unload":"blank");
 }
 /* poll Kick live status every 60s while the Streaming tab is open */
+async function pollYtLive(){
+  try{
+    const r=await fetch("yt-live.json",{cache:"no-store"});
+    if(!r.ok)return;
+    const d=await r.json();
+    let changed=false;
+    (STREAMERS.youtube||[]).forEach(s=>{
+      const st=d[s.channelId];
+      const was=!!s.live, now=!!(st&&st.live);
+      if(was!==now){ s.live=now; changed=true; }
+      if(st&&st.videoId)s.ytVideoId=st.videoId;
+    });
+    if(changed&&curView==="streaming")restackStreams();
+  }catch(e){}
+}
 async function pollKickLive(){
   if(curView!=="streaming"||!STREAMERS.kick.length)return;
   const changed=await Promise.all(STREAMERS.kick.map(kickRefreshOne));
@@ -5300,7 +5320,8 @@ async function pollKickLive(){
 function startStreamPoll(){
   stopStreamPoll();
   streamPollTimer=setInterval(pollKickLive,60000);
-}
+
+  pollYtLive(); setInterval(pollYtLive,600000);}
 function stopStreamPoll(){
   if(streamPollTimer){clearInterval(streamPollTimer);streamPollTimer=null;}
 }
