@@ -718,7 +718,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 <div id="splash"><img src="shortz-logo.webp" alt="Shortz TV" id="splashLogo"></div>
 <style>
 #splash{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;
-  animation:splashOut .6s ease 2.2s forwards}
+  pointer-events:none;animation:splashOut .6s ease 2.2s forwards}
 #splashLogo{width:280px;height:280px;object-fit:contain;
   animation:splashIn 1.1s cubic-bezier(.2,.9,.3,1.2) forwards}
 @keyframes splashIn{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.08);opacity:1}100%{transform:scale(1);opacity:1}}
@@ -3592,6 +3592,57 @@ function agoStr(iso){
     if(h<24)return h+"h ago";
     return Math.round(h/24)+"d ago";
   }catch(e){return""}
+}
+/* ---------- live scoreboard in TV Guide (ESPN API) ---------- */
+let tgScoreAt=0;
+function renderTgScoreboard(){
+  const box=document.getElementById("tgScore"); if(!box)return;
+  const now=Date.now();
+  if(now-tgScoreAt<5*60*1000&&box.dataset.loaded)return;
+  const leagues=[
+    {key:"NFL",url:"https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"},
+    {key:"NBA",url:"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard"},
+    {key:"MLB",url:"https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard"},
+    {key:"NHL",url:"https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard"}
+  ];
+  box.innerHTML='<div class="tg-sc-h"><div><div class="t"><span class="live"></span>SCOREBOARD</div>'
+    +'<div class="upd">Live scores · ESPN</div></div></div><div style="color:var(--mut);font-size:12px;padding:8px 2px">Loading scores…</div>';
+  Promise.all(leagues.map(l=>
+    fetch(l.url).then(r=>r.ok?r.json():null).then(d=>({key:l.key,events:(d&&d.events)||[]})).catch(()=>({key:l.key,events:[]}))
+  )).then(results=>{
+    tgScoreAt=Date.now(); box.dataset.loaded="1";
+    let html='<div class="tg-sc-h"><div><div class="t"><span class="live"></span>SCOREBOARD</div>'
+      +'<div class="upd">Live scores · ESPN</div></div></div>';
+    let any=false;
+    results.forEach(r=>{
+      if(!r.events.length)return;
+      any=true;
+      html+='<div class="tg-sc-league">'+r.key+'</div>';
+      const sorted=r.events.slice(0,12).sort((a,b)=>{
+        const ra=a.status.type.state==="in"?0:a.status.type.state==="pre"?1:2;
+        const rb=b.status.type.state==="in"?0:b.status.type.state==="pre"?1:2;
+        return ra-rb;
+      }).slice(0,4);
+      sorted.forEach(e=>{
+        try{
+          const comp=e.competitions[0];
+          const teams=comp.competitors;
+          const home=teams.find(t=>t.homeAway==="home")||teams[0];
+          const away=teams.find(t=>t.homeAway==="away")||teams[1];
+          const st=e.status.type;
+          const cls=st.state==="in"?"":st.state==="post"?"final":"pre";
+          const status=st.state==="post"?"Final":st.shortDetail;
+          const hw=parseInt(home.score||"0",10), aw=parseInt(away.score||"0",10);
+          html+='<div class="tg-sc-game"><div class="tg-sc-teams">'
+            +'<div class="tg-sc-team '+(aw>hw?"winner":"")+'"><span class="nm">'+esc(away.team.abbreviation)+' '+esc(away.team.displayName)+'</span><span class="sc">'+(away.score||"0")+'</span></div>'
+            +'<div class="tg-sc-team '+(hw>aw?"winner":"")+'"><span class="nm">'+esc(home.team.abbreviation)+' '+esc(home.team.displayName)+'</span><span class="sc">'+(home.score||"0")+'</span></div>'
+            +'</div><div class="tg-sc-status '+cls+'">'+esc(status)+'</div></div>';
+        }catch(_){}
+      });
+    });
+    if(!any)html+='<div style="color:var(--mut);font-size:12px;padding:8px 2px">No games right now.</div>';
+    box.innerHTML=html;
+  });
 }
 function renderTgHighlights(){
   const box=$("#tgHL"); if(!box)return;
