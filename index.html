@@ -1544,6 +1544,25 @@ function frameModeClass(t,fit){
   if(t.orientation==="vertical"||t.vertical||isVertMain(t))return "vert";
   return fit?"fit":"cover";
 }
+/* archive.org direct-file playback: YT.Player-compatible shim over <video> */
+function isArchiveUrl(u){ return String(u||"").indexOf("archive.org/download/")>=0; }
+function makeArchivePlayer(v){
+  return {
+    _v:v,
+    playVideo(){ try{ const p=this._v.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){} },
+    pauseVideo(){ try{this._v.pause();}catch(e){} },
+    stopVideo(){ try{this._v.pause(); this._v.currentTime=0;}catch(e){} },
+    mute(){ try{this._v.muted=true;}catch(e){} },
+    unMute(){ try{this._v.muted=false;}catch(e){} },
+    setVolume(x){ try{this._v.volume=Math.max(0,Math.min(1,(x||0)/100));}catch(e){} },
+    getCurrentTime(){ try{return this._v.currentTime||0;}catch(e){return 0;} },
+    getDuration(){ try{return this._v.duration||0;}catch(e){return 0;} },
+    getPlayerState(){ try{ if(this._v.ended)return 0; if(this._v.paused)return 2; return 1; }catch(e){return -1;} },
+    seekTo(t){ try{this._v.currentTime=Math.max(0,t||0);}catch(e){} },
+    setPlaybackQuality(){},
+    destroy(){ try{this._v.pause(); this._v.removeAttribute("src"); this._v.load();}catch(e){} try{this._v.remove();}catch(e){} }
+  };
+}
 /* HUD auto-hide: 3s no touch → UI fades, tap → back */
 let _hudT=null;
 function hudWake(){
@@ -2420,6 +2439,33 @@ function loadVideoInto(node,url,vid){
   // must be (re)created after — never hold a reference across destroy().
   try{if(node._player&&node._player.destroy)node._player.destroy()}catch(e){}
   node._player=null;
+  /* archive.org MP4s play through a native <video> element + YT-compatible shim */
+  if(isArchiveUrl(url)){
+    node._mediaKind="archive";
+    const oldAv=node.querySelector("[data-av]");
+    if(oldAv){ try{oldAv.pause();}catch(e){} try{oldAv.remove();}catch(e){} }
+    const fr0=node.querySelector("[data-frame]");
+    if(fr0){ try{fr0.removeAttribute("src");}catch(e){} fr0.style.display="none"; }
+    const fv0=node.querySelector("[data-fv]");
+    const v=document.createElement("video");
+    v.setAttribute("data-av",""); v.setAttribute("playsinline",""); v.setAttribute("preload","metadata");
+    v.style.cssText="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000;";
+    if(fv0)fv0.appendChild(v);
+    node._vid=vid||null; node._seekDone=false; node._dur=0; node._durReq=0;
+    const sh=makeArchivePlayer(v);
+    node._player=sh;
+    v.muted=!soundOn; // muted autoplay start, unmute shortly after like the YT path
+    v.onloadedmetadata=()=>{ maybeResume(node,sh); if(soundOn){ setTimeout(()=>{ try{if(node._player===sh)v.muted=false;}catch(e){} },900); } };
+    v.onended=()=>{ try{clearProg(node);}catch(e){} autoNext(node,vid); };
+    v.onpause=()=>{ try{if(!v.ended)saveProg(node);}catch(e){} };
+    v.onerror=()=>{ try{toast("Video unavailable");}catch(e){} };
+    v.src=url;
+    try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){}
+    return;
+  }
+  node._mediaKind="yt";
+  const oldAv2=node.querySelector("[data-av]");
+  if(oldAv2){ try{oldAv2.pause();}catch(e){} try{oldAv2.remove();}catch(e){} }
   let fr=takePreloaded(vid);
   if(fr){
     // warmed iframe available: move it into this slide's frame slot
@@ -2428,6 +2474,7 @@ function loadVideoInto(node,url,vid){
     fr.style.cssText="";
   }else{
     fr=ensureFrame(node);
+    try{fr.style.display="";}catch(e){}
   }
   node._vid=vid||null;node._seekDone=false;node._dur=0;node._durReq=0;
   if(!fr)return;
@@ -2687,6 +2734,7 @@ function tryRecover(node){  try{
 function preloadNext(url,vid){
   try{
     if(!url||!vid)return;
+    if(isArchiveUrl(url))return; // archive.org files stream direct — no YT iframe warmup
     if(window._preloaded&&window._preloaded.vid===vid)return; // already warm
     // drop any stale preload
     if(window._preloaded&&window._preloaded.fr){try{window._preloaded.fr.remove()}catch(e){}}
