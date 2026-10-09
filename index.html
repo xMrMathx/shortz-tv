@@ -5223,6 +5223,8 @@ function sstreamEmbed(s,muted){
   if(s.platform==="twitch")
     return "https://player.twitch.tv/?channel="+ch+"&parent=xmrmathx.github.io&autoplay=true&muted="+(muted?"true":"false");
   if(s.platform==="youtube"){
+    const vid=s.live&&s.ytVideoId?s.ytVideoId:(!s.live&&s.ytLatestId?s.ytLatestId:null);
+    if(vid)return "https://www.youtube.com/embed/"+encodeURIComponent(vid)+"?autoplay=1&mute="+m+"&rel=0";
     const cid=s.channelId||ch;
     return "https://www.youtube.com/embed/live_stream?channel="+encodeURIComponent(cid)+"&autoplay=1&mute="+m+"&rel=0";
   }
@@ -5254,12 +5256,12 @@ function sstreamFill(node,s,mode){
   node._s=s||null;
   if(!s||mode==="blank"){ fr.innerHTML=""; ov.style.display="none"; return; }
   ov.style.display="";
-  const live=!!s.live, replay=!live&&!!s.vod_id;
+  const live=!!s.live, replay=!live&&(!!s.vod_id||(s.platform==="youtube"&&!!s.ytLatestId));
   node.querySelector("[data-s-live]").innerHTML=live?`<span class="slive" style="position:static;transform:none">● LIVE</span>`:replay?`<span class="sreplay">▶ REPLAY</span>`:`<span class="soff">OFFLINE</span>`;
   node.querySelector("[data-s-plat]").textContent=s.platform==="twitch"?"Twitch":s.platform==="youtube"?"YouTube":"Kick";
   node.querySelector("[data-s-name]").textContent="@"+(s.name||"unknown");
   const tt=node.querySelector("[data-s-title]");
-  const showTitle=replay?(s.vod_title||""):s.title;
+  const showTitle=replay?(s.vod_title||""):(s.platform==="youtube"&&!s.live&&s.ytLatestTitle?s.ytLatestTitle:s.title);
   tt.textContent=showTitle||""; tt.style.display=showTitle?"":"none";
   const mt=node.querySelector("[data-s-meta]");
   mt.textContent=live&&s.viewers?(s.viewers+" watching"):live?"Live now":replay?"Most recent stream":"";
@@ -5315,10 +5317,11 @@ async function pollYtLive(){
     const d=await r.json();
     let changed=false;
     (STREAMERS.youtube||[]).forEach(s=>{
-      const st=d[s.channelId];
-      const was=!!s.live, now=!!(st&&st.live);
+      const st=d[s.channelId]||{};
+      const was=!!s.live, now=!!st.live;
       if(was!==now){ s.live=now; changed=true; }
-      if(st&&st.videoId)s.ytVideoId=st.videoId;
+      if(st.videoId)s.ytVideoId=st.videoId;
+      if(st.latestVideoId){ s.ytLatestId=st.latestVideoId; s.ytLatestTitle=st.latestTitle||""; }
     });
     if(changed&&curView==="streaming")restackStreams();
   }catch(e){}
@@ -5328,13 +5331,15 @@ async function pollKickLive(){
   const changed=await Promise.all(STREAMERS.kick.map(kickRefreshOne));
   if(curView==="streaming"&&changed.some(Boolean))restackStreams();
 }
+let ytPollTimer=null;
 function startStreamPoll(){
   stopStreamPoll();
   streamPollTimer=setInterval(pollKickLive,60000);
-
-  pollYtLive(); setInterval(pollYtLive,600000);}
+  pollYtLive(); ytPollTimer=setInterval(pollYtLive,600000);
+}
 function stopStreamPoll(){
   if(streamPollTimer){clearInterval(streamPollTimer);streamPollTimer=null;}
+  if(ytPollTimer){clearInterval(ytPollTimer);ytPollTimer=null;}
 }
 function sstreamAdvance(dir){
   const stage=$("#sstreamStage"), track=$("#sstreamTrack");
