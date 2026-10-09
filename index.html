@@ -5157,6 +5157,12 @@ async function loadStreamers(){
       }
     }
   }catch(e){ /* empty directory until streamers.json ships */ }
+  // hard filter: Chonion is removed, period — no stale cache can bring him back
+  try{
+    ["kick","twitch","youtube"].forEach(p=>{
+      STREAMERS[p]=(STREAMERS[p]||[]).filter(x=>((x.name||"")+"").toLowerCase()!=="chonion");
+    });
+  }catch(e){}
 }
 /* Background live refresh — fired and NOT awaited by the render path.
    Live badges / replay data land via restackStreams() when they arrive. */
