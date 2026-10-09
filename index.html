@@ -1564,7 +1564,8 @@ function isVertMain(t){
    - variety: penalize the last 3 picks' genres         (-2)
    - jitter: random 0-2 keeps it feeling alive, never robotic
    Best score wins. Cheap on a phone: 15 scored candidates, O(1) pools.
-   (Home feed still only ever shows 5+ verified-episode series - his law.) */
+   (Home feed still only ever shows 5+ verified-episode series - his law.
+    Pool is the full 352-title home pool; vertical gets a small bonus.) */
 const FRESH_CANDIDATES=15;
 function tasteGenres(){
   const g={};
@@ -1594,6 +1595,7 @@ function freshScore(t,recentGenres,taste){
   }
   if(t.genre&&taste[t.genre])s+=1;                         // taste
   if(t.genre&&recentGenres.indexOf(t.genre)>=0)s-=2;        // variety
+  try{ if(isVertMain(t))s+=0.5; }catch(e){}                 // vertical fills the screen
   return s;
 }
 function pickRandom(exceptId){
@@ -1601,7 +1603,7 @@ function pickRandom(exceptId){
   // (Home feed prefers natively-vertical series so video fills the screen.)
   // HIS LAW: Home only ever shows series with 5+ verified episodes.
   // 1-episode series live in the Early Release folder, never on Home.
-  const pool = IDX.homeVertPool.length ? IDX.homeVertPool : (IDX.homePool.length ? IDX.homePool : C);
+  const pool = IDX.homePool.length ? IDX.homePool : C; // full 5+ep pool (352): the 38-vertical splinter starved variety
   const recentGenres=[];
   try{
     for(let i=Math.max(0,feedStack.length-3);i<feedStack.length;i++){
