@@ -1522,7 +1522,11 @@ function go(v){
 const TAB_BTNS=[...document.querySelectorAll(".tab")];
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dataset.v)}catch(err){console.error("renderView",err)}go(t.dataset.v)});
 function renderView(v){
-  if(v==="home")mountFeed();
+  if(v==="home"){
+    mountFeed();
+    // HIS LAW: every Home visit opens a fresh random lineup — never the same videos.
+    if(feedMounted&&!piaActive){ try{ playSeries(pickRandom(null)); }catch(e){} }
+  }
   if(v==="browse")renderBrowse(browseGenre);
   if(v==="live")renderLive();
   if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
@@ -1552,23 +1556,72 @@ function isVertMain(t){
   }
   t._vmain=v;return v;
 }
+/* HOME FRESH algorithm: every pick is scored, never just random.
+   15 candidates are sampled from the pool, then ranked:
+   - unseen: never watched + not recently picked        (+3)
+   - fresh: added in the last 30 days, decaying          (+2 -> 0)
+   - taste: genre matches his liked / saved titles       (+1)
+   - variety: penalize the last 3 picks' genres         (-2)
+   - jitter: random 0-2 keeps it feeling alive, never robotic
+   Best score wins. Cheap on a phone: 15 scored candidates, O(1) pools.
+   (Home feed still only ever shows 5+ verified-episode series - his law.) */
+const FRESH_CANDIDATES=15;
+function tasteGenres(){
+  const g={};
+  try{
+    const ids=new Set();
+    if(window.mylist)mylist.forEach(id=>ids.add(id));
+    if(window.Likes&&Likes.cache&&Likes.uid){
+      for(const id of Object.keys(Likes.cache)){
+        const v=Likes.cache[id];
+        if(v&&v[Likes.uid]&&String(id).indexOf("stv-")===0)ids.add(id);
+      }
+    }
+    ids.forEach(id=>{ const t=byId(id); if(t&&t.genre)g[t.genre]=(g[t.genre]||0)+1; });
+  }catch(e){}
+  return g;
+}
+function freshScore(t,recentGenres,taste){
+  let s=Math.random()*2; // jitter
+  const id=t.id;
+  let watched=false;
+  try{ watched=history.some(h=>h&&h.id===id); }catch(e){}
+  if(!watched&&seen.indexOf(id)<0)s+=3;                    // unseen
+  const da=t.dateAdded||t.added_at||t.date_added;
+  if(da){
+    const age=(Date.now()-new Date(da).getTime())/864e5;
+    if(age>=0&&age<30)s+=2*(1-age/30);                     // fresh
+  }
+  if(t.genre&&taste[t.genre])s+=1;                         // taste
+  if(t.genre&&recentGenres.indexOf(t.genre)>=0)s-=2;        // variety
+  return s;
+}
 function pickRandom(exceptId){
   // O(1) amortized: precomputed pools, no regex, no full scan.
   // (Home feed prefers natively-vertical series so video fills the screen.)
   // HIS LAW: Home only ever shows series with 5+ verified episodes.
   // 1-episode series live in the Early Release folder, never on Home.
   const pool = IDX.homeVertPool.length ? IDX.homeVertPool : (IDX.homePool.length ? IDX.homePool : C);
-  let t = pool[(Math.random() * pool.length) | 0];
-  let guard = 0;
-  while((!t || t.id === exceptId || seen.indexOf(t.id) >= 0) && guard++ < 12){
-    t = pool[(Math.random() * pool.length) | 0];
+  const recentGenres=[];
+  try{
+    for(let i=Math.max(0,feedStack.length-3);i<feedStack.length;i++){
+      const t=feedStack[i]; if(t&&t.genre)recentGenres.push(t.genre);
+    }
+  }catch(e){}
+  const taste=tasteGenres();
+  let best=null,bestScore=-1e9;
+  for(let k=0;k<FRESH_CANDIDATES;k++){
+    const t=pool[(Math.random()*pool.length)|0];
+    if(!t||t.id===exceptId)continue;
+    const s=freshScore(t,recentGenres,taste);
+    if(s>bestScore){bestScore=s;best=t;}
   }
-  if(!t) t = C[(Math.random() * C.length) | 0];
-  seen.push(t.id); if(seen.length > 10) seen.splice(0, seen.length - 10);
+  if(!best)best=C[(Math.random()*C.length)|0];
+  seen.push(best.id); if(seen.length > 60)seen.splice(0, seen.length - 60);
   // DEBOUNCED persist: the old code did a synchronous localStorage write on EVERY swipe
   clearTimeout(pickRandom._st);
-  pickRandom._st = setTimeout(()=>{ try{ store.set("seen", seen); }catch(e){} }, 2000);
-  return t;
+  pickRandom._st = setTimeout(()=>{ try{ store.set("seen",seen); }catch(e){} }, 2000);
+  return best;
 }
 function embedSrc(u,autoplay){
   const vimeo=u.indexOf("vimeo.com")>=0;
