@@ -1575,6 +1575,11 @@ function frameModeClass(t,fit){
 /* archive.org direct-file playback: YT.Player-compatible shim over <video> */
 function isArchiveUrl(u){ return String(u||"").indexOf("archive.org/download/")>=0; }
 function makeArchivePlayer(v){
+  try{
+    v.addEventListener("play",()=>pipReportState(true));
+    v.addEventListener("pause",()=>pipReportState(false));
+    v.addEventListener("ended",()=>pipReportState(false));
+  }catch(e){}
   return {
     _v:v,
     playVideo(){ try{ const p=this._v.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){} },
@@ -1638,6 +1643,7 @@ function toggleFit(slide){
    window aspect ratio (Android may not honor the requested 9:16 exactly). */
 function applyPipLayout(){
   const on=document.body.classList.contains("pip");
+  _pipLastPlaying=null; // fresh PiP entry: force the next state report through
   document.querySelectorAll(".feed-video iframe").forEach(fr=>{
     if(!on){fr.style.cssText="";return;}
     const w=window.innerWidth,h=window.innerHeight;
@@ -1661,6 +1667,19 @@ function applyPipLayout(){
   });
 }
 window.addEventListener("resize",()=>{if(document.body.classList.contains("pip"))applyPipLayout();});
+/* system-PiP native controls: report play state to the app so the floating
+   window's play/pause button stays in sync. Change-detected: the app only
+   rebuilds its buttons when the state actually flips. */
+let _pipLastPlaying=null;
+function pipReportState(playing){
+  playing=!!playing;
+  if(playing===_pipLastPlaying)return;
+  _pipLastPlaying=playing;
+  try{
+    if(document.body.classList.contains("pip")&&window.Android&&Android.onPipPlaying)
+      Android.onPipPlaying(playing);
+  }catch(e){}
+}
 /* PiP tap-to-pause: transparent catcher, only alive in PiP mode (body.pip).
    Taps in PiP fall through to the YouTube iframe which doesn't toggle there,
    so we toggle through the player API directly. Tap = pause, tap again = play. */
@@ -2561,6 +2580,9 @@ function loadVideoInto(node,url,vid){
           try{
             if(ev.data===YT.PlayerState.PAUSED)saveProg(node);
             else if(ev.data===YT.PlayerState.ENDED){clearProg(node);autoNext(node,vid);}
+            // system-PiP native button: keep its play/pause icon in sync
+            if(document.body.classList.contains("pip"))
+              pipReportState(ev.data===YT.PlayerState.PLAYING||ev.data===YT.PlayerState.BUFFERING);
           }catch(e){}
         }
       }});
