@@ -1,0 +1,910 @@
+{
+ "updatedAt": "2026-10-09T03:13:16.422798+00:00",
+ "total_hunters": 100,
+ "series_hunters": 50,
+ "film_hunters": 50,
+ "total_found": 0,
+ "total_batches": 0,
+ "hunters": [
+  {
+   "id": "series-01",
+   "type": "series",
+   "genre": "Rebirth",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422267+00:00"
+  },
+  {
+   "id": "series-02",
+   "type": "series",
+   "genre": "Romance",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422296+00:00"
+  },
+  {
+   "id": "series-03",
+   "type": "series",
+   "genre": "Thriller",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422301+00:00"
+  },
+  {
+   "id": "series-04",
+   "type": "series",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422304+00:00"
+  },
+  {
+   "id": "series-05",
+   "type": "series",
+   "genre": "Comedy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422307+00:00"
+  },
+  {
+   "id": "series-06",
+   "type": "series",
+   "genre": "Drama",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422310+00:00"
+  },
+  {
+   "id": "series-07",
+   "type": "series",
+   "genre": "Sci-Fi",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422313+00:00"
+  },
+  {
+   "id": "series-08",
+   "type": "series",
+   "genre": "Fantasy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422316+00:00"
+  },
+  {
+   "id": "series-09",
+   "type": "series",
+   "genre": "Mystery",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422318+00:00"
+  },
+  {
+   "id": "series-10",
+   "type": "series",
+   "genre": "Action",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422321+00:00"
+  },
+  {
+   "id": "series-11",
+   "type": "series",
+   "genre": "Western",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422324+00:00"
+  },
+  {
+   "id": "series-12",
+   "type": "series",
+   "genre": "Faith",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422328+00:00"
+  },
+  {
+   "id": "series-13",
+   "type": "series",
+   "genre": "Family",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422331+00:00"
+  },
+  {
+   "id": "series-14",
+   "type": "series",
+   "genre": "Rebirth",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422333+00:00"
+  },
+  {
+   "id": "series-15",
+   "type": "series",
+   "genre": "Romance",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422337+00:00"
+  },
+  {
+   "id": "series-16",
+   "type": "series",
+   "genre": "Thriller",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422339+00:00"
+  },
+  {
+   "id": "series-17",
+   "type": "series",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422342+00:00"
+  },
+  {
+   "id": "series-18",
+   "type": "series",
+   "genre": "Comedy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422344+00:00"
+  },
+  {
+   "id": "series-19",
+   "type": "series",
+   "genre": "Drama",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422347+00:00"
+  },
+  {
+   "id": "series-20",
+   "type": "series",
+   "genre": "Sci-Fi",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422349+00:00"
+  },
+  {
+   "id": "series-21",
+   "type": "series",
+   "genre": "Fantasy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422352+00:00"
+  },
+  {
+   "id": "series-22",
+   "type": "series",
+   "genre": "Mystery",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422354+00:00"
+  },
+  {
+   "id": "series-23",
+   "type": "series",
+   "genre": "Action",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422358+00:00"
+  },
+  {
+   "id": "series-24",
+   "type": "series",
+   "genre": "Western",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422360+00:00"
+  },
+  {
+   "id": "series-25",
+   "type": "series",
+   "genre": "Faith",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422363+00:00"
+  },
+  {
+   "id": "series-26",
+   "type": "series",
+   "genre": "Family",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422365+00:00"
+  },
+  {
+   "id": "series-27",
+   "type": "series",
+   "genre": "Rebirth",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422367+00:00"
+  },
+  {
+   "id": "series-28",
+   "type": "series",
+   "genre": "Romance",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422370+00:00"
+  },
+  {
+   "id": "series-29",
+   "type": "series",
+   "genre": "Thriller",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422372+00:00"
+  },
+  {
+   "id": "series-30",
+   "type": "series",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422375+00:00"
+  },
+  {
+   "id": "series-31",
+   "type": "series",
+   "genre": "Comedy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422377+00:00"
+  },
+  {
+   "id": "series-32",
+   "type": "series",
+   "genre": "Drama",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422381+00:00"
+  },
+  {
+   "id": "series-33",
+   "type": "series",
+   "genre": "Sci-Fi",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422383+00:00"
+  },
+  {
+   "id": "series-34",
+   "type": "series",
+   "genre": "Fantasy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422386+00:00"
+  },
+  {
+   "id": "series-35",
+   "type": "series",
+   "genre": "Mystery",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422388+00:00"
+  },
+  {
+   "id": "series-36",
+   "type": "series",
+   "genre": "Action",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422391+00:00"
+  },
+  {
+   "id": "series-37",
+   "type": "series",
+   "genre": "Rebirth",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422410+00:00"
+  },
+  {
+   "id": "series-38",
+   "type": "series",
+   "genre": "Romance",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422507+00:00"
+  },
+  {
+   "id": "series-39",
+   "type": "series",
+   "genre": "Thriller",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422510+00:00"
+  },
+  {
+   "id": "series-40",
+   "type": "series",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422512+00:00"
+  },
+  {
+   "id": "series-41",
+   "type": "series",
+   "genre": "Comedy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422515+00:00"
+  },
+  {
+   "id": "series-42",
+   "type": "series",
+   "genre": "Drama",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422518+00:00"
+  },
+  {
+   "id": "series-43",
+   "type": "series",
+   "genre": "Sci-Fi",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422520+00:00"
+  },
+  {
+   "id": "series-44",
+   "type": "series",
+   "genre": "Fantasy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422525+00:00"
+  },
+  {
+   "id": "series-45",
+   "type": "series",
+   "genre": "Mystery",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422528+00:00"
+  },
+  {
+   "id": "series-46",
+   "type": "series",
+   "genre": "Action",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422530+00:00"
+  },
+  {
+   "id": "series-47",
+   "type": "series",
+   "genre": "Rebirth",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422533+00:00"
+  },
+  {
+   "id": "series-48",
+   "type": "series",
+   "genre": "Romance",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422535+00:00"
+  },
+  {
+   "id": "series-49",
+   "type": "series",
+   "genre": "Thriller",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422537+00:00"
+  },
+  {
+   "id": "series-50",
+   "type": "series",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422540+00:00"
+  },
+  {
+   "id": "film-01",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422545+00:00"
+  },
+  {
+   "id": "film-02",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422549+00:00"
+  },
+  {
+   "id": "film-03",
+   "type": "film",
+   "genre": "Animation",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422552+00:00"
+  },
+  {
+   "id": "film-04",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422555+00:00"
+  },
+  {
+   "id": "film-05",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422558+00:00"
+  },
+  {
+   "id": "film-06",
+   "type": "film",
+   "genre": "Drama",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422562+00:00"
+  },
+  {
+   "id": "film-07",
+   "type": "film",
+   "genre": "Comedy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422564+00:00"
+  },
+  {
+   "id": "film-08",
+   "type": "film",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422567+00:00"
+  },
+  {
+   "id": "film-09",
+   "type": "film",
+   "genre": "Thriller",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422570+00:00"
+  },
+  {
+   "id": "film-10",
+   "type": "film",
+   "genre": "Sci-Fi",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422572+00:00"
+  },
+  {
+   "id": "film-11",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422575+00:00"
+  },
+  {
+   "id": "film-12",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422578+00:00"
+  },
+  {
+   "id": "film-13",
+   "type": "film",
+   "genre": "Animation",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422580+00:00"
+  },
+  {
+   "id": "film-14",
+   "type": "film",
+   "genre": "Romance",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422583+00:00"
+  },
+  {
+   "id": "film-15",
+   "type": "film",
+   "genre": "Rebirth",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422586+00:00"
+  },
+  {
+   "id": "film-16",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422589+00:00"
+  },
+  {
+   "id": "film-17",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422595+00:00"
+  },
+  {
+   "id": "film-18",
+   "type": "film",
+   "genre": "Animation",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422711+00:00"
+  },
+  {
+   "id": "film-19",
+   "type": "film",
+   "genre": "Drama",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422714+00:00"
+  },
+  {
+   "id": "film-20",
+   "type": "film",
+   "genre": "Comedy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422717+00:00"
+  },
+  {
+   "id": "film-21",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422721+00:00"
+  },
+  {
+   "id": "film-22",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422724+00:00"
+  },
+  {
+   "id": "film-23",
+   "type": "film",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422728+00:00"
+  },
+  {
+   "id": "film-24",
+   "type": "film",
+   "genre": "Thriller",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422730+00:00"
+  },
+  {
+   "id": "film-25",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422732+00:00"
+  },
+  {
+   "id": "film-26",
+   "type": "film",
+   "genre": "Animation",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422735+00:00"
+  },
+  {
+   "id": "film-27",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422737+00:00"
+  },
+  {
+   "id": "film-28",
+   "type": "film",
+   "genre": "Drama",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422741+00:00"
+  },
+  {
+   "id": "film-29",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422743+00:00"
+  },
+  {
+   "id": "film-30",
+   "type": "film",
+   "genre": "Comedy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422745+00:00"
+  },
+  {
+   "id": "film-31",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422748+00:00"
+  },
+  {
+   "id": "film-32",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422750+00:00"
+  },
+  {
+   "id": "film-33",
+   "type": "film",
+   "genre": "Animation",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422753+00:00"
+  },
+  {
+   "id": "film-34",
+   "type": "film",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422755+00:00"
+  },
+  {
+   "id": "film-35",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422757+00:00"
+  },
+  {
+   "id": "film-36",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422760+00:00"
+  },
+  {
+   "id": "film-37",
+   "type": "film",
+   "genre": "Thriller",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422762+00:00"
+  },
+  {
+   "id": "film-38",
+   "type": "film",
+   "genre": "Sci-Fi",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422764+00:00"
+  },
+  {
+   "id": "film-39",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422767+00:00"
+  },
+  {
+   "id": "film-40",
+   "type": "film",
+   "genre": "Animation",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422771+00:00"
+  },
+  {
+   "id": "film-41",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422773+00:00"
+  },
+  {
+   "id": "film-42",
+   "type": "film",
+   "genre": "Drama",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422776+00:00"
+  },
+  {
+   "id": "film-43",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422778+00:00"
+  },
+  {
+   "id": "film-44",
+   "type": "film",
+   "genre": "Comedy",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422781+00:00"
+  },
+  {
+   "id": "film-45",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422783+00:00"
+  },
+  {
+   "id": "film-46",
+   "type": "film",
+   "genre": "Animation",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422786+00:00"
+  },
+  {
+   "id": "film-47",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422788+00:00"
+  },
+  {
+   "id": "film-48",
+   "type": "film",
+   "genre": "Horror",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422790+00:00"
+  },
+  {
+   "id": "film-49",
+   "type": "film",
+   "genre": "Documentary",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422793+00:00"
+  },
+  {
+   "id": "film-50",
+   "type": "film",
+   "genre": "Short Films",
+   "found": 0,
+   "batches": 0,
+   "status": "hunting",
+   "updated": "2026-10-09T03:13:16.422795+00:00"
+  }
+ ]
+}
