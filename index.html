@@ -519,6 +519,7 @@ body.pia #piaWrap{display:block}
 #piaWrap .pia-frame{position:relative;width:100%;aspect-ratio:16/9;max-height:220px;background:#000}
 #piaWrap .pia-frame .feed-video{position:absolute!important;inset:0!important}
 #piaWrap .pia-frame iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;transform:none!important}
+#piaTap{position:absolute;inset:0;z-index:5;background:transparent;cursor:pointer}
 #piaWrap .pia-bar{display:flex;align-items:center;gap:8px;padding:8px 10px}
 #piaWrap .pia-title{flex:1;min-width:0;font-size:12px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #piaWrap .pia-btn{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #3a3a46;background:#1a1a22;color:#fff;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center}
@@ -890,6 +891,7 @@ try{
   <div id="piaWrap">
     <div class="pia-frame" id="piaFrame">
       <div class="uprog"><i id="piaProg"></i></div>
+      <div id="piaTap" title="Tap to pause/play"></div>
     </div>
     <div class="pia-bar">
       <div class="pia-title" id="piaTitle"></div>
@@ -1770,6 +1772,16 @@ function piaClose(){
   }catch(e){}
   piaExit();
 }
+/* PIA tap-to-pause: tap the mini-player video to pause, tap again to play */
+function piaTogglePlay(){
+  if(!piaActive)return;
+  const slide=piaHome&&piaHome.slide;
+  if(!slide)return;
+  const pl=slide._player; if(!pl||!pl.getPlayerState)return;
+  let st=-1; try{st=pl.getPlayerState();}catch(e){}
+  if(st===1||st===3){ try{pl.pauseVideo();}catch(e){} }
+  else{ try{pl.playVideo();}catch(e){} }
+}
 (function(){
   const m=document.getElementById("piaMute");
   if(m)m.addEventListener("click",e=>{e.stopPropagation();piaToggleMute();});
@@ -1777,6 +1789,8 @@ function piaClose(){
   if(x)x.addEventListener("click",e=>{e.stopPropagation();piaExit();});
   const c=document.getElementById("piaClose");
   if(c)c.addEventListener("click",e=>{e.stopPropagation();piaClose();});
+  const pt=document.getElementById("piaTap");
+  if(pt)pt.addEventListener("click",e=>{e.stopPropagation();piaTogglePlay();});
 })();
 function curSlide(){return slotNodes[1]}
 function layoutSlots(){slotNodes.forEach((n,i)=>{n.style.transform=`translateY(${(i-1)*100}%)`})}
