@@ -1184,6 +1184,53 @@ function thumb(t,sz){
   const id=ytId(u); if(!id) return "";
   return "https://i.ytimg.com/vi/"+id+"/"+sz+"default.jpg";
 }
+/* ---------- Auto-pull algorithm: unplayable videos remove themselves ----------
+   YouTube reveals claimant embed blocks (error 150/101) and dead videos
+   (error 100) ONLY inside the player — no server API exposes them. So the app
+   itself is the detector:
+   1. onError 100/101/150 → no workaround exists → block + report + skip.
+   2. Blocked IDs persist in localStorage: never attempted again on this device.
+   3. Reports go to Firebase (directory/<uid>/blocked/<vid>) for catalog-wide removal.
+   4. A daily cron pulls reported episodes from the catalog (drops series <3 eps).
+   Transient errors (2, 5, ...) keep the old retry behavior. */
+function isVidBlocked(vid){ try{const bl=store.get("blockedVids",{});return !!(vid&&bl[vid]);}catch(e){return false;} }
+function markVidBlocked(vid,code){
+  try{const bl=store.get("blockedVids",{});bl[vid]={code:code,ts:Date.now()};store.set("blockedVids",bl);}catch(e){}
+}
+async function reportBlockedVid(vid,code){
+  try{
+    if(!FIREBASE_READY||!window.firebase)return;
+    if(!Live.app){try{firebase.initializeApp(FIREBASE_CONFIG);}catch(e){} Live.app=firebase.app();}
+    const cred=await firebase.auth().signInAnonymously();
+    // reports live under the reporter's own directory node (existing rules allow
+    // any shape there; the launch-time directory writes use update(), not set(),
+    // so reports survive). The daily cron sweeps directory for blocked/*.
+    const upd={}; upd["blocked/"+vid]={code:code,ts:Date.now()};
+    await firebase.database().ref("directory/"+cred.user.uid).update(upd);
+  }catch(e){}
+}
+function skipBlockedVid(node,vid){
+  const t=(node&&node._t)||feed.cur;
+  const eps=(t&&t.episodes)||[];
+  const idx=epIdxOf(eps,vid);
+  for(let i=idx+1;i<eps.length;i++){
+    const e=eps[i], evid=e.video_id||vidOf(e.url||"");
+    if(e.verified&&e.url&&!isVidBlocked(evid)){ playEpisode(e); return; }
+  }
+  if(node===curSlide()&&typeof advanceAnimated==="function"){ advanceAnimated(1); return; }
+  try{toast("Video unavailable");}catch(e){}
+}
+function onYtPlayerError(node,vid,code){
+  if(code===100||code===101||code===150){
+    if(vid&&!isVidBlocked(vid)){
+      markVidBlocked(vid,code);
+      reportBlockedVid(vid,code);
+    }
+    skipBlockedVid(node,vid);
+    return;
+  }
+  tryRecover(node);
+}
 const byId = id => IDX.byId.get(id);
 
 /* ---------- Live visitor presence: who's on the site RIGHT NOW ----------
@@ -2732,6 +2779,8 @@ window.ytSignInDone=function(){
 };
 function loadVideoInto(node,url,vid){
   hudWake(); // new video → UI visible, restart the 3s hide timer
+  // auto-pull algorithm: never load a video the player already proved unplayable
+  if(vid&&isVidBlocked(vid)){ skipBlockedVid(node,vid); return; }
   node._endedFired=false; // reset the backup auto-next flag for the new video
   // destroy FIRST: YT destroy() removes the iframe from the DOM, so the frame
   // must be (re)created after — never hold a reference across destroy().
@@ -2803,6 +2852,7 @@ function loadVideoInto(node,url,vid){
       node._player=new YT.Player(fr,{events:{
         onReady:ev=>{maybeResume(node,ev.target);applySavedTracks(node,ev.target);try{ev.target.setPlaybackQuality("hd1080")}catch(e){}},
         onApiChange:ev=>{try{applySavedTracks(node,ev.target)}catch(e){}},
+        onError:ev=>{try{onYtPlayerError(node,vid,ev.data);}catch(e){}},
         onStateChange:ev=>{
           try{
             if(ev.data===YT.PlayerState.PAUSED)saveProg(node);
@@ -3870,7 +3920,7 @@ async function saveProfile(p){
     const ok=await liveEnsure();
     if(ok&&Live.db){
       await Live.db.ref("users/"+Live.uid+"/profile").set(p);
-      await Live.db.ref("directory/"+Live.uid).set({name:p.name||"Viewer",photo:p.photo||"",ts:Date.now()});
+      await Live.db.ref("directory/"+Live.uid).update({name:p.name||"Viewer",photo:p.photo||"",ts:Date.now()});
       Live.name=p.name||Live.name;
       syncHistoryRemote(); syncMyListRemote(); // backfill recents/saved
     }
@@ -4888,7 +4938,7 @@ async function liveEnsure(){
       // denied write here aborts everything below it)
       try{
         const prof=store.get("profile",null)||{};
-        await Live.db.ref("directory/"+Live.uid).set({name:prof.name||nm||"Viewer",photo:prof.photo||"",ts:Date.now()});
+        await Live.db.ref("directory/"+Live.uid).update({name:prof.name||nm||"Viewer",photo:prof.photo||"",ts:Date.now()});
       }catch(_){}
       return true;
     }catch(e){ return false; }
