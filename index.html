@@ -1012,8 +1012,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=715cdd9"></script>
-<script defer src="manga-catalog.js?v=715cdd9"></script>
+<script src="catalog.js?v=8d96d08"></script>
+<script defer src="manga-catalog.js?v=8d96d08"></script>
 <script defer src="manga-chapters.js?v=b8aa517"></script>
 <script>
 "use strict";
@@ -3178,10 +3178,12 @@ function autoNext(node,vid){
   for(let i=idx+1;i<eps.length;i++){
     if(eps[i].verified&&eps[i].url){startNextCountdown(node,eps[i]);return;}
   }
-  // No next verified episode: STOP. Never jump to a random series mid-binge —
-  // a missing/unverified next episode is a data gap, not a reason to switch.
-  // The user swipes up when they want something new.
+  // No next playable episode in this series: advance the feed to the next video.
+  // Binge law: never strand the viewer on an ended screen — keep it moving.
+  // (Same-series rule still holds mid-binge; this only fires when the series
+  // has nothing more to play.)
   try{clearProg(node)}catch(e){}
+  if(node===curSlide()&&typeof advanceAnimated==="function"){ advanceAnimated(1); }
 }
 function epIdxOf(eps,vid){
   for(let i=0;i<eps.length;i++){
