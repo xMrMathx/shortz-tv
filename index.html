@@ -1148,12 +1148,12 @@ function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i)
 function artBg(t){const h=hash(t),h1=h%360,h2=(h1+45+(h%70))%360;
   return `radial-gradient(120% 90% at 20% 10%, hsl(${h1},60%,30%), transparent 60%),linear-gradient(155deg,hsl(${h1},58%,24%),hsl(${h2},62%,9%) 75%)`}
 /* real cover art: YouTube thumbnails, vumbnail for the one Vimeo title */
-function ytId(u){const m=String(u||"").match(/youtube\.com\/embed\/([A-Za-z0-9_-]{6,})/);return m?m[1]:""}
+function ytId(u){const s=String(u||"");let m=s.match(/youtube\.com\/embed\/([A-Za-z0-9_-]{6,})/);if(m)return m[1];m=s.match(/[?&]v=([A-Za-z0-9_-]{6,})/);return m?m[1]:""}
 function thumb(t,sz){
   const u=t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"");
   const vm=u.match(/vimeo\.com\/(?:video\/)?(\d+)/); // per-video thumbnail, not one shared face
   if(vm) return "https://vumbnail.com/"+vm[1]+".jpg";
-  const dm=u.match(/dailymotion\.com\/embed\/video\/([A-Za-z0-9]+)/);
+  const dm=u.match(/dailymotion\.com\/(?:embed\/video\/|player\.html\?video=)([A-Za-z0-9]+)/);
   if(dm) return "https://www.dailymotion.com/thumbnail/video/"+dm[1];
   const ar=u.match(/archive\.org\/embed\/([^/?#]+)/);
   if(ar) return "https://archive.org/download/"+ar[1]+"/__ia_thumb.jpg";
@@ -2357,9 +2357,12 @@ function updateRail(t){const s=curSlide();if(s)updateRailIn(s,t)}
 let prog={}; try{prog=store.get("progress",{})||{}}catch(e){prog={}}
 let progTime={}; try{progTime=store.get("progressTime",{})||{}}catch(e){progTime={}}
 function vidOf(u){
-  let m=String(u||"").match(/embed\/([A-Za-z0-9_-]+)/);
+  const s=String(u||"");
+  let m=s.match(/embed\/([A-Za-z0-9_-]+)/);
   if(m)return m[1];
-  m=String(u||"").match(/vimeo\.com\/video\/(\d+)/);
+  m=s.match(/[?&]v=([A-Za-z0-9_-]+)/);
+  if(m)return m[1];
+  m=s.match(/vimeo\.com\/video\/(\d+)/);
   if(m)return "vimeo:"+m[1];
   return null;
 }
