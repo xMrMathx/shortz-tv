@@ -1235,6 +1235,21 @@ function browseList(){
   if(browseGenre===AWARD)return alphaSortCached("g:award",C.filter(t=>t.award));
   if(browseGenre===TREK)return alphaSortCached("g:trek",C.filter(t=>t.trek===true));
   if(browseGenre==="Rebirth"||browseGenre===REBIRTH)return alphaSortCached("g:rebirth",C.filter(t=>t.rebirth===true));
+  // Reality: pinned groups first — Survivor-type, then Big Brother-type,
+  // then Baddies-type — then everything else shuffled fresh every visit.
+  if(browseGenre==="Reality"){
+    const byIdMap={}; C.forEach(t=>byIdMap[t.id]=t);
+    const surv=["stv-4374"];
+    const bb=["stv-4375","stv-4373"];
+    const baddies=["stv-644","stv-645","stv-646","stv-647","stv-658","stv-662","stv-674",
+      "stv-5053","stv-5054","stv-5055","stv-5056","stv-5057",
+      "stv-5058","stv-5059","stv-5060","stv-5061","stv-5062","stv-5063"];
+    const pinned=[...surv,...bb,...baddies].map(id=>byIdMap[id]).filter(t=>t&&t.genre==="Reality");
+    const pinnedIds=new Set(pinned.map(t=>t.id));
+    const rest=C.filter(t=>t.genre==="Reality"&&!pinnedIds.has(t.id));
+    for(let i=rest.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;const tmp=rest[i];rest[i]=rest[j];rest[j]=tmp;}
+    return pinned.concat(rest);
+  }
   // Space: new curated series first, then the rest alphabetically
   if(browseGenre==="Space"){
     const priority=["stv-4513","stv-4514","stv-4515","stv-4516","stv-4517","stv-4518","stv-4519","stv-4520","stv-4521"];
