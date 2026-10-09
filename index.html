@@ -6,8 +6,8 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<title>Shortz TV — Free Short Dramas</title>
-<meta property="og:title" content="Shortz TV — Free Short Dramas">
+<title>Shortz VS — Free Short Dramas</title>
+<meta property="og:title" content="Shortz VS — Free Short Dramas">
 <meta property="og:description" content="Watch free short dramas, films & highlights. 100% free, no sign-up.">
 <meta property="og:image" content="https://i.ytimg.com/vi/IfgesY42oN8/maxresdefault.jpg">
 <link rel="preconnect" href="https://i.ytimg.com">
@@ -16,12 +16,12 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.ytimg.com/vi/IfgesY42oN8/maxresdefault.jpg">
-<meta name="description" content="Shortz TV: 100% free short drama series. Every episode plays right in the app.">
+<meta name="description" content="Shortz VS: 100% free short drama series. Every episode plays right in the app.">
 <meta name="theme-color" content="#0b0b10">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Shortz TV">
+<meta name="apple-mobile-web-app-title" content="Shortz VS">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
@@ -730,7 +730,7 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 </head>
 <body>
 <!-- Netflix-style splash: logo animates in with signature sting on every cold launch -->
-<div id="splash"><img src="shortz-logo.webp" alt="Shortz TV" id="splashLogo"></div>
+<div id="splash"><img src="shortz-logo.webp" alt="Shortz VS" id="splashLogo"></div>
 <style>
 #splash{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;
   pointer-events:none;animation:splashOut .6s ease 2.2s forwards}
@@ -890,11 +890,11 @@ try{
   <div id="iscrim"></div>
   <div id="isheet">
     <div class="grab"></div>
-    <h3>📲 Install Shortz TV</h3>
+    <h3>📲 Install Shortz VS</h3>
     <ol>
       <li>Tap the <b>Share</b> button (box with an arrow) in your browser</li>
       <li>Scroll down and tap <b>Add to Home Screen</b></li>
-      <li>Tap <b>Add</b> — Shortz TV opens full-screen like a real app</li>
+      <li>Tap <b>Add</b> — Shortz VS opens full-screen like a real app</li>
     </ol>
     <button class="btn-play done" id="isheetClose">Got it</button>
   </div>
@@ -1102,11 +1102,11 @@ function thumb(t,sz){
 const byId = id => IDX.byId.get(id);
 function shareWholeApp(){
   const url=SHARE_BASE;
-  const txt="Watch free short series on Shortz TV";
+  const txt="Watch free short series on Shortz VS";
   const done=()=>toast("Link copied");
   (async()=>{
     try{
-      if(navigator.share){ await navigator.share({title:"Shortz TV",text:txt,url:url}); }
+      if(navigator.share){ await navigator.share({title:"Shortz VS",text:txt,url:url}); }
       else if(navigator.clipboard&&navigator.clipboard.writeText){ await navigator.clipboard.writeText(txt+" — "+url); done(); }
       else toast("Share not available");
     }catch(e){
@@ -1556,7 +1556,7 @@ function slideHTML(){
       <div class="feed-backdrop" data-backdrop></div>
       <iframe data-frame referrerpolicy="strict-origin-when-cross-origin"
         allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
-        title="Shortz TV player"></iframe>
+        title="Shortz VS player"></iframe>
     </div>
     <div class="feed-tapzone" data-tap></div>
     <div class="feed-flash" data-flash></div>
@@ -1608,7 +1608,7 @@ function ensureFrame(node){
     fr.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
     fr.setAttribute("allow","autoplay; fullscreen; encrypted-media; picture-in-picture");
     fr.setAttribute("allowfullscreen","");
-    fr.setAttribute("title","Shortz TV player");
+    fr.setAttribute("title","Shortz VS player");
     if(fv)fv.appendChild(fr);
   }
   return fr;
@@ -2391,7 +2391,7 @@ function commitSnap(dir){
 }
 function shareCur(){
   const t=feed.cur; if(!t)return;
-  const txt=`Watch "${t.title}" free on Shortz TV`;
+  const txt=`Watch "${t.title}" free on Shortz VS`;
   (async()=>{
     // attach the cover art image when the platform supports it
     let files=[];
@@ -2408,7 +2408,7 @@ function shareCur(){
       const _epIdx=(feed.curEp&&(t.episodes||[]).indexOf(feed.curEp));
       const _shareLink=shareUrl(t.id,_epIdx>=0?_epIdx:undefined);
       if(navigator.share){
-        const p={title:"Shortz TV",text:txt,url:_shareLink};
+        const p={title:"Shortz VS",text:txt,url:_shareLink};
         if(files.length)p.files=files;
         await navigator.share(p);
       }
@@ -3193,7 +3193,7 @@ function openSportsReel(sport){
       }catch(_){}
       try{
         if(navigator.share){
-          const p={title:sport+" highlight",text:"Watch this "+sport+" highlight free on Shortz TV",url:url};
+          const p={title:sport+" highlight",text:"Watch this "+sport+" highlight free on Shortz VS",url:url};
           if(files.length)p.files=files;
           await navigator.share(p);
         }
@@ -3341,7 +3341,7 @@ function renderProfile(){
     <div id="frList"><div style="color:var(--mut);font-size:13px">Loading…</div></div>
     <div class="secttl"><span class="livedot">●</span> My live watch parties</div>
     <div id="profLive"><div style="color:var(--mut);font-size:13px">Checking…</div></div>
-    <div class="secttl">📺 Shortz TV Guide</div>
+    <div class="secttl">📺 Shortz VS Guide</div>
     <div id="tvGuide"></div>
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
   </div>`;
@@ -3466,7 +3466,7 @@ function tgPause(){
   if(fr){fr.innerHTML="";fr._tid=null;}
   tgWatchEnd();
 }
-/* Shortz TV Guide auto-advance: when the preview video ends, play the next row */
+/* Shortz VS Guide auto-advance: when the preview video ends, play the next row */
 let tgPlayer=null, tgPlayerKind=null, tgAdvanceAt=0;
 function tgWatchEnd(){
   try{
@@ -3529,7 +3529,7 @@ function renderTvGuide(){
       </div>
       <div class="tg-meta">
         <img class="tg-thumb" id="tgThumb" alt="" style="display:none" onerror="this.style.display='none'">
-        <div style="flex:1;min-width:0"><div class="tg-title" id="tgTitle">Shortz TV Guide</div>
+        <div style="flex:1;min-width:0"><div class="tg-title" id="tgTitle">Shortz VS Guide</div>
         <div class="tg-sub" id="tgSub">${C.length} shows · tap one to preview</div></div>
         <button class="btn-play tg-watch" id="tgWatch" style="display:none">▶ Watch</button>
       </div>
@@ -3832,7 +3832,7 @@ function renderProfileLegacy(){
   $("#view-profile").innerHTML=`<div class="wrap">
     <div class="profhead">
       <div class="avatar">S</div>
-      <div style="flex:1"><div style="font-size:17px;font-weight:800">Shortz TV viewer</div>
+      <div style="flex:1"><div style="font-size:17px;font-weight:800">Shortz VS viewer</div>
       <div style="font-size:12px;color:var(--mut);margin-top:2px">Watching free since day one</div></div>
       <button class="pbtn sm" id="profCreate">Create profile</button>
     </div>
@@ -4164,7 +4164,7 @@ window.addEventListener("beforeinstallprompt",e=>{
   e.preventDefault();deferredInstallPrompt=e;refreshInstallBtn();
 });
 window.addEventListener("appinstalled",()=>{
-  deferredInstallPrompt=null;refreshInstallBtn();toast("Shortz TV installed ✓");
+  deferredInstallPrompt=null;refreshInstallBtn();toast("Shortz VS installed ✓");
 });
 $("#iscrim").addEventListener("click",closeInstallSheet);
 $("#isheetClose").addEventListener("click",closeInstallSheet);
