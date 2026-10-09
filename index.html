@@ -888,18 +888,23 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_CATALOG || [];
 window.SHORTZ_CATALOG_READY = (function(){
-  var url = "https://xmrmathx.github.io/shortz-tv/catalog.json";
-  // Short timeout: render fast with the bundled copy, swap in fresh data silently.
+  // Fetch version first, then cache-bust the catalog so a new deploy always pulls fresh data
+  var verUrl = "https://xmrmathx.github.io/shortz-tv/version.json";
+  var getVer = fetch(verUrl, {cache: "no-store"}).then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(v){ return (v && v.v) || String(Date.now()); })
+    .catch(function(){ return String(Date.now()); });
   var timeout = new Promise(function(res){ setTimeout(res, 2000); });
-  var fresh = fetch(url, {cache: "no-store"}).then(function(r){
-    if (!r.ok) throw 0;
-    return r.json();
+  var fresh = getVer.then(function(ver){
+    var url = "https://xmrmathx.github.io/shortz-tv/catalog.json?v=" + encodeURIComponent(ver);
+    return fetch(url, {cache: "no-store"}).then(function(r){
+      if (!r.ok) throw 0;
+      return r.json();
+    });
   }).then(function(data){
     if (Array.isArray(data) && data.length > 0) {
       var c = window.SHORTZ_CATALOG;
       c.length = 0;
       for (var i = 0; i < data.length; i++) c.push(data[i]);
-      // contents swapped (same object): invalidate catalog-derived caches
       window.__catRev = (window.__catRev || 0) + 1;
     }
   }).catch(function(){ /* offline: keep bundled fallback */ });
