@@ -1,36 +1,57 @@
 {
- "project": "Road to 6,000",
- "updatedAt": "2026-10-09T01:28:56.241342+00:00",
+ "project": "Road to 6,000 \u2014 All Award-Winning",
+ "updatedAt": "2026-10-09T02:57:34.592830+00:00",
  "shipped": 4227,
  "target": 6000,
  "overall_pct": 70.5,
  "phases": [
   {
-   "id": "award",
-   "label": "Award Winners",
-   "count": 0,
-   "target": 100,
-   "pct": 0,
+   "id": "rebirth",
+   "label": "Rebirth Award Winners",
+   "count": 70,
+   "target": 400,
+   "pct": 17.5,
    "status": "running",
-   "note": "0 of 100"
+   "note": "70 of 400"
   },
   {
-   "id": "awardfilms",
-   "label": "Award Short Films",
-   "count": 0,
-   "target": 250,
-   "pct": 0,
+   "id": "romance",
+   "label": "Romance Award Winners",
+   "count": 146,
+   "target": 400,
+   "pct": 36.5,
    "status": "running",
-   "note": "0 of 250"
+   "note": "146 of 400"
   },
   {
-   "id": "general",
-   "label": "General",
-   "count": 0,
-   "target": 1450,
-   "pct": 0,
+   "id": "docshorts",
+   "label": "Documentary Shorts Awards",
+   "count": 137,
+   "target": 400,
+   "pct": 34.2,
    "status": "running",
-   "note": "0 of 1,450"
+   "note": "137 of 400"
+  },
+  {
+   "id": "documentary",
+   "label": "Documentary Awards",
+   "count": 10,
+   "target": 300,
+   "pct": 3.3,
+   "status": "running",
+   "note": "10 of 300"
+  },
+  {
+   "id": "other",
+   "label": "Other Award Winners",
+   "count": 0,
+   "target": 300,
+   "pct": 0,
+   "status": "queued",
+   "note": "0 of 300"
   }
- ]
+ ],
+ "award_total": 363,
+ "award_target": 1800,
+ "award_pct": 20.2
 }
