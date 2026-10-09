@@ -1080,7 +1080,7 @@ function buildCatalogIndexes(){
   IDX.byId.clear(); IDX.vertPool.length = 0; IDX.sorted.clear();
   IDX.genreCount = {}; IDX.earlyList = [];
   IDX.homePool = []; IDX.homeVertPool = []; // Home feed: 5+ verified episodes only (his law)
-  IDX.earlyN = 0; IDX.aiN = 0; IDX.rebirthN = 0; IDX.onlyShortzN = 0;
+  IDX.earlyN = 0; IDX.aiN = 0; IDX.rebirthN = 0; IDX.onlyShortzN = 0; IDX.awardN = 0;
   for(let i = 0; i < C.length; i++){
     const t = C[i];
     IDX.byId.set(t.id, t);
@@ -1088,6 +1088,7 @@ function buildCatalogIndexes(){
     if(t.ai_made === true) IDX.aiN++;
     if(t.rebirth === true) IDX.rebirthN++;
     if(t.onlyShortz === true) IDX.onlyShortzN++;
+    if(t.award) IDX.awardN++;
     if(isEarlyRelease(t)){ IDX.earlyN++; IDX.earlyList.push(t); }
     if(isVertMain(t)) IDX.vertPool.push(t);
     if((t.episodes||[]).filter(e=>e.verified).length>=5){
@@ -1161,12 +1162,13 @@ function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length=
 function catalogCounts(){
   buildCatalogIndexes();
   return {
-    early: IDX.earlyN, ai: IDX.aiN, rebirth: IDX.rebirthN, onlyShortz: IDX.onlyShortzN,
+    early: IDX.earlyN, ai: IDX.aiN, rebirth: IDX.rebirthN, onlyShortz: IDX.onlyShortzN, award: IDX.awardN,
     earlyList: IDX.earlyList, genre: IDX.genreCount,
   };
 }
 const EARLY="__early__";
 const AI="__ai__";
+const AWARD="__award__";
 const REBIRTH="__rebirth__";
 const ONLYSHORTZ="__onlyshortz__";
 function alphaSort(a){return [...a].sort((x,y)=>String(x.title||"").localeCompare(String(y.title||""),"en",{sensitivity:"base"}))}
@@ -1175,6 +1177,7 @@ function browseList(){
   if(qf)return alphaSortCached("q:"+browseQuery,qf);
   if(browseGenre===AI)return alphaSortCached("g:ai",C.filter(t=>t.ai_made===true));
   if(browseGenre===ONLYSHORTZ)return alphaSortCached("g:onlyshortz",C.filter(t=>t.onlyShortz===true));
+  if(browseGenre===AWARD)return alphaSortCached("g:award",C.filter(t=>t.award));
   if(browseGenre==="Rebirth"||browseGenre===REBIRTH)return alphaSortCached("g:rebirth",C.filter(t=>t.rebirth===true));
   // Space: new curated series first, then the rest alphabetically
   if(browseGenre==="Space"){
@@ -2983,11 +2986,12 @@ function renderBrowse(g){
       <div class="top10-row" id="top10row"></div>
     </div></div>
     <div class="wrap"><div class="gdrop" id="gdrop">
-      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Only on Shortz":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre}</span><span class="arr">▼</span></button>
+      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Only on Shortz":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre===AWARD?"🏆 Award-Winning":browseGenre}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
         <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Only on Shortz</span><span class="cnt">${cc.onlyShortz}</span></button>
         <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
         <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
+        <button class="gitem${AWARD===browseGenre?" sel":""}" data-g="${AWARD}"><span>🏆 Award-Winning</span><span class="cnt">${cc.award}</span></button>
         ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
         `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:(cc.genre[x]||0)}</span></button>`).join("")}
       </div>
