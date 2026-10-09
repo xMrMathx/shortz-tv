@@ -3068,9 +3068,10 @@ function playEpisode(e){
   const slide=curSlide();
   loadVideoInto(slide,e.url,e.video_id||vidOf(e.url));
   slide._paused=false;
-  slide._fit=false; // episodes also start in fill
+  slide._fit=!!(fitSticky&&!isVertMain(t)); // sticky fit carries episode-to-episode
   const pfv=slide.querySelector("[data-fv]");
-  if(pfv)pfv.className="feed-video "+frameModeClass(t,false);
+  if(pfv)pfv.className="feed-video "+(slide._fit?"fit":frameModeClass(t,false));
+  fitBtnPaint(slide);
   const spA=slide.querySelector("[data-sound]");
   const frA=ensureFrame(slide); // loadVideoInto may have replaced the iframe above
   if(soundOn){if(spA)spA.style.display="none";if(frA)frA.onload=()=>setTimeout(unmuteFrame,900);}
