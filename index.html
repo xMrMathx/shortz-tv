@@ -1098,6 +1098,14 @@ function browseList(){
   if(browseGenre===AI)return alphaSortCached("g:ai",C.filter(t=>t.ai_made===true));
   if(browseGenre===ONLYSHORTZ)return alphaSortCached("g:onlyshortz",C.filter(t=>t.onlyShortz===true));
   if(browseGenre==="Rebirth"||browseGenre===REBIRTH)return alphaSortCached("g:rebirth",C.filter(t=>t.rebirth===true));
+  // Space: new curated series first, then the rest alphabetically
+  if(browseGenre==="Space"){
+    const priority=["stv-4513","stv-4514","stv-4515","stv-4516","stv-4517","stv-4518","stv-4519","stv-4520","stv-4521"];
+    const byIdMap={}; C.forEach(t=>byIdMap[t.id]=t);
+    const first=priority.map(id=>byIdMap[id]).filter(Boolean);
+    const rest=C.filter(t=>t.genre==="Space"&&!priority.includes(t.id));
+    return first.concat(alphaSortCached("g:space-rest",rest));
+  }
   // SPEED: the early-release list is cached in IDX (one pass), not re-filtered
   return browseGenre===EARLY
     ? alphaSortCached("g:early",catalogCounts().earlyList)
