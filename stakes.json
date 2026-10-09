@@ -3,13 +3,42 @@
     {
       "id": "showdown-001",
       "title": "Showdown: Aydan vs Huskerrs",
-      "sub": "Warzone — who drops more kills tonight?",
+      "sub": "Warzone \u2014 who drops more kills tonight?",
       "optA": "Aydan",
       "optB": "HusKerrs",
       "oddsA": "1.8",
       "oddsB": "2.1",
       "status": "open",
       "winner": null
+    },
+    {
+      "id": "auto-symfuhny-1791576533-ms",
+      "title": "Symfuhny is LIVE \u2014 hits 5,000 viewers?",
+      "sub": "Warzone \u00b7 currently at 3,671 watching",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "milestone",
+      "streamer": "Symfuhny",
+      "target": 5000
+    },
+    {
+      "id": "auto-symfuhny-1791576533-mar",
+      "title": "Symfuhny just went live \u2014 3+ hour stream?",
+      "sub": "Warzone",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "2.0",
+      "oddsB": "1.8",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "marathon",
+      "streamer": "Symfuhny"
     }
   ]
 }
