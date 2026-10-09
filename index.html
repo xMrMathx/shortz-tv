@@ -3081,8 +3081,7 @@ function browseListFiltered(){
   if(!q)return null;
   return C.filter(t=>((t.title||"")+" "+(t.genre||"")+" "+(t.desc||"")).toLowerCase().indexOf(q)>=0);
 }
-/* ---------- Top 10: most-watched series, from top10.json ---------- */
-let top10Cache=null;
+/* ---------- Top 10 rows: most-watched + award-winning films/series ---------- */
 function fmtViews(v){
   if(v>=1e9) return (v/1e9).toFixed(1).replace(/\.0$/,"")+"B views";
   if(v>=1e6) return (v/1e6).toFixed(1).replace(/\.0$/,"")+"M views";
@@ -3129,19 +3128,20 @@ function loadAwardCarousels(){
   paint(fs,fr,filmIds);
   paint(ss,sr,seriesIds);
 }
-async function loadTop10(){
-  const sec=$("#top10sec"), row=$("#top10row");
+const top10Caches={};
+async function loadTop10File(secId,rowId,file,cacheKey){
+  const sec=$("#"+secId), row=$("#"+rowId);
   if(!sec||!row) return;
   try{
-    if(!top10Cache){
+    if(!top10Caches[cacheKey]){
       // absolute URL works in both the web app and the APK (base URL is the domain root)
       let r=null;
-      try{ r=await fetch("https://xmrmathx.github.io/shortz-tv/top10.json",{cache:"no-cache"}); }catch(e){}
-      if(!r||!r.ok){ r=await fetch("top10.json",{cache:"no-cache"}); }
+      try{ r=await fetch("https://xmrmathx.github.io/shortz-tv/"+file,{cache:"no-cache"}); }catch(e){}
+      if(!r||!r.ok){ r=await fetch(file,{cache:"no-cache"}); }
       if(!r.ok) throw 0;
-      top10Cache=await r.json();
+      top10Caches[cacheKey]=await r.json();
     }
-    const list=(top10Cache||[]).slice(0,10);
+    const list=(top10Caches[cacheKey]||[]).slice(0,10);
     if(!list.length) return;
     row.innerHTML=list.map((t,i)=>`
       <div class="top10-item${i+1>=10?" wide":""}" data-tid="${esc(t.id)}">
@@ -3156,7 +3156,12 @@ async function loadTop10(){
     });
     sec.style.display="";
     try{ const vb=$("#view-browse"); if(vb)likesWatch(vb); }catch(e){}
-  }catch(e){ /* Top 10 stays hidden if the file is missing */ }
+  }catch(e){ /* row stays hidden if the file is missing */ }
+}
+function loadTop10(){ return loadTop10File("top10sec","top10row","top10.json","main"); }
+async function loadTop10Award(){
+  await loadTop10File("top10AFsec","top10AFrow","top10-award-films.json","afilms");
+  await loadTop10File("top10ASsec","top10ASrow","top10-award-series.json","aseries");
 }
 
 /* SPEED: chunked grid rendering — first 60 cards paint instantly, rest stream in on scroll */
@@ -3286,6 +3291,14 @@ function renderBrowse(g){
       <div class="top10-head"><h3>Top 10</h3><span>Most watched</span></div>
       <div class="top10-row" id="top10row"></div>
     </div></div>
+    <div class="wrap"><div class="top10-sec" id="top10AFsec" style="display:none">
+      <div class="top10-head"><h3>Top 10</h3><span>Award-winning films</span></div>
+      <div class="top10-row" id="top10AFrow"></div>
+    </div></div>
+    <div class="wrap"><div class="top10-sec" id="top10ASsec" style="display:none">
+      <div class="top10-head"><h3>Top 10</h3><span>Award-winning series</span></div>
+      <div class="top10-row" id="top10ASrow"></div>
+    </div></div>
     <div class="wrap"><div class="gdrop" id="gdrop">
       <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Only on Shortz":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre===AWARD?"🏆 Award-Winning":browseGenre===TREK?"🚀 Star Trek Fan":browseGenre}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
@@ -3324,6 +3337,7 @@ function renderBrowse(g){
   }
   featBegin(); // build the draggable featured carousel (auto-rotates every 3s)
   loadTop10(); // Netflix-style Top 10 row under the search bar
+  loadTop10Award(); // Top 10 award-winning films + series, ranked by real views
   loadAwardCarousels(); // award-winning short films + short series carousels
   // Previously spotlight: open James's site in the system browser
   const psb=$("#prevSpotBtn"), psp=$("#prevSpot");
