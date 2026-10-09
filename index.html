@@ -142,6 +142,7 @@ body.pip .scrub{display:none!important}
 .likebadge .h{color:#ff5a78;margin-right:3px}
 /* compact cards inside the profile's My List / Recently Watched */
 #profMyList .hrow{gap:8px}
+#profMangaRow .mg-card.pcard{flex:0 0 auto;width:110px;scroll-snap-align:start}
 #profMyList .vcard{width:76px;contain-intrinsic-size:76px 134px}
 #profMyList .vthumb{width:76px;height:134px;border-radius:10px;padding:6px}
 #profMyList .vthumb img{border-radius:10px}
@@ -1355,6 +1356,18 @@ async function likeToggle(id){
     const ref=Likes.db.ref("likes/"+id+"/"+Likes.uid);
     if(mine){await ref.remove();toast("Unliked");}
     else{await ref.set({name:Likes.name,ts:Date.now()});toast("♥ Liked");}
+    /* mirror MY manga likes locally for the profile shelf (manga ids aren't stv-) */
+    try{
+      if(!String(id).startsWith("stv-")){
+        const mg=store.get("mgLiked",{});
+        if(mine)delete mg[id];
+        else{
+          const meta=(window._mgMeta&&window._mgMeta[id])||{};
+          mg[id]={t:meta.t||"",c:meta.c||"",ts:Date.now()};
+        }
+        store.set("mgLiked",mg);
+      }
+    }catch(e){}
   }catch(e){toast("Couldn't save — check connection");}
   /* badge flips via the realtime listener */
 }
@@ -3687,8 +3700,11 @@ function renderProfile(){
           :'<div class="empty">Nothing saved yet.<br>Tap ＋ Save on any short to keep it here.</div>'}
         <div class="sect">🕘 Recently watched ${hist.length?`(${hist.length})`:""}</div>
         ${hist.length?row(hist)
-          :'<div class="empty">No watch history yet.</div>'}`;
+          :'<div class="empty">No watch history yet.</div>'}
+        <div class="sect">📚 Manga <span id="profMangaN"></span></div>
+        <div class="hrow" id="profMangaRow"></div>`;
       bindCards(box);
+      renderProfManga();
     }
   })();
   const ib=$("#installAppBtn");
@@ -3729,6 +3745,56 @@ function renderProfile(){
       box.querySelectorAll("[data-join]").forEach(b=>b.onclick=()=>{ go("live"); setTimeout(()=>joinRoom(b.dataset.join),150); });
     });
   });
+}
+
+/* ---------- profile: liked-manga shelf ----------
+   Everything he hold-to-likes in the Manga tab lands here. */
+function mgLikedIds(){
+  const mg=store.get("mgLiked",{});
+  // backfill from this session's like cache (manga ids aren't stv-)
+  try{
+    if(window.Likes&&Likes.cache&&Likes.uid){
+      for(const id of Object.keys(Likes.cache)){
+        const v=Likes.cache[id];
+        if(!String(id).startsWith("stv-")&&v&&v[Likes.uid]&&!mg[id])
+          mg[id]={t:"",c:"",ts:(v[Likes.uid].ts||0)};
+      }
+    }
+  }catch(e){}
+  return Object.entries(mg).sort((a,b)=>(b[1].ts||0)-(a[1].ts||0));
+}
+function renderProfManga(){
+  const row=$("#profMangaRow"); if(!row)return;
+  const list=mgLikedIds();
+  const n=$("#profMangaN"); if(n)n.textContent=list.length?`(${list.length})`:"";
+  if(!list.length){
+    row.innerHTML='<div class="empty">Nothing liked yet.<br>Hold a manga cover to like it.</div>';
+    return;
+  }
+  row.innerHTML=list.map(([id,m])=>
+    `<div class="mg-card pcard" data-mid="${id}"><div class="mg-cov">`+
+    `<img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="mg-covers/${id}.jpg" alt="" onerror="this.style.display='none'">`+
+    `</div><div class="mg-t">${mgEsc(m.t||"Loading…")}</div></div>`
+  ).join("");
+  row.querySelectorAll(".mg-card").forEach(c=>c.onclick=()=>{go("manga");mgOpenDetail(c.dataset.mid);});
+  const missing=list.filter(([id,m])=>!m.t).map(([id])=>id);
+  if(missing.length)mgBackfillTitles(missing);
+}
+/* one batched MangaDex call fills in titles liked before this shelf existed */
+async function mgBackfillTitles(ids){
+  try{
+    const q=ids.slice(0,50).map(id=>"ids[]="+encodeURIComponent(id)).join("&");
+    const r=await fetch("https://api.mangadex.org/manga?"+q+"&limit=100");
+    if(!r.ok)return;
+    const j=await r.json();
+    const mg=store.get("mgLiked",{}); let changed=false;
+    (j.data||[]).forEach(m=>{
+      const at=m.attributes||{}, ti=at.title||{};
+      const t=ti.en||Object.values(ti)[0]||"";
+      if(t&&mg[m.id]&&!mg[m.id].t){mg[m.id].t=t;changed=true;}
+    });
+    if(changed){store.set("mgLiked",mg);renderProfManga();}
+  }catch(e){}
 }
 
 /* ---------- TV Guide (Profile): classic guide — preview player + full channel list ----------
@@ -5548,8 +5614,10 @@ function mgDrawGrid(){
   });
   if(!list.length){body.innerHTML='<div class="mg-center">No '+mgEsc(g)+' titles right now.</div>';return;}
   let h='<div class="mg-grid">';
+  if(!window._mgMeta)window._mgMeta={};
   list.forEach(m=>{
     const cov=mdxCover(m,"256"),t=mdxTitle(m);
+    window._mgMeta[m.id]={t:t,c:cov||""};
     const lc=m.lastChapter?("Ch. "+m.lastChapter):(m.status?m.status.charAt(0).toUpperCase()+m.status.slice(1):"");
     const tags=mdxTags(m).slice(0,2).join(" · ");
     h+='<div class="mg-card" data-mid="'+m.id+'"><div class="mg-cov">'
@@ -5601,6 +5669,8 @@ function mgOpenDetail(mid){
   Manga.screen="detail"; Manga.detail=m; Manga.chapters=[]; Manga.gen++;
   const gen=Manga.gen,v=$("#view-manga");
   const cov=mdxCover(m,"512"),t=mdxTitle(m),au=mdxAuthor(m);
+  if(!window._mgMeta)window._mgMeta={};
+  window._mgMeta[mid]={t:t,c:mdxCover(m,"256")||cov||""};
   const meta=[au,m.status?m.status.charAt(0).toUpperCase()+m.status.slice(1):"",m.year].filter(Boolean).join(" · ");
   v.innerHTML='<div class="mg-dhero">'+(cov?'<img referrerpolicy="no-referrer" src="'+cov+'" alt="">':"")
     +'<button class="mg-back" onclick="renderManga()">‹</button></div>'
