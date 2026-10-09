@@ -261,7 +261,7 @@ body.rot-full #rotexit{display:block}
 .award-head h3{font-size:17px;font-weight:800;color:#fff;margin:0}
 .award-row{display:flex;gap:10px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .award-row::-webkit-scrollbar{display:none}
-.award-item{flex:0 0 auto;width:120px;cursor:pointer}
+.award-item{position:relative;flex:0 0 auto;width:120px;cursor:pointer}
 .award-item img{display:block;width:120px;height:170px;object-fit:cover;border-radius:8px;background:#1a1a1a;box-shadow:0 6px 18px rgba(0,0,0,.55)}
 .award-t{font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .award-e{font-size:10px;color:var(--mut);margin:1px 0 0}
@@ -1274,7 +1274,6 @@ function cardHTML(t){
     </div></div>`;
 }
 function bindCards(root){
-  const browseLike=root.id==="view-browse"||root.id==="bgrid"; // social likes: browse only
   root.querySelectorAll(".vcard").forEach(c=>{
     let tapTimer=null;
     c.onclick=()=>{
@@ -1282,28 +1281,43 @@ function bindCards(root){
       if(tapTimer){clearTimeout(tapTimer);tapTimer=null;dblSave(c.dataset.id);return;}
       tapTimer=setTimeout(()=>{tapTimer=null;openDetail(c.dataset.id);},300);
     };
-    if(browseLike&&!c._lpBound){
-      c._lpBound=true;
-      let lpT=null;
-      const arm=()=>{lpT=setTimeout(()=>{lpT=null;c._lpFired=true;buzz(25);likeToggle(c.dataset.id);},500);};
-      const dis=()=>{if(lpT){clearTimeout(lpT);lpT=null;}};
-      c.addEventListener("touchstart",arm,{passive:true});
-      c.addEventListener("touchmove",dis,{passive:true});
-      c.addEventListener("touchend",dis,{passive:true});
-      c.addEventListener("touchcancel",dis,{passive:true});
-      c.addEventListener("mousedown",arm);
-      c.addEventListener("mouseup",dis);
-      c.addEventListener("mouseleave",dis);
-      c.addEventListener("contextmenu",e=>e.preventDefault());
-    }
+    bindHoldToLike(c,c.dataset.id); // hold-to-like on every cover, everywhere
   });
-  if(browseLike)likesWatch(root);
+  likesWatch(root);
 }
 /* double-tap a card = save to My List */
 function dblSave(id){
   const t=byId(id);if(!t)return;
   if(mylist.has(id)){toast("Already in My List");return;}
   mylist.add(id);saveList();toast("♥ Saved to My List");
+}
+
+/* hold-to-like: works on ANY cover art (browse cards, award rows, top 10).
+   500ms press → buzz + heart burst + like. Caller must swallow the click
+   when el._lpFired is set. */
+function bindHoldToLike(el,id){
+  if(!el||el._lpBound||!id)return;
+  el._lpBound=true;
+  let lpT=null;
+  const arm=()=>{
+    lpT=setTimeout(()=>{
+      lpT=null; el._lpFired=true; buzz(25);
+      try{
+        const r=el.getBoundingClientRect();
+        heartBurst(r.left+r.width/2, r.top+r.height/2, document.body);
+      }catch(e){}
+      likeToggle(id);
+    },500);
+  };
+  const dis=()=>{if(lpT){clearTimeout(lpT);lpT=null;}};
+  el.addEventListener("touchstart",arm,{passive:true});
+  el.addEventListener("touchmove",dis,{passive:true});
+  el.addEventListener("touchend",dis,{passive:true});
+  el.addEventListener("touchcancel",dis,{passive:true});
+  el.addEventListener("mousedown",arm);
+  el.addEventListener("mouseup",dis);
+  el.addEventListener("mouseleave",dis);
+  el.addEventListener("contextmenu",e=>e.preventDefault());
 }
 
 /* ---------- SOCIAL LIKES: long-press any browse cover ----------
@@ -1342,7 +1356,7 @@ async function likeToggle(id){
   }catch(e){toast("Couldn't save — check connection");}
   /* badge flips via the realtime listener */
 }
-function likePaint(card,v){
+function likePaint(card,v,id){
   card.querySelectorAll(".likebadge").forEach(b=>b.remove());
   const uids=Object.keys(v||{});
   if(!uids.length)return;
@@ -1353,9 +1367,10 @@ function likePaint(card,v){
   b.className="likebadge"+(Likes.uid&&v[Likes.uid]?" mine":"");
   b.innerHTML='<span class="h">♥</span>'+esc(label);
   b.title=names.join(", ");
-  b.onclick=e=>{e.stopPropagation();likeToggle(card.dataset.id);};
+  const lid=id||card.dataset.id;
+  b.onclick=e=>{e.stopPropagation();likeToggle(lid);};
   const th=card.querySelector(".vthumb");
-  if(th)th.appendChild(b);
+  (th||card).appendChild(b);
 }
 function likesDetach(ids){
   (ids||Object.keys(Likes.listeners)).forEach(id=>{
@@ -1365,26 +1380,34 @@ function likesDetach(ids){
 }
 function likesWatch(root){
   if(!FIREBASE_READY)return;
-  const cards=[...root.querySelectorAll(".vcard[data-id]")];
-  const ids={};cards.forEach(c=>{ids[c.dataset.id]=1;});
+  const cards=[];
+  root.querySelectorAll(".vcard[data-id]").forEach(c=>cards.push({el:c,id:c.dataset.id}));
+  root.querySelectorAll(".award-item[data-aid]").forEach(c=>cards.push({el:c,id:c.dataset.aid}));
+  root.querySelectorAll(".top10-item[data-tid]").forEach(c=>cards.push({el:c,id:c.dataset.tid}));
+  root.querySelectorAll(".feat-slide[data-id]").forEach(c=>cards.push({el:c,id:c.dataset.id}));
+  const ids={};cards.forEach(c=>{ids[c.id]=1;});
   likesDetach(Object.keys(Likes.listeners).filter(id=>!ids[id])); // drop off-screen
   if(!window.firebase){
     // firebase scripts are deferred — retry once shortly
     if(!likesWatch._rt)likesWatch._rt=setTimeout(()=>{likesWatch._rt=null;
-      if(curView==="browse"){const v=$("#view-browse");if(v)likesWatch(v);}},3000);
+      const v=$("#view-"+curView);if(v)likesWatch(v);},3000);
     return;
   }
   likesEnsure().then(ok=>{
     if(!ok)return;
     cards.forEach(c=>{
-      const id=c.dataset.id;
-      if(Likes.listeners[id]){if(Likes.cache[id])likePaint(c,Likes.cache[id]);return;}
+      const id=c.id;
+      const paintAll=v=>{document.querySelectorAll('.vcard[data-id="'+id+'"]').forEach(x=>likePaint(x,v,x.dataset.id));
+        document.querySelectorAll('.award-item[data-aid="'+id+'"]').forEach(x=>likePaint(x,v,id));
+        document.querySelectorAll('.top10-item[data-tid="'+id+'"]').forEach(x=>likePaint(x,v,id));
+        document.querySelectorAll('.feat-slide[data-id="'+id+'"]').forEach(x=>likePaint(x,v,id));};
+      if(Likes.listeners[id]){if(Likes.cache[id])paintAll(Likes.cache[id]);return;}
       const ref=Likes.db.ref("likes/"+id);
       Likes.listeners[id]=ref;
       ref.on("value",snap=>{
         const v=snap.val()||{};
         Likes.cache[id]=v;
-        document.querySelectorAll('.vcard[data-id="'+id+'"]').forEach(x=>likePaint(x,v));
+        paintAll(v);
       },()=>{/* permission-denied until rules publish: stay silent */});
     });
   });
@@ -3048,9 +3071,11 @@ function loadAwardCarousels(){
       </div>`;
     }).join("");
     row.querySelectorAll("[data-aid]").forEach(el=>{
-      el.onclick=()=>openDetail(el.dataset.aid);
+      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} openDetail(el.dataset.aid); };
+      bindHoldToLike(el,el.dataset.aid);
     });
     sec.style.display="";
+    try{ const vb=$("#view-browse"); if(vb)likesWatch(vb); }catch(e){}
   };
   paint(fs,fr,filmIds);
   paint(ss,sr,seriesIds);
@@ -3077,9 +3102,11 @@ async function loadTop10(){
         <div class="top10-v">${fmtViews(t.views||0)}</div>
       </div>`).join("");
     row.querySelectorAll("[data-tid]").forEach(el=>{
-      el.onclick=()=>{ const t=byId(el.dataset.tid); if(t) openDetail(t.id); };
+      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.tid); if(t) openDetail(t.id); };
+      bindHoldToLike(el,el.dataset.tid);
     });
     sec.style.display="";
+    try{ const vb=$("#view-browse"); if(vb)likesWatch(vb); }catch(e){}
   }catch(e){ /* Top 10 stays hidden if the file is missing */ }
 }
 
@@ -3124,6 +3151,7 @@ function featRender(){
   track.style.transform="translateX(-100%)";
   void track.offsetWidth; // reflow so the next transform animates
   track.style.transition="";
+  track.querySelectorAll(".feat-slide[data-id]").forEach(sl=>bindHoldToLike(sl,sl.dataset.id));
 }
 function featGo(d,animate){
   const track=document.querySelector("#featTrack"); if(!track)return false;
@@ -3162,7 +3190,11 @@ function featBindDrag(){
     if(dx<-60) featGo(1);
     else if(dx>60) featGo(-1);
     else track.style.transform="translateX(-100%)"; // snap back
-    if(Math.abs(dx)<10){ const t=byId(FEAT_IDS[featIdx]); if(t)openDetail(t.id); } // tap
+    if(Math.abs(dx)<10){
+      const cur=track.children[1];
+      if(cur&&cur._lpFired){cur._lpFired=false;} // hold-to-like fired: swallow the tap
+      else{ const t=byId(FEAT_IDS[featIdx]); if(t)openDetail(t.id); }
+    }
     dx=0;
     featAuto(); // resume the 3s rotation
   };
