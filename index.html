@@ -1006,8 +1006,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=f39b261"></script>
-<script defer src="manga-catalog.js?v=f39b261"></script>
+<script src="catalog.js?v=1516eb0"></script>
+<script defer src="manga-catalog.js?v=1516eb0"></script>
 <script defer src="manga-chapters.js?v=b0c86cc"></script>
 <script>
 "use strict";
@@ -2606,6 +2606,56 @@ function ensureYT(cb){
   window.onYouTubeIframeAPIReady=()=>{(window._ytQ||[]).forEach(f=>{try{f()}catch(e){}});window._ytQ=[]};
   const sc=document.createElement("script");sc.src="https://www.youtube.com/iframe_api";document.head.appendChild(sc);
 }
+/* YOUTUBE SIGN-IN: unlocks age-restricted videos in-app.
+   YouTube's own rule: signed-in + age-verified viewers can play age-restricted
+   videos in embeds. No trick bypasses the wall — sign-in is the only path. */
+let ageRestrictedIds=new Set();
+fetch("age-restricted.json").then(r=>r.json()).then(j=>{ if(Array.isArray(j))ageRestrictedIds=new Set(j); }).catch(()=>{});
+function isAgeRestricted(vid){ return !!(vid&&ageRestrictedIds.has(vid)); }
+function ytSignedIn(){ try{ return store.get("ytSignedIn",false)===true; }catch(e){ return false; } }
+function showAgeGate(node){
+  clearAgeGate(node);
+  const fv=node.querySelector("[data-fv]"); if(!fv)return;
+  const d=document.createElement("div");
+  d.setAttribute("data-agegate","");
+  d.style.cssText="position:absolute;inset:0;z-index:6;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:rgba(5,5,10,.94);text-align:center;padding:24px";
+  d.innerHTML='<div style="font-size:48px">\U0001F512</div>'
+    +'<div style="font-weight:700;font-size:17px">Age-restricted video</div>'
+    +'<div style="color:#aaa;font-size:14px;max-width:280px">YouTube only plays this for signed-in adults. Sign in once and it plays right here in the app.</div>'
+    +'<button data-ytin style="background:#f00;color:#fff;border:0;border-radius:24px;padding:12px 28px;font-size:16px;font-weight:700">Sign in to YouTube</button>';
+  d.querySelector("[data-ytin]").onclick=function(ev){ try{ev.stopPropagation();}catch(e){} ytSignIn(); };
+  fv.appendChild(d);
+  node._ageGated=true;
+}
+function clearAgeGate(node){
+  try{ const g=node.querySelector("[data-agegate]"); if(g)g.remove(); }catch(e){}
+  if(node)node._ageGated=false;
+}
+function ytSignIn(){
+  try{
+    if(window.Android&&Android.openYtSignIn){ Android.openYtSignIn(); return; }
+  }catch(e){}
+  toast("Open the Shortz VS app to sign in to YouTube");
+}
+function paintYtSignInRows(){
+  const el=document.getElementById("ytSignRow"); if(!el)return;
+  const on=ytSignedIn();
+  el.innerHTML='<div style="display:flex;align-items:center;gap:12px;background:#14141c;border-radius:12px;padding:12px 14px">'
+    +'<div style="font-size:22px">'+(on?"\u2705":"\U0001F512")+'</div>'
+    +'<div style="flex:1"><div style="font-weight:700">'+(on?"Signed in to YouTube":"Sign in to YouTube")+'</div>'
+    +'<div style="font-size:12px;color:var(--mut)">'+(on?"Age-restricted videos play in the app":"Unlock age-restricted videos in the app")+'</div></div>'
+    +(on?"":'<button class="pbtn sm" id="ytGo">Sign in</button>')+'</div>';
+  const b=document.getElementById("ytGo"); if(b)b.onclick=function(){ ytSignIn(); };
+}
+window.ytSignInDone=function(){
+  try{ store.set("ytSignedIn",true); }catch(e){}
+  toast("Signed in \u2014 age-restricted videos now play");
+  paintYtSignInRows();
+  try{
+    const n=curSlide();
+    if(n&&n._ageGated&&n._gateArgs){ clearAgeGate(n); loadVideoInto(n,n._gateArgs.url,n._gateArgs.vid); }
+  }catch(e){}
+};
 function loadVideoInto(node,url,vid){
   hudWake(); // new video → UI visible, restart the 3s hide timer
   node._endedFired=false; // reset the backup auto-next flag for the new video
@@ -2638,6 +2688,12 @@ function loadVideoInto(node,url,vid){
     return;
   }
   node._mediaKind="yt";
+  /* age gate: never show YouTube's wall — sign-in prompt instead */
+  if(isAgeRestricted(vid)){
+    node._gateArgs={url:url,vid:vid};
+    if(!ytSignedIn()){ showAgeGate(node); return; }
+  }
+  clearAgeGate(node);
   const oldAv2=node.querySelector("[data-av]");
   if(oldAv2){ try{oldAv2.pause();}catch(e){} try{oldAv2.remove();}catch(e){} }
   let fr=takePreloaded(vid);
@@ -3764,6 +3820,8 @@ function renderProfile(){
     </div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
     <div id="profMyList"></div>
+    <div class="secttl">\u25B6\uFE0F YouTube</div>
+    <div id="ytSignRow"></div>
     <div class="secttl">Friends</div>
     <div class="friendsearch">
       <input id="frSearch" class="pinput" placeholder="Search users by name…" autocomplete="off">
@@ -3782,6 +3840,7 @@ function renderProfile(){
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
   renderTvGuide();
+  paintYtSignInRows();
   // My List + Recently Watched live inside the profile now (same cards as before)
   // SPEED: one id->series Map — byId is a full C.find() scan per lookup
   (function(){
