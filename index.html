@@ -714,6 +714,30 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 </style>
 </head>
 <body>
+<!-- Netflix-style splash: logo animates in with signature sting on every cold launch -->
+<div id="splash"><img src="shortz-logo.webp" alt="Shortz TV" id="splashLogo"></div>
+<style>
+#splash{position:fixed;inset:0;z-index:99999;background:#000;display:flex;align-items:center;justify-content:center;
+  animation:splashOut .6s ease 2.2s forwards}
+#splashLogo{width:180px;height:180px;object-fit:contain;
+  animation:splashIn 1.1s cubic-bezier(.2,.9,.3,1.2) forwards}
+@keyframes splashIn{0%{transform:scale(.3);opacity:0}60%{transform:scale(1.08);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes splashOut{to{opacity:0;visibility:hidden}}
+</style>
+<script>
+// play the Shortz sting on launch (once per session)
+try{
+  const a=new Audio("shortz-sting.wav");
+  a.volume=0.7;
+  // browsers block autoplay until user interacts; try now, retry on first touch
+  const play=()=>{a.play().catch(()=>{});};
+  play();
+  const once=()=>{play();document.removeEventListener("touchstart",once);document.removeEventListener("click",once);};
+  document.addEventListener("touchstart",once,{passive:true});
+  document.addEventListener("click",once);
+  setTimeout(()=>{const s=document.getElementById("splash");if(s)s.remove();},3000);
+}catch(e){}
+</script>
 <script>
 // Auto-update: check version.json with no-cache; reload if a newer build is live.
 // This enforces the no-cache law — viewers never clear data, the page updates itself.
