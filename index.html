@@ -2636,7 +2636,7 @@ function ytSignIn(){
   try{
     if(window.Android&&Android.openYtSignIn){ Android.openYtSignIn(); return; }
   }catch(e){}
-  toast("Open the Shortz VS app to sign in to YouTube");
+  toast("YouTube sign-in needs the latest Shortz VS app");
 }
 function paintYtSignInRows(){
   const el=document.getElementById("ytSignRow"); if(!el)return;
