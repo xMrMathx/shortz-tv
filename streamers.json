@@ -76,6 +76,14 @@
    "followers": "113895",
    "name": "Chrisean",
    "url": "https://kick.com/chrisean"
+  },
+  {
+   "name": "GriffPierre",
+   "game": "NBA 2K26"
+  },
+  {
+   "name": "RagingAscend",
+   "game": "Madden 26"
   }
  ],
  "twitch": [
@@ -127,6 +135,30 @@
    "followers": "2853983",
    "name": "PlaqueBoyMax",
    "url": "https://www.twitch.tv/plaqueboymax"
+  },
+  {
+   "name": "KorvisTheGawd",
+   "game": "NBA 2K26"
+  },
+  {
+   "name": "Aydan",
+   "game": "Warzone"
+  },
+  {
+   "name": "HusKerrs",
+   "game": "Warzone"
+  },
+  {
+   "name": "Symfuhny",
+   "game": "Warzone"
+  },
+  {
+   "name": "TJTheRealistSportsTalk",
+   "game": "Madden 26"
+  },
+  {
+   "name": "DatBoyStronger",
+   "game": "Madden 26"
   }
  ]
 }
