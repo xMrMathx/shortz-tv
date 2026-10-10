@@ -103,6 +103,22 @@
       "kind": "marathon",
       "streamer": "Symfuhny",
       "resolvedAt": 1791645855
+    },
+    {
+      "id": "auto-vs-1791659366-huskerrs-symfuhny",
+      "title": "\u2694\ufe0f HusKerrs vs Symfuhny \u2014 who peaks higher?",
+      "sub": "Warzone \u00b7 both live now",
+      "optA": "HusKerrs",
+      "optB": "Symfuhny",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "versus",
+      "streamer": "HusKerrs",
+      "streamerB": "Symfuhny",
+      "versus_key": "HusKerrs|Symfuhny"
     }
   ]
 }
