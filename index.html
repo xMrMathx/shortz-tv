@@ -73,6 +73,13 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #feedTrack{position:absolute;inset:0;z-index:1}
 #feedTrack.anim{transition:transform .32s cubic-bezier(.25,.8,.3,1)}
 #feedTrack .slide{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;will-change:transform}
+/* error card: shown instead of auto-advancing on playback failure */
+.errcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(8,8,12,.92);z-index:40;text-align:center;padding:24px}
+.errcard h3{font-size:18px;margin:0 0 8px;color:#fff}
+.errcard p{font-size:13px;color:var(--mut);margin:0 0 20px;max-width:280px}
+.errcard .ebtns{display:flex;flex-direction:column;gap:10px;width:100%;max-width:260px}
+.errcard button{padding:13px;border-radius:12px;font-size:15px;font-weight:700;border:1px solid var(--line);background:#1a1a24;color:#fff;cursor:pointer}
+.errcard button.primary{background:#e11d2e;border-color:#e11d2e}
 .feed-rail{position:absolute;right:8px;top:44%;transform:translateY(-50%);display:flex;flex-direction:column;gap:16px;z-index:5}
 .ric-more{display:flex;flex-direction:column;gap:16px;overflow:hidden;max-height:0;opacity:0;transform:translateY(-8px);transition:max-height .35s cubic-bezier(.25,.8,.3,1),opacity .25s,transform .35s cubic-bezier(.25,.8,.3,1)}
 .ric-more.open{max-height:400px;opacity:1;transform:translateY(0)}
@@ -80,8 +87,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .ric-more.open .ric:nth-child(1){animation-delay:.03s}.ric-more.open .ric:nth-child(2){animation-delay:.07s}.ric-more.open .ric:nth-child(3){animation-delay:.11s}.ric-more.open .ric:nth-child(4){animation-delay:.15s}.ric-more.open .ric:nth-child(5){animation-delay:.19s}
 @keyframes unfold{from{opacity:0;transform:translateY(-14px) scale(.85)}to{opacity:1;transform:translateY(0) scale(1)}}
 .ric{text-align:center;font-size:10px;color:#eee;font-weight:700}
-.ric button{font-size:24px;display:block;margin:0 auto 3px;color:#111;transition:transform .2s;
-  filter:drop-shadow(0 0 1px #fff) drop-shadow(0 0 4px rgba(255,255,255,.9)) drop-shadow(0 2px 6px rgba(0,0,0,.55))}
+.ric button{font-size:24px;display:block;margin:0 auto 3px;color:#fff;transition:transform .2s;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}
 .ric button:active{transform:scale(1.25)}
 .ric button.liked{color:#ff2d55}
 .ric button.fit-on{color:#ff2d55}
@@ -1056,11 +1063,13 @@ try{
   <div id="lnscrim"></div>
   <div id="lnsheet">
     <div class="grab"></div>
+    <button id="lnclose" aria-label="Close" style="position:absolute;top:10px;right:14px;background:none;border:none;color:#888;font-size:22px;cursor:pointer">×</button>
     <h3 style="padding:8px 18px 0">Pick a display name</h3>
     <div style="padding:12px 18px calc(20px + env(safe-area-inset-bottom))">
       <p style="font-size:12px;color:var(--mut);margin-bottom:10px">This is the name other viewers see in live chat.</p>
       <input id="lninput" placeholder="Your name…" maxlength="24" autocomplete="off">
       <button class="btn-play" id="lnsave" style="width:100%;justify-content:center;margin-top:12px">Join Live</button>
+      <button id="lnnotnow" style="width:100%;background:none;border:none;color:var(--mut);font-size:14px;padding:10px;cursor:pointer;margin-top:4px">Not now</button>
     </div>
   </div>
 
@@ -1274,18 +1283,43 @@ async function reportBlockedVid(vid,code){
     await firebase.database().ref("directory/"+cred.user.uid).update(upd);
   }catch(e){}
 }
-function skipBlockedVid(node,vid){
+/* error card: never auto-advance on failure — user chooses */
+function showErrorCard(node,vid,code){
+  const card=node&&node.querySelector("[data-errcard]");
+  if(!card)return;
   const t=(node&&node._t)||feed.cur;
-  const eps=(t&&t.episodes)||[];
-  const idx=epIdxOf(eps,vid);
-  for(let i=idx+1;i<eps.length;i++){
-    const e=eps[i], evid=e.video_id||vidOf(e.url||"");
-    if(e.verified&&e.url&&!isVidBlocked(evid)){ playEpisode(e); return; }
+  const msg=card.querySelector("[data-errmsg]");
+  if(msg){
+    msg.textContent = code===150 ? "This video is restricted and can't play here."
+      : code===101 ? "The owner disabled embedding for this video."
+      : "This video is no longer available.";
   }
-  if(node===curSlide()&&typeof advanceAnimated==="function"){ advanceAnimated(1); return; }
-  try{toast("Video unavailable");}catch(e){}
+  card.style.display="";
+  const ytUrl = vid ? "https://www.youtube.com/watch?v="+encodeURIComponent(vid) : null;
+  const ytBtn=card.querySelector("[data-err-yt]");
+  if(ytBtn){ ytBtn.style.display=ytUrl?"":"none"; ytBtn.onclick=()=>{ if(ytUrl)window.open(ytUrl,"_blank"); }; }
+  const retryBtn=card.querySelector("[data-err-retry]");
+  if(retryBtn)retryBtn.onclick=()=>{
+    card.style.display="none";
+    const e=(t&&t.episodes||[]).find(x=>(x.video_id||vidOf(x.url||""))===vid);
+    if(e&&typeof playEpisode==="function")playEpisode(e);
+    else if(typeof loadVideoInto==="function"&&node){ loadVideoInto(node,(t&&t.url)||"",vid); }
+  };
+  const nextBtn=card.querySelector("[data-err-next]");
+  if(nextBtn)nextBtn.onclick=()=>{
+    card.style.display="none";
+    try{ if(typeof pickRandom==="function"&&typeof playSeries==="function")playSeries(pickRandom(t)); }catch(e){}
+  };
+}
+function hideErrorCard(node){
+  const card=node&&node.querySelector("[data-errcard]");
+  if(card)card.style.display="none";
+}
+function skipBlockedVid(node,vid){
+  showErrorCard(node,vid,(node&&node._errCode)||0);
 }
 function onYtPlayerError(node,vid,code){
+  if(node)node._errCode=code;
   if(code===100||code===101||code===150){
     if(vid&&!isVidBlocked(vid)){
       markVidBlocked(vid,code);
@@ -2102,6 +2136,15 @@ function slideHTML(){
       <iframe data-frame referrerpolicy="strict-origin-when-cross-origin"
         allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
         title="Shortz VS player"></iframe>
+      <div class="errcard" data-errcard style="display:none">
+        <h3>Video unavailable</h3>
+        <p data-errmsg>This video can't play right now.</p>
+        <div class="ebtns">
+          <button class="primary" data-err-retry>↻ Retry</button>
+          <button data-err-yt>▶ Watch on YouTube</button>
+          <button data-err-next>Choose another series</button>
+        </div>
+      </div>
     </div>
     <div class="feed-tapzone" data-tap></div>
     <div class="feed-flash" data-flash></div>
@@ -2114,12 +2157,12 @@ function slideHTML(){
       <div class="ric"><button data-a="com">💬</button><span data-t="com">0</span></div>
       <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
       <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
-      <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
       <div class="ric"><button data-a="more" data-more>▼</button><span>More</span></div>
       <div class="ric-more" data-moremenu>
+      <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
       <div class="ric"><button data-a="cc" data-cc>CC</button><span>Subs</span></div>
       <div class="ric"><button data-a="pip">⧉</button><span>PiP</span></div>
-      <div class="ric"><button data-a="pia">🖼</button><span>PIA</span></div>
+      <div class="ric"><button data-a="pia">🖼</button><span>Mini player</span></div>
       <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
       <div class="ric"><button data-a="rot">⟳</button><span>Rotate</span></div>
       </div>
@@ -3258,6 +3301,7 @@ function playEpisode(e){
   feed.curEp=e;
   closeEpDrawer();
   const slide=curSlide();
+  hideErrorCard(slide);
   loadVideoInto(slide,e.url,e.video_id||vidOf(e.url));
   slide._paused=false;
   slide._fit=!!(fitSticky&&!isVertMain(t)); // sticky fit carries episode-to-episode
@@ -3271,7 +3315,11 @@ function playEpisode(e){
   const fl=slide.querySelector("[data-flash]");if(fl)fl.classList.remove("show");
   const ttl=slide.querySelector("[data-title]"); if(ttl)ttl.textContent=t.title||"";
   const meta=slide.querySelector("[data-meta]");
-  if(meta)meta.textContent=`${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
+  if(meta){
+    const eps=t.episodes||[], ei=eps.indexOf(e);
+    const eplabel = ei>=0 ? `Episode ${e.n||ei+1} of ${eps.length} · ` : "";
+    meta.textContent=`${eplabel}${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
+  }
   pushHistory(t);
   toast("▶ "+epRowTitle(e,partIdxOf(t,e)));
   // warm the NEXT verified episode now so the switch is instant later
@@ -4961,17 +5009,20 @@ function liveAskName(){
   return new Promise(res=>{
     const s=$("#lnsheet"), sc=$("#lnscrim"), inp=$("#lninput");
     let settled=false;
+    const close=()=>{ s.classList.remove("open"); sc.classList.remove("open"); };
     const done=()=>{
       if(settled)return; settled=true;
       const n=(inp.value.trim().slice(0,24))||"Viewer";
-      s.classList.remove("open"); sc.classList.remove("open");
-      res(n);
+      close(); res(n);
     };
+    const dismiss=()=>{ if(settled)return; settled=true; close(); res(null); };
     inp.value=store.get("live_name","")||"";
     s.classList.add("open"); sc.classList.add("open");
     setTimeout(()=>{try{inp.focus()}catch(e){}},350);
     $("#lnsave").onclick=done;
-    sc.onclick=done;
+    $("#lnnotnow").onclick=dismiss;
+    $("#lnclose").onclick=dismiss;
+    sc.onclick=dismiss;
   });
 }
 $("#lvsclose").addEventListener("click",closeLiveSheet);
@@ -4995,9 +5046,7 @@ async function liveEnsure(){
       let nm = store.get("live_name","");
       if(!nm){
         const prof=store.get("profile",null);
-        if(prof&&prof.name){ nm=prof.name; }
-        else{ nm = await liveAskName(); }
-        store.set("live_name",nm);
+        nm = (prof&&prof.name) ? prof.name : "Viewer";
       }
       Live.name = nm;
       Live.authed = true;
@@ -5706,11 +5755,17 @@ async function renderLiveRoom(){
     chat.scrollTop=chat.scrollHeight;
   });
   Live.roomOffs.push(()=>q.off("child_added",madd));
-  $("#liveForm").onsubmit=e=>{
+  $("#liveForm").onsubmit=async e=>{
     e.preventDefault();
     const inp=$("#liveInput");
     const text=inp.value.trim().slice(0,300);
     if(!text) return;
+    // first chat message: ask for a display name (with Not now / close)
+    if(!store.get("live_name","")){
+      const n=await liveAskName();
+      if(n){ store.set("live_name",n); Live.name=n; }
+      else return; // dismissed — don't send as nameless
+    }
     inp.value="";
     Live.db.ref("rooms/"+Live.roomId+"/messages").push({
       uid:Live.uid, name:Live.name, text,
