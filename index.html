@@ -1842,10 +1842,11 @@ function freshScore(t,recentGenres,taste){
   const id=t.id;
   let watched=false;
   try{ watched=history.some(h=>h&&h.id===id); }catch(e){}
-  if(!watched&&seen.indexOf(id)<0)s+=3;                    // unseen
+  const isNew=!watched&&seen.indexOf(id)<0;
+  if(isNew)s+=3;                                            // unseen
   // HIS LAW (2026-10-11): Home feed favors short drama series over short clips.
-  // Scripted short-story genres outrank compilations/highlights/reality.
-  try{ if(t.genre&&SHORT_STORY_GENRES.indexOf(t.genre)>=0)s+=3; }catch(e){}
+  // Full boost while fresh; half boost once seen — more drama, no repeats.
+  try{ if(t.genre&&SHORT_STORY_GENRES.indexOf(t.genre)>=0)s+=isNew?3:1.5; }catch(e){}
   const da=t.dateAdded||t.added_at||t.date_added;
   if(da){
     const age=(Date.now()-new Date(da).getTime())/864e5;
@@ -1864,7 +1865,7 @@ function pickRandom(exceptId){
   const pool = IDX.homePool.length ? IDX.homePool : C; // full 5+ep pool (352): the 38-vertical splinter starved variety
   const recentGenres=[];
   try{
-    for(let i=Math.max(0,feedStack.length-3);i<feedStack.length;i++){
+    for(let i=Math.max(0,feedStack.length-5);i<feedStack.length;i++){
       const t=feedStack[i]; if(t&&t.genre)recentGenres.push(t.genre);
     }
   }catch(e){}
@@ -1877,7 +1878,7 @@ function pickRandom(exceptId){
     if(s>bestScore){bestScore=s;best=t;}
   }
   if(!best)best=C[(Math.random()*C.length)|0];
-  seen.push(best.id); if(seen.length > 60)seen.splice(0, seen.length - 60);
+  seen.push(best.id); if(seen.length > 150)seen.splice(0, seen.length - 150);
   // DEBOUNCED persist: the old code did a synchronous localStorage write on EVERY swipe
   clearTimeout(pickRandom._st);
   pickRandom._st = setTimeout(()=>{ try{ store.set("seen",seen); }catch(e){} }, 2000);
