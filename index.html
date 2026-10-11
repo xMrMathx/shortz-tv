@@ -2221,7 +2221,10 @@ function fillSlide(node,t,mode){
   fitBtnPaint(node);
   if(bd){const bi=thumb(t,"hq");bd.style.backgroundImage=bi?`url("${bi}")`:"none";}
   node.querySelector("[data-title]").textContent=t.title;
-  node.querySelector("[data-meta]").textContent=`${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
+  const feps=t.episodes||[], fvid=vidOf(t.url||"");
+  const fei=feps.findIndex(x=>(x.video_id||vidOf(x.url||""))===fvid);
+  const feplabel = fei>=0 ? `Episode ${feps[fei].n||fei+1} of ${feps.length} · ` : "";
+  node.querySelector("[data-meta]").textContent=`${feplabel}${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
   updateRailIn(node,t);
   if(mode==="current"){
     loadVideoInto(node,t.url,vidOf(t.url));
