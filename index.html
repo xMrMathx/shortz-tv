@@ -1228,7 +1228,7 @@ function buildCatalogIndexes(){
     if(t.ai_made === true) IDX.aiN++;
     if(t.rebirth === true) IDX.rebirthN++;
     if(t.onlyShortz === true) IDX.onlyShortzN++;
-    if(t.award) IDX.awardN++;
+    if(t.award_verified) IDX.awardN++;
     if(t.trek === true) IDX.trekN++;
     if(isEarlyRelease(t)){ IDX.earlyN++; IDX.earlyList.push(t); }
     if(isVertMain(t)) IDX.vertPool.push(t);
@@ -1450,7 +1450,7 @@ function browseList(){
   if(qf)return alphaSortCached("q:"+browseQuery,qf);
   if(browseGenre===AI)return alphaSortCached("g:ai",C.filter(t=>t.ai_made===true));
   if(browseGenre===ONLYSHORTZ)return alphaSortCached("g:onlyshortz",C.filter(t=>t.onlyShortz===true));
-  if(browseGenre===AWARD)return alphaSortCached("g:award",C.filter(t=>t.award));
+  if(browseGenre===AWARD)return alphaSortCached("g:award",C.filter(t=>t.award_verified));
   if(browseGenre===TREK)return alphaSortCached("g:trek",C.filter(t=>t.trek===true));
   if(browseGenre==="Rebirth"||browseGenre===REBIRTH)return alphaSortCached("g:rebirth",C.filter(t=>t.rebirth===true));
   // Reality: pinned groups first — Survivor-type, then Big Brother-type,
@@ -3573,13 +3573,14 @@ function loadAwardCarousels(){
   const films=[], series=[];
   try{
     for(const s of C){
-      if(!s.award)continue;
+      if(!s.award_verified)continue;
       const eps=s.eps||s.episodes||[];
       (eps.length>1?series:films).push(s.id);
     }
   }catch(e){}
-  const filmIds=[...AWARD_TOP_FILMS.filter(id=>byId(id)),...shuffle(films.filter(id=>!AWARD_TOP_FILMS.includes(id)))];
-  const seriesIds=[...AWARD_TOP_SERIES.filter(id=>byId(id)),...shuffle(series.filter(id=>!AWARD_TOP_SERIES.includes(id)))];
+  const vOK=id=>{const t=byId(id);return t&&t.award_verified;};
+  const filmIds=[...AWARD_TOP_FILMS.filter(vOK),...shuffle(films.filter(id=>!AWARD_TOP_FILMS.includes(id)))];
+  const seriesIds=[...AWARD_TOP_SERIES.filter(vOK),...shuffle(series.filter(id=>!AWARD_TOP_SERIES.includes(id)))];
   const paint=(sec,row,ids)=>{
     if(!sec||!row)return;
     const items=ids.map(id=>byId(id)).filter(Boolean);
