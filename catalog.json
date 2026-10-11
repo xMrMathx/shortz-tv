@@ -295403,5 +295403,93 @@
   "eps": "5 eps",
   "rights_basis": "Public YouTube embed",
   "award_verified": true
+ },
+ {
+  "id": "stv-5087",
+  "title": "Paperman",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2012)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Paperman (2012) — Disney",
+    "url": "https://www.youtube.com/embed/XrqSF2OOz_M",
+    "video_id": "XrqSF2OOz_M",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/XrqSF2OOz_M",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5088",
+  "title": "The Neighbors' Window",
+  "genre": "Short Films",
+  "award": "Academy Award winner — Best Live Action Short Film (2019)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Neighbors' Window (2019) — Marshall Curry",
+    "url": "https://www.youtube.com/embed/Nl3v8R85-4U",
+    "video_id": "Nl3v8R85-4U",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Nl3v8R85-4U",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5089",
+  "title": "Skin",
+  "genre": "Short Films",
+  "award": "Academy Award winner — Best Live Action Short Film (2018)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Skin (2018) — Guy Nattiv",
+    "url": "https://www.youtube.com/embed/4NbO16AS5oc",
+    "video_id": "4NbO16AS5oc",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4NbO16AS5oc",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5090",
+  "title": "Tin Toy",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (1988)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Tin Toy (1988) — Pixar",
+    "url": "https://www.youtube.com/embed/DWi2WTqD59A",
+    "video_id": "DWi2WTqD59A",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/DWi2WTqD59A",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
  }
 ]
