@@ -2112,7 +2112,7 @@
   "id": "stv-048",
   "title": "ROBOTIKO v2.0 EP08",
   "genre": "Sci-Fi",
-  "eps": "10 eps",
+  "eps": "9 eps",
   "runtime": "short",
   "desc": "An android series, 10 episodes, from Fibula.",
   "url": "https://www.youtube.com/embed/W_zfFDXn0o0",
@@ -2143,15 +2143,6 @@
     "video_id": "BQ_57wyb6fM",
     "url": "https://www.youtube.com/embed/BQ_57wyb6fM",
     "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 4,
-    "title": "The Moon Has No Light of Its Own | ROBOTIKO v2.0 EP04",
-    "video_id": "JAFuRrautBA",
-    "url": "https://www.youtube.com/embed/JAFuRrautBA",
-    "verified": true,
-    "note": "video unavailable (oEmbed 401 / player UNPLAYABLE); kept, verified:false",
     "kind": "episode"
    },
    {
@@ -3904,7 +3895,7 @@
   "id": "stv-070",
   "title": "LANES Ep1",
   "genre": "Hood",
-  "eps": "14 eps",
+  "eps": "13 eps",
   "runtime": "short",
   "desc": "A Brooklyn street series, released weekly, from Miles Dixon.",
   "url": "https://www.youtube.com/embed/3CsjtJZ8RA0",
@@ -3990,14 +3981,6 @@
     "title": "LANES - Episode 10",
     "video_id": "3G-ze-1Ckv4",
     "url": "https://www.youtube.com/embed/3G-ze-1Ckv4",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 11,
-    "title": "LANES - Episode 11",
-    "video_id": "_BDvd7eyldc",
-    "url": "https://www.youtube.com/embed/_BDvd7eyldc",
     "verified": true,
     "kind": "episode"
    },
@@ -8073,29 +8056,6 @@
   ]
  },
  {
-  "id": "stv-1009",
-  "title": "House of Secrets: The Burari Deaths -- Beyond the Netflix documentary (*MATURE AUDIENCES*)",
-  "genre": "Mr. Ballin",
-  "eps": "1 ep",
-  "runtime": "~15:05",
-  "desc": "House of Secrets: The Burari Deaths -- Beyond the Netflix documentary (*MATURE AUDIENCES*) — Mr. Ballin storytelling.",
-  "url": "https://www.youtube.com/embed/FjxBndqU0kM",
-  "url_status": "ok",
-  "source_channel": "MrBallen",
-  "rights_basis": "Public embed",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "House of Secrets: The Burari Deaths -- Beyond the Netflix documentary (*MATURE AUDIENCES*)",
-    "video_id": "FjxBndqU0kM",
-    "url": "https://www.youtube.com/embed/FjxBndqU0kM",
-    "verified": true,
-    "kind": "episode"
-   }
-  ]
- },
- {
   "id": "stv-101",
   "title": "The Missing Treasure",
   "genre": "Thriller",
@@ -8790,29 +8750,6 @@
     "title": "Filmmaker jumps off a cliff & runs into a forest... | Missing 411 (Part 8)",
     "video_id": "Ytr3dbjrx4Q",
     "url": "https://www.youtube.com/embed/Ytr3dbjrx4Q",
-    "verified": true,
-    "kind": "episode"
-   }
-  ]
- },
- {
-  "id": "stv-1035",
-  "title": "Inside the Twin Towers on 9/11 (*MATURE AUDIENCES ONLY*)",
-  "genre": "Mr. Ballin",
-  "eps": "1 ep",
-  "runtime": "~32:33",
-  "desc": "Inside the Twin Towers on 9/11 (*MATURE AUDIENCES ONLY*) — Mr. Ballin storytelling.",
-  "url": "https://www.youtube.com/embed/0azXES3MKew",
-  "url_status": "ok",
-  "source_channel": "MrBallen",
-  "rights_basis": "Public embed",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Inside the Twin Towers on 9/11 (*MATURE AUDIENCES ONLY*)",
-    "video_id": "0azXES3MKew",
-    "url": "https://www.youtube.com/embed/0azXES3MKew",
     "verified": true,
     "kind": "episode"
    }
@@ -11735,29 +11672,6 @@
     "title": "4 kids VANISH from locked cars | Missing 411 (Part 10)",
     "video_id": "6ZH3y8y82dY",
     "url": "https://www.youtube.com/embed/6ZH3y8y82dY",
-    "verified": true,
-    "kind": "episode"
-   }
-  ]
- },
- {
-  "id": "stv-1127",
-  "title": "Don't do what he did... (*MATURE AUDIENCES*)",
-  "genre": "Mr. Ballin",
-  "eps": "1 ep",
-  "runtime": "~16:23",
-  "desc": "Don't do what he did... (*MATURE AUDIENCES*) — Mr. Ballin storytelling.",
-  "url": "https://www.youtube.com/embed/VewJxeEBc4w",
-  "url_status": "ok",
-  "source_channel": "MrBallen",
-  "rights_basis": "Public embed",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Don't do what he did... (*MATURE AUDIENCES*)",
-    "video_id": "VewJxeEBc4w",
-    "url": "https://www.youtube.com/embed/VewJxeEBc4w",
     "verified": true,
     "kind": "episode"
    }
@@ -14913,78 +14827,6 @@
   ]
  },
  {
-  "id": "stv-120",
-  "title": "The Rejected Beast Bride's New Mate",
-  "genre": "Romance",
-  "eps": "6 eps",
-  "runtime": "~1 min",
-  "desc": "Cast aside as a beast bride, she finds a new mate who actually wants her. Werewolf/beast-shifter romance in six vertical episodes.",
-  "url": "https://www.youtube.com/embed/sA9iXwRvllo",
-  "url_status": "ok",
-  "source_channel": "JoyReels - Updating Daily",
-  "rights_basis": "JoyReels distribution channel (aggregator; vertical reupload)",
-  "ai_made": false,
-  "vertical": true,
-  "vertical_source": "JoyReels - Updating Daily",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "【The Rejected Beast Bride's New Mate】EP01| #joyreels #shortdrama #ShortFilm",
-    "video_id": "sA9iXwRvllo",
-    "url": "https://www.youtube.com/embed/sA9iXwRvllo",
-    "verified": true,
-    "kind": "episode",
-    "vertical": true
-   },
-   {
-    "n": 2,
-    "title": "【The Rejected Beast Bride's New Mate】EP02| #joyreels #shortdrama #ShortFilm",
-    "video_id": "NDuiDjmYp8Y",
-    "url": "https://www.youtube.com/embed/NDuiDjmYp8Y",
-    "verified": true,
-    "kind": "episode",
-    "vertical": true
-   },
-   {
-    "n": 3,
-    "title": "【The Rejected Beast Bride's New Mate】EP03| #joyreels #shortdrama #ShortFilm",
-    "video_id": "aOBlD9w1uKQ",
-    "url": "https://www.youtube.com/embed/aOBlD9w1uKQ",
-    "verified": true,
-    "kind": "episode",
-    "vertical": true
-   },
-   {
-    "n": 4,
-    "title": "【The Rejected Beast Bride's New Mate】EP04| #joyreels #shortdrama #ShortFilm",
-    "video_id": "5tmD5hNVfAQ",
-    "url": "https://www.youtube.com/embed/5tmD5hNVfAQ",
-    "verified": true,
-    "kind": "episode",
-    "vertical": true
-   },
-   {
-    "n": 5,
-    "title": "【The Rejected Beast Bride's New Mate】EP05| #joyreels #shortdrama #ShortFilm",
-    "video_id": "DQMJSABovpk",
-    "url": "https://www.youtube.com/embed/DQMJSABovpk",
-    "verified": true,
-    "kind": "episode",
-    "vertical": true
-   },
-   {
-    "n": 6,
-    "title": "【The Rejected Beast Bride's New Mate】EP06| #joyreels #shortdrama #ShortFilm",
-    "video_id": "bjwpY2V8A84",
-    "url": "https://www.youtube.com/embed/bjwpY2V8A84",
-    "verified": true,
-    "kind": "episode",
-    "vertical": true
-   }
-  ],
-  "episodes_note": "EP01-EP06 all vertical and embeddable."
- },
- {
   "id": "stv-1200",
   "title": "This message ruined his life...",
   "genre": "Mr. Ballin",
@@ -17300,29 +17142,6 @@
     "title": "This is why you never search for the dead...",
     "video_id": "2FkdaH2oC58",
     "url": "https://www.youtube.com/embed/2FkdaH2oC58",
-    "verified": true,
-    "kind": "episode"
-   }
-  ]
- },
- {
-  "id": "stv-1277",
-  "title": "They call this place Dead Mountain for a reason (Dyatlov Pass incident)",
-  "genre": "Mr. Ballin",
-  "eps": "1 ep",
-  "runtime": "~14:22",
-  "desc": "They call this place Dead Mountain for a reason (Dyatlov Pass incident) — Mr. Ballin storytelling.",
-  "url": "https://www.youtube.com/embed/TVj7ly2HMiU",
-  "url_status": "ok",
-  "source_channel": "MrBallen",
-  "rights_basis": "Public embed",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "They call this place Dead Mountain for a reason (Dyatlov Pass incident)",
-    "video_id": "TVj7ly2HMiU",
-    "url": "https://www.youtube.com/embed/TVj7ly2HMiU",
     "verified": true,
     "kind": "episode"
    }
@@ -21980,7 +21799,7 @@
   "id": "stv-143",
   "title": "Iriy Bound",
   "genre": "Fantasy",
-  "eps": "5 eps",
+  "eps": "4 eps",
   "runtime": "~1 min",
   "desc": "An AI fantasy serial from Murkyowl Studio — Iriy Bound unfolds across five numbered episodes.",
   "url": "https://www.youtube.com/embed/87rP_mvM3WA",
@@ -22023,15 +21842,6 @@
     "title": "IRIY BOUND episode 4 #aifilm #aifilm #aiseries #fantasyseries #ai #aimovie #aimovie #indiefilm",
     "video_id": "VZ0IWfJTesk",
     "url": "https://www.youtube.com/embed/VZ0IWfJTesk",
-    "verified": true,
-    "kind": "episode",
-    "vertical": true
-   },
-   {
-    "n": 5,
-    "title": "IRIY BOUND episode 5 #aifilm #fantasyseries #aiseries #aimovie #iriybound #ai #indiefilm #serial",
-    "video_id": "4cnG0Mqv42c",
-    "url": "https://www.youtube.com/embed/4cnG0Mqv42c",
     "verified": true,
     "kind": "episode",
     "vertical": true
@@ -28609,7 +28419,7 @@
   "id": "stv-1556",
   "title": "Dick Figures",
   "genre": "Animation",
-  "eps": "49 eps",
+  "eps": "48 eps",
   "runtime": "~1-3 min each",
   "desc": "Two crude stick-figure roommates, Red and Blue, bumble through meme-fueled misadventures.",
   "url": "https://www.youtube.com/embed/dXauV32kSrI",
@@ -28958,14 +28768,6 @@
     "video_id": "Ly3OTtXdJEg",
     "url": "https://www.youtube.com/embed/Ly3OTtXdJEg",
     "n": 43,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Dick Figures - Terminate-Her (Ep #23)",
-    "video_id": "nJZXcsVvjUI",
-    "url": "https://www.youtube.com/embed/nJZXcsVvjUI",
-    "n": 44,
     "verified": true,
     "kind": "episode"
    },
@@ -30865,7 +30667,7 @@
   "id": "stv-1560",
   "title": "MeatCanyon",
   "genre": "Animation",
-  "eps": "92 eps",
+  "eps": "90 eps",
   "runtime": "~1-3 min each",
   "desc": "Grotesque horror-comedy parodies of cartoons, mascots, and pop culture.",
   "url": "https://www.youtube.com/embed/1NzlCmr-nB8",
@@ -31442,14 +31244,6 @@
     "kind": "episode"
    },
    {
-    "title": "This Streamer’s Never Wrong…",
-    "video_id": "noNJfGeRuE8",
-    "url": "https://www.youtube.com/embed/noNJfGeRuE8",
-    "n": 72,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Krabby Patty Secret Formula",
     "video_id": "x9Zi8hoOQK4",
     "url": "https://www.youtube.com/embed/x9Zi8hoOQK4",
@@ -31494,14 +31288,6 @@
     "video_id": "--IXh4o4L-8",
     "url": "https://www.youtube.com/embed/--IXh4o4L-8",
     "n": 78,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Gym Bro Nightmare",
-    "video_id": "zeE8F2j6F4o",
-    "url": "https://www.youtube.com/embed/zeE8F2j6F4o",
-    "n": 79,
     "verified": true,
     "kind": "episode"
    },
@@ -51602,7 +51388,7 @@
   "id": "stv-1673",
   "title": "Marble Hornets",
   "genre": "Horror",
-  "eps": "121 eps",
+  "eps": "120 eps",
   "runtime": "~1-3 min each",
   "desc": "The found-footage series that launched a thousand nightmares: a film student's unfinished project, a tall faceless stalker in the background of every tape, and cryptic responses from totheark. The ori",
   "url": "https://www.youtube.com/embed/Wmhfn3mgWUI",
@@ -52143,14 +51929,6 @@
     "video_id": "zqQIVmauiXI",
     "url": "https://www.youtube.com/embed/zqQIVmauiXI",
     "n": 67,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Memories",
-    "video_id": "gyOQvJgkOvQ",
-    "url": "https://www.youtube.com/embed/gyOQvJgkOvQ",
-    "n": 68,
     "verified": true,
     "kind": "episode"
    },
@@ -53929,7 +53707,7 @@
   "id": "stv-1681",
   "title": "The Look-See",
   "genre": "Horror",
-  "eps": "9 eps",
+  "eps": "8 eps",
   "runtime": "~1-3 min each",
   "desc": "Crypt TV's grinning nightmare fuel: a tall smiling creature that appears to people drowning in grief — and once you see it, it doesn't leave. Eerie short-form monster horror.",
   "url": "https://www.youtube.com/embed/VUdR6vMucHU",
@@ -53942,14 +53720,6 @@
     "video_id": "VUdR6vMucHU",
     "url": "https://www.youtube.com/embed/VUdR6vMucHU",
     "n": 1,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "LOOK-SEE | \"The Mistress Mind\" | S1E2 |Crypt TV Monster Universe | Short Film",
-    "video_id": "mwC6vw5v7HE",
-    "url": "https://www.youtube.com/embed/mwC6vw5v7HE",
-    "n": 2,
     "verified": true,
     "kind": "episode"
    },
@@ -59505,7 +59275,7 @@
   "id": "stv-1712",
   "title": "So Expensive",
   "genre": "Reality",
-  "eps": "145 eps",
+  "eps": "144 eps",
   "runtime": "~1-3 min each",
   "desc": "Business Insider's docuseries traveling the world to reveal why luxury goods cost so much. 77 episodes of around 8 minutes.",
   "url": "https://www.youtube.com/embed/uxyd6tAI-ZU",
@@ -60254,14 +60024,6 @@
     "video_id": "zKqfC0E82gU",
     "url": "https://www.youtube.com/embed/zKqfC0E82gU",
     "n": 93,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Why Full-Spectrum CBD Oil is So Expensive | So Expensive",
-    "video_id": "xvY_TcBn2Gs",
-    "url": "https://www.youtube.com/embed/xvY_TcBn2Gs",
-    "n": 94,
     "verified": true,
     "kind": "episode"
    },
@@ -61919,7 +61681,7 @@
   "id": "stv-1714",
   "title": "The Dodo",
   "genre": "Reality",
-  "eps": "1330 eps",
+  "eps": "1328 eps",
   "runtime": "~1-3 min each",
   "desc": "Heartwarming short animal-rescue stories from The Dodo's producers. 1000+ shorts, most under 6 minutes.",
   "url": "https://www.youtube.com/embed/7lt94s35ZhE",
@@ -68921,14 +68683,6 @@
    },
    {
     "title": "Man Climbs 30-Foot Tree To Save Cat After Police Refuse To Help | The Dodo",
-    "video_id": "4q5BsaBOuw4",
-    "url": "https://www.youtube.com/embed/4q5BsaBOuw4",
-    "n": 875,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Man Climbs 30-Foot Tree To Save Cat After Police Refuse To Help | The Dodo",
     "video_id": "-ZHKb4llV7s",
     "url": "https://www.youtube.com/embed/-ZHKb4llV7s",
     "n": 876,
@@ -72412,14 +72166,6 @@
     "video_id": "TUa2UsEXXxE",
     "url": "https://www.youtube.com/embed/TUa2UsEXXxE",
     "n": 1311,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Rescuers Try To Save Baby Swan While Mom Stays By Her Side | The Dodo",
-    "video_id": "H2pK6lwC36s",
-    "url": "https://www.youtube.com/embed/H2pK6lwC36s",
-    "n": 1312,
     "verified": true,
     "kind": "episode"
    },
@@ -85034,7 +84780,7 @@
   "id": "stv-1722",
   "title": "ThatWasEpic",
   "genre": "Reality",
-  "eps": "280 eps",
+  "eps": "276 eps",
   "runtime": "~1-3 min each",
   "desc": "Juan Gonzalez's wholesome pranks, social experiments and giveaways filmed with strangers. 300+ short episodes.",
   "url": "https://www.youtube.com/embed/LeXiUb5MWKQ",
@@ -85579,14 +85325,6 @@
     "kind": "episode"
    },
    {
-    "title": "Smashing GIANT Bongs Prank!",
-    "video_id": "iX91snE6ekI",
-    "url": "https://www.youtube.com/embed/iX91snE6ekI",
-    "n": 68,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Pretending to tow people, then giving them $1,000",
     "video_id": "IshMHR48-Zw",
     "url": "https://www.youtube.com/embed/IshMHR48-Zw",
@@ -85679,14 +85417,6 @@
     "video_id": "RfBt8RsAKPU",
     "url": "https://www.youtube.com/embed/RfBt8RsAKPU",
     "n": 80,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Smashing Extremely Expensive Bongs Prank",
-    "video_id": "PNEem6E_Up8",
-    "url": "https://www.youtube.com/embed/PNEem6E_Up8",
-    "n": 81,
     "verified": true,
     "kind": "episode"
    },
@@ -85823,14 +85553,6 @@
     "video_id": "MUSX0-94Oas",
     "url": "https://www.youtube.com/embed/MUSX0-94Oas",
     "n": 98,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Buying One Taco, Then Tipping $1000",
-    "video_id": "Vff2luoRxnU",
-    "url": "https://www.youtube.com/embed/Vff2luoRxnU",
-    "n": 99,
     "verified": true,
     "kind": "episode"
    },
@@ -86231,14 +85953,6 @@
     "video_id": "2lYFY8bxOnY",
     "url": "https://www.youtube.com/embed/2lYFY8bxOnY",
     "n": 149,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Am I Out of Your league?",
-    "video_id": "87OCk3E_3IY",
-    "url": "https://www.youtube.com/embed/87OCk3E_3IY",
-    "n": 150,
     "verified": true,
     "kind": "episode"
    },
@@ -92976,29 +92690,6 @@
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-1855",
-  "title": "The Momo Tales: Episode 1 - The Laughing Compass",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Momo and friends seek help from a mysterious laughing compass in Valerio Petretto's whimsical indie cartoon.",
-  "url": "https://www.youtube.com/embed/MVaOyfQ6AB8",
-  "video_id": "MVaOyfQ6AB8",
-  "source_channel": "Arcadia Animation - Indie cartoon studio",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "The Momo Tales: Episode 1 - The Laughing Compass",
-    "url": "https://www.youtube.com/embed/MVaOyfQ6AB8",
-    "video_id": "MVaOyfQ6AB8",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
   "id": "stv-1856",
   "title": "Bee and PuppyCat: Food (EP1)",
   "genre": "Animation",
@@ -93215,7 +92906,7 @@
   "id": "stv-1859",
   "title": "asdfmovie",
   "genre": "Animation",
-  "eps": "16 eps",
+  "eps": "14 eps",
   "runtime": "~1-3 min each",
   "desc": "TomSka's iconic rapid-fire surreal sketch cartoon. Original indie animation.",
   "url": "https://www.youtube.com/embed/qcwqUf_B5mM",
@@ -93272,14 +92963,6 @@
     "kind": "episode"
    },
    {
-    "title": "asdfmovie11",
-    "video_id": "LJnpwL-2Drc",
-    "url": "https://www.youtube.com/embed/LJnpwL-2Drc",
-    "n": 7,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "asdfmovie9",
     "video_id": "8l6T3fwxAyw",
     "url": "https://www.youtube.com/embed/8l6T3fwxAyw",
@@ -93308,14 +92991,6 @@
     "video_id": "tCnj-uiRCn8",
     "url": "https://www.youtube.com/embed/tCnj-uiRCn8",
     "n": 11,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "asdfmovie7",
-    "video_id": "5xniR1GN69U",
-    "url": "https://www.youtube.com/embed/5xniR1GN69U",
-    "n": 12,
     "verified": true,
     "kind": "episode"
    },
@@ -93633,7 +93308,7 @@
   "id": "stv-1869",
   "title": "Epic NPC Man: Eating Rotten Meat",
   "genre": "Fantasy",
-  "eps": "391 eps",
+  "eps": "390 eps",
   "runtime": "~1-3 min each",
   "desc": "A hapless blacksmith NPC endures another day of adventurer nonsense. From Viva La Dirt League's long-running fantasy comedy series.",
   "url": "https://www.youtube.com/embed/lbJ51AJuR7E",
@@ -93726,14 +93401,6 @@
     "video_id": "8Yh35uWLBQ8",
     "url": "https://www.youtube.com/embed/8Yh35uWLBQ8",
     "n": 11,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "When NPC's forget to die - Arrow",
-    "video_id": "cP9sEt8Xj6g",
-    "url": "https://www.youtube.com/embed/cP9sEt8Xj6g",
-    "n": 12,
     "verified": true,
     "kind": "episode"
    },
@@ -100609,7 +100276,7 @@
   "id": "stv-1942",
   "title": "SuperF*ckers - Ep. 1: Sweet Mystery",
   "genre": "Animation",
-  "eps": "13 eps",
+  "eps": "12 eps",
   "runtime": "~1-3 min each",
   "desc": "James Kochalka's crude adult superhero comedy on Cartoon Hangover: rude young heroes who never do any actual superhero work. Episode 1 of 12.",
   "url": "https://www.youtube.com/embed/a0-x1CldDk0",
@@ -100654,14 +100321,6 @@
     "video_id": "1QjD6r0yfBI",
     "url": "https://www.youtube.com/embed/1QjD6r0yfBI",
     "n": 5,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Dawn of Omnizod (SuperF*ckers - Ep. 5)",
-    "video_id": "Iqfi-oKXOzM",
-    "url": "https://www.youtube.com/embed/Iqfi-oKXOzM",
-    "n": 6,
     "verified": true,
     "kind": "episode"
    },
@@ -100990,7 +100649,7 @@
   "id": "stv-1951",
   "title": "Les Kassos — Teleboubizes / Bonne Nuit les Chiards (S3E1)",
   "genre": "Animation",
-  "eps": "157 eps",
+  "eps": "127 eps",
   "runtime": "~1-3 min each",
   "desc": "French adult animated parody series by Balak & Eldiablo (Bobby Prod/Canal+): washed-up cartoon, game and TV icons confess their real-life problems to a patient social worker. ~2-min episodes; 129 epis",
   "url": "https://www.youtube.com/embed/DSVH-0XnkQo",
@@ -101167,66 +100826,10 @@
     "kind": "episode"
    },
    {
-    "title": "On vous dévoile le nouveau générique de la saison 7 😉 #LesKassos",
-    "video_id": "UA8yuAoTiXw",
-    "url": "https://www.youtube.com/embed/UA8yuAoTiXw",
-    "n": 22,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🎵 J'suis Barbie mais t'es pas Ken 💅🎵 #LesKassos #aya #ayanakamerou",
-    "video_id": "tq94MfL3t8s",
-    "url": "https://www.youtube.com/embed/tq94MfL3t8s",
-    "n": 23,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "NARNIAC Musique officielle - Les Kassos",
     "video_id": "lBa_oZU_wao",
     "url": "https://www.youtube.com/embed/lBa_oZU_wao",
     "n": 24,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Houba Booba c'est lui 😎 #LesKassos #Houbabooba #marsupilami #booba #B2O #cartoon #animation",
-    "video_id": "q8PZv-kKW7k",
-    "url": "https://www.youtube.com/embed/q8PZv-kKW7k",
-    "n": 25,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Ayo les problèèmes ! #LesKassos #téléréalité #kongs",
-    "video_id": "SAavGi_4kGE",
-    "url": "https://www.youtube.com/embed/SAavGi_4kGE",
-    "n": 26,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Vrai Fremen bois ! #LesKassos #fremen #dune #epicechallenge",
-    "video_id": "6pkOzri451w",
-    "url": "https://www.youtube.com/embed/6pkOzri451w",
-    "n": 27,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "カソス全部ダメだ #LesKassos #miyazakiinparis",
-    "video_id": "v_rrag3q9X8",
-    "url": "https://www.youtube.com/embed/v_rrag3q9X8",
-    "n": 28,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "On a enfin découvert le passage secret du bureau de l'assistante 😍 #LesKassos #uncharted",
-    "video_id": "Js_cPapK0Vc",
-    "url": "https://www.youtube.com/embed/Js_cPapK0Vc",
-    "n": 29,
     "verified": true,
     "kind": "episode"
    },
@@ -101239,42 +100842,10 @@
     "kind": "episode"
    },
    {
-    "title": "Attention il n'est pas loin💨 #LesKassos #lastofus",
-    "video_id": "Y8EkXNwuNPE",
-    "url": "https://www.youtube.com/embed/Y8EkXNwuNPE",
-    "n": 31,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Avais tu découvert le grand mystère de tous les temps 🐕 ? #LesKassos #scoobydoo",
-    "video_id": "72loKFEt8s4",
-    "url": "https://www.youtube.com/embed/72loKFEt8s4",
-    "n": 32,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Monsieur Shinji confie son mal être en chanson 🎵 #LesKassos #evangelion #stromae #papaoutai",
-    "video_id": "uBtrHIL2f-I",
-    "url": "https://www.youtube.com/embed/uBtrHIL2f-I",
-    "n": 33,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Les Kassos Saison 7 : Making Of (BONUS)",
     "video_id": "EJetSn6NsFU",
     "url": "https://www.youtube.com/embed/EJetSn6NsFU",
     "n": 34,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Les coulisses de la saison 7 des Kassos 😍",
-    "video_id": "mHhhLiWHR2o",
-    "url": "https://www.youtube.com/embed/mHhhLiWHR2o",
-    "n": 35,
     "verified": true,
     "kind": "episode"
    },
@@ -101431,30 +101002,6 @@
     "kind": "episode"
    },
    {
-    "title": "Bonne fête des voisins 😍🏡 #LesKassos #fêtedesvoisins #voisins #sansunbruit #cartoon #animation",
-    "video_id": "vhXj_Fh65EM",
-    "url": "https://www.youtube.com/embed/vhXj_Fh65EM",
-    "n": 55,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "This Barbie is trying to be body positive 💅 #LesKassos #barbie",
-    "video_id": "xRXFjiptqPw",
-    "url": "https://www.youtube.com/embed/xRXFjiptqPw",
-    "n": 56,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Beaucoup trop à l'aise 💀 #LesKassos #laracroft #laracraft #vacances #cartoon #animation",
-    "video_id": "EmmH8r1uPmk",
-    "url": "https://www.youtube.com/embed/EmmH8r1uPmk",
-    "n": 57,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "ITI leur fait du sale 🛸",
     "video_id": "7LICTSku5_g",
     "url": "https://www.youtube.com/embed/7LICTSku5_g",
@@ -101563,14 +101110,6 @@
     "video_id": "krVJcIuSJMI",
     "url": "https://www.youtube.com/embed/krVJcIuSJMI",
     "n": 71,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Dirty Fisting - Les Kassos #71",
-    "video_id": "HPMXkFyfxJQ",
-    "url": "https://www.youtube.com/embed/HPMXkFyfxJQ",
-    "n": 72,
     "verified": true,
     "kind": "episode"
    },
@@ -101703,14 +101242,6 @@
     "kind": "episode"
    },
    {
-    "title": "Hydroalcolix - Les Kassos SPECIAL",
-    "video_id": "6sz7MZs1Ask",
-    "url": "https://www.youtube.com/embed/6sz7MZs1Ask",
-    "n": 89,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Jhanos : La gêne est dans le pré - Les Kassos #54",
     "video_id": "rqdsOysX8lY",
     "url": "https://www.youtube.com/embed/rqdsOysX8lY",
@@ -101759,46 +101290,6 @@
     "kind": "episode"
    },
    {
-    "title": "Nemo t'es ken / Il était une fois le vit - Les Kassos #51",
-    "video_id": "3hBt0bAOwN8",
-    "url": "https://www.youtube.com/embed/3hBt0bAOwN8",
-    "n": 96,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Les erreurs dans un couple ça (h)arr(y)ve ! #LesKassos #HarryPotter",
-    "video_id": "u-d2Kdc3FMw",
-    "url": "https://www.youtube.com/embed/u-d2Kdc3FMw",
-    "n": 97,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "C’est le cycle de la vie 🥗 ! #LesKassos",
-    "video_id": "f1bD25dXYeE",
-    "url": "https://www.youtube.com/embed/f1bD25dXYeE",
-    "n": 98,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🤜🌊🤛 #LesKassos #streetfighter #karaté #cartoon #animation",
-    "video_id": "KTHcHRxLyoU",
-    "url": "https://www.youtube.com/embed/KTHcHRxLyoU",
-    "n": 99,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Force aux sans permis 💪 #LesKassos #fortnite #corbeau #ratp #transports #cartoon #animation",
-    "video_id": "RtPfgy-Ps3Q",
-    "url": "https://www.youtube.com/embed/RtPfgy-Ps3Q",
-    "n": 100,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Les Chevaliers de l'Horoscope - Burning Max - Les Kassos #47",
     "video_id": "ebSF3MOIOfo",
     "url": "https://www.youtube.com/embed/ebSF3MOIOfo",
@@ -101831,14 +101322,6 @@
     "kind": "episode"
    },
    {
-    "title": "EnjoyPenix - Bip-bop et Coyite - Les Kassos #48",
-    "video_id": "5azkeDtPMFU",
-    "url": "https://www.youtube.com/embed/5azkeDtPMFU",
-    "n": 105,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Alladech - Shaïning -  Les Kassos #41",
     "video_id": "7iMr0DzAXaQ",
     "url": "https://www.youtube.com/embed/7iMr0DzAXaQ",
@@ -101855,14 +101338,6 @@
     "kind": "episode"
    },
    {
-    "title": "The Cockring - Moc & Darty 2 - Les Kassos #46",
-    "video_id": "K7qHBVKpg8M",
-    "url": "https://www.youtube.com/embed/K7qHBVKpg8M",
-    "n": 108,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "La Famille Sodo - Daryl vs Wild -  Les Kassos #39",
     "video_id": "o6xHCmQOuXc",
     "url": "https://www.youtube.com/embed/o6xHCmQOuXc",
@@ -101875,14 +101350,6 @@
     "video_id": "5ZWCAKxLJ6A",
     "url": "https://www.youtube.com/embed/5ZWCAKxLJ6A",
     "n": 110,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Frozen Yogourt - Jokerini - Les Kassos #44",
-    "video_id": "npcRXLkbum8",
-    "url": "https://www.youtube.com/embed/npcRXLkbum8",
-    "n": 111,
     "verified": true,
     "kind": "episode"
    },
@@ -101951,14 +101418,6 @@
     "kind": "episode"
    },
    {
-    "title": "50 nuances de Greyjoy -  Sex toy Story - Les Kassos #36",
-    "video_id": "zrCeO8xlPbA",
-    "url": "https://www.youtube.com/embed/zrCeO8xlPbA",
-    "n": 120,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Edouard - Charles Lee - Les Kassos #22",
     "video_id": "ikDkUlDgQwM",
     "url": "https://www.youtube.com/embed/ikDkUlDgQwM",
@@ -101975,26 +101434,10 @@
     "kind": "episode"
    },
    {
-    "title": "Teleboubizes - Bonne Nuit les Chiards - Kassos #33",
-    "video_id": "9KbREoFax3U",
-    "url": "https://www.youtube.com/embed/9KbREoFax3U",
-    "n": 123,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Serpent Solide - Game Of Etron - Les Kassos #24",
     "video_id": "9C6rTZPqtXk",
     "url": "https://www.youtube.com/embed/9C6rTZPqtXk",
     "n": 124,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Les bons conseils de Serge le Lapin - Les Kassos #49",
-    "video_id": "vS2e7VkDctY",
-    "url": "https://www.youtube.com/embed/vS2e7VkDctY",
-    "n": 125,
     "verified": true,
     "kind": "episode"
    },
@@ -102103,14 +101546,6 @@
     "kind": "episode"
    },
    {
-    "title": "Sandy - Chasse Peche & Prédation - Les Kassos #28",
-    "video_id": "5V8kryK5HIc",
-    "url": "https://www.youtube.com/embed/5V8kryK5HIc",
-    "n": 139,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Marius & Gigi et Monsieur Patatos - Les Kassos #6",
     "video_id": "ZhQEaU36InE",
     "url": "https://www.youtube.com/embed/ZhQEaU36InE",
@@ -102163,14 +101598,6 @@
     "video_id": "Qgq5P2vFsKU",
     "url": "https://www.youtube.com/embed/Qgq5P2vFsKU",
     "n": 146,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Les Canards juniors & La famille Sodo et Dark Papy - Les Kassos #1",
-    "video_id": "HKyq4_VIGkk",
-    "url": "https://www.youtube.com/embed/HKyq4_VIGkk",
-    "n": 147,
     "verified": true,
     "kind": "episode"
    },
@@ -102245,14 +101672,6 @@
     "n": 156,
     "verified": true,
     "kind": "episode"
-   },
-   {
-    "title": "Les Proumfs et Sandy -  Les Kassos #12",
-    "video_id": "9os3BBvkQdw",
-    "url": "https://www.youtube.com/embed/9os3BBvkQdw",
-    "n": 157,
-    "verified": true,
-    "kind": "episode"
    }
   ],
   "rights_basis": "Public YouTube embed"
@@ -102261,7 +101680,7 @@
   "id": "stv-1952",
   "title": "Silex and the City — EP80: Les Sapiens de Noël",
   "genre": "Animation",
-  "eps": "112 eps",
+  "eps": "111 eps",
   "runtime": "~1-3 min each",
   "desc": "Arte France animated satire by cartoonist Jul: 40,000 BC, one avant-garde Homo sapiens family drags their valley into modernity — anachronism comedy on the official series channel. 3-min episodes; 180",
   "url": "https://www.youtube.com/embed/8ISw8vhBUZs",
@@ -102594,14 +102013,6 @@
     "video_id": "YuGe_u6csbY",
     "url": "https://www.youtube.com/embed/YuGe_u6csbY",
     "n": 41,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "SILEX AND THE CITY - EP72 - Guerre du Fuck",
-    "video_id": "HYu2hDPgo3w",
-    "url": "https://www.youtube.com/embed/HYu2hDPgo3w",
-    "n": 42,
     "verified": true,
     "kind": "episode"
    },
@@ -103172,7 +102583,7 @@
   "id": "stv-1953",
   "title": "Kaeloo — Et si on jouait aux contes de fées",
   "genre": "Animation",
-  "eps": "41 eps",
+  "eps": "31 eps",
   "runtime": "~1-3 min each",
   "desc": "French animated series (Cube Creative/Canal+): Kaeloo the frog, Moignon, Coin-Coin and Mr Chat invent ridiculous games in the Pays Trop Mignon — always ending in chaos. ~7-min episodes; 4+ seasons, ~2",
   "url": "https://www.youtube.com/embed/SG_goIal6qc",
@@ -103201,38 +102612,6 @@
     "video_id": "svIXfItWgvo",
     "url": "https://www.youtube.com/embed/svIXfItWgvo",
     "n": 3,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Si même Mr Chat est choqué, il y a de quoi s'inquiéter 🤯",
-    "video_id": "XD4o1BTgyWQ",
-    "url": "https://www.youtube.com/embed/XD4o1BTgyWQ",
-    "n": 4,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Être ou ne pas être gentil, telle est la question...",
-    "video_id": "YHvs4LsmdaQ",
-    "url": "https://www.youtube.com/embed/YHvs4LsmdaQ",
-    "n": 5,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Qui est aussi motivé que Moignon pour faire ses devoirs ?",
-    "video_id": "W65KKn46kqQ",
-    "url": "https://www.youtube.com/embed/W65KKn46kqQ",
-    "n": 6,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Quelle casseuse d'ambiance cette règle du jeu ! 😅",
-    "video_id": "gwD7zdjMiYs",
-    "url": "https://www.youtube.com/embed/gwD7zdjMiYs",
-    "n": 7,
     "verified": true,
     "kind": "episode"
    },
@@ -103389,30 +102768,6 @@
     "kind": "episode"
    },
    {
-    "title": "KAELOO  - Extrait \" Si on jouait aux toques toquées\" - CANAL+kids",
-    "video_id": "vGiSG7zc_pE",
-    "url": "https://www.youtube.com/embed/vGiSG7zc_pE",
-    "n": 27,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Kaeloo - Extrait \"Si on jouait à Voice Academy  - La chanson de Mr Chat\"",
-    "video_id": "8mm0wseKsy8",
-    "url": "https://www.youtube.com/embed/8mm0wseKsy8",
-    "n": 28,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "KAELOO  - Extrait  \"Si on jouait à Voice Academy\" - ton dessin animé en exclu sur TéléTOON+",
-    "video_id": "fGP1vCLBR9g",
-    "url": "https://www.youtube.com/embed/fGP1vCLBR9g",
-    "n": 29,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "KAELOO - Extrait \" le facteur Mr Chat fait grève lui aussi  !\" - dessin animé à revoir sur myCANAL",
     "video_id": "j3y1ug5PeEk",
     "url": "https://www.youtube.com/embed/j3y1ug5PeEk",
@@ -103425,22 +102780,6 @@
     "video_id": "SmKpFQwx_Gw",
     "url": "https://www.youtube.com/embed/SmKpFQwx_Gw",
     "n": 31,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "KAELOO -  La chanson de Moignon - \"Si on jouait à Voice Academy\" - CANAL+kids",
-    "video_id": "M6D7njpTTQk",
-    "url": "https://www.youtube.com/embed/M6D7njpTTQk",
-    "n": 32,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "KAELOO - Episode entier \"Si on jouait à super vegan - CANAL+kids",
-    "video_id": "aPwi6dpvOfs",
-    "url": "https://www.youtube.com/embed/aPwi6dpvOfs",
-    "n": 33,
     "verified": true,
     "kind": "episode"
    },
@@ -103489,14 +102828,6 @@
     "video_id": "ZwDP7BUNKW4",
     "url": "https://www.youtube.com/embed/ZwDP7BUNKW4",
     "n": 39,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Les Meilleurs moments de M. Chat  - CANAL+kids",
-    "video_id": "tEv4Vrz9Uzg",
-    "url": "https://www.youtube.com/embed/tEv4Vrz9Uzg",
-    "n": 40,
     "verified": true,
     "kind": "episode"
    },
@@ -104965,7 +104296,7 @@
   "id": "stv-196",
   "title": "Reborn for Revenge: The Billionaire's Vow  EP1 #shorts",
   "genre": "Revenge",
-  "eps": "22 eps",
+  "eps": "16 eps",
   "runtime": "~2 min",
   "desc": "She lost everything because of the people she trusted most.",
   "url": "https://www.youtube.com/embed/v3TQdlJ55Jc",
@@ -105017,50 +104348,10 @@
     "vertical_source": "episode completion 2026-10-07"
    },
    {
-    "n": 13,
-    "title": "Reborn for Revenge: The Billionaire's Vow  EP13 #shorts",
-    "video_id": "2qkUDbNlJDA",
-    "url": "https://www.youtube.com/embed/2qkUDbNlJDA",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
-    "n": 14,
-    "title": "Reborn for Revenge: The Billionaire's Vow  EP14 #shorts",
-    "video_id": "4vRrSr4tLtU",
-    "url": "https://www.youtube.com/embed/4vRrSr4tLtU",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
-    "n": 15,
-    "title": "Reborn for Revenge: The Billionaire's Vow  EP15 #shorts",
-    "video_id": "FpKCJKJJPuU",
-    "url": "https://www.youtube.com/embed/FpKCJKJJPuU",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
     "n": 16,
     "title": "Reborn for Revenge: The Billionaire's Vow  EP16 #shorts",
     "video_id": "NhmfGMeu-AY",
     "url": "https://www.youtube.com/embed/NhmfGMeu-AY",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
-    "n": 17,
-    "title": "Reborn for Revenge: The Billionaire's Vow  EP17 #shorts",
-    "video_id": "7CIjdsaEcy0",
-    "url": "https://www.youtube.com/embed/7CIjdsaEcy0",
     "verified": true,
     "kind": "episode",
     "vertical": false,
@@ -105111,26 +104402,6 @@
     "title": "Reborn for Revenge: The Billionaire's Vow  EP22 #shorts",
     "video_id": "r6ktjFEwvNs",
     "url": "https://www.youtube.com/embed/r6ktjFEwvNs",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
-    "n": 23,
-    "title": "Reborn for Revenge: The Billionaire's Vow  EP23 #shorts",
-    "video_id": "2r-8r_1o_o8",
-    "url": "https://www.youtube.com/embed/2r-8r_1o_o8",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
-    "n": 24,
-    "title": "Reborn for Revenge: The Billionaire's Vow  EP24 #shorts",
-    "video_id": "k-PtF7QU1eI",
-    "url": "https://www.youtube.com/embed/k-PtF7QU1eI",
     "verified": true,
     "kind": "episode",
     "vertical": false,
@@ -105238,29 +104509,6 @@
     "title": "THE NAME — Animation Short Film 2023 (GOBELINS)",
     "url": "https://www.youtube.com/embed/7Wtf97VN_-w",
     "video_id": "7Wtf97VN_-w",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-1962",
-  "title": "Layla — Gobelins Short Film",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Gobelins Paris short: a group of young boys' awkward experiment with a robot becomes an unlikely, nuanced friendship — stylized, youth-culture street-art aesthetic. Adult-leaning themes; festival-circ",
-  "url": "https://www.youtube.com/embed/ayE46o9VP2Y",
-  "video_id": "ayE46o9VP2Y",
-  "source_channel": "GOBELINS Paris",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "Layla — Gobelins Short Film",
-    "url": "https://www.youtube.com/embed/ayE46o9VP2Y",
-    "video_id": "ayE46o9VP2Y",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -106177,7 +105425,7 @@
   "id": "stv-1991",
   "title": "Jake and Amir",
   "genre": "Comedy",
-  "eps": "890 eps",
+  "eps": "886 eps",
   "runtime": "~1-3 min each",
   "desc": "CollegeHumor's longest-running buddy comedy: Jake plays the sensible straight man to Amir's obsessive, annoying co-worker across 800+ bite-size office episodes.",
   "url": "https://www.youtube.com/embed/fjzzhMtiilU",
@@ -107550,14 +106798,6 @@
     "video_id": "nHHslzv05Y0",
     "url": "https://www.youtube.com/embed/nHHslzv05Y0",
     "n": 171,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Jake and Amir: Cock Monster",
-    "video_id": "5LjS57hO7_Y",
-    "url": "https://www.youtube.com/embed/5LjS57hO7_Y",
-    "n": 172,
     "verified": true,
     "kind": "episode"
    },
@@ -110698,14 +109938,6 @@
     "kind": "episode"
    },
    {
-    "title": "Interrogator Outtakes",
-    "video_id": "TV37o8fXrNg",
-    "url": "https://www.youtube.com/embed/TV37o8fXrNg",
-    "n": 565,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Jake and Amir: I.T. Guy",
     "video_id": "x8dc2v2rPx0",
     "url": "https://www.youtube.com/embed/x8dc2v2rPx0",
@@ -111610,14 +110842,6 @@
     "kind": "episode"
    },
    {
-    "title": "Jake and Amir: Hygiene",
-    "video_id": "VDM3dW7B8lY",
-    "url": "https://www.youtube.com/embed/VDM3dW7B8lY",
-    "n": 679,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Jake and Amir: Powder",
     "video_id": "-6UzVU0lUJM",
     "url": "https://www.youtube.com/embed/-6UzVU0lUJM",
@@ -112254,14 +111478,6 @@
     "video_id": "hnkGJZqmdw0",
     "url": "https://www.youtube.com/embed/hnkGJZqmdw0",
     "n": 759,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Jake and Amir: Come Again",
-    "video_id": "aKLPiAV6ALo",
-    "url": "https://www.youtube.com/embed/aKLPiAV6ALo",
-    "n": 760,
     "verified": true,
     "kind": "episode"
    },
@@ -135870,7 +135086,7 @@
   "id": "stv-1994",
   "title": "Dor Brothers",
   "genre": "Comedy",
-  "eps": "80 eps",
+  "eps": "78 eps",
   "runtime": "~1-3 min each",
   "desc": "Berlin duo's fully AI-generated satirical shorts: surreal, hyper-polished parodies of politicians, celebrities and modern media, built with tools like Kling and Runway.",
   "url": "https://www.youtube.com/embed/ne21qAqyFMw",
@@ -135955,14 +135171,6 @@
     "video_id": "Ms6kvHXLzec",
     "url": "https://www.youtube.com/embed/Ms6kvHXLzec",
     "n": 10,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Would You?",
-    "video_id": "45oC0Y-8vhw",
-    "url": "https://www.youtube.com/embed/45oC0Y-8vhw",
-    "n": 11,
     "verified": true,
     "kind": "episode"
    },
@@ -136115,14 +135323,6 @@
     "video_id": "Lk_xATOI3tQ",
     "url": "https://www.youtube.com/embed/Lk_xATOI3tQ",
     "n": 30,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Waidmanns Heil",
-    "video_id": "gEsnbq6uZQ0",
-    "url": "https://www.youtube.com/embed/gEsnbq6uZQ0",
-    "n": 31,
     "verified": true,
     "kind": "episode"
    },
@@ -136525,7 +135725,7 @@
   "id": "stv-1995",
   "title": "The Misadventures of Awkward Black Girl",
   "genre": "Comedy",
-  "eps": "16 eps",
+  "eps": "13 eps",
   "runtime": "~1-3 min each",
   "desc": "Issa Rae's breakout indie sitcom: J, an awkward, rap-loving Black woman, narrates her cringe-worthy work and dating life; the Shorty-winning series that led to HBO's Insecure.",
   "url": "https://www.youtube.com/embed/nIVa9lxkbus",
@@ -136538,14 +135738,6 @@
     "video_id": "nIVa9lxkbus",
     "url": "https://www.youtube.com/embed/nIVa9lxkbus",
     "n": 1,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "AWKWARD Black Girl | \"The Job\" [S. 1, Ep. 2]",
-    "video_id": "xv0ahGRkaKE",
-    "url": "https://www.youtube.com/embed/xv0ahGRkaKE",
-    "n": 2,
     "verified": true,
     "kind": "episode"
    },
@@ -136626,22 +135818,6 @@
     "video_id": "ZFRECJBorIk",
     "url": "https://www.youtube.com/embed/ZFRECJBorIk",
     "n": 12,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Awkward Black Girl - The Search (S. 2, Ep. 4)",
-    "video_id": "DslRxTNb_l8",
-    "url": "https://www.youtube.com/embed/DslRxTNb_l8",
-    "n": 13,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Awkward Black Girl - The Waiter (S. 2, Ep. 6)",
-    "video_id": "xIVhKmuKLOM",
-    "url": "https://www.youtube.com/embed/xIVhKmuKLOM",
-    "n": 14,
     "verified": true,
     "kind": "episode"
    },
@@ -139356,29 +138532,6 @@
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-2057",
-  "title": "Daisy: Move In Day",
-  "genre": "Horror",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "A young couple moves into an apartment once occupied by a religious cult - what horrors remain in these halls? Crypt TV Monster Universe quickie (3:04).",
-  "url": "https://www.youtube.com/embed/xgyNxhkFNdw",
-  "video_id": "xgyNxhkFNdw",
-  "source_channel": "Crypt TV",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "Daisy: Move In Day",
-    "url": "https://www.youtube.com/embed/xgyNxhkFNdw",
-    "video_id": "xgyNxhkFNdw",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
   "id": "stv-2058",
   "title": "Suckablood",
   "genre": "Horror",
@@ -139717,7 +138870,7 @@
   "id": "stv-2069",
   "title": "Blind Date",
   "genre": "Reality",
-  "eps": "171 eps",
+  "eps": "156 eps",
   "runtime": "~1-3 min each",
   "desc": "Two strangers on a blind date play Fear Pong — dares or drinks decide whether sparks fly.",
   "url": "https://www.youtube.com/embed/op8Knb8VcEg",
@@ -140166,14 +139319,6 @@
     "kind": "episode"
    },
    {
-    "title": "Blind Dates (Riley vs. Kylie) | Fear Pong | Cut",
-    "video_id": "mkShCPDF-6g",
-    "url": "https://www.youtube.com/embed/mkShCPDF-6g",
-    "n": 56,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Fear Pong Family Edition (Codi & Mickey vs. Danielle & Breanna) | Fear Pong | Cut",
     "video_id": "HfoxQg1gX38",
     "url": "https://www.youtube.com/embed/HfoxQg1gX38",
@@ -140186,14 +139331,6 @@
     "video_id": "zOy8TutJc0g",
     "url": "https://www.youtube.com/embed/zOy8TutJc0g",
     "n": 58,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Couple vs. Couple (Jenny & Olive vs. Madison & Torrey) | Fear Pong | Cut",
-    "video_id": "G7z_s86bv40",
-    "url": "https://www.youtube.com/embed/G7z_s86bv40",
-    "n": 59,
     "verified": true,
     "kind": "episode"
    },
@@ -140382,14 +139519,6 @@
     "kind": "episode"
    },
    {
-    "title": "Fear Pong Blind Date (Hannah & Jared) | Fear Pong | Cut",
-    "video_id": "_TV5eL6tlRQ",
-    "url": "https://www.youtube.com/embed/_TV5eL6tlRQ",
-    "n": 83,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Son vs. His Father (Jawara & Eric) | Fear Pong | Cut",
     "video_id": "wvzrL2AG304",
     "url": "https://www.youtube.com/embed/wvzrL2AG304",
@@ -140446,26 +139575,10 @@
     "kind": "episode"
    },
    {
-    "title": "Double Blind Dates Play Fear Pong | Fear Pong | Cut",
-    "video_id": "yKH_NjzOqp8",
-    "url": "https://www.youtube.com/embed/yKH_NjzOqp8",
-    "n": 91,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Couples Play Fear Pong (Georgina & Machias vs. Ava & Joshuah) | Fear Pong | Cut",
     "video_id": "bCdCRfvDNSI",
     "url": "https://www.youtube.com/embed/bCdCRfvDNSI",
     "n": 92,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Exes Play Fear Pong (Paul vs. Kayla) | Fear Pong | Cut",
-    "video_id": "4NiwEXRCzd4",
-    "url": "https://www.youtube.com/embed/4NiwEXRCzd4",
-    "n": 93,
     "verified": true,
     "kind": "episode"
    },
@@ -140510,14 +139623,6 @@
     "kind": "episode"
    },
    {
-    "title": "Couples Play Fear Pong (Debbie & Shawn vs. Chelsea & Marchand) | Fear Pong | Cut",
-    "video_id": "ERGgZEDAMrA",
-    "url": "https://www.youtube.com/embed/ERGgZEDAMrA",
-    "n": 99,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Blind Dates Play Fear Pong (Analisa & Aaron) | Fear Pong | Cut",
     "video_id": "PRakp2AgDUU",
     "url": "https://www.youtube.com/embed/PRakp2AgDUU",
@@ -140530,14 +139635,6 @@
     "video_id": "6TJhUifOltg",
     "url": "https://www.youtube.com/embed/6TJhUifOltg",
     "n": 101,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Exes Play Fear Pong (Angela vs. Augustin) | Fear Pong | Cut",
-    "video_id": "gLYa1uTvw7c",
-    "url": "https://www.youtube.com/embed/gLYa1uTvw7c",
-    "n": 102,
     "verified": true,
     "kind": "episode"
    },
@@ -140586,14 +139683,6 @@
     "video_id": "c3rUn7pR1zE",
     "url": "https://www.youtube.com/embed/c3rUn7pR1zE",
     "n": 108,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Exes Play Fear Pong (Sammy & Taylor) | Fear Pong | Cut",
-    "video_id": "NGcL73a4ZSg",
-    "url": "https://www.youtube.com/embed/NGcL73a4ZSg",
-    "n": 109,
     "verified": true,
     "kind": "episode"
    },
@@ -140878,14 +139967,6 @@
     "kind": "episode"
    },
    {
-    "title": "Exes Play Fear Pong (Julian vs. Lee) | Fear Pong | Cut",
-    "video_id": "YlG-jaYjHLk",
-    "url": "https://www.youtube.com/embed/YlG-jaYjHLk",
-    "n": 145,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Democrats & Republicans Play Fear Pong (Chelsea vs. Tom) | Fear Pong | Cut",
     "video_id": "yd8J6TWkFc4",
     "url": "https://www.youtube.com/embed/yd8J6TWkFc4",
@@ -140918,14 +139999,6 @@
     "kind": "episode"
    },
    {
-    "title": "Blind Dates Play Fear Pong (Braidon vs. Curtis) | Fear Pong | Cut",
-    "video_id": "XnaIJB5iKHw",
-    "url": "https://www.youtube.com/embed/XnaIJB5iKHw",
-    "n": 150,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Fear Pong: Exes (Kamina & Andrew) | Fear Pong | Cut",
     "video_id": "mqhHgjbE8AM",
     "url": "https://www.youtube.com/embed/mqhHgjbE8AM",
@@ -140938,14 +140011,6 @@
     "video_id": "Y-uVyuihJTA",
     "url": "https://www.youtube.com/embed/Y-uVyuihJTA",
     "n": 152,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Blind Dates Play Fear Pong (Aaron vs. Alyssa) | Fear Pong | Cut",
-    "video_id": "l8Pie_Mdj6U",
-    "url": "https://www.youtube.com/embed/l8Pie_Mdj6U",
-    "n": 153,
     "verified": true,
     "kind": "episode"
    },
@@ -140978,14 +140043,6 @@
     "video_id": "3_jUzy4SX38",
     "url": "https://www.youtube.com/embed/3_jUzy4SX38",
     "n": 157,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Drag Queens Play Fear Pong (Strawberry Shartcake vs. Isabella Extynn) | Fear Pong | Cut",
-    "video_id": "qunbAWSMpKo",
-    "url": "https://www.youtube.com/embed/qunbAWSMpKo",
-    "n": 158,
     "verified": true,
     "kind": "episode"
    },
@@ -141030,14 +140087,6 @@
     "kind": "episode"
    },
    {
-    "title": "Exes Play Fear Pong (Jensina & Bobby) | Fear Pong | Cut",
-    "video_id": "-w-nYKBKyLE",
-    "url": "https://www.youtube.com/embed/-w-nYKBKyLE",
-    "n": 164,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Strangers Play Fear Pong (Emily vs. Kenny) | Fear Pong | Cut",
     "video_id": "4kyKftNKRrQ",
     "url": "https://www.youtube.com/embed/4kyKftNKRrQ",
@@ -141074,22 +140123,6 @@
     "video_id": "7DeM7bDY1_c",
     "url": "https://www.youtube.com/embed/7DeM7bDY1_c",
     "n": 169,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Blind Dates Play Fear Pong  (Peter vs. Ashley) | Fear Pong | Cut",
-    "video_id": "ZS5Xt3Eo_sw",
-    "url": "https://www.youtube.com/embed/ZS5Xt3Eo_sw",
-    "n": 170,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Strangers Play Fear Pong (Amanda vs. Madison) | Fear Pong | Cut",
-    "video_id": "iLHSqPweWu0",
-    "url": "https://www.youtube.com/embed/iLHSqPweWu0",
-    "n": 171,
     "verified": true,
     "kind": "episode"
    }
@@ -154904,7 +153937,7 @@
   "id": "stv-2304",
   "title": "Sam O'Nella Academy",
   "genre": "Comedy",
-  "eps": "66 eps",
+  "eps": "65 eps",
   "runtime": "~1-3 min each",
   "desc": "Dry-witted animated edutainment: a long-haired stick figure explains bizarre history and science with MS-Paint art, deadpan narration and gloriously unhinged tangents.",
   "url": "https://www.youtube.com/embed/jl5Z0I8CpDk",
@@ -155201,14 +154234,6 @@
     "kind": "episode"
    },
    {
-    "title": "Weird Laws from Around the World",
-    "video_id": "X2bu3UjCxj0",
-    "url": "https://www.youtube.com/embed/X2bu3UjCxj0",
-    "n": 37,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Why the Chicken Got Domesticated",
     "video_id": "_NSekwyS4Ns",
     "url": "https://www.youtube.com/embed/_NSekwyS4Ns",
@@ -155447,7 +154472,7 @@
   "id": "stv-2305",
   "title": "Onion News Network",
   "genre": "Comedy",
-  "eps": "99 eps",
+  "eps": "98 eps",
   "runtime": "~1-3 min each",
   "desc": "The Peabody-winning fake-news institution: deadpan anchors deliver absurd cable-news parody in razor-sharp 2-minute web segments, relaunched on YouTube in 2024.",
   "url": "https://www.youtube.com/embed/LgOFgYKNNL4",
@@ -156044,14 +155069,6 @@
     "video_id": "iNXLr9X9M60",
     "url": "https://www.youtube.com/embed/iNXLr9X9M60",
     "n": 74,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Elon Musk Creates Federal Employee Revenge Porn Database | Onion News Network",
-    "video_id": "xNcswDK5gH4",
-    "url": "https://www.youtube.com/embed/xNcswDK5gH4",
-    "n": 75,
     "verified": true,
     "kind": "episode"
    },
@@ -157985,7 +157002,7 @@
   "id": "stv-2333",
   "title": "100 People Tell Us How Much Money They Make",
   "genre": "Reality",
-  "eps": "201 eps",
+  "eps": "195 eps",
   "runtime": "~1-3 min each",
   "desc": "100 people answer the awkward question: how much money do you make?",
   "url": "https://www.youtube.com/embed/U75qyZCdSQg",
@@ -158054,14 +157071,6 @@
     "video_id": "08j18Acaaww",
     "url": "https://www.youtube.com/embed/08j18Acaaww",
     "n": 8,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "100 Couples Tell Us Their Favorite Position | Keep it 100 | Cut",
-    "video_id": "Dd2KLaype7E",
-    "url": "https://www.youtube.com/embed/Dd2KLaype7E",
-    "n": 9,
     "verified": true,
     "kind": "episode"
    },
@@ -158690,14 +157699,6 @@
     "kind": "episode"
    },
    {
-    "title": "What's the Closest You've Come to Dying? | Keep it 100 | Cut",
-    "video_id": "MeMyNvY4bvg",
-    "url": "https://www.youtube.com/embed/MeMyNvY4bvg",
-    "n": 88,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "What Advice Would You Give Your Younger Self?  | Keep it 100 | Cut",
     "video_id": "dI98I-_COig",
     "url": "https://www.youtube.com/embed/dI98I-_COig",
@@ -158882,14 +157883,6 @@
     "kind": "episode"
    },
    {
-    "title": "We asked 100 people if they've ever considered suicide | Keep It 100 | Cut",
-    "video_id": "QvwI1DmIJwY",
-    "url": "https://www.youtube.com/embed/QvwI1DmIJwY",
-    "n": 112,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Do You Believe in God? | Keep it 100 | Cut",
     "video_id": "zBlEhVtI1j0",
     "url": "https://www.youtube.com/embed/zBlEhVtI1j0",
@@ -158966,14 +157959,6 @@
     "video_id": "JHWz6p2HCmE",
     "url": "https://www.youtube.com/embed/JHWz6p2HCmE",
     "n": 122,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Do you own a sex toy? | Keep it 100 | Cut",
-    "video_id": "g8vIj_hT668",
-    "url": "https://www.youtube.com/embed/g8vIj_hT668",
-    "n": 123,
     "verified": true,
     "kind": "episode"
    },
@@ -159582,22 +158567,6 @@
     "video_id": "Se96Gkkh4es",
     "url": "https://www.youtube.com/embed/Se96Gkkh4es",
     "n": 199,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "100 Ways to Get High | Keep it 100 | Cut",
-    "video_id": "SAgrhc9CFno",
-    "url": "https://www.youtube.com/embed/SAgrhc9CFno",
-    "n": 200,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "O-Face | 100 People Show Us Their O-Faces | Keep it 100 | Cut",
-    "video_id": "BwDgP6q7lGs",
-    "url": "https://www.youtube.com/embed/BwDgP6q7lGs",
-    "n": 201,
     "verified": true,
     "kind": "episode"
    }
@@ -164421,7 +163390,7 @@
   "id": "stv-2484",
   "title": "Here Comes Dr. Tran!",
   "genre": "Animation",
-  "eps": "5 eps",
+  "eps": "4 eps",
   "runtime": "~1-3 min each",
   "desc": "Lone Sausage's absurdist classic: a young boy is shanghaied by American mass media into a James Bond-esque media empire. First of the Dr. Tran shorts.",
   "url": "https://www.youtube.com/embed/w7CFQQLxF9M",
@@ -164458,14 +163427,6 @@
     "video_id": "9O6EeEkkvrk",
     "url": "https://www.youtube.com/embed/9O6EeEkkvrk",
     "n": 4,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Beyond Grandpa (by the creators of Dr. Tran)",
-    "video_id": "L8gSAwrMdVw",
-    "url": "https://www.youtube.com/embed/L8gSAwrMdVw",
-    "n": 5,
     "verified": true,
     "kind": "episode"
    }
@@ -166225,22 +165186,14 @@
   "id": "stv-2516",
   "title": "Angelo la débrouille — Ma journée idéale (épisode entier)",
   "genre": "Animation",
-  "eps": "30 eps",
+  "eps": "25 eps",
   "runtime": "~1-3 min each",
   "desc": "TeamTO's French animated series: 11-year-old Angelo schemes his way through school and family life with his friends. 11.3-min episode (680s verified); official CANAL+kids upload.",
-  "url": "https://www.youtube.com/embed/JjC-m5ke8Mc",
+  "url": "",
   "video_id": "JjC-m5ke8Mc",
   "source_channel": "CANAL+kids",
   "ai_made": false,
   "episodes": [
-   {
-    "title": "Vous aimez les conseils d'Angelo ? 🕵️‍♂️",
-    "video_id": "JjC-m5ke8Mc",
-    "url": "https://www.youtube.com/embed/JjC-m5ke8Mc",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   },
    {
     "title": "Qui déteste la plage 🏖️  autant qu'Angelo ici ?",
     "video_id": "g27dl-L0WnA",
@@ -166258,22 +165211,6 @@
     "kind": "episode"
    },
    {
-    "title": "Angelo : 1 - Gladys : 0 !",
-    "video_id": "BFc5ZaL4zwk",
-    "url": "https://www.youtube.com/embed/BFc5ZaL4zwk",
-    "n": 4,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Comme Angelo, on a tous nos petits secrets 🤭",
-    "video_id": "gZjV1XSP_Kc",
-    "url": "https://www.youtube.com/embed/gZjV1XSP_Kc",
-    "n": 5,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "ANGELO LA DÉBROUILLE - Extrait \"L'interro surprise\" - CANAL+kids",
     "video_id": "g4hRP9n8J1M",
     "url": "https://www.youtube.com/embed/g4hRP9n8J1M",
@@ -166282,26 +165219,10 @@
     "kind": "episode"
    },
    {
-    "title": "Bien essayé Angelo 🤣 #shorts #angelo #angeloladebrouille",
-    "video_id": "XAUtcur8-fA",
-    "url": "https://www.youtube.com/embed/XAUtcur8-fA",
-    "n": 7,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "ANGELO - Episode entier \"La guerre des livres\" - CANAL+kids",
     "video_id": "ydLPuGP_nE8",
     "url": "https://www.youtube.com/embed/ydLPuGP_nE8",
     "n": 8,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Compilation \"Journée de l'amitié\" (Mush-Mush, Kaeloo, Angelo la débrouille...) - CANAL+kids",
-    "video_id": "_KEnHtx6Yw4",
-    "url": "https://www.youtube.com/embed/_KEnHtx6Yw4",
-    "n": 9,
     "verified": true,
     "kind": "episode"
    },
@@ -178224,7 +177145,7 @@
   "id": "stv-2637",
   "title": "Hardly Working",
   "genre": "Comedy",
-  "eps": "361 eps",
+  "eps": "358 eps",
   "runtime": "~1-3 min each",
   "desc": "The CollegeHumor office plays exaggerated versions of themselves: Brennan, Trapp, Rekha, Katie and the gang slack off through 5-minute workplace sketches.",
   "url": "https://www.youtube.com/embed/TNpoplfLT1w",
@@ -178669,14 +177590,6 @@
     "video_id": "jwfakrhLc1M",
     "url": "https://www.youtube.com/embed/jwfakrhLc1M",
     "n": 55,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "The Big Butt Song to End All Big Butt Songs (Hardly Working)",
-    "video_id": "0-jAflT_e28",
-    "url": "https://www.youtube.com/embed/0-jAflT_e28",
-    "n": 56,
     "verified": true,
     "kind": "episode"
    },
@@ -179905,14 +178818,6 @@
     "kind": "episode"
    },
    {
-    "title": "Hardly Working: Animated Superpowers 2",
-    "video_id": "rixKzXZcgPc",
-    "url": "https://www.youtube.com/embed/rixKzXZcgPc",
-    "n": 210,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Hardly Working: Suspicious Announcements",
     "video_id": "GSpvtAXbp0k",
     "url": "https://www.youtube.com/embed/GSpvtAXbp0k",
@@ -180445,14 +179350,6 @@
     "video_id": "Yb4Rzu9Ag4A",
     "url": "https://www.youtube.com/embed/Yb4Rzu9Ag4A",
     "n": 277,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Hardly Working: The Cartoon II - Animal Sex",
-    "video_id": "nBtJn0tEnXo",
-    "url": "https://www.youtube.com/embed/nBtJn0tEnXo",
-    "n": 278,
     "verified": true,
     "kind": "episode"
    },
@@ -181127,7 +180024,7 @@
   "id": "stv-2638",
   "title": "Ninja Sex Party",
   "genre": "Comedy",
-  "eps": "152 eps",
+  "eps": "150 eps",
   "runtime": "~1-3 min each",
   "desc": "Musical comedy duo Danny Sexbang and Ninja Brian in narrative music videos with running lore, villains, and recurring characters across dozens of songs.",
   "url": "https://www.youtube.com/embed/yX0qHRJD7Vc",
@@ -182208,14 +181105,6 @@
     "kind": "episode"
    },
    {
-    "title": "The Ultimate Sandwich!  -  NSP",
-    "video_id": "f0e1au1JwQc",
-    "url": "https://www.youtube.com/embed/f0e1au1JwQc",
-    "n": 135,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Next To You  -  NSP",
     "video_id": "wsICgp7SAcI",
     "url": "https://www.youtube.com/embed/wsICgp7SAcI",
@@ -182296,14 +181185,6 @@
     "kind": "episode"
    },
    {
-    "title": "Sex Training  -  NSP",
-    "video_id": "acMNxvj0Avw",
-    "url": "https://www.youtube.com/embed/acMNxvj0Avw",
-    "n": 146,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Ninja Sex Party - The Sacred Chalice (Part 3 of 4)",
     "video_id": "4J2eKK3YWB0",
     "url": "https://www.youtube.com/embed/4J2eKK3YWB0",
@@ -182358,7 +181239,7 @@
   "id": "stv-2639",
   "title": "Cyriak",
   "genre": "Comedy",
-  "eps": "76 eps",
+  "eps": "74 eps",
   "runtime": "~1-3 min each",
   "desc": "Surreal animator's looping animated shorts — hypnotic kaleidoscopic creatures, metamorphosing machines, and absurdist dark comedy set to electronic music.",
   "url": "https://www.youtube.com/embed/Dp1kPD2fsA4",
@@ -182615,14 +181496,6 @@
     "kind": "episode"
    },
    {
-    "title": "The Spirit of Christmas",
-    "video_id": "toe-8ykTUT8",
-    "url": "https://www.youtube.com/embed/toe-8ykTUT8",
-    "n": 32,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Her Majesty Queen Elizabeth II - 60 years in 6 seconds",
     "video_id": "dtKJCIeozQ8",
     "url": "https://www.youtube.com/embed/dtKJCIeozQ8",
@@ -182867,14 +181740,6 @@
     "video_id": "kVzMewUqTII",
     "url": "https://www.youtube.com/embed/kVzMewUqTII",
     "n": 63,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Sumo.tv promo compilation",
-    "video_id": "vgJ_vjnhlFk",
-    "url": "https://www.youtube.com/embed/vgJ_vjnhlFk",
-    "n": 64,
     "verified": true,
     "kind": "episode"
    },
@@ -183827,7 +182692,7 @@
   "id": "stv-2642",
   "title": "Whitest Kids U Know",
   "genre": "Comedy",
-  "eps": "822 eps",
+  "eps": "819 eps",
   "runtime": "~1-3 min each",
   "desc": "The sketch comedy troupe's classic sketches from their IFC/Fuse TV series — short absurdist sketches including 'Polite War' and a decade of cult favorites.",
   "url": "https://www.youtube.com/embed/g9Eg5uYLU7Y",
@@ -189364,14 +188229,6 @@
     "kind": "episode"
    },
    {
-    "title": "WKUK - American Unalive!",
-    "video_id": "Te9nG8WC5ek",
-    "url": "https://www.youtube.com/embed/Te9nG8WC5ek",
-    "n": 692,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "WKUK - Spaghetti Dinner Date",
     "video_id": "wQH2weZiJ9Q",
     "url": "https://www.youtube.com/embed/wQH2weZiJ9Q",
@@ -189820,14 +188677,6 @@
     "kind": "episode"
    },
    {
-    "title": "Whitest Kids U' Know: Wheel Of Money",
-    "video_id": "w0oAYikhfJE",
-    "url": "https://www.youtube.com/embed/w0oAYikhfJE",
-    "n": 749,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Whitest Kids U' Know: We Got A Runner!",
     "video_id": "wimVOLecVdo",
     "url": "https://www.youtube.com/embed/wimVOLecVdo",
@@ -190048,14 +188897,6 @@
     "video_id": "6YHEK6-Ili8",
     "url": "https://www.youtube.com/embed/6YHEK6-Ili8",
     "n": 777,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Whitest Kids U' Know: Lincoln",
-    "video_id": "d_dRw62qVLs",
-    "url": "https://www.youtube.com/embed/d_dRw62qVLs",
-    "n": 778,
     "verified": true,
     "kind": "episode"
    },
@@ -190418,7 +189259,7 @@
   "id": "stv-2643",
   "title": "Songify This (Schmoyoho)",
   "genre": "Comedy",
-  "eps": "125 eps",
+  "eps": "124 eps",
   "runtime": "~1-3 min each",
   "desc": "The Gregory Brothers' comedy music quartet turns news clips, debates, and viral moments into infectious auto-tuned songs — 'It's Corn', 'Bed Intruder', and 'Chrissy Wake Up'.",
   "url": "https://www.youtube.com/embed/WBAtSmb5yzo",
@@ -190719,14 +189560,6 @@
     "video_id": "L_hqx0oMCrg",
     "url": "https://www.youtube.com/embed/L_hqx0oMCrg",
     "n": 37,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Eat Your Ass (And My Neighbor) - Songify Alex Jones",
-    "video_id": "ekNP_7UwlHc",
-    "url": "https://www.youtube.com/embed/ekNP_7UwlHc",
-    "n": 38,
     "verified": true,
     "kind": "episode"
    },
@@ -195934,29 +194767,6 @@
    }
   ],
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-2713",
-  "title": "David & Goliath | Epic Biblical Movie",
-  "genre": "Faith",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI-created cinematic retelling of David and Goliath: from the hills of Bethlehem to the Valley of Elah — a young shepherd steps forward with nothing but faith, courage, a sling, and five stones. (1 Sa",
-  "url": "https://www.youtube.com/embed/AMRYs5khsxE",
-  "video_id": "AMRYs5khsxE",
-  "source_channel": "Faithbook Official",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "David & Goliath | Epic Biblical Movie",
-    "url": "https://www.youtube.com/embed/AMRYs5khsxE",
-    "video_id": "AMRYs5khsxE",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Shortz VS original — AI-made, owned outright"
  },
  {
   "id": "stv-2714",
@@ -202879,7 +201689,7 @@
   "id": "stv-2761",
   "title": "Funny Monkey | Jungle Cartoon World | 3D Cartoon Shorts",
   "genre": "Family",
-  "eps": "31 eps",
+  "eps": "28 eps",
   "runtime": "~1-3 min each",
   "desc": "Join Milo the Monkey on a fun-filled jungle adventure! This cute and naughty little monkey explores the lush green jungle, swings through vines, and gets into hilarious mischief. New 3D cartoon shorts",
   "url": "https://www.youtube.com/embed/Sb_8je92C1I",
@@ -202952,26 +201762,10 @@
     "kind": "episode"
    },
    {
-    "title": "🥰so cute story 🤩#jangal #cartoon #hati #supercomedy #comedypremium #bear #crazycomedy #comedyscene",
-    "video_id": "6lWLm78oP_A",
-    "url": "https://www.youtube.com/embed/6lWLm78oP_A",
-    "n": 9,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Angoor hua khatta🍇🍇🍇🍇🍇 #comedypremiumleague #supercomedy #ajokatheatre #comedy #angoor #jangal #",
     "video_id": "u2uyxnccPb4",
     "url": "https://www.youtube.com/embed/u2uyxnccPb4",
     "n": 10,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "\"भूखा भालू\"🧸🧸🧸🧸🧸#bear#come #supercomedy #cartoon #bear #jangal #drama # #comedypremiumleague",
-    "video_id": "mrnGlRQV4Qg",
-    "url": "https://www.youtube.com/embed/mrnGlRQV4Qg",
-    "n": 11,
     "verified": true,
     "kind": "episode"
    },
@@ -203116,14 +201910,6 @@
     "video_id": "-R4gKG4JT_Q",
     "url": "https://www.youtube.com/embed/-R4gKG4JT_Q",
     "n": 29,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "jay hanuman",
-    "video_id": "llEUCzc_4Yk",
-    "url": "https://www.youtube.com/embed/llEUCzc_4Yk",
-    "n": 30,
     "verified": true,
     "kind": "episode"
    },
@@ -208996,29 +207782,6 @@
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-2803",
-  "title": "DontBeAFool “HOOD STORY” EP.1",
-  "genre": "Hood",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Viral hood-story series episode 1 (11:49): TXLchris's DontBeAFool saga — street tales with a comedic edge, 1M+ views.",
-  "url": "https://www.youtube.com/embed/834pseLS6YQ",
-  "video_id": "834pseLS6YQ",
-  "source_channel": "TXLchris",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "DontBeAFool “HOOD STORY” EP.1",
-    "url": "https://www.youtube.com/embed/834pseLS6YQ",
-    "video_id": "834pseLS6YQ",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
   "id": "stv-2804",
   "title": "5 Boros 2 Life (Episode 1)",
   "genre": "Hood",
@@ -209126,29 +207889,6 @@
     "title": "The Industry Ep. 001 | \"Pilot\"",
     "url": "https://www.youtube.com/embed/f4G-hJ895Bk",
     "video_id": "f4G-hJ895Bk",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-2809",
-  "title": "THIS LITTLE WORLD OF OURS (WEB SERIES) EPISODE 1 (THE BEGINNING)",
-  "genre": "Hood",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "North Philly hood web series premiere: money, guns, violence and revenge in the beginning of This Little World of Ours.",
-  "url": "https://www.youtube.com/embed/zb8cNVUAOlE",
-  "video_id": "zb8cNVUAOlE",
-  "source_channel": "YAHON LIFE",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "THIS LITTLE WORLD OF OURS (WEB SERIES) EPISODE 1 (THE BEGINNING)",
-    "url": "https://www.youtube.com/embed/zb8cNVUAOlE",
-    "video_id": "zb8cNVUAOlE",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -211256,7 +209996,7 @@
   "id": "stv-2854",
   "title": "DarkHarvest00",
   "genre": "Horror",
-  "eps": "70 eps",
+  "eps": "69 eps",
   "runtime": "~1-3 min each",
   "desc": "Found-footage ARG from 2010 told as dated log entries. After weeks of strange happenings in his house, the creator picks up a camera to record what is going on — and the logs only get stranger.",
   "url": "https://www.youtube.com/embed/n8ETbnBlyX8",
@@ -211533,14 +210273,6 @@
     "video_id": "xieGz9Bv27g",
     "url": "https://www.youtube.com/embed/xieGz9Bv27g",
     "n": 34,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Nearer Still",
-    "video_id": "BQlCubaCAUg",
-    "url": "https://www.youtube.com/embed/BQlCubaCAUg",
-    "n": 35,
     "verified": true,
     "kind": "episode"
    },
@@ -212630,29 +211362,6 @@
     "title": "Dead Husband Returned? Ep.1 | Tandon Chess Academy Mystery | Hindi Short Drama",
     "url": "https://www.youtube.com/embed/Xk0r1brEbuk",
     "video_id": "Xk0r1brEbuk",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-2877",
-  "title": "THE LAST VOICE — Episode 1 | A Nigerian Mystery Thriller",
-  "genre": "Mystery",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Nigerian mystery thriller (YouTube Short): three days after his mother's burial, Daniel receives a message from her phone — but his mother is dead. As he listens to her final words, he discovers his f",
-  "url": "https://www.youtube.com/embed/25ZAvkO-bFs",
-  "video_id": "25ZAvkO-bFs",
-  "source_channel": "Damilare Awoniyi",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "THE LAST VOICE — Episode 1 | A Nigerian Mystery Thriller",
-    "url": "https://www.youtube.com/embed/25ZAvkO-bFs",
-    "video_id": "25ZAvkO-bFs",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -216223,29 +214932,6 @@
   "rights_basis": "Shortz VS original — AI-made, owned outright"
  },
  {
-  "id": "stv-2979",
-  "title": "EPISÓDIO 1 – AS PRIMEIRAS FERIDAS #mininovela",
-  "genre": "Romance",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Brazilian mini-novela EP1 (0:59): between love and the past in Sertãozinho — the first wounds.",
-  "url": "https://www.youtube.com/embed/V8py6wMiK-0",
-  "video_id": "V8py6wMiK-0",
-  "source_channel": "Canal Lider Video",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "EPISÓDIO 1 – AS PRIMEIRAS FERIDAS #mininovela",
-    "url": "https://www.youtube.com/embed/V8py6wMiK-0",
-    "video_id": "V8py6wMiK-0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
   "id": "stv-298",
   "title": "(Part 1) Husband tries to stump his deaf wife so he can get her huge fortune #movie #short #drama",
   "genre": "Romance",
@@ -217342,29 +216028,6 @@
   "rights_basis": "Shortz VS original — AI-made, owned outright"
  },
  {
-  "id": "stv-3024",
-  "title": "JUST FIVE MINUTES | AI Sci-Fi Short Film | Higgsfield Global Film Festival",
-  "genre": "Short Films",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Ayan may witness the past but never touch it - until he sees his mother. 5-minute AI sci-fi short about memory, grief and changing history.",
-  "url": "https://www.youtube.com/embed/QXWAitgzhZk",
-  "video_id": "QXWAitgzhZk",
-  "source_channel": "Saurabh Prakash",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "JUST FIVE MINUTES | AI Sci-Fi Short Film | Higgsfield Global Film Festival",
-    "url": "https://www.youtube.com/embed/QXWAitgzhZk",
-    "video_id": "QXWAitgzhZk",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Shortz VS original — AI-made, owned outright"
- },
- {
   "id": "stv-3025",
   "title": "Critterz — first AI-animated short film",
   "genre": "Short Films",
@@ -218361,7 +217024,7 @@
   "id": "stv-305",
   "title": "我叫苏妲己I am a fox spirit EP1#我叫苏妲己 #短剧 #复仇短剧 #ChineseDrama #RevengeDrama  #drama  #穿越  #chinesedrama",
   "genre": "Revenge",
-  "eps": "69 eps",
+  "eps": "67 eps",
   "runtime": "~59 sec",
   "desc": "🎬剧情简介： 苏丹在家破人亡、复仇无门之际选择结束生命，却意外唤醒了妲己的残存魂魄。 妲己借苏丹之身重生，化身一位危险而迷人的复仇者。她利用聪慧与魅力，逐步操纵杜天霖、顾家成和黄先生之间复杂的关系，让曾经伤害苏丹的人一步步陷入她精心布下的局中。 与此同时，顾怡为了守住自己的家庭、名誉与地位，不惜使尽手段与苏丹正面交锋。",
   "url": "https://www.youtube.com/embed/akctQA_HSds",
@@ -218527,16 +217190,6 @@
     "title": "我叫苏妲己I am a fox spirit EP16#我叫苏妲己 #短剧 #复仇短剧 #ChineseDrama #RevengeDrama  #drama  #穿越  #chinesedram",
     "video_id": "ZYzJ4ksbhrM",
     "url": "https://www.youtube.com/embed/ZYzJ4ksbhrM",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
-    "n": 17,
-    "title": "我叫苏妲己I am a fox spirit EP17#我叫苏妲己 #短剧 #复仇短剧 #ChineseDrama #RevengeDrama  #drama  #穿越  #chinesedram",
-    "video_id": "Mfjdv8of83o",
-    "url": "https://www.youtube.com/embed/Mfjdv8of83o",
     "verified": true,
     "kind": "episode",
     "vertical": false,
@@ -218877,16 +217530,6 @@
     "title": "我叫苏妲己I am a fox spirit EP51#我叫苏妲己 #短剧 #复仇短剧 #ChineseDrama #RevengeDrama  #drama  #穿越  #chinesedrama",
     "video_id": "GRaWefQHwr8",
     "url": "https://www.youtube.com/embed/GRaWefQHwr8",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
-    "n": 52,
-    "title": "我叫苏妲己I am a fox spirit EP52#我叫苏妲己 #短剧 #复仇短剧 #ChineseDrama #RevengeDrama  #drama  #穿越  #chinesedrama",
-    "video_id": "8jU6eVBh534",
-    "url": "https://www.youtube.com/embed/8jU6eVBh534",
     "verified": true,
     "kind": "episode",
     "vertical": false,
@@ -225335,7 +223978,7 @@
   "id": "stv-330",
   "title": "Love Ain't Loyalty EP 1 | \"The Lick\" | Urban Drama Series",
   "genre": "Hood",
-  "eps": "10 eps",
+  "eps": "9 eps",
   "runtime": "~3 min",
   "desc": "Welcome to Culture Corner where stories hit different. This channel is packed with emotion, laughter, and the reality behind the choices peo",
   "url": "https://www.youtube.com/embed/BYDsMM_nGzk",
@@ -225369,16 +224012,6 @@
     "title": "Love Ain't Loyalty EP 3 | \"Who's The Man Now?\" | Urban Drama",
     "video_id": "4X_AWe3QJE8",
     "url": "https://www.youtube.com/embed/4X_AWe3QJE8",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   },
-   {
-    "n": 4,
-    "title": "Love Ain't Loyalty EP 4 | \"Washed Up\" | Urban Drama Series",
-    "video_id": "cfmZnVyRAHA",
-    "url": "https://www.youtube.com/embed/cfmZnVyRAHA",
     "verified": true,
     "kind": "episode",
     "vertical": false,
@@ -226972,7 +225605,7 @@
   "id": "stv-3334",
   "title": "JASH",
   "genre": "Comedy",
-  "eps": "217 eps",
+  "eps": "211 eps",
   "runtime": "~1-3 min each",
   "desc": "The comedy collective of Sarah Silverman, Michael Cera, Tim & Eric, and Reggie Watts — absurd sketches, monologues, and experiments from five of comedy's sharpest minds.",
   "url": "https://www.youtube.com/embed/STylMPRatGA",
@@ -227025,14 +225658,6 @@
     "video_id": "3dZFL2BofbM",
     "url": "https://www.youtube.com/embed/3dZFL2BofbM",
     "n": 6,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Reggie Watts - \"If You're F*cking, You're F*cking\"",
-    "video_id": "vftIGU8-uqs",
-    "url": "https://www.youtube.com/embed/vftIGU8-uqs",
-    "n": 7,
     "verified": true,
     "kind": "episode"
    },
@@ -227493,14 +226118,6 @@
     "kind": "episode"
    },
    {
-    "title": "Kyle Dunnigan - \"Fuck You, Mistletoe\"",
-    "video_id": "7z0Qsf0g1UY",
-    "url": "https://www.youtube.com/embed/7z0Qsf0g1UY",
-    "n": 65,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Power Violence - YACHT - \"Plastic Soul\" | $5K Music Videos",
     "video_id": "BeNhEpInHzI",
     "url": "https://www.youtube.com/embed/BeNhEpInHzI",
@@ -227677,14 +226294,6 @@
     "kind": "episode"
    },
    {
-    "title": "Eric Andre - THUNDERCAT - \"Tron Song\" I $5K Music Videos",
-    "video_id": "o9wipZFDoHQ",
-    "url": "https://www.youtube.com/embed/o9wipZFDoHQ",
-    "n": 88,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Cell Phone Party",
     "video_id": "EWm2DYMMkJo",
     "url": "https://www.youtube.com/embed/EWm2DYMMkJo",
@@ -227817,14 +226426,6 @@
     "video_id": "4vob3JLPc8g",
     "url": "https://www.youtube.com/embed/4vob3JLPc8g",
     "n": 105,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "NATHAN FIELDER STOPS BY DAVID DINEEN-PORTER’S RETRO VIDEO ARCADE: HOT SISTER",
-    "video_id": "_nAVSPGaO6o",
-    "url": "https://www.youtube.com/embed/_nAVSPGaO6o",
-    "n": 106,
     "verified": true,
     "kind": "episode"
    },
@@ -228565,14 +227166,6 @@
     "kind": "episode"
    },
    {
-    "title": "Jon Peters - Very Animated People",
-    "video_id": "yS5GbXdi0Fk",
-    "url": "https://www.youtube.com/embed/yS5GbXdi0Fk",
-    "n": 199,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Tim & Eric’s Prenatal Life Coaching #FBF",
     "video_id": "7sVyi5mPcYc",
     "url": "https://www.youtube.com/embed/7sVyi5mPcYc",
@@ -228641,14 +227234,6 @@
     "video_id": "ten3AcpmC-0",
     "url": "https://www.youtube.com/embed/ten3AcpmC-0",
     "n": 208,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "JUDY (Sci-Fi Short Film)",
-    "video_id": "lYT9vk5b3BY",
-    "url": "https://www.youtube.com/embed/lYT9vk5b3BY",
-    "n": 209,
     "verified": true,
     "kind": "episode"
    },
@@ -232204,7 +230789,7 @@
   "id": "stv-3402",
   "title": "Threesome (Olivia, Thomas, & Taylor) | Truth or Drink",
   "genre": "Reality",
-  "eps": "444 eps",
+  "eps": "440 eps",
   "runtime": "~1-3 min each",
   "desc": "Olivia, Thomas, and Taylor play Truth or Drink as a threesome.",
   "url": "https://www.youtube.com/embed/N4QoJNc_rHE",
@@ -234413,14 +232998,6 @@
     "kind": "episode"
    },
    {
-    "title": "My Terminally Ill Friend & I Play Truth or Drink | Cut",
-    "video_id": "41IDPVRHsfo",
-    "url": "https://www.youtube.com/embed/41IDPVRHsfo",
-    "n": 276,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "My Rabbi & I Play Truth or Drink | Truth or Drink | Cut",
     "video_id": "dEtWYx43pXU",
     "url": "https://www.youtube.com/embed/dEtWYx43pXU",
@@ -234497,14 +233074,6 @@
     "video_id": "XcWoDShZBc8",
     "url": "https://www.youtube.com/embed/XcWoDShZBc8",
     "n": 286,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Bartender Besties Play Truth or Drink | Cut",
-    "video_id": "M3L_6wI2ZIs",
-    "url": "https://www.youtube.com/embed/M3L_6wI2ZIs",
-    "n": 287,
     "verified": true,
     "kind": "episode"
    },
@@ -234793,14 +233362,6 @@
     "video_id": "mqOQvtzsIgI",
     "url": "https://www.youtube.com/embed/mqOQvtzsIgI",
     "n": 323,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Friends Who Have Sex Play Truth or Drink | Cut",
-    "video_id": "VYk-djx9pAk",
-    "url": "https://www.youtube.com/embed/VYk-djx9pAk",
-    "n": 324,
     "verified": true,
     "kind": "episode"
    },
@@ -235429,14 +233990,6 @@
     "kind": "episode"
    },
    {
-    "title": "Virgins and Sex Workers Play Truth or Drink | Cut",
-    "video_id": "JBCcFu16j-0",
-    "url": "https://www.youtube.com/embed/JBCcFu16j-0",
-    "n": 403,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Identical Twins Play Truth or Drink | Cut",
     "video_id": "FAJhogu0Q1w",
     "url": "https://www.youtube.com/embed/FAJhogu0Q1w",
@@ -235930,31 +234483,6 @@
    }
   ],
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-341",
-  "title": "He Chowed R10 MILLION?! 💸 | I Blew It | S1 Ep1 Promo #shorts",
-  "genre": "Hood",
-  "eps": "1 ep",
-  "runtime": "~25 sec",
-  "desc": "Imagine blowing R10 MILLION in just 2 months! 📉🚨",
-  "url": "https://www.youtube.com/embed/aLIsKDafR4I",
-  "url_status": "ok",
-  "source_channel": "ANDINATOR NATION",
-  "rights_basis": "Reupload/aggregator channel (user-authorized reupload exception for the hood hunt, 2026-10-07)",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "He Chowed R10 MILLION?! 💸 | I Blew It | S1 Ep1 Promo #shorts",
-    "video_id": "aLIsKDafR4I",
-    "url": "https://www.youtube.com/embed/aLIsKDafR4I",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "orientation unverified (API hunt 2026-10-07)"
-   }
-  ]
  },
  {
   "id": "stv-3410",
@@ -240539,29 +239067,6 @@
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-3586",
-  "title": "Bloody Mary",
-  "genre": "Horror",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "The classic mirror urban legend in two and a half minutes. Director Alexander Ronnberg packs mood lighting, eerie music, and sudden scares into a tiny runtime you won't want to watch in the dark.",
-  "url": "https://www.youtube.com/embed/yGjTTqk0RDs",
-  "video_id": "yGjTTqk0RDs",
-  "source_channel": "Alexander Ronnberg",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "Bloody Mary",
-    "url": "https://www.youtube.com/embed/yGjTTqk0RDs",
-    "video_id": "yGjTTqk0RDs",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
   "id": "stv-3587",
   "title": "There Are Monsters",
   "genre": "Horror",
@@ -241237,29 +239742,6 @@
   "rights_basis": "Shortz VS original — AI-made, owned outright"
  },
  {
-  "id": "stv-3602",
-  "title": "The House That Should Never Be Entered",
-  "genre": "Horror",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Urdu AI horror series. Part 1: Peter and Maya drive home through the jungle when a storm strands them — knocking on the door of an old isolated house turns out to be the biggest mistake of their lives",
-  "url": "https://www.youtube.com/embed/fy3RpJsIJlQ",
-  "video_id": "fy3RpJsIJlQ",
-  "source_channel": "NightSpun",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The House That Should Never Be Entered",
-    "url": "https://www.youtube.com/embed/fy3RpJsIJlQ",
-    "video_id": "fy3RpJsIJlQ",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Shortz VS original — AI-made, owned outright"
- },
- {
   "id": "stv-3603",
   "title": "Woh Jo Wapis Aata Hai",
   "genre": "Horror",
@@ -241484,29 +239966,6 @@
     "title": "Detective Made a Deal With the Wrong Woman (Bytes of Noire Ep.1)",
     "url": "https://www.youtube.com/embed/YDMniXHq4MY",
     "video_id": "YDMniXHq4MY",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-3612",
-  "title": "Detektif Penuh Intrik — Ep 3 (Bagian 1)",
-  "genre": "Mystery",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Indonesian detective drama (YouTube Short): 'Detective Full of Intrigue,' Episode 3, Part 1.",
-  "url": "https://www.youtube.com/embed/Lv2dy_tOvC4",
-  "video_id": "Lv2dy_tOvC4",
-  "source_channel": "Ruby Quinza",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "Detektif Penuh Intrik — Ep 3 (Bagian 1)",
-    "url": "https://www.youtube.com/embed/Lv2dy_tOvC4",
-    "video_id": "Lv2dy_tOvC4",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -241814,29 +240273,6 @@
    }
   ],
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-3625",
-  "title": "THE RETRIBUTION PROTOCOL | AI Short Film",
-  "genre": "Revenge",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Hybrid short film with AI animation: retribution protocol - a revenge-driven tale rendered in AI animation with DaVinci Resolve finishing.",
-  "url": "https://www.youtube.com/embed/QKiJMvTwBTM",
-  "video_id": "QKiJMvTwBTM",
-  "source_channel": "Mr H Makes",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "THE RETRIBUTION PROTOCOL | AI Short Film",
-    "url": "https://www.youtube.com/embed/QKiJMvTwBTM",
-    "video_id": "QKiJMvTwBTM",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Shortz VS original — AI-made, owned outright"
  },
  {
   "id": "stv-3626",
@@ -246123,29 +244559,6 @@
     "title": "Adopted Kids & Their Parents (Frederick & Marisa) | Truth or Drink | Cut",
     "url": "https://www.youtube.com/embed/ob1m8CU70E0",
     "video_id": "ob1m8CU70E0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-3792",
-  "title": "Ex High School Sweethearts | Fear Pong | Cut",
-  "genre": "Reality",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "High school sweethearts Brooke and Skyler reunite for a round of Fear Pong.",
-  "url": "https://www.youtube.com/embed/WDCoTM5QoY4",
-  "video_id": "WDCoTM5QoY4",
-  "source_channel": "Cut",
-  "ai_made": false,
-  "episodes": [
-   {
-    "title": "Ex High School Sweethearts | Fear Pong | Cut",
-    "url": "https://www.youtube.com/embed/WDCoTM5QoY4",
-    "video_id": "WDCoTM5QoY4",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -253398,29 +251811,6 @@
   "rights_basis": "Shortz VS original — AI-made, owned outright"
  },
  {
-  "id": "stv-4106",
-  "title": "AI Poem about The Country of Tajikistan",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "An AI poem about the country of Tajikistan: Tajik-language AI animation.",
-  "url": "https://www.youtube.com/embed/slBFpMchAtw",
-  "video_id": "slBFpMchAtw",
-  "source_channel": "Dreaming Of Light",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "AI Poem about The Country of Tajikistan",
-    "url": "https://www.youtube.com/embed/slBFpMchAtw",
-    "video_id": "slBFpMchAtw",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "Shortz VS original — AI-made, owned outright"
- },
- {
   "id": "stv-4107",
   "title": "HUNGARY 1700 (AI Reconstruction)",
   "genre": "Animation",
@@ -258674,32 +257064,6 @@
   "rights_basis": "Shortz VS original — AI-made, owned outright"
  },
  {
-  "id": "stv-433",
-  "title": "The Second Surge | Urdu Dub | An Action Sci-Fi Anime Short Film",
-  "genre": "Anime",
-  "eps": "1 ep",
-  "runtime": "~3 min",
-  "desc": "عظیم شٹر کے تین سال بعد، کورئیر ڈائیور آریا خود کو اس تباہی کا ذمہ دار سمجھتی ہے جس نے اس کی ماں میرا کی جان لی۔ جب دوسرا ...",
-  "url": "https://www.youtube.com/embed/Hze4H7xGiQo",
-  "url_status": "ok",
-  "source_channel": "LumiYume",
-  "rights_basis": "Original indie anime (creator's own upload, anime shorts hunt 2026-10-07)",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "The Second Surge | Urdu Dub | An Action Sci-Fi Anime Short Film",
-    "video_id": "Hze4H7xGiQo",
-    "url": "https://www.youtube.com/embed/Hze4H7xGiQo",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "orientation unverified (API hunt 2026-10-07)"
-   }
-  ],
-  "onlyShortz": true
- },
- {
   "id": "stv-4330",
   "title": "BALEKA UYEZA | When Fear Comes Closer Than You Think…",
   "genre": "Thriller",
@@ -260647,32 +259011,6 @@
   "onlyShortz": true
  },
  {
-  "id": "stv-439",
-  "title": "The Star Seed | Urdu Dub | An Action Sci-Fi Anime Short Film",
-  "genre": "Anime",
-  "eps": "1 ep",
-  "runtime": "~3 min",
-  "desc": "سولیس کے صحرائی قصبے میں گرے ہوئے ستاروں کے ٹکڑے بجلی کے لیے کھودے جاتے ہیں — یہاں تک کہ 12 سالہ کائی کو ایک ...",
-  "url": "https://www.youtube.com/embed/bbEP9wgyCRE",
-  "url_status": "ok",
-  "source_channel": "LumiYume",
-  "rights_basis": "Original indie anime (creator's own upload, anime shorts hunt 2026-10-07)",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "The Star Seed | Urdu Dub | An Action Sci-Fi Anime Short Film",
-    "video_id": "bbEP9wgyCRE",
-    "url": "https://www.youtube.com/embed/bbEP9wgyCRE",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "orientation unverified (API hunt 2026-10-07)"
-   }
-  ],
-  "onlyShortz": true
- },
- {
   "id": "stv-4390",
   "title": "The Renter",
   "genre": "Short Films",
@@ -261711,32 +260049,6 @@
   "onlyShortz": true
  },
  {
-  "id": "stv-443",
-  "title": "The Last Train to Hoshizora | An Emotional Anime Short Film",
-  "genre": "Anime",
-  "eps": "1 ep",
-  "runtime": "~2 min",
-  "desc": "Mina misses the last train home — and loses her late grandmother's star charm on the empty platform. Then, out of the fog, ...",
-  "url": "https://www.youtube.com/embed/Ve4Ptg2Jeos",
-  "url_status": "ok",
-  "source_channel": "LumiYume",
-  "rights_basis": "Original indie anime (creator's own upload, anime shorts hunt 2026-10-07)",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "The Last Train to Hoshizora | An Emotional Anime Short Film",
-    "video_id": "Ve4Ptg2Jeos",
-    "url": "https://www.youtube.com/embed/Ve4Ptg2Jeos",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "orientation unverified (API hunt 2026-10-07)"
-   }
-  ],
-  "onlyShortz": true
- },
- {
   "id": "stv-4430",
   "title": "Suckablood - short fairytale horror",
   "genre": "Short Films",
@@ -262770,32 +261082,6 @@
     "url": "https://player.vimeo.com/video/364185590",
     "verified": true,
     "kind": "episode"
-   }
-  ],
-  "onlyShortz": true
- },
- {
-  "id": "stv-447",
-  "title": "The Ember Relay | Urdu Dub | An Action Sci-Fi Anime Short Film",
-  "genre": "Anime",
-  "eps": "1 ep",
-  "runtime": "~3 min",
-  "desc": "The Urdu-dubbed version of LumiYume's original anime short film \"The Ember Relay\". In Vesper, a city living under decades of ...",
-  "url": "https://www.youtube.com/embed/aVIBpIHjx-E",
-  "url_status": "ok",
-  "source_channel": "LumiYume",
-  "rights_basis": "Original indie anime (creator's own upload, anime shorts hunt 2026-10-07)",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "The Ember Relay | Urdu Dub | An Action Sci-Fi Anime Short Film",
-    "video_id": "aVIBpIHjx-E",
-    "url": "https://www.youtube.com/embed/aVIBpIHjx-E",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "orientation unverified (API hunt 2026-10-07)"
    }
   ],
   "onlyShortz": true
@@ -265836,32 +264122,6 @@
   "dateAdded": "2026-10-08"
  },
  {
-  "id": "stv-4572",
-  "title": "Life is Beautiful",
-  "genre": "Rebirth",
-  "eps": "1 ep",
-  "runtime": "~1–12 min",
-  "desc": "Award-winning: Festival awards 2013-2014 (Ben Brand, Dutch animated short)",
-  "url": "https://www.youtube.com/embed/aseq2GClZ9U",
-  "url_status": "ok",
-  "source_channel": "YouTube",
-  "rights_basis": "Free/public upload",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Life is Beautiful",
-    "videoId": "aseq2GClZ9U",
-    "verified": true,
-    "url": "https://www.youtube.com/embed/aseq2GClZ9U",
-    "video_id": "aseq2GClZ9U"
-   }
-  ],
-  "verified": true,
-  "award": "Festival awards 2013-2014 (Ben Brand, Dutch animated short)",
-  "dateAdded": "2026-10-08"
- },
- {
   "id": "stv-4573",
   "title": "Cycle of Death",
   "genre": "Rebirth",
@@ -266517,86 +264777,6 @@
   "award": "Oscar nomination 2017; Student Academy Award (First Prize, winner); Peabody Award (winner); IDA Student Documentary Award; BAFTA Special Jury Prize 2017",
   "dateAdded": "2026-10-08",
   "award_verified": true
- },
- {
-  "id": "stv-4597",
-  "title": "Last Day of Freedom",
-  "genre": "Reality",
-  "eps": "1 ep",
-  "runtime": "~1–12 min",
-  "desc": "Award-winning: Oscar nomination 2016; IDA Best Short winner 2015; Full Frame Best Short Jury Award; Emmy Award (Northern California Area)",
-  "url": "https://www.youtube.com/embed/49610192",
-  "url_status": "ok",
-  "source_channel": "YouTube",
-  "rights_basis": "Free/public upload",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Last Day of Freedom",
-    "videoId": "49610192",
-    "verified": true,
-    "url": "https://www.youtube.com/embed/49610192",
-    "video_id": "49610192"
-   }
-  ],
-  "verified": true,
-  "award": "Oscar nomination 2016; IDA Best Short winner 2015; Full Frame Best Short Jury Award; Emmy Award (Northern California Area)",
-  "dateAdded": "2026-10-08",
-  "award_verified": true
- },
- {
-  "id": "stv-4598",
-  "title": "Body Team 12",
-  "genre": "Reality",
-  "eps": "1 ep",
-  "runtime": "~1–12 min",
-  "desc": "Award-winning: Oscar nomination 2016, Best Documentary Short Subject",
-  "url": "https://www.youtube.com/embed/124786379",
-  "url_status": "ok",
-  "source_channel": "YouTube",
-  "rights_basis": "Free/public upload",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Body Team 12",
-    "videoId": "124786379",
-    "verified": true,
-    "url": "https://www.youtube.com/embed/124786379",
-    "video_id": "124786379"
-   }
-  ],
-  "verified": true,
-  "award": "Oscar nomination 2016, Best Documentary Short Subject",
-  "dateAdded": "2026-10-08",
-  "award_verified": true
- },
- {
-  "id": "stv-4599",
-  "title": "We Were the Scenery",
-  "genre": "Reality",
-  "eps": "1 ep",
-  "runtime": "~1–12 min",
-  "desc": "Award-winning: Sundance 2025 Short Film Jury Award: Nonfiction (winner); DOC NYC Short List 2025; Oscar-shortlisted (98th Academy Awards)",
-  "url": "https://www.youtube.com/embed/1139491180",
-  "url_status": "ok",
-  "source_channel": "YouTube",
-  "rights_basis": "Free/public upload",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "We Were the Scenery",
-    "videoId": "1139491180",
-    "verified": true,
-    "url": "https://www.youtube.com/embed/1139491180",
-    "video_id": "1139491180"
-   }
-  ],
-  "verified": true,
-  "award": "Sundance 2025 Short Film Jury Award: Nonfiction (winner); DOC NYC Short List 2025; Oscar-shortlisted (98th Academy Awards)",
-  "dateAdded": "2026-10-08"
  },
  {
   "id": "stv-4600",
@@ -268766,60 +266946,6 @@
   "award_verified": true
  },
  {
-  "id": "stv-4675",
-  "title": "Incident",
-  "genre": "Documentary",
-  "eps": "1 ep",
-  "runtime": "~1–12 min",
-  "desc": "Award-winning: Academy Award nominee - Best Documentary Short (2025); Cinema Eye Honors - Best Nonfiction Short Honoree (2025)",
-  "url": "https://www.youtube.com/embed/oW65ChIjur4",
-  "url_status": "ok",
-  "source_channel": "YouTube",
-  "rights_basis": "Free/public upload",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Incident",
-    "videoId": "oW65ChIjur4",
-    "verified": true,
-    "url": "https://www.youtube.com/embed/oW65ChIjur4",
-    "video_id": "oW65ChIjur4"
-   }
-  ],
-  "verified": true,
-  "award": "Academy Award nominee - Best Documentary Short (2025); Cinema Eye Honors - Best Nonfiction Short Honoree (2025)",
-  "dateAdded": "2026-10-08",
-  "award_verified": true
- },
- {
-  "id": "stv-4676",
-  "title": "Do Not Split",
-  "genre": "Documentary",
-  "eps": "1 ep",
-  "runtime": "~1–12 min",
-  "desc": "Award-winning: Academy Award nominee - Best Documentary Short (2021); Special Jury Prize - AFI Docs (2020)",
-  "url": "https://www.youtube.com/embed/BpS-Y7ndNeQ",
-  "url_status": "ok",
-  "source_channel": "YouTube",
-  "rights_basis": "Free/public upload",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Do Not Split",
-    "videoId": "BpS-Y7ndNeQ",
-    "verified": true,
-    "url": "https://www.youtube.com/embed/BpS-Y7ndNeQ",
-    "video_id": "BpS-Y7ndNeQ"
-   }
-  ],
-  "verified": true,
-  "award": "Academy Award nominee - Best Documentary Short (2021); Special Jury Prize - AFI Docs (2020)",
-  "dateAdded": "2026-10-08",
-  "award_verified": true
- },
- {
   "id": "stv-4677",
   "title": "In the Absence",
   "genre": "Documentary",
@@ -269878,32 +268004,6 @@
   "dateAdded": "2026-10-08"
  },
  {
-  "id": "stv-4716",
-  "title": "Am I the Skinniest Person You've Ever Seen?",
-  "genre": "Documentary",
-  "eps": "1 ep",
-  "runtime": "~1–12 min",
-  "desc": "Award-winning: Winner - Hot Docs Best Canadian Short Documentary (2024)",
-  "url": "https://www.youtube.com/embed/MQV20PmbUgk",
-  "url_status": "ok",
-  "source_channel": "YouTube",
-  "rights_basis": "Free/public upload",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Am I the Skinniest Person You've Ever Seen?",
-    "videoId": "MQV20PmbUgk",
-    "verified": true,
-    "url": "https://www.youtube.com/embed/MQV20PmbUgk",
-    "video_id": "MQV20PmbUgk"
-   }
-  ],
-  "verified": true,
-  "award": "Winner - Hot Docs Best Canadian Short Documentary (2024)",
-  "dateAdded": "2026-10-08"
- },
- {
   "id": "stv-4717",
   "title": "Perfecting the Art of Longing",
   "genre": "Documentary",
@@ -270709,28 +268809,6 @@
   "award_verified": true
  },
  {
-  "id": "stv-4751",
-  "title": "Special Delivery",
-  "genre": "Animation",
-  "award": "Academy Award — Best Animated Short Film (1978)",
-  "verified": true,
-  "dateAdded": "2026-10-09",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Special Delivery (1978) — Eunice Macaulay & John Weldon",
-    "url": "https://www.youtube.com/watch?v=IaFi3DCHjak",
-    "video_id": "IaFi3DCHjak",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "url": "https://www.youtube.com/watch?v=IaFi3DCHjak",
-  "eps": "1 ep",
-  "rights_basis": "Public YouTube embed",
-  "award_verified": true
- },
- {
   "id": "stv-4752",
   "title": "Subconscious Password",
   "genre": "Animation",
@@ -270750,28 +268828,6 @@
   "url": "https://www.youtube.com/watch?v=8OCGTu_bkbg",
   "eps": "1 ep",
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-4753",
-  "title": "Neighbours",
-  "genre": "Animation",
-  "award": "Academy Award — Best Documentary, Short Subject (1952)",
-  "verified": true,
-  "dateAdded": "2026-10-09",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Neighbours (1952) — Norman McLaren",
-    "url": "https://www.youtube.com/watch?v=e_aSowDUUaY",
-    "video_id": "e_aSowDUUaY",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "url": "https://www.youtube.com/watch?v=e_aSowDUUaY",
-  "eps": "1 ep",
-  "rights_basis": "Public YouTube embed",
-  "award_verified": true
  },
  {
   "id": "stv-4754",
@@ -273507,27 +271563,6 @@
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-4883",
-  "title": "This is Zoe",
-  "genre": "Drama",
-  "award": "Best Short, Raindance Open Shorts Night (also Powerful Voice Award, BlackBird Film Festival; Audience Award, TweetFest)",
-  "verified": true,
-  "dateAdded": "2026-10-09",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "This is Zoe",
-    "url": "https://www.youtube.com/watch?v=DI2oPu177UU",
-    "video_id": "DI2oPu177UU",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "url": "https://www.youtube.com/watch?v=DI2oPu177UU",
-  "eps": "1 ep",
-  "rights_basis": "Public YouTube embed"
- },
- {
   "id": "stv-4884",
   "title": "HOPE",
   "genre": "Drama",
@@ -274587,27 +272622,6 @@
    }
   ],
   "url": "https://www.youtube.com/watch?v=ndBURLP_KRI",
-  "eps": "1 ep",
-  "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-4932",
-  "title": "THE DEVIL EATS PORK",
-  "genre": "Horror",
-  "award": "Best Film, H48 2025 (+ 3 more awards)",
-  "verified": true,
-  "dateAdded": "2026-10-09",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "THE DEVIL EATS PORK",
-    "url": "https://www.youtube.com/watch?v=S0q-P7YycNE",
-    "video_id": "S0q-P7YycNE",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "url": "https://www.youtube.com/watch?v=S0q-P7YycNE",
   "eps": "1 ep",
   "rights_basis": "Public YouTube embed"
  },
@@ -275892,27 +273906,6 @@
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-4990",
-  "title": "Love, Dad (Milý tati)",
-  "genre": "Short Films",
-  "award": "Best Short Film — Czech Lion Awards 2021; Magnesia Award for Best Student Film 2021; Best Short Film — BFI London Film Festival",
-  "verified": true,
-  "dateAdded": "2026-10-09",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Love, Dad (Milý tati)",
-    "url": "https://www.youtube.com/watch?v=ySD6CN4OX0c",
-    "video_id": "ySD6CN4OX0c",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "url": "https://www.youtube.com/watch?v=ySD6CN4OX0c",
-  "eps": "1 ep",
-  "rights_basis": "Public YouTube embed"
- },
- {
   "id": "stv-4991",
   "title": "89 mm from Europe",
   "genre": "Short Films",
@@ -276383,28 +274376,6 @@
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-5012",
-  "title": "Bestia",
-  "genre": "Short Films",
-  "award": "Winner — Best Animated Short Subject, 49th Annie Awards; Oscar nominee, Best Animated Short Film (94th Academy Awards)",
-  "verified": true,
-  "dateAdded": "2026-10-09",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Bestia — Hugo Covarrubias (Chile, stop-motion)",
-    "url": "https://www.youtube.com/watch?v=1qmI0o9BsZo",
-    "video_id": "1qmI0o9BsZo",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "url": "https://www.youtube.com/watch?v=1qmI0o9BsZo",
-  "eps": "1 ep",
-  "rights_basis": "Public YouTube embed",
-  "award_verified": true
- },
- {
   "id": "stv-5013",
   "title": "Ice Merchants",
   "genre": "Short Films",
@@ -276743,27 +274714,6 @@
    }
   ],
   "url": "https://www.youtube.com/watch?v=pJuZ7qhcKho",
-  "eps": "1 ep",
-  "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-5028",
-  "title": "Beautiful Men",
-  "genre": "Short Films",
-  "award": "Hiroshima Animation Season 2024 - Grand Prix",
-  "verified": true,
-  "dateAdded": "2026-10-09",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Beautiful Men",
-    "url": "https://www.youtube.com/watch?v=VXvZpkWWBoA",
-    "video_id": "VXvZpkWWBoA",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "url": "https://www.youtube.com/watch?v=VXvZpkWWBoA",
   "eps": "1 ep",
   "rights_basis": "Public YouTube embed"
  },
@@ -281418,7 +279368,7 @@
   "id": "stv-644",
   "title": "Baddies Gone Wild: Dominican Republic",
   "genre": "Reality",
-  "eps": "4 eps",
+  "eps": "3 eps",
   "runtime": "~22-24 min",
   "desc": "Roblox-animated reality series inspired by Zeus Network's Baddies. A cast of baddies on a trip to the Dominican Republic — house drama erupts into fights, alliances split, vacation turns messy.",
   "url": "https://www.youtube.com/embed/r45ZCqV_mfg",
@@ -281440,14 +279390,6 @@
     "title": "Baddie Gone Wild: Dominican Republic || Episode 2",
     "video_id": "aBtiZj9GQVA",
     "url": "https://www.youtube.com/embed/aBtiZj9GQVA",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 3,
-    "title": "Baddies Gone Wild: Dominican Republic || Episode 3: You not no bully",
-    "video_id": "nFoZFCihLg4",
-    "url": "https://www.youtube.com/embed/nFoZFCihLg4",
     "verified": true,
     "kind": "episode"
    },
@@ -281669,7 +279611,7 @@
   "id": "stv-649",
   "title": "Drunk Diaries 5",
   "genre": "Reality",
-  "eps": "19 eps",
+  "eps": "15 eps",
   "runtime": "~19-25 min",
   "desc": "P. Royal Lit’s Drunk Diaries Season 5, set in Wisconsin Dells — a rowdy cast, drinking games, and chaos from night one.",
   "url": "https://www.youtube.com/embed/YNE3Ef_QU8k",
@@ -281783,42 +279725,10 @@
     "kind": "episode"
    },
    {
-    "n": 14,
-    "title": "DRUNK DIARIES 5 WIS DELLS| EP14 “OLD TO ME NEW TO YOU”",
-    "video_id": "UTqaWPF7JhQ",
-    "url": "https://www.youtube.com/embed/UTqaWPF7JhQ",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 15,
     "title": "DRUNK DIARIES 5 WIS DELLS| EP15 “EYE CAN KNOT”",
     "video_id": "AoY2SnZ72tg",
     "url": "https://www.youtube.com/embed/AoY2SnZ72tg",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 16,
-    "title": "DRUNK DIARIES 5 WIS DELLS| EP16 “ WHO GOING HOME?”",
-    "video_id": "SUlnbtXpAYs",
-    "url": "https://www.youtube.com/embed/SUlnbtXpAYs",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 17,
-    "title": "DRUNK DIARIES 5 WIS DELLS| EP17 “FLAMIN HOT FINAL 3”",
-    "video_id": "2LVL2Dxxcp0",
-    "url": "https://www.youtube.com/embed/2LVL2Dxxcp0",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 18,
-    "title": "DRUNK DIARIES 5 WIS DELLS| EP18 “GET UP”",
-    "video_id": "ixgBo_xAmEg",
-    "url": "https://www.youtube.com/embed/ixgBo_xAmEg",
     "verified": true,
     "kind": "episode"
    },
@@ -281836,7 +279746,7 @@
   "id": "stv-650",
   "title": "Drunk Diaries Season 4: Temptations",
   "genre": "Reality",
-  "eps": "18 eps",
+  "eps": "14 eps",
   "runtime": "~1-40 min",
   "desc": "Drunk Diaries returns with Season 4 “Temptations” — opening fights, pouring problems, and the plot thickening every episode.",
   "url": "https://www.youtube.com/embed/7VGQilWgXV4",
@@ -281894,22 +279804,6 @@
     "kind": "episode"
    },
    {
-    "n": 5,
-    "title": "DRUNK DIARIES SEASON 4 TEMPTATIONS: EP 5 “GET DOWN WHERE YOU MAD AT”",
-    "video_id": "T_7UgmHhP_U",
-    "url": "https://www.youtube.com/embed/T_7UgmHhP_U",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 6,
-    "title": "DRINK DIARIES SEASON 4 TEMPTATIONS| EP6 “JUSTIFIED OR PICKING?”",
-    "video_id": "OugypgUIsgY",
-    "url": "https://www.youtube.com/embed/OugypgUIsgY",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 7,
     "title": "DRUNK DIARIES SEASON 4 TEMPTATIONS: EP7 “ON TO THE NEXT”",
     "video_id": "576Ixg4VMdc",
@@ -281950,26 +279844,10 @@
     "kind": "episode"
    },
    {
-    "n": 12,
-    "title": "DRUNK DIARIES SEASON 4 TEMPTATIONS: EP12 “ENOUGH IS ENOUGH”",
-    "video_id": "D6v3xAeTnZU",
-    "url": "https://www.youtube.com/embed/D6v3xAeTnZU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 13,
     "title": "DRUNK DIARIES TEMPTATIONS SEASON 4: EP13 “WHO WILL MAKE IT TO THE FINAL 4?”",
     "video_id": "zGBY_YIXFWs",
     "url": "https://www.youtube.com/embed/zGBY_YIXFWs",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 14,
-    "title": "DRINK DIARIES SEASON 4 TEMPTATIONS| EP14 “ seizing the moment “",
-    "video_id": "aqUR9Vam3X8",
-    "url": "https://www.youtube.com/embed/aqUR9Vam3X8",
     "verified": true,
     "kind": "episode"
    },
@@ -281995,7 +279873,7 @@
   "id": "stv-651",
   "title": "Drunk Diaries Duos: Season 3",
   "genre": "Reality",
-  "eps": "16 eps",
+  "eps": "12 eps",
   "runtime": "~20-60 min",
   "desc": "The Duos format: pairs of cast members take on challenges, punishments, and temptations — battle for the final 2 spots.",
   "url": "https://www.youtube.com/embed/jd4nvdtM2jo",
@@ -282029,34 +279907,10 @@
     "kind": "episode"
    },
    {
-    "n": 4,
-    "title": "DRUNK DIARIES DUOS| SEASON 3 EP4 “FREAK OFF” #strategy",
-    "video_id": "izmknvN9TQU",
-    "url": "https://www.youtube.com/embed/izmknvN9TQU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 5,
     "title": "DRUNK DIARIES DUOS| SEASON 3 EP5 “BONE COLLECTORS”",
     "video_id": "kCxmtupGXWA",
     "url": "https://www.youtube.com/embed/kCxmtupGXWA",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 6,
-    "title": "DRUNK DIARIES DUOS| SEASON 3 EP6 “A DRUNK AINT SH*T”",
-    "video_id": "rG9DvbE9fVs",
-    "url": "https://www.youtube.com/embed/rG9DvbE9fVs",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 7,
-    "title": "DRUNK DIARIES DUOS| SEASON 3 EP7 “WE CANT EXPLAIN THIS”",
-    "video_id": "_eCGcpVnkQw",
-    "url": "https://www.youtube.com/embed/_eCGcpVnkQw",
     "verified": true,
     "kind": "episode"
    },
@@ -282117,14 +279971,6 @@
     "kind": "episode"
    },
    {
-    "n": 15,
-    "title": "DRUNK DIARIES DUOS| SEASON 3 EP15 “BATTLE FOR THE FINAL 2 SPOTS”",
-    "video_id": "KC_Ehczaq7k",
-    "url": "https://www.youtube.com/embed/KC_Ehczaq7k",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 16,
     "title": "#DRUNK DIARIES DUOS| SEASON 3 EP16 “THE UNDER DOG” | FIND OUT WHO #WINS ! | Season finale",
     "video_id": "JmCqq4YdypQ",
@@ -282138,7 +279984,7 @@
   "id": "stv-652",
   "title": "The Reel World: Season 1",
   "genre": "Reality",
-  "eps": "23 eps",
+  "eps": "20 eps",
   "runtime": "~3-33 min",
   "desc": "P. Royal Lit’s reality series The Reel World — Season 1 kicks off with the tea party and the drama never stops.",
   "url": "https://www.youtube.com/embed/6IyKBzJyfFk",
@@ -282168,22 +280014,6 @@
     "title": "THE REEL WORLD| SEASON 1 EP2 “FAMILY TIES” CHRISTMAS SPECIAL",
     "video_id": "_uS2oP4WMOo",
     "url": "https://www.youtube.com/embed/_uS2oP4WMOo",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 3,
-    "title": "THE REEL WORLD| SEASON 1 EP3 “ the dungeon” #VIRAL",
-    "video_id": "lKp-9g3dA8g",
-    "url": "https://www.youtube.com/embed/lKp-9g3dA8g",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 4,
-    "title": "THE REEL WORLD| SEASON 1 EP4 “I HATE WHISPERING”",
-    "video_id": "rq2xua5uwcY",
-    "url": "https://www.youtube.com/embed/rq2xua5uwcY",
     "verified": true,
     "kind": "episode"
    },
@@ -282284,14 +280114,6 @@
     "kind": "episode"
    },
    {
-    "n": 17,
-    "title": "THE REEL WORLD| SEASON 1 EP17 “ TELEPHONE EVICTION “",
-    "video_id": "i3QzU2ADBsM",
-    "url": "https://www.youtube.com/embed/i3QzU2ADBsM",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 18,
     "title": "THE REEL WORLD| SEASON 1 EP18 “OLD NEWS, NEW BEGINNINGS”",
     "video_id": "oHwemwaT6c4",
@@ -282337,7 +280159,7 @@
   "id": "stv-653",
   "title": "The Reel World: Season 2",
   "genre": "Reality",
-  "eps": "22 eps",
+  "eps": "16 eps",
   "runtime": "~2-29 min",
   "desc": "The Reel World Season 2 moves to Milwaukee — new city, standing on business, and a whole new level of mess.",
   "url": "https://www.youtube.com/embed/EzahqrUm1MQ",
@@ -282387,14 +280209,6 @@
     "kind": "episode"
    },
    {
-    "n": 5,
-    "title": "THE REEL WORLD| SEASON 2 EP5 “BOTTLES FLYING”",
-    "video_id": "lJpCuWb0CfY",
-    "url": "https://www.youtube.com/embed/lJpCuWb0CfY",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 6,
     "title": "THE REEL WORLD| SEASON 2 EP6 “HOUSE MEETING AND BEATINGS”",
     "video_id": "IxMzJzdixEo",
@@ -282407,14 +280221,6 @@
     "title": "THE REEL WORLD| SEASON 2 EP7 “SURPRISE SHOWDOWN”",
     "video_id": "iGgySPeFRhI",
     "url": "https://www.youtube.com/embed/iGgySPeFRhI",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 8,
-    "title": "THE REEL WORLD| SEASON 2 EP8 “BITTER SWEET”",
-    "video_id": "0MdNQ8CAGfI",
-    "url": "https://www.youtube.com/embed/0MdNQ8CAGfI",
     "verified": true,
     "kind": "episode"
    },
@@ -282435,22 +280241,6 @@
     "kind": "episode"
    },
    {
-    "n": 11,
-    "title": "THE REEL WORLD| SEASON 2 EP11 “IT’S IN THE AIR”",
-    "video_id": "voXi_WfnGY0",
-    "url": "https://www.youtube.com/embed/voXi_WfnGY0",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 12,
-    "title": "THE REEL WORLD| SEASON 2 EP12 “IT WAS A MACE SCENE”",
-    "video_id": "IoQVnps6MM8",
-    "url": "https://www.youtube.com/embed/IoQVnps6MM8",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 13,
     "title": "THE REEL WORLD| SEASON 2 EP13 “911”",
     "video_id": "CC9mXARfpv4",
@@ -282463,14 +280253,6 @@
     "title": "THE REEL WORLD| SEASON 2 EP14 “fresh meat and raw beef”",
     "video_id": "n3OI3fjXihc",
     "url": "https://www.youtube.com/embed/n3OI3fjXihc",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 15,
-    "title": "THE REEL WORLD| SEASON 2 EP15 “BEAUTY HURTS”",
-    "video_id": "7w-ZEX62URU",
-    "url": "https://www.youtube.com/embed/7w-ZEX62URU",
     "verified": true,
     "kind": "episode"
    },
@@ -282507,14 +280289,6 @@
     "kind": "episode"
    },
    {
-    "n": 20,
-    "title": "THE REEL WORLD| SEASON 2 EP20 “CHECKING TEMPERATURES”",
-    "video_id": "VZZJCCZFtBI",
-    "url": "https://www.youtube.com/embed/VZZJCCZFtBI",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 21,
     "title": "THE REEL WORLD| SEASON 2 EP21 “NOBODY SAFE” #FINALE",
     "video_id": "PN_SdeQCi5Q",
@@ -282528,7 +280302,7 @@
   "id": "stv-654",
   "title": "The Hustle MKE: Season 1",
   "genre": "Reality",
-  "eps": "31 eps",
+  "eps": "30 eps",
   "runtime": "~4-29 min",
   "desc": "The Hustle MKE Season 1 — meet and greet, cheaters, and Milwaukee’s hustlers bringing the drama across 31 episodes.",
   "url": "https://www.youtube.com/embed/Lf0JXRz4mwI",
@@ -282776,14 +280550,6 @@
     "url": "https://www.youtube.com/embed/NRAoYt7UB2s",
     "verified": true,
     "kind": "episode"
-   },
-   {
-    "n": 31,
-    "title": "THE HUSTLE MKE- SEASON 1 EP 31 | REUNION | “BOXING MATCH” #VIRAL",
-    "video_id": "YogjFstsgs8",
-    "url": "https://www.youtube.com/embed/YogjFstsgs8",
-    "verified": true,
-    "kind": "episode"
    }
   ]
  },
@@ -282918,7 +280684,7 @@
   "id": "stv-656",
   "title": "The Hustle MKE: Season 3",
   "genre": "Reality",
-  "eps": "16 eps",
+  "eps": "15 eps",
   "runtime": "~19-26 min",
   "desc": "The Hustle MKE Season 3 — “why is he here?”, no competition, and the hustle goes harder.",
   "url": "https://www.youtube.com/embed/2n-1shY0lLI",
@@ -283024,14 +280790,6 @@
     "kind": "episode"
    },
    {
-    "n": 13,
-    "title": "THE HUSTLE MKE| SEASON 3 EP13 “BAD ENDING”",
-    "video_id": "aMsHdSQmzbU",
-    "url": "https://www.youtube.com/embed/aMsHdSQmzbU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 14,
     "title": "THE HUSTLE MKE| SEASON 3 EP14 “LOOKING LIKE YOU LOOKING”",
     "video_id": "2UuGecTVVbY",
@@ -283108,7 +280866,7 @@
   "id": "stv-658",
   "title": "Baddies Resort Reboot: Season 1",
   "genre": "Reality",
-  "eps": "19 eps",
+  "eps": "17 eps",
   "runtime": "~3-38 min",
   "desc": "Baddies Resort Reboot Season 1 “First 48” — first impressions at the resort, and it only gets messier.",
   "url": "https://www.youtube.com/embed/7XObPv1FmVI",
@@ -283150,14 +280908,6 @@
     "kind": "episode"
    },
    {
-    "n": 4,
-    "title": "BADDIES RESORT REBOOT “FIRST 48”| SEASON 1 EP4 | EYE FOR AN EYE",
-    "video_id": "ZdJEaM1dcP4",
-    "url": "https://www.youtube.com/embed/ZdJEaM1dcP4",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 5,
     "title": "BADDIES RESORT REBOOT| SEASON 1 EP5 “TRICK OR TREAT”",
     "video_id": "mZCVb0GLtrY",
@@ -283186,14 +280936,6 @@
     "title": "BADDIES RESORT REBOOT “FIRST 48” MILWAUKEE| SEASON 1 EP 8 “A CAN OF SARDINES”",
     "video_id": "8CkFub1ebqA",
     "url": "https://www.youtube.com/embed/8CkFub1ebqA",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 9,
-    "title": "BADDIES RESORT REBOOT FIRST 48 MILWAUKEE| SEASON 1 EP9 “DEFENDING CELLI”",
-    "video_id": "ulvI2RCYJ_w",
-    "url": "https://www.youtube.com/embed/ulvI2RCYJ_w",
     "verified": true,
     "kind": "episode"
    },
@@ -283275,31 +281017,15 @@
   "id": "stv-659",
   "title": "High Diaries: Season 1",
   "genre": "Reality",
-  "eps": "7 eps",
+  "eps": "3 eps",
   "runtime": "~20-23 min",
   "desc": "High Diaries Season 1 — #MembersOnly energy, fish bowling, and devious nights with the crew.",
-  "url": "https://www.youtube.com/embed/MEZ2Ud3JcOc",
+  "url": "",
   "url_status": "ok",
   "source_channel": "SHADE NET",
   "rights_basis": "Creator channel (original series)",
   "ai_made": false,
   "episodes": [
-   {
-    "n": 1,
-    "title": "HIGH DIARIES| SEASON 1 EP1 #MEMBERSONLY",
-    "video_id": "MEZ2Ud3JcOc",
-    "url": "https://www.youtube.com/embed/MEZ2Ud3JcOc",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 2,
-    "title": "HIGH DIARIES| SEASON 1 EP2 “FISH BOWLING” | DEVIOUS TAI",
-    "video_id": "CghBvbkl3Ug",
-    "url": "https://www.youtube.com/embed/CghBvbkl3Ug",
-    "verified": true,
-    "kind": "episode"
-   },
    {
     "n": 3,
     "title": "HIGH DIARIES| SEASON 1 EP3 “GETTING MESSY WITH MELINDA”",
@@ -283309,26 +281035,10 @@
     "kind": "episode"
    },
    {
-    "n": 4,
-    "title": "HIGH DIARIES| SEASON 1 EP4 FT MELINDA “SHE CALLED US CRAZY”",
-    "video_id": "DeeZNQ6FDl4",
-    "url": "https://www.youtube.com/embed/DeeZNQ6FDl4",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 5,
     "title": "HIGH DIARIES| SEASON 1 EP5 “STRANGER DANGER”",
     "video_id": "71cTOw_CQtw",
     "url": "https://www.youtube.com/embed/71cTOw_CQtw",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 6,
-    "title": "HIGH DIARIES| SEASON 1 EP6 “HMMMM CHALLENGE GONE WRONG” DRAKO",
-    "video_id": "Bk9beAuUoRE",
-    "url": "https://www.youtube.com/embed/Bk9beAuUoRE",
     "verified": true,
     "kind": "episode"
    },
@@ -283425,7 +281135,7 @@
   "id": "stv-661",
   "title": "The Resolution: Season 3",
   "genre": "Reality",
-  "eps": "3 eps",
+  "eps": "2 eps",
   "runtime": "~19-24 min",
   "desc": "The Resolution Season 3 — break free, hurt feelings, and the resolution reaches its climax.",
   "url": "https://www.youtube.com/embed/r1b4PpIQZAA",
@@ -283447,14 +281157,6 @@
     "title": "THE RESOLUTION: SEASON 3 EP2 “HURT FEELINGS”",
     "video_id": "8W94BpXGHoY",
     "url": "https://www.youtube.com/embed/8W94BpXGHoY",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 3,
-    "title": "THE RESOLUTION| SEASON 3 EP 3 “SH*T SHOW” #FINALE",
-    "video_id": "8M8BOX2hx9s",
-    "url": "https://www.youtube.com/embed/8M8BOX2hx9s",
     "verified": true,
     "kind": "episode"
    }
@@ -286943,7 +284645,7 @@
   "title": "Cricket Highlights",
   "genre": "Sports",
   "sport": "Cricket",
-  "eps": "51 eps",
+  "eps": "50 eps",
   "runtime": "~1 min",
   "desc": "Top Cricket highlights — swipe through the best moments.",
   "url": "https://www.youtube.com/embed/DjrapPOaCpw",
@@ -287156,18 +284858,6 @@
     "publishedAt": "2026-09-24T12:30:07Z",
     "published": "2026-09-24",
     "label": "EP17",
-    "kind": "episode"
-   },
-   {
-    "n": 18,
-    "title": "Tim Tector Unstoppable Sixes! Massive Sixes in ETPL 20! #shorts",
-    "video_id": "J1sITG5sZks",
-    "url": "https://www.youtube.com/embed/J1sITG5sZks",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-09-24T01:15:12Z",
-    "published": "2026-09-24",
-    "label": "EP18",
     "kind": "episode"
    },
    {
@@ -289704,7 +287394,7 @@
   "id": "stv-674",
   "title": "Shade Retreat Baddies: Season 1",
   "genre": "Reality",
-  "eps": "8 eps",
+  "eps": "7 eps",
   "runtime": "~19-22 min",
   "desc": "P. Royal Lit's Shade Retreat Baddies Season 1. The baddies head to the retreat — arrivals, new energy, bad blood, fades, and a finale where kids are off limits. (EP7 unavailable on YouTube.)",
   "url": "https://www.youtube.com/embed/PVuCt9tP9Yk",
@@ -289726,14 +287416,6 @@
     "title": "SHADE RETREAT #BADDIES SEASON 1| EP2 “NEW ENERGY”",
     "video_id": "XGMFzKnz55I",
     "url": "https://www.youtube.com/embed/XGMFzKnz55I",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 3,
-    "title": "SHADE RETREAT #BADDIES SEASON 1| EP3 “BAD BLOOD GOOD VIBES”",
-    "video_id": "TnmAv0wPpkQ",
-    "url": "https://www.youtube.com/embed/TnmAv0wPpkQ",
     "verified": true,
     "kind": "episode"
    },
@@ -296430,44 +294112,20 @@
   "id": "stv-5053",
   "title": "Lor Baddies of Baltimore S1",
   "genre": "Reality",
-  "eps": "8 eps",
+  "eps": "2 eps",
   "runtime": "~30 min",
   "desc": "Baltimore baddies move into the house for season one — cliques form, tempers flare, and the drama never stops across ten full episodes.",
-  "url": "https://www.youtube.com/embed/f7c2GqUvmZQ",
+  "url": "",
   "url_status": "ok",
   "source_channel": "Pressure Tv Network",
   "rights_basis": "Creator channel (original series)",
   "ai_made": false,
   "episodes": [
    {
-    "n": 1,
-    "title": "Lor Baddies Of Baltimore : Ep. 1 \"Give It A Go\" (Season 1)",
-    "video_id": "f7c2GqUvmZQ",
-    "url": "https://www.youtube.com/embed/f7c2GqUvmZQ",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 2,
-    "title": "Lor Baddies Of Baltimore : Ep. 2 \"Terminate Her\" (Season 1)",
-    "video_id": "GGaoQDTnuOM",
-    "url": "https://www.youtube.com/embed/GGaoQDTnuOM",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 3,
     "title": "Lor Baddies Of Baltimore : Ep. 3   \"The Lions Den\" (Featuring Carnell) Season 1",
     "video_id": "uOqwN1YMcsc",
     "url": "https://www.youtube.com/embed/uOqwN1YMcsc",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 4,
-    "title": "Lor Baddies Of Baltimore : Ep. 4 \"What's Tea\" (Season 1)",
-    "video_id": "hZv5_qWZ7Oo",
-    "url": "https://www.youtube.com/embed/hZv5_qWZ7Oo",
     "verified": true,
     "kind": "episode"
    },
@@ -296478,30 +294136,6 @@
     "url": "https://www.youtube.com/embed/QFxorctlgOc",
     "verified": true,
     "kind": "episode"
-   },
-   {
-    "n": 7,
-    "title": "Lor Baddies Of Baltimore : Ep.7 \"Cell Block Baddie\" (Season 1)",
-    "video_id": "S_LojHWy248",
-    "url": "https://www.youtube.com/embed/S_LojHWy248",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 8,
-    "title": "Lor Baddies Of Baltimore : Ep 8 \"Sneak Dissin\" (Season 1)",
-    "video_id": "iVNgLM97SfU",
-    "url": "https://www.youtube.com/embed/iVNgLM97SfU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 9,
-    "title": "Lor Baddies Of Baltimore : Ep 9 \"Big One\" (Season 1)",
-    "video_id": "IjhwgDJ4N9I",
-    "url": "https://www.youtube.com/embed/IjhwgDJ4N9I",
-    "verified": true,
-    "kind": "episode"
    }
   ]
  },
@@ -296509,36 +294143,20 @@
   "id": "stv-5054",
   "title": "Lor Baddies of Baltimore S2",
   "genre": "Reality",
-  "eps": "11 eps",
+  "eps": "3 eps",
   "runtime": "~30 min",
   "desc": "Season two opens with three full audition episodes, then the cast is back and messier than ever — new faces, old beefs, and a two-part-style run to the finale.",
-  "url": "https://www.youtube.com/embed/JGkO9felpJk",
+  "url": "",
   "url_status": "ok",
   "source_channel": "Pressure Tv Network",
   "rights_basis": "Creator channel (original series)",
   "ai_made": false,
   "episodes": [
    {
-    "n": 3,
-    "title": "Lor Baddies Of Baltimore Season 2 - Auditions (FULL EPISODE 3)",
-    "video_id": "JGkO9felpJk",
-    "url": "https://www.youtube.com/embed/JGkO9felpJk",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 4,
     "title": "(FULL Episode 1) : LBOB Season 2 - \"I Believe I Can Fly\"",
     "video_id": "L1W7SG15fak",
     "url": "https://www.youtube.com/embed/L1W7SG15fak",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 5,
-    "title": "(FULL Episode 2) LBOB Season 2 - \"Back Da F** Up\"",
-    "video_id": "Xkn-JvcEyC8",
-    "url": "https://www.youtube.com/embed/Xkn-JvcEyC8",
     "verified": true,
     "kind": "episode"
    },
@@ -296557,54 +294175,6 @@
     "url": "https://www.youtube.com/embed/0ZyPq25SzJY",
     "verified": true,
     "kind": "episode"
-   },
-   {
-    "n": 8,
-    "title": "LBOB Season 2 - “Why You Being Weird 2 Me” (Episode 7)",
-    "video_id": "HmC_EhhOFS4",
-    "url": "https://www.youtube.com/embed/HmC_EhhOFS4",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 9,
-    "title": "LBOB Season 2 - “I'm Not A Whisperah” (Episode 8)",
-    "video_id": "BdZSohON_oY",
-    "url": "https://www.youtube.com/embed/BdZSohON_oY",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 10,
-    "title": "LBOB Season 2 - “Face Shot” (Episode 9)",
-    "video_id": "JTwvodbrTdM",
-    "url": "https://www.youtube.com/embed/JTwvodbrTdM",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 11,
-    "title": "LBOB Season 2 \"Original Gangstas\" (Episode 10)",
-    "video_id": "rZbGJVx_yiQ",
-    "url": "https://www.youtube.com/embed/rZbGJVx_yiQ",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 12,
-    "title": "LBOB Season 2 \"Only The Strong Survive\" (Episode 11)",
-    "video_id": "8M7wLWJqmmU",
-    "url": "https://www.youtube.com/embed/8M7wLWJqmmU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 13,
-    "title": "LBOB Season 2 \"The Finale\" (Episode 12)",
-    "video_id": "nMzV4I0yrO0",
-    "url": "https://www.youtube.com/embed/nMzV4I0yrO0",
-    "verified": true,
-    "kind": "episode"
    }
   ]
  },
@@ -296612,7 +294182,7 @@
   "id": "stv-5055",
   "title": "Lor Baddies of Baltimore S3",
   "genre": "Reality",
-  "eps": "9 eps",
+  "eps": "3 eps",
   "runtime": "~30 min",
   "desc": "Fifteen full episodes of season three — the Baltimore house saga continues with the biggest cast yet.",
   "url": "https://www.youtube.com/embed/EXMSEE7zRCU",
@@ -296630,58 +294200,10 @@
     "kind": "episode"
    },
    {
-    "n": 3,
-    "title": "Lor Baddies Of Baltimore | Season 3 (FULL Episode 3)",
-    "video_id": "pP8RYcKZu60",
-    "url": "https://www.youtube.com/embed/pP8RYcKZu60",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 5,
-    "title": "Lor Baddies Of Baltimore | Season 3 (FULL Episode 5)",
-    "video_id": "_XcfkRITvxY",
-    "url": "https://www.youtube.com/embed/_XcfkRITvxY",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 6,
-    "title": "Lor Baddies Of Baltimore | Season 3 (FULL Episode 6)",
-    "video_id": "t9PMHGzrV4c",
-    "url": "https://www.youtube.com/embed/t9PMHGzrV4c",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 8,
     "title": "Lor Baddies Of Baltimore | Season 3 (FULL Episode 8)",
     "video_id": "0LPwOksgD-8",
     "url": "https://www.youtube.com/embed/0LPwOksgD-8",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 12,
-    "title": "Lor Baddies Of Baltimore | Season 3 (FULL Episode 12)",
-    "video_id": "Dvo5hVp3IaU",
-    "url": "https://www.youtube.com/embed/Dvo5hVp3IaU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 13,
-    "title": "Lor Baddies Of Baltimore | Season 3 (FULL Episode 13)",
-    "video_id": "ceL06MPO1CQ",
-    "url": "https://www.youtube.com/embed/ceL06MPO1CQ",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 14,
-    "title": "Lor Baddies Of Baltimore | Season 3 (FULL Episode 14)",
-    "video_id": "RODWvs-uw7M",
-    "url": "https://www.youtube.com/embed/RODWvs-uw7M",
     "verified": true,
     "kind": "episode"
    },
@@ -296699,7 +294221,7 @@
   "id": "stv-5056",
   "title": "Lor Baddies of Baltimore S4",
   "genre": "Reality",
-  "eps": "4 eps",
+  "eps": "3 eps",
   "runtime": "~30–60 min",
   "desc": "The baddies take Atlanta for season four — new city, same chaos.",
   "url": "https://www.youtube.com/embed/GVP47OwKn9g",
@@ -296721,14 +294243,6 @@
     "title": "Lor Baddies of Baltimore Season 4 (FULL EPISODE 2)",
     "video_id": "WuFZKfW9rYQ",
     "url": "https://www.youtube.com/embed/WuFZKfW9rYQ",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 3,
-    "title": "Lor Baddies of Baltimore Season 4 (FULL EPISODE 3 )",
-    "video_id": "oABErbRdPgM",
-    "url": "https://www.youtube.com/embed/oABErbRdPgM",
     "verified": true,
     "kind": "episode"
    },
@@ -297525,5 +295039,49 @@
   ],
   "url_status": "ok",
   "rights_basis": "Public YouTube embed"
+ },
+ {
+  "id": "stv-4751",
+  "title": "Special Delivery",
+  "genre": "Animation",
+  "award": "Academy Award — Best Animated Short Film (1978)",
+  "verified": true,
+  "dateAdded": "2026-10-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Special Delivery (1978) — Eunice Macaulay & John Weldon",
+    "url": "https://www.youtube.com/watch?v=IaFi3DCHjak",
+    "video_id": "IaFi3DCHjak",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/mOsRlp1nKW0",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-4753",
+  "title": "Neighbours",
+  "genre": "Animation",
+  "award": "Academy Award — Best Documentary, Short Subject (1952)",
+  "verified": true,
+  "dateAdded": "2026-10-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Neighbours (1952) — Norman McLaren",
+    "url": "https://www.youtube.com/watch?v=e_aSowDUUaY",
+    "video_id": "e_aSowDUUaY",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/K1q8f-I6YsI",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
  }
 ]
