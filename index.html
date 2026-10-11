@@ -1470,6 +1470,8 @@ function browseList(){
     const rest=C.filter(t=>t.genre==="Space"&&!priority.includes(t.id));
     return first.concat(alphaSortCached("g:space-rest",rest));
   }
+  // Sci-Fi includes Space: space content lives in both sections (his rule)
+  if(browseGenre==="Sci-Fi")return alphaSortCached("g:scifi+space",C.filter(t=>t.genre==="Sci-Fi"||t.genre==="Space"));
   // SPEED: the early-release list is cached in IDX (one pass), not re-filtered
   return browseGenre===EARLY
     ? alphaSortCached("g:early",catalogCounts().earlyList)
@@ -3736,7 +3738,7 @@ function renderBrowse(g){
         <button class="gitem${AWARD===browseGenre?" sel":""}" data-g="${AWARD}"><span>🏆 Award-Winning</span><span class="cnt">${cc.award}</span></button>
         <button class="gitem${TREK===browseGenre?" sel":""}" data-g="${TREK}"><span>🚀 Star Trek Fan</span><span class="cnt">${cc.trek}</span></button>
         ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
-        `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:(cc.genre[x]||0)}</span></button>`).join("")}
+        `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:x==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[x]||0)}</span></button>`).join("")}
       </div>
     </div></div>
     <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
