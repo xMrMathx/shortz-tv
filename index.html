@@ -3749,9 +3749,9 @@ function renderBrowse(g){
       </div>
     </div>
     <div class="wrap"><div class="gdrop" id="gdrop">
-      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Only on Shortz":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre===AWARD?"🏆 Award-Winning":browseGenre===TREK?"🚀 Star Trek Fan":browseGenre}</span><span class="arr">▼</span></button>
+      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Shortz Picks":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre===AWARD?"🏆 Award-Winning":browseGenre===TREK?"🚀 Star Trek Fan":browseGenre}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
-        <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Only on Shortz</span><span class="cnt">${cc.onlyShortz}</span></button>
+        <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Shortz Picks</span><span class="cnt">${cc.onlyShortz}</span></button>
         <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
         <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
         <button class="gitem${AWARD===browseGenre?" sel":""}" data-g="${AWARD}"><span>🏆 Award-Winning</span><span class="cnt">${cc.award}</span></button>
@@ -3889,7 +3889,7 @@ function renderBrowse(g){
       if(wasSearching){si.value="";browseQuery="";} // selecting a genre clears the search
       if(p.dataset.g===browseGenre&&!wasSearching)return;
       gm.querySelectorAll(".gitem").forEach(q=>q.classList.toggle("sel",q===p));
-      gc.textContent=p.dataset.g===ONLYSHORTZ?"Only on Shortz":p.dataset.g===EARLY?"Early Release":p.dataset.g===AI?"AI Shorts":p.dataset.g===TREK?"🚀 Star Trek Fan":p.dataset.g;
+      gc.textContent=p.dataset.g===ONLYSHORTZ?"Shortz Picks":p.dataset.g===EARLY?"Early Release":p.dataset.g===AI?"AI Shorts":p.dataset.g===TREK?"🚀 Star Trek Fan":p.dataset.g;
       const toSports=p.dataset.g==="Sports", fromSports=browseGenre==="Sports";
       if(toSports||fromSports){ renderBrowse(p.dataset.g); return; } // full re-render for Sports transitions
       gr.classList.add("fading");
