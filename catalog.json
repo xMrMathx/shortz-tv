@@ -295050,9 +295050,9 @@
   "episodes": [
    {
     "n": 1,
-    "title": "Special Delivery (1978) — Eunice Macaulay & John Weldon",
-    "url": "https://www.youtube.com/watch?v=IaFi3DCHjak",
-    "video_id": "IaFi3DCHjak",
+    "title": "Special Delivery (1978) — NFB",
+    "url": "https://www.youtube.com/embed/mOsRlp1nKW0",
+    "video_id": "mOsRlp1nKW0",
     "platform": "youtube",
     "verified": true
    }
@@ -295073,13 +295073,101 @@
    {
     "n": 1,
     "title": "Neighbours (1952) — Norman McLaren",
-    "url": "https://www.youtube.com/watch?v=e_aSowDUUaY",
-    "video_id": "e_aSowDUUaY",
+    "url": "https://www.youtube.com/embed/K1q8f-I6YsI",
+    "video_id": "K1q8f-I6YsI",
     "platform": "youtube",
     "verified": true
    }
   ],
   "url": "https://www.youtube.com/embed/K1q8f-I6YsI",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5079",
+  "title": "The Girl Who Cried Pearls",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2026)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Girl Who Cried Pearls (2025) — Lavis & Szczerbowski",
+    "url": "https://www.youtube.com/embed/4mSf21PKKa8",
+    "video_id": "4mSf21PKKa8",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4mSf21PKKa8",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5080",
+  "title": "Geri's Game",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (1997)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Geri's Game (1997) — Pixar",
+    "url": "https://www.youtube.com/embed/RWtKyw6YzBk",
+    "video_id": "RWtKyw6YzBk",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/RWtKyw6YzBk",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5081",
+  "title": "For the Birds",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2000)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "For the Birds (2000) — Pixar",
+    "url": "https://www.youtube.com/embed/Lz3KYrPQaN0",
+    "video_id": "Lz3KYrPQaN0",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Lz3KYrPQaN0",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5082",
+  "title": "Piper",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2016)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Piper (2016) — Pixar",
+    "url": "https://www.youtube.com/embed/mww6KcerT8g",
+    "video_id": "mww6KcerT8g",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/mww6KcerT8g",
   "eps": "1 ep",
   "rights_basis": "Public YouTube embed",
   "award_verified": true
