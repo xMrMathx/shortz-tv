@@ -3500,7 +3500,7 @@ function openDetail(id){
       <button class="backbtn" id="dBack">‹</button>
     </section>
     <div class="wrap"><div class="detail-body">
-      <h1>${esc(t.title)}</h1>
+      <h1>${esc(t.title)}${t.award_verified?' 🏆':''}</h1>
       <div class="chips">
         <span class="chip red">▶ Plays in app</span>
         ${t.award_verified?`<span class="chip gold">🏆 ${esc(String(t.award||"Award winner").split(";")[0].slice(0,64))}</span>`:""}
