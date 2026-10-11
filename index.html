@@ -1821,6 +1821,7 @@ function isVertMain(t){
    (Home feed still only ever shows 5+ verified-episode series - his law.
     Pool is the full 352-title home pool; vertical gets a small bonus.) */
 const FRESH_CANDIDATES=15;
+const SHORT_STORY_GENRES=["Romance","Rebirth","Revenge","Drama","Hood"]; // scripted short drama series: favored on Home
 function tasteGenres(){
   const g={};
   try{
@@ -1842,6 +1843,9 @@ function freshScore(t,recentGenres,taste){
   let watched=false;
   try{ watched=history.some(h=>h&&h.id===id); }catch(e){}
   if(!watched&&seen.indexOf(id)<0)s+=3;                    // unseen
+  // HIS LAW (2026-10-11): Home feed favors short drama series over short clips.
+  // Scripted short-story genres outrank compilations/highlights/reality.
+  try{ if(t.genre&&SHORT_STORY_GENRES.indexOf(t.genre)>=0)s+=3; }catch(e){}
   const da=t.dateAdded||t.added_at||t.date_added;
   if(da){
     const age=(Date.now()-new Date(da).getTime())/864e5;
