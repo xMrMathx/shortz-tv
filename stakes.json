@@ -160,12 +160,13 @@
       "optB": "NO",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "milestone",
       "streamer": "HusKerrs",
-      "target": 1000
+      "target": 1000,
+      "resolvedAt": 1791684554
     },
     {
       "id": "auto-huskerrs-1791682758-mar",
@@ -175,11 +176,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "marathon",
-      "streamer": "HusKerrs"
+      "streamer": "HusKerrs",
+      "resolvedAt": 1791684554
     }
   ]
 }
