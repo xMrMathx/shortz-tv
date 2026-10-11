@@ -67,6 +67,14 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .feed-video.vert iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
 .feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
 .feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer}
+/* fit-to-screen quick suggestion: small pill offered when a cropped (cover) video starts */
+.fit-suggest{position:absolute;left:50%;bottom:calc(215px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(10px);z-index:7;
+ background:rgba(12,12,16,.78);color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:999px;
+ padding:9px 16px;font-size:13px;font-weight:700;letter-spacing:.2px;backdrop-filter:blur(8px);
+ box-shadow:0 4px 16px rgba(0,0,0,.45);white-space:nowrap;cursor:pointer;
+ opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease}
+.fit-suggest.show{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.fit-suggest:active{transform:translateX(-50%) scale(.95)}
 .feed-flash{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;pointer-events:none;font-size:64px;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.7);opacity:0}
 .feed-flash.show{animation:flashpop .7s ease forwards}
 @keyframes flashpop{0%{opacity:.92;transform:translate(-50%,-50%) scale(.8)}35%{opacity:.92;transform:translate(-50%,-50%) scale(1.06)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.16)}}
@@ -1454,9 +1462,9 @@ function browseList(){
     for(let i=rest.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;const tmp=rest[i];rest[i]=rest[j];rest[j]=tmp;}
     return pinned.concat(rest);
   }
-  // Space: new curated series first, then the rest alphabetically
+  // Space: Star Trek first, then Battlestar Galactica, then Stargate, then the rest alphabetically
   if(browseGenre==="Space"){
-    const priority=["stv-4513","stv-4514","stv-4515","stv-4516","stv-4517","stv-4518","stv-4519","stv-4520","stv-4521"];
+    const priority=["stv-5032","stv-5034","stv-5035","stv-5036","stv-5037","stv-5038","stv-5040","stv-5041","stv-5042","stv-5043","stv-5044","stv-5045","stv-5046","stv-5047","stv-5048","stv-5049","stv-5050","stv-5051","stv-5052","stv-5070","stv-5071","stv-5072","stv-5073","stv-5074","stv-5075","stv-5076","stv-5077","stv-5078"];
     const byIdMap={}; C.forEach(t=>byIdMap[t.id]=t);
     const first=priority.map(id=>byIdMap[id]).filter(Boolean);
     const rest=C.filter(t=>t.genre==="Space"&&!priority.includes(t.id));
@@ -1955,6 +1963,31 @@ function toggleFit(slide){
   if(fv)fv.className="feed-video fit";
   fitBtnPaint(slide);
 }
+/* fit-to-screen quick suggestion: when a cropped (cover-mode) video starts,
+   offer a small one-tap pill instead of digging through More > Fit */
+let _fitSugT=null;
+function hideFitSuggest(node){
+  clearTimeout(_fitSugT);
+  try{
+    const n=node||curSlide(); if(!n)return;
+    const p=n.querySelector("[data-fitsuggest]"); if(p)p.classList.remove("show");
+  }catch(e){}
+}
+function suggestFit(node){
+  try{
+    if(!node||node!==curSlide())return;
+    const t=node._t; if(!t||isVertMain(t))return;   // verticals already fill the screen
+    if(node._fit||fitSticky)return;                 // already fit
+    if(node._vid&&node._fitSuggestedFor===node._vid)return; // once per video
+    const fv=node.querySelector("[data-fv]");
+    if(!fv||fv.className.indexOf("cover")<0)return; // only when the video is cropped
+    node._fitSuggestedFor=node._vid;
+    const p=node.querySelector("[data-fitsuggest]"); if(!p)return;
+    p.classList.add("show");
+    clearTimeout(_fitSugT);
+    _fitSugT=setTimeout(()=>{try{p.classList.remove("show")}catch(e){}},5000);
+  }catch(e){}
+}
 /* PiP mini window: pure cover math so the video fills edge-to-edge at ANY
    window aspect ratio (Android may not honor the requested 9:16 exactly). */
 function applyPipLayout(){
@@ -2147,6 +2180,7 @@ function slideHTML(){
       </div>
     </div>
     <div class="feed-tapzone" data-tap></div>
+    <button class="fit-suggest" data-fitsuggest>⤢ Fit to screen</button>
     <div class="feed-flash" data-flash></div>
     <div class="scrub" data-scrub>
       <div class="scrub-times"><span data-cur>0:00</span><span data-dur>0:00</span></div>
@@ -2207,6 +2241,7 @@ function fillSlide(node,t,mode){
   const fr=ensureFrame(node);
   const sp=node.querySelector("[data-sound]");
   node._t=t||null;
+  hideFitSuggest(node); // new video: clear any fit suggestion left from the last one
   const bd=node.querySelector("[data-backdrop]");
   node._fit=!!(t&&fitSticky&&!isVertMain(t)); // sticky fit carries to the next video
   markCc(node,false); // captions reset per video; applySavedTracks re-arms on ready
@@ -2455,6 +2490,12 @@ function mountFeed(){
   track.addEventListener("click",e=>{
     if(suppressClick)return;
     const slide=e.target.closest(".slide");
+    if(e.target.closest("[data-fitsuggest]")&&slide){
+      e.stopPropagation();
+      hideFitSuggest(slide);
+      toggleFit(slide);
+      return;
+    }
     const b=e.target.closest("[data-a]");
     if(b&&slide){railAction(b.dataset.a,slide);return;}
     if(e.target.closest("[data-next]")){openEpDrawer();return;}
@@ -2472,7 +2513,7 @@ function mountFeed(){
     track.classList.remove("anim");
     return true;
   };
-  const actionAt=e=>e.target.closest("[data-a],[data-next],[data-sound],[data-scrub]");
+  const actionAt=e=>e.target.closest("[data-a],[data-next],[data-sound],[data-scrub],[data-fitsuggest]");
   const onMove=(x,y)=>{
     if(!dragging)return;
     dragDy=y-dragY0;
@@ -2915,6 +2956,7 @@ function loadVideoInto(node,url,vid){
     node._player=sh;
     v.muted=!soundOn; // muted autoplay start, unmute shortly after like the YT path
     v.onloadedmetadata=()=>{ maybeResume(node,sh); if(soundOn){ setTimeout(()=>{ try{if(node._player===sh)v.muted=false;}catch(e){} },900); } };
+    v.onplaying=()=>{try{suggestFit(node)}catch(e){}};
     v.onended=()=>{ try{clearProg(node);}catch(e){} autoNext(node,vid); };
     v.onpause=()=>{ try{if(!v.ended)saveProg(node);}catch(e){} };
     v.onerror=()=>{ try{toast("Video unavailable");}catch(e){} };
@@ -2954,6 +2996,7 @@ function loadVideoInto(node,url,vid){
         flashResume(node,s);
       }
       if(ccLang){vimeoCc(node,ccLang);markCc(node,true);}
+      try{suggestFit(node)}catch(e){}
       node._seekDone=true;
     },2500);
     return;
@@ -2968,6 +3011,7 @@ function loadVideoInto(node,url,vid){
         onStateChange:ev=>{
           try{
             if(ev.data===YT.PlayerState.PAUSED)saveProg(node);
+            else if(ev.data===YT.PlayerState.PLAYING){try{suggestFit(node)}catch(e){}}
             else if(ev.data===YT.PlayerState.ENDED){clearProg(node);autoNext(node,vid);}
             // system-PiP native button: keep its play/pause icon in sync
             if(document.body.classList.contains("pip"))
