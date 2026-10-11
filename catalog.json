@@ -294182,5 +294182,143 @@
     "kind": "episode"
    }
   ]
+ },
+ {
+  "id": "stv-5073",
+  "title": "Stargate Universe: Distant Hope",
+  "genre": "Sci-Fi",
+  "eps": "1 ep",
+  "runtime": "~20 min",
+  "desc": "Samuel Cockings' fan film: an original Stargate Universe story with new characters set in season 1. The most-watched Stargate fan film on YouTube.",
+  "url": "https://www.youtube.com/embed/p8QRNY3DVaw",
+  "video_id": "p8QRNY3DVaw",
+  "source_channel": "Power543 Fan Films",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Stargate Universe: Distant Hope",
+    "url": "https://www.youtube.com/embed/p8QRNY3DVaw",
+    "video_id": "p8QRNY3DVaw",
+    "n": 1,
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "url_status": "ok"
+ },
+ {
+  "id": "stv-5074",
+  "title": "Stargate SG-1: New Mission (2022)",
+  "genre": "Sci-Fi",
+  "eps": "1 ep",
+  "runtime": "~6 min",
+  "desc": "A short SG-1 'day in the life' fan film from the Distant Hope maker, prologue to a Star Trek/Stargate crossover.",
+  "url": "https://www.youtube.com/embed/TInEYG1fnK8",
+  "video_id": "TInEYG1fnK8",
+  "source_channel": "Power543 Fan Films",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Stargate SG-1: New Mission (2022)",
+    "url": "https://www.youtube.com/embed/TInEYG1fnK8",
+    "video_id": "TInEYG1fnK8",
+    "n": 1,
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "url_status": "ok"
+ },
+ {
+  "id": "stv-5075",
+  "title": "Help Us Launch a Stargate Fan Film Series",
+  "genre": "Sci-Fi",
+  "eps": "1 ep",
+  "runtime": "~5 min",
+  "desc": "Cockings' 2026 fan film launching a new Stargate fan-film series after Amazon shelved the official revival.",
+  "url": "https://www.youtube.com/embed/1bYGm77ZidY",
+  "video_id": "1bYGm77ZidY",
+  "source_channel": "Power543 Fan Films",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Help Us Launch a Stargate Fan Film Series",
+    "url": "https://www.youtube.com/embed/1bYGm77ZidY",
+    "video_id": "1bYGm77ZidY",
+    "n": 1,
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "url_status": "ok"
+ },
+ {
+  "id": "stv-5076",
+  "title": "Stargate: Base Gamma",
+  "genre": "Sci-Fi",
+  "eps": "1 ep",
+  "runtime": "~2 h 7 min",
+  "desc": "French fan film seven years in the making: SG teams deploy to defend the Gamma base. English subtitles available.",
+  "url": "https://www.youtube.com/embed/qSUR3_B7ojM",
+  "video_id": "qSUR3_B7ojM",
+  "source_channel": "LJ-Pixel",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Stargate: Base Gamma",
+    "url": "https://www.youtube.com/embed/qSUR3_B7ojM",
+    "video_id": "qSUR3_B7ojM",
+    "n": 1,
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "url_status": "ok"
+ },
+ {
+  "id": "stv-5077",
+  "title": "The History of Stargate SG-1",
+  "genre": "Sci-Fi",
+  "eps": "1 ep",
+  "runtime": "~43 min",
+  "desc": "GateWorld's documentary on the show's 11-year production history, from the 1994 film to the cancellation fight.",
+  "url": "https://www.youtube.com/embed/8rjo63-0NNY",
+  "video_id": "8rjo63-0NNY",
+  "source_channel": "GateWorld",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "The History of Stargate SG-1",
+    "url": "https://www.youtube.com/embed/8rjo63-0NNY",
+    "video_id": "8rjo63-0NNY",
+    "n": 1,
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "url_status": "ok"
+ },
+ {
+  "id": "stv-5078",
+  "title": "Stargate Universe Season 3: Fan Fiction",
+  "genre": "Sci-Fi",
+  "eps": "1 ep",
+  "runtime": "~57 min",
+  "desc": "Narrated fan-fiction continuation of Stargate Universe, episodes 1-3 in one video.",
+  "url": "https://www.youtube.com/embed/WR_LgeUgr_c",
+  "video_id": "WR_LgeUgr_c",
+  "source_channel": "SCI-FI NERD",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Stargate Universe Season 3: Fan Fiction",
+    "url": "https://www.youtube.com/embed/WR_LgeUgr_c",
+    "video_id": "WR_LgeUgr_c",
+    "n": 1,
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "url_status": "ok"
  }
 ]
