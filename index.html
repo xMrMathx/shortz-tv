@@ -3718,6 +3718,20 @@ function renderBrowse(g){
         <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
         <div id="recentSrch"></div>
       </div>
+    </div>
+    <div class="wrap"><div class="gdrop" id="gdrop">
+      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Only on Shortz":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre===AWARD?"🏆 Award-Winning":browseGenre===TREK?"🚀 Star Trek Fan":browseGenre}</span><span class="arr">▼</span></button>
+      <div class="gmenu" id="gmenu">
+        <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Only on Shortz</span><span class="cnt">${cc.onlyShortz}</span></button>
+        <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
+        <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
+        <button class="gitem${AWARD===browseGenre?" sel":""}" data-g="${AWARD}"><span>🏆 Award-Winning</span><span class="cnt">${cc.award}</span></button>
+        <button class="gitem${TREK===browseGenre?" sel":""}" data-g="${TREK}"><span>🚀 Star Trek Fan</span><span class="cnt">${cc.trek}</span></button>
+        ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
+        `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:x==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[x]||0)}</span></button>`).join("")}
+      </div>
+    </div></div>
+    <div class="wrap" style="padding-top:0">
       <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
       <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
       <div class="prev-spot" id="prevSpot">
@@ -3747,18 +3761,6 @@ function renderBrowse(g){
     <div class="wrap"><div class="top10-sec" id="top10ASsec" style="display:none">
       <div class="top10-head"><h3>Top 10</h3><span>Award-winning series</span></div>
       <div class="top10-row" id="top10ASrow"></div>
-    </div></div>
-    <div class="wrap"><div class="gdrop" id="gdrop">
-      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Only on Shortz":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre===AWARD?"🏆 Award-Winning":browseGenre===TREK?"🚀 Star Trek Fan":browseGenre}</span><span class="arr">▼</span></button>
-      <div class="gmenu" id="gmenu">
-        <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Only on Shortz</span><span class="cnt">${cc.onlyShortz}</span></button>
-        <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
-        <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
-        <button class="gitem${AWARD===browseGenre?" sel":""}" data-g="${AWARD}"><span>🏆 Award-Winning</span><span class="cnt">${cc.award}</span></button>
-        <button class="gitem${TREK===browseGenre?" sel":""}" data-g="${TREK}"><span>🚀 Star Trek Fan</span><span class="cnt">${cc.trek}</span></button>
-        ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
-        `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:x==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[x]||0)}</span></button>`).join("")}
-      </div>
     </div></div>
     <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
       ? `<div class="sect" style="margin-top:4px">Pick your sport</div><div class="sportpick" id="sportpick"></div>`
