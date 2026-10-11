@@ -6,6 +6,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<link rel="canonical" href="https://shortz-tv.pages.dev/">
 <title>Shortz VS — Free Short Dramas</title>
 <meta property="og:title" content="Shortz VS — Free Short Dramas">
 <meta property="og:description" content="Watch free short dramas, films & highlights. 100% free, no sign-up.">
@@ -2287,6 +2288,7 @@ function pushHistory(t){
     if(!Array.isArray(history))history=[];
     history=[{id:t.id,ts:Date.now()},...history.filter(h=>h&&h.id!==t.id)].slice(0,20);
     store.set("history",history);
+    if(history.length>=3&&!store.get("installEngaged",false)){store.set("installEngaged",true);refreshInstallBtn();}
     syncHistoryRemote();
   }catch(e){}
 }
@@ -5013,9 +5015,16 @@ function isStandalone(){
       || window.matchMedia("(display-mode: fullscreen)").matches
       || navigator.standalone===true;
 }
+function installEngaged(){
+  // PWA hygiene: don't pitch the install until they've actually watched something
+  try{
+    if(store.get("installEngaged",false))return true;
+    return (history.length>=3);
+  }catch(e){return false;}
+}
 function refreshInstallBtn(){
   const b=$("#installAppBtn");if(!b)return;
-  const show=!isStandalone()&&(!!deferredInstallPrompt||isIOS());
+  const show=!isStandalone()&&(!!deferredInstallPrompt||isIOS())&&installEngaged();
   b.style.display=show?"":"none";
 }
 function onInstallClick(){

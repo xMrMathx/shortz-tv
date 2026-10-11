@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shortz-tv.pages.dev/sitemap.xml
