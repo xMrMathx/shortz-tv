@@ -3713,6 +3713,11 @@ function renderBrowse(g){
   const cc=catalogCounts();
   $("#view-browse").innerHTML=`
     <div class="wrap" style="padding-top:18px">
+      <div class="searchbar">
+        <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
+        <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
+        <div id="recentSrch"></div>
+      </div>
       <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
       <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
       <div class="prev-spot" id="prevSpot">
@@ -3731,13 +3736,7 @@ function renderBrowse(g){
         <div class="award-head"><h3>🏆 Award-Winning Short Series</h3></div>
         <div class="award-row" id="awardSeriesRow"></div>
       </div></div>
-      <div class="searchbar">
-        <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
-        <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
-        <div id="recentSrch"></div>
-      </div>
-    </div>
-    <div class="wrap"><div class="top10-sec" id="top10sec" style="display:none">
+      <div class="wrap"><div class="top10-sec" id="top10sec" style="display:none">
       <div class="top10-head"><h3>Top 10</h3><span>Most watched</span></div>
       <div class="top10-row" id="top10row"></div>
     </div></div>
