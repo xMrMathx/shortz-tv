@@ -1878,7 +1878,7 @@ function pickRandom(exceptId){
     if(s>bestScore){bestScore=s;best=t;}
   }
   if(!best)best=C[(Math.random()*C.length)|0];
-  seen.push(best.id); if(seen.length > 150)seen.splice(0, seen.length - 150);
+  seen.push(best.id); if(seen.length > 1000)seen.splice(0, seen.length - 1000);
   // DEBOUNCED persist: the old code did a synchronous localStorage write on EVERY swipe
   clearTimeout(pickRandom._st);
   pickRandom._st = setTimeout(()=>{ try{ store.set("seen",seen); }catch(e){} }, 2000);
