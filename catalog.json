@@ -296027,5 +296027,93 @@
   "eps": "6 eps",
   "rights_basis": "Public YouTube embed",
   "award_verified": true
+ },
+ {
+  "id": "stv-5099",
+  "title": "The Long Goodbye",
+  "genre": "Short Films",
+  "award": "Academy Award winner — Best Live Action Short Film (2022)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Long Goodbye (2020) — Riz Ahmed & Aneil Karia",
+    "url": "https://www.youtube.com/embed/Lzz50xENH4g",
+    "video_id": "Lzz50xENH4g",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Lzz50xENH4g",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5100",
+  "title": "Bao",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2018)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bao (2018) — Pixar",
+    "url": "https://www.youtube.com/embed/ypEuSSwB1Rk",
+    "video_id": "ypEuSSwB1Rk",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ypEuSSwB1Rk",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5101",
+  "title": "The Windshield Wiper",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2021)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Windshield Wiper (2021) — Alberto Mielgo",
+    "url": "https://www.youtube.com/embed/FIvoPK-1t5w",
+    "video_id": "FIvoPK-1t5w",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/FIvoPK-1t5w",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5102",
+  "title": "Six Shooter",
+  "genre": "Short Films",
+  "award": "Academy Award winner — Best Live Action Short Film (2004)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Six Shooter (2004) — Martin McDonagh",
+    "url": "https://www.youtube.com/embed/n_xMyx_SogA",
+    "video_id": "n_xMyx_SogA",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/n_xMyx_SogA",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
  }
 ]
