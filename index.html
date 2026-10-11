@@ -3589,6 +3589,7 @@ function loadAwardCarousels(){
       const eps=t.eps||t.episodes||[];
       return `<div class="award-item" data-aid="${t.id}">
         <img decoding="async" src="${esc(thumb(t,"hq"))}" alt="" loading="lazy" onerror="this.style.display='none'">
+        <span class="awardbadge" style="top:6px;left:6px" title="Award winner">🏆</span>
         <div class="award-t">${esc(t.title)}</div>
         <div class="award-e">${eps.length>1?eps.length+" episodes":"Short film"}</div>
       </div>`;
@@ -3618,13 +3619,16 @@ async function loadTop10File(secId,rowId,file,cacheKey){
     }
     const list=(top10Caches[cacheKey]||[]).slice(0,10);
     if(!list.length) return;
-    row.innerHTML=list.map((t,i)=>`
+    row.innerHTML=list.map((t,i)=>{
+      const bt=byId(t.id); const awb=bt&&bt.award_verified?'<span class="awardbadge" style="top:6px;left:52px" title="Award winner">🏆</span>':"";
+      return `
       <div class="top10-item${i+1>=10?" wide":""}" data-tid="${esc(t.id)}">
         <div class="top10-num">${i+1}</div>
         <img decoding="async" src="${esc(t.thumb)}" alt="" loading="lazy" onerror="this.style.display='none'">
+        ${awb}
         <div class="top10-t">${esc(t.title)}</div>
         <div class="top10-v">${fmtViews(t.views||0)}</div>
-      </div>`).join("");
+      </div>`;}).join("");
     row.querySelectorAll("[data-tid]").forEach(el=>{
       el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.tid); if(t) openDetail(t.id); };
       bindHoldToLike(el,el.dataset.tid);
