@@ -4267,7 +4267,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012144028";
+const BUILD="20261012145029";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7152,6 +7152,18 @@ function paintProfileFriendsState(uid){
   }
 }
 function friendsNeedSignIn(msg){
+  /* A persisted account on this device (the same state that puts
+     "Continue as <name>" on the gate) means the user IS signed in — the
+     Friends identity just hasn't adopted the account yet (persisted
+     session still restoring, or the shared auth is sitting on an
+     anonymous session, which _adopt maps to null). Throwing the sign-in
+     gate at a signed-in user mid-session — e.g. right after they tap
+     Add on a friend search result — is the reported bug. Signed-in
+     users get an honest "still connecting" note and NO gate; the gate
+     stays only for devices with no account at all (true guests). */
+  let hasAccount=false;
+  try{ hasAccount=!!(window.ShortzAuth&&window.ShortzAuth.isSignedIn()); }catch(e){}
+  if(hasAccount){ toast("Still connecting your account — try again in a moment"); return; }
   toast(msg||"Sign in to add friends");
   try{ if(window.ShortzAuth) ShortzAuth.showGate(); }catch(e){}
 }
