@@ -4292,7 +4292,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012215136";
+const BUILD="20261012215702";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9728,6 +9728,14 @@ function fbAuth(){
     return Live.auth||null;
   }catch(e){ try{return Live.auth||null;}catch(_){return null;} }
 }
+/* Publish the ONE accessor: sessionRepair and its boot kick live in the
+   main script and must reach THIS auth handle (they re-key Friends/Scout
+   off the same live session). This declaration is IIFE-scoped, so a bare
+   fbAuth() out there resolved against the global scope and threw
+   ReferenceError — the kick died on its first run and the repair's own
+   call silently no-oped, leaving the whole silent-repair half of the
+   Friends session fix dead while its clean-states half painted. */
+window.fbAuth=fbAuth;
 /* Merge local lists with the account's remote lists (union, local wins ties). */
 async function authSyncLists(){
   try{
