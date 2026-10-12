@@ -451,8 +451,8 @@ body.hud-hidden.feedfull #hudHint{opacity:1;pointer-events:auto}
   /* INVISIBLE MIC HOLD ZONE: sits under the "Tap for controls" pill when UI is hidden.
      Hold your thumb here and the mic activates — no need to wake controls first. */
   #micHold{position:fixed;bottom:0;left:0;right:0;height:100px;
-    opacity:0;pointer-events:none;z-index:60;touch-action:none}
-  body.feedfull #micHold{pointer-events:auto}
+    opacity:0;pointer-events:none;z-index:70;touch-action:none}
+  body.hud-hidden.feedfull #micHold{pointer-events:auto}
 body.pip #hudHint{display:none}
 /* ---------- tab bar ---------- */
 #tabbar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;
@@ -3139,7 +3139,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011223800";
+const BUILD="20261011224000";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
