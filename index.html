@@ -2585,6 +2585,21 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     dot.addEventListener("touchstart",function(e){e.stopPropagation();},{passive:true});
     dot.addEventListener("touchend",function(e){e.stopPropagation();},{passive:true});
     dot.addEventListener("contextmenu",function(e){e.preventDefault();});
+    // #hudHint ("Tap for controls" pill): tapping it should ONLY wake the HUD controls,
+    // never open the episode drawer. It had no handler, so taps fell through to elements below.
+    var hint=document.getElementById("hudHint");
+    if(hint){
+      hint.addEventListener("click",function(e){
+        try{
+          if(typeof suppressClick!=="undefined"&&suppressClick)return;
+          if(typeof hudWake==="function")hudWake();
+          e.stopPropagation();
+          e.preventDefault();
+        }catch(err){}
+      });
+      hint.addEventListener("touchstart",function(e){e.stopPropagation();},{passive:true});
+      hint.addEventListener("touchend",function(e){e.stopPropagation();},{passive:true});
+    }
   })();
 })();
 function renderView(v){
@@ -3443,7 +3458,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011235200";
+const BUILD="20261011235500";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
