@@ -133,7 +133,7 @@ body.pip .scrub{display:none!important}
   font-size:15px;font-weight:800;padding:14px 26px;border-radius:32px;box-shadow:0 10px 40px rgba(0,0,0,.6);
   animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.06)}}
-.swipehint{text-align:center;font-size:10px;color:rgba(255,255,255,.45);margin-top:8px;letter-spacing:1px}
+.swipehint{text-align:center;font-size:10px;color:rgba(255,255,255,.45);margin-top:8px;letter-spacing:1px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:100%;padding:0 16px;box-sizing:border-box}
 
 
 /* ---------- rows of vertical cards ---------- */
@@ -599,6 +599,11 @@ body.pip #hudHint{display:none}
 @media(min-width:760px){
   .vcard{width:140px}.vthumb{width:140px;height:248px}
   .feedstage{max-width:520px;margin:0 auto}
+  /* DESKTOP: constrain fixed chrome to the phone column, not full viewport */
+  #tabbar{max-width:520px;left:50%;right:auto;width:100%;transform:translateX(-50%)}
+  #topbar{max-width:520px;left:50%;right:auto;width:100%;transform:translateX(-50%)}
+  #micHold{max-width:520px;left:50%;right:auto;width:100%;transform:translateX(-50%)}
+  #hudHint{left:50%;transform:translateX(-50%)}
 }
 /* ---------- feed fullscreen: video edge-to-edge, chrome overlaid PineDrama-style ---------- */
 body.feedfull{overflow:hidden}
@@ -3139,7 +3144,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011224200";
+const BUILD="20261011224500";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
