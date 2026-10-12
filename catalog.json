@@ -354034,5 +354034,55 @@
     "award": "Winner — Indie Series Award (2015), Best Web Series (Drama)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8054",
+    "title": "Sleeping with the Fishes",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "A lonely fishmonger, more at ease with fish than people, has her life upended when a delivery man who looks exactly like a rainbow trout walks into her shop.",
+    "source_channel": "Vimeo (Yousif Al-Khalifa)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/239445273",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sleeping with the Fishes",
+        "video_id": "239445273",
+        "url": "https://player.vimeo.com/video/239445273",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, Best British Short Animation (2014)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8055",
+    "title": "The Making of Longbird",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "A young animator tries to resurrect Longbird, the forgotten creation of a legendary Russian animator — but his cartoon star refuses to follow the script.",
+    "source_channel": "Vimeo (Will Anderson)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/24052185",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Making of Longbird",
+        "video_id": "24052185",
+        "url": "https://player.vimeo.com/video/24052185",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, Best Short Animation (2013)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
