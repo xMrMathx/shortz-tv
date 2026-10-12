@@ -2268,17 +2268,15 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
 
   document.getElementById("voiceCancel").onclick=closeType;
 
-  // INVISIBLE MIC HOLD ZONE: hold thumb here (UI hidden) -> mic starts instantly. Release -> done.
+  // INVISIBLE MIC TAP ZONE: tap under the "Tap for controls" pill -> mic bubble appears and stays on.
+  // Speak, it processes and navigates. Tap again to cancel.
   const micHold=document.getElementById("micHold");
   if(micHold){
-    micHold.addEventListener("pointerdown",e=>{
-      e.preventDefault();e.stopPropagation();
-      startListen();
-    });
-    ["pointerup","pointercancel","pointerleave"].forEach(ev=>micHold.addEventListener(ev,e=>{
-      e.stopPropagation();
+    micHold.addEventListener("click",e=>{
+      e.stopPropagation();e.preventDefault();
       if(listening)stopListen();
-    }));
+      else startListen();
+    });
     micHold.addEventListener("contextmenu",e=>e.preventDefault());
   }
   document.getElementById("voiceGo").onclick=()=>{const v=vi.value;closeType();voiceCommand(v);};
@@ -3141,7 +3139,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011223300";
+const BUILD="20261011223500";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
