@@ -459,15 +459,16 @@ body.pip #hudHint{display:none}
 #viewpad{height:calc(70px + env(safe-area-inset-bottom))}
 /* ---------- voice button: single-button navigation ---------- */
 #voiceBtn{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;
-  background:linear-gradient(135deg,#e50914,#b00610);border:none;border-radius:999px;
+  background:rgba(18,18,26,.72);border:1px solid rgba(255,255,255,.14);border-radius:22px;
   margin:0 20px;padding:13px 20px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;
-  box-shadow:0 4px 20px rgba(229,9,20,.35);-webkit-tap-highlight-color:transparent;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  -webkit-tap-highlight-color:transparent;
   user-select:none;-webkit-user-select:none;touch-action:none}
 #voiceBtn .vico{font-size:22px;line-height:1}
 #voiceBtn .vlabel{letter-spacing:.3px}
 #voiceBtn.listening{animation:vpulse 1s ease-in-out infinite}
-@keyframes vpulse{0%,100%{transform:scale(1);box-shadow:0 4px 20px rgba(229,9,20,.35)}
-  50%{transform:scale(1.04);box-shadow:0 4px 32px rgba(229,9,20,.65)}}
+@keyframes vpulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,.12)}
+  50%{transform:scale(1.02);box-shadow:0 0 0 8px rgba(255,255,255,.05)}}
 /* voice overlay: full-screen listening feedback */
 #voiceOverlay{position:fixed;inset:0;z-index:99990;display:none;align-items:center;justify-content:center;
   flex-direction:column;gap:18px;background:rgba(5,5,10,.82);backdrop-filter:blur(6px)}
