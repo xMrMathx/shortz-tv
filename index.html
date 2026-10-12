@@ -2434,7 +2434,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       stopListen(false);
       if(wasListening&&said&&said!=="Listening…")voiceCommand(said);
     };
-    try{rec.start();}catch(e){stopListen(false);}
+    try{rec.start();}catch(e){warmRec=null;stopListen(false);}
   }
   function stopListen(){
     listening=false;
@@ -3382,7 +3382,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011234000";
+const BUILD="20261011234200";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
@@ -3513,15 +3513,8 @@ function resumeFeedVideo(){
 }
 /* ---------- tap: single = pause/resume, double-tap left = -10s, right = +10s ---------- */
 function handleTap(x,y){
-  // MIC ZONE: tap in bottom 100px -> activate mic (not controls). Always, no conditions.
-  // Uses window._micToggle() bridge because startListen/stopListen live inside the voice IIFE.
-  const h=window.innerHeight||700;
-  if(typeof y==="number"&&y>h-100){
-    try{
-      if(typeof window._micToggle==="function"){window._micToggle();}
-    }catch(e){}
-    return;
-  }
+  // NOTE: mic zone handled by the document-level capture listener (single trigger).
+  // Do NOT add mic logic here — touchend->handleTap AND click->docListener would double-fire.
   // CENTER ONLY: the video only responds to taps in the middle (where play/pause lives).
   // Taps anywhere else (mic button, edges) are ignored by the video.
   const w=window.innerWidth||390, s=170;
