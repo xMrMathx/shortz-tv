@@ -129,6 +129,25 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .bcf-list{max-width:640px;margin:0 auto;padding:0 12px;display:flex;flex-direction:column;gap:14px}
 .bcf-door{max-width:640px;margin:0 auto;padding:0 12px}
 .bpick-reason{font-size:12.5px;color:#ffb02e;font-weight:600;line-height:1.4;padding:0 4px}
+/* Scout's Top Ten: ONE pick at a time in a window sized like the old
+   featured hero — swipe-driven (no auto-rotation), rank number big at
+   the left, cover art behind, title + a little description. */
+.btt-wrap{max-width:640px;margin:0 auto;padding:16px 12px 0}
+.btt-head{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}
+.btt-head h2{font-size:19px;font-weight:800;color:#fff;margin:0}
+.btt-head span{font-size:12px;color:var(--mut)}
+.btt-win{position:relative;height:196px;border-radius:16px;overflow:hidden;background:#000;cursor:grab;touch-action:pan-y;border:1px solid #232328}
+.btt-win:active{cursor:grabbing}
+.btt-track{display:flex;height:100%;transition:transform .32s ease;will-change:transform}
+.btt-slide{flex:0 0 100%;height:100%;position:relative;background:center 30%/cover no-repeat #111}
+.btt-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.55) 55%,rgba(0,0,0,.15) 100%);pointer-events:none}
+.btt-in{position:absolute;inset:0;z-index:2;display:flex;align-items:center;gap:14px;padding:16px}
+.btt-rank{flex:none;min-width:74px;text-align:center;font-size:64px;font-weight:900;line-height:1;color:#f6c945;text-shadow:0 2px 14px rgba(0,0,0,.85)}
+.btt-tx{flex:1;min-width:0}
+.btt-k{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:#ffb02e;text-transform:uppercase}
+.btt-t{font-size:19px;font-weight:800;color:#fff;margin:3px 0 5px;line-height:1.25}
+.btt-d{font-size:12.5px;color:#d7d7de;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+@media(min-width:1024px){ .btt-wrap{max-width:1180px;padding-left:24px;padding-right:24px} }
 .gtile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .gtile{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#101013;border:1px solid #232328;border-radius:14px;padding:16px 14px;color:var(--txt);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-align:left}
 .gtile:active{transform:scale(.98)}
@@ -4307,7 +4326,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012222542";
+const BUILD="20261012223506";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6087,13 +6106,15 @@ function browseScoutPicksHTML(){
   }
   return out.length?out.join(""):`<div class="empty">Your Scout is still hunting — picks land here.</div>`;
 }
+function paintBrowseDoor(){
+  const S=window.Scout; if(!S||!S.greetingHTML)return;
+  const door=$("#browseScoutDoor"); if(!door)return;
+  door.innerHTML=S.greetingHTML();
+  door.querySelectorAll("[data-mood]").forEach(el=>{ el.onclick=()=>browseMoodTap(el.dataset.mood); });
+}
 function paintBrowseScout(){
   const S=window.Scout; if(!S)return;
-  const door=$("#browseScoutDoor");
-  if(door&&S.greetingHTML){
-    door.innerHTML=S.greetingHTML();
-    door.querySelectorAll("[data-mood]").forEach(el=>{ el.onclick=()=>browseMoodTap(el.dataset.mood); });
-  }
+  paintBrowseDoor();
   const pk=$("#browseScoutPicks");
   if(pk){ pk.innerHTML=browseScoutPicksHTML(); try{ likesWatch($("#view-browse")); }catch(e){} }
 }
@@ -6103,6 +6124,77 @@ function browseMoodTap(k){
   _bMoodBusy=true;
   Promise.resolve(Scout.moodHunt(k)).catch(()=>{}).then(()=>{ _bMoodBusy=false; paintBrowseScout(); });
 }
+/* ---------- BROWSE FRESHNESS paint (his order) ----------
+   The landing's first paint is FRESH: Scout.browseFreshVisit() deals a
+   new Top Ten + suggestion set for THIS visit (presentation only — the
+   inbox paint above stays reserved for the mood-tap takeover, exactly
+   as shipped). The fresh set then holds until he clicks something. */
+function browseTopTenHTML(visit){
+  const top=(visit&&visit.top)||[];
+  return top.map((p,i)=>{
+    const t=p.t, art=thumb(t,"hq");
+    const d=String(t.desc||"").trim();
+    const sub=d?esc(d.length>150?d.slice(0,150).trim()+"…":d):esc(p.reason||metaLine(t));
+    return `<div class="btt-slide" data-btt="${t.id}"${art?` style="background-image:url('${String(art).replace(/'/g,"%27")}')"`:""}>`
+      +`<div class="btt-in"><div class="btt-rank">${i+1}</div>`
+      +`<div class="btt-tx"><div class="btt-k">🤖 Scout's Top Ten</div>`
+      +`<div class="btt-t">${t.award_verified?"🏆 ":""}${esc(t.title)}</div>`
+      +`<div class="btt-d">${sub}</div></div></div></div>`;
+  }).join("");
+}
+let _bttIdx=0;
+function bindBrowseTopTen(){
+  const win=$("#browseTopTen"), track=$("#browseTopTenTrack");
+  if(!win||!track||!track.children.length)return;
+  _bttIdx=0;
+  track.style.transform="translateX(0%)";
+  const n=track.children.length;
+  let sx=0, dx=0, dragging=false, pid=null;
+  win.addEventListener("pointerdown",e=>{
+    dragging=true; pid=e.pointerId; sx=e.clientX; dx=0;
+    track.style.transition="none";
+    try{ win.setPointerCapture(pid); }catch(_){}
+  });
+  win.addEventListener("pointermove",e=>{
+    if(!dragging||e.pointerId!==pid)return;
+    dx=e.clientX-sx;
+    track.style.transform="translateX(calc("+(-_bttIdx*100)+"% + "+dx+"px))";
+  });
+  const end=e=>{
+    if(!dragging||(e.pointerId!==undefined&&e.pointerId!==pid))return;
+    dragging=false; pid=null;
+    if(typeof e.clientX==="number")dx=e.clientX-sx;
+    track.style.transition="";
+    if(dx<-60&&_bttIdx<n-1)_bttIdx++;        // swipe: exactly one rank, clamped at 10 — no wrap, no auto-play
+    else if(dx>60&&_bttIdx>0)_bttIdx--;
+    else if(Math.abs(dx)<10){                 // a tap (not a swipe) opens the pick, like a Browse card tap
+      const sl=track.children[_bttIdx];
+      if(sl&&sl.dataset.btt)openDetail(sl.dataset.btt);
+    }
+    track.style.transform="translateX("+(-_bttIdx*100)+"%)";
+    dx=0;
+  };
+  win.addEventListener("pointerup",end);
+  win.addEventListener("pointercancel",end);
+}
+function browseFreshHTML(visit){
+  const sugg=(visit&&visit.sugg)||[];
+  if(!sugg.length)return browseScoutPicksHTML(); // generation came up empty — fall back to the shipped inbox paint, never a dead block
+  return sugg.map(p=>`<div class="bpick">${cfCardHTML(p.t)}<div class="bpick-reason">🤖 Scout: ${esc(p.reason)}</div></div>`).join("");
+}
+function paintBrowseFresh(){
+  paintBrowseDoor();
+  const S=window.Scout;
+  let visit=null;
+  try{ visit=(S&&S.browseFreshVisit)?S.browseFreshVisit():null; }catch(e){}
+  const tw=$("#browseTopTenWrap"), track=$("#browseTopTenTrack");
+  if(track&&visit&&visit.top&&visit.top.length){
+    track.innerHTML=browseTopTenHTML(visit);
+    bindBrowseTopTen();
+  } else if(tw){ tw.style.display="none"; }
+  const pk=$("#browseScoutPicks");
+  if(pk){ pk.innerHTML=browseFreshHTML(visit); try{ likesWatch($("#view-browse")); }catch(e){} }
+}
 function renderBrowseLanding(){
   try{ featStop(); }catch(e){} // no hero carousel on the landing — keep its timer out
   const cc=catalogCounts();
@@ -6111,6 +6203,11 @@ function renderBrowseLanding(){
   const tiles=[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"}));
   $("#view-browse").innerHTML=`
     <div id="browseLanding">
+    ${signed?`
+    <div class="btt-wrap" id="browseTopTenWrap">
+      <div class="btt-head"><h2>🤖 Scout's Top Ten</h2><span>Fresh every visit — swipe</span></div>
+      <div class="btt-win" id="browseTopTen"><div class="btt-track" id="browseTopTenTrack"></div></div>
+    </div>`:""}
     <div class="wrap" style="padding-top:18px">
       <div class="searchbar">
         <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="" autocomplete="off" enterkeyhint="search">
@@ -6131,7 +6228,7 @@ function renderBrowseLanding(){
     </div>
     </div>`;
   bindCfCards($("#view-browse"));
-  if(signed)paintBrowseScout();
+  if(signed)paintBrowseFresh();
   document.querySelectorAll("#view-browse [data-gtile]").forEach(b=>{ b.onclick=()=>{
     const g=b.dataset.gtile;
     if(g===ALL){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); return; }
@@ -10873,6 +10970,89 @@ function huntCatalog(w,seen,exclude,n){
   return picked.map(p=>({t:p.t,source:"catalog",sourceName:"",reason:catalogReason(p.t,w)}));
 }
 
+/* ---------- BROWSE FRESH VISIT (presentation only — NEVER delivered) ----------
+   His freshness law for Browse: every fresh entry, the Scout serves a NEW
+   set drawn from the same taste machinery as the hunts — a ranked Top Ten
+   (score order via scoreTitle, so verified award winners ride first) plus
+   a suggestion set: ~6 taste picks through huntCatalog + ~2 WILDCARDS
+   (quality titles from genres carrying NO taste weight, honestly labeled
+   as the Scout's own idea — never dressed up as a taste match). The
+   previous visit's served ids step aside, so each visit rotates deeper
+   into the pools; only if a pool runs dry may the last visit return —
+   seen titles and within-visit duplicates never serve. NOTHING here
+   writes the inbox, the unread badge, or the hunt cadence: this is a
+   Browse paint, not a delivery. The Profile sheet/shelf stay as-is. */
+let _bfPrev=new Set(), _bfCache=null;
+const BF_TOP_N=10, BF_SUGG_N=8, BF_WILD_N=2;
+function bfRanked(w,seen,exclude,n){
+  const pool=[];
+  for(const t of cat()){
+    if(!t||!t.id||seen.has(t.id)||exclude.has(t.id)) continue;
+    const s=scoreTitle(t,w);
+    if(s<=0) continue;
+    if(!t.award_verified&&!(w[t.genre]||0)) continue; // huntCatalog eligibility: verified awards, or a genre he actually watches
+    pool.push({t:t,s:s});
+  }
+  pool.sort((a,b)=>(b.s-a.s)||String(a.t.title||"").localeCompare(String(b.t.title||""),"en",{sensitivity:"base"}));
+  return pool.slice(0,n).map(p=>({t:p.t,reason:catalogReason(p.t,w)}));
+}
+function bfWildReason(t){
+  return (t.award_verified?"🏆 Award winner, but ":"")+"not your usual — Scout's own pick. Give it a shot?";
+}
+function bfWild(w,seen,exclude,n){
+  const tiers=[[],[]]; // quality floor: verified award winners first, then the Reborn / Hood / Anime lanes
+  for(const t of cat()){
+    if(!t||!t.id||seen.has(t.id)||exclude.has(t.id)) continue;
+    const g=t.genre||"";
+    if((w[g]||0)>0) continue; // a genre he watches is taste — not a wildcard
+    if(t.award_verified) tiers[0].push(t);
+    else if(t.rebirth===true||g==="Anime"||g==="Hood") tiers[1].push(t);
+  }
+  const out=[];
+  for(const tier of tiers){
+    shuffle(tier);
+    const usedG=new Set();
+    for(const t of tier){ // one per genre first — variety is the point of a wildcard
+      if(out.length>=n) break;
+      if(usedG.has(t.genre)) continue;
+      usedG.add(t.genre); out.push({t:t,reason:bfWildReason(t),wild:true});
+    }
+    for(const t of tier){
+      if(out.length>=n) break;
+      if(out.some(p=>p.t.id===t.id)) continue;
+      out.push({t:t,reason:bfWildReason(t),wild:true});
+    }
+    if(out.length>=n) break;
+  }
+  return out;
+}
+function browseFreshVisit(){
+  const w=tasteWeights(), seen=seenIds();
+  const served=new Set();
+  const excl=()=>{ const s=new Set(_bfPrev); served.forEach(id=>s.add(id)); return s; };
+  const take=(arr,cap)=>{ const out=[]; for(const p of (arr||[])){ if(out.length>=cap) break; if(!p||!p.t||served.has(p.t.id)) continue; served.add(p.t.id); out.push(p); } return out; };
+  /* pass 1 — strict rotation: last visit's picks sit this one out */
+  let top=take(bfRanked(w,seen,excl(),BF_TOP_N),BF_TOP_N);
+  let taste=take(huntCatalog(w,seen,excl(),BF_SUGG_N-BF_WILD_N),BF_SUGG_N-BF_WILD_N);
+  let wild=take(bfWild(w,seen,excl(),BF_WILD_N),BF_WILD_N);
+  /* pass 2 — a dry side borrows from the other (still fresh, still unseen) */
+  if(wild.length<BF_WILD_N){ const need=BF_WILD_N-wild.length; taste=taste.concat(take(huntCatalog(w,seen,excl(),need),need)); }
+  if(taste.length<BF_SUGG_N-BF_WILD_N){ const need=(BF_SUGG_N-BF_WILD_N)-taste.length; wild=wild.concat(take(bfWild(w,seen,excl(),need),need)); }
+  /* pass 3 — starved pools only: the last visit may return (never seen, never a within-visit dup) */
+  if(top.length<BF_TOP_N) top=top.concat(take(bfRanked(w,seen,new Set(served),BF_TOP_N-top.length),BF_TOP_N-top.length));
+  if(taste.length+wild.length<BF_SUGG_N){
+    const room=BF_SUGG_N-taste.length-wild.length;
+    taste=taste.concat(take(bfRanked(w,seen,new Set(served),room),room));
+  }
+  /* suggestions: taste order holds, wildcards woven in — never stacked at the end */
+  const sugg=taste.slice();
+  wild.forEach((p,i)=>{ sugg.splice(Math.min(2+i*3,sugg.length),0,p); });
+  _bfPrev=served;
+  _bfCache={top:top,sugg:sugg.slice(0,BF_SUGG_N)};
+  return _bfCache;
+}
+function browseFreshCache(){ return _bfCache||browseFreshVisit(); }
+
 /* HUNT 2 — people: public picks of other viewers, attributed by name */
 async function huntPeople(w,seen,exclude){
   const ok=await liveEnsure(); if(!ok||!Live.db) return null;
@@ -11288,7 +11468,7 @@ setInterval(()=>{
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",()=>setTimeout(boot,6000));
 else setTimeout(boot,6000);
 
-window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine};
+window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
 <script>
