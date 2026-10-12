@@ -506,6 +506,19 @@ body.ev-mode #evHint{display:block;animation:evHintFade 4s forwards}
 body.ev-mode .view{transition:opacity .28s ease,transform .28s ease}
 body.ev-mode .view.ev-slide-l{transform:translateX(-24px)!important}
 body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
+/* EVERYTHING TOGGLE: persistent floating button — ALWAYS on screen, even when the HUD
+   is hidden. Tap to enter ev-mode (swipe between sections); tap again to exit and stay
+   on the current section. Glows red while ev-mode is active. */
+#evToggle{position:fixed;top:calc(64px + env(safe-area-inset-top));left:12px;z-index:9600;
+  width:40px;height:40px;border-radius:50%;padding:0;cursor:pointer;
+  background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
+  font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent;
+  transition:background .2s,border-color .2s,box-shadow .2s,color .2s,transform .1s}
+#evToggle:active{transform:scale(.92)}
+body.ev-mode #evToggle{background:rgba(229,9,20,.88);border-color:#ff6b6b;color:#fff;
+  box-shadow:0 0 16px rgba(229,9,20,.65)}
+body.pip #evToggle{display:none}
 #micDot:active{transform:translateX(-50%) scale(.92)}
 #micDot.listening{background:rgba(229,9,20,.35);border-color:#e50914;color:#fff;
   box-shadow:0 0 14px rgba(229,9,20,.55);animation:mdotpulse 1s ease-in-out infinite}
@@ -704,6 +717,8 @@ body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
   #voicePop{left:calc(50% + 120px)}
   /* mic dot is a mobile watch-surface affordance — not needed with the desktop sidebar */
   #micDot{display:none!important}
+  /* everything toggle sits right of the 240px desktop sidebar */
+  #evToggle{left:252px}
   /* --- SPLASH: laptop gets a full cinematic intro — reels span the screen --- */
   #splashLogo{width:min(44vw,520px)}
   .splashReel img{width:200px;height:112px}
@@ -1248,6 +1263,8 @@ try{
   </div>
   <div id="evHint" aria-hidden="true">Swipe ← → to explore sections</div>
   <button id="micDot" aria-label="Tap for voice">🎙</button>
+  <!-- EVERYTHING toggle: persistent — tap to enter/exit the swipeable section hub -->
+  <button id="evToggle" aria-label="Browse all sections">⊞</button>
 
   <nav id="tabbar">
     <button id="voiceBtn" aria-label="Hold to speak, tap to type">
@@ -2936,6 +2953,15 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const c=$("evClose");
     if(c&&!c._evWired){c._evWired=true;c.addEventListener("click",e=>{e.stopPropagation();close();});}
   }catch(e){}
+  // persistent floating toggle: tap to enter ev-mode, tap again to exit (stay on section)
+  function wireEvToggle(){
+    try{
+      const tg=$("evToggle");
+      if(tg&&!tg._evWired){tg._evWired=true;tg.addEventListener("click",e=>{e.stopPropagation();evMode?close():open();});}
+    }catch(e){}
+  }
+  document.addEventListener("DOMContentLoaded",wireEvToggle);
+  wireEvToggle();
   // tabbar taps exit ev-mode (user chose explicit navigation)
   try{
     document.querySelectorAll(".tab").forEach(t=>{
@@ -3418,7 +3444,6 @@ function slideHTML(){
       <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
       <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
       <div class="ric"><button data-a="more" data-more>▼</button><span>More</span></div>
-      <div class="ric"><button data-a="everything" data-everything>⊞</button><span>All</span></div>
       <div class="ric-more" data-moremenu>
       <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
       <div class="ric"><button data-a="cc" data-cc>CC</button><span>Subs</span></div>
@@ -3552,7 +3577,6 @@ function railAction(a,slide){
     const btn=slide.querySelector("[data-more]");
     if(m){ const open=m.classList.toggle("open"); if(btn)btn.textContent=open?"▲":"▼"; }
   }
-  else if(a==="everything"){ try{ if(window.Everything&&Everything.toggle)Everything.toggle(); }catch(e){} }
   else if(a==="cc"){openCc(slide)}
   else if(a==="pip"){try{if(window.Android&&window.Android.enterPip)window.Android.enterPip()}catch(e){}}
   else if(a==="pia"){try{piaEnter()}catch(e){}}
@@ -3836,7 +3860,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012010000";
+const BUILD="20261012011800";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
