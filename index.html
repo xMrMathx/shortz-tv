@@ -227,6 +227,8 @@ body.pip .scrub{display:none!important}
 body.hud-hidden #view-home .feed-rail,
 body.hud-hidden #view-home .feed-bottom,
 body.hud-hidden #view-home .soundprompt,
+body.hud-hidden.feedfull #topbar,
+body.hud-hidden.feedfull #tabbar,
 body.hud-hidden .sreel-rail,
 body.hud-hidden .sreel-cap,
 body.hud-hidden .sreel-sport,
@@ -431,6 +433,14 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .setitem{display:flex;justify-content:space-between;align-items:center;padding:15px 2px;border-bottom:1px solid rgba(255,255,255,.05);font-size:14px}
 .setitem small{color:var(--mut);font-size:12px}
 
+/* HUD hint pill: while the chrome is auto-hidden on a watch surface, one tiny
+   tappable hint remains so nobody ever feels stranded. Any tap wakes the HUD. */
+#hudHint{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  z-index:59;background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.14);color:#cfcfd8;
+  font-size:11px;font-weight:600;padding:7px 15px;border-radius:20px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .4s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.hud-hidden.feedfull #hudHint{opacity:1;pointer-events:auto}
+body.pip #hudHint{display:none}
 /* ---------- tab bar ---------- */
 #tabbar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;
   background:rgba(10,10,16,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
@@ -1006,6 +1016,7 @@ try{
     <section class="view" id="view-detail"></section>
   </main>
   <div id="viewpad"></div>
+  <button id="hudHint" aria-label="Show controls">Tap for controls</button>
 
   <nav id="tabbar">
     <button class="tab on" data-v="home"><span class="ico">⌂</span>Home</button>
