@@ -14,6 +14,13 @@
   "thumb": "https://i.ytimg.com/vi/zCaxXQdkfPk/mqdefault.jpg"
  },
  {
+  "id": "stv-8034",
+  "title": "Out With Dad",
+  "genre": "Drama",
+  "views": 6310162,
+  "thumb": "https://i.ytimg.com/vi/d4OdATe76q4/mqdefault.jpg"
+ },
+ {
   "id": "stv-5094",
   "title": "Hot Ones",
   "genre": "Reality",
@@ -61,12 +68,5 @@
   "genre": "Space",
   "views": 4038386,
   "thumb": "https://i.ytimg.com/vi/3G-ziTBAkbQ/mqdefault.jpg"
- },
- {
-  "id": "stv-1991",
-  "title": "Jake and Amir",
-  "genre": "Comedy",
-  "views": 1635908,
-  "thumb": "https://i.ytimg.com/vi/fjzzhMtiilU/mqdefault.jpg"
  }
 ]
