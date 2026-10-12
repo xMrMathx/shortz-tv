@@ -3141,7 +3141,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011222700";
+const BUILD="20261011223100";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
@@ -3602,6 +3602,8 @@ function loadVideoInto(node,url,vid){
         onReady:ev=>{maybeResume(node,ev.target);applySavedTracks(node,ev.target);try{ev.target.setPlaybackQuality("hd1080")}catch(e){}},
         onApiChange:ev=>{try{applySavedTracks(node,ev.target)}catch(e){}},
         onError:ev=>{try{onYtPlayerError(node,vid,ev.data);}catch(e){}},
+        // KILL 2x: long-press speed-up is banned — force back to 1x instantly.
+        onPlaybackRateChange:ev=>{try{if(ev.data!==1)ev.target.setPlaybackRate(1);}catch(e){}},
         onStateChange:ev=>{
           try{
             if(ev.data===YT.PlayerState.PAUSED)saveProg(node);
