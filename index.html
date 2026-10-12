@@ -2072,11 +2072,27 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         toast("Playing next");
         return true;
       }
-      const tabs={home:"home",browse:"browse",live:"live",streaming:"streaming",stream:"streaming",
-        manga:"manga",comics:"manga",profile:"profile","my list":"profile",settings:"profile",
-        stakes:"stakes",bets:"stakes",genres:"genres"};
-      if(tabs[bare]){
-        const dest=tabs[bare];
+      // FUZZY bare tabs: "browser"->browse, "browsing"->browse, etc.
+      const bareFuzzy=[
+        {keys:["browse","browser","browsing","brows"],dest:"browse"},
+        {keys:["home","homepage","main"],dest:"home"},
+        {keys:["live"],dest:"live"},
+        {keys:["streaming","stream","streams"],dest:"streaming"},
+        {keys:["manga","comics","comic","anime"],dest:"manga"},
+        {keys:["profile","my list","mylist","settings","account"],dest:"profile"},
+        {keys:["stakes","stake","bets","bet"],dest:"stakes"},
+        {keys:["genres","genre"],dest:"genres"},
+      ];
+      let bareDest=null;
+      for(const bf of bareFuzzy){
+        for(const k of bf.keys){
+          const re=new RegExp("\\b"+k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\b");
+          if(re.test(bare)||bare===k){bareDest=bf.dest;break;}
+        }
+        if(bareDest)break;
+      }
+      if(bareDest){
+        const dest=bareDest;
         if(dest==="stakes"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
         if(dest==="genres"){try{go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}return true;}
         try{go(dest);voiceCtx.lastTab=dest;}catch(e){}
@@ -2186,9 +2202,26 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       return true;
     }
     // --- tabs (natural: "take me home", "open up live") ---
-    const tabs={home:"home",browse:"browse",live:"live",streaming:"streaming",stream:"streaming",
-      manga:"manga",comics:"manga",profile:"profile","my list":"profile",settings:"profile"};
-    for(const k in tabs){if(target===k||target.startsWith(k+" ")||target.endsWith(" "+k)){try{go(tabs[k]);voiceCtx.lastTab=tabs[k];}catch(e){}return true;}}
+    // FUZZY: understands mispronunciations like "browser"->browse, "browsing"->browse,
+    // "stream"->streaming, extra words like "browse page". Knows what you mean like I do.
+    const tabFuzzy=[
+      {keys:["browse","browser","browsing","brows"],dest:"browse"},
+      {keys:["home","homepage","main"],dest:"home"},
+      {keys:["live"],dest:"live"},
+      {keys:["streaming","stream","streams"],dest:"streaming"},
+      {keys:["manga","comics","comic","anime"],dest:"manga"},
+      {keys:["profile","my list","mylist","settings","account"],dest:"profile"},
+    ];
+    for(const tf of tabFuzzy){
+      for(const k of tf.keys){
+        // match if target contains the key as a word (or the key contains target for short utterances)
+        const re=new RegExp("\\b"+k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));
+        if(re.test(target)||(target.length>=3&&k.startsWith(target))){
+          try{go(tf.dest);voiceCtx.lastTab=tf.dest;}catch(e){}
+          return true;
+        }
+      }
+    }
     // --- search: "search for X", "find X", "look for X" ---
     if(verb.includes("search for")||verb.includes("find")||verb.includes("look for")){
       try{
@@ -3319,7 +3352,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011232500";
+const BUILD="20261011232800";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
