@@ -222,6 +222,7 @@ body.pip .scrub{display:none!important}
 /* HUD LAW: 3s idle on ANY watch surface -> every UI over the video fades. Tap brings it back. */
 #view-home .feed-rail,#view-home .feed-bottom,#view-home .soundprompt,
 #topbar,#tabbar,
+.scrub,
 .sreel-rail,.sreel-cap,.sreel-sport,.sreel-back,.sreel-sound,
 .sstream-top,.sstream-bot,.sstream-sound{transition:opacity .4s}
 body.hud-hidden #view-home .feed-rail,
@@ -229,6 +230,7 @@ body.hud-hidden #view-home .feed-bottom,
 body.hud-hidden #view-home .soundprompt,
 body.hud-hidden.feedfull #topbar,
 body.hud-hidden.feedfull #tabbar,
+body.hud-hidden.feedfull #view-home .scrub,
 body.hud-hidden .sreel-rail,
 body.hud-hidden .sreel-cap,
 body.hud-hidden .sreel-sport,
@@ -2656,16 +2658,29 @@ function mountFeed(){
    after being away a while, start a new random video so it never feels
    like the same stuff. Quick switches (under 30s) keep your place. */
 let _hiddenAt=0;
+/* STALE-BUILD GUARD: the app shell (WebView) often restores the page from memory
+   instead of reloading, so updates never arrive. On every foreground after 30s
+   away, compare against version.txt — if the build moved, reload to the fresh
+   copy instead of replaying stale code. */
+const BUILD="20261011203000";
+function checkBuildFresh(){
+  return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
+    .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
+}
 document.addEventListener("visibilitychange",()=>{
   if(document.visibilityState==="hidden"){_hiddenAt=Date.now();return;}
   if(document.visibilityState!=="visible")return;
   if(piaActive)return; // don't interrupt PIA
   if(curView!=="home")return;
   if(Date.now()-_hiddenAt<30000)return; // quick switch: keep your place
-  try{
-    const t=pickRandom(feed.cur&&feed.cur.id);
-    if(t)playSeries(t);
-  }catch(e){}
+  // stale build? reload to the fresh copy instead of replaying stale code
+  checkBuildFresh().then(v=>{
+    if(v&&v!==BUILD){location.reload();return;}
+    try{
+      const t=pickRandom(feed.cur&&feed.cur.id);
+      if(t)playSeries(t);
+    }catch(e){}
+  });
 });
 function doUnmute(){
   soundOn=true;unmuteFrame();
