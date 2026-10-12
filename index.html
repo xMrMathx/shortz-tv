@@ -4325,7 +4325,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012232039";
+const BUILD="20261012232535";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -11319,7 +11319,11 @@ function profile(){
     +'<div class="prow"><div style="flex:1;min-width:0">'
     +'<div style="font-weight:700;font-size:14px">Testing: Scout max activity</div>'
     +'<div style="font-size:12px;color:var(--mut)">While testing, your Scout hunts on every open (up to 8 picks a run) and greets you with mood picks in its messages. This device only.</div></div>'
-    +'<button class="pbtn '+(tbo?"":"ghost")+' sm" id="scoutTurboTgl">'+(tbo?"On":"Off")+'</button></div>';
+    +'<button class="pbtn '+(tbo?"":"ghost")+' sm" id="scoutTurboTgl">'+(tbo?"On":"Off")+'</button></div>'
+    +'<div class="prow"><div style="flex:1;min-width:0">'
+    +'<div style="font-weight:700;font-size:14px">Testing: Scout notification</div>'
+    +'<div style="font-size:12px;color:var(--mut)">Posts a Scout notification on this phone right now — a continue from your history if one is waiting, otherwise a fresh suggestion. Pops up, then tucks into the shade until you tap it. This device only.</div></div>'
+    +'<button class="pbtn sm" id="scoutNotifTest">Test 🤖</button></div>';
   const row=$("scoutRow"); if(row) row.onclick=openInbox;
   const tg=$("scoutPubTgl");
   if(tg) tg.onclick=()=>{
@@ -11335,8 +11339,55 @@ function profile(){
     try{ toast(on?"Scout max activity on 🚀":"Scout max activity off"); }catch(e){}
     if(on) maybeRun(); // turbo gap is 60s — a fresh hunt can start right away
   };
+  const nt=$("scoutNotifTest");
+  if(nt) nt.onclick=()=>{ scoutTestNotification(); };
   renderShelf();
   if(pub) syncPublic(); // keep the public node fresh while it's on
+}
+/* ---------- Scout notification (LOCAL test post — his device only) ------
+   The notification IS the Scout talking, generated from data already on
+   this device: a CONTINUE from his watch history (a series he started
+   with an episode left mid-watch — the resume ledger names it exactly),
+   else a SUGGESTION from his Scout's inbox picks. Posted by the native
+   shell on its HIGH-importance channel (Android.postScoutNotification —
+   APK 1.2.118+); tapping it opens the title's detail. No server, no FCM. */
+function scoutContinuePick(){
+  try{
+    for(const h of (history||[])){
+      if(!h||!h.id) continue;
+      const t=byId(h.id); if(!t) continue;
+      const eps=(t.episodes||[]).filter(e=>e&&e.url);
+      if(eps.length<2) continue;
+      let idx=-1;
+      eps.forEach((e,i)=>{
+        let vid=""; try{ vid=e.video_id||vidOf(e.url||""); }catch(err){}
+        if(vid&&typeof prog!=="undefined"&&prog[vid]) idx=i;
+      });
+      if(idx>=0) return {id:t.id,title:t.title||"",ep:(eps[idx].n||idx+1)};
+    }
+  }catch(e){}
+  return null;
+}
+function scoutTestNotification(){
+  try{
+    if(!(window.Android&&Android.postScoutNotification)){
+      toast("Needs the phone app — update to 1.2.118 🤖"); return;
+    }
+    const c=scoutContinuePick();
+    if(c){
+      Android.postScoutNotification("🤖 Scout: Continue "+c.title,
+        "Episode "+c.ep+" is waiting", c.id);
+      toast("Scout notification posted 🤖"); return;
+    }
+    for(const m of getInbox()){
+      if(!m||!m.titleId) continue;
+      const t=byId(m.titleId); if(!t) continue;
+      Android.postScoutNotification("🤖 Scout: Got a suggestion for you",
+        t.title||m.title||"", m.titleId);
+      toast("Scout notification posted 🤖"); return;
+    }
+    toast("Scout has no picks yet — open Browse first 🤖");
+  }catch(e){ try{ toast("Scout notification failed"); }catch(_){} }
 }
 function renderShelf(){
   const box=$("scoutShelf"); if(!box) return;
