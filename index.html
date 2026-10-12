@@ -1515,7 +1515,7 @@ try{
   <div id="evHeader" aria-hidden="true">
     <button id="evClose" aria-label="Close">✕</button>
     <div id="evTitle">Home</div>
-    <div id="evDots"><i></i><i></i><i></i><i></i><i></i></div>
+    <div id="evDots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
   <div id="evHint" aria-hidden="true">Swipe ← → to explore sections</div>
   <button id="micDot" aria-label="Tap for voice">🎙</button>
@@ -3275,11 +3275,11 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
 })();
 /* ================= EVERYTHING: swipeable hub (no-voice navigation) =================
    Grid button in the Home HUD rail opens ev-mode. Swipe LEFT/RIGHT anywhere to move
-   through Home → Browse → Live → Streaming → Profile. Up/down works normally inside
+   through Home → Browse → Live → Streaming → Manga → Profile. Up/down works normally inside
    each section. Close button or tapping the grid button again exits. */
 (function(){
-  const SECTIONS=["home","browse","live","streaming","profile"];
-  const TITLES={home:"Home",browse:"Browse",live:"Live",streaming:"Streaming",profile:"Profile"};
+  const SECTIONS=["home","browse","live","streaming","manga","profile"];
+  const TITLES={home:"Home",browse:"Browse",live:"Live",streaming:"Streaming",manga:"Manga",profile:"Profile"};
   let evMode=false, evIdx=0, tx0=0, ty0=0, swiped=false;
   const $=id=>document.getElementById(id);
   function updateHeader(){
@@ -4307,7 +4307,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012171433";
+const BUILD="20261012222048";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -10222,7 +10222,9 @@ function renderAuthSection(){
 /* ---------- Tutorial ---------- */
 const TUTS=[
   {icon:"⊞",title:"The All Button",
-   body:"Tap ⊞ to swipe between Home, Browse, Live, Streaming & Profile. Tap it again to lock onto the page you're on."},
+   body:"Tap ⊞ to swipe between Home, Browse, Live, Streaming, Manga & Profile. Tap it again to lock onto the page you're on."},
+  {icon:"📖",title:"Manga",
+   body:"Browse covers in the Manga tab. Tap a title to see its chapters, then tap right or left to turn the pages."},
   {icon:"🎤",title:"Talk To It",
    body:"Tap the mic and say “take me to manga” — or “play”, “pause”, “next”, “mute”. Hands-free."},
   {icon:"♥",title:"My List",
