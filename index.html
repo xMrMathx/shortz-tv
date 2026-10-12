@@ -448,6 +448,11 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
   font-size:11px;font-weight:600;padding:7px 15px;border-radius:20px;white-space:nowrap;
   opacity:0;pointer-events:none;transition:opacity .4s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 body.hud-hidden.feedfull #hudHint{opacity:1;pointer-events:auto}
+  /* INVISIBLE MIC HOLD ZONE: sits under the "Tap for controls" pill when UI is hidden.
+     Hold your thumb here and the mic activates — no need to wake controls first. */
+  #micHold{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+    width:88px;height:88px;border-radius:50%;opacity:0;pointer-events:none;z-index:60;touch-action:none}
+  body.hud-hidden.feedfull #micHold{pointer-events:auto}
 body.pip #hudHint{display:none}
 /* ---------- tab bar ---------- */
 #tabbar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;
@@ -1079,6 +1084,7 @@ try{
   </main>
   <div id="viewpad"></div>
   <button id="hudHint" aria-label="Show controls">Tap for controls</button>
+  <div id="micHold" aria-label="Hold to talk"></div>
 
   <nav id="tabbar">
     <button id="voiceBtn" aria-label="Hold to speak, tap to type">
@@ -2261,6 +2267,20 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
   btn.addEventListener("contextmenu",e=>e.preventDefault());
 
   document.getElementById("voiceCancel").onclick=closeType;
+
+  // INVISIBLE MIC HOLD ZONE: hold thumb here (UI hidden) -> mic starts instantly. Release -> done.
+  const micHold=document.getElementById("micHold");
+  if(micHold){
+    micHold.addEventListener("pointerdown",e=>{
+      e.preventDefault();e.stopPropagation();
+      startListen();
+    });
+    ["pointerup","pointercancel","pointerleave"].forEach(ev=>micHold.addEventListener(ev,e=>{
+      e.stopPropagation();
+      if(listening)stopListen();
+    }));
+    micHold.addEventListener("contextmenu",e=>e.preventDefault());
+  }
   document.getElementById("voiceGo").onclick=()=>{const v=vi.value;closeType();voiceCommand(v);};
   vi.addEventListener("keydown",e=>{if(e.key==="Enter"){const v=vi.value;closeType();voiceCommand(v);}});
   vt.addEventListener("click",e=>{if(e.target===vt)closeType();});
@@ -3108,7 +3128,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011221500";
+const BUILD="20261011221800";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
