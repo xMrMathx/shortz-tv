@@ -2280,7 +2280,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       let hit=tf.re.test(target);
       if(!hit&&target.length>=3){for(const k of tf.keys){if(k.startsWith(target)){hit=true;break;}}}
       if(hit){
-        try{if(tf.dest==="browse"){try{renderView("browse")}catch(e){}}go(tf.dest);voiceCtx.lastTab=tf.dest;}catch(e){}
+        try{try{renderView(tf.dest)}catch(e){}go(tf.dest);voiceCtx.lastTab=tf.dest;}catch(e){}
         return true;
       }
     }
@@ -2418,7 +2418,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         const dest=bareDest;
         if(dest==="stakes"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
         if(dest==="genres"){try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},200);}catch(e){}return true;}
-        try{if(dest==="browse"){try{renderView("browse")}catch(e){}}go(dest);voiceCtx.lastTab=dest;}catch(e){}
+        try{try{renderView(dest)}catch(e){}go(dest);voiceCtx.lastTab=dest;}catch(e){}
         return true;
       }
       // bare genre name: "westerns" -> full-screen Western view
@@ -3593,7 +3593,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012002200";
+const BUILD="20261012002500";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
