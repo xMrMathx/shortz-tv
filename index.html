@@ -1891,7 +1891,7 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
         vi=document.getElementById("voiceInput");
   if(!btn)return;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  let rec=null, listening=false, holdTimer=null, wasHold=false, voiceGuard=null;
+  let rec=null, listening=false, holdTimer=null, wasHold=false;
 
   // genre aliases: what people say -> GENRES entry
   const GENRE_ALIASES={
@@ -2039,21 +2039,8 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
     }catch(e){}
     try{rec=new SR();}catch(e){toast("Voice not supported here — type instead");openType();return;}
     rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;
-    listening=true;window.voiceListening=true;btn.classList.add("listening");pop.classList.add("show");
+    listening=true;btn.classList.add("listening");pop.classList.add("show");
     tx.textContent="Listening…";
-    // PLAYBACK GUARD: while the mic is live, the video must not pause for any
-    // reason (mic activation, audio focus, stray events). If it pauses, resume.
-    try{
-      voiceGuard=setInterval(()=>{
-        if(!window.voiceListening)return;
-        try{
-          const s=curSlide();if(!s)return;
-          const pl=s._player;if(!pl||!pl.getPlayerState||!pl.playVideo)return;
-          const st=pl.getPlayerState();
-          if(st===2)pl.playVideo(); // 2 = paused -> resume immediately
-        }catch(e){}
-      },400);
-    }catch(e){}
     rec.onresult=e=>{
       let interim="",final="";
       for(let i=e.resultIndex;i<e.results.length;i++){
@@ -2086,8 +2073,7 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
     try{rec.start();}catch(e){stopListen(false);}
   }
   function stopListen(){
-    listening=false;window.voiceListening=false;
-    try{if(voiceGuard){clearInterval(voiceGuard);voiceGuard=null;}}catch(e){}
+    listening=false;
     try{if(rec)rec.stop();}catch(e){}
     rec=null;btn.classList.remove("listening");pop.classList.remove("show");
   }
@@ -2964,7 +2950,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011220000";
+const BUILD="20261011220500";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
