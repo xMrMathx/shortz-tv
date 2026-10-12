@@ -4267,7 +4267,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012045500";
+const BUILD="20261012201149";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7044,21 +7044,40 @@ async function uploadProfilePhoto(file){
 const Friends={uid:null,db:null,_settled:false,_watching:false,_waiters:[],_listeningUid:null,_friendsRef:null,_reqRef:null,_tabUid:null,
   _emit(){ const ws=this._waiters.splice(0); ws.forEach(f=>{ try{f(this.uid);}catch(e){} }); },
   _adopt(user){
-    const uid=(user&&!user.isAnonymous)?user.uid:null;
+    let uid=(user&&!user.isAnonymous)?user.uid:null;
+    if(!uid){
+      /* The persisted account is the app's account of record — bootGates
+         heals Live from it the same way ("making the whole app agree the
+         user is signed in"). If this device holds a signed-in account,
+         Friends identity IS that account: the live shared session
+         sitting on an anonymous user (an older build's anonymous
+         sign-in evicted the real session, or WebView storage lost it)
+         must not reclassify a signed-in user as a guest — that mismatch
+         painted "Sign in to see friend requests" over a signed-in
+         Profile while every other surface showed the account. Only a
+         device with NO stored account settles as a true guest. */
+      try{
+        if(window.ShortzAuth&&ShortzAuth.isSignedIn()) uid=store.get("auth_uid")||null;
+      }catch(e){}
+    }
     const changed=(uid!==this.uid);
     this.uid=uid; this._settled=true;
     if(uid){
       // keep Live aligned — liveEnsure's own stated intent is "prefer the real session"
-      try{ Live.uid=uid; Live.authed=true; if(user.displayName)Live.name=user.displayName; }catch(e){}
+      try{ Live.uid=uid; Live.authed=true; if(user&&user.displayName)Live.name=user.displayName; }catch(e){}
       if(changed){
         // be findable at the uid friends actually use (directory code)
         try{
           const p=getProfile()||{};
-          (this.db||Live.db).ref("directory/"+uid).update({name:p.name||user.displayName||"Viewer",photo:p.photo||"",ts:Date.now()});
+          (this.db||Live.db).ref("directory/"+uid).update({name:p.name||(user&&user.displayName)||"Viewer",photo:p.photo||"",ts:Date.now()});
         }catch(e){}
         try{ checkAcceptedFriends(); }catch(e){}
-        try{ friendsAttachListeners(); }catch(e){}
       }
+      // Attach even when the uid is unchanged: if the listeners died on
+      // a permission error under a lapsed session and the real session
+      // has since landed under the same (account) uid, this is the
+      // heal — friendsAttachListeners self-guards when already listening.
+      try{ friendsAttachListeners(); }catch(e){}
     } else {
       // Identity settled guest (or a real session was lost): drop any
       // real-uid listeners so a later real sign-in re-keys cleanly, and
@@ -7097,6 +7116,24 @@ function friendsEnsure(){
     }catch(e){ res(null); }
   });
 }
+/* Listener-error paint for the Profile friends boxes. A signed-in
+   account whose reads are denied means the live session lapsed under
+   the account (see Friends._adopt) — not a connection problem and
+   never a guest state: offer the one-tap reconnect through the gate,
+   after which _adopt re-attaches and the real data paints over this.
+   Devices with no account keep the plain load-error text. */
+function paintFriendsLoadError(box,what){
+  if(!box)return;
+  let acct=false;
+  try{ acct=!!(window.ShortzAuth&&ShortzAuth.isSignedIn()); }catch(e){}
+  if(acct){
+    box.innerHTML=`<div style="color:var(--mut);font-size:13px">Your account session needs a quick reconnect to load ${what}. <button class="pbtn sm" data-reconnect="1">Reconnect</button></div>`;
+    const rb=box.querySelector("[data-reconnect]");
+    if(rb) rb.onclick=()=>{ try{ if(window.ShortzAuth)ShortzAuth.showGate(); }catch(e){} };
+    return;
+  }
+  box.innerHTML=`<div style="color:var(--mut);font-size:13px">Couldn't load ${what} — check your connection and reopen Profile.</div>`;
+}
 /* Profile friends + requests listeners, keyed to the REAL uid.
    Re-keys automatically if the account lands mid-session. */
 function friendsAttachListeners(){
@@ -7114,8 +7151,7 @@ function friendsAttachListeners(){
     renderFriendList();
   },()=>{ // listener error (e.g. permission denied): never sit on "Loading…"
     Friends._listeningUid=null;
-    const b=$("#frList");
-    if(b) b.innerHTML=`<div style="color:var(--mut);font-size:13px">Couldn't load friends — check your connection and reopen Profile.</div>`;
+    paintFriendsLoadError($("#frList"),"friends");
   });
   Friends._reqRef=db.ref("users/"+uid+"/friendRequests");
   Friends._reqRef.on("value",s=>{
@@ -7123,8 +7159,7 @@ function friendsAttachListeners(){
     renderFriendRequests(Live.requestsSnap);
   },()=>{ // listener error: never sit on "Loading…"
     Friends._listeningUid=null;
-    const b=$("#frRequests");
-    if(b) b.innerHTML=`<div style="color:var(--mut);font-size:13px">Couldn't load requests — check your connection and reopen Profile.</div>`;
+    paintFriendsLoadError($("#frRequests"),"requests");
   });
 }
 /* Resolve the Profile Requests / My friends boxes for a settled identity.
@@ -9504,6 +9539,11 @@ async function signOut(){
     store.set("auth_uid",""); store.set("auth_name",""); store.set("auth_photo","");
     store.set("auth_email",""); store.set("auth_method",""); store.set("auth_guest",true);
   }catch(e){}
+  // Friends identity follows the account of record (Friends._adopt):
+  // with the account now cleared it must re-settle as a true guest —
+  // detach the real-uid listeners and repaint any open friends boxes
+  // honestly, instead of leaving the healed identity behind.
+  try{ Friends._adopt(null); }catch(e){}
   Live.uid=null; Live.authed=false; Live.name="Viewer";
   try{toast("Signed out");}catch(e){}
   renderAuthSection();
