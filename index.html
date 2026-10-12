@@ -1922,14 +1922,19 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
       }catch(e){}
       return true;
     }
-    // 3. tabs
+    // 3. stakes
+    if(text.includes("stake")||text.includes("bet")){
+      try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}
+      return true;
+    }
+    // 4. tabs
     if(text.includes("home")){try{go("home");}catch(e){}return true;}
     if(text.includes("browse")){try{go("browse");}catch(e){}return true;}
     if(text.includes("live")&&!text.includes("deliver")){try{go("live");}catch(e){}return true;}
     if(text.includes("stream")){try{go("streaming");}catch(e){}return true;}
     if(text.includes("manga")||text.includes("comic")){try{go("manga");}catch(e){}return true;}
-    if(text.includes("profile")||text.includes("my list")||text.includes("mylist")){try{go("profile");}catch(e){}return true;}
-    // 4. "search for X"
+    if(text.includes("profile")||text.includes("my list")||text.includes("mylist")||text.includes("settings")){try{go("profile");}catch(e){}return true;}
+    // 5. "search for X"
     let m=text.match(/search(?: for)? (.+)/);
     if(m&&m[1]){
       try{
@@ -1940,6 +1945,24 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
         },400);
       }catch(e){}
       return true;
+    }
+    // 6. "open/play/watch [series name]" -> fuzzy match titles
+    m=text.match(/(?:open|play|watch|show me) (.+)/);
+    if(m&&m[1]){
+      const q=m[1].trim().replace(/[^\w\s]/g,"");
+      if(q.length>1){
+        try{
+          const words=q.split(/\s+/).filter(w=>w.length>2);
+          let best=null,bestScore=0;
+          for(const t of C){
+            const title=String(t.title||"").toLowerCase();
+            let score=0;
+            for(const w of words){if(title.includes(w))score++;}
+            if(score>bestScore){bestScore=score;best=t;}
+          }
+          if(best&&bestScore>0){openDetail(best.id);return true;}
+        }catch(e){}
+      }
     }
     toast("Didn't catch that — try again");
     return false;
