@@ -1936,11 +1936,13 @@ function embedSrc(u,autoplay){
   const sep=u.indexOf("?")>=0?"&":"?";
   // HD ENGINE: vq=hd1080 forces YouTube to serve the highest available quality
   // (up to 1080p) instead of auto-dropping to 480p on mobile data.
+  // controls=0: hide YouTube's native control bar (incl. its red progress line) —
+  // the app has its own scrubber + rail; the watch surface stays completely clean.
   if(autoplay===false)
-    return vimeo ? u+sep+"title=0&byline=0&portrait=0"
-                 : u+sep+"enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080";
-  return vimeo ? u+sep+"autoplay=1&muted=1&title=0&byline=0&portrait=0"
-               : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080";
+    return vimeo ? u+sep+"title=0&byline=0&portrait=0&controls=0"
+                 : u+sep+"enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080&controls=0";
+  return vimeo ? u+sep+"autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=0"
+               : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080&controls=0";
 }
 function frameModeClass(t,fit){
   if(t.orientation==="vertical"||t.vertical||isVertMain(t))return "vert";
