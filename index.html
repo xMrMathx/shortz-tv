@@ -1906,17 +1906,33 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
 
   function voiceCommand(raw){
     const text=String(raw||"").toLowerCase().trim();
-    if(!text)return false;
-    // 1. genres (incl. "take me to westerns", "bring up sci-fi")
+    if(!text||text==="listening…")return false;
+    // INTENT PATTERNS: require an action verb so background dialogue can't trigger.
+    // Matches: "take me to X", "go to X", "bring up X", "show me X", "open X", "play X", "watch X"
+    const intent=text.match(/(?:take me to|go to|bring up|show me|open|play|watch|search for|find)\s+(.+)/);
+    if(!intent){
+      // no clear intent — check for bare tab names only if the whole phrase is just that word
+      const bare=text.replace(/[^\w\s]/g,"").trim();
+      if(bare==="home"||bare==="browse"||bare==="live"||bare==="streaming"||bare==="manga"||bare==="profile"||bare==="my list"){
+        try{go(bare==="my list"?"profile":bare);}catch(e){}
+        return true;
+      }
+      if(bare==="genres"||bare==="show genres"){try{go("browse");}catch(e){}return true;}
+      if(bare==="stakes"||bare==="bets"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
+      return false; // ignore background chatter
+    }
+    const target=intent[1].trim();
+
+    // 1. genres: "take me to westerns", "bring up sci-fi"
     for(const alias in GENRE_ALIASES){
-      if(text.includes(alias)){
+      if(target.includes(alias)){
         const g=GENRE_ALIASES[alias];
         try{go("browse");renderBrowse(g);toast("🌐 "+g);}catch(e){}
         return true;
       }
     }
     // 2. "show genres" -> open the genre picker
-    if(text.includes("genre")){
+    if(target.includes("genre")){
       try{
         go("browse");
         setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);
@@ -1924,62 +1940,53 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
       return true;
     }
     // 3. stakes
-    if(text.includes("stake")||text.includes("bet")){
+    if(target.includes("stake")||target.includes("bet")){
       try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}
       return true;
     }
-    // 4. tabs
-    if(text.includes("home")){try{go("home");}catch(e){}return true;}
-    if(text.includes("browse")){try{go("browse");}catch(e){}return true;}
-    if(text.includes("live")&&!text.includes("deliver")){try{go("live");}catch(e){}return true;}
-    if(text.includes("stream")){try{go("streaming");}catch(e){}return true;}
-    if(text.includes("manga")||text.includes("comic")){try{go("manga");}catch(e){}return true;}
-    if(text.includes("profile")||text.includes("my list")||text.includes("mylist")||text.includes("settings")){try{go("profile");}catch(e){}return true;}
-    // 5. "search for X"
-    let m=text.match(/search(?: for)? (.+)/);
-    if(m&&m[1]){
+    // 4. tabs: "go to home", "take me to live"
+    const tabs={home:"home",browse:"browse",live:"live",streaming:"streaming",stream:"streaming",
+      manga:"manga",comics:"manga",profile:"profile","my list":"profile",settings:"profile"};
+    for(const k in tabs){if(target.includes(k)){try{go(tabs[k]);}catch(e){}return true;}}
+    // 5. "search for X" / "find X"
+    if(intent[0].startsWith("search for")||intent[0].startsWith("find")){
       try{
         go("browse");
         setTimeout(()=>{
           const s=document.getElementById("bsearch");
-          if(s){s.value=m[1].trim();s.dispatchEvent(new Event("input",{bubbles:true}));}
+          if(s){s.value=target;s.dispatchEvent(new Event("input",{bubbles:true}));}
         },400);
       }catch(e){}
       return true;
     }
-    // 6. "open/play/watch [series name]" / "[series] episode [N]" -> elite matching
-    m=text.match(/(?:open|play|watch|show me|take me to) (.+)/);
-    if(m&&m[1]){
-      let q=m[1].trim().replace(/[^\w\s]/g,"").toLowerCase();
-      // extract episode number: "episode 5", "ep 5", "part 5", "episode five"
-      let epNum=null;
-      const epMatch=q.match(/(?:episode|ep|part|number)\s+(\w+)/);
-      if(epMatch){
-        epNum=parseNumWord(epMatch[1]);
-        if(epNum)q=q.replace(epMatch[0],"").trim();
-      }
-      if(q.length>1){
-        try{
-          const best=findSeries(q);
-          if(best){
-            if(epNum){
-              const ep=(best.episodes||[]).find(e=>e.n===epNum);
-              if(ep&&ep.verified){
-                go("home");playSeries(best);setTimeout(()=>playEpisode(ep),600);
-                toast("▶ "+best.title+" — Ep "+epNum);
-                return true;
-              }else{
-                toast("Episode "+epNum+" not found");
-                return true;
-              }
-            }
-            openDetail(best.id);return true;
-          }
-        }catch(e){}
-      }
+    // 6. series by name + episode: "play Les Kassos episode 5"
+    let q=target.replace(/[^\w\s]/g,"").toLowerCase();
+    let epNum=null;
+    const epMatch=q.match(/(?:episode|ep|part|number)\s+(\w+)/);
+    if(epMatch){
+      epNum=parseNumWord(epMatch[1]);
+      if(epNum)q=q.replace(epMatch[0],"").trim();
     }
-    toast("Didn't catch that — try again");
-    return false;
+    if(q.length>1){
+      try{
+        const best=findSeries(q);
+        if(best){
+          if(epNum){
+            const ep=(best.episodes||[]).find(e=>e.n===epNum);
+            if(ep&&ep.verified){
+              go("home");playSeries(best);setTimeout(()=>playEpisode(ep),600);
+              toast("▶ "+best.title+" — Ep "+epNum);
+              return true;
+            }else{
+              toast("Episode "+epNum+" not found");
+              return true;
+            }
+          }
+          openDetail(best.id);return true;
+        }
+      }catch(e){}
+    }
+    return false; // no match — stay silent, don't disturb the video
   }
 
   // number words -> int ("five" -> 5, "twenty one" -> 21)
