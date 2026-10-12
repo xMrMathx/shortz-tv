@@ -2280,8 +2280,36 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     return total||null;
   }
 
+  // MIC MEMORY: every single title in the catalog (7,526+) pre-indexed for instant recognition.
+  // Built once at startup — the mic knows every title before you say it.
+  // Maps normalized title -> series. Includes variations (no "the", etc.) for natural speech.
+  const TITLE_MEMORY=new Map();
+  (function buildTitleMemory(){
+    try{
+      for(const t of C){
+        const raw=String(t.title||"").toLowerCase().replace(/[^\w\s]/g,"").trim();
+        if(!raw)continue;
+        if(!TITLE_MEMORY.has(raw))TITLE_MEMORY.set(raw,t);
+        // variation without leading "the " (people say "Reborn" not "The Reborn")
+        if(raw.startsWith("the ")&&raw.length>4){
+          const noThe=raw.slice(4).trim();
+          if(noThe&&!TITLE_MEMORY.has(noThe))TITLE_MEMORY.set(noThe,t);
+        }
+        // index episode titles too (if they have distinct names)
+        const eps=t.episodes||[];
+        for(const e of eps){
+          const et=String(e.title||"").toLowerCase().replace(/[^\w\s]/g,"").trim();
+          if(et&&et!==raw&&!TITLE_MEMORY.has(et))TITLE_MEMORY.set(et,t);
+        }
+      }
+    }catch(e){}
+  })();
+
   // elite series finder: scores every title, best match wins
   function findSeries(q){
+    // INSTANT: check the pre-built memory first (O(1) exact match)
+    const norm=String(q||"").toLowerCase().replace(/[^\w\s]/g,"").trim();
+    if(TITLE_MEMORY.has(norm))return TITLE_MEMORY.get(norm);
     const qwords=q.split(/\s+/).filter(w=>w.length>1);
     if(!qwords.length)return null;
     let best=null,bestScore=0;
@@ -3291,7 +3319,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011232200";
+const BUILD="20261011232500";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
