@@ -3454,27 +3454,86 @@ function mountFeed(){
    after being away a while, start a new random video so it never feels
    like the same stuff. Quick switches (under 30s) keep your place. */
 let _hiddenAt=0;
-/* STALE-BUILD GUARD: the app shell (WebView) often restores the page from memory
-   instead of reloading, so updates never arrive. On every foreground after 30s
-   away, compare against version.txt — if the build moved, reload to the fresh
-   copy instead of replaying stale code. */
-const BUILD="20261011235500";
+/* STALE-BUILD GUARD v2 — bulletproof auto-update.
+   The app shell (WebView) restores pages from memory and caches aggressively,
+   so updates must be chased actively. Triggers: boot, pageshow (bfcache),
+   visibilitychange (foreground), online (reconnect), plus a 30s poll with a
+   watchdog. Nobody force-closes or hard-refreshes — ever. */
+const BUILD="20261011235800";
+const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
-  return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
+  _fresh.lastCheck=Date.now();
+  return fetch("version.txt?t="+Date.now(),{cache:"no-store",method:"GET"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
+}
+function _videoPlaying(){
+  try{
+    const s=(typeof curSlide==="function")?curSlide():null;
+    const pl=s&&s._player;
+    if(pl&&pl.getPlayerState)return pl.getPlayerState()===1;
+  }catch(e){}
+  return false;
 }
 // Force a truly fresh load — bypasses browser cache completely. No hard-refresh needed.
 function forceFreshReload(){
-  const base=location.href.split("?")[0].split("#")[0];
-  location.href=base+"?fresh="+Date.now()+(location.hash||"");
+  // Reload-loop guard: >3 freshness reloads in 5 min means the CDN is serving
+  // mixed versions — stop looping and tell the user instead of spinning forever.
+  const now=Date.now();
+  if(now-_fresh.reloadWin>5*60*1000){_fresh.reloadWin=now;_fresh.reloads=0;}
+  _fresh.reloads++;
+  if(_fresh.reloads>3){try{toast("Update available — please reopen the app to apply it");}catch(e){}return;}
+  // Preserve share-link params (?watch=, ?stream=, ?ep=); drop cache-busters.
+  let q="";
+  try{
+    const p=new URLSearchParams(location.search),keep=new URLSearchParams();
+    ["watch","ep","stream","stv_id"].forEach(k=>{const v=p.get(k);if(v)keep.set(k,v);});
+    const qs=keep.toString();if(qs)q="?"+qs;
+  }catch(e){}
+  const url=location.href.split("?")[0].split("#")[0]+q+(q?"&":"?")+"fresh="+now+(location.hash||"");
+  try{toast("Updating to the latest version…");}catch(e){}
+  // replace() keeps stale ?fresh= pages out of back-button history.
+  // Small delay so the toast is seen instead of a mystery reload.
+  setTimeout(()=>{try{location.replace(url);}catch(e){location.href=url;}},1200);
 }
+function _runFreshCheck(reason){
+  // Watchdog: skip if we just checked (<10s) — avoids stampedes, except manual.
+  if(reason!=="manual"&&Date.now()-_fresh.lastCheck<10000)return Promise.resolve(false);
+  return checkBuildFresh().then(v=>{
+    if(!v){
+      // Fetch failed (offline blip?) — retry soon with backoff, don't wait a full cycle.
+      _fresh.fails++;
+      setTimeout(()=>_runFreshCheck("retry"),Math.min(10000*_fresh.fails,30000));
+      return false;
+    }
+    _fresh.fails=0;
+    if(v!==BUILD){
+      if(_videoPlaying()&&!_fresh.deferred){
+        // Don't yank a playing video mid-watch — apply on pause/end, 45s max.
+        _fresh.deferred=true;
+        try{toast("Update ready — applying when the video pauses");}catch(e){}
+        const to=setTimeout(()=>{_fresh.deferred=false;forceFreshReload();},45000);
+        const watchPause=()=>{
+          if(!_videoPlaying()){clearTimeout(to);_fresh.deferred=false;forceFreshReload();}
+          else setTimeout(watchPause,5000);
+        };
+        setTimeout(watchPause,5000);
+      }else if(!_fresh.deferred){
+        forceFreshReload();
+      }
+      return true;
+    }
+    return false;
+  });
+}
+// Manual trigger (debugging / future UI): window.checkForUpdates()
+window.checkForUpdates=()=>_runFreshCheck("manual");
 document.addEventListener("visibilitychange",()=>{
   if(document.visibilityState==="hidden"){_hiddenAt=Date.now();return;}
   if(document.visibilityState!=="visible")return;
   if(piaActive)return; // don't interrupt PIA
   // ALWAYS check freshness on return — no stale builds, ever. No force-close needed.
-  checkBuildFresh().then(v=>{
-    if(v&&v!==BUILD){forceFreshReload();return;}
+  _runFreshCheck("visible").then(updated=>{
+    if(updated)return; // reload incoming — skip the feed shuffle
     if(curView!=="home")return;
     if(Date.now()-_hiddenAt<30000)return; // quick switch: keep your place
     try{
@@ -3483,10 +3542,14 @@ document.addEventListener("visibilitychange",()=>{
     }catch(e){}
   });
 });
-// Check IMMEDIATELY on load (not after 2s) — WebView serves cached HTML on cold start.
-checkBuildFresh().then(v=>{if(v&&v!==BUILD)forceFreshReload();});
-// And every 60s while open — always fresh, never stale.
-setInterval(()=>{checkBuildFresh().then(v=>{if(v&&v!==BUILD)forceFreshReload();});},60000);
+// bfcache restores (back button) don't reliably fire visibilitychange — catch them here.
+window.addEventListener("pageshow",e=>{if(e.persisted)_runFreshCheck("pageshow");});
+// Reconnect: the moment network returns, check immediately.
+window.addEventListener("online",()=>_runFreshCheck("online"));
+// Poll every 30s (was 60s) — always fresh, never stale.
+setInterval(()=>{_runFreshCheck("poll");},30000);
+// Check IMMEDIATELY on boot — WebView serves cached HTML on cold start.
+_runFreshCheck("boot");
 function doUnmute(){
   soundOn=true;unmuteFrame();
   const sp=curSlide().querySelector("[data-sound]");if(sp)sp.style.display="none";
@@ -3593,7 +3656,7 @@ function handleTap(x,y){
   // Do NOT add mic logic here — touchend->handleTap AND click->docListener would double-fire.
   // CENTER ONLY: the video only responds to taps in the middle (where play/pause lives).
   // Taps anywhere else (mic button, edges) are ignored by the video.
-  const w=window.innerWidth||390, s=170;
+  const w=window.innerWidth||390, h=window.innerHeight||700, s=170;
   if(typeof x!=="number"||typeof y!=="number"||Math.abs(x-w/2)>s/2||Math.abs(y-h/2)>s/2)return;
   const wasHidden=tapHudHidden; tapHudHidden=false;
   try{hudWake();}catch(e){} // every tap on the video wakes the HUD (HUD law)
