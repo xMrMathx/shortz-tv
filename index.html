@@ -67,7 +67,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .feed-video.cover iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:16/9;transform:translateX(-50%)}
 .feed-video.vert iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
 .feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
-.feed-tapzone{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;z-index:4;cursor:pointer}
+.feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer;touch-action:pan-y}
 /* fit-to-screen quick suggestion: small pill offered when a cropped (cover) video starts */
 .fit-suggest{position:absolute;left:50%;bottom:calc(215px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(10px);z-index:7;
  background:rgba(12,12,16,.78);color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:999px;
@@ -3049,8 +3049,21 @@ function mountFeed(){
     if(e.target.closest("[data-next]")){openEpDrawer();return;}
     if(e.target.closest("[data-sound]")){e.stopPropagation();doUnmute();return;}
     if(e.target.closest("[data-tap]")){
+      // LONG-PRESS = NOTHING: swallow it completely. No YouTube 2x, no action.
+      // (tapDownT is set on pointerdown; if held >450ms, this click is ignored.)
+      if(tapDownT&&Date.now()-tapDownT>450){tapDownT=0;return;}
+      tapDownT=0;
       handleTap(e.clientX,e.clientY);
     }
+  },true);
+  // Track press duration to kill long-press (YouTube 2x) dead.
+  let tapDownT=0;
+  document.addEventListener("pointerdown",e=>{
+    if(e.target.closest&&e.target.closest("[data-tap]"))tapDownT=Date.now();
+  },true);
+  document.addEventListener("pointerup",e=>{
+    // if released after long-press, swallow — don't let it become a click action
+    if(tapDownT&&Date.now()-tapDownT>450){tapDownT=0;e.stopPropagation();}
   },true);
   let startOnAction=false;
   const onStart=(x,y,onAction)=>{
@@ -3128,7 +3141,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011222400";
+const BUILD="20261011222700";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
