@@ -598,7 +598,8 @@ body.pip #hudHint{display:none}
   #tabbar{max-width:520px;left:50%;right:auto;width:100%;transform:translateX(-50%)}
   #topbar{max-width:520px;left:50%;right:auto;width:100%;transform:translateX(-50%)}
   #hudHint{left:50%;transform:translateX(-50%)}
-  #splash{max-width:520px;left:50%;right:auto;width:100%;transform:translateX(-50%)}
+  #splash{max-width:520px !important;left:0 !important;right:0 !important;margin:0 auto !important;width:100% !important;transform:none !important}
+
 }
 /* ---------- feed fullscreen: video edge-to-edge, chrome overlaid PineDrama-style ---------- */
 body.feedfull{overflow:hidden}
@@ -3127,7 +3128,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011225600";
+const BUILD="20261011225800";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
