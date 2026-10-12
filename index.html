@@ -1846,7 +1846,12 @@ function renderView(v){
 const feed={cur:null, curEp:null};
 function curUrl(){return (feed.curEp&&feed.curEp.url)||(feed.cur&&feed.cur.url)||""}
 function curIsVimeo(){return curUrl().indexOf("vimeo.com")>=0}
-let soundOn=true, feedMounted=false; // sound ON by default — no tap needed, ever
+let soundOn=true, feedMounted=false; // app shell: sound ON by default — no tap needed, ever
+// WEB REALITY: Chrome/Safari/Firefox block unmuted autoplay until the user taps — a
+// browser platform rule no website can bypass (the native app shell is exempt, which
+// is why the app plays sound immediately). On web we start muted with the "tap for
+// sound" pill, and the very first tap anywhere unmutes (see handleTap).
+try{ if(typeof window.Android==="undefined"||!window.Android||!window.Android.onWatching) soundOn=false; }catch(e){ soundOn=false; }
 let lastTapT=0, tapTimer=null; // single/double-tap disambiguation
 let feedStack=[], feedPos=-1;          // ordered visit history; feedPos = current index
 let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,next]
