@@ -3139,7 +3139,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011224000";
+const BUILD="20261011224200";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
@@ -3159,6 +3159,8 @@ document.addEventListener("visibilitychange",()=>{
     }catch(e){}
   });
 });
+// ALSO check on fresh load — WebView often serves cached HTML on cold start.
+setTimeout(()=>{checkBuildFresh().then(v=>{if(v&&v!==BUILD)location.reload();});},2000);
 function doUnmute(){
   soundOn=true;unmuteFrame();
   const sp=curSlide().querySelector("[data-sound]");if(sp)sp.style.display="none";
