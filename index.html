@@ -4325,7 +4325,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012225204";
+const BUILD="20261012225842";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6981,12 +6981,10 @@ function tgMore(){
   box.querySelectorAll(".tg-row").forEach(r=>{
     if(r._tg)return; r._tg=true;
     r.onclick=()=>tgPreview(r.dataset.id);
-    tgObserveRow(r); // scroll-play: the row most in view plays in the preview box
   });
 }
-function tgPreview(id,fromScroll){
+function tgPreview(id){
   const t=byId(id); if(!t)return;
-  if(!fromScroll)tgManualAt=Date.now(); // a tap picked this one — scroll-play yields for a few seconds
   tgHideUnmute();
   document.querySelectorAll("#tgList .tg-row").forEach(r=>r.classList.toggle("sel",r.dataset.id===id));
   const fr=$("#tgFrame"); if(!fr)return;
@@ -7013,7 +7011,6 @@ function tgPause(){
   if(fr){fr.innerHTML="";fr._tid=null;}
   tgWatchEnd();
   tgHideUnmute();
-  if(tgObs){ try{tgObs.disconnect();}catch(e){} tgObs=null; tgObsRatios.clear(); }
 }
 /* ---------- guide sound: previews play WITH SOUND (his order) ----------
    tgEmbed requests an audible start; the APK shell permits it
@@ -7058,41 +7055,12 @@ function tgSoundArm(kind,player,token){
     }catch(e){}
   },1800);
 }
-/* ---------- guide scroll-play: the row most in view plays (with sound) ----------
-   One preview box = one video at a time, by construction. A manual tap holds
-   the observer off for a few seconds so a deliberate pick is never yanked. */
-let tgObs=null, tgObsRatios=new Map(), tgObsTimer=null, tgManualAt=0, tgLastScroll=0;
-function tgObsEnsure(){
-  if(tgObs||typeof IntersectionObserver==="undefined")return;
-  window.addEventListener("scroll",()=>{ tgLastScroll=Date.now(); },{passive:true});
-  tgObs=new IntersectionObserver((es)=>{
-    es.forEach(en=>{ tgObsRatios.set(en.target,en.intersectionRatio||0); });
-    if(tgObsTimer)return;
-    tgObsTimer=setTimeout(()=>{ tgObsTimer=null; tgObsEval(); },300);
-  },{threshold:[0,.25,.5,.75,1]});
-}
-function tgObserveRow(r){
-  tgObsEnsure(); if(!tgObs)return;
-  try{ tgObs.observe(r); }catch(e){}
-}
-function tgObsEval(){
-  if(curView!=="profile")return;
-  if(Date.now()-tgLastScroll>1200)return; // only while actually scrolling — never yank a video at rest
-  if(Date.now()-tgManualAt<4000)return;
-  let best=null, bestD=Infinity;
-  tgObsRatios.forEach((ratio,row)=>{
-    if(!row.isConnected){ tgObsRatios.delete(row); return; }
-    if(ratio<0.5)return;
-    const r=row.getBoundingClientRect();
-    const d=Math.abs((r.top+r.bottom)/2-window.innerHeight/2); // the video he scrolled TO: nearest screen center
-    if(d<bestD){ bestD=d; best=row; }
-  });
-  if(!best)return;
-  const id=best.dataset.id; if(!id)return;
-  const pv=$("#tgPreviewBox");
-  if(pv&&pv._tid===id)return; // already playing it
-  tgPreview(id,true);
-}
+/* ---------- guide preview switching: CLICK or natural END only (his law) ----------
+   Scrolling the guide must NEVER start, switch or re-arm the preview. An
+   earlier scroll-play observer did exactly that — the row nearest screen
+   center hijacked the preview mid-scroll — and he ordered it out. The
+   preview now changes only on a row tap (tgPreview via onclick) or when
+   the playing video ends (tgArmEnd → tgNext below). */
 /* Shortz VS Guide auto-advance: when the preview video ends, play the next row */
 let tgPlayer=null, tgPlayerKind=null, tgAdvanceAt=0;
 function tgWatchEnd(){
