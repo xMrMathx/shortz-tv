@@ -1976,7 +1976,7 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
       }
       return false;
     }
-    const target=intent[1].trim();
+    const target=intent[1].trim().replace(/[^\w\s]/g,"").trim();
     const verb=intent[0].split(/\s+/).slice(0,3).join(" ");
 
     // --- "again" with context ---
@@ -3128,7 +3128,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011222100";
+const BUILD="20261011222400";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
