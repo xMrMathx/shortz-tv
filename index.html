@@ -77,6 +77,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .feed-video.vert iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
 .feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
 .feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer;touch-action:pan-y}
+.feed-video iframe{pointer-events:none} /* the embed never takes a tap — the tapzone owns every tap (no YouTube link-outs, his law) */
 /* fit-to-screen quick suggestion: small pill offered when a cropped (cover) video starts */
 .fit-suggest{position:absolute;left:50%;bottom:calc(215px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(10px);z-index:7;
  background:rgba(12,12,16,.78);color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:999px;
@@ -395,7 +396,7 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 #sportsReel.open{display:block}
 .sreel-scroll{height:100%;overflow-y:auto;scroll-snap-type:y mandatory;-webkit-overflow-scrolling:touch}
 .sreel-slide{height:100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;background:#000}
-.sreel-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.sreel-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
 .sreel-back{position:absolute;top:14px;left:14px;z-index:5;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.55);color:#fff;font-size:20px;cursor:pointer}
 .sreel-sound{position:absolute;top:14px;right:14px;z-index:6;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.35);background:rgba(0,0,0,.6);color:#fff;font-size:20px;cursor:pointer}
 .sreel-sport{position:absolute;top:20px;left:0;right:0;text-align:center;z-index:4;color:#fff;font-size:14px;font-weight:800;pointer-events:none;text-shadow:0 1px 4px #000}
@@ -615,7 +616,7 @@ body.pip #tvBtn{display:none}
 .tv-scr{position:relative;border-radius:8px;overflow:hidden;background:linear-gradient(140deg,#2a2a35,#101016);height:96px}
 .tv-scr img{width:100%;height:100%;object-fit:cover;display:block}
 #tvVid{position:absolute;inset:0;display:none}
-#tvVid iframe{width:100%;height:100%;border:0;display:block}
+#tvVid iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
 /* gesture layer over the screen: the trailer iframe would swallow touches,
    so taps + left/right swipes land here and bubble to the TV's handlers.
    pan-y keeps vertical page gestures from being hijacked; horizontal
@@ -983,7 +984,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .live-back{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:17px;font-weight:800;padding:12px 20px;border-radius:999px;margin:2px 0 12px;min-height:48px}
 .live-back:active{transform:scale(.95);background:rgba(255,255,255,.2)}
 .lvid{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9;margin:6px 0 10px}
-.lvid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lvid iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
 .lvid-none{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--mut);font-size:13px}
 .live-badge{position:absolute;top:10px;left:10px;background:var(--red);font-size:11px;font-weight:900;padding:4px 10px;border-radius:8px;color:#fff;letter-spacing:.5px}
 .live-viewers{position:absolute;top:10px;right:10px;font-size:11px;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:12px;color:#fff}
@@ -1045,7 +1046,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 #sstreamTrack.anim{transition:transform .32s cubic-bezier(.25,.8,.3,1)}
 #sstreamTrack .slide{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;will-change:transform;background:#000}
 .sstream-frame{position:absolute;inset:0;background:#000}
-.sstream-frame iframe{width:100%;height:100%;border:0;display:block}
+.sstream-frame iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
 .sstream-novid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;background:radial-gradient(ellipse at center,#14141c 0%,#000 70%)}
 .sstream-ov{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding:14px 14px 90px}
 .sstream-top{display:flex;gap:8px;align-items:center}
@@ -1127,7 +1128,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .tg-preview.stuck .tg-meta{display:none}
 .tg-preview.stuck .tg-ph{display:none}
 .tg-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000}
-.tg-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tg-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
 .tg-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;background:rgba(0,0,0,.55);font-size:14px;font-weight:700}
 .tg-meta{display:flex;align-items:center;gap:10px;padding:10px 12px}
 .tg-thumb{width:64px;height:36px;border-radius:8px;object-fit:cover;background:#1b1b22;flex:none}
@@ -2453,6 +2454,7 @@ function go(v){
   if(curView==="home"&&v!=="home"){try{cfStopPreview();}catch(e){}} // card previews never play off-Home
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
   if(curView==="live"&&v!=="live"&&typeof lsStop==="function")lsStop(); // stop Free Live Sports stage
+  if(curView==="live"&&v!=="live"){try{liveRoomPause();}catch(e){}} // silence a watch-party room left open — its audio never follows him to another tab
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
   if(curView==="manga"&&v!=="manga")likesDetach(); // same for manga likes
   if(curView==="profile"&&v!=="profile"&&typeof tgPause==="function")tgPause(); // stop the TV Guide preview
@@ -4289,7 +4291,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012211044";
+const BUILD="20261012211452";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5194,7 +5196,7 @@ var cfLineup=[], cfBuilt=false, cfActive=null, cfScrollTick=false;
 
 function cfCardHTML(t){
   const art=thumb(t,"hq");
-  const badge=t.award?(/winner/i.test(t.award)?"🏆 Award Winner":(/nominee/i.test(t.award)?"🏆 Nominee":"🏆 Award")):"";
+  const badge=t.award?(/winner/i.test(t.award)?"🏆 Award Winner":(/nominee/i.test(t.award)?"🏆 Nominee":"🏆 Nominee")):"";
   const dur=esc(t.eps||t.runtime||"");
   const liked=!!likes[t.id];
   const cc=(comments[t.id]||[]).length;
@@ -6278,7 +6280,7 @@ function openSportsReel(sport){
     const ph=sl.querySelector("[data-ph]"); if(!ph||ph.dataset.done) return;
     ph.dataset.done="1";
     const vid=ph.dataset.ph;
-    ph.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&mute=1&enablejsapi=1&playsinline=1&rel=0&modestbranding=1&vq=hd1080" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Sports highlight"></iframe>`;
+    ph.innerHTML=`<iframe src="https://www.youtube.com/embed/${vid}?autoplay=1&mute=1&enablejsapi=1&playsinline=1&rel=0&modestbranding=1&vq=hd1080&controls=0&disablekb=1&fs=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen title="Sports highlight"></iframe>`;
     const fr=ph.querySelector("iframe");
     // match Home feed: if user already enabled sound, unmute shortly after load
     fr.onload=()=>{ setTimeout(()=>{ if(sportsSoundOn) unmuteSportsReel(); },900); };
@@ -6661,7 +6663,7 @@ function tgEmbed(t,muted){
     return m?"https://player.vimeo.com/video/"+m[1]+"?autoplay=1&muted="+(muted?1:0)+"&title=0&byline=0&portrait=0":"";
   }
   const id=ytId(u); if(!id)return "";
-  return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute="+(muted?1:0)+"&rel=0&playsinline=1&modestbranding=1&vq=hd1080&enablejsapi=1";
+  return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute="+(muted?1:0)+"&rel=0&playsinline=1&modestbranding=1&vq=hd1080&controls=0&disablekb=1&fs=0&enablejsapi=1";
 }
 function tgRowHTML(t){
   const sm=thumb(t,"mq");
@@ -8188,9 +8190,9 @@ function sstreamEmbed(s,muted){
   }
   if(s.platform==="youtube"){
     const vid=s.live&&s.ytVideoId?s.ytVideoId:(!s.live&&s.ytLatestId?s.ytLatestId:null);
-    if(vid)return "https://www.youtube.com/embed/"+encodeURIComponent(vid)+"?autoplay=1&mute="+m+"&rel=0";
+    if(vid)return "https://www.youtube.com/embed/"+encodeURIComponent(vid)+"?autoplay=1&mute="+m+"&rel=0&controls=0&disablekb=1&fs=0";
     const cid=s.channelId||ch;
-    return "https://www.youtube.com/embed/live_stream?channel="+encodeURIComponent(cid)+"&autoplay=1&mute="+m+"&rel=0";
+    return "https://www.youtube.com/embed/live_stream?channel="+encodeURIComponent(cid)+"&autoplay=1&mute="+m+"&rel=0&controls=0&disablekb=1&fs=0";
   }
   return "https://player.kick.com/"+ch+"?autoplay=true&muted="+(muted?"true":"false");
 }
@@ -8202,7 +8204,7 @@ function sstreamVodHTML(s,muted){
 let sstreamStack=[], sstreamPos=-1, sstreamSlots=[], sstreamMounted=false;
 let sdragging=false, sdragDy=0, sdragX0=0, sdragY0=0, sdragT0=0, smovedPx=0;
 let svelSamples=[], ssnapAnim=false, ssuppressClick=false, sskipMouseUntil=0;
-let streamMuted=true, streamPollTimer=null;
+let streamMuted=false, streamPollTimer=null; // streams start WITH SOUND (his law, 2026-10-12) — the APK shell permits audible autoplay; the tap toggle now mutes instead of unmuting
 /* ---------- stream sharing: deep link opens inside Shortz VS, never the platform ---------- */
 function streamShareId(s){
   if(!s)return"";
@@ -8619,6 +8621,19 @@ function leaveRoom(){
   Live.roomId=null; Live.room=null;
   renderLive();
 }
+/* leaving the Live tab mid-room: pause the room's player so its audio
+   never leaks into another tab (one-audible law). The room re-renders
+   and autoplays fresh on return, so a pause here costs nothing. */
+function liveRoomPause(){
+  const fr=document.querySelector("#view-live .lvid iframe");
+  if(!fr||!fr.contentWindow)return;
+  try{
+    const t=(Live.room&&byId(Live.room.seriesId))||{};
+    const u=t.url||"";
+    if(u.indexOf("vimeo.com")>=0) fr.contentWindow.postMessage({method:"pause"},"*");
+    else fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"pauseVideo",args:""}),"*");
+  }catch(e){}
+}
 /* pure render — testable without Firebase */
 function renderLiveRoomHTML(room, viewerCount){
   const t=byId(room.seriesId);
@@ -8661,6 +8676,21 @@ async function renderLiveRoom(){
       }catch(e){}
       snd.style.display="none";
     };
+  }
+  // the embed never takes a tap (pointer-events:none in CSS) — the room
+  // owns the video area: a tap toggles play/pause through the player API
+  const lv=v.querySelector(".lvid");
+  if(lv&&fr){
+    let wpPlaying=true; // the embed autoplays on render
+    lv.addEventListener("click",e=>{
+      if(e.target.closest("#liveSound"))return; // the sound button keeps its own job
+      wpPlaying=!wpPlaying;
+      try{
+        const vm2=((room.seriesId&&byId(room.seriesId))||{}).url||"";
+        if(vm2.indexOf("vimeo.com")>=0) fr.contentWindow.postMessage({method:wpPlaying?"play":"pause"},"*");
+        else fr.contentWindow.postMessage(JSON.stringify({event:"command",func:wpPlaying?"playVideo":"pauseVideo",args:""}),"*");
+      }catch(e){}
+    });
   }
   const voff=Live.db.ref("presence/"+Live.roomId).on("value",s=>{
     const el=$("#liveViewN"); if(el) el.textContent=s.numChildren();
@@ -11065,7 +11095,7 @@ function lsEnsureStyle(){
   ".ls-head{font-size:19px;font-weight:900;margin:2px 0 2px}"+
   ".ls-sub{color:var(--mut);font-size:12.5px;margin-bottom:12px}"+
   ".ls-stage{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:14px}"+
-  ".ls-stage iframe{width:100%;height:100%;border:0;display:block}"+
+  ".ls-stage iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}"+
   /* sticky follow (his order, mirroring the TV Guide's .tg-preview.stuck):
      seg bar pins under the topbar (48px measured), stage pins under both
      (48 topbar + 37 seg + 14 seg margin + 6 gap = 105), height capped at
@@ -11102,7 +11132,7 @@ function lsState(ch){ return LS_STATE[ch.channelId]||{}; }
 function lsIsLive(ch){ const s=lsState(ch); return !!(s.live&&s.videoId); }
 function lsEmbed(ch,muted){
   // sound-on by spec (mute=0); muted is only the platform-refusal fallback
-  const s=lsState(ch), q="autoplay=1&mute="+(muted?1:0)+"&rel=0&playsinline=1&enablejsapi=1";
+  const s=lsState(ch), q="autoplay=1&mute="+(muted?1:0)+"&rel=0&playsinline=1&controls=0&disablekb=1&fs=0&enablejsapi=1";
   if(s.live&&s.videoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.videoId)+"?"+q;
   if(s.latestVideoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.latestVideoId)+"?"+q;
   return "https://www.youtube.com/embed?listType=playlist&list="+encodeURIComponent("UU"+String(ch.channelId).slice(2))+"&"+q;
