@@ -1079,7 +1079,7 @@ try{
   <div id="voiceType" aria-hidden="true">
     <div class="vt-box">
       <div class="vt-title">Type a command</div>
-      <div class="vt-hint">Try "take me to westerns" or "show my list"</div>
+      <div class="vt-hint">Try "take me to westerns" or "open up westerns"</div>
       <input id="voiceInput" type="text" placeholder="What should I do?" autocomplete="off" enterkeyhint="go">
       <div class="vt-row">
         <button id="voiceCancel">Cancel</button>
@@ -1908,8 +1908,8 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
     const text=String(raw||"").toLowerCase().trim();
     if(!text||text==="listening…")return false;
     // INTENT PATTERNS: require an action verb so background dialogue can't trigger.
-    // Matches: "take me to X", "go to X", "bring up X", "show me X", "open X", "play X", "watch X"
-    const intent=text.match(/(?:take me to|go to|bring up|show me|open|play|watch|search for|find)\s+(.+)/);
+    // Matches: "take me to X", "open up X", "go to X", "bring up X", "show me X", "open X", "play X", "watch X"
+    const intent=text.match(/(?:take me to|open up|go to|bring up|show me|open|play|watch|search for|find)\s+(.+)/);
     if(!intent){
       // no clear intent — check for bare tab names only if the whole phrase is just that word
       const bare=text.replace(/[^\w\s]/g,"").trim();
@@ -2950,7 +2950,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011220500";
+const BUILD="20261011220600";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
