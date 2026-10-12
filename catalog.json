@@ -296115,5 +296115,93 @@
   "eps": "1 ep",
   "rights_basis": "Public YouTube embed",
   "award_verified": true
+ },
+ {
+  "id": "stv-5103",
+  "title": "Period. End of Sentence.",
+  "genre": "Short Films",
+  "award": "Academy Award winner — Best Documentary Short Subject (2018)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Period. End of Sentence. (2018) — Rayka Zehtabchi",
+    "url": "https://www.youtube.com/embed/Lrm2pD0qofM",
+    "video_id": "Lrm2pD0qofM",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Lrm2pD0qofM",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5104",
+  "title": "Logorama",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2009)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Logorama (2009) — H5",
+    "url": "https://www.youtube.com/embed/zAKopCwGlcc",
+    "video_id": "zAKopCwGlcc",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/zAKopCwGlcc",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5105",
+  "title": "Ryan",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2004)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ryan (2004) — Chris Landreth / NFB",
+    "url": "https://www.youtube.com/embed/nbkBjZKBLHQ",
+    "video_id": "nbkBjZKBLHQ",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/nbkBjZKBLHQ",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-5106",
+  "title": "Harvie Krumpet",
+  "genre": "Animation",
+  "award": "Academy Award winner — Best Animated Short Film (2003)",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Harvie Krumpet (2003) — Adam Elliot",
+    "url": "https://www.youtube.com/embed/GJD5dh8jyH0",
+    "video_id": "GJD5dh8jyH0",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/GJD5dh8jyH0",
+  "eps": "1 ep",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
  }
 ]
