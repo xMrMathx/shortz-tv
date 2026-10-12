@@ -1654,15 +1654,18 @@ const AWARD="__award__";
 const REBIRTH="__rebirth__";
 const ONLYSHORTZ="__onlyshortz__";
 const TREK="__trek__";
+const ALL="__all__";
 /* human label for the genre/collection filter button — always prefixed so it's obvious this is a filter */
 function genreLabel(g){
-  const base=g===ONLYSHORTZ?"Shortz Picks":g===EARLY?"Early Release":g===AI?"AI Shorts":g===AWARD?"🏆 Award-Winning":g===TREK?"🚀 Star Trek Fan":g;
+  const base=g===ALL?"All":g===ONLYSHORTZ?"Shortz Picks":g===EARLY?"Early Release":g===AI?"AI Shorts":g===AWARD?"🏆 Award-Winning":g===TREK?"🚀 Star Trek Fan":g;
   return "🌐 Genre: "+base;
 }
 function alphaSort(a){return [...a].sort((x,y)=>String(x.title||"").localeCompare(String(y.title||""),"en",{sensitivity:"base"}))}
 function browseList(){
   const qf=browseListFiltered();
   if(qf)return alphaSortCached("q:"+browseQuery,qf);
+  // "All" — the full catalog, alphabetically
+  if(browseGenre===ALL)return alphaSortCached("g:all",[...C]);
   if(browseGenre===AI)return alphaSortCached("g:ai",C.filter(t=>t.ai_made===true));
   if(browseGenre===ONLYSHORTZ)return alphaSortCached("g:onlyshortz",C.filter(t=>t.onlyShortz===true));
   if(browseGenre===AWARD)return alphaSortCached("g:award",C.filter(t=>t.award_verified));
@@ -2093,7 +2096,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         const dest=bareDest;
         if(dest==="stakes"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
         if(dest==="genres"){try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}return true;}
-        try{go(dest);voiceCtx.lastTab=dest;}catch(e){}
+        try{if(dest==="browse"){try{renderView("browse")}catch(e){}}go(dest);voiceCtx.lastTab=dest;}catch(e){}
         return true;
       }
       // bare genre name: "westerns" -> full-screen Western view
@@ -2216,7 +2219,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         // match if target contains the key as a word (or the key contains target for short utterances)
         const re=new RegExp("\\b"+k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));
         if(re.test(target)||(target.length>=3&&k.startsWith(target))){
-          try{go(tf.dest);voiceCtx.lastTab=tf.dest;}catch(e){}
+          try{if(tf.dest==="browse"){try{renderView("browse")}catch(e){}}go(tf.dest);voiceCtx.lastTab=tf.dest;}catch(e){}
           return true;
         }
       }
@@ -3372,7 +3375,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011234500";
+const BUILD="20261011234800";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
@@ -4356,7 +4359,7 @@ function openDetail(id){
 }
 
 /* ---------- browse ---------- */
-let browseGenre=EARLY; // always start Browse on Early Releases
+let browseGenre=ALL; // always start Browse on All (everything) — user filters after
 let browseQuery=""; // search text; filters across all series regardless of pill
 let sportsSport=null; // selected sport in Sports genre; null = picker view
 function browseListFiltered(){
@@ -4580,6 +4583,7 @@ function renderBrowse(g){
     <div class="wrap"><div class="gdrop" id="gdrop">
       <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${genreLabel(browseGenre)}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
+        <button class="gitem${ALL===browseGenre?" sel":""}" data-g="${ALL}"><span>All</span><span class="cnt">${C.length}</span></button>
         <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Shortz Picks</span><span class="cnt">${cc.onlyShortz}</span></button>
         <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
         <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
