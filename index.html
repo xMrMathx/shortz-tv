@@ -475,12 +475,13 @@ body.hud-hidden.feedfull #hudHint{opacity:1;pointer-events:auto}
 body.pip #hudHint{display:none}
 /* MIC SQUARE: compact square mic button, shown ONLY while the HUD is hidden
    (off-screen-controls state). A real tappable button — no finicky invisible zone.
-   Square per user order (was a 36px circle): the whole 52px square is the target,
+   Square per user order (was a 36px circle): the whole 54px square is the target
+   (same size as the tab-bar mic #voiceBtn — one mic form in every state),
    and the listening pulse/glow lives on the square itself (see #micDot.listening).
    Sits below the "Tap for controls" pill (pill is at bottom:104px; square top
-   edge is 76px — 28px clear). */
+   edge is 78px — 26px clear). */
 #micDot{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
-  z-index:59;width:52px;height:52px;border-radius:14px;padding:0;cursor:pointer;
+  z-index:59;width:54px;height:54px;border-radius:14px;padding:0;cursor:pointer;
   background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
   font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;
   opacity:0;pointer-events:none;transition:opacity .35s,background .2s,border-color .2s,box-shadow .2s;
@@ -656,22 +657,28 @@ body.pip #tvBox{display:none!important}
 @keyframes mdotpulse{0%,100%{box-shadow:0 0 8px rgba(229,9,20,.35)}50%{box-shadow:0 0 18px rgba(229,9,20,.7)}}
 /* ---------- tab bar ---------- */
 #tabbar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;
+  align-items:center;justify-content:center;
   background:rgba(10,10,16,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border-top:1px solid var(--line);padding:10px 0 calc(14px + env(safe-area-inset-bottom))}
+  border-top:1px solid var(--line);padding:8px 0 calc(10px + env(safe-area-inset-bottom))}
 .tab{flex:1;text-align:center;font-size:10px;color:#8b8b96;font-weight:600;transition:color .3s}
 .tab .ico{font-size:20px;display:block;margin-bottom:3px}
 .tab.on{color:#fff}
-#viewpad{height:calc(70px + env(safe-area-inset-bottom))}
-/* ---------- voice button: single-button navigation ---------- */
-#voiceBtn{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;
-  background:rgba(18,18,26,.72);border:1px solid rgba(255,255,255,.14);border-radius:22px;
-  margin:0 20px;padding:13px 20px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;
+#viewpad{height:calc(74px + env(safe-area-inset-bottom))}
+/* ---------- voice button: single-button navigation ----------
+   SQUARE per user order: the mic is ONE 54px square in every state — this
+   tab-bar button matches #micDot exactly (size, radius, listening glow).
+   The old full-width "Hold to talk" bar is gone; the listening wording now
+   lives only in the transcript chip (#voicePop shows "Listening…"). */
+#voiceBtn{flex:0 0 auto;width:54px;height:54px;display:flex;align-items:center;justify-content:center;
+  background:rgba(18,18,26,.72);border:1px solid rgba(255,255,255,.14);border-radius:14px;
+  margin:0;padding:0;color:#fff;cursor:pointer;
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   -webkit-tap-highlight-color:transparent;
   user-select:none;-webkit-user-select:none;touch-action:none}
 #voiceBtn .vico{font-size:22px;line-height:1}
-#voiceBtn .vlabel{letter-spacing:.3px}
-#voiceBtn.listening{animation:vpulse 1s ease-in-out infinite}
+#voiceBtn:active{transform:scale(.92)}
+#voiceBtn.listening{background:rgba(229,9,20,.35);border-color:#e50914;color:#fff;
+  box-shadow:0 0 14px rgba(229,9,20,.55);animation:mdotpulse 1s ease-in-out infinite}
 @keyframes vpulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,.12)}
   50%{transform:scale(1.02);box-shadow:0 0 0 8px rgba(255,255,255,.05)}}
 /* voice popup: little bubble above the mic button — never covers the video */
@@ -1483,10 +1490,11 @@ try{
     </div>
   </div>
 
+  <!-- voice button: ONE square mic (54px), same form as #micDot — the old
+       full-width "Hold to talk" bar was removed per user order. -->
   <nav id="tabbar">
     <button id="voiceBtn" aria-label="Hold to speak, tap to type">
       <span class="vico" id="voiceIco">🎙</span>
-      <span class="vlabel" id="voiceLabel">Hold to talk</span>
     </button>
   </nav>
   <!-- voice popup: little bubble above the mic button (like a typing indicator) -->
@@ -4136,7 +4144,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012034700";
+const BUILD="20261012035200";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6128,17 +6136,23 @@ function renderProfile(){
       const n=$("#profFriendN"); if(n)n.textContent=Object.keys(cached).length;
     }
   }catch(_){}
+  // Friends + requests listeners are attached by friendsAttachListeners(),
+  // keyed to the REAL account uid — Live.uid may be an anonymous fallback
+  // and must never key friend data (requests landed on a node nobody
+  // listened to). If identity is already settled, this attaches now; if the
+  // account lands later, Friends._adopt attaches then.
+  friendsEnsure().then(uid=>{
+    if(uid){ friendsAttachListeners(); checkAcceptedFriends(); }
+    else{
+      const rb=$("#frRequests");
+      if(rb) rb.innerHTML=`<div style="color:var(--mut);font-size:13px">Sign in to see friend requests. <button class="pbtn sm" id="frSignIn">Sign in</button></div>`;
+      const sb=$("#frSignIn"); if(sb) sb.onclick=()=>{ try{ if(window.ShortzAuth)ShortzAuth.showGate(); }catch(e){} };
+    }
+  });
   // keep friend count fresh (listeners attach once per session — not per profile visit)
   liveEnsure().then(ok=>{
     if(!ok||Live._profListen)return;
     Live._profListen=true;
-    Live.db.ref("users/"+Live.uid+"/friends").on("value",s=>{
-      Live.friendsSnap=s.val()||{};
-      try{store.set("friendsCache",Live.friendsSnap);}catch(_){}
-      const n=$("#profFriendN"); if(n)n.textContent=Object.keys(Live.friendsSnap).length;
-      renderFriendList();
-    });
-    Live.db.ref("users/"+Live.uid+"/friendRequests").on("value",s=>renderFriendRequests(s.val()||{}));
     // my live watch parties on my own profile
     ensureLiveHosts();
     Live.db.ref("rooms/").on("value",snap=>{
@@ -7999,7 +8013,7 @@ function liveFriends(){
     Live.friendsSnap=friends;
     const el=$("#liveFriends"); if(!el) return;
     let hist={};
-    try{ hist=(await Live.db.ref("users/"+Live.uid+"/history").once("value")).val()||{}; }catch(e){}
+    try{ hist=(await (Friends.db||Live.db).ref("users/"+(Friends.uid||Live.uid)+"/history").once("value")).val()||{}; }catch(e){}
     const ids=Object.keys(friends||{});
     if(!ids.length){ el.innerHTML=`<div class="live-empty">No friends yet — tap a chatter's name in any watch party to add them.</div>`; return; }
     el.innerHTML=ids.map(fid=>{
@@ -8015,12 +8029,20 @@ function liveFriends(){
         </div></div>`;
     }).join("");
   };
-  if(!Live.friendsListening){
-    Live.friendsListening=true;
-    Live.db.ref("users/"+Live.uid+"/friends").on("value",snap=>render(snap.val()||{}));
-  }else{
-    render(Live.friendsSnap||{});
-  }
+  // Keyed to the real account uid (Friends identity), not Live.uid.
+  friendsEnsure().then(uid=>{
+    if(!uid){
+      const el=$("#liveFriends");
+      if(el) el.innerHTML=`<div class="live-empty">Sign in to see your friends.</div>`;
+      return;
+    }
+    if(Friends._tabUid!==uid){
+      Friends._tabUid=uid;
+      (Friends.db||Live.db).ref("users/"+uid+"/friends").on("value",snap=>render(snap.val()||{}));
+    }else{
+      render(Live.friendsSnap||{});
+    }
+  });
 }
 
 /* ---------- plan tab: schedule watch-togethers ---------- */
@@ -8041,12 +8063,16 @@ function livePlan(){
     <button class="btn-play" id="plGo" style="width:100%;justify-content:center;margin:14px 0">Schedule</button>
     <div class="plabel">UPCOMING</div>
     <div id="plEvents"><div class="live-empty">Loading…</div></div>`;
-  Live.db.ref("users/"+Live.uid+"/friends").once("value").then(fsnap=>{
-    const friends=fsnap.val()||{};
+  friendsEnsure().then(uid=>{
     const box=$("#plFriends"); if(!box) return;
-    box.innerHTML=Object.keys(friends).length
-      ? Object.keys(friends).map(fid=>`<label class="pchk"><input type="checkbox" value="${fid}" data-nm="${esc(friends[fid].name||"Viewer")}"> ${esc(friends[fid].name||"Viewer")}</label>`).join("")
-      : `<div style="font-size:12px;color:var(--mut)">Add friends from a watch party first.</div>`;
+    if(!uid){ box.innerHTML=`<div style="font-size:12px;color:var(--mut)">Sign in to invite friends.</div>`; return; }
+    (Friends.db||Live.db).ref("users/"+uid+"/friends").once("value").then(fsnap=>{
+      const friends=fsnap.val()||{};
+      if(!$("#plFriends")) return;
+      box.innerHTML=Object.keys(friends).length
+        ? Object.keys(friends).map(fid=>`<label class="pchk"><input type="checkbox" value="${fid}" data-nm="${esc(friends[fid].name||"Viewer")}"> ${esc(friends[fid].name||"Viewer")}</label>`).join("")
+        : `<div style="font-size:12px;color:var(--mut)">Add friends from a watch party first.</div>`;
+    });
   });
   // series dropdown with cover art thumbnails
   const plD=$("#plDrop"), plB=$("#plDropBtn"), plM=$("#plMenu"), plC=$("#plDropCur"), plH=$("#plSeries");
