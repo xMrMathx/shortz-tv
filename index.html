@@ -587,6 +587,14 @@ body.pip #tvBtn{display:none}
   box-shadow:0 8px 24px rgba(0,0,0,.6)}
 .tv-scr{position:relative;border-radius:8px;overflow:hidden;background:linear-gradient(140deg,#2a2a35,#101016);height:96px}
 .tv-scr img{width:100%;height:100%;object-fit:cover;display:block}
+#tvVid{position:absolute;inset:0;display:none}
+#tvVid iframe{width:100%;height:100%;border:0;display:block}
+/* gesture layer over the screen: the trailer iframe would swallow touches,
+   so taps + left/right swipes land here and bubble to the TV's handlers.
+   pan-y keeps vertical page gestures from being hijacked; horizontal
+   drags stay live for swipe-to-skip. */
+#tvTouch{position:absolute;inset:0;z-index:2;touch-action:pan-y}
+.tv-cap{z-index:3;pointer-events:none}
 .tv-tag{position:absolute;top:4px;left:4px;font-size:8px;font-weight:800;letter-spacing:.6px;
   background:#e50914;color:#fff;padding:2px 5px;border-radius:4px}
 .tv-cap{position:absolute;left:0;right:0;bottom:0;padding:10px 6px 5px;color:#fff;
@@ -1484,6 +1492,8 @@ try{
       <button id="tvX" aria-label="Close TV">✕</button>
       <div class="tv-scr">
         <img id="tvImg" alt="" decoding="async">
+        <div id="tvVid"></div>
+        <div id="tvTouch"></div>
         <span class="tv-tag" id="tvTag">NEW</span>
         <div class="tv-cap"><b id="tvTitle"></b><span id="tvSub"></span></div>
       </div>
@@ -1618,8 +1628,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=38204a3"></script>
-<script defer src="manga-catalog.js?v=38204a3"></script>
+<script src="catalog.js?v=d5b0920"></script>
+<script defer src="manga-catalog.js?v=d5b0920"></script>
 <script defer src="manga-chapters.js?v=b8aa517"></script>
 <script>
 "use strict";
@@ -1897,7 +1907,9 @@ async function reportBlockedVid(vid,code){
     await firebase.database().ref("directory/"+user.uid).update(upd);
   }catch(e){}
 }
-/* error card: never auto-advance on failure — user chooses */
+/* error card: LAST RESORT only — shown when the series has nothing playable
+   left. While a next playable episode exists, skipBlockedVid auto-skips to it
+   instantly (settled law) and this card never appears. */
 function showErrorCard(node,vid,code){
   const card=node&&node.querySelector("[data-errcard]");
   if(!card)return;
@@ -1930,6 +1942,29 @@ function hideErrorCard(node){
   if(card)card.style.display="none";
 }
 function skipBlockedVid(node,vid){
+  // SETTLED LAW: a video that hits a YouTube wall is skipped INSTANTLY to the
+  // next playable episode of the same series — never a dead-end card while
+  // the series still has something playable. Owner resolution mirrors
+  // autoNext (feed.cur can be out of sync; the vid names the real series).
+  if(node&&typeof curSlide==="function"&&node===curSlide()){
+    const now=Date.now();
+    if(now-(node._lastSkipT||0)>800){
+      let t=node._t||feed.cur, eps=(t&&t.episodes)||[];
+      let idx=epIdxOf(eps,vid);
+      if(idx<0){
+        const owner=(typeof byVid==="function")?byVid(vid):null;
+        if(owner&&owner.episodes){ t=owner; eps=owner.episodes; idx=epIdxOf(eps,vid); }
+      }
+      for(let i=idx+1;i<eps.length;i++){
+        const e=eps[i], evid=e.video_id||vidOf(e.url||"");
+        if(e.verified&&e.url&&evid&&!isVidBlocked(evid)){
+          node._lastSkipT=now;
+          if(t)feed.cur=t;
+          try{ playEpisode(e); return; }catch(err){}
+        }
+      }
+    }
+  }
   showErrorCard(node,vid,(node&&node._errCode)||0);
 }
 function onYtPlayerError(node,vid,code){
@@ -4232,7 +4267,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012042200";
+const BUILD="20261012144028";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7138,13 +7173,20 @@ function friendNameMatch(name,query){
   const nm=norm(name);
   return tokens.every(t=>nm.includes(t));
 }
+/* True when Firebase refused a friends/search op on rules grounds, so the
+   UI can say "permissions" out loud instead of dressing a denial up as an
+   innocent empty result or a vague failure. */
+function frPermErr(e){ return !!e && (e.code==="PERMISSION_DENIED" || /permission/i.test(String(e.message||""))); }
 async function searchUsers(q){
   const box=$("#frResults");
   if(!q){box.innerHTML="";return;}
   box.innerHTML=`<div style="color:var(--mut);font-size:13px">Searching…</div>`;
   try{
-    const ok=await liveEnsure(); if(!ok){box.innerHTML="";return;}
-    const snap=await Live.db.ref("directory").limitToFirst(200).once("value");
+    const ok=await liveEnsure(); if(!ok){box.innerHTML=`<div style="color:var(--mut);font-size:13px">Couldn't load people — connection problem. Try again.</div>`;return;}
+    // Whole directory, no limitToFirst: entries are keyed by uid, so a cap
+    // silently drops real people once throwaway accounts pile up — and a
+    // dropped person renders exactly like "No users named…".
+    const snap=await Live.db.ref("directory").once("value");
     const all=snap.val()||{};
     const hits=[];
     Object.keys(all).forEach(uid=>{
@@ -7165,7 +7207,9 @@ async function searchUsers(q){
       </div>`).join("");
     box.querySelectorAll("[data-add]").forEach(b=>b.onclick=e=>{e.stopPropagation();sendFriendRequest(b.dataset.add,{name:b.dataset.nm,photo:b.dataset.ph});});
     box.querySelectorAll("[data-fp]").forEach(r=>r.onclick=()=>openFriendProfile(r.dataset.fp));
-  }catch(e){ box.innerHTML=`<div style="color:var(--mut);font-size:13px">Search failed — try again.</div>`; }
+  }catch(e){ box.innerHTML=frPermErr(e)
+    ?`<div style="color:var(--mut);font-size:13px">Couldn't load people — the server blocked the search (permissions).</div>`
+    :`<div style="color:var(--mut);font-size:13px">Search failed — try again.</div>`; }
 }
 async function sendFriendRequest(toUid,info){
   // Identity gate: no real account = no send. Previously this ran
@@ -7181,7 +7225,7 @@ async function sendFriendRequest(toUid,info){
     });
     toast("Request sent ✓");
     searchUsers(($("#frSearch")||{}).value||"");
-  }catch(e){ toast("Couldn't send — try again"); }
+  }catch(e){ toast(frPermErr(e)?"Couldn't send — server blocked it (permissions)":"Couldn't send — try again"); }
 }
 function renderFriendRequests(reqs){
   const box=$("#frRequests"); if(!box)return;
@@ -8016,6 +8060,7 @@ async function renderStreaming(){ await mountStreamFeed(); }
 
 async function renderLive(){
   const v=$("#view-live");
+  v.classList.toggle("ls-mode",Live.tab==="sports"); // sports only: seg bar + stage pin while the guide scrolls
   liveRoomOffAll();
   if(Live.roomId){ renderLiveRoom(); return; }
   if(!FIREBASE_READY){ v.innerHTML=liveSetupHTML(); return; }
@@ -10283,6 +10328,12 @@ function lsEnsureStyle(){
   ".ls-sub{color:var(--mut);font-size:12.5px;margin-bottom:12px}"+
   ".ls-stage{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:14px}"+
   ".ls-stage iframe{width:100%;height:100%;border:0;display:block}"+
+  /* sticky follow (his order, mirroring the TV Guide's .tg-preview.stuck):
+     seg bar pins under the topbar (48px measured), stage pins under both
+     (48 topbar + 37 seg + 14 seg margin + 6 gap = 105), height capped at
+     200px exactly like the guide preview so the rows keep the screen. */
+  "#view-live.ls-mode .liveseg{position:sticky;top:calc(48px + env(safe-area-inset-top));z-index:39;background:rgba(8,8,13,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:14px}"+
+  ".ls-stage.stuck{position:fixed;top:calc(105px + env(safe-area-inset-top));left:16px;right:16px;z-index:45;margin:0;max-height:200px;box-shadow:0 12px 40px rgba(0,0,0,.7)}"+
   ".ls-idle{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--mut);text-align:center;padding:16px}"+
   ".ls-chip{position:absolute;top:10px;left:10px;background:rgba(5,5,10,.82);color:#fff;font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:999px;pointer-events:none;max-width:88%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
   ".ls-chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff2d55;margin-right:6px;animation:lsPulse 1.2s infinite}"+
@@ -10345,6 +10396,7 @@ function lsRowHTML(ch){
 }
 function lsRender(){
   const body=$("#livebody"); if(!body)return;
+  lsStickInit();
   const chans=lsSorted();
   body.innerHTML=lsHeadHTML()
     +'<div class="ls-stage" id="lsStage">'+lsStageIdleHTML()+'</div>'
@@ -10418,6 +10470,40 @@ function lsStop(){
   if(f){ try{ f.src="about:blank"; }catch(e){} }
   LS_ACTIVE=null;
 }
+/* ---------- sticky stage: follow the scroll like the TV Guide preview ----------
+   Same pattern as tgStickInit/tgStickCheck: once the stage's natural spot
+   scrolls past, a same-height placeholder holds its place in the flow and
+   the stage itself goes fixed under the (also pinned) seg bar — the game
+   keeps playing in view while the guide rows scroll beneath it. Scrolling
+   back to the placeholder restores it. Only ever active in Sports. */
+function lsStickInit(){
+  const st=$("#lsStage"); if(st){ st.classList.remove("stuck"); st._stickTop=null; }
+  const ph=$("#lsStickPh"); if(ph)ph.remove();
+}
+function lsStickCheck(){
+  const st=$("#lsStage"); if(!st||typeof curView==="undefined"||curView!=="live"||typeof Live==="undefined"||Live.tab!=="sports")return;
+  const stuck=st.classList.contains("stuck");
+  if(!stuck){
+    if(st._stickTop==null){
+      try{ st._stickTop=st.getBoundingClientRect().top+window.scrollY; }catch(e){ return; }
+    }
+    if(window.scrollY>st._stickTop+40){
+      const ph=document.createElement("div");
+      ph.id="lsStickPh"; ph.style.height=st.offsetHeight+"px";
+      st.parentNode.insertBefore(ph,st);
+      st.classList.add("stuck");
+    }
+  }else{
+    const ph=$("#lsStickPh");
+    if(ph){
+      let phTop=0;
+      try{ phTop=ph.getBoundingClientRect().top+window.scrollY; }catch(e){}
+      if(window.scrollY<=phTop){
+        st.classList.remove("stuck"); ph.remove(); st._stickTop=null;
+      }
+    }else{ st.classList.remove("stuck"); st._stickTop=null; }
+  }
+}
 /* ESPN scoreboard strip for the Sports Guide — same endpoints, classes and
    game-detail sheet as the TV Guide scoreboard, but fetched fresh (no-store)
    on EVERY open of the section. */
@@ -10475,6 +10561,10 @@ async function lsScoreboard(){
 }
 async function liveSports(){
   lsEnsureStyle();
+  if(!window._lsHook){
+    window._lsHook=true;
+    window.addEventListener("scroll",()=>{ if(typeof curView!=="undefined"&&curView==="live")lsStickCheck(); },{passive:true});
+  }
   const body=$("#livebody"); if(!body)return;
   body.innerHTML=lsHeadHTML()+'<div style="color:var(--mut);font-size:13px;padding:8px 0">Loading channels…</div>';
   // fresh lineup on every open — same no-store pattern as streamers.json
