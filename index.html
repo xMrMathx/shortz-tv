@@ -2090,6 +2090,18 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
           return true;
         }
       }
+      // SHOW-EVERYTHING: bare query like "Star Trek" -> browse search showing ALL matches
+      if(bare.length>1){
+        try{
+          go("browse");
+          setTimeout(()=>{
+            const s=document.getElementById("bsearch");
+            if(s){s.value=bare;s.dispatchEvent(new Event("input",{bubbles:true}));}
+          },400);
+          toast("Showing all results for \""+bare+"\"");
+          return true;
+        }catch(e){}
+      }
       return false;
     }
     const target=intent[1].trim().replace(/[^\w\s]/g,"").trim();
@@ -2189,7 +2201,18 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       return true;
     }
     // --- series by name + episode: "play Les Kassos episode 5", "open up westerns" (genre caught above) ---
+    // SHOW-EVERYTHING RULE: "show me X", "bring up X", "open X", "find X" (no play verb),
+    // and bare queries like "Star Trek", show ALL matching titles via browse search —
+    // never just open the single best match.
     let q=target.replace(/[^\w\s]/g,"").toLowerCase();
+    // "X genre" where X isn't a real genre -> search for X
+    const genreWord=q.match(/^(.+?)\s+genres?$/);
+    if(genreWord){
+      const maybeG=genreWord[1].trim();
+      let isRealGenre=false;
+      for(const alias in GENRE_ALIASES){if(maybeG===alias||maybeG.includes(alias)){isRealGenre=true;break;}}
+      if(!isRealGenre){q=maybeG;} // "star trek genre" -> search "star trek"
+    }
     let epNum=null;
     const epMatch=q.match(/(?:episode|ep|part|number)\s+(\w+)/);
     if(epMatch){
@@ -2200,6 +2223,20 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(!epNum){
       const numMatch=q.match(/\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\w+)(?:\s+one)?$/);
       // handled by parseNumWord below if it's a pure number word at the end
+    }
+    // SHOW ALL: if no "play/watch" verb, or it's a bare query -> browse search with all results
+    const wantPlay=verb.includes("play")||verb.includes("watch")||verb.includes("put on")||verb.includes("start");
+    const wantShow=!wantPlay||!intent; // bare query ("Star Trek") or show-verb ("show me X")
+    if(q.length>1&&wantShow&&!epNum){
+      try{
+        go("browse");
+        setTimeout(()=>{
+          const s=document.getElementById("bsearch");
+          if(s){s.value=q;s.dispatchEvent(new Event("input",{bubbles:true}));}
+        },400);
+        toast("Showing all results for \""+q+"\"");
+        return true;
+      }catch(e){}
     }
     if(q.length>1){
       try{
@@ -3254,7 +3291,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011232000";
+const BUILD="20261011232200";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
