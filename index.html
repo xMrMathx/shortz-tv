@@ -62,7 +62,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 /* ---------- FEED (home landing): fullscreen vertical player ---------- */
 .feedstage{position:relative;height:100dvh;min-height:0;overflow:hidden;background:#000;touch-action:none}
 .feed-video{position:absolute;inset:0;overflow:hidden;background:#000}
-.feed-video iframe{border:0;background:#000;display:block;position:relative;z-index:1}
+.feed-video iframe{border:0;background:#000;display:block;position:relative;z-index:1;pointer-events:none!important}
 .feed-backdrop{position:absolute;inset:-6%;background-size:cover;background-position:center;filter:blur(28px) brightness(.45);transform:scale(1.05);z-index:0}
 .feed-video.cover iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:16/9;transform:translateX(-50%)}
 .feed-video.vert iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
@@ -452,7 +452,7 @@ body.hud-hidden.feedfull #hudHint{opacity:1;pointer-events:auto}
      Hold your thumb here and the mic activates — no need to wake controls first. */
   #micHold{position:fixed;bottom:0;left:0;right:0;height:100px;
     opacity:0;pointer-events:none;z-index:60;touch-action:none}
-  body.hud-hidden.feedfull #micHold{pointer-events:auto}
+  body.feedfull #micHold{pointer-events:auto}
 body.pip #hudHint{display:none}
 /* ---------- tab bar ---------- */
 #tabbar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;
@@ -3139,7 +3139,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011223500";
+const BUILD="20261011223800";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
