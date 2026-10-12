@@ -1795,6 +1795,77 @@ function thumb(t,sz){
   const id=ytId(u); if(!id) return "";
   return "https://i.ytimg.com/vi/"+id+"/"+sz+"default.jpg";
 }
+/* ---------- shared identity discipline ----------
+   ONE rule for every consumer of the shared Firebase auth: an anonymous
+   sign-in may only happen when there is genuinely NO session and none
+   restoring. signInAnonymously() REPLACES whoever is signed in — called
+   unconditionally (the old reportBlockedVid / Presence.start /
+   likesEnsure / liveEnsure behavior) it evicted real Google/email
+   sessions with throwaway anonymous ones, and liveEnsure's synchronous
+   currentUser read raced the persisted-session restore, so the eviction
+   fired even while a real session was mid-restore. That churn is the
+   upstream poison behind the friend-request failure and the "didn't
+   remember my sign in" reports.
+   Every consumer now resolves identity through authEnsureUser():
+   1. a user already known (currentUser) is used AS-IS — a real account
+      or an existing anonymous session — and is never replaced;
+   2. otherwise the auth state is awaited (bounded) — onAuthStateChanged
+      only fires after a persisted session has finished restoring;
+   3. only a settled, genuinely session-less state may fall back to an
+      anonymous sign-in, and only for consumers passing {anon:true}.
+   Consumers that don't strictly need an identity pass {anon:false} and
+   degrade gracefully (skip) instead of manufacturing one. */
+const AuthId={user:undefined,_watching:false,_waiters:[]};
+function _authIdWatch(auth){
+  if(AuthId._watching||!auth)return;
+  AuthId._watching=true;
+  try{
+    auth.onAuthStateChanged(u=>{
+      AuthId.user=u||null;
+      const ws=AuthId._waiters.splice(0);
+      ws.forEach(f=>{ try{f(AuthId.user);}catch(e){} });
+    });
+  }catch(e){ AuthId.user=null; }
+}
+function authCurrentUser(auth){
+  // the settled current user — waits (bounded) out a restoring session
+  if(!auth)return Promise.resolve(null);
+  _authIdWatch(auth);
+  try{ const cu=auth.currentUser; if(cu)return Promise.resolve(cu); }catch(e){}
+  if(AuthId.user)return Promise.resolve(AuthId.user);
+  if(AuthId.user===null)return Promise.resolve(null); // settled: signed out
+  return new Promise(res=>{
+    let done=false;
+    const finish=u=>{ if(done)return; done=true; res(u||null); };
+    AuthId._waiters.push(finish);
+    setTimeout(()=>{ // never hang a consumer on auth
+      let cu=null; try{ cu=auth.currentUser; }catch(e){}
+      finish(cu||AuthId.user||null);
+    },4000);
+  });
+}
+let _anonSignInFlight=null;
+async function authEnsureUser(auth,opts){
+  if(!auth)return null;
+  let u=await authCurrentUser(auth);
+  if(u)return u;
+  if(!opts||!opts.anon)return null;
+  // last resort for a TRUE guest only: state settled with no session at
+  // all. Re-check once more in case a sign-in landed during the wait.
+  try{ u=auth.currentUser; }catch(e){}
+  if(u)return u;
+  // deduped: consumers racing at boot share ONE anonymous sign-in instead
+  // of each minting a fresh throwaway identity
+  if(!_anonSignInFlight){
+    _anonSignInFlight=(async()=>{
+      try{ const cred=await auth.signInAnonymously(); return (cred&&cred.user)||null; }
+      catch(e){ return null; }
+      finally{ _anonSignInFlight=null; }
+    })();
+  }
+  return _anonSignInFlight;
+}
+
 /* ---------- Auto-pull algorithm: unplayable videos remove themselves ----------
    YouTube reveals claimant embed blocks (error 150/101) and dead videos
    (error 100) ONLY inside the player — no server API exposes them. So the app
@@ -1813,12 +1884,17 @@ async function reportBlockedVid(vid,code){
   try{
     if(!FIREBASE_READY||!window.firebase)return;
     if(!Live.app){try{firebase.initializeApp(FIREBASE_CONFIG);}catch(e){} Live.app=firebase.app();}
-    const cred=await firebase.auth().signInAnonymously();
+    // Identity WITHOUT manufacturing one (shared discipline above): a
+    // blocked-video report must never force an anonymous sign-in — on the
+    // shared auth that would replace a real session or race its restore.
+    // Report under whatever session already exists; with none, skip.
+    const user=await authEnsureUser(firebase.auth(),{anon:false});
+    if(!user)return;
     // reports live under the reporter's own directory node (existing rules allow
     // any shape there; the launch-time directory writes use update(), not set(),
     // so reports survive). The daily cron sweeps directory for blocked/*.
     const upd={}; upd["blocked/"+vid]={code:code,ts:Date.now()};
-    await firebase.database().ref("directory/"+cred.user.uid).update(upd);
+    await firebase.database().ref("directory/"+user.uid).update(upd);
   }catch(e){}
 }
 /* error card: never auto-advance on failure — user chooses */
@@ -1881,8 +1957,12 @@ const Presence={uid:null,db:null,_hb:null,_started:false,_unwatch:null,
     try{
       if(!Live.app){try{firebase.initializeApp(FIREBASE_CONFIG);}catch(e){} Live.app=firebase.app();}
       const auth=firebase.auth(), db=firebase.database();
-      const cred=await auth.signInAnonymously();
-      this.uid=cred.user.uid; this.db=db;
+      // shared identity discipline: adopt the existing session as-is (a
+      // real account stays itself in presence); anonymous only as the
+      // settled last resort for a true guest — never an eviction.
+      const user=await authEnsureUser(auth,{anon:true});
+      if(!user){ this._started=false; return; }
+      this.uid=user.uid; this.db=db;
       const prof=store.get("profile",null);
       const name=(((prof&&prof.name)||store.get("live_name","")||"Someone")+"").slice(0,40);
       const dev=(/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent||""))?"📱":"🖥️";
@@ -2137,11 +2217,19 @@ async function likesEnsure(){
     try{
       if(!Live.app){
         try{firebase.initializeApp(FIREBASE_CONFIG);}catch(e){/* already initialized */}
-        Live.app=firebase.app();Live.auth=firebase.auth();Live.db=firebase.database();
+        Live.app=firebase.app();
       }
+      // a sibling consumer (reportBlockedVid/Presence) can set Live.app
+      // alone — never resolve identity through a half-initialized Live
+      if(!Live.auth)Live.auth=firebase.auth();
+      if(!Live.db)Live.db=firebase.database();
       Likes.auth=Live.auth;Likes.db=Live.db;
-      const cred=await Likes.auth.signInAnonymously();
-      Likes.uid=cred.user.uid;
+      // shared identity discipline: signed-in users like under their REAL
+      // uid, so their likes stay attached to their account; anonymous only
+      // as the settled last resort for a true guest.
+      const user=await authEnsureUser(Likes.auth,{anon:true});
+      if(!user)return false;
+      Likes.uid=user.uid;
       const prof=store.get("profile",null);
       Likes.name=(((prof&&prof.name)||store.get("live_name","")||"Someone")+"").slice(0,40);
       return true;
@@ -3246,7 +3334,7 @@ function renderView(v){
     if(feedMounted&&!piaActive){ try{ playSeries(pickRandom(null)); }catch(e){} }
   }
   if(v==="browse")renderBrowse(browseGenre);
-  if(v==="live")renderLive();
+  if(v==="live"){ if(curView!=="live")Live.tab="sports"; renderLive(); } // every fresh entry lands on Sports (his order)
   if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
   if(v==="manga")renderManga();
   if(v==="profile")renderProfile();
@@ -4144,7 +4232,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012035200";
+const BUILD="20261012042200";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6141,14 +6229,7 @@ function renderProfile(){
   // and must never key friend data (requests landed on a node nobody
   // listened to). If identity is already settled, this attaches now; if the
   // account lands later, Friends._adopt attaches then.
-  friendsEnsure().then(uid=>{
-    if(uid){ friendsAttachListeners(); checkAcceptedFriends(); }
-    else{
-      const rb=$("#frRequests");
-      if(rb) rb.innerHTML=`<div style="color:var(--mut);font-size:13px">Sign in to see friend requests. <button class="pbtn sm" id="frSignIn">Sign in</button></div>`;
-      const sb=$("#frSignIn"); if(sb) sb.onclick=()=>{ try{ if(window.ShortzAuth)ShortzAuth.showGate(); }catch(e){} };
-    }
-  });
+  friendsEnsure().then(uid=>paintProfileFriendsState(uid));
   // keep friend count fresh (listeners attach once per session — not per profile visit)
   liveEnsure().then(ok=>{
     if(!ok||Live._profListen)return;
@@ -6221,17 +6302,22 @@ async function mgBackfillTitles(ids){
 }
 
 /* ---------- TV Guide (Profile): classic guide — preview player + full channel list ----------
-   Tap a row → it plays in the preview box. Tap the preview → fullscreen. */
+   Tap a row → it plays in the preview box. Tap the preview → fullscreen.
+   Scrolling the list plays the row most in view in the (sticky) preview box —
+   WITH SOUND (his order). Sound-on is the design default everywhere in the
+   guide; a muted start + Unmute button appears ONLY if the platform refuses
+   an audible start. */
 let tgList=null, tgShown=0, tgQuery="";
 const TG_CHUNK=60;
-function tgEmbed(t){
+function tgEmbed(t,muted){
+  // sound-on by spec (mute=0); muted is only the platform-refusal fallback
   const u=t.url||"";
   if(u.indexOf("vimeo.com")>=0){
     const m=u.match(/vimeo\.com\/(?:video\/)?(\d+)/);
-    return m?"https://player.vimeo.com/video/"+m[1]+"?autoplay=1&muted=1&title=0&byline=0&portrait=0":"";
+    return m?"https://player.vimeo.com/video/"+m[1]+"?autoplay=1&muted="+(muted?1:0)+"&title=0&byline=0&portrait=0":"";
   }
   const id=ytId(u); if(!id)return "";
-  return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080";
+  return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute="+(muted?1:0)+"&rel=0&playsinline=1&modestbranding=1&vq=hd1080&enablejsapi=1";
 }
 function tgRowHTML(t){
   const sm=thumb(t,"mq");
@@ -6257,10 +6343,13 @@ function tgMore(){
   box.querySelectorAll(".tg-row").forEach(r=>{
     if(r._tg)return; r._tg=true;
     r.onclick=()=>tgPreview(r.dataset.id);
+    tgObserveRow(r); // scroll-play: the row most in view plays in the preview box
   });
 }
-function tgPreview(id){
+function tgPreview(id,fromScroll){
   const t=byId(id); if(!t)return;
+  if(!fromScroll)tgManualAt=Date.now(); // a tap picked this one — scroll-play yields for a few seconds
+  tgHideUnmute();
   document.querySelectorAll("#tgList .tg-row").forEach(r=>r.classList.toggle("sel",r.dataset.id===id));
   const fr=$("#tgFrame"); if(!fr)return;
   const url=tgEmbed(t);
@@ -6278,6 +6367,86 @@ function tgPause(){
   const fr=$("#tgFrame");
   if(fr){fr.innerHTML="";fr._tid=null;}
   tgWatchEnd();
+  tgHideUnmute();
+  if(tgObs){ try{tgObs.disconnect();}catch(e){} tgObs=null; tgObsRatios.clear(); }
+}
+/* ---------- guide sound: previews play WITH SOUND (his order) ----------
+   tgEmbed requests an audible start; the APK shell permits it
+   (setMediaPlaybackRequiresUserGesture(false) in MainActivity). If a browser
+   still refuses, the preview starts muted and the Unmute button shows —
+   never a dead/paused preview. */
+function tgShowUnmute(){ const b=$("#tgUnmute"); if(b)b.style.display=""; }
+function tgHideUnmute(){ const b=$("#tgUnmute"); if(b)b.style.display="none"; }
+function tgUnmuteNow(){
+  tgHideUnmute();
+  try{
+    if(tgPlayerKind==="yt"&&tgPlayer){ tgPlayer.unMute(); tgPlayer.setVolume(100); tgPlayer.playVideo(); return; }
+    if(tgPlayerKind==="vm"&&tgPlayer){ tgPlayer.setVolume(1); tgPlayer.play(); return; }
+  }catch(e){}
+  const fr=document.querySelector("#tgFrame iframe");
+  if(fr&&fr.contentWindow){
+    try{
+      fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"setVolume",args:[100]}),"*");
+      fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"unMute",args:""}),"*");
+      fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"playVideo",args:""}),"*");
+    }catch(e){}
+  }
+}
+function tgSoundArm(kind,player,token){
+  tgHideUnmute();
+  const stillMine=()=>{ const pv=$("#tgPreviewBox"); return pv&&pv._tid===token; };
+  try{
+    if(kind==="yt"){ player.unMute(); player.setVolume(100); player.playVideo(); }
+    else if(kind==="vm"){ player.setVolume(1); const p=player.play(); if(p&&p.catch)p.catch(()=>{}); }
+  }catch(e){}
+  setTimeout(()=>{
+    if(!stillMine())return;
+    try{
+      if(kind==="yt"){
+        const st=player.getPlayerState();
+        if(st!==1&&st!==3){ try{ player.mute(); player.playVideo(); }catch(e){} tgShowUnmute(); }
+      }else if(kind==="vm"){
+        player.getPaused().then(paused=>{
+          if(paused&&stillMine()){ try{ player.setVolume(0); const p2=player.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} tgShowUnmute(); }
+        }).catch(()=>{});
+      }
+    }catch(e){}
+  },1800);
+}
+/* ---------- guide scroll-play: the row most in view plays (with sound) ----------
+   One preview box = one video at a time, by construction. A manual tap holds
+   the observer off for a few seconds so a deliberate pick is never yanked. */
+let tgObs=null, tgObsRatios=new Map(), tgObsTimer=null, tgManualAt=0, tgLastScroll=0;
+function tgObsEnsure(){
+  if(tgObs||typeof IntersectionObserver==="undefined")return;
+  window.addEventListener("scroll",()=>{ tgLastScroll=Date.now(); },{passive:true});
+  tgObs=new IntersectionObserver((es)=>{
+    es.forEach(en=>{ tgObsRatios.set(en.target,en.intersectionRatio||0); });
+    if(tgObsTimer)return;
+    tgObsTimer=setTimeout(()=>{ tgObsTimer=null; tgObsEval(); },300);
+  },{threshold:[0,.25,.5,.75,1]});
+}
+function tgObserveRow(r){
+  tgObsEnsure(); if(!tgObs)return;
+  try{ tgObs.observe(r); }catch(e){}
+}
+function tgObsEval(){
+  if(curView!=="profile")return;
+  if(Date.now()-tgLastScroll>1200)return; // only while actually scrolling — never yank a video at rest
+  if(Date.now()-tgManualAt<4000)return;
+  let best=null, bestD=Infinity;
+  tgObsRatios.forEach((ratio,row)=>{
+    if(!row.isConnected){ tgObsRatios.delete(row); return; }
+    if(ratio<0.5)return;
+    const r=row.getBoundingClientRect();
+    const d=Math.abs((r.top+r.bottom)/2-window.innerHeight/2); // the video he scrolled TO: nearest screen center
+    if(d<bestD){ bestD=d; best=row; }
+  });
+  if(!best)return;
+  const id=best.dataset.id; if(!id)return;
+  const pv=$("#tgPreviewBox");
+  if(pv&&pv._tid===id)return; // already playing it
+  tgPreview(id,true);
 }
 /* Shortz VS Guide auto-advance: when the preview video ends, play the next row */
 let tgPlayer=null, tgPlayerKind=null, tgAdvanceAt=0;
@@ -6322,12 +6491,13 @@ function tgArmEnd(t){
       if(token!==($("#tgPreviewBox")||{})._tid)return;
       tgPlayerKind="vm"; tgPlayer=new Vimeo.Player(iframe);
       tgPlayer.on("ended",fire);
+      tgSoundArm("vm",tgPlayer,token);
     }catch(e){}}).catch(()=>{});
   }else{
     const mk=()=>{try{
       if(token!==($("#tgPreviewBox")||{})._tid)return;
       tgPlayerKind="yt";
-      tgPlayer=new YT.Player(iframe,{events:{onStateChange:(e)=>{if(e.data===0)fire();}}});
+      tgPlayer=new YT.Player(iframe,{events:{onReady:(e)=>{ tgSoundArm("yt",e.target,token); },onStateChange:(e)=>{if(e.data===0)fire();}}});
     }catch(e){}};
     if(window.YT&&window.YT.Player)mk(); else ensureYT(mk);
   }
@@ -6341,6 +6511,7 @@ function renderTvGuide(){
         <div class="tg-ph" id="tgPh"><span style="font-size:30px">📺</span><span>Tap a show below to preview it here</span></div>
         <div class="uprog"><i id="tgProg"></i></div>
       </div>
+      <button id="tgUnmute" style="display:none;position:absolute;top:10px;right:10px;z-index:6;background:rgba(5,5,10,.85);color:#fff;border:1px solid rgba(255,255,255,.35);font-size:12.5px;font-weight:800;padding:8px 14px;border-radius:999px;cursor:pointer">🔊 Unmute</button>
       <div class="tg-meta">
         <img class="tg-thumb" id="tgThumb" alt="" style="display:none" onerror="this.style.display='none'">
         <div style="flex:1;min-width:0"><div class="tg-title" id="tgTitle">Shortz VS Guide</div>
@@ -6363,6 +6534,7 @@ function renderTvGuide(){
   const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); go("home"); playSeries(t);};
   pb.onclick=goFull;
   const wb=$("#tgWatch"); if(wb){wb.style.display="";wb.onclick=(e)=>{e.stopPropagation();goFull();};}
+  const ub2=$("#tgUnmute"); if(ub2){ub2.onclick=(e)=>{e.stopPropagation();tgUnmuteNow();};}
   const si=$("#tgSearch");
   si.addEventListener("input",()=>{
     tgQuery=si.value; tgShown=0; tgList=tgFiltered();
@@ -6852,6 +7024,17 @@ const Friends={uid:null,db:null,_settled:false,_watching:false,_waiters:[],_list
         try{ checkAcceptedFriends(); }catch(e){}
         try{ friendsAttachListeners(); }catch(e){}
       }
+    } else {
+      // Identity settled guest (or a real session was lost): drop any
+      // real-uid listeners so a later real sign-in re-keys cleanly, and
+      // repaint any open Profile boxes to the honest sign-in state —
+      // never stale lists, never "Loading…". When the real account lands
+      // afterwards, _adopt's uid branch re-attaches and the listeners'
+      // initial snapshots repaint both boxes with the real data.
+      if(this._friendsRef){ try{ this._friendsRef.off(); }catch(e){} this._friendsRef=null; }
+      if(this._reqRef){ try{ this._reqRef.off(); }catch(e){} this._reqRef=null; }
+      this._listeningUid=null; this._tabUid=null;
+      try{ paintProfileFriendsState(null); }catch(e){}
     }
     this._emit();
   }
@@ -6894,9 +7077,44 @@ function friendsAttachListeners(){
     try{ store.set("friendsCache",Live.friendsSnap); }catch(_){}
     const n=$("#profFriendN"); if(n)n.textContent=Object.keys(Live.friendsSnap).length;
     renderFriendList();
+  },()=>{ // listener error (e.g. permission denied): never sit on "Loading…"
+    Friends._listeningUid=null;
+    const b=$("#frList");
+    if(b) b.innerHTML=`<div style="color:var(--mut);font-size:13px">Couldn't load friends — check your connection and reopen Profile.</div>`;
   });
   Friends._reqRef=db.ref("users/"+uid+"/friendRequests");
-  Friends._reqRef.on("value",s=>renderFriendRequests(s.val()||{}));
+  Friends._reqRef.on("value",s=>{
+    Live.requestsSnap=s.val()||{};
+    renderFriendRequests(Live.requestsSnap);
+  },()=>{ // listener error: never sit on "Loading…"
+    Friends._listeningUid=null;
+    const b=$("#frRequests");
+    if(b) b.innerHTML=`<div style="color:var(--mut);font-size:13px">Couldn't load requests — check your connection and reopen Profile.</div>`;
+  });
+}
+/* Resolve the Profile Requests / My friends boxes for a settled identity.
+   Every outcome ends in a rendered state — never "Loading…" forever:
+   - no real account → honest sign-in state in BOTH boxes
+   - real account, listeners already live → repaint from the last snapshots
+     (a re-render reset the boxes to "Loading…" and the live listeners only
+     fire on data CHANGE, so without this repaint they never repaint)
+   - real account, first attach → the listeners' initial snapshot paints */
+function paintProfileFriendsState(uid){
+  if(!uid){
+    const rb=$("#frRequests");
+    if(rb) rb.innerHTML=`<div style="color:var(--mut);font-size:13px">Sign in to see friend requests. <button class="pbtn sm" id="frSignIn">Sign in</button></div>`;
+    const lb=$("#frList");
+    if(lb) lb.innerHTML=`<div style="color:var(--mut);font-size:13px">Sign in to see your friends.</div>`;
+    const sb=$("#frSignIn"); if(sb) sb.onclick=()=>{ try{ if(window.ShortzAuth)ShortzAuth.showGate(); }catch(e){} };
+    return;
+  }
+  const already=(Friends._listeningUid===uid);
+  try{ friendsAttachListeners(); }catch(e){}
+  try{ checkAcceptedFriends(); }catch(e){}
+  if(already){
+    if(Live.requestsSnap) renderFriendRequests(Live.requestsSnap);
+    renderFriendList();
+  }
 }
 function friendsNeedSignIn(msg){
   toast(msg||"Sign in to add friends");
@@ -6909,6 +7127,17 @@ function initFriendsUI(){
   if(go) go.onclick=()=>searchUsers(inp.value.trim());
   if(inp) inp.addEventListener("keydown",e=>{if(e.key==="Enter")searchUsers(inp.value.trim());});
 }
+/* Tokenized name match: EVERY word of the query must appear somewhere in
+   the name (case/punctuation-insensitive). "james moore" matches
+   "James X Moore" and "Moore, James" — the old full-string substring
+   match could never match across a middle name or a different word order. */
+function friendNameMatch(name,query){
+  const norm=s=>(s||"").toString().toLowerCase().replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
+  const tokens=norm(query).split(" ").filter(Boolean);
+  if(!tokens.length) return false;
+  const nm=norm(name);
+  return tokens.every(t=>nm.includes(t));
+}
 async function searchUsers(q){
   const box=$("#frResults");
   if(!q){box.innerHTML="";return;}
@@ -6917,13 +7146,12 @@ async function searchUsers(q){
     const ok=await liveEnsure(); if(!ok){box.innerHTML="";return;}
     const snap=await Live.db.ref("directory").limitToFirst(200).once("value");
     const all=snap.val()||{};
-    const ql=q.toLowerCase();
     const hits=[];
     Object.keys(all).forEach(uid=>{
       if(uid===Live.uid||uid===Friends.uid)return;
       const prof=all[uid]||{};
       const nm=(prof.name||"").toString();
-      if(nm.toLowerCase().includes(ql)) hits.push({uid:uid,name:nm,photo:prof.photo||""});
+      if(friendNameMatch(nm,q)) hits.push({uid:uid,name:nm,photo:prof.photo||""});
     });
     if(!hits.length){box.innerHTML=`<div style="color:var(--mut);font-size:13px">No users named “${esc(q)}”.</div>`;return;}
     const friends=Live.friendsSnap||{};
@@ -7176,7 +7404,7 @@ const FIREBASE_READY = !/PASTE_/.test(String(FIREBASE_CONFIG.apiKey||""));
 const Live = {
   app:null, auth:null, db:null,
   uid:null, name:"", authed:false, _ensuring:null,
-  tab:"lobby",               // lobby | friends | plan
+  tab:"sports",              // sports | lobby | friends | plan — Sports is the Live landing (his order)
   roomId:null, room:null,
   roomsListening:false, friendsListening:false,
   roomOffs:[], friendsSnap:null,
@@ -7209,7 +7437,7 @@ $("#lvsclose").addEventListener("click",closeLiveSheet);
 $("#lvscrim").addEventListener("click",closeLiveSheet);
 function closeLiveSheet(){ $("#lvsheet").classList.remove("open"); $("#lvscrim").classList.remove("open"); }
 
-/* ---------- auth (anonymous) ---------- */
+/* ---------- auth (shared identity discipline — see authEnsureUser) ---------- */
 async function liveEnsure(){
   if(!FIREBASE_READY || !window.firebase) return false;
   if(Live.authed && Live.uid) return true;
@@ -7218,21 +7446,24 @@ async function liveEnsure(){
     try{
       if(!Live.app){
         Live.app = firebase.initializeApp(FIREBASE_CONFIG);
-        Live.auth = firebase.auth();
-        Live.db = firebase.database();
       }
-      // Prefer an existing real (non-anonymous) session — e.g. Google/email
-      // sign-in from the auth gate. Anonymous sign-in would REPLACE it.
-      try{
-        const cur = Live.auth.currentUser;
-        if(cur && !cur.isAnonymous){
-          Live.uid = cur.uid; Live.authed = true;
-          Live.name = cur.displayName || Live.name || "Viewer";
-          return true;
-        }
-      }catch(_){}
-      const cred = await Live.auth.signInAnonymously();
-      Live.uid = cred.user.uid;
+      // same half-initialized-Live guard as likesEnsure
+      if(!Live.auth) Live.auth = firebase.auth();
+      if(!Live.db) Live.db = firebase.database();
+      // Shared identity discipline: resolve the SETTLED session — a real
+      // Google/email session may still be restoring, and the old
+      // synchronous currentUser read raced that restore and fell through
+      // to an anonymous sign-in that REPLACED the real session. An
+      // existing session (real or anonymous) is used as-is; anonymous is
+      // only the settled last resort for a true guest.
+      const user = await authEnsureUser(Live.auth,{anon:true});
+      if(!user) return false;
+      Live.uid = user.uid;
+      if(!user.isAnonymous){
+        Live.authed = true;
+        Live.name = user.displayName || Live.name || "Viewer";
+        return true;
+      }
       let nm = store.get("live_name","");
       if(!nm){
         const prof=store.get("profile",null);
@@ -7275,10 +7506,10 @@ function liveSetupHTML(){
 function liveShellHTML(){
   return `<div class="wrap" style="padding-top:14px">
     <div class="liveseg">
+      <button data-lt="sports" class="${Live.tab==="sports"?"on":""}">📺 Sports</button>
       <button data-lt="lobby" class="${Live.tab==="lobby"?"on":""}">🔴 Live</button>
       <button data-lt="friends" class="${Live.tab==="friends"?"on":""}">👥 Friends</button>
       <button data-lt="plan" class="${Live.tab==="plan"?"on":""}">📅 Plan</button>
-      <button data-lt="sports" class="${Live.tab==="sports"?"on":""}">📺 Sports</button>
     </div>
     <div id="livebody"></div>
   </div>`;
@@ -7789,7 +8020,7 @@ async function renderLive(){
   if(Live.roomId){ renderLiveRoom(); return; }
   if(!FIREBASE_READY){ v.innerHTML=liveSetupHTML(); return; }
   v.innerHTML=liveShellHTML();
-  v.querySelectorAll("[data-lt]").forEach(b=>b.onclick=()=>{ Live.tab=b.dataset.lt; renderLive(); });
+  v.querySelectorAll("[data-lt]").forEach(b=>b.onclick=()=>{ if(Live.tab==="sports"&&b.dataset.lt!=="sports"&&typeof lsStop==="function")lsStop(); Live.tab=b.dataset.lt; renderLive(); });
   if(Live.tab==="sports"){ if(typeof liveSports==="function")liveSports(); return; } // public channels — no Firebase sign-in needed
   const ok=await liveEnsure();
   if(!ok){ v.innerHTML=liveSetupHTML(); return; }
@@ -8031,16 +8262,27 @@ function liveFriends(){
   };
   // Keyed to the real account uid (Friends identity), not Live.uid.
   friendsEnsure().then(uid=>{
+    const el=$("#liveFriends");
     if(!uid){
-      const el=$("#liveFriends");
       if(el) el.innerHTML=`<div class="live-empty">Sign in to see your friends.</div>`;
       return;
     }
-    if(Friends._tabUid!==uid){
-      Friends._tabUid=uid;
-      (Friends.db||Live.db).ref("users/"+uid+"/friends").on("value",snap=>render(snap.val()||{}));
-    }else{
-      render(Live.friendsSnap||{});
+    try{
+      const db=Friends.db||Live.db;
+      if(!db) throw new Error("no db");
+      if(Friends._tabUid!==uid){
+        Friends._tabUid=uid;
+        db.ref("users/"+uid+"/friends").on("value",snap=>render(snap.val()||{}),
+          ()=>{ // listener error: never sit on "Loading…"
+            Friends._tabUid=null;
+            const e2=$("#liveFriends");
+            if(e2) e2.innerHTML=`<div class="live-empty">Couldn't load friends — check your connection and try again.</div>`;
+          });
+      }else{
+        render(Live.friendsSnap||{});
+      }
+    }catch(e){
+      if(el) el.innerHTML=`<div class="live-empty">Couldn't load friends — check your connection and try again.</div>`;
     }
   });
 }
@@ -8072,6 +8314,9 @@ function livePlan(){
       box.innerHTML=Object.keys(friends).length
         ? Object.keys(friends).map(fid=>`<label class="pchk"><input type="checkbox" value="${fid}" data-nm="${esc(friends[fid].name||"Viewer")}"> ${esc(friends[fid].name||"Viewer")}</label>`).join("")
         : `<div style="font-size:12px;color:var(--mut)">Add friends from a watch party first.</div>`;
+    }).catch(()=>{ // a rejected read must not leave the picker on "Loading…"
+      const b2=$("#plFriends");
+      if(b2) b2.innerHTML=`<div style="font-size:12px;color:var(--mut)">Couldn't load friends — try again.</div>`;
     });
   });
   // series dropdown with cover art thumbnails
@@ -8157,8 +8402,12 @@ mountFeed();
   // YT IFrame API warm at idle: first video must not wait on API download (FIX 4)
   idlePre(function(){ try{ ensureYT(); }catch(e){} });
   // register this user in the searchable directory on every launch (fire-and-
-  // forget) so friends can find each other without opening the Live tab first
-  idlePre(function(){ try{ liveEnsure(); }catch(e){} });
+  // forget) so friends can find each other without opening the Live tab first.
+  // friendsEnsure() starts the Friends identity watcher at boot too: its
+  // adoption upserts directory/<real uid> with the profile name, so a
+  // signed-in user is findable from the moment the app opens — not only
+  // after they first visit Profile.
+  idlePre(function(){ try{ liveEnsure(); }catch(e){} try{ friendsEnsure(); }catch(e){} });
   // warm the one-pass catalog index cache while idle, so the first Browse/Profile
   // tap never pays for it. Rebuild after a fresh catalog lands.
   idlePre(function(){ try{ buildCatalogIndexes(); }catch(e){} });
@@ -10017,7 +10266,14 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
    (bin/auto-stakes.py checks these channels on the same pass as streamers).
    NO DEAD SCREENS: live → the live broadcast; offline → the channel's latest
    upload as a replay under a "live events return soon" chip; no ids known
-   yet → the channel's uploads playlist, which is always playable. */
+   yet → the channel's uploads playlist, which is always playable.
+   LIVE SPORTS GUIDE (his order): Sports is the FIRST Live sub-tab and the
+   landing section on every Live entry; Watch Party is second. The stage
+   autoplays the #1 channel (live-first) WITH SOUND the moment the section
+   opens — muted + an Unmute button ONLY if a browser refuses an audible
+   start. Below the stage: an ESPN scoreboard strip and TV-Guide-style rows
+   for every channel. Lineup, live state and scores re-fetch no-store on
+   EVERY open, so a change in what's live shows on that open. */
 let LS_CHANS=[], LS_STATE={}, LS_ACTIVE=null;
 function lsEnsureStyle(){
   if(document.getElementById("lsStyle"))return;
@@ -10041,16 +10297,26 @@ function lsEnsureStyle(){
   ".ls-blurb{color:var(--mut);font-size:12px;line-height:1.4;min-height:32px}"+
   ".ls-live{display:inline-flex;align-items:center;gap:5px;color:#ff2d55;font-size:11px;font-weight:900;margin-top:7px}"+
   ".ls-live i{width:7px;height:7px;border-radius:50%;background:#ff2d55;animation:lsPulse 1.2s infinite}"+
-  ".ls-off{color:var(--mut);font-size:11px;font-weight:800;margin-top:7px}";
+  ".ls-off{color:var(--mut);font-size:11px;font-weight:800;margin-top:7px}"+
+  ".ls-unmute{position:absolute;right:10px;bottom:10px;z-index:3;background:rgba(5,5,10,.85);color:#fff;border:1px solid rgba(255,255,255,.35);font-size:12.5px;font-weight:800;padding:8px 14px;border-radius:999px;cursor:pointer}"+
+  ".ls-rows{display:flex;flex-direction:column;gap:2px}"+
+  ".ls-row{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;cursor:pointer;border:1px solid transparent;background:transparent;width:100%;text-align:left;color:inherit;font:inherit}"+
+  ".ls-row.on{background:#15151c;border-color:var(--red)}"+
+  ".ls-rname{font-weight:800;font-size:14px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
+  ".ls-rsub{color:var(--mut);font-size:12px;line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
+  ".ls-livebadge{display:inline-flex;align-items:center;gap:5px;color:#ff2d55;font-size:11px;font-weight:900;flex:none}"+
+  ".ls-livebadge i{width:7px;height:7px;border-radius:50%;background:#ff2d55;animation:lsPulse 1.2s infinite}"+
+  ".ls-replaybadge{color:var(--mut);font-size:11px;font-weight:800;flex:none}";
   document.head.appendChild(st);
 }
 function lsState(ch){ return LS_STATE[ch.channelId]||{}; }
 function lsIsLive(ch){ const s=lsState(ch); return !!(s.live&&s.videoId); }
-function lsEmbed(ch){
-  const s=lsState(ch);
-  if(s.live&&s.videoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.videoId)+"?autoplay=1&rel=0";
-  if(s.latestVideoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.latestVideoId)+"?autoplay=1&rel=0";
-  return "https://www.youtube.com/embed?listType=playlist&list="+encodeURIComponent("UU"+String(ch.channelId).slice(2))+"&autoplay=1&rel=0";
+function lsEmbed(ch,muted){
+  // sound-on by spec (mute=0); muted is only the platform-refusal fallback
+  const s=lsState(ch), q="autoplay=1&mute="+(muted?1:0)+"&rel=0&playsinline=1&enablejsapi=1";
+  if(s.live&&s.videoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.videoId)+"?"+q;
+  if(s.latestVideoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.latestVideoId)+"?"+q;
+  return "https://www.youtube.com/embed?listType=playlist&list="+encodeURIComponent("UU"+String(ch.channelId).slice(2))+"&"+q;
 }
 function lsHeadHTML(){
   return '<div class="ls-head">📺 Free Live Sports</div><div class="ls-sub">Official live channels — free to watch, right here. When a channel is between events, its latest replay plays instead.</div>';
@@ -10058,43 +10324,154 @@ function lsHeadHTML(){
 function lsStageIdleHTML(){
   return '<div class="ls-idle"><div style="font-size:40px">📺</div><div style="font-weight:800;color:#fff">Pick a channel below</div><div style="font-size:12.5px">Live events play the moment they start — replays roll in between.</div></div>';
 }
-function lsCardHTML(ch){
+function lsSorted(){
+  return LS_CHANS.slice().sort((a,b)=>((lsIsLive(b)?1:0)-(lsIsLive(a)?1:0)));
+}
+/* TV-Guide-style row: every channel appears, live or not, and every row
+   names something real — the live broadcast or the latest replay. */
+function lsRowHTML(ch){
   const live=lsIsLive(ch), on=LS_ACTIVE===ch.channelId, s=lsState(ch);
-  const status=live
-    ? '<div class="ls-live"><i></i>LIVE NOW</div>'
-    : '<div class="ls-off">'+(s.latestTitle?"Latest replay ready":"Replays · live events return soon")+'</div>';
-  return '<button class="ls-card'+(on?" on":"")+'" data-ls="'+esc(ch.channelId)+'">'
-    +'<div class="ls-top"><img class="ls-av" src="'+esc(ch.avatar||"")+'" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">'
-    +'<div><div class="ls-name">'+esc(ch.name)+'</div><div class="ls-sport">'+esc(ch.sport||"Sports")+'</div></div></div>'
-    +'<div class="ls-blurb">'+esc(ch.blurb||"")+'</div>'+status+'</button>';
+  const whatsOn=live
+    ? (s.latestTitle||"Live broadcast on now")
+    : (s.latestTitle?("↻ Replay · "+s.latestTitle):(ch.blurb||"Replays · live events return soon"));
+  const badge=live
+    ? '<span class="ls-livebadge"><i></i>LIVE NOW</span>'
+    : '<span class="ls-replaybadge">↻ REPLAY</span>';
+  return '<button class="ls-row'+(on?" on":"")+'" data-ls="'+esc(ch.channelId)+'">'
+    +'<img class="ls-av" src="'+esc(ch.avatar||"")+'" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">'
+    +'<div style="flex:1;min-width:0"><div class="ls-rname">'+esc(ch.name)+'</div>'
+    +'<div class="ls-rsub">'+esc(ch.sport||"Sports")+' · '+esc(whatsOn)+'</div></div>'
+    +badge+'</button>';
 }
 function lsRender(){
   const body=$("#livebody"); if(!body)return;
-  const chans=LS_CHANS.slice().sort((a,b)=>((lsIsLive(b)?1:0)-(lsIsLive(a)?1:0)));
+  const chans=lsSorted();
   body.innerHTML=lsHeadHTML()
     +'<div class="ls-stage" id="lsStage">'+lsStageIdleHTML()+'</div>'
-    +'<div class="ls-grid">'+chans.map(lsCardHTML).join("")+'</div>';
+    +'<div id="lsScore"></div>'
+    +'<div class="ls-rows">'+chans.map(lsRowHTML).join("")+'</div>';
   body.querySelectorAll("[data-ls]").forEach(b=>b.onclick=()=>lsPlay(b.dataset.ls));
+  lsScoreboard(); // fresh ESPN strip on every render — same discipline as the TV Guide
   if(LS_ACTIVE&&LS_CHANS.some(c=>c.channelId===LS_ACTIVE)){
     const ch=LS_CHANS.find(c=>c.channelId===LS_ACTIVE); lsPlay(ch.channelId,true);
   }
 }
 function lsPlay(cid,keep){
   const ch=LS_CHANS.find(c=>c.channelId===cid); if(!ch)return;
-  LS_ACTIVE=cid;
+  LS_ACTIVE=cid; LS_TOKEN++;
   const stage=$("#lsStage"); if(!stage)return;
   const live=lsIsLive(ch), s=lsState(ch);
   const chip=live
     ? '<div class="ls-chip"><span class="dot"></span>LIVE · '+esc(ch.name)+'</div>'
     : '<div class="ls-chip">↻ REPLAY'+(s.latestTitle?" · "+esc(s.latestTitle):"")+' — live events return soon</div>';
-  stage.innerHTML='<iframe id="lsFrame" src="'+lsEmbed(ch)+'" frameborder="0" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>'+chip;
+  stage.innerHTML='<iframe id="lsFrame" src="'+lsEmbed(ch)+'" frameborder="0" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>'+chip
+    +'<button class="ls-unmute" id="lsUnmute" style="display:none">🔊 Unmute</button>';
+  const ub=$("#lsUnmute");
+  if(ub)ub.onclick=(e)=>{ e.stopPropagation(); lsUnmute(); };
   document.querySelectorAll("[data-ls]").forEach(b=>b.classList.toggle("on",b.dataset.ls===cid));
   if(!keep){ try{ stage.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e){} }
+  lsArmSound(LS_TOKEN);
+}
+/* SOUND-FIRST autoplay (his order: "No mute — have the video playing with
+   sound"). The stage player is created inside the Live-tab tap's activation
+   window (renderLive runs synchronously off the tab click), and the APK
+   shell already permits audible autoplay — MainActivity sets
+   setMediaPlaybackRequiresUserGesture(false). LAST RESORT ONLY: if a
+   browser still refuses an audible start, the video starts muted WITH an
+   Unmute button rather than sitting paused — never a dead screen. */
+let LS_TOKEN=0, LS_PLAYER=null;
+function lsArmSound(token){
+  const fr=$("#lsFrame"); if(!fr)return;
+  ensureYT(()=>{
+    if(token!==LS_TOKEN)return;
+    const f2=$("#lsFrame"); if(!f2||f2!==fr)return;
+    try{
+      LS_PLAYER=new YT.Player(f2,{events:{onReady:(e)=>{
+        if(token!==LS_TOKEN)return;
+        try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(_){}
+        setTimeout(()=>{
+          if(token!==LS_TOKEN)return;
+          let st=-1; try{ st=e.target.getPlayerState(); }catch(_){}
+          if(st!==1&&st!==3){ // not playing/buffering → audible start was refused
+            try{ e.target.mute(); e.target.playVideo(); }catch(_){}
+            const ub=$("#lsUnmute"); if(ub)ub.style.display="";
+          }
+        },1800);
+      }}});
+    }catch(_){}
+  });
+}
+function lsUnmute(){
+  const ub=$("#lsUnmute"); if(ub)ub.style.display="none";
+  try{ if(LS_PLAYER){ LS_PLAYER.unMute(); LS_PLAYER.setVolume(100); LS_PLAYER.playVideo(); return; } }catch(_){}
+  const fr=$("#lsFrame");
+  if(fr&&fr.contentWindow){
+    try{
+      const msg=(func,args)=>fr.contentWindow.postMessage(JSON.stringify({event:"command",func,args:args||""}),"*");
+      msg("setVolume",[100]); msg("unMute"); msg("playVideo");
+    }catch(_){}
+  }
 }
 function lsStop(){
+  LS_TOKEN++; LS_PLAYER=null;
   const f=$("#lsFrame");
   if(f){ try{ f.src="about:blank"; }catch(e){} }
   LS_ACTIVE=null;
+}
+/* ESPN scoreboard strip for the Sports Guide — same endpoints, classes and
+   game-detail sheet as the TV Guide scoreboard, but fetched fresh (no-store)
+   on EVERY open of the section. */
+async function lsScoreboard(){
+  const box=$("#lsScore"); if(!box)return;
+  const leagues=[
+    {key:"NFL",url:"https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"},
+    {key:"NBA",url:"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard"},
+    {key:"MLB",url:"https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard"},
+    {key:"NHL",url:"https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard"}
+  ];
+  let results;
+  try{
+    results=await Promise.all(leagues.map(l=>
+      fetch(l.url,{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>({key:l.key,events:(d&&d.events)||[]})).catch(()=>({key:l.key,events:[]}))
+    ));
+  }catch(e){ return; }
+  if(!document.getElementById("lsScore"))return; // section closed mid-flight
+  if(typeof curView!=="undefined"&&curView!=="live")return;
+  let html='<div class="tg-sc-h"><div><div class="t"><span class="live"></span>SCOREBOARD</div>'
+    +'<div class="upd">Today\'s games · ESPN</div></div></div>';
+  let any=false;
+  results.forEach(r=>{
+    if(!r.events.length)return;
+    any=true;
+    html+='<div class="tg-sc-league">'+r.key+'</div>';
+    const sorted=r.events.slice(0,12).sort((a,b)=>{
+      const ra=a.status.type.state==="in"?0:a.status.type.state==="pre"?1:2;
+      const rb=b.status.type.state==="in"?0:b.status.type.state==="pre"?1:2;
+      return ra-rb;
+    }).slice(0,4);
+    sorted.forEach(e=>{
+      try{
+        const comp=e.competitions[0];
+        const teams=comp.competitors;
+        const home=teams.find(t=>t.homeAway==="home")||teams[0];
+        const away=teams.find(t=>t.homeAway==="away")||teams[1];
+        const st=e.status.type;
+        const cls=st.state==="in"?"":st.state==="post"?"final":"pre";
+        const status=st.state==="post"?"Final":st.shortDetail;
+        const hw=parseInt(home.score||"0",10), aw=parseInt(away.score||"0",10);
+        const gid=e.id||"";
+        html+='<div class="tg-sc-game" data-gid="'+gid+'" data-league="'+r.key+'" style="cursor:pointer"><div class="tg-sc-teams">'
+          +'<div class="tg-sc-team '+(aw>hw?"winner":"")+'"><span class="nm">'+esc(away.team.abbreviation)+' '+esc(away.team.displayName)+'</span><span class="sc">'+(away.score||"0")+'</span></div>'
+          +'<div class="tg-sc-team '+(hw>aw?"winner":"")+'"><span class="nm">'+esc(home.team.abbreviation)+' '+esc(home.team.displayName)+'</span><span class="sc">'+(home.score||"0")+'</span></div>'
+          +'</div><div class="tg-sc-status '+cls+'">'+esc(status)+'</div></div>';
+      }catch(_){}
+    });
+  });
+  if(!any)html+='<div style="color:var(--mut);font-size:12px;padding:8px 2px">No games right now.</div>';
+  box.innerHTML=html;
+  box.querySelectorAll(".tg-sc-game[data-gid]").forEach(g=>{
+    g.onclick=()=>openGameDetail(g.dataset.gid, g.dataset.league);
+  });
 }
 async function liveSports(){
   lsEnsureStyle();
@@ -10119,6 +10496,10 @@ async function liveSports(){
   }
   LS_ACTIVE=null;
   lsRender();
+  // his order: the #1 channel (live-first sort) starts playing — with sound —
+  // the moment the Sports section opens
+  const first=lsSorted()[0];
+  if(first)lsPlay(first.channelId,true);
 }
 </script>
 </body>
