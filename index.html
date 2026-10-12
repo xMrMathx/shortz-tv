@@ -3578,7 +3578,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012001100";
+const BUILD="20261012001400";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
