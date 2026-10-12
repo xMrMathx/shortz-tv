@@ -3128,7 +3128,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011221800";
+const BUILD="20261011222100";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
@@ -4507,11 +4507,13 @@ function openGenreView(g){
       <div class="gfull-count">${list.length} shows</div>
     </div>
     <div class="gfull-grid">
-      ${list.map(t=>`
+      ${list.map(t=>{
+        const img=thumb(t,"mq");
+        return `
         <div class="gfull-card" data-id="${t.id}">
-          <img loading="lazy" src="${esc(t.poster||"")}" alt="">
+          ${img?`<img loading="lazy" src="${esc(img)}" alt="" onerror="this.style.display='none'">`:""}
           <div class="t">${esc(t.title)}</div>
-        </div>`).join("")}
+        </div>`;}).join("")}
     </div>`;
   v.querySelectorAll(".gfull-card").forEach(card=>{
     card.addEventListener("click",()=>{
