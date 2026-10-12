@@ -525,6 +525,56 @@ body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
 body.ev-mode #evToggle{background:rgba(229,9,20,.88);border-color:#ff6b6b;color:#fff;
   box-shadow:0 0 16px rgba(229,9,20,.65)}
 body.pip #evToggle{display:none}
+/* ===== UPDATES TV (Phase 1: house promos — our OWN spots, no ad network) =====
+   A tiny retro TV that floats over playback and cycles Shortz VS updates:
+   NEW catalog additions, COMING SOON premieres, TOP 10 award films.
+   Summoned any time by #tvBtn (manual mode), or appears on its own during
+   playback under a strict frequency cap (auto mode) — anti-ad-heavy by design.
+   POSITION AUDIT (window): top-right, just below the header band. The band
+   itself holds logo (left), #tvBtn + #evToggle (center), FREE pill (right) —
+   the TV hangs under the pill's empty column. On Home the feed-rail starts at
+   top:44% (right-middle) and the sound prompt is dead-center, so the strip
+   58px–~215px at the right edge is empty video. On menu views it floats over
+   scroll content the user summoned it over, and its X/button dismisses it.
+   POSITION AUDIT (button): #tvBtn sits LEFT of the All button, vertically
+   centered on it (All center = 25px + safe-area). At 360px wide its left edge
+   is ~124px (28px size under 400px → ~130px), clearing the SHORTZ VS logo. */
+#tvBtn{position:fixed;top:calc(9px + env(safe-area-inset-top));right:calc(50% + 24px);z-index:9600;
+  width:32px;height:32px;border-radius:50%;padding:0;cursor:pointer;
+  background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
+  font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent;
+  transition:background .2s,border-color .2s,box-shadow .2s,color .2s,transform .1s}
+#tvBtn:active{transform:scale(.92)}
+body.tv-on #tvBtn{background:rgba(229,9,20,.88);border-color:#ff6b6b;color:#fff;
+  box-shadow:0 0 16px rgba(229,9,20,.65)}
+body.pip #tvBtn{display:none}
+@media (max-width:400px){
+  #tvBtn{width:28px;height:28px;right:calc(50% + 22px);top:calc(11px + env(safe-area-inset-top));font-size:14px}
+}
+#tvBox{position:fixed;top:calc(58px + env(safe-area-inset-top));right:10px;z-index:9400;width:118px;
+  display:none;cursor:pointer;-webkit-tap-highlight-color:transparent;animation:tvIn .3s ease}
+#tvBox.on{display:block}
+@keyframes tvIn{from{opacity:0;transform:translateY(-6px) scale(.96)}to{opacity:1;transform:none}}
+.tv-ant{width:64px;height:12px;margin:0 auto;position:relative}
+.tv-ant:before,.tv-ant:after{content:"";position:absolute;bottom:0;width:2px;height:14px;background:#8a8a96;border-radius:1px}
+.tv-ant:before{left:14px;transform:rotate(-24deg);transform-origin:bottom}
+.tv-ant:after{right:14px;transform:rotate(24deg);transform-origin:bottom}
+.tv-frame{position:relative;background:#17171f;border:2px solid #45454f;border-radius:12px;padding:4px;
+  box-shadow:0 8px 24px rgba(0,0,0,.6)}
+.tv-scr{position:relative;border-radius:8px;overflow:hidden;background:linear-gradient(140deg,#2a2a35,#101016);height:96px}
+.tv-scr img{width:100%;height:100%;object-fit:cover;display:block}
+.tv-tag{position:absolute;top:4px;left:4px;font-size:8px;font-weight:800;letter-spacing:.6px;
+  background:#e50914;color:#fff;padding:2px 5px;border-radius:4px}
+.tv-cap{position:absolute;left:0;right:0;bottom:0;padding:10px 6px 5px;color:#fff;
+  background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.tv-cap b{display:block;font-size:10.5px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tv-cap span{display:block;font-size:8.5px;color:#c9c9d2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#tvX{position:absolute;top:-8px;left:-8px;width:20px;height:20px;border-radius:50%;z-index:3;
+  background:#fff;color:#111;border:none;font-size:12px;font-weight:700;line-height:1;cursor:pointer;
+  display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.55)}
+#tvBox.xready #tvX{display:flex}
+body.pip #tvBox{display:none!important}
 /* ===== Sign-in gate (after intro) + feature tutorial ===== */
 #authGate,#tutGate{position:fixed;inset:0;z-index:100000;background:rgba(4,4,8,.96);
   display:none;align-items:center;justify-content:center;padding:24px;overflow-y:auto}
@@ -775,6 +825,11 @@ body.pip #evToggle{display:none}
      and of the topbar; no tabbar/mic chrome exists on desktop */
   #evToggle{left:auto;right:18px;top:auto;bottom:18px;transform:none}
   #evToggle:active{transform:scale(.92)}
+  /* updates TV on desktop: button pairs left of the All button in the
+     bottom-right corner; the TV window anchors above #toTop (bottom:86px,
+     ~40px tall) so the corner stack never overlaps */
+  #tvBtn{left:auto;right:64px;top:auto;bottom:20px}
+  #tvBox{top:auto;bottom:140px;right:18px}
   /* --- SPLASH: laptop gets a full cinematic intro — reels span the screen --- */
   #splashLogo{width:min(44vw,520px)}
   .splashReel img{width:200px;height:112px}
@@ -1358,6 +1413,21 @@ try{
   <button id="micDot" aria-label="Tap for voice">🎙</button>
   <!-- EVERYTHING toggle: persistent — tap to enter/exit the swipeable section hub -->
   <button id="evToggle" aria-label="Browse all sections">⊞</button>
+  <!-- UPDATES TV button: sits left of the All button — tap to summon the little
+       TV (NEW / COMING SOON / TOP 10 updates), tap again to put it away -->
+  <button id="tvBtn" aria-label="Updates TV">📺</button>
+  <!-- UPDATES TV (Phase 1 house promos): tiny floating TV, never blocks the show -->
+  <div id="tvBox" aria-hidden="true">
+    <div class="tv-ant"></div>
+    <div class="tv-frame">
+      <button id="tvX" aria-label="Close TV">✕</button>
+      <div class="tv-scr">
+        <img id="tvImg" alt="" decoding="async">
+        <span class="tv-tag" id="tvTag">NEW</span>
+        <div class="tv-cap"><b id="tvTitle"></b><span id="tvSub"></span></div>
+      </div>
+    </div>
+  </div>
 
   <nav id="tabbar">
     <button id="voiceBtn" aria-label="Hold to speak, tap to type">
@@ -3998,7 +4068,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012022300";
+const BUILD="20261012023600";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8752,6 +8822,170 @@ if(document.readyState==="loading"){
 }else{
   bootGates();
 }
+})();
+
+/* ================= UPDATES TV — Phase 1: house promos =================
+   A tiny floating TV that runs Shortz VS's OWN spots (no ad network):
+   NEW catalog additions, COMING SOON premieres, TOP 10 award films.
+   Two modes:
+   - AUTO (frequency-capped, anti-ad-heavy): appears at most once per
+     10 minutes, only after ~20s of actual watching on Home/Live/Streaming,
+     X unlocks after 4s, auto-fades at 12s. Never during the intro, the
+     sign-in gate, the tutorial, Everything-mode swiping, or PiP. The main
+     video is never paused and nothing modal ever opens.
+   - MANUAL: #tvBtn (left of the All button) summons it on ANY view; spots
+     rotate every 6s while the user browses; button glows red while up;
+     tapping the button again (or the TV's X) puts it away. Summoning while
+     an auto spot is up pins it into manual. Manual use never touches the
+     auto cap — closing resumes normal capped behavior. */
+(function(){
+  "use strict";
+  const $=id=>document.getElementById(id);
+  const btn=$("tvBtn"), box=$("tvBox"), img=$("tvImg"), tagEl=$("tvTag"),
+        titleEl=$("tvTitle"), subEl=$("tvSub"), xBtn=$("tvX");
+  if(!btn||!box) return;
+  const CAP_MS=10*60*1000, WATCH_NEED=20, X_AFTER=4000, FADE_AFTER=12000, ROT_MS=6000;
+  let spots=[], idx=0, mode=null, dataReady=false, loadTries=0, pendingManual=false;
+  let lastAuto=0, watchSecs=0, shownAt=0, rotTimer=null;
+  const bootAt=Date.now();
+
+  function buildSpots(){
+    const news=[], coming=[], tops=[];
+    try{
+      const cat=(window.SHORTZ_CATALOG||[]).slice();
+      const num=t=>parseInt(String(t.id||"").replace(/\D/g,""),10)||0;
+      cat.sort((a,b)=>num(b)-num(a));
+      for(const t of cat){
+        if(news.length>=6) break;
+        let th=""; try{ th=thumb(t,"mq"); }catch(e){}
+        if(th) news.push({tag:"NEW", title:t.title||"", sub:t.genre||"", img:th, id:t.id});
+      }
+    }catch(e){}
+    const jobs=[];
+    jobs.push(fetch("coming_soon.json").then(r=>r.json()).then(list=>{
+      (list||[]).forEach(x=>{
+        if(x&&x.thumb) coming.push({tag:"COMING SOON", title:x.title||"",
+          sub:(x.drop_label?("Drops "+x.drop_label+" · "):"")+(x.genre||""), img:x.thumb, go:"browse"});
+      });
+    }).catch(()=>{}));
+    jobs.push(fetch("top10-award-films.json").then(r=>r.json()).then(list=>{
+      (list||[]).slice(0,6).forEach(x=>{
+        if(x&&x.thumb) tops.push({tag:"TOP 10", title:x.title||"",
+          sub:(x.genre||"")+" · Award Winner", img:x.thumb, id:x.id});
+      });
+    }).catch(()=>{}));
+    return Promise.all(jobs).then(()=>{
+      spots=[]; const max=Math.max(news.length,coming.length,tops.length);
+      for(let i=0;i<max;i++){
+        if(news[i]) spots.push(news[i]);
+        if(coming[i]) spots.push(coming[i]);
+        if(tops[i]) spots.push(tops[i]);
+      }
+      dataReady=spots.length>0;
+      if(dataReady&&pendingManual){ pendingManual=false; show("manual"); }
+      return dataReady;
+    });
+  }
+  function loadData(){
+    if(dataReady||loadTries>=6) return;
+    loadTries++;
+    buildSpots().then(ok=>{ if(!ok) setTimeout(loadData,4000); });
+  }
+
+  function playingNow(){
+    try{
+      if(curView==="home"){
+        const s=(typeof curSlide==="function")?curSlide():null;
+        return !!(s&&s._vid&&!s._paused);
+      }
+      if(curView==="streaming"||curView==="live") return true; // autoplay embeds, unqueryable = playing
+    }catch(e){}
+    return false;
+  }
+  function blocked(){
+    if(document.hidden) return true;
+    if(document.body.classList.contains("pip")) return true;
+    if(document.body.classList.contains("ev-mode")) return true;
+    const ag=$("authGate"), tg=$("tutGate");
+    if(ag&&ag.classList.contains("open")) return true;
+    if(tg&&tg.classList.contains("open")) return true;
+    return false;
+  }
+
+  function render(){
+    const s=spots[idx%spots.length]; if(!s) return;
+    img.src=s.img; tagEl.textContent=s.tag;
+    titleEl.textContent=s.title; subEl.textContent=s.sub;
+  }
+  function startRotation(){
+    clearInterval(rotTimer);
+    rotTimer=setInterval(()=>{ idx=(idx+1)%spots.length; render(); },ROT_MS);
+  }
+  function show(m){
+    if(!dataReady||!spots.length) return;
+    mode=m; shownAt=Date.now();
+    box.classList.add("on"); box.setAttribute("aria-hidden","false");
+    document.body.classList.add("tv-on");
+    box.classList.toggle("xready", m==="manual");
+    render();
+    if(m==="manual") startRotation(); else clearInterval(rotTimer);
+  }
+  function hide(){
+    const was=mode; mode=null;
+    box.classList.remove("on","xready"); box.setAttribute("aria-hidden","true");
+    document.body.classList.remove("tv-on");
+    clearInterval(rotTimer);
+    if(was==="auto"&&spots.length) idx=(idx+1)%spots.length; // next appearance, next spot
+  }
+
+  btn.addEventListener("click",e=>{
+    e.stopPropagation();
+    if(mode==="manual"){ hide(); return; }
+    if(mode==="auto"){ // pin the auto spot into manual browsing mode
+      mode="manual"; shownAt=Date.now();
+      box.classList.add("xready"); startRotation(); return;
+    }
+    if(!dataReady){ pendingManual=true; loadData(); return; }
+    show("manual");
+  });
+  xBtn.addEventListener("click",e=>{ e.stopPropagation(); hide(); });
+  box.addEventListener("click",e=>{
+    e.stopPropagation();
+    if(e.target===xBtn) return;
+    const s=spots[idx%spots.length]; if(!s) return;
+    hide();
+    try{ if(s.id) openDetail(s.id); else if(s.go) go(s.go); }catch(err){}
+  });
+  [btn,box].forEach(el=>{
+    el.addEventListener("pointerdown",e=>e.stopPropagation());
+    el.addEventListener("touchstart",e=>e.stopPropagation(),{passive:true});
+  });
+
+  setInterval(()=>{
+    try{
+      if(mode==="auto"){
+        if(blocked()||!playingNow()){ hide(); return; }
+        const el=Date.now()-shownAt;
+        if(el>=X_AFTER) box.classList.add("xready");
+        if(el>=FADE_AFTER) hide();
+        return;
+      }
+      if(mode==="manual"){
+        if(document.body.classList.contains("pip")) hide();
+        return;
+      }
+      /* hidden: accumulate real watch time, then respect the cap */
+      if(Date.now()-bootAt<8000) return; // let intro + gates settle first
+      if(blocked()||!playingNow()){ watchSecs=0; return; }
+      watchSecs++;
+      if(watchSecs>=WATCH_NEED&&Date.now()-lastAuto>=CAP_MS){
+        if(!dataReady){ loadData(); watchSecs=0; return; }
+        lastAuto=Date.now(); watchSecs=0; show("auto");
+      }
+    }catch(e){}
+  },1000);
+
+  loadData();
 })();
 </script>
 </body>
