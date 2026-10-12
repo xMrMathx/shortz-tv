@@ -519,6 +519,54 @@ body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
 body.ev-mode #evToggle{background:rgba(229,9,20,.88);border-color:#ff6b6b;color:#fff;
   box-shadow:0 0 16px rgba(229,9,20,.65)}
 body.pip #evToggle{display:none}
+/* ===== Sign-in gate (after intro) + feature tutorial ===== */
+#authGate,#tutGate{position:fixed;inset:0;z-index:100000;background:rgba(4,4,8,.96);
+  display:none;align-items:center;justify-content:center;padding:24px;overflow-y:auto}
+#authGate.open,#tutGate.open{display:flex}
+.ag-card{width:100%;max-width:360px;text-align:center;animation:agIn .35s ease}
+@keyframes agIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.ag-logo{width:120px;margin:0 auto 10px;display:block}
+.ag-title{font-size:22px;font-weight:800;margin-bottom:6px}
+.ag-sub{font-size:13px;color:var(--mut);line-height:1.55;margin-bottom:18px}
+.ag-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;
+  padding:13px;margin-bottom:10px;border-radius:12px;border:1px solid var(--line);
+  background:var(--card);color:var(--txt);font-size:15px;font-weight:700;cursor:pointer}
+.ag-btn:active{transform:scale(.97)}
+.ag-google{background:#fff;color:#1a1a1a;border:none}
+.ag-skip{margin-top:8px;background:none;border:none;color:var(--mut);font-size:14px;
+  text-decoration:underline;cursor:pointer;padding:10px}
+#agForm{margin-bottom:6px}
+#agForm .pinput{width:100%;margin-bottom:10px}
+#agErr{color:#ff6b6b;font-size:13px;min-height:18px;margin-bottom:6px}
+.ag-row{display:flex;gap:10px}
+.ag-row .ag-btn{margin-bottom:0}
+/* tutorial */
+#tutGate{flex-direction:column}
+#tutSkip{position:absolute;top:calc(14px + env(safe-area-inset-top));right:18px;background:none;
+  border:none;color:var(--mut);font-size:15px;padding:10px;cursor:pointer}
+#tutView{width:100%;max-width:360px;overflow:hidden}
+#tutTrack{display:flex;transition:transform .3s ease}
+.tutpage{flex:0 0 100%;text-align:center;padding:10px 6px;box-sizing:border-box}
+.tut-ico{width:110px;height:110px;margin:26px auto 18px;border-radius:50%;
+  background:linear-gradient(135deg,#1c1c28,#0e0e15);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;font-size:52px;
+  box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.tut-title{font-size:21px;font-weight:800;margin-bottom:8px}
+.tut-body{font-size:14px;color:var(--mut);line-height:1.6;max-width:300px;margin:0 auto}
+#tutDots{display:flex;gap:8px;justify-content:center;margin:22px 0 14px}
+#tutDots i{width:8px;height:8px;border-radius:50%;background:#333}
+#tutDots i.on{background:var(--red)}
+#tutNext{width:100%;max-width:360px;padding:14px;border-radius:12px;border:none;
+  background:var(--red);color:#fff;font-size:16px;font-weight:800;cursor:pointer}
+#tutNext:active{transform:scale(.97)}
+/* profile account box */
+.authbox{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:14px;margin-bottom:14px}
+.authrow{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.authava{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none}
+.authinit{display:flex;align-items:center;justify-content:center;background:#2a2a3a;
+  font-size:20px;font-weight:800}
+.authbtns{display:flex;gap:10px}
 #micDot:active{transform:translateX(-50%) scale(.92)}
 #micDot.listening{background:rgba(229,9,20,.35);border-color:#e50914;color:#fff;
   box-shadow:0 0 14px rgba(229,9,20,.55);animation:mdotpulse 1s ease-in-out infinite}
@@ -1064,6 +1112,34 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
     <div id="splashVig"></div>
   </div>
   <img id="splashLogo" src="shortzvs-logo-transparent.webp" alt="Shortz VS">
+</div>
+<!-- Sign-in gate: shows once after the intro. Skippable — guest mode works fully. -->
+<div id="authGate" role="dialog" aria-label="Sign in">
+  <div class="ag-card">
+    <img class="ag-logo" src="shortzvs-logo-transparent.webp" alt="Shortz VS">
+    <div class="ag-title">Welcome to Shortz VS</div>
+    <div class="ag-sub">Sign in to save your list and pick up where you left off — on any device.</div>
+    <button class="ag-btn ag-google" id="agGoogle"><span style="font-size:18px">G</span> Continue with Google</button>
+    <button class="ag-btn" id="agEmailBtn">✉️ Continue with Email</button>
+    <button class="ag-btn" id="agCreateBtn">＋ Create account</button>
+    <div id="agForm" style="display:none">
+      <input class="pinput" id="agEmailIn" type="email" placeholder="Email" autocomplete="email">
+      <input class="pinput" id="agPassIn" type="password" placeholder="Password (6+ characters)" autocomplete="current-password">
+      <div id="agErr"></div>
+      <div class="ag-row">
+        <button class="ag-btn" id="agGo">Continue</button>
+        <button class="ag-btn" id="agBack" style="flex:0 0 64px">←</button>
+      </div>
+    </div>
+    <button class="ag-skip" id="agSkip">Skip for now</button>
+  </div>
+</div>
+<!-- Feature tutorial: swipeable, skippable, shows once. -->
+<div id="tutGate" role="dialog" aria-label="How it works">
+  <button id="tutSkip">Skip</button>
+  <div id="tutView"><div id="tutTrack"></div></div>
+  <div id="tutDots"></div>
+  <button id="tutNext">Next</button>
 </div>
 <style>
 #splash{position:fixed;inset:0;z-index:99999;background:#000;overflow:hidden;pointer-events:none;
@@ -3860,7 +3936,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012011800";
+const BUILD="20261012012200";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5658,6 +5734,7 @@ function renderProfile(){
       <div style="font-size:12px;color:var(--mut);margin-top:4px">${esc(bioLine(p))}</div></div>
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
     </div>
+    <div id="profAuth" style="margin-top:12px"></div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
     <div id="profMyList"></div>
     <div class="secttl">\u25B6\uFE0F YouTube</div>
@@ -5687,6 +5764,7 @@ function renderProfile(){
   // My List + Recently Watched live inside the profile now (same cards as before)
   // SPEED: one id->series Map — byId is a full C.find() scan per lookup
   renderProfMyList();
+  renderAuthSection();
   const ib=$("#installAppBtn");
   if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
   initFriendsUI();
@@ -6629,6 +6707,16 @@ async function liveEnsure(){
         Live.auth = firebase.auth();
         Live.db = firebase.database();
       }
+      // Prefer an existing real (non-anonymous) session — e.g. Google/email
+      // sign-in from the auth gate. Anonymous sign-in would REPLACE it.
+      try{
+        const cur = Live.auth.currentUser;
+        if(cur && !cur.isAnonymous){
+          Live.uid = cur.uid; Live.authed = true;
+          Live.name = cur.displayName || Live.name || "Viewer";
+          return true;
+        }
+      }catch(_){}
       const cred = await Live.auth.signInAnonymously();
       Live.uid = cred.user.uid;
       let nm = store.get("live_name","");
@@ -8216,6 +8304,322 @@ document.querySelectorAll(".stkTab").forEach(t=>t.addEventListener("click",()=>{
 stkMountPill();
 setTimeout(()=>Stake.init(),2500);
 
+</script>
+<script>
+/* ============================================================
+   AUTH GATE + FEATURE TUTORIAL (v1.0)
+   ------------------------------------------------------------
+   Flow: intro → sign-in gate (once, skippable) → tutorial
+   (once, skippable) → app.
+   - Google / email / create-account via Firebase Auth.
+   - Guest mode works fully; lists stay local until sign-in.
+   - On sign-in, My List + Recently Watched merge to the
+     account and sync across devices (existing
+     syncMyListRemote/syncHistoryRemote pick up the real UID).
+   - Tutorial is a 4-page swipeable overlay, shown once.
+   ============================================================ */
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const isFresh=/[?&]fresh=/.test(location.search);
+
+/* ---------- Firebase ---------- */
+function fbAuth(){
+  try{
+    if(typeof FIREBASE_READY==="undefined"||!FIREBASE_READY)return null;
+    if(!window.firebase)return null;
+    if(!Live.app){
+      Live.app=firebase.initializeApp(FIREBASE_CONFIG);
+      Live.auth=firebase.auth();
+      Live.db=firebase.database();
+    }
+    return Live.auth||null;
+  }catch(e){ try{return Live.auth||null;}catch(_){return null;} }
+}
+/* Merge local lists with the account's remote lists (union, local wins ties). */
+async function authSyncLists(){
+  try{
+    if(!Live.db||!Live.uid)return;
+    const ref=Live.db.ref("users/"+Live.uid+"/profile");
+    let r={};
+    try{ const s=await ref.get(); r=s.val()||{}; }catch(e){}
+    const remoteSaved=Array.isArray(r.saved)?r.saved:[];
+    const merged=[...new Set([...mylist,...remoteSaved])].slice(0,100);
+    mylist=new Set(merged);
+    try{store.set("mylist",merged);}catch(e){}
+    const remoteRecent=Array.isArray(r.recent)?r.recent:[];
+    const seenIds=new Set(history.map(h=>h&&h.id));
+    const addOn=remoteRecent.filter(id=>id&&!seenIds.has(id)).map(id=>({id:id,ts:Date.now()}));
+    history=[...history,...addOn].slice(0,30);
+    try{store.set("history",history);}catch(e){}
+    try{ await ref.update({saved:merged.slice(0,100),recent:history.map(h=>h.id).slice(0,30),ts:Date.now()}); }catch(e){}
+  }catch(e){}
+}
+/* Pull remote lists into local (used on session restore). */
+async function authPullLists(){
+  try{
+    if(!Live.db||!Live.uid)return;
+    const s=await Live.db.ref("users/"+Live.uid+"/profile").get();
+    const r=s.val()||{};
+    if(Array.isArray(r.saved)&&r.saved.length){
+      const merged=[...new Set([...mylist,...r.saved])].slice(0,100);
+      mylist=new Set(merged); try{store.set("mylist",merged);}catch(e){}
+    }
+    if(Array.isArray(r.recent)&&r.recent.length){
+      const seenIds=new Set(history.map(h=>h&&h.id));
+      const addOn=r.recent.filter(id=>id&&!seenIds.has(id)).map(id=>({id:id,ts:Date.now()}));
+      if(addOn.length){ history=[...history,...addOn].slice(0,30); try{store.set("history",history);}catch(e){} }
+    }
+  }catch(e){}
+}
+function isSignedIn(){
+  try{ return !!(store.get("auth_done")&&!store.get("auth_guest")&&store.get("auth_uid")); }catch(e){ return false; }
+}
+async function finishAuth(user,method){
+  if(!user)return;
+  try{
+    const nm=user.displayName||(user.email?String(user.email).split("@")[0]:"Viewer");
+    store.set("auth_done",true); store.set("auth_guest",false);
+    store.set("auth_uid",user.uid); store.set("auth_name",nm);
+    store.set("auth_photo",user.photoURL||""); store.set("auth_email",user.email||"");
+    store.set("auth_method",method||"");
+    fbAuth();
+    Live.uid=user.uid; Live.authed=true; Live.name=nm;
+  }catch(e){}
+  hideAuthGate();
+  try{toast("Signed in ✓");}catch(e){}
+  try{ await authSyncLists(); }catch(e){}
+  maybeTutorial();
+}
+function doSkip(){
+  try{ store.set("auth_done",true); store.set("auth_guest",true); }catch(e){}
+  hideAuthGate();
+  maybeTutorial();
+}
+function showAuthGate(){
+  const g=$("authGate"); if(!g)return;
+  g.classList.add("open");
+  wireAuthButtons();
+}
+function hideAuthGate(){
+  const g=$("authGate"); if(g)g.classList.remove("open");
+}
+let agMode="signin", agWired=false;
+function agError(m){ const e=$("agErr"); if(e)e.textContent=m||""; }
+function wireAuthButtons(){
+  if(agWired)return; agWired=true;
+  const showForm=mode=>{
+    agMode=mode; agError("");
+    $("agForm").style.display="block";
+    $("agEmailBtn").style.display="none"; $("agCreateBtn").style.display="none";
+    $("agGoogle").style.display="none";
+    setTimeout(()=>{try{$("agEmailIn").focus();}catch(e){}},300);
+  };
+  const hideForm=()=>{
+    agError(""); $("agForm").style.display="none";
+    $("agEmailBtn").style.display=""; $("agCreateBtn").style.display="";
+    $("agGoogle").style.display="";
+  };
+  $("agGoogle").onclick=googleSignIn;
+  $("agEmailBtn").onclick=()=>showForm("signin");
+  $("agCreateBtn").onclick=()=>showForm("signup");
+  $("agBack").onclick=hideForm;
+  $("agSkip").onclick=doSkip;
+  $("agGo").onclick=emailGo;
+  $("agPassIn").addEventListener("keydown",e=>{ if(e.key==="Enter")emailGo(); });
+}
+async function googleSignIn(){
+  const auth=fbAuth();
+  if(!auth){ try{toast("Sign-in isn't available right now — try Skip");}catch(e){} return; }
+  let provider;
+  try{ provider=new firebase.auth.GoogleAuthProvider(); }catch(e){ return; }
+  try{
+    const cred=await auth.signInWithPopup(provider);
+    finishAuth(cred.user,"google");
+  }catch(e){
+    const c=(e&&e.code)||"";
+    if(c==="auth/popup-blocked"||c==="auth/operation-not-supported"){
+      // WebView / blocked popup → redirect flow (result handled on return)
+      try{ await auth.signInWithRedirect(provider); }
+      catch(e2){ try{toast("Google sign-in failed");}catch(_){} }
+    }else if(c==="auth/unauthorized-domain"){
+      try{toast("Google sign-in needs this domain authorized");}catch(_){}
+    }else if(c!=="auth/popup-closed-by-user"){
+      try{toast("Google sign-in failed");}catch(_){}
+    }
+  }
+}
+async function emailGo(){
+  const auth=fbAuth();
+  if(!auth){ agError("Sign-in isn't available right now."); return; }
+  const email=($("agEmailIn").value||"").trim();
+  const pass=$("agPassIn").value||"";
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ agError("Enter a valid email."); return; }
+  if(pass.length<6){ agError("Password needs 6+ characters."); return; }
+  agError(""); $("agGo").textContent="…";
+  try{
+    const cred = agMode==="signup"
+      ? await auth.createUserWithEmailAndPassword(email,pass)
+      : await auth.signInWithEmailAndPassword(email,pass);
+    $("agGo").textContent="Continue";
+    finishAuth(cred.user,"email");
+  }catch(e){
+    $("agGo").textContent="Continue";
+    const c=(e&&e.code)||"";
+    const msg={
+      "auth/email-already-in-use":"That email already has an account — try Continue with Email.",
+      "auth/user-not-found":"No account for that email — try Create account.",
+      "auth/wrong-password":"Wrong password.",
+      "auth/invalid-credential":"Wrong email or password.",
+      "auth/too-many-requests":"Too many tries — wait a bit.",
+      "auth/network-request-failed":"No connection — check and retry."
+    }[c]||"Couldn't sign in — try again.";
+    agError(msg);
+  }
+}
+async function signOut(){
+  try{ const a=fbAuth(); if(a)await a.signOut(); }catch(e){}
+  try{
+    store.set("auth_uid",""); store.set("auth_name",""); store.set("auth_photo","");
+    store.set("auth_email",""); store.set("auth_method",""); store.set("auth_guest",true);
+  }catch(e){}
+  Live.uid=null; Live.authed=false; Live.name="Viewer";
+  try{toast("Signed out");}catch(e){}
+  renderAuthSection();
+}
+window.ShortzAuth={signOut:signOut,isSignedIn:isSignedIn,showGate:showAuthGate};
+window.renderAuthSection=renderAuthSection;
+
+/* ---------- Profile account section ---------- */
+function renderAuthSection(){
+  const box=$("profAuth"); if(!box)return;
+  try{
+    if(isSignedIn()){
+      const nm=store.get("auth_name")||"Viewer";
+      const ph=store.get("auth_photo")||"";
+      const em=store.get("auth_email")||"";
+      const av=ph
+        ? '<img src="'+String(ph).replace(/"/g,"")+'" class="authava" alt="" onerror="this.remove()">'
+        : '<div class="authava authinit">'+esc(String(nm)[0].toUpperCase())+'</div>';
+      box.innerHTML='<div class="authbox">'
+        +'<div class="authrow">'+av
+        +'<div style="flex:1;min-width:0"><div style="font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(nm)+'</div>'
+        +'<div style="font-size:12px;color:var(--mut)">'+(em?esc(em)+" · ":"")+'Synced ✓</div></div></div>'
+        +'<div class="authbtns"><button class="pbtn ghost sm" id="authSignOut">Sign out</button>'
+        +'<button class="pbtn ghost sm" id="tutReplay">❓ How it works</button></div></div>';
+      $("authSignOut").onclick=signOut;
+      $("tutReplay").onclick=()=>showTutorial(true);
+    }else{
+      box.innerHTML='<div class="authbox">'
+        +'<div style="font-weight:800;margin-bottom:4px">🔐 Sync your list</div>'
+        +'<div style="font-size:13px;color:var(--mut);margin-bottom:10px">Sign in to keep My List &amp; Recently Watched on every device.</div>'
+        +'<div class="authbtns"><button class="pbtn sm" id="authSignInBtn">Sign in</button>'
+        +'<button class="pbtn ghost sm" id="tutReplay">❓ How it works</button></div></div>';
+      $("authSignInBtn").onclick=()=>showAuthGate();
+      $("tutReplay").onclick=()=>showTutorial(true);
+    }
+  }catch(e){}
+}
+
+/* ---------- Tutorial ---------- */
+const TUTS=[
+  {icon:"⊞",title:"The All Button",
+   body:"Tap ⊞ to swipe between Home, Browse, Live, Streaming & Profile. Tap it again to lock onto the page you're on."},
+  {icon:"🎤",title:"Talk To It",
+   body:"Tap the mic and say “take me to manga” — or “play”, “pause”, “next”, “mute”. Hands-free."},
+  {icon:"♥",title:"My List",
+   body:"Double-tap any card or hit ＋ Save. Everything you save lives on your Profile."},
+  {icon:"👆",title:"Keep Swiping",
+   body:"Swipe up on Home for the next short. Your recently watched is always waiting on your Profile."}
+];
+let tutIdx=0, tutTX=0;
+function paintTut(){
+  const tr=$("tutTrack"); if(!tr)return;
+  tr.style.transform="translateX(-"+(tutIdx*100)+"%)";
+  const dots=$("tutDots").querySelectorAll("i");
+  dots.forEach((d,i)=>d.classList.toggle("on",i===tutIdx));
+  $("tutNext").textContent=(tutIdx===TUTS.length-1)?"Get Started":"Next";
+}
+function showTutorial(force){
+  try{ if(!force&&store.get("tutorial_done"))return; }catch(e){ return; }
+  const g=$("tutGate"); if(!g)return;
+  tutIdx=0;
+  $("tutTrack").innerHTML=TUTS.map(t=>
+    '<div class="tutpage"><div class="tut-ico">'+t.icon+'</div>'
+    +'<div class="tut-title">'+t.title+'</div>'
+    +'<div class="tut-body">'+t.body+'</div></div>'
+  ).join("");
+  $("tutDots").innerHTML=TUTS.map(()=>"<i></i>").join("");
+  g.classList.add("open");
+  paintTut();
+}
+function hideTutorial(done){
+  const g=$("tutGate"); if(g)g.classList.remove("open");
+  if(done!==false){ try{store.set("tutorial_done",true);}catch(e){} }
+}
+function tutStep(d){
+  tutIdx=Math.max(0,Math.min(TUTS.length-1,tutIdx+d));
+  paintTut();
+}
+function wireTutorial(){
+  $("tutNext").onclick=()=>{ tutIdx>=TUTS.length-1?hideTutorial(true):tutStep(1); };
+  $("tutSkip").onclick=()=>hideTutorial(true);
+  const v=$("tutView");
+  v.addEventListener("touchstart",e=>{
+    if(e.touches&&e.touches[0])tutTX=e.touches[0].clientX;
+  },{passive:true});
+  v.addEventListener("touchend",e=>{
+    if(!e.changedTouches||!e.changedTouches[0])return;
+    const dx=e.changedTouches[0].clientX-tutTX;
+    if(dx<-50)tutStep(1); else if(dx>50)tutStep(-1);
+  },{passive:true});
+}
+window.showTutorial=showTutorial;
+function maybeTutorial(){ showTutorial(false); }
+
+/* ---------- boot sequence ---------- */
+function bootGates(){
+  try{
+    // Returning Google-redirect sign-in? Finish it.
+    const auth=fbAuth();
+    if(auth){
+      auth.getRedirectResult().then(res=>{
+        if(res&&res.user){ finishAuth(res.user,"google"); }
+      }).catch(()=>{});
+      // Restore a persisted session (Google/email) across launches.
+      try{
+        auth.onAuthStateChanged(async user=>{
+          if(user&&!user.isAnonymous){
+            Live.uid=user.uid; Live.authed=true;
+            Live.name=user.displayName||Live.name||"Viewer";
+            try{
+              store.set("auth_done",true); store.set("auth_guest",false);
+              store.set("auth_uid",user.uid);
+              if(user.displayName)store.set("auth_name",user.displayName);
+              if(user.photoURL)store.set("auth_photo",user.photoURL);
+              if(user.email)store.set("auth_email",user.email);
+            }catch(e){}
+            try{ await authPullLists(); }catch(e){}
+          }
+        });
+      }catch(e){}
+    }
+  }catch(e){}
+  const delay=isFresh?800:3400; // let the intro finish first
+  setTimeout(()=>{
+    try{
+      if(store.get("auth_done")){ maybeTutorial(); return; }
+      showAuthGate();
+    }catch(e){}
+  },delay);
+}
+wireTutorial();
+if(document.readyState==="loading"){
+  document.addEventListener("DOMContentLoaded",bootGates);
+}else{
+  bootGates();
+}
+})();
 </script>
 </body>
 </html>
