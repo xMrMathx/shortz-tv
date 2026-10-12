@@ -353346,5 +353346,693 @@
     "award": "Winner — Palme d'Or, Best Short Film, Cannes Film Festival (2023); Cristal for a Short Film, Annecy (2023)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8050",
+    "title": "BlackBoxTV Presents",
+    "genre": "Horror",
+    "eps": "29 eps",
+    "runtime": "3–18 min",
+    "desc": "Tony E. Valenzuela's horror anthology — a new self-contained scare every episode.",
+    "url": "https://www.youtube.com/embed/B7QNm9A3Rr4",
+    "source_channel": "YouTube (BlackBoxTV)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "We Got Locked in a Haunted Prison",
+        "video_id": "B7QNm9A3Rr4",
+        "url": "https://www.youtube.com/embed/B7QNm9A3Rr4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "I Can't Find My Way Back to Camp",
+        "video_id": "fj43wIBwEmw",
+        "url": "https://www.youtube.com/embed/fj43wIBwEmw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "My Boyfriend Won't Leave Me Alone",
+        "video_id": "O4D-xQGlwRc",
+        "url": "https://www.youtube.com/embed/O4D-xQGlwRc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "I Saw How I Was Going to Die",
+        "video_id": "88NtyUfPYvI",
+        "url": "https://www.youtube.com/embed/88NtyUfPYvI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "I Helped the Wrong Man",
+        "video_id": "lKmLvXajI1I",
+        "url": "https://www.youtube.com/embed/lKmLvXajI1I",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Final Exit: The Horror Short Film You Can't Unsee",
+        "video_id": "FxoEVw5prcE",
+        "url": "https://www.youtube.com/embed/FxoEVw5prcE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Girls On Ice",
+        "video_id": "GjFbRDsKrtA",
+        "url": "https://www.youtube.com/embed/GjFbRDsKrtA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "I Watched Her Through the Screen",
+        "video_id": "AReTTdjP6FQ",
+        "url": "https://www.youtube.com/embed/AReTTdjP6FQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Three Girls Pick Up a Serial Killer",
+        "video_id": "h-42HK8gUUM",
+        "url": "https://www.youtube.com/embed/h-42HK8gUUM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "More Than You Can Chew",
+        "video_id": "j-3ociOu4aI",
+        "url": "https://www.youtube.com/embed/j-3ociOu4aI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "My Dad Told Me to Kill My Sister",
+        "video_id": "MX2tPugpcM0",
+        "url": "https://www.youtube.com/embed/MX2tPugpcM0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "Something Stopped My Car",
+        "video_id": "XuvnQA_iRJQ",
+        "url": "https://www.youtube.com/embed/XuvnQA_iRJQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "The Girl With the Perfect Life",
+        "video_id": "6Az4l0nVlwM",
+        "url": "https://www.youtube.com/embed/6Az4l0nVlwM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "My Dad Is a Killer Clown",
+        "video_id": "fIa5W37KFbI",
+        "url": "https://www.youtube.com/embed/fIa5W37KFbI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "I Should Have Watched the Video",
+        "video_id": "hSYqUNt9b_E",
+        "url": "https://www.youtube.com/embed/hSYqUNt9b_E",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "They Took My Sister",
+        "video_id": "RiD1Iy0RH20",
+        "url": "https://www.youtube.com/embed/RiD1Iy0RH20",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "The Shadow Man",
+        "video_id": "qNaNF-LhwHE",
+        "url": "https://www.youtube.com/embed/qNaNF-LhwHE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "The Doctor Doesn't Know Who I Am",
+        "video_id": "tIuHwK0OwO0",
+        "url": "https://www.youtube.com/embed/tIuHwK0OwO0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "We Summoned a Dead Man",
+        "video_id": "8SvUIAd92YQ",
+        "url": "https://www.youtube.com/embed/8SvUIAd92YQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "My Dead Dad Came Back",
+        "video_id": "JwL-QwJmBUc",
+        "url": "https://www.youtube.com/embed/JwL-QwJmBUc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 21,
+        "title": "A Zombie Apocalypse Musical",
+        "video_id": "K68tEbLgTSw",
+        "url": "https://www.youtube.com/embed/K68tEbLgTSw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 22,
+        "title": "The Shadow Man Tape 2",
+        "video_id": "oLPuslnM-YQ",
+        "url": "https://www.youtube.com/embed/oLPuslnM-YQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 23,
+        "title": "He Told Us He Had No Name",
+        "video_id": "-GTRlFDpcZ8",
+        "url": "https://www.youtube.com/embed/-GTRlFDpcZ8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 24,
+        "title": "A Possessed Girl",
+        "video_id": "Xlra1LFEDlI",
+        "url": "https://www.youtube.com/embed/Xlra1LFEDlI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 25,
+        "title": "\"Unforgivable\"",
+        "video_id": "zYkmlANzlpk",
+        "url": "https://www.youtube.com/embed/zYkmlANzlpk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 26,
+        "title": "\"Quitting YouTube\"",
+        "video_id": "5VZY64VgHSo",
+        "url": "https://www.youtube.com/embed/5VZY64VgHSo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 27,
+        "title": "\"Our Lady of Lourdes\"",
+        "video_id": "5-FztXGroQA",
+        "url": "https://www.youtube.com/embed/5-FztXGroQA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 28,
+        "title": "\"Beginner's Luck\"",
+        "video_id": "koyqAlVMRss",
+        "url": "https://www.youtube.com/embed/koyqAlVMRss",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 29,
+        "title": "\"Tiny Dancer\"",
+        "video_id": "hACYkT5jc4w",
+        "url": "https://www.youtube.com/embed/hACYkT5jc4w",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Streamy Award (2015), Best Drama Series; also Best Writing: Drama (2013), Best Immersive Series (2017) & IAWTV Award for Best Editing (2012)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8051",
+    "title": "Leap Year",
+    "genre": "Comedy",
+    "eps": "20 eps",
+    "runtime": "7–25 min",
+    "desc": "Five fired co-workers bet everything on a startup contest for $500,000.",
+    "url": "https://www.youtube.com/embed/b5sBSNkLWKY",
+    "source_channel": "YouTube (Leap Year)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "All Hands",
+        "video_id": "b5sBSNkLWKY",
+        "url": "https://www.youtube.com/embed/b5sBSNkLWKY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Released",
+        "video_id": "LpgxOu-9mTE",
+        "url": "https://www.youtube.com/embed/LpgxOu-9mTE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "A Simple Contest",
+        "video_id": "79xuxlb7v7E",
+        "url": "https://www.youtube.com/embed/79xuxlb7v7E",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Used People Salesman",
+        "video_id": "2pYfyxq3L20",
+        "url": "https://www.youtube.com/embed/2pYfyxq3L20",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Nothing Personal",
+        "video_id": "8XamAMQgNmI",
+        "url": "https://www.youtube.com/embed/8XamAMQgNmI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "That Kind of Day",
+        "video_id": "TTD_a6Kq2nY",
+        "url": "https://www.youtube.com/embed/TTD_a6Kq2nY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Corporate Cupid",
+        "video_id": "MfLC7JZTPhU",
+        "url": "https://www.youtube.com/embed/MfLC7JZTPhU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Five Roads",
+        "video_id": "8demC4NUAyY",
+        "url": "https://www.youtube.com/embed/8demC4NUAyY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Kind of a Genius",
+        "video_id": "Xw11xIXn3xU",
+        "url": "https://www.youtube.com/embed/Xw11xIXn3xU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Life in 3D",
+        "video_id": "CbqKaCBc3lE",
+        "url": "https://www.youtube.com/embed/CbqKaCBc3lE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "A Train Wreck",
+        "video_id": "4ejuO7eDmgQ",
+        "url": "https://www.youtube.com/embed/4ejuO7eDmgQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "One of Those Nights",
+        "video_id": "S4XJInQR1tM",
+        "url": "https://www.youtube.com/embed/S4XJInQR1tM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "Of All the Gin Joints",
+        "video_id": "Y3PvTlqLZz8",
+        "url": "https://www.youtube.com/embed/Y3PvTlqLZz8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "Just Trying to Survive",
+        "video_id": "41uLbXG6El0",
+        "url": "https://www.youtube.com/embed/41uLbXG6El0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "The Very Idea of Loving Love",
+        "video_id": "0Dp3vOIla-Y",
+        "url": "https://www.youtube.com/embed/0Dp3vOIla-Y",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "What It Takes To Win",
+        "video_id": "APNsnYdcO3k",
+        "url": "https://www.youtube.com/embed/APNsnYdcO3k",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "A Moment of Weakness",
+        "video_id": "vYRxC7QF4_4",
+        "url": "https://www.youtube.com/embed/vYRxC7QF4_4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "Behind the Hologram",
+        "video_id": "G4IC00ZA0zE",
+        "url": "https://www.youtube.com/embed/G4IC00ZA0zE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "What We're Capable Of",
+        "video_id": "tbNkZ23nKSk",
+        "url": "https://www.youtube.com/embed/tbNkZ23nKSk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "How to Bite",
+        "video_id": "G9hiRKv1wY8",
+        "url": "https://www.youtube.com/embed/G9hiRKv1wY8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — IAWTV Award (2013), Best Drama Web Series; also Streamy Award (2013), Best Branded Entertainment Series",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8052",
+    "title": "The Bloody Mary Show",
+    "genre": "Horror",
+    "eps": "7 eps",
+    "runtime": "5–11 min",
+    "desc": "A group of friends chant Bloody Mary into a mirror as a joke — and she moves in with them.",
+    "url": "https://www.youtube.com/embed/Go4_mCwSN2I",
+    "source_channel": "YouTube (The Bloody Mary Show)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Halloween The Bloody Mary Show Ep 1",
+        "video_id": "Go4_mCwSN2I",
+        "url": "https://www.youtube.com/embed/Go4_mCwSN2I",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Halloween The Bloody Mary Show Ep 2",
+        "video_id": "aERmLuZYXkY",
+        "url": "https://www.youtube.com/embed/aERmLuZYXkY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Halloween The Bloody Mary Show Ep 3",
+        "video_id": "dAhkTGHi9lE",
+        "url": "https://www.youtube.com/embed/dAhkTGHi9lE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Halloween The Bloody Mary Show Ep 4",
+        "video_id": "HTeW6P1_zQg",
+        "url": "https://www.youtube.com/embed/HTeW6P1_zQg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Halloween The Bloody Mary Show Ep 5",
+        "video_id": "Jgi-V0C3MhQ",
+        "url": "https://www.youtube.com/embed/Jgi-V0C3MhQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Halloween The Bloody Mary Show Ep 6",
+        "video_id": "QsAjdHh2LQg",
+        "url": "https://www.youtube.com/embed/QsAjdHh2LQg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Halloween The Bloody Mary Show Ep 7",
+        "video_id": "luY8G7QuWjQ",
+        "url": "https://www.youtube.com/embed/luY8G7QuWjQ",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Indie Series Award (2013), Best Web Series (Comedy)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8053",
+    "title": "L.A. Macabre",
+    "genre": "Horror",
+    "eps": "22 eps",
+    "runtime": "1–11 min",
+    "desc": "A true-crime fan's vlog investigation into Los Angeles murders turns into found-footage horror when the killer starts watching back.",
+    "url": "https://www.youtube.com/embed/4ZgW3cf2eH0",
+    "source_channel": "YouTube (L.A. Macabre)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Jamie's First Vlog",
+        "video_id": "4ZgW3cf2eH0",
+        "url": "https://www.youtube.com/embed/4ZgW3cf2eH0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Jamie's Vlog 2 - Brutally Honest",
+        "video_id": "f2bPqX6Byf4",
+        "url": "https://www.youtube.com/embed/f2bPqX6Byf4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "L.A. Macabre - The Black Dahlia",
+        "video_id": "iHDZ8tdBtKQ",
+        "url": "https://www.youtube.com/embed/iHDZ8tdBtKQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "L.A. Macabre - Peg Entwistle",
+        "video_id": "ST0MtLgAP7Y",
+        "url": "https://www.youtube.com/embed/ST0MtLgAP7Y",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Jamie's Vlog 3 - Jamie Macabre",
+        "video_id": "LD8zX41_93E",
+        "url": "https://www.youtube.com/embed/LD8zX41_93E",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "L.A. Macabre - The Manson Family",
+        "video_id": "2nd_8hrnHME",
+        "url": "https://www.youtube.com/embed/2nd_8hrnHME",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Jamie's Vlog 4 - Big News",
+        "video_id": "QE4_LgpMrSA",
+        "url": "https://www.youtube.com/embed/QE4_LgpMrSA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "L.A. Macabre - Episode One - Barrels In The Desert",
+        "video_id": "-7bGrFs_foA",
+        "url": "https://www.youtube.com/embed/-7bGrFs_foA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Jamie's Vlog 5 - Back From The Desert",
+        "video_id": "OEAuzrx_Q-Q",
+        "url": "https://www.youtube.com/embed/OEAuzrx_Q-Q",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Jamie's Vlog 6 - Confession",
+        "video_id": "VTIko70ux3c",
+        "url": "https://www.youtube.com/embed/VTIko70ux3c",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "L.A. Macabre - Callie Interviews Colin",
+        "video_id": "Ma04ks1uLvw",
+        "url": "https://www.youtube.com/embed/Ma04ks1uLvw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "Jamie's Vlog 7 - Team Collie",
+        "video_id": "v7RrO-cUUcA",
+        "url": "https://www.youtube.com/embed/v7RrO-cUUcA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "i see you",
+        "video_id": "sM2jVYjVcuU",
+        "url": "https://www.youtube.com/embed/sM2jVYjVcuU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "L.A. Macabre - Podcast - Part One",
+        "video_id": "VJDZ29sOl_Y",
+        "url": "https://www.youtube.com/embed/VJDZ29sOl_Y",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "L.A. Macabre - Podcast - Part Two",
+        "video_id": "xBdtrb5KGUE",
+        "url": "https://www.youtube.com/embed/xBdtrb5KGUE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "Jamie's Vlog 8 - Surveillance",
+        "video_id": "WGkuNhwcHT4",
+        "url": "https://www.youtube.com/embed/WGkuNhwcHT4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "Jamie's Vlog 9 - Parallels",
+        "video_id": "rmzaFhkqqVU",
+        "url": "https://www.youtube.com/embed/rmzaFhkqqVU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "Jamie's Vlog 10 - Left Alone",
+        "video_id": "RuizZWIWSDk",
+        "url": "https://www.youtube.com/embed/RuizZWIWSDk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "Jamie's Vlog 11 - Please Stop",
+        "video_id": "FjQoktY3SYs",
+        "url": "https://www.youtube.com/embed/FjQoktY3SYs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "Jamie's Vlog 12 - Real Blood",
+        "video_id": "W80y-TZu6jM",
+        "url": "https://www.youtube.com/embed/W80y-TZu6jM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 21,
+        "title": "Jamie's Vlog 13 - Sleeping In Shifts",
+        "video_id": "3_0dQhXiA_g",
+        "url": "https://www.youtube.com/embed/3_0dQhXiA_g",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 22,
+        "title": "Jamie's Vlog 14 - Colin's Gone",
+        "video_id": "A57gifjZyS0",
+        "url": "https://www.youtube.com/embed/A57gifjZyS0",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Indie Series Award (2015), Best Web Series (Drama)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
