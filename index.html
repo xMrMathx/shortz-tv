@@ -458,6 +458,21 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
   opacity:0;pointer-events:none;transition:opacity .4s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 body.hud-hidden.feedfull #hudHint{opacity:1;pointer-events:auto}
 body.pip #hudHint{display:none}
+/* MIC DOT: tiny camera-dot-style mic button, shown ONLY while the HUD is hidden
+   (off-screen-controls state). A real tappable button — no finicky invisible zone.
+   Sits below the "Tap for controls" pill (pill is at bottom:104px). */
+#micDot{position:fixed;bottom:calc(24px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);
+  z-index:59;width:36px;height:36px;border-radius:50%;padding:0;cursor:pointer;
+  background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
+  font-size:15px;line-height:1;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .35s,background .2s,border-color .2s,box-shadow .2s;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent}
+body.hud-hidden.feedfull #micDot{opacity:1;pointer-events:auto}
+body.pip #micDot{display:none}
+#micDot:active{transform:translateX(-50%) scale(.92)}
+#micDot.listening{background:rgba(229,9,20,.35);border-color:#e50914;color:#fff;
+  box-shadow:0 0 14px rgba(229,9,20,.55);animation:mdotpulse 1s ease-in-out infinite}
+@keyframes mdotpulse{0%,100%{box-shadow:0 0 8px rgba(229,9,20,.35)}50%{box-shadow:0 0 18px rgba(229,9,20,.7)}}
 /* ---------- tab bar ---------- */
 #tabbar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;
   background:rgba(10,10,16,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
@@ -650,6 +665,8 @@ body.pip #hudHint{display:none}
   #view-home .feedstage{max-width:520px;margin:0 auto;width:100%}
   #hudHint{left:calc(50% + 120px)}
   #voicePop{left:calc(50% + 120px)}
+  /* mic dot is a mobile watch-surface affordance — not needed with the desktop sidebar */
+  #micDot{display:none!important}
   /* --- SPLASH: base inset:0 is already full-screen — just scale the logo up --- */
   #splashLogo{width:min(44vw,460px)}
   /* --- grids use the full main-area width --- */
@@ -1171,6 +1188,7 @@ try{
   </main>
   <div id="viewpad"></div>
   <button id="hudHint" aria-label="Show controls">Tap for controls</button>
+  <button id="micDot" aria-label="Tap for voice">🎙</button>
 
   <nav id="tabbar">
     <button id="voiceBtn" aria-label="Hold to speak, tap to type">
@@ -2412,6 +2430,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       if(!warmRec){rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;}
     }catch(e){toast("Voice not supported here — type instead");openType();return;}
     listening=true;noExec=false;btn.classList.add("listening");pop.classList.add("show");
+    try{var _md=document.getElementById("micDot");if(_md)_md.classList.add("listening");}catch(_e){}
     tx.textContent="Listening…";
     // AUTO-PAUSE: if the video is playing, pause it while you talk (mic hears YOU, not the video).
     // On release, it resumes — unless you paused it yourself before holding.
@@ -2474,6 +2493,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     listening=false;
     try{if(rec)rec.stop();}catch(e){}
     rec=null;btn.classList.remove("listening");pop.classList.remove("show");
+    try{var _md2=document.getElementById("micDot");if(_md2)_md2.classList.remove("listening");}catch(_e2){}
     // AUTO-RESUME: if WE paused it for voice, resume on release — but only if
     // the voice command didn't navigate away (then curSlide differs).
     const rs=voicePausedSlide;voicePausedSlide=null;
@@ -2541,7 +2561,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       const vh=window.innerHeight||700;
       if(typeof e.clientY!=="number"||e.clientY<=vh-100)return;
       const t=e.target;
-      if(t&&t.closest&&t.closest("#voiceBtn,#tabbar .tab,input,textarea,select"))return;
+      if(t&&t.closest&&t.closest("#voiceBtn,#micDot,#tabbar .tab,input,textarea,select"))return;
       if(typeof window._micToggle==="function"){
         window._micToggle();
         e.stopPropagation();
@@ -2549,6 +2569,23 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }
     }catch(err){}
   },true);
+  // MIC DOT: tiny visible mic button for the HUD-hidden state. Real button, single trigger
+  // (excluded from the doc zone listener above). Tap toggles listening via the same bridge.
+  (function(){
+    const dot=document.getElementById("micDot");
+    if(!dot)return;
+    dot.addEventListener("click",function(e){
+      try{
+        if(typeof suppressClick!=="undefined"&&suppressClick)return; // ignore post-drag taps
+        if(typeof window._micToggle==="function")window._micToggle();
+        e.stopPropagation();
+        e.preventDefault();
+      }catch(err){}
+    });
+    dot.addEventListener("touchstart",function(e){e.stopPropagation();},{passive:true});
+    dot.addEventListener("touchend",function(e){e.stopPropagation();},{passive:true});
+    dot.addEventListener("contextmenu",function(e){e.preventDefault();});
+  })();
 })();
 function renderView(v){
   if(v==="home"){
@@ -3406,7 +3443,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011235000";
+const BUILD="20261011235200";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
