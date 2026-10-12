@@ -484,6 +484,28 @@ body.pip #hudHint{display:none}
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent}
 body.hud-hidden.feedfull #micDot{opacity:1;pointer-events:auto}
 body.pip #micDot{display:none}
+
+/* EVERYTHING: swipeable hub — grid button in HUD, header bar in ev-mode */
+#evHeader{position:fixed;top:0;left:0;right:0;z-index:9500;display:none;align-items:center;gap:12px;
+  padding:calc(10px + env(safe-area-inset-top)) 14px 10px;background:linear-gradient(rgba(0,0,0,.92),rgba(0,0,0,.75) 70%,transparent);
+  pointer-events:none}
+body.ev-mode #evHeader{display:flex;pointer-events:auto}
+#evClose{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
+  color:#fff;font-size:16px;font-weight:700;cursor:pointer;flex-shrink:0}
+#evClose:active{background:rgba(255,255,255,.22)}
+#evTitle{font-size:17px;font-weight:800;color:#fff;flex:1}
+#evDots{display:flex;gap:6px;align-items:center}
+#evDots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.28);transition:background .25s}
+#evDots i.on{background:#e50914}
+#evHint{position:fixed;bottom:calc(90px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:9500;
+  display:none;background:rgba(18,18,26,.72);border:1px solid rgba(255,255,255,.14);color:#cfcfd8;font-size:11px;font-weight:600;
+  padding:7px 15px;border-radius:20px;white-space:nowrap;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.ev-mode #evHint{display:block;animation:evHintFade 4s forwards}
+@keyframes evHintFade{0%,70%{opacity:1}100%{opacity:0}}
+/* slide transition when swiping sections in ev-mode */
+body.ev-mode .view{transition:opacity .28s ease,transform .28s ease}
+body.ev-mode .view.ev-slide-l{transform:translateX(-24px)!important}
+body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
 #micDot:active{transform:translateX(-50%) scale(.92)}
 #micDot.listening{background:rgba(229,9,20,.35);border-color:#e50914;color:#fff;
   box-shadow:0 0 14px rgba(229,9,20,.55);animation:mdotpulse 1s ease-in-out infinite}
@@ -1218,6 +1240,13 @@ try{
   </main>
   <div id="viewpad"></div>
   <button id="hudHint" aria-label="Show controls">Tap for controls</button>
+  <!-- EVERYTHING header: shown in ev-mode, swipe between sections -->
+  <div id="evHeader" aria-hidden="true">
+    <button id="evClose" aria-label="Close">✕</button>
+    <div id="evTitle">Home</div>
+    <div id="evDots"><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div id="evHint" aria-hidden="true">Swipe ← → to explore sections</div>
   <button id="micDot" aria-label="Tap for voice">🎙</button>
 
   <nav id="tabbar">
@@ -2835,6 +2864,116 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     }
   })();
 })();
+/* ================= EVERYTHING: swipeable hub (no-voice navigation) =================
+   Grid button in the Home HUD rail opens ev-mode. Swipe LEFT/RIGHT anywhere to move
+   through Home → Browse → Live → Streaming → Profile. Up/down works normally inside
+   each section. Close button or tapping the grid button again exits. */
+(function(){
+  const SECTIONS=["home","browse","live","streaming","profile"];
+  const TITLES={home:"Home",browse:"Browse",live:"Live",streaming:"Streaming",profile:"Profile"};
+  let evMode=false, evIdx=0, tx0=0, ty0=0, swiped=false;
+  const $=id=>document.getElementById(id);
+  function updateHeader(){
+    const t=$("evTitle"), d=$("evDots");
+    if(t)t.textContent=TITLES[SECTIONS[evIdx]]||"Home";
+    if(d){const dots=d.querySelectorAll("i");dots.forEach((el,i)=>el.classList.toggle("on",i===evIdx));}
+  }
+  function evGo(dir,slideCls){
+    evIdx=(evIdx+dir+SECTIONS.length)%SECTIONS.length;
+    const v=SECTIONS[evIdx];
+    try{renderView(v)}catch(e){}
+    // slide animation on the incoming view
+    try{
+      const nxt=document.getElementById("view-"+v);
+      if(nxt&&slideCls){nxt.classList.add(slideCls);setTimeout(()=>nxt.classList.remove(slideCls),300);}
+    }catch(e){}
+    go(v);
+    updateHeader();
+  }
+  function open(){
+    if(evMode)return;
+    evMode=true;
+    document.body.classList.add("ev-mode");
+    try{document.body.classList.remove("hud-hidden");}catch(e){} // keep HUD visible in ev-mode
+    evIdx=SECTIONS.indexOf((typeof curView!=="undefined")?curView:"home");
+    if(evIdx<0)evIdx=0;
+    updateHeader();
+    try{
+      const h=$("evHint");
+      if(h){h.style.animation="none";void h.offsetWidth;h.style.animation="";}
+    }catch(e){}
+  }
+  function close(){
+    if(!evMode)return;
+    evMode=false;
+    document.body.classList.remove("ev-mode");
+  }
+  // swipe detection: capture phase, only in ev-mode, horizontal-dominant only
+  document.addEventListener("touchstart",e=>{
+    if(!evMode||!e.touches||!e.touches[0])return;
+    tx0=e.touches[0].clientX;ty0=e.touches[0].clientY;swiped=false;
+  },{passive:true,capture:true});
+  document.addEventListener("touchend",e=>{
+    if(!evMode||!e.changedTouches||!e.changedTouches[0])return;
+    const dx=e.changedTouches[0].clientX-tx0, dy=e.changedTouches[0].clientY-ty0;
+    if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.4){
+      swiped=true;
+      setTimeout(()=>{swiped=false;},350);
+      evGo(dx<0?1:-1, dx<0?"ev-slide-r":"ev-slide-l");
+    }
+  },{passive:true,capture:true});
+  // suppress the tap/click that a swipe might trigger
+  document.addEventListener("click",e=>{
+    if(evMode&&swiped){e.stopPropagation();e.preventDefault();}
+  },true);
+  // close button
+  document.addEventListener("DOMContentLoaded",()=>{
+    const c=$("evClose");
+    if(c)c.addEventListener("click",e=>{e.stopPropagation();close();});
+  });
+  // if DOM already loaded (script at end of body), wire immediately
+  try{
+    const c=$("evClose");
+    if(c&&!c._evWired){c._evWired=true;c.addEventListener("click",e=>{e.stopPropagation();close();});}
+  }catch(e){}
+  // tabbar taps exit ev-mode (user chose explicit navigation)
+  try{
+    document.querySelectorAll(".tab").forEach(t=>{
+      t.addEventListener("click",()=>{if(evMode)close();});
+    });
+  }catch(e){}
+  // clickable dots
+  try{
+    const d=$("evDots");
+    if(d)d.addEventListener("click",e=>{
+      const dots=[...d.querySelectorAll("i")];
+      const i=dots.indexOf(e.target);
+      if(i>=0&&i!==evIdx){
+        evIdx=i;
+        const v=SECTIONS[evIdx];
+        try{renderView(v)}catch(err){}
+        go(v);
+        updateHeader();
+      }
+    });
+  }catch(e){}
+  // sync header if view changes via voice/tabs while in ev-mode
+  try{
+    const views=document.getElementById("views");
+    if(views&&window.MutationObserver){
+      new MutationObserver(()=>{
+        if(!evMode)return;
+        const act=views.querySelector(".view.active");
+        if(act){
+          const id=act.id.replace("view-","");
+          const i=SECTIONS.indexOf(id);
+          if(i>=0&&i!==evIdx){evIdx=i;updateHeader();}
+        }
+      }).observe(views,{attributes:true,subtree:true,attributeFilter:["class"]});
+    }
+  }catch(e){}
+  window.Everything={open,close,toggle(){evMode?close():open();},isOpen(){return evMode;},go:evGo};
+})();
 function renderView(v){
   if(v==="home"){
     mountFeed();
@@ -3279,6 +3418,7 @@ function slideHTML(){
       <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
       <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
       <div class="ric"><button data-a="more" data-more>▼</button><span>More</span></div>
+      <div class="ric"><button data-a="everything" data-everything>⊞</button><span>All</span></div>
       <div class="ric-more" data-moremenu>
       <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
       <div class="ric"><button data-a="cc" data-cc>CC</button><span>Subs</span></div>
@@ -3412,6 +3552,7 @@ function railAction(a,slide){
     const btn=slide.querySelector("[data-more]");
     if(m){ const open=m.classList.toggle("open"); if(btn)btn.textContent=open?"▲":"▼"; }
   }
+  else if(a==="everything"){ try{ if(window.Everything&&Everything.toggle)Everything.toggle(); }catch(e){} }
   else if(a==="cc"){openCc(slide)}
   else if(a==="pip"){try{if(window.Android&&window.Android.enterPip)window.Android.enterPip()}catch(e){}}
   else if(a==="pia"){try{piaEnter()}catch(e){}}
@@ -3695,7 +3836,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012004000";
+const BUILD="20261012010000";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
