@@ -4267,7 +4267,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012145029";
+const BUILD="20261012045500";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9730,9 +9730,15 @@ if(document.readyState==="loading"){
 }
 })();
 
-/* ================= UPDATES TV — Phase 1: house promos =================
-   A tiny floating TV that runs Shortz VS's OWN spots (no ad network):
-   NEW catalog additions, COMING SOON premieres, TOP 10 award films.
+/* ================= UPDATES TV — Awards Trailer Showcase =================
+   A tiny floating TV that showcases Shortz VS's award shelf: it plays
+   NOTHING but trailers of AWARD-NOMINATED catalog titles (trailers.json —
+   official trailers only, verified embeddable + US-playable at hunt time).
+   Each preview plays muted to its natural end (60s cap), then the next
+   one rolls; swipe left/right on the little screen skips through
+   previews, a plain tap opens the title. If trailers.json is ever
+   empty/unreachable the TV falls back to the Phase 1 house spots
+   (NEW catalog additions, COMING SOON premieres, TOP 10 award films).
    Two modes:
    - AUTO (frequency-capped, anti-ad-heavy): appears at most once per
      10 minutes, only after ~20s of actual watching on Home/Live/Streaming,
@@ -9748,10 +9754,15 @@ if(document.readyState==="loading"){
   "use strict";
   const $=id=>document.getElementById(id);
   const btn=$("tvBtn"), box=$("tvBox"), img=$("tvImg"), tagEl=$("tvTag"),
-        titleEl=$("tvTitle"), subEl=$("tvSub"), xBtn=$("tvX");
+        titleEl=$("tvTitle"), subEl=$("tvSub"), xBtn=$("tvX"),
+        vidBox=$("tvVid"), touchEl=$("tvTouch");
   if(!btn||!box) return;
   const CAP_MS=10*60*1000, WATCH_NEED=20, X_AFTER=4000, FADE_AFTER=12000, ROT_MS=6000;
   let spots=[], idx=0, mode=null, dataReady=false, loadTries=0, pendingManual=false;
+  /* Awards Trailer Showcase state: plain rotation over trailers.json —
+     no pins, no tiers. content flips to "house" only as the fallback. */
+  let trailers=[], tIdx=0, content="house", tvPlayer=null, tvToken=0,
+      tvWatchdog=null, tvErrStreak=0, lastSwipeAt=0;
   let lastAuto=0, watchSecs=0, shownAt=0, rotTimer=null;
   const bootAt=Date.now();
 
@@ -9811,7 +9822,7 @@ if(document.readyState==="loading"){
     try{ if(typeof csCache!=="undefined"&&Array.isArray(csCache)){ fillComing(csCache,coming); csCold=false; } }catch(e){}
     try{ if(typeof top10Caches!=="undefined"&&top10Caches&&Array.isArray(top10Caches.afilms)){ fillTops(top10Caches.afilms,tops); t10Cold=false; } }catch(e){}
     spots=assemble(news,coming,tops);
-    dataReady=spots.length>0;
+    if(spots.length>0) dataReady=true; // never clear a trailers-ready flag
     if(dataReady&&pendingManual){ pendingManual=false; show("manual"); }
     else if(mode) render(); // already open on a previous build: swap the fresh rotation in
     /* Cold buckets: pull the same files the shelves pull, then rebuild —
@@ -9822,7 +9833,7 @@ if(document.readyState==="loading"){
       if(t10Cold) jobs.push(fetchJsonFresh("top10-award-films.json").then(l=>{ if(Array.isArray(l)) fillTops(l,tops); }));
       Promise.all(jobs).then(()=>{
         spots=assemble(news,coming,tops);
-        dataReady=spots.length>0;
+        if(spots.length>0) dataReady=true;
         if(dataReady&&pendingManual){ pendingManual=false; show("manual"); }
         else if(mode) render();
       });
@@ -9833,6 +9844,21 @@ if(document.readyState==="loading"){
     if(dataReady||loadTries>=6) return;
     loadTries++;
     buildSpots().then(ok=>{ if(!ok) setTimeout(loadData,4000); });
+  }
+  /* Awards Trailer Showcase data: trailers.json sits next to the other
+     fresh JSONs and gets the same no-cache treatment. Any non-empty,
+     well-formed list flips the TV's content to trailers; anything else
+     leaves the house spots in charge (never a broken TV). */
+  function loadTrailers(){
+    fetchJsonFresh("trailers.json").then(list=>{
+      if(!Array.isArray(list)) return;
+      const ok=list.filter(x=>x&&x.titleId&&x.title&&x.trailerVideoId);
+      if(!ok.length) return;
+      trailers=ok; content="trailers"; dataReady=true;
+      tIdx=Math.floor(Math.random()*trailers.length); // plain rotation, random door in
+      if(pendingManual){ pendingManual=false; show("manual"); }
+      else if(mode) render(); // open on house spots: swap the showcase in
+    }).catch(()=>{});
   }
 
   function playingNow(){
@@ -9856,12 +9882,74 @@ if(document.readyState==="loading"){
   }
 
   function render(){
+    if(content==="trailers"&&trailers.length){ renderTrailer(); return; }
+    stopTrailer();
+    img.style.display="";
     const s=spots[idx%spots.length]; if(!s) return;
     img.src=s.img; tagEl.textContent=s.tag;
     titleEl.textContent=s.title; subEl.textContent=s.sub;
   }
+  /* ---------- trailer player (muted showcase; sound lives in the title) ----------
+     A preview plays to its natural end (YT ENDED), capped at 60s by a
+     watchdog timer built from the hunt-verified duration, then the next
+     preview rolls. Errors advance too; a full playlist of refusals drops
+     the TV back to house spots for the session rather than showing a
+     dead screen. tvToken invalidates stale player callbacks on any
+     skip/hide, the same guard pattern as the Live stage. */
+  function stopTrailer(){
+    tvToken++; clearTimeout(tvWatchdog); tvWatchdog=null; tvPlayer=null;
+    if(vidBox){ vidBox.innerHTML=""; vidBox.style.display="none"; }
+  }
+  function advanceTrailer(dir){
+    if(!trailers.length) return;
+    tIdx=(tIdx+dir+trailers.length)%trailers.length;
+    if(mode) renderTrailer();
+  }
+  function trailerFail(){
+    tvErrStreak++;
+    if(tvErrStreak>=Math.max(3,trailers.length)){
+      content="house"; tvErrStreak=0; stopTrailer(); render();
+      if(mode==="manual") startRotation();
+      return;
+    }
+    advanceTrailer(1);
+  }
+  function renderTrailer(){
+    const t=trailers[tIdx%trailers.length]; if(!t) return;
+    img.style.display="none";
+    tagEl.textContent="TRAILER";
+    titleEl.textContent=t.title||"";
+    subEl.textContent=t.awardNote?("🏆 "+t.awardNote):"";
+    playTrailer(t);
+  }
+  function playTrailer(t){
+    stopTrailer();
+    const token=tvToken;
+    vidBox.style.display="block";
+    const fr=document.createElement("iframe");
+    fr.id="tvFrame"; fr.title="Award-nominated trailer";
+    fr.setAttribute("allow","autoplay; encrypted-media");
+    fr.src="https://www.youtube.com/embed/"+t.trailerVideoId+
+      "?autoplay=1&mute=1&controls=0&playsinline=1&rel=0&enablejsapi=1&modestbranding=1";
+    vidBox.appendChild(fr);
+    const capS=Math.min(Math.max(10,t.dur||45),60);
+    tvWatchdog=setTimeout(()=>{ if(token===tvToken&&mode) advanceTrailer(1); },(capS+2.5)*1000);
+    try{
+      ensureYT(()=>{
+        if(token!==tvToken) return;
+        const f2=document.getElementById("tvFrame"); if(!f2||f2!==fr) return;
+        try{
+          tvPlayer=new YT.Player(f2,{events:{
+            onStateChange:ev=>{ if(token===tvToken&&ev.data===0){ tvErrStreak=0; advanceTrailer(1); } },
+            onError:()=>{ if(token===tvToken) trailerFail(); }
+          }});
+        }catch(e){}
+      });
+    }catch(e){}
+  }
   function startRotation(){
     clearInterval(rotTimer);
+    if(content==="trailers") return; // trailers advance at their natural end, not on a timer
     rotTimer=setInterval(()=>{ idx=(idx+1)%spots.length; render(); },ROT_MS);
   }
   function show(m){
@@ -9875,10 +9963,14 @@ if(document.readyState==="loading"){
   }
   function hide(){
     const was=mode; mode=null;
+    stopTrailer();
     box.classList.remove("on","xready"); box.setAttribute("aria-hidden","true");
     document.body.classList.remove("tv-on");
     clearInterval(rotTimer);
-    if(was==="auto"&&spots.length) idx=(idx+1)%spots.length; // next appearance, next spot
+    if(was==="auto"){ // next appearance, next preview/spot
+      if(content==="trailers"&&trailers.length) tIdx=(tIdx+1)%trailers.length;
+      else if(spots.length) idx=(idx+1)%spots.length;
+    }
   }
 
   btn.addEventListener("click",e=>{
@@ -9895,10 +9987,40 @@ if(document.readyState==="loading"){
   box.addEventListener("click",e=>{
     e.stopPropagation();
     if(e.target===xBtn) return;
+    if(Date.now()-lastSwipeAt<400) return; // that "tap" was the end of a swipe
+    if(content==="trailers"){
+      const t=trailers[tIdx%trailers.length]; if(!t) return;
+      hide();
+      try{ openDetail(t.titleId); }catch(err){}
+      return;
+    }
     const s=spots[idx%spots.length]; if(!s) return;
     hide();
     try{ if(s.id) openDetail(s.id); else if(s.go) go(s.go); }catch(err){}
   });
+  /* Swipe on the little screen: left = next preview, right = previous.
+     Handled on the gesture layer (#tvTouch) — horizontal drags only, so a
+     plain tap still falls through to the click above and opens the title.
+     The swipe itself never touches the main video: pointerdown on the box
+     is already stopPropagation'd below, and a swipe sets lastSwipeAt so
+     the trailing click is swallowed instead of opening the detail page. */
+  if(touchEl){
+    let sx=0, sy=0;
+    touchEl.addEventListener("pointerdown",e=>{ sx=e.clientX; sy=e.clientY; });
+    touchEl.addEventListener("pointerup",e=>{
+      if(!mode) return;
+      const dx=e.clientX-sx, dy=e.clientY-sy;
+      if(Math.abs(dx)>=28&&Math.abs(dx)>Math.abs(dy)*1.4){
+        lastSwipeAt=Date.now();
+        if(content==="trailers") advanceTrailer(dx<0?1:-1);
+        else if(spots.length){
+          idx=(idx+(dx<0?1:-1)+spots.length)%spots.length; render();
+          if(mode==="manual") startRotation(); // reset the 6s clock after a manual skip
+        }
+      }
+    });
+    touchEl.addEventListener("pointercancel",()=>{ sx=0; sy=0; });
+  }
   [btn,box].forEach(el=>{
     el.addEventListener("pointerdown",e=>e.stopPropagation());
     el.addEventListener("touchstart",e=>e.stopPropagation(),{passive:true});
@@ -9930,6 +10052,7 @@ if(document.readyState==="loading"){
   },1000);
 
   loadData();
+  loadTrailers();
 })();
 </script>
 
