@@ -6,6 +6,9 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <link rel="canonical" href="https://shortz-tv.pages.dev/">
 <title>Shortz VS — Free Short Dramas</title>
 <meta property="og:title" content="Shortz VS — Free Short Dramas">
@@ -3128,10 +3131,15 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011225800";
+const BUILD="20261011230000";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
+}
+// Force a truly fresh load — bypasses browser cache completely. No hard-refresh needed.
+function forceFreshReload(){
+  const base=location.href.split("?")[0].split("#")[0];
+  location.href=base+"?fresh="+Date.now()+(location.hash||"");
 }
 document.addEventListener("visibilitychange",()=>{
   if(document.visibilityState==="hidden"){_hiddenAt=Date.now();return;}
@@ -3139,7 +3147,7 @@ document.addEventListener("visibilitychange",()=>{
   if(piaActive)return; // don't interrupt PIA
   // ALWAYS check freshness on return — no stale builds, ever. No force-close needed.
   checkBuildFresh().then(v=>{
-    if(v&&v!==BUILD){location.reload();return;}
+    if(v&&v!==BUILD){forceFreshReload();return;}
     if(curView!=="home")return;
     if(Date.now()-_hiddenAt<30000)return; // quick switch: keep your place
     try{
@@ -3149,9 +3157,9 @@ document.addEventListener("visibilitychange",()=>{
   });
 });
 // Check IMMEDIATELY on load (not after 2s) — WebView serves cached HTML on cold start.
-checkBuildFresh().then(v=>{if(v&&v!==BUILD)location.reload();});
+checkBuildFresh().then(v=>{if(v&&v!==BUILD)forceFreshReload();});
 // And every 60s while open — always fresh, never stale.
-setInterval(()=>{checkBuildFresh().then(v=>{if(v&&v!==BUILD)location.reload();});},60000);
+setInterval(()=>{checkBuildFresh().then(v=>{if(v&&v!==BUILD)forceFreshReload();});},60000);
 function doUnmute(){
   soundOn=true;unmuteFrame();
   const sp=curSlide().querySelector("[data-sound]");if(sp)sp.style.display="none";
