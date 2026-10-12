@@ -284,12 +284,13 @@
       "optB": "NO",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "A",
       "auto": true,
       "kind": "milestone",
       "streamer": "Aydan",
-      "target": 500
+      "target": 500,
+      "resolvedAt": 1791772756
     },
     {
       "id": "auto-aydan-1791771861-mar",
