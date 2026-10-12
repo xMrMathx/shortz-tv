@@ -118,6 +118,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cfact{display:flex;align-items:center;gap:7px;background:#1c1c21;border:1px solid transparent;border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;color:var(--txt);cursor:pointer;user-select:none;font-family:inherit}
 .cfact:active{transform:scale(.96)}
 .cfact.liked{color:#ff3355;border-color:rgba(229,9,20,.45)}
+.cfact.saved{color:#2ee06f;border-color:rgba(46,224,111,.45)}
 .cfact.share{margin-left:auto}
 #cfBack{position:absolute;top:calc(60px + env(safe-area-inset-top));left:12px;z-index:60;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.6);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center}
 #cfBack.on{display:flex}
@@ -4291,7 +4292,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012164123";
+const BUILD="20261012214332";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5199,6 +5200,7 @@ function cfCardHTML(t){
   const badge=t.award?(/winner/i.test(t.award)?"🏆 Award Winner":(/nominee/i.test(t.award)?"🏆 Nominee":"🏆 Nominee")):"";
   const dur=esc(t.eps||t.runtime||"");
   const liked=!!likes[t.id];
+  const inList=mylist.has(t.id);
   const cc=(comments[t.id]||[]).length;
   const lc=(window.Likes&&Likes.cache&&Likes.cache[t.id])?Object.keys(Likes.cache[t.id]).length:0;
   return `<article class="cfcard" data-id="${t.id}">
@@ -5217,6 +5219,7 @@ function cfCardHTML(t){
     <div class="cfactions">
       <button class="cfact${liked?" liked":""}" data-cf-like><span data-cf-heart>${liked?"♥":"♡"}</span><span data-cf-likenum>${lc}</span></button>
       <button class="cfact" data-cf-com><span>💬</span><span data-cf-comnum>${cc}</span></button>
+      <button class="cfact${inList?" saved":""}" data-cf-save><span data-cf-saveicon>${inList?"✓":"+"}</span></button>
       <button class="cfact share" data-cf-share><span>⤴</span><span>Share</span></button>
     </div>
   </article>`;
@@ -5433,6 +5436,22 @@ function cfLikeTap(card,t){
   try{ buzz(15); }catch(e){}
   try{ likeToggle(t.id); }catch(e){}
 }
+function cfPaintSave(card){
+  const on=mylist.has(card.dataset.id);
+  const b=card.querySelector("[data-cf-save]"); if(!b)return;
+  b.classList.toggle("saved",on);
+  const i=card.querySelector("[data-cf-saveicon]"); if(i)i.textContent=on?"✓":"+";
+}
+function cfSaveTap(card,t){
+  // the app's one My List store — the same Set + saveList() the detail
+  // view toggles (his order: a plus sign next to the comment button;
+  // tap adds, the button shows ✓ in-list, tap again removes).
+  if(mylist.has(t.id)){ mylist.delete(t.id); toast("Removed from My List"); }
+  else { mylist.add(t.id); toast("Saved to My List"); }
+  saveList();
+  cfPaintSave(card);
+  try{ buzz(15); }catch(e){}
+}
 function cfOpenComments(t){
   commentTarget=t.id; // the drawer's existing non-feed target (sports reel uses it too)
   renderComments();
@@ -5442,6 +5461,7 @@ function cfSyncCounts(){
   document.querySelectorAll(".cfcard").forEach(c=>{
     const el=c.querySelector("[data-cf-comnum]");
     if(el)el.textContent=(comments[c.dataset.id]||[]).length;
+    cfPaintSave(c);
   });
 }
 (function(){
@@ -5451,6 +5471,7 @@ function cfSyncCounts(){
     const t=byId(card.dataset.id); if(!t)return;
     if(e.target.closest("[data-cf-like]")){ cfLikeTap(card,t); return; }
     if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
+    if(e.target.closest("[data-cf-save]")){ cfSaveTap(card,t); return; }
     if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
     if(e.target.closest("[data-cf-media],[data-cf-body]")){ playSeries(t); }
   });
