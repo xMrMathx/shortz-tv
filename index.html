@@ -103,7 +103,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cfcard.playing{border-color:rgba(229,9,20,.55);box-shadow:0 0 0 1px rgba(229,9,20,.35),0 8px 30px rgba(0,0,0,.5)}
 .cfmedia{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden}
 .cfmedia .cfart{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.cfmedia .cfprev{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000;z-index:2}
+.cfmedia .cfprev{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000;z-index:2;pointer-events:none}
+.cfmedia .cfshield{position:absolute;inset:0;z-index:4}
 .cfmedia .cfbadge{position:absolute;left:10px;top:10px;z-index:3;background:var(--red);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:1px;padding:4px 9px;border-radius:6px;text-transform:uppercase;max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cfmedia .cfdur{position:absolute;right:10px;top:10px;z-index:3;background:rgba(0,0,0,.62);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
 .cfmedia .cfplay{position:absolute;right:12px;bottom:12px;z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.55);border:1.5px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;padding-left:3px;pointer-events:none}
@@ -4288,7 +4289,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012203307";
+const BUILD="20261012211044";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5182,8 +5183,8 @@ $("#ccclose").addEventListener("click",closeCc);
 /* ================= HOME CARD FEED (his design, 2026-10-12) =================
    Home is a Reddit-style card feed now: continuous scroll, real cover art,
    Like / Comment / Share under every card. Whichever card sits nearest the
-   viewport center plays a muted preview — only one at a time; every other
-   card shows its cover. Tapping a card opens the existing full-screen
+   viewport center plays a preview WITH SOUND — only one at a time; every
+   other card shows its cover. Tapping a card opens the existing full-screen
    player (playSeries): the pager stage is untouched, just hidden until
    something plays, with a back button to return to the cards.
    Feed source/order is unchanged: the HOME FRESH pickRandom pool and
@@ -5204,6 +5205,7 @@ function cfCardHTML(t){
       ${badge?`<span class="cfbadge">${badge}</span>`:""}
       ${dur?`<span class="cfdur">${dur}</span>`:""}
       <span class="cfplay">▶</span>
+      <div class="cfshield"></div>
     </div>
     <div class="cfbody" data-cf-body>
       <div class="cftitle">${t.award_verified?"🏆 ":""}${esc(t.title)}</div>
@@ -5254,14 +5256,34 @@ function buildCardFeed(){
   cfBuilt=true;
   requestAnimationFrame(()=>cfRecompute());
 }
-/* --- muted preview: forced mute regardless of the app sound default --- */
+/* --- preview WITH SOUND (his order, 2026-10-12): the same mechanism as
+   the TV Guide previews — the embed requests an audible start (mute=0 +
+   enablejsapi=1) and a player object drives unMute + full volume +
+   playVideo on ready (cfArmSound/cfSoundArm, mirroring tgArmEnd/
+   tgSoundArm). The APK shell permits audible autoplay
+   (setMediaPlaybackRequiresUserGesture(false) in MainActivity), so the
+   centered card is audible the moment it plays — no tap, no unlock, no
+   unmute button on the cards, ever. If a plain browser still refuses an
+   audible start, the preview falls back to playing muted (the guide's
+   survival pattern, minus its button) and the next centered card
+   retries audible from scratch.
+   NO LINK-OUTS (his order, same day): the preview iframe is
+   pointer-events:none with a transparent .cfshield laid over the whole
+   video area, so a tap can never reach YouTube's own chrome (title /
+   logo / controls are inert, and the embed hides them anyway:
+   controls=0 + disablekb + fs=0). The shield is an ordinary child of
+   the card's media box — a tap on it bubbles to the same delegated
+   card-tap handler as any card tap (opens the stage player), and feed
+   scrolling over it is untouched. Sound never needed the tap: it is
+   driven out-of-band through the player API. --- */
+var cfPlayer=null, cfPlayerKind=null;
 function cfPreviewSrc(t){
   const u=(t&&(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"")))||"";
   if(!u)return "";
   const id=ytId(u);
-  if(id)return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&controls=0&loop=1&playlist="+id;
-  if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted=1&loop=1";
-  return embedSrc(u,false)+"&autoplay=1&mute=1";
+  if(id)return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=0&playsinline=1&rel=0&modestbranding=1&controls=0&disablekb=1&fs=0&loop=1&playlist="+id+"&enablejsapi=1";
+  if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted=0&loop=1";
+  return embedSrc(u,false)+"&autoplay=1&mute=0";
 }
 function cfActivate(card){
   if(cfActive===card)return;
@@ -5279,10 +5301,63 @@ function cfActivate(card){
   media.appendChild(fr);
   card.classList.add("playing");
   cfActive=card;
+  cfArmSound(card,t,fr);
+}
+/* wrap the preview iframe in a player object and drive its sound,
+   exactly like tgArmEnd does for the guide preview */
+function cfArmSound(card,t,fr){
+  const u=(t&&(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"")))||"";
+  const stillMine=()=>cfActive===card&&fr.isConnected;
+  if(u.indexOf("vimeo.com")>=0){
+    const ready=(window.Vimeo&&window.Vimeo.Player)
+      ? Promise.resolve()
+      : new Promise((res,rej)=>{const s=document.createElement("script");s.src="https://player.vimeo.com/api/player.js";s.onload=res;s.onerror=rej;document.head.appendChild(s);});
+    ready.then(()=>{try{
+      if(!stillMine())return;
+      cfPlayerKind="vm"; cfPlayer=new Vimeo.Player(fr);
+      cfSoundArm("vm",cfPlayer,card);
+    }catch(e){}}).catch(()=>{});
+  }else if(ytId(u)){
+    const mk=()=>{try{
+      if(!stillMine())return;
+      cfPlayerKind="yt";
+      cfPlayer=new YT.Player(fr,{events:{onReady:(e)=>{ cfSoundArm("yt",e.target,card); }}});
+    }catch(e){}};
+    if(window.YT&&window.YT.Player)mk(); else ensureYT(mk);
+  }
+}
+function cfSoundArm(kind,player,card){
+  if(cfActive!==card)return;
+  const stillMine=()=>cfActive===card;
+  try{
+    if(kind==="yt"){ player.unMute(); player.setVolume(100); player.playVideo(); }
+    else if(kind==="vm"){ player.setVolume(1); const p=player.play(); if(p&&p.catch)p.catch(()=>{}); }
+  }catch(e){}
+  setTimeout(()=>{
+    if(!stillMine())return;
+    try{
+      if(kind==="yt"){
+        const st=player.getPlayerState();
+        if(st!==1&&st!==3){ try{ player.mute(); player.playVideo(); }catch(e){} }
+      }else if(kind==="vm"){
+        player.getPaused().then(paused=>{
+          if(paused&&stillMine()){ try{ player.setVolume(0); const p2=player.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} }
+        }).catch(()=>{});
+      }
+    }catch(e){}
+  },1800);
 }
 function cfStopPreview(){
   if(!cfActive)return;
-  try{ const fr=cfActive.querySelector(".cfprev"); if(fr)fr.remove(); }catch(e){}
+  // silence + release the player object first (guide: tgWatchEnd).
+  // YT.Player.destroy() removes its iframe; the explicit sweep below
+  // covers the not-yet-wrapped and non-API cases.
+  try{
+    if(cfPlayerKind==="yt"&&cfPlayer){ try{cfPlayer.mute();}catch(e){} try{cfPlayer.stopVideo();}catch(e){} try{cfPlayer.destroy();}catch(e){} }
+    else if(cfPlayerKind==="vm"&&cfPlayer){ try{cfPlayer.setVolume(0);}catch(e){} try{cfPlayer.pause();}catch(e){} try{cfPlayer.unload();}catch(e){} }
+  }catch(e){}
+  cfPlayer=null; cfPlayerKind=null;
+  try{ cfActive.querySelectorAll("iframe").forEach(f=>f.remove()); }catch(e){}
   try{ cfActive.classList.remove("playing"); }catch(e){}
   cfActive=null;
 }
