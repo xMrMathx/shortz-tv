@@ -4291,7 +4291,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012211452";
+const BUILD="20261012212111";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6191,6 +6191,10 @@ function renderBrowse(g){
       const wasSearching=!!si.value.trim();
       if(wasSearching){si.value="";browseQuery="";} // selecting a genre clears the search
       if(p.dataset.g===browseGenre&&!wasSearching)return;
+      // GENRE PAGE (his order): tapping a real genre opens its own full page —
+      // every title in the genre right there, back button returns to Browse.
+      // (Sports keeps its picker below; the special collections keep filtering in place.)
+      if(GENRES.indexOf(p.dataset.g)>=0&&p.dataset.g!=="Sports"){ openGenreView(p.dataset.g,"browse"); return; }
       gm.querySelectorAll(".gitem").forEach(q=>q.classList.toggle("sel",q===p));
       gc.textContent=genreLabel(p.dataset.g);
       const toSports=p.dataset.g==="Sports", fromSports=browseGenre==="Sports";
@@ -6210,10 +6214,40 @@ function renderBrowse(g){
 const SPORTS_ORDER=["NFL","Boxing","Baseball","Basketball","Soccer","Cricket","MMA","Tennis","Golf","Hockey"];
 function sportEntry(sport){ return C.find(t=>t.genre==="Sports"&&t.sport===sport); }
 
-/* ---------- FULL-SCREEN GENRE VIEW: voice "take me to westerns" lands here.
-   Just the genre name at top, all the shows in a clean grid. Nothing else. */
-function openGenreView(g){
-  const list=(C||[]).filter(t=>t.genre===g);
+/* ---------- FULL-SCREEN GENRE VIEW: voice "take me to westerns" lands here,
+   and tapping a genre in Browse (his order). Just the genre name at top, every
+   show in the genre in a clean grid. Nothing else. Opened from Browse, the
+   back button returns to Browse; from anywhere else it returns Home. */
+let genreChunks=null, genreBackTo=null, genreScrollY=0;
+const GENRE_CHUNK=60; // same chunk size as the Browse grid — big genres stream in on scroll
+function genreCardHTML(t){
+  const img=thumb(t,"mq");
+  return `<div class="gfull-card" data-id="${t.id}">
+    ${img?`<img loading="lazy" src="${esc(img)}" alt="" onerror="this.style.display='none'">`:""}
+    <div class="t">${esc(t.title)}</div>
+  </div>`;
+}
+function genreMore(){
+  if(!genreChunks)return;
+  const grid=$("#view-genre .gfull-grid"); if(!grid)return;
+  const {list}=genreChunks;
+  const next=Math.min(list.length,genreChunks.shown+GENRE_CHUNK);
+  if(next<=genreChunks.shown)return;
+  const frag=document.createElement("div");
+  frag.innerHTML=list.slice(genreChunks.shown,next).map(genreCardHTML).join("");
+  while(frag.firstChild)grid.appendChild(frag.firstChild);
+  genreChunks.shown=next;
+}
+function openGenreView(g,origin){
+  // The genre's titles = exactly what Browse lists/counts for it (browseList is
+  // the one definition: Sci-Fi includes Space, Rebirth is the rebirth flag).
+  // Save/restore so Browse's own filter state is never disturbed.
+  const svG=browseGenre, svQ=browseQuery;
+  browseGenre=g; browseQuery="";
+  const list=browseList();
+  browseGenre=svG; browseQuery=svQ;
+  genreBackTo=(origin==="browse")?"browse":null;
+  if(genreBackTo)genreScrollY=window.scrollY||0; // his place in Browse, for the way back
   const v=$("#view-genre");
   v.innerHTML=`
     <div class="gfull-head">
@@ -6221,23 +6255,34 @@ function openGenreView(g){
       <div class="gfull-title">${esc(g)}</div>
       <div class="gfull-count">${list.length} shows</div>
     </div>
-    <div class="gfull-grid">
-      ${list.map(t=>{
-        const img=thumb(t,"mq");
-        return `
-        <div class="gfull-card" data-id="${t.id}">
-          ${img?`<img loading="lazy" src="${esc(img)}" alt="" onerror="this.style.display='none'">`:""}
-          <div class="t">${esc(t.title)}</div>
-        </div>`;}).join("")}
-    </div>`;
-  v.querySelectorAll(".gfull-card").forEach(card=>{
-    card.addEventListener("click",()=>{
-      const t=byId(card.dataset.id);
-      if(t)openDetail(t.id);
-    });
+    <div class="gfull-grid"></div>`;
+  genreChunks={list:list,shown:0};
+  genreMore();
+  const grid=v.querySelector(".gfull-grid");
+  if(grid)grid.addEventListener("click",e=>{
+    const card=e.target.closest(".gfull-card");
+    if(!card)return;
+    const t=byId(card.dataset.id);
+    if(t)openDetail(t.id);
   });
+  // Chunk loader: like Browse, the DOCUMENT scrolls (this view grows with its
+  // content — it does not scroll internally), so listen on window and watch
+  // the grid's bottom edge, same math as the Browse chunk hook.
+  if(!window._genreHook){
+    window._genreHook=true;
+    window.addEventListener("scroll",()=>{
+      if(curView!=="genre"||!genreChunks)return;
+      const grid=$("#view-genre .gfull-grid"); if(!grid)return;
+      try{ if(grid.getBoundingClientRect().bottom<window.innerHeight+900)genreMore(); }catch(e){}
+    },{passive:true});
+  }
   const back=v.querySelector("#gfullBack");
-  if(back)back.addEventListener("click",()=>{try{go("home");}catch(e){}});
+  if(back)back.addEventListener("click",()=>{
+    if(genreBackTo==="browse"){
+      try{go("browse");}catch(e){}
+      try{requestAnimationFrame(()=>window.scrollTo(0,genreScrollY));}catch(e){} // back where he was in Browse
+    } else { try{go("home");}catch(e){} }
+  });
   go("genre");
 }
 function renderSportPicker(){
