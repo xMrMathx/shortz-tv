@@ -531,15 +531,20 @@ body.pip #evToggle{display:none}
    Summoned any time by #tvBtn (manual mode), or appears on its own during
    playback under a strict frequency cap (auto mode) — anti-ad-heavy by design.
    POSITION AUDIT (window): top-right, just below the header band. The band
-   itself holds logo (left), #tvBtn + #evToggle (center), FREE pill (right) —
+   itself holds logo (left), #evToggle + #tvBtn (center), FREE pill (right) —
    the TV hangs under the pill's empty column. On Home the feed-rail starts at
    top:44% (right-middle) and the sound prompt is dead-center, so the strip
    58px–~215px at the right edge is empty video. On menu views it floats over
    scroll content the user summoned it over, and its X/button dismisses it.
-   POSITION AUDIT (button): #tvBtn sits LEFT of the All button, vertically
-   centered on it (All center = 25px + safe-area). At 360px wide its left edge
-   is ~124px (28px size under 400px → ~130px), clearing the SHORTZ VS logo. */
-#tvBtn{position:fixed;top:calc(9px + env(safe-area-inset-top));right:calc(50% + 24px);z-index:9600;
+   POSITION AUDIT (button): #tvBtn sits RIGHT of the All button (moved
+   2026-10-12 at the user's word: on the left it crowded the SHORTZ VS logo
+   and its 28px disc / 14px glyph was swallowed by the logo art — now 30px /
+   16px under 400px). Vertically centered on All (All center = 25px +
+   safe-area; button center = 25px + safe-area). At 360px wide: All spans
+   161–199px, the button spans 203–233px (4px gap); the FREE pill's left
+   edge is ~256px, so the button clears it by ~23px. At 320px the pill
+   clearance shrinks to ~3px — tight, no overlap. */
+#tvBtn{position:fixed;top:calc(9px + env(safe-area-inset-top));left:calc(50% + 24px);z-index:9600;
   width:32px;height:32px;border-radius:50%;padding:0;cursor:pointer;
   background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
   font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;
@@ -550,7 +555,7 @@ body.tv-on #tvBtn{background:rgba(229,9,20,.88);border-color:#ff6b6b;color:#fff;
   box-shadow:0 0 16px rgba(229,9,20,.65)}
 body.pip #tvBtn{display:none}
 @media (max-width:400px){
-  #tvBtn{width:28px;height:28px;right:calc(50% + 22px);top:calc(11px + env(safe-area-inset-top));font-size:14px}
+  #tvBtn{width:30px;height:30px;left:calc(50% + 23px);top:calc(10px + env(safe-area-inset-top));font-size:16px}
 }
 #tvBox{position:fixed;top:calc(58px + env(safe-area-inset-top));right:10px;z-index:9400;width:118px;
   display:none;cursor:pointer;-webkit-tap-highlight-color:transparent;animation:tvIn .3s ease}
@@ -821,14 +826,15 @@ body.pip #tvBox{display:none!important}
   #voicePop{left:calc(50% + 120px)}
   /* mic dot is a mobile watch-surface affordance — not needed with the desktop sidebar */
   #micDot{display:none!important}
-  /* everything toggle on desktop: bottom-right corner — clear of #toTop (bottom:86px)
-     and of the topbar; no tabbar/mic chrome exists on desktop */
-  #evToggle{left:auto;right:18px;top:auto;bottom:18px;transform:none}
+  /* everything toggle on desktop: bottom-right corner cluster — clear of
+     #toTop (bottom:86px) and of the topbar; no tabbar/mic chrome exists on
+     desktop. It sits LEFT of the updates TV button in the pair. */
+  #evToggle{left:auto;right:64px;top:auto;bottom:18px;transform:none}
   #evToggle:active{transform:scale(.92)}
-  /* updates TV on desktop: button pairs left of the All button in the
+  /* updates TV on desktop: button pairs RIGHT of the All button in the
      bottom-right corner; the TV window anchors above #toTop (bottom:86px,
      ~40px tall) so the corner stack never overlaps */
-  #tvBtn{left:auto;right:64px;top:auto;bottom:20px}
+  #tvBtn{left:auto;right:18px;top:auto;bottom:20px}
   #tvBox{top:auto;bottom:140px;right:18px}
   /* --- SPLASH: laptop gets a full cinematic intro — reels span the screen --- */
   #splashLogo{width:min(44vw,520px)}
@@ -1413,7 +1419,7 @@ try{
   <button id="micDot" aria-label="Tap for voice">🎙</button>
   <!-- EVERYTHING toggle: persistent — tap to enter/exit the swipeable section hub -->
   <button id="evToggle" aria-label="Browse all sections">⊞</button>
-  <!-- UPDATES TV button: sits left of the All button — tap to summon the little
+  <!-- UPDATES TV button: sits right of the All button — tap to summon the little
        TV (NEW / COMING SOON / TOP 10 updates), tap again to put it away -->
   <button id="tvBtn" aria-label="Updates TV">📺</button>
   <!-- UPDATES TV (Phase 1 house promos): tiny floating TV, never blocks the show -->
@@ -4068,7 +4074,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012023600";
+const BUILD="20261012024200";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8833,7 +8839,7 @@ if(document.readyState==="loading"){
      X unlocks after 4s, auto-fades at 12s. Never during the intro, the
      sign-in gate, the tutorial, Everything-mode swiping, or PiP. The main
      video is never paused and nothing modal ever opens.
-   - MANUAL: #tvBtn (left of the All button) summons it on ANY view; spots
+   - MANUAL: #tvBtn (right of the All button) summons it on ANY view; spots
      rotate every 6s while the user browses; button glows red while up;
      tapping the button again (or the TV's X) puts it away. Summoning while
      an auto spot is up pins it into manual. Manual use never touches the
