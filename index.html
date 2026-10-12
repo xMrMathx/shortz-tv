@@ -1946,26 +1946,77 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
       }catch(e){}
       return true;
     }
-    // 6. "open/play/watch [series name]" -> fuzzy match titles
-    m=text.match(/(?:open|play|watch|show me) (.+)/);
+    // 6. "open/play/watch [series name]" / "[series] episode [N]" -> elite matching
+    m=text.match(/(?:open|play|watch|show me|take me to) (.+)/);
     if(m&&m[1]){
-      const q=m[1].trim().replace(/[^\w\s]/g,"");
+      let q=m[1].trim().replace(/[^\w\s]/g,"").toLowerCase();
+      // extract episode number: "episode 5", "ep 5", "part 5", "episode five"
+      let epNum=null;
+      const epMatch=q.match(/(?:episode|ep|part|number)\s+(\w+)/);
+      if(epMatch){
+        epNum=parseNumWord(epMatch[1]);
+        if(epNum)q=q.replace(epMatch[0],"").trim();
+      }
       if(q.length>1){
         try{
-          const words=q.split(/\s+/).filter(w=>w.length>2);
-          let best=null,bestScore=0;
-          for(const t of C){
-            const title=String(t.title||"").toLowerCase();
-            let score=0;
-            for(const w of words){if(title.includes(w))score++;}
-            if(score>bestScore){bestScore=score;best=t;}
+          const best=findSeries(q);
+          if(best){
+            if(epNum){
+              const ep=(best.episodes||[]).find(e=>e.n===epNum);
+              if(ep&&ep.verified){
+                go("home");playSeries(best);setTimeout(()=>playEpisode(ep),600);
+                toast("▶ "+best.title+" — Ep "+epNum);
+                return true;
+              }else{
+                toast("Episode "+epNum+" not found");
+                return true;
+              }
+            }
+            openDetail(best.id);return true;
           }
-          if(best&&bestScore>0){openDetail(best.id);return true;}
         }catch(e){}
       }
     }
     toast("Didn't catch that — try again");
     return false;
+  }
+
+  // number words -> int ("five" -> 5, "twenty one" -> 21)
+  function parseNumWord(s){
+    if(/^\d+$/.test(s))return parseInt(s,10);
+    const ones={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,
+      eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,
+      eighteen:18,nineteen:19,twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,
+      eighty:80,ninety:90,hundred:100};
+    let total=0;
+    for(const w of s.split(/[\s-]+/)){if(ones[w])total+=ones[w];}
+    return total||null;
+  }
+
+  // elite series finder: scores every title, best match wins
+  function findSeries(q){
+    const qwords=q.split(/\s+/).filter(w=>w.length>1);
+    if(!qwords.length)return null;
+    let best=null,bestScore=0;
+    for(const t of C){
+      const title=String(t.title||"").toLowerCase().replace(/[^\w\s]/g,"");
+      if(!title)continue;
+      let score=0;
+      // exact phrase match = jackpot
+      if(title.includes(q))score+=qwords.length*3+5;
+      for(const w of qwords){
+        if(title.includes(w)){
+          score+=2;
+          // word-boundary bonus (matches "kassos" in "les kassos", not inside another word)
+          if(new RegExp("\\b"+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).test(title))score+=1;
+        }
+      }
+      // prefer titles where MORE of the title was matched (precision)
+      const twords=title.split(/\s+/).length;
+      if(score>0)score+= (qwords.length/Math.max(twords,1))*2;
+      if(score>bestScore){bestScore=score;best=t;}
+    }
+    return bestScore>=3?best:null;
   }
 
   function startListen(){
