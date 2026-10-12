@@ -2038,6 +2038,10 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   if(!btn)return;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   let rec=null, listening=false, holdTimer=null, wasHold=false, voicePausedSlide=null, noExec=false;
+  // ENGINE v3 (Pinky & Brain) state: execDone guards double-execution,
+  // pendingText keeps the transcript in JS memory (no DOM round-trip),
+  // settleTimer/settleText implement interim early-execution for instant commands.
+  let execDone=false, pendingText="", settleTimer=null, settleText="";
   // VS VOICE ENGINE v2: pre-warmed recognition instance for <150ms tap-to-listening.
   // Created once at startup, reused across activations (no cold-start delay).
   let warmRec=null;
@@ -2082,6 +2086,24 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     {keys:["profile","my list","mylist","settings","account"],dest:"profile"},
   ].map(o=>({...o,re:new RegExp("\\b(?:"+o.keys.map(_fesc).join("|")+")")}));
 
+  // ===== VS VOICE ENGINE v3 (Pinky & Brain) =====
+  // Responsiveness upgrades over v2:
+  //  V3-A: execute on the FIRST FINAL result — no waiting for the browser's
+  //        end-of-speech silence timeout before onend (~1s saved per command).
+  //  V3-B: interim settle — exact matches against the instant vocabulary
+  //        ("pause","play","mute",...) execute after 350ms of transcript
+  //        stability, so common commands never wait for silence (~1.5-2s saved).
+  //  V3-C: transcript kept in JS memory (pendingText) — onend no longer reads the DOM.
+  //  V3-D: browse-search view delays cut 400ms -> 200ms.
+  //  Honest limits: speech-to-text speed itself is the Web Speech service
+  //  (browser/OS, ~200-800ms); v3 removes OUR waiting, not the platform's.
+  const normTx=s=>String(s||"").toLowerCase().replace(/[^\w\s]/g,"").trim();
+  // Instant vocabulary: fixed commands safe to run the moment the transcript is stable.
+  // Title searches are NOT here — interim "play" must never beat "play star trek".
+  const INSTANT=new Set(["pause","pause it","pause video","pause this","stop","stop it",
+    "play","resume","continue","unpause","mute","mute it","unmute","unmute it","sound on",
+    "back","go back","next","next episode","again","replay","play it again"]);
+
   function voiceCommand(raw){
     const text=String(raw||"").toLowerCase().trim();
     if(!text||text==="listening…")return false;
@@ -2097,81 +2119,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
 
     // --- bare single-word commands (fast path) ---
     if(!intent){
-      const bare=resolved.replace(/[^\w\s]/g,"").trim();
-      // "again" / "replay" -> replay last series/episode
-      if(bare==="again"||bare==="replay"||bare==="play it again"){
-        if(voiceCtx.lastSeries){
-          const t=byId(voiceCtx.lastSeries.id);
-          if(t){go("home");playSeries(t);toast("▶ "+t.title);return true;}
-        }
-        return false;
-      }
-      // "next episode" / "next"
-      if(bare==="next"||bare==="next episode"){
-        try{const s=curSlide();if(s){/* auto-advance handles next */} }catch(e){}
-        toast("Playing next");
-        return true;
-      }
-      // bare playback: "pause", "play", "mute", "stop", "back" said ALONE.
-      // (Previously these fell through to a browse search for the word — wrong.)
-      if(bare==="pause"||bare==="pause it"||bare==="pause video"||bare==="pause this"||bare==="stop"||bare==="stop it"){
-        try{togglePause();}catch(e){}
-        return true;
-      }
-      if(bare==="play"||bare==="resume"||bare==="continue"||bare==="unpause"){
-        try{const s=curSlide();if(s&&s._player&&s._player.getPlayerState&&s._player.getPlayerState()===2)togglePause();}catch(e){}
-        return true;
-      }
-      if(bare==="mute"||bare==="mute it"){
-        try{const s=curSlide();const pl=s&&s._player;if(pl&&pl.mute)pl.mute();}catch(e){}
-        return true;
-      }
-      if(bare==="unmute"||bare==="unmute it"||bare==="sound on"){
-        try{doUnmute();}catch(e){}
-        return true;
-      }
-      if(bare==="back"||bare==="go back"){
-        try{
-          if(curView==="genre"||curView==="detail")go("home");
-          else if(typeof goBack==="function")goBack();
-          else history.back();
-        }catch(e){}
-        return true;
-      }
-      // FUZZY bare tabs (pre-compiled): "browser"->browse, "browsing"->browse, etc.
-      let bareDest=null;
-      for(const bf of FUZZ_BARE){
-        if(bf.re.test(bare)){bareDest=bf.dest;break;}
-      }
-      if(bareDest){
-        const dest=bareDest;
-        if(dest==="stakes"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
-        if(dest==="genres"){try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}return true;}
-        try{if(dest==="browse"){try{renderView("browse")}catch(e){}}go(dest);voiceCtx.lastTab=dest;}catch(e){}
-        return true;
-      }
-      // bare genre name: "westerns" -> full-screen Western view
-      for(const alias in GENRE_ALIASES){
-        if(bare===alias||bare===alias+"s"){
-          const g=GENRE_ALIASES[alias];
-          try{openGenreView(g);voiceCtx.lastGenre=g;saveCtx();}catch(e){}
-          return true;
-        }
-      }
-      // SHOW-EVERYTHING: bare query like "Star Trek" -> browse search showing ALL matches
-      if(bare.length>1){
-        try{
-          try{renderView("browse")}catch(e){}
-          go("browse");
-          setTimeout(()=>{
-            const s=document.getElementById("bsearch");
-            if(s){s.value=bare;s.dispatchEvent(new Event("input",{bubbles:true}));}
-          },400);
-          toast("Showing all results for \""+bare+"\"");
-          return true;
-        }catch(e){}
-      }
-      return false;
+      return execBare(resolved.replace(/[^\w\s]/g,"").trim());
     }
     const target=intent[1].trim().replace(/[^\w\s]/g,"").trim();
     const verb=intent[0].split(/\s+/).slice(0,3).join(" ");
@@ -2193,7 +2141,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }
     }
     if(target.includes("genre")){
-      try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}
+      try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},200);}catch(e){}
       return true;
     }
     // --- stakes ---
@@ -2273,7 +2221,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         setTimeout(()=>{
           const s=document.getElementById("bsearch");
           if(s){s.value=target;s.dispatchEvent(new Event("input",{bubbles:true}));}
-        },400);
+        },200);
       }catch(e){}
       return true;
     }
@@ -2311,7 +2259,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         setTimeout(()=>{
           const s=document.getElementById("bsearch");
           if(s){s.value=q;s.dispatchEvent(new Event("input",{bubbles:true}));}
-        },400);
+        },200);
         toast("Showing all results for \""+q+"\"");
         return true;
       }catch(e){}
@@ -2344,6 +2292,85 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }catch(e){}
     }
     return false;
+  }
+
+  // ENGINE v3: bare-command executor — ONE code path shared by the final-parse
+  // path and instant early-execution. Identical behavior, no drift.
+  function execBare(bare){
+      // "again" / "replay" -> replay last series/episode
+      if(bare==="again"||bare==="replay"||bare==="play it again"){
+        if(voiceCtx.lastSeries){
+          const t=byId(voiceCtx.lastSeries.id);
+          if(t){go("home");playSeries(t);toast("▶ "+t.title);return true;}
+        }
+        return false;
+      }
+      // "next episode" / "next"
+      if(bare==="next"||bare==="next episode"){
+        try{const s=curSlide();if(s){/* auto-advance handles next */} }catch(e){}
+        toast("Playing next");
+        return true;
+      }
+      // bare playback: "pause", "play", "mute", "stop", "back" said ALONE.
+      // (Previously these fell through to a browse search for the word — wrong.)
+      if(bare==="pause"||bare==="pause it"||bare==="pause video"||bare==="pause this"||bare==="stop"||bare==="stop it"){
+        try{togglePause();}catch(e){}
+        return true;
+      }
+      if(bare==="play"||bare==="resume"||bare==="continue"||bare==="unpause"){
+        try{const s=curSlide();if(s&&s._player&&s._player.getPlayerState&&s._player.getPlayerState()===2)togglePause();}catch(e){}
+        return true;
+      }
+      if(bare==="mute"||bare==="mute it"){
+        try{const s=curSlide();const pl=s&&s._player;if(pl&&pl.mute)pl.mute();}catch(e){}
+        return true;
+      }
+      if(bare==="unmute"||bare==="unmute it"||bare==="sound on"){
+        try{doUnmute();}catch(e){}
+        return true;
+      }
+      if(bare==="back"||bare==="go back"){
+        try{
+          if(curView==="genre"||curView==="detail")go("home");
+          else if(typeof goBack==="function")goBack();
+          else history.back();
+        }catch(e){}
+        return true;
+      }
+      // FUZZY bare tabs (pre-compiled): "browser"->browse, "browsing"->browse, etc.
+      let bareDest=null;
+      for(const bf of FUZZ_BARE){
+        if(bf.re.test(bare)){bareDest=bf.dest;break;}
+      }
+      if(bareDest){
+        const dest=bareDest;
+        if(dest==="stakes"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
+        if(dest==="genres"){try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},200);}catch(e){}return true;}
+        try{if(dest==="browse"){try{renderView("browse")}catch(e){}}go(dest);voiceCtx.lastTab=dest;}catch(e){}
+        return true;
+      }
+      // bare genre name: "westerns" -> full-screen Western view
+      for(const alias in GENRE_ALIASES){
+        if(bare===alias||bare===alias+"s"){
+          const g=GENRE_ALIASES[alias];
+          try{openGenreView(g);voiceCtx.lastGenre=g;saveCtx();}catch(e){}
+          return true;
+        }
+      }
+      // SHOW-EVERYTHING: bare query like "Star Trek" -> browse search showing ALL matches
+      if(bare.length>1){
+        try{
+          try{renderView("browse")}catch(e){}
+          go("browse");
+          setTimeout(()=>{
+            const s=document.getElementById("bsearch");
+            if(s){s.value=bare;s.dispatchEvent(new Event("input",{bubbles:true}));}
+          },200);
+          toast("Showing all results for \""+bare+"\"");
+          return true;
+        }catch(e){}
+      }
+      return false;
   }
 
   // number words -> int ("five" -> 5, "twenty one" -> 21)
@@ -2430,6 +2457,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       if(!warmRec){rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;}
     }catch(e){toast("Voice not supported here — type instead");openType();return;}
     listening=true;noExec=false;btn.classList.add("listening");pop.classList.add("show");
+    execDone=false;pendingText="";settleText="";if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}
     try{var _md=document.getElementById("micDot");if(_md)_md.classList.add("listening");}catch(_e){}
     tx.textContent="Listening…";
     // AUTO-PAUSE: if the video is playing, pause it while you talk (mic hears YOU, not the video).
@@ -2444,20 +2472,47 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }
     }catch(e){voicePausedSlide=null;}
     rec.onresult=e=>{
-      let interim="",final="";
+      let interim="",final="",gotFinal=false;
       for(let i=e.resultIndex;i<e.results.length;i++){
         const tr=e.results[i][0].transcript;
-        if(e.results[i].isFinal)final+=tr;else interim+=tr;
+        if(e.results[i].isFinal){final+=tr;gotFinal=true;}else interim+=tr;
       }
-      // ENGINE v2: live transcript like the system mic — interim in real-time,
+      // ENGINE v3: live transcript like the system mic — interim in real-time,
       // final confirmed. Visual pulse when speech is detected.
       const said=final||interim;
+      pendingText=said; // V3-C: JS memory, no DOM round-trip in onend
       if(said){
         tx.innerHTML='<span style="color:#fff">'+escH(final)+'</span><span style="color:#888">'+escH(interim)+'</span>';
         pop.classList.add("hearing");
       }else{
         tx.textContent="Listening…";
         pop.classList.remove("hearing");
+      }
+      if(execDone||noExec)return;
+      // V3-A: FINAL result -> execute immediately, skip the onend silence wait.
+      if(gotFinal&&said){
+        execDone=true;
+        if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}settleText="";
+        const cmd=said;stopListen();voiceCommand(cmd);
+        return;
+      }
+      // V3-B: interim settle — exact match against the instant vocabulary only.
+      // 350ms of stability guards "play" (resume) vs "play star trek" (search):
+      // if the transcript keeps growing, the timer resets and we wait for final.
+      const nb=normTx(said);
+      if(nb&&INSTANT.has(nb)){
+        if(settleText!==nb){
+          settleText=nb;if(settleTimer)clearTimeout(settleTimer);
+          settleTimer=setTimeout(()=>{
+            settleTimer=null;
+            if(execDone||noExec)return;
+            if(normTx(pendingText)===settleText&&settleText){
+              execDone=true;const cmd=settleText;settleText="";stopListen();execBare(cmd);
+            }
+          },350);
+        }
+      }else{
+        settleText="";if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}
       }
     };
     rec.onerror=(e)=>{
@@ -2477,11 +2532,13 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }
     };
     rec.onend=()=>{
-      const said=tx.textContent;
-      const exec=!noExec; // tap-to-stop or silence: RUN it. error-stop: don't.
+      // V3: execDone skips re-execution when V3-A/V3-B already ran the command.
+      // tap-to-stop or silence: RUN it. error-stop: don't.
+      const exec=!noExec&&!execDone;
+      const said=pendingText; // V3-C: from JS memory, not the DOM
       noExec=false;
       stopListen(false);
-      if(exec&&said&&said!=="Listening…"){
+      if(exec&&said){
         if(!voiceCommand(said))toast("Didn't catch that — try again");
       }
     };
@@ -2491,6 +2548,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   }
   function stopListen(){
     listening=false;
+    if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}settleText="";
     try{if(rec)rec.stop();}catch(e){}
     rec=null;btn.classList.remove("listening");pop.classList.remove("show");
     try{var _md2=document.getElementById("micDot");if(_md2)_md2.classList.remove("listening");}catch(_e2){}
@@ -3462,7 +3520,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012000200";
+const BUILD="20261012000400";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
