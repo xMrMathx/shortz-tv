@@ -320067,60 +320067,6 @@
   "source_channel": "NFB"
  },
  {
-  "id": "stv-6224",
-  "title": "North Star",
-  "genre": "Documentary",
-  "verified": true,
-  "dateAdded": "2026-10-11",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Episode 1: Observation",
-    "url": "https://www.youtube.com/embed/cxemFbsl-kU",
-    "video_id": "cxemFbsl-kU",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 2,
-    "title": "Episode 2: Research",
-    "url": "https://www.youtube.com/embed/Q5QhWojS4pM",
-    "video_id": "Q5QhWojS4pM",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 3,
-    "title": "Episode 3: Light",
-    "url": "https://www.youtube.com/embed/C1JLBZ5qFTs",
-    "video_id": "C1JLBZ5qFTs",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 4,
-    "title": "Episode 4: Collaboration",
-    "url": "https://www.youtube.com/embed/7kHvpwTMZdY",
-    "video_id": "7kHvpwTMZdY",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 5,
-    "title": "Episode 5: Origins",
-    "url": "https://www.youtube.com/embed/Pnv1DUjFX04",
-    "video_id": "Pnv1DUjFX04",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "url": "https://www.youtube.com/embed/cxemFbsl-kU",
-  "eps": "5 eps",
-  "desc": "Documentary series from NFB (5 episodes).",
-  "rights_basis": "Public YouTube embed",
-  "source_channel": "NFB"
- },
- {
   "id": "stv-6225",
   "title": "Ramaillages (Gatherings)",
   "genre": "Documentary",
