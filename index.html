@@ -2506,7 +2506,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       const vh=window.innerHeight||700;
       if(typeof e.clientY!=="number"||e.clientY<=vh-100)return;
       const t=e.target;
-      if(t&&t.closest&&t.closest("button,input,a,select,textarea,[data-a],[data-next],[data-like]"))return;
+      if(t&&t.closest&&t.closest("#voiceBtn,#tabbar .tab,input,textarea,select"))return;
       if(typeof window._micToggle==="function"){
         window._micToggle();
         e.stopPropagation();
@@ -3382,7 +3382,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011233800";
+const BUILD="20261011234000";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
