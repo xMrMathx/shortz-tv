@@ -2498,11 +2498,12 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   };
   // DOCUMENT-LEVEL invisible mic zone (capture phase): bottom 100px of the viewport,
   // fires BEFORE any other handler regardless of z-index or element stacking.
-  // Only triggers on NON-interactive elements — real buttons/inputs/links keep
-  // their normal behavior (voiceBtn toggles mic via its own handler, episode
-  // buttons open episodes, etc.).
+  // This is the ONLY mic trigger for bottom taps — do not add another (double-fire).
+  // Bottom 100px = mic, always: even the episode button down there triggers mic.
+  // Excluded: the visible mic button + tab bar (own handlers) and text inputs.
   document.addEventListener("click",function(e){
     try{
+      if(typeof suppressClick!=="undefined"&&suppressClick)return; // ignore post-drag taps
       const vh=window.innerHeight||700;
       if(typeof e.clientY!=="number"||e.clientY<=vh-100)return;
       const t=e.target;
@@ -3267,17 +3268,6 @@ function mountFeed(){
   // one delegated click handler: rail / up-next / sound / tapzone (mouse + post-touch taps)
   track.addEventListener("click",e=>{
     if(suppressClick)return;
-    // MIC ZONE FIRST: bottom 100px always toggles mic — before any element checks.
-    // (The .feed-bottom episode button overlaps this zone; without this, taps there
-    // open the episode drawer instead of the mic.)
-    try{
-      const vh=window.innerHeight||700;
-      if(typeof e.clientY==="number"&&e.clientY>vh-100){
-        if(typeof window._micToggle==="function"){window._micToggle();}
-        e.stopPropagation();
-        return;
-      }
-    }catch(err){}
     const slide=e.target.closest(".slide");
     if(e.target.closest("[data-fitsuggest]")&&slide){
       e.stopPropagation();
@@ -3382,7 +3372,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011234200";
+const BUILD="20261011234500";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
