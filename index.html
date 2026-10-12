@@ -144,9 +144,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .btt-in{position:absolute;inset:0;z-index:2;display:flex;align-items:center;gap:14px;padding:16px}
 .btt-rank{flex:none;min-width:74px;text-align:center;font-size:64px;font-weight:900;line-height:1;color:#f6c945;text-shadow:0 2px 14px rgba(0,0,0,.85)}
 .btt-tx{flex:1;min-width:0}
-.btt-k{font-size:10.5px;font-weight:800;letter-spacing:1.6px;color:#ffb02e;text-transform:uppercase}
-.btt-t{font-size:19px;font-weight:800;color:#fff;margin:3px 0 5px;line-height:1.25}
-.btt-d{font-size:12.5px;color:#d7d7de;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.btt-t{font-size:19px;font-weight:800;color:#fff;margin:3px 0 5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btt-d{font-size:12.5px;color:#d7d7de;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 @media(min-width:1024px){ .btt-wrap{max-width:1180px;padding-left:24px;padding-right:24px} }
 .gtile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .gtile{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#101013;border:1px solid #232328;border-radius:14px;padding:16px 14px;color:var(--txt);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-align:left}
@@ -4326,7 +4325,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012223705";
+const BUILD="20261012224011";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6134,10 +6133,10 @@ function browseTopTenHTML(visit){
   return top.map((p,i)=>{
     const t=p.t, art=thumb(t,"hq");
     const d=String(t.desc||"").trim();
-    const sub=d?esc(d.length>150?d.slice(0,150).trim()+"…":d):esc(p.reason||metaLine(t));
+    const sub=d?esc(d.length>70?d.slice(0,70).trim()+"…":d):esc(metaLine(t));
     return `<div class="btt-slide" data-btt="${t.id}"${art?` style="background-image:url('${String(art).replace(/'/g,"%27")}')"`:""}>`
       +`<div class="btt-in"><div class="btt-rank">${i+1}</div>`
-      +`<div class="btt-tx"><div class="btt-k">🤖 Scout's Top Ten</div>`
+      +`<div class="btt-tx">`
       +`<div class="btt-t">${t.award_verified?"🏆 ":""}${esc(t.title)}</div>`
       +`<div class="btt-d">${sub}</div></div></div></div>`;
   }).join("");
