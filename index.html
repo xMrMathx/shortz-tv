@@ -3364,7 +3364,44 @@ function pipReportState(playing){
     if(document.body.classList.contains("pip")&&window.Android&&Android.onPipPlaying)
       Android.onPipPlaying(playing);
   }catch(e){}
+  mediaReportNative(playing);
 }
+/* native media controls (APK only): mirror play state to the Android
+   MediaSession so play/pause/next appear on the lock screen. Commands from
+   the lock screen come back through window.nativeMediaCommand. */
+function mediaReportNative(playing){
+  try{
+    if(!window.Android||!Android.mediaReport)return;
+    const t=(window.feed&&feed.cur)||null;
+    Android.mediaReport(t?(t.title||""):"",!!playing,
+      !!(t&&t.episodes&&t.episodes.length>1));
+  }catch(e){}
+}
+window.nativeMediaCommand=function(cmd){
+  try{
+    if(cmd==="next"){
+      const s=curSlide(); if(s&&s._vid)autoNext(s,s._vid);
+      return;
+    }
+    const s=curSlide(); const pl=s&&s._player;
+    if(pl&&(pl.playVideo||pl.pauseVideo)){
+      if(cmd==="play")pl.playVideo(); else if(cmd==="pause")pl.pauseVideo();
+      return;
+    }
+    const v=document.querySelector("video");
+    if(v){ if(cmd==="play")v.play(); else if(cmd==="pause")v.pause(); }
+  }catch(e){}
+};
+/* native push (APK only): the app hands us its FCM token; stash it locally
+   and against the signed-in user so the backend can send pushes. */
+window.onFcmToken=function(tok){
+  try{
+    if(!tok)return;
+    store.set("fcm_token",tok);
+    if(window.Live&&Live.authed&&Live.db&&Live.uid)
+      Live.db.ref("users/"+Live.uid+"/fcmToken").set(tok);
+  }catch(e){}
+};
 /* PiP tap-to-pause: transparent catcher, only alive in PiP mode (body.pip).
    Taps in PiP fall through to the YouTube iframe which doesn't toggle there,
    so we toggle through the player API directly. Tap = pause, tap again = play. */
@@ -3632,6 +3669,14 @@ function pushHistory(t){
     if(!Array.isArray(history))history=[];
     history=[{id:t.id,ts:Date.now()},...history.filter(h=>h&&h.id!==t.id)].slice(0,20);
     store.set("history",history);
+    // Continue Watching home-screen widget (APK only): last-watched title.
+    try{
+      if(window.Android&&Android.setContinueWatching){
+        const _yt=(t.episodes&&t.episodes[0]&&t.episodes[0].video_id)
+          ||((String(t.url||"").match(/embed\/([\w-]{6,})/)||[])[1])||"";
+        Android.setContinueWatching(t.id,t.title||"",_yt);
+      }
+    }catch(e){}
     if(history.length>=3&&!store.get("installEngaged",false)){store.set("installEngaged",true);refreshInstallBtn();}
     syncHistoryRemote();
   }catch(e){}
@@ -3944,7 +3989,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012014400";
+const BUILD="20261012021500";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -4498,6 +4543,8 @@ function loadVideoInto(node,url,vid){
             // system-PiP native button: keep its play/pause icon in sync
             if(document.body.classList.contains("pip"))
               pipReportState(ev.data===YT.PlayerState.PLAYING||ev.data===YT.PlayerState.BUFFERING);
+            // lock-screen media controls: report in every mode, not just PiP
+            mediaReportNative(ev.data===YT.PlayerState.PLAYING||ev.data===YT.PlayerState.BUFFERING);
           }catch(e){}
         }
       }});
