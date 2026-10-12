@@ -1425,6 +1425,20 @@ function shareUrl(id, epIdx){
   if(epIdx !== undefined && epIdx !== null && epIdx >= 0) u += epIdx + "/";
   return u;
 }
+function shareTitle(t){
+  // share a title straight from its detail screen (no need to start playback)
+  if(!t) return;
+  const txt=`Watch "${t.title}" free on Shortz VS`;
+  const link=shareUrl(t.id);
+  (async()=>{
+    try{
+      if(navigator.share){ await navigator.share({title:"Shortz VS",text:txt,url:link}); }
+      else{ await navigator.clipboard.writeText(txt+" — "+link); toast("Link copied"); }
+    }catch(e){
+      try{ await navigator.clipboard.writeText(txt+" — "+link); toast("Link copied"); }catch(_){}
+    }
+  })();
+}
 function byVid(vid){ return C.find(t=>t.video_id===vid || (t.episodes&&t.episodes.some(e=>e.video_id===vid))); }
 /* early release: computed live — exactly 1 verified episode; auto-graduates as the hunt verifies more */
 function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length===1}
@@ -3522,8 +3536,9 @@ function openDetail(id){
         <div class="r">${esc(t.rights_basis)}</div>
       </div>
       <div class="playrow">
-        <button class="btn-play" id="dPlay" style="flex:1;justify-content:center">▶ Play</button>
+        <button class="btn-play" id="dPlay" style="flex:0.72;justify-content:center">▶ Play</button>
         <button class="btn-ghost" id="dSave">${inList?"♥ Saved":"＋ My List"}</button>
+        <button class="btn-ghost" id="dShare">⤴ Share</button>
       </div>
     </div></div>`;
   $("#dBack").onclick=()=>go(returnView);
@@ -3532,6 +3547,7 @@ function openDetail(id){
     if(mylist.has(id)){mylist.delete(id);toast("Removed from My List")}else{mylist.add(id);toast("Saved to My List")}
     saveList();$("#dSave").textContent=mylist.has(id)?"♥ Saved":"＋ My List";
   };
+  $("#dShare").onclick=()=>shareTitle(t);
   go("detail");
 }
 
