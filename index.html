@@ -2029,6 +2029,14 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
 
   function startListen(){
     if(!SR){toast("Voice not supported here — type instead");openType();return;}
+    // In the app: make sure we have mic permission before listening.
+    try{
+      if(window.Android&&window.Android.hasMicPermission&&!window.Android.hasMicPermission()){
+        try{window.Android.requestMicPermission();}catch(e){}
+        toast("Allow the microphone, then hold the button and talk");
+        return;
+      }
+    }catch(e){}
     try{rec=new SR();}catch(e){toast("Voice not supported here — type instead");openType();return;}
     rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;
     listening=true;window.voiceListening=true;btn.classList.add("listening");pop.classList.add("show");
@@ -2054,7 +2062,21 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
       }
       tx.textContent=final||interim||"Listening…";
     };
-    rec.onerror=()=>{stopListen(false);};
+    rec.onerror=(e)=>{
+      const err=(e&&e.error)||"unknown";
+      stopListen();
+      if(err==="not-allowed"||err==="service-not-allowed"){
+        toast("Mic blocked — allow microphone for the app, then try again");
+      }else if(err==="audio-capture"){
+        toast("Can't reach the mic — tap the button to type instead");
+      }else if(err==="no-speech"){
+        toast("Didn't hear you — hold the button and speak clearly");
+      }else if(err==="network"||err==="language-not-supported"){
+        toast("Voice needs internet — tap the button to type instead");
+      }else{
+        toast("Voice hiccup — try again or tap to type");
+      }
+    };
     rec.onend=()=>{
       const said=tx.textContent;
       const wasListening=listening;
