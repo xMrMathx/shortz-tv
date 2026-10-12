@@ -483,6 +483,11 @@ body.pip #hudHint{display:none}
   background:rgba(18,18,26,.94);border:1px solid rgba(255,255,255,.16);border-radius:16px;
   padding:10px 16px 12px;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s}
 #voicePop.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ENGINE v2: pulse when actively hearing speech (like system mic) */
+#voicePop.hearing{border-color:rgba(229,9,20,.6);box-shadow:0 0 24px rgba(229,9,20,.25)}
+#voicePop.hearing .vp-dots span{animation:vpulse .6s ease-in-out infinite}
+#voicePop.hearing .vp-dots span:nth-child(2){animation-delay:.15s}
+#voicePop.hearing .vp-dots span:nth-child(3){animation-delay:.3s}
 #voicePop .vp-dots{display:flex;gap:6px;justify-content:center;margin-bottom:7px}
 #voicePop .vp-dots span{width:7px;height:7px;border-radius:50%;background:#e50914;animation:vdot 1.1s infinite}
 #voicePop .vp-dots span:nth-child(2){animation-delay:.18s}
@@ -1958,6 +1963,17 @@ document.querySelectorAll("#deskNav button").forEach(b=>b.onclick=()=>{
   if(!btn)return;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   let rec=null, listening=false, holdTimer=null, wasHold=false, voicePausedSlide=null;
+  // VS VOICE ENGINE v2: pre-warmed recognition instance for <150ms tap-to-listening.
+  // Created once at startup, reused across activations (no cold-start delay).
+  let warmRec=null;
+  try{
+    if(SR){
+      warmRec=new SR();
+      warmRec.lang="en-US";warmRec.interimResults=true;warmRec.maxAlternatives=1;
+    }
+  }catch(e){warmRec=null;}
+  // Escape HTML for safe transcript display
+  function escH(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
 
   // genre aliases: what people say -> GENRES entry
   const GENRE_ALIASES={
@@ -2203,12 +2219,15 @@ document.querySelectorAll("#deskNav button").forEach(b=>b.onclick=()=>{
     try{
       if(window.Android&&window.Android.hasMicPermission&&!window.Android.hasMicPermission()){
         try{window.Android.requestMicPermission();}catch(e){}
-        toast("Allow the microphone, then hold the button and talk");
+        toast("Allow the microphone, then tap the button and talk");
         return;
       }
     }catch(e){}
-    try{rec=new SR();}catch(e){toast("Voice not supported here — type instead");openType();return;}
-    rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;
+    // ENGINE v2: reuse the pre-warmed instance for instant start. Fallback to fresh if needed.
+    try{
+      rec=warmRec||new SR();
+      if(!warmRec){rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;}
+    }catch(e){toast("Voice not supported here — type instead");openType();return;}
     listening=true;btn.classList.add("listening");pop.classList.add("show");
     tx.textContent="Listening…";
     // AUTO-PAUSE: if the video is playing, pause it while you talk (mic hears YOU, not the video).
@@ -2228,7 +2247,16 @@ document.querySelectorAll("#deskNav button").forEach(b=>b.onclick=()=>{
         const tr=e.results[i][0].transcript;
         if(e.results[i].isFinal)final+=tr;else interim+=tr;
       }
-      tx.textContent=final||interim||"Listening…";
+      // ENGINE v2: live transcript like the system mic — interim in real-time,
+      // final confirmed. Visual pulse when speech is detected.
+      const said=final||interim;
+      if(said){
+        tx.innerHTML='<span style="color:#fff">'+escH(final)+'</span><span style="color:#888">'+escH(interim)+'</span>';
+        pop.classList.add("hearing");
+      }else{
+        tx.textContent="Listening…";
+        pop.classList.remove("hearing");
+      }
     };
     rec.onerror=(e)=>{
       const err=(e&&e.error)||"unknown";
@@ -2288,24 +2316,14 @@ document.querySelectorAll("#deskNav button").forEach(b=>b.onclick=()=>{
   function saveCtx(){try{localStorage.setItem("voiceCtx",JSON.stringify({lastSeries:voiceCtx.lastSeries,lastGenre:voiceCtx.lastGenre}));}catch(e){}}
 
   // hold to talk — INSTANT: listening starts the moment you touch. Quick tap (<250ms, silent) = type.
-  btn.addEventListener("pointerdown",e=>{
-    e.preventDefault();e.stopPropagation();wasHold=false;
-    // start listening IMMEDIATELY for zero-lag response
-    wasHold=true;startListen();
-    holdTimer=setTimeout(()=>{},250); // tap window marker
+  // TAP-TO-TALK: single tap toggles listening (no more hold). Tap to start, tap to stop.
+  btn.addEventListener("click",e=>{
+    e.stopPropagation();e.preventDefault();
+    try{
+      if(listening){stopListen();}
+      else{startListen();}
+    }catch(err){}
   });
-  ["pointerup","pointercancel","pointerleave"].forEach(ev=>btn.addEventListener(ev,e=>{
-    e.stopPropagation();
-    clearTimeout(holdTimer);
-    if(wasHold){
-      // if released super-quick with no speech, treat as tap -> type box
-      const quick=tx.textContent==="Listening…"||!tx.textContent.trim();
-      stopListen();
-      if(quick&&ev==="pointerup")openType();
-    }
-    wasHold=false;
-  }));
-  btn.addEventListener("click",e=>{e.stopPropagation();e.preventDefault();});
   btn.addEventListener("touchstart",e=>e.stopPropagation(),{passive:true});
   btn.addEventListener("touchend",e=>e.stopPropagation(),{passive:true});
   btn.addEventListener("contextmenu",e=>e.preventDefault());
@@ -3180,7 +3198,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011231500";
+const BUILD="20261011231800";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
