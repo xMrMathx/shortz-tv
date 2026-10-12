@@ -891,6 +891,21 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .stkNote b{color:#fff}
 .stkLive{position:relative;background:linear-gradient(135deg,#1a1a24,#0d0d12);border-radius:12px;height:110px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;margin-bottom:12px}
 .stkSec{display:none}.stkSec.sel{display:block}
+  /* FULL-SCREEN GENRE VIEW: just the genre name at top, all the shows below. Nothing else. */
+  #view-genre{background:#000;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  #view-genre .gfull-head{position:sticky;top:0;z-index:5;background:rgba(0,0,0,.92);
+    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    padding:calc(14px + env(safe-area-inset-top)) 18px 14px;
+    display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,.08)}
+  #view-genre .gfull-back{width:38px;height:38px;border-radius:12px;border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.07);color:#fff;font-size:18px;flex-shrink:0}
+  #view-genre .gfull-title{font-size:26px;font-weight:900;letter-spacing:-.5px;flex:1}
+  #view-genre .gfull-count{font-size:13px;color:#888;font-weight:600}
+  #view-genre .gfull-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:16px}
+  #view-genre .gfull-card{position:relative;border-radius:12px;overflow:hidden;background:#111;aspect-ratio:2/3}
+  #view-genre .gfull-card img{width:100%;height:100%;object-fit:cover;display:block}
+  #view-genre .gfull-card .t{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 8px;
+    background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:11px;font-weight:700;line-height:1.25}
 </style>
 </head>
 <body>
@@ -1060,6 +1075,7 @@ try{
     <section class="view" id="view-manga"></section>
     <section class="view" id="view-profile"></section>
     <section class="view" id="view-detail"></section>
+    <section class="view" id="view-genre"></section>
   </main>
   <div id="viewpad"></div>
   <button id="hudHint" aria-label="Show controls">Tap for controls</button>
@@ -1944,11 +1960,11 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
         try{go(dest);voiceCtx.lastTab=dest;}catch(e){}
         return true;
       }
-      // bare genre name: "westerns" -> Western
+      // bare genre name: "westerns" -> full-screen Western view
       for(const alias in GENRE_ALIASES){
         if(bare===alias||bare===alias+"s"){
           const g=GENRE_ALIASES[alias];
-          try{go("browse");renderBrowse(g);voiceCtx.lastGenre=g;saveCtx();toast("🌐 "+g);}catch(e){}
+          try{openGenreView(g);voiceCtx.lastGenre=g;saveCtx();}catch(e){}
           return true;
         }
       }
@@ -1965,11 +1981,11 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
       }
     }
 
-    // --- genres (expanded: "westerns", "sci-fi stuff", "horror movies") ---
+    // --- genres: full-screen genre view — "take me to westerns", "open up sci-fi" ---
     for(const alias in GENRE_ALIASES){
       if(target.includes(alias)){
         const g=GENRE_ALIASES[alias];
-        try{go("browse");renderBrowse(g);voiceCtx.lastGenre=g;saveCtx();toast("🌐 "+g);}catch(e){}
+        try{openGenreView(g);voiceCtx.lastGenre=g;saveCtx();}catch(e){}
         return true;
       }
     }
@@ -2028,7 +2044,11 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
     }
     // --- back navigation: "go back", "back" ---
     if(target==="go back"||target==="back"){
-      try{if(typeof goBack==="function")goBack();else history.back();}catch(e){}
+      try{
+        if(curView==="genre"||curView==="detail")go("home");
+        else if(typeof goBack==="function")goBack();
+        else history.back();
+      }catch(e){}
       return true;
     }
     // --- tabs (natural: "take me home", "open up live") ---
@@ -3088,7 +3108,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011221200";
+const BUILD="20261011221500";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
@@ -4454,6 +4474,35 @@ function renderBrowse(g){
 /* ---------- sports: picker + vertical reel ---------- */
 const SPORTS_ORDER=["NFL","Boxing","Baseball","Basketball","Soccer","Cricket","MMA","Tennis","Golf","Hockey"];
 function sportEntry(sport){ return C.find(t=>t.genre==="Sports"&&t.sport===sport); }
+
+/* ---------- FULL-SCREEN GENRE VIEW: voice "take me to westerns" lands here.
+   Just the genre name at top, all the shows in a clean grid. Nothing else. */
+function openGenreView(g){
+  const list=(C||[]).filter(t=>t.genre===g);
+  const v=$("#view-genre");
+  v.innerHTML=`
+    <div class="gfull-head">
+      <button class="gfull-back" id="gfullBack" aria-label="Back">‹</button>
+      <div class="gfull-title">${esc(g)}</div>
+      <div class="gfull-count">${list.length} shows</div>
+    </div>
+    <div class="gfull-grid">
+      ${list.map(t=>`
+        <div class="gfull-card" data-id="${t.id}">
+          <img loading="lazy" src="${esc(t.poster||"")}" alt="">
+          <div class="t">${esc(t.title)}</div>
+        </div>`).join("")}
+    </div>`;
+  v.querySelectorAll(".gfull-card").forEach(card=>{
+    card.addEventListener("click",()=>{
+      const t=byId(card.dataset.id);
+      if(t)openDetail(t.id);
+    });
+  });
+  const back=v.querySelector("#gfullBack");
+  if(back)back.addEventListener("click",()=>{try{go("home");}catch(e){}});
+  go("genre");
+}
 function renderSportPicker(){
   const box=$("#sportpick"); if(!box) return;
   const avail=SPORTS_ORDER.filter(s=>sportEntry(s));
