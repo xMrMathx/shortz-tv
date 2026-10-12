@@ -2052,6 +2052,12 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         vi=document.getElementById("voiceInput");
   if(!btn)return;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  // NATIVE VOICE (APK): Android WebView has no Web Speech API. When the native
+  // SpeechRecognizer bridge exists, the engine uses it — same pipeline, real mic.
+  let NATIVE_VOICE=false;
+  try{
+    NATIVE_VOICE=!!(window.Android&&window.Android.hasNativeVoice&&window.Android.hasNativeVoice());
+  }catch(e){NATIVE_VOICE=false;}
   let rec=null, listening=false, holdTimer=null, wasHold=false, voicePausedSlide=null, noExec=false;
   // ENGINE v3 (Pinky & Brain) state: execDone guards double-execution,
   // pendingText keeps the transcript in JS memory (no DOM round-trip),
@@ -2513,7 +2519,87 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     return bestScore>=3?best:null;
   }
 
+  // NATIVE VOICE: platform SpeechRecognizer path for the APK (no Web Speech API
+  // in WebView). Feeds the SAME engine: live transcript UI, V3-B interim settle
+  // for instant commands, V3-A final-result execution, V4 phoneticFix.
+  function startNativeListen(){
+    try{
+      if(window.Android&&window.Android.hasMicPermission&&!window.Android.hasMicPermission()){
+        try{window.Android.requestMicPermission();}catch(e){}
+        toast("Allow the microphone, then tap the button and talk");
+        return;
+      }
+    }catch(e){}
+    listening=true;noExec=false;btn.classList.add("listening");pop.classList.add("show");
+    execDone=false;pendingText="";settleText="";if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}
+    try{var _mdn=document.getElementById("micDot");if(_mdn)_mdn.classList.add("listening");}catch(_e){}
+    tx.textContent="Listening…";
+    // AUTO-PAUSE: same as the web path — pause video while you talk.
+    try{
+      const s=curSlide();
+      const pl=s&&s._player;
+      if(pl&&pl.getPlayerState&&pl.pauseVideo){
+        const st=pl.getPlayerState();
+        if(st===1||st===3){voicePausedSlide=s;pl.pauseVideo();}
+        else voicePausedSlide=null;
+      }
+    }catch(e){voicePausedSlide=null;}
+    // Callbacks invoked by the Android bridge.
+    window.onNativeVoiceReady=function(){try{pop.classList.add("hearing");}catch(e){}};
+    window.onNativeVoicePartial=function(t){
+      if(!listening||execDone||noExec)return;
+      const said=String(t||"");
+      pendingText=said;
+      if(said){
+        tx.innerHTML='<span style="color:#888">'+escH(said)+'</span>';
+        pop.classList.add("hearing");
+        // V3-B interim settle (v4 phoneticFix) for instant commands.
+        try{
+          const nb=phoneticFix(normTx(said));
+          if(nb&&INSTANT.has(nb)){
+            if(settleText!==nb){
+              settleText=nb;if(settleTimer)clearTimeout(settleTimer);
+              settleTimer=setTimeout(()=>{
+                settleTimer=null;
+                if(execDone||noExec||!listening)return;
+                if(phoneticFix(normTx(pendingText))===settleText&&settleText){
+                  execDone=true;const cmd=settleText;settleText="";stopListen();execBare(cmd);
+                }
+              },350);
+            }
+          }else{
+            settleText="";if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}
+          }
+        }catch(e){}
+      }else{
+        tx.textContent="Listening…";pop.classList.remove("hearing");
+      }
+    };
+    window.onNativeVoiceResult=function(t){
+      const done=execDone||noExec;
+      execDone=true;
+      if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}settleText="";
+      const cmd=String(t||"");stopListen();
+      if(!done&&cmd){voiceCommand(cmd);}
+      else if(!done){toast("Didn't catch that — try again");}
+    };
+    window.onNativeVoiceError=function(err){
+      const e=String(err||"");
+      // User-initiated stop races the recognizer teardown; stay silent.
+      if(e==="5"&&!listening)return;
+      noExec=true;stopListen();
+      if(e==="7"||e==="6"){toast("Didn't hear you — tap the button and speak clearly");}
+      else if(e==="9"||e==="permission"){toast("Mic blocked — allow microphone for the app, then try again");}
+      else if(e==="unavailable"){toast("Voice not available on this device — tap to type instead");openType();}
+      else if(e==="2"||e==="1"||e==="4"){toast("Voice needs internet — tap the button to type instead");}
+      else{toast("Voice hiccup — try again or tap to type");}
+    };
+    try{window.Android.startVoiceRecognition();}
+    catch(e){stopListen();toast("Voice not supported here — type instead");openType();}
+  }
   function startListen(){
+    // NATIVE PATH: use the platform SpeechRecognizer in the APK.
+    if(NATIVE_VOICE){startNativeListen();return;}
     if(!SR){toast("Voice not supported here — type instead");openType();return;}
     // In the app: make sure we have mic permission before listening.
     try{
@@ -2622,6 +2708,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   function stopListen(){
     listening=false;
     if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}settleText="";
+    try{if(NATIVE_VOICE&&window.Android&&window.Android.stopVoiceRecognition)window.Android.stopVoiceRecognition();}catch(e){}
     try{if(rec)rec.stop();}catch(e){}
     rec=null;btn.classList.remove("listening");pop.classList.remove("show");
     try{var _md2=document.getElementById("micDot");if(_md2)_md2.classList.remove("listening");}catch(_e2){}
@@ -3593,7 +3680,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012002500";
+const BUILD="20261012003100";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
