@@ -4288,7 +4288,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012202810";
+const BUILD="20261012203307";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -10429,6 +10429,11 @@ body.pip #scoutSheet,body.pip #scoutScrim{display:none!important}
 .scout-dot{width:9px;height:9px;border-radius:50%;background:#e50914;flex-shrink:0}
 .scout-badge{display:inline-block;min-width:18px;text-align:center;background:#e50914;color:#fff;font-size:11px;font-weight:800;border-radius:9px;padding:1px 5px;margin-left:4px;vertical-align:1px}
 .scout-empty{padding:22px 10px;text-align:center;color:var(--mut);font-size:13px;line-height:1.6}
+.scout-greet{padding:12px 6px 4px}
+.scout-gb{background:#1a1a24;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:10px 12px;font-size:13.5px;line-height:1.45}
+.scout-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.scout-chip{background:#101016;border:1px solid rgba(255,255,255,.16);color:#fff;border-radius:999px;padding:6px 11px;font-size:12.5px;font-weight:700;cursor:pointer}
+.scout-chip:active{border-color:#e50914;background:#e50914}
 </style>
 <script>
 /* ================= SCOUT — personal suggestion bot =================
@@ -10446,6 +10451,11 @@ body.pip #scoutSheet,body.pip #scoutScrim{display:none!important}
    Discipline: if the previous batch is still entirely unread AND none
    of its titles has been watched, the Scout skips the hunt — no nagging.
    Guests (no real account) get no Scout UI and no runs.
+   TURBO (testing): a per-device Profile toggle ("Testing: Scout max
+   activity") puts HIS Scout at max activity — 60s gap, 8 picks a run,
+   no back-off, a hunt kick when the sheet opens — and unlocks the mood
+   greeting chat in the sheet. Every other user keeps the gentle
+   cadence above, untouched.
    NOTE: the backend is Firebase Realtime Database (not Firestore) —
    this module uses the app's existing Live.db patterns throughout. */
 (function(){
@@ -10453,7 +10463,22 @@ body.pip #scoutSheet,body.pip #scoutScrim{display:none!important}
 const $=id=>document.getElementById(id);
 const RUN_GAP_MS=3*24*3600*1000;
 const MAX_PICKS=3, INBOX_CAP=40;
+/* TURBO (testing mode, per-user): while Mr. Moore tests, HIS Scout runs at
+   max activity — hunts on effectively every app open, up to 8 picks a run,
+   no untouched-batch back-off, plus a mood greeting chat in the sheet.
+   Gated per-device (Profile toggle "Testing: Scout max activity") or by
+   uid allowlist below, so every other user keeps the gentle cadence above
+   byte-for-byte. Default OFF. */
+const TURBO_GAP_MS=60*1000, TURBO_PICKS=8, MOOD_PICKS=5;
+const TURBO_UIDS=[]; // fill with his uid if it is ever supplied; toggle is the live path
 let booted=false, running=false, bootTries=0, lastSigned=null;
+let greetArmed=true, greetVisible=false; // greeting shows on first sheet open per launch only
+let greetMsg=null; // one-line note (e.g. a mood stash ran dry) shown in the greeting bubble
+
+function turbo(){
+  try{ if(store.get("scoutTurbo",false)) return true; }catch(e){}
+  try{ const u=myUid(); return !!u&&TURBO_UIDS.indexOf(u)>=0; }catch(e){ return false; }
+}
 
 /* ---------- identity ---------- */
 function signedIn(){ try{ return !!(window.ShortzAuth&&window.ShortzAuth.isSignedIn()); }catch(e){ return false; } }
@@ -10468,6 +10493,9 @@ function tasteWeights(){
   try{ mylist.forEach(id=>{ const t=byId(id); if(t&&t.genre) list[t.genre]=(list[t.genre]||0)+1; }); }catch(e){}
   const w={}, gs=new Set([].concat(Object.keys(fav),Object.keys(hist),Object.keys(list)));
   gs.forEach(g=>{ w[g]=(fav[g]?3:0)+Math.min(hist[g]||0,3)*2+Math.min(list[g]||0,2)*2; });
+  /* mood memory: moods he taps (and mood picks he actually opens) teach
+     taste — mapped genres gain weight so regular hunts lean his way */
+  try{ const mb=moodGenreBoost(); Object.keys(mb).forEach(g=>{ w[g]=(w[g]||0)+mb[g]; }); }catch(e){}
   return w;
 }
 function seenIds(){
@@ -10548,6 +10576,124 @@ async function huntPeople(w,seen,exclude){
   return {t:best.t,source:"user",sourceName:best.name,reason:reason};
 }
 
+/* ---------- MOOD HUNT (greeting chat — turbo only, sheet only) ----------
+   Mood map grounded in real catalog counts (7,342 titles, Oct 2026):
+   Comedy 165 · Horror 196 + Thriller 364 · Drama 63 + Faith 261 +
+   Family 150 (Romance deliberately EXCLUDED — his Romance-free order;
+   Drama alone is thin, Faith + Family are the real heartwarming depth) ·
+   Sci-Fi 874 + Mystery 76 + Space 77 · Documentary 306 · the
+   award_verified pool for Award night. Mood picks ride the same
+   deliver() as hunts — they ARE picks (source "mood", sourceName =
+   mood key) — but the greeting text itself never enters the inbox
+   data, so the badge keeps counting picks only. */
+const MOODS={
+  laughs:{label:"Laughs",emoji:"😂",genres:["Comedy"]},
+  chills:{label:"Chills",emoji:"😱",genres:["Horror","Thriller"]},
+  heart:{label:"Heart",emoji:"❤️",genres:["Drama","Faith","Family"]},
+  mindbent:{label:"Mind-bent",emoji:"🌀",genres:["Sci-Fi","Mystery","Space"]},
+  true:{label:"True stories",emoji:"🎞️",genres:["Documentary"]},
+  awards:{label:"Award night",emoji:"🏆",genres:[],awardOnly:true}
+};
+function moodLog(){ try{ return store.get("scoutMoodLog",[])||[]; }catch(e){ return []; } }
+function moodHits(){ try{ return store.get("scoutMoodHits",{})||{}; }catch(e){ return {}; } }
+function logMood(key){
+  try{ const log=moodLog(); log.push({mood:key,ts:Date.now()}); store.set("scoutMoodLog",log.slice(-50)); }catch(e){}
+}
+function bumpMoodHit(key){
+  try{ const h=moodHits(); h[key]=(h[key]||0)+1; store.set("scoutMoodHits",h); }catch(e){}
+}
+function moodGenreBoost(){
+  const b={};
+  try{
+    const counts={};
+    moodLog().forEach(e=>{ if(e&&e.mood) counts[e.mood]=(counts[e.mood]||0)+1; });
+    const hits=moodHits();
+    Object.keys(counts).forEach(k=>{
+      const M=MOODS[k]; if(!M||M.awardOnly) return;
+      const add=(counts[k]>=2?1:0)+Math.min((hits[k]||0)*2,4); // tapped 2+ times ⇒ +1; each opened mood pick ⇒ +2 (cap +4)
+      if(add>0) M.genres.forEach(g=>{ b[g]=(b[g]||0)+add; });
+    });
+  }catch(e){}
+  return b;
+}
+function moodLeader(){
+  try{
+    const counts={};
+    moodLog().forEach(e=>{ if(e&&e.mood) counts[e.mood]=(counts[e.mood]||0)+1; });
+    const hits=moodHits();
+    let best=null, bs=0;
+    Object.keys(counts).forEach(k=>{ const s=counts[k]+2*(hits[k]||0); if(s>bs){ bs=s; best=k; } });
+    return (best&&MOODS[best])?best:null;
+  }catch(e){ return null; }
+}
+function moodReason(M,t){
+  const g=t.genre||"";
+  const head="Because you picked ‘"+M.label+"’ "+M.emoji+" — ";
+  if(t.award_verified) return head+"🏆 award winner"+(g?" ("+g+")":"")+", matched to your mood.";
+  return head+(g?g+" pick":"a pick")+" matched to your mood.";
+}
+async function moodHunt(key){
+  const M=MOODS[key];
+  if(!M||!signedIn()) return;
+  logMood(key); // every tap teaches taste, even if the stash is dry
+  const n=turbo()?MOOD_PICKS:3;
+  const seen=seenIds();
+  const exclude=new Set(getInbox().map(m=>m.titleId)); // never re-pick an old pick
+  let picks=[];
+  if(M.awardOnly){
+    const w=tasteWeights(), pool=[];
+    for(const t of cat()){
+      if(!t||!t.id||seen.has(t.id)||exclude.has(t.id)) continue;
+      if(!t.award_verified) continue; // Award night = verified winners only
+      pool.push({t:t,s:scoreTitle(t,w)+Math.random()*2});
+    }
+    pool.sort((a,b)=>b.s-a.s);
+    const cand=pool.slice(0,30);
+    while(picks.length<n&&cand.length){
+      let idx=0;
+      if(picks.length){
+        const wantSeries=epCount(picks[picks.length-1].t)<=1;
+        const alt=cand.findIndex(x=>(epCount(x.t)>1)===wantSeries&&x.s>=cand[0].s*0.55);
+        if(alt>0) idx=alt;
+      }
+      picks.push(cand.splice(idx,1)[0]);
+    }
+    picks=picks.map(p=>({t:p.t,source:"mood",sourceName:key,reason:moodReason(M,p.t)}));
+  }else{
+    const w={}; M.genres.forEach(g=>{ w[g]=10; }); // the mood IS the taste for this hunt
+    picks=huntCatalog(w,seen,exclude,n).map(p=>({t:p.t,source:"mood",sourceName:key,reason:moodReason(M,p.t)}));
+  }
+  if(picks.length){ greetMsg=null; await deliver(picks); }
+  else greetMsg="You've burned through my "+M.label+" stash — pick another mood?";
+  try{ profile(); }catch(e){}     // shelf + badge repaint
+  try{ renderInbox(); }catch(e){} // the open sheet repaints with new picks / the dry-stash note
+}
+
+/* ---------- greeting (inside the sheet only — never auto-opens, never overlays video) ---------- */
+function greetLine(){
+  let first="there";
+  try{ const nm=(getProfile()||{}).name||store.get("auth_name","")||""; if(nm) first=String(nm).split(" ")[0]; }catch(e){}
+  if(greetMsg) return greetMsg;
+  const lead=moodLeader();
+  if(lead) return "Back again, "+first+" — more "+MOODS[lead].label.toLowerCase()+" tonight, or something new?";
+  const lines=[
+    "Hey "+first+" — what do you feel like watching today?",
+    "What's your mood today, "+first+"?",
+    "Got anything in mind today, "+first+"?"
+  ];
+  let h=0; const d=new Date().toDateString();
+  for(let i=0;i<d.length;i++) h=((h*31)+d.charCodeAt(i))>>>0;
+  return lines[h%lines.length];
+}
+function greetingHTML(){
+  const chips=Object.keys(MOODS).map(k=>'<button class="scout-chip" data-mood="'+k+'">'+MOODS[k].emoji+" "+MOODS[k].label+"</button>").join("");
+  return '<div class="scout-greet"><div class="scout-gb">🤖 Scout: '+esc(greetLine())+'</div>'
+    +'<div class="scout-chips">'+chips+'</div></div>';
+}
+function bindGreeting(box){
+  box.querySelectorAll("[data-mood]").forEach(el=>{ el.onclick=()=>{ moodHunt(el.dataset.mood); }; });
+}
+
 /* ---------- inbox: local-first, mirrored to users/{uid}/inbox ---------- */
 function getInbox(){ try{ return store.get("scoutInbox",[])||[]; }catch(e){ return []; } }
 function setInbox(a){ try{ store.set("scoutInbox",(a||[]).slice(0,INBOX_CAP)); }catch(e){} }
@@ -10605,9 +10751,10 @@ async function maybeRun(){
   if(!cat().length) return; // catalog not ready — retry next launch, don't burn the run
   let last=0, lastBatch=0;
   try{ last=store.get("scoutLastRun",0)||0; lastBatch=store.get("scoutBatchTs",0)||0; }catch(e){}
-  if(Date.now()-last<RUN_GAP_MS) return;
+  const isT=turbo();
+  if(Date.now()-last<(isT?TURBO_GAP_MS:RUN_GAP_MS)) return; // turbo: 60s floor — effectively every app open
   const inbox=getInbox();
-  if(lastBatch>0){
+  if(!isT&&lastBatch>0){ // turbo skips the untouched-batch back-off entirely
     const batch=inbox.filter(m=>m.ts>=lastBatch-500);
     if(batch.length){
       const seen=seenIds();
@@ -10624,7 +10771,7 @@ async function maybeRun(){
     const picks=huntCatalog(w,seen,exclude,1);
     picks.forEach(p=>exclude.add(p.t.id));
     try{ const person=await huntPeople(w,seen,exclude); if(person){ picks.push(person); exclude.add(person.t.id); } }catch(e){}
-    while(picks.length<MAX_PICKS){
+    while(picks.length<(isT?TURBO_PICKS:MAX_PICKS)){
       const extra=huntCatalog(w,seen,exclude,1);
       if(!extra.length) break;
       picks.push(extra[0]); exclude.add(extra[0].t.id);
@@ -10681,6 +10828,7 @@ function profile(){
   const inbox=getInbox();
   const unread=inbox.filter(m=>!m.read).length;
   let pub=false; try{ pub=!!store.get("scoutPublic",false); }catch(e){}
+  let tbo=false; try{ tbo=!!store.get("scoutTurbo",false); }catch(e){}
   sec.innerHTML=
     '<div class="secttl">🤖 Your Scout</div>'
     +'<div class="prow" id="scoutRow" style="cursor:pointer">'
@@ -10694,7 +10842,11 @@ function profile(){
     +'<div class="prow"><div style="flex:1;min-width:0">'
     +'<div style="font-weight:700;font-size:14px">Public picks</div>'
     +'<div style="font-size:12px;color:var(--mut)">Let bots &amp; visitors see my list — other Scouts can find picks on your page.</div></div>'
-    +'<button class="pbtn '+(pub?"":"ghost")+' sm" id="scoutPubTgl">'+(pub?"On":"Off")+'</button></div>';
+    +'<button class="pbtn '+(pub?"":"ghost")+' sm" id="scoutPubTgl">'+(pub?"On":"Off")+'</button></div>'
+    +'<div class="prow"><div style="flex:1;min-width:0">'
+    +'<div style="font-weight:700;font-size:14px">Testing: Scout max activity</div>'
+    +'<div style="font-size:12px;color:var(--mut)">While testing, your Scout hunts on every open (up to 8 picks a run) and greets you with mood picks in its messages. This device only.</div></div>'
+    +'<button class="pbtn '+(tbo?"":"ghost")+' sm" id="scoutTurboTgl">'+(tbo?"On":"Off")+'</button></div>';
   const row=$("scoutRow"); if(row) row.onclick=openInbox;
   const tg=$("scoutPubTgl");
   if(tg) tg.onclick=()=>{
@@ -10702,6 +10854,13 @@ function profile(){
     syncPublic();
     profile();
     try{ toast(on?"Public picks on ✓":"Public picks off"); }catch(e){}
+  };
+  const tt=$("scoutTurboTgl");
+  if(tt) tt.onclick=()=>{
+    let on=false; try{ on=!store.get("scoutTurbo",false); store.set("scoutTurbo",on); }catch(e){}
+    profile();
+    try{ toast(on?"Scout max activity on 🚀":"Scout max activity off"); }catch(e){}
+    if(on) maybeRun(); // turbo gap is 60s — a fresh hunt can start right away
   };
   renderShelf();
   if(pub) syncPublic(); // keep the public node fresh while it's on
@@ -10723,17 +10882,23 @@ function renderShelf(){
 /* ---------- inbox sheet ---------- */
 function relDay(ts){ try{ return new Date(ts||0).toLocaleDateString(undefined,{month:"short",day:"numeric"}); }catch(e){ return ""; } }
 function msgLine(m){
+  if(m.source==="mood") return m.reason||"Picked for your mood."; // the reason already says it in his words
   if(m.source==="user") return "Found on "+(m.sourceName||"a viewer")+"’s page — "+(m.reason||"fits your taste.");
   return m.reason||"Picked for you.";
 }
 function renderInbox(){
   const box=$("scoutMsgs"); if(!box) return;
   const inbox=getInbox();
+  /* greeting lives at the top of the sheet, turbo + signed-in + first open
+     this launch only — it is markup, never inbox data */
+  const showGreet=turbo()&&signedIn()&&greetVisible;
+  const head=showGreet?greetingHTML():"";
   if(!inbox.length){
-    box.innerHTML='<div class="scout-empty">No picks yet.<br>Scout is still learning your taste — watch a few shorts and check back.</div>';
+    box.innerHTML=head+'<div class="scout-empty">No picks yet.<br>Scout is still learning your taste — watch a few shorts and check back.</div>';
+    if(showGreet) bindGreeting(box);
     return;
   }
-  box.innerHTML=inbox.map((m,i)=>{
+  box.innerHTML=head+inbox.map((m,i)=>{
     const t=byId(m.titleId);
     let th=""; try{ th=t?thumb(t,"mq"):""; }catch(e){}
     return '<div class="scout-msg" data-mi="'+i+'">'
@@ -10745,11 +10910,21 @@ function renderInbox(){
       +'</div>';
   }).join("");
   box.querySelectorAll("[data-mi]").forEach(el=>{ el.onclick=()=>openMsg(parseInt(el.dataset.mi,10)); });
+  if(showGreet) bindGreeting(box);
 }
-function openInbox(){ renderInbox(); const s=$("scoutSheet"), c=$("scoutScrim"); if(s)s.classList.add("open"); if(c)c.classList.add("open"); }
+function openInbox(){
+  /* greeting: first sheet open per app launch only (his max-once order) */
+  if(greetArmed){ greetVisible=true; greetArmed=false; } else { greetVisible=false; }
+  renderInbox();
+  const s=$("scoutSheet"), c=$("scoutScrim"); if(s)s.classList.add("open"); if(c)c.classList.add("open");
+  if(turbo()){ /* hunt kick while he reads the sheet */
+    try{ maybeRun().then(()=>{ try{ const sh=$("scoutSheet"); if(sh&&sh.classList.contains("open")) renderInbox(); }catch(e){} }); }catch(e){}
+  }
+}
 function closeInbox(){ const s=$("scoutSheet"), c=$("scoutScrim"); if(s)s.classList.remove("open"); if(c)c.classList.remove("open"); }
 function openMsg(i){
   const inbox=getInbox(), m=inbox[i]; if(!m) return;
+  if(m.source==="mood"&&m.sourceName&&MOODS[m.sourceName]) bumpMoodHit(m.sourceName); // opening a mood pick = the strongest taste signal
   if(!m.read){
     m.read=true; setInbox(inbox);
     if(m.key&&m.key.indexOf("local:")!==0){
@@ -10787,7 +10962,7 @@ setInterval(()=>{
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",()=>setTimeout(boot,6000));
 else setTimeout(boot,6000);
 
-window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote};
+window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo};
 })();
 </script>
 <script>
