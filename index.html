@@ -4291,7 +4291,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012212111";
+const BUILD="20261012164123";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6700,6 +6700,12 @@ async function mgBackfillTitles(ids){
    an audible start. */
 let tgList=null, tgShown=0, tgQuery="";
 const TG_CHUNK=60;
+/* Fisher-Yates shuffle (in place, returns the array) */
+function svShuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+/* This visit's shuffled catalog order (ids). Built ONLY when the guide is
+   entered (renderTvGuide) — his order: fresh every time he goes to the
+   guide, never reshuffled mid-visit, so rows never move under his finger. */
+let tgOrder=null;
 function tgEmbed(t,muted){
   // sound-on by spec (mute=0); muted is only the platform-refusal fallback
   const u=t.url||"";
@@ -6720,8 +6726,15 @@ function tgRowHTML(t){
 }
 function tgFiltered(){
   const q=tgQuery.trim().toLowerCase();
-  const arr=q?C.filter(t=>((t.title||"")+" "+(t.genre||"")).toLowerCase().indexOf(q)>=0):C;
-  return [...arr].sort((a,b)=>String(a.title||"").localeCompare(String(b.title||""),"en",{sensitivity:"base"}));
+  if(!tgOrder)tgOrder=svShuffle(C.map(t=>t.id)); // first use builds the visit order
+  const match=t=>!q||(((t.title||"")+" "+(t.genre||"")).toLowerCase().indexOf(q)>=0);
+  const seen=new Set(), out=[];
+  // the visit's fresh order is the list; search narrows FROM it, never re-sorts
+  tgOrder.forEach(id=>{ const t=byId(id); if(t&&match(t)){ out.push(t); seen.add(id); } });
+  // titles spliced into C mid-visit (background catalog refresh) append after
+  // the visit order, in catalog order — existing rows never jump
+  C.forEach(t=>{ if(t&&!seen.has(t.id)&&match(t))out.push(t); });
+  return out;
 }
 function tgMore(){
   const box=$("#tgList"); if(!box||!tgList)return;
@@ -6749,9 +6762,16 @@ function tgPreview(id,fromScroll){
   $("#tgSub").textContent=`${t.genre||""} · ${t.eps||""}${t.runtime?" · "+t.runtime:""}`;
   const im=$("#tgThumb"); if(im){im.src=th;im.style.display=th?"":"none";}
   const ph=$("#tgPh"); if(ph)ph.style.display="none";
-  if(url){fr.innerHTML=`<iframe src="${url}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;tgArmEnd(t);}
+  // Claim the preview box BEFORE arming the end/sound handlers: tgArmEnd's
+  // player guard compares its token against pv._tid, and with the YT API
+  // already loaded its mk() runs synchronously — arming first meant the
+  // guard saw the PREVIOUS preview's id and bailed, so no YT.Player (no
+  // ENDED handler, no sound arm) was ever attached. That ordering bug is
+  // the root cause of the guide's dead auto-advance; the Vimeo leg only
+  // worked because its arm defers through a promise.
   fr._tid=t.id;
   const pv=$("#tgPreviewBox"); if(pv)pv._tid=t.id;
+  if(url){fr.innerHTML=`<iframe src="${url}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;tgArmEnd(t);}
   const wb2=$("#tgWatch"); if(wb2)wb2.style.display="";
 }
 function tgPause(){
@@ -6895,7 +6915,9 @@ function tgArmEnd(t){
 }
 function renderTvGuide(){
   const box=$("#tvGuide"); if(!box)return;
-  tgQuery=""; tgShown=0; tgList=tgFiltered();
+  tgQuery=""; tgShown=0;
+  tgOrder=svShuffle(C.map(t=>t.id)); // fresh order on EVERY entry (his order)
+  tgList=tgFiltered();
   box.innerHTML=`
     <div class="tg-preview" id="tgPreviewBox" title="Tap to watch fullscreen">
       <div class="tg-frame" id="tgFrame">
@@ -7025,7 +7047,7 @@ function tgStickCheck(){
 }
 
 /* ---------- live sports highlights in TV Guide ---------- */
-let tgHLData=null, tgHLAt=0, tgHLIdx=-1;
+let tgHLData=null, tgHLAt=0, tgHLIdx=-1, tgHLOrder=null;
 function loadHighlights(cb,force){
   const now=Date.now();
   if(!force&&tgHLData&&now-tgHLAt<30*60*1000){cb&&cb(tgHLData);return;}
@@ -7186,6 +7208,9 @@ function renderTgHighlights(force){
   loadHighlights(d=>{
     if(!d||!d.highlights||!d.highlights.length){box.innerHTML="";return;}
     const upd=agoStr(d.updatedAt);
+    // fresh display order on every guide entry (his order) — cards carry the
+    // REAL highlight index, so taps and playback are unaffected by the shuffle
+    tgHLOrder=svShuffle(d.highlights.map((h,i)=>i));
     box.innerHTML=`
       <div class="tg-hl-h">
         <div><div class="t"><span class="live"></span>SPORTS HIGHLIGHTS</div>
@@ -7193,19 +7218,19 @@ function renderTgHighlights(force){
         <button class="tg-hl-play" id="tgHLPlay">▶ Play all</button>
       </div>
       <div class="tg-hl-row">
-        ${d.highlights.map((h,i)=>`
+        ${tgHLOrder.map(i=>{const h=d.highlights[i];return `
           <div class="tg-hl-c" data-i="${i}">
             <img src="${esc(h.thumb)}" loading="lazy" alt="">
             <div class="sb">${esc(h.sport)}</div>
             <div class="ti">${esc(h.title)}</div>
             <div class="ag">${agoStr(h.publishedAt)}</div>
-          </div>`).join("")}
+          </div>`;}).join("")}
       </div>`;
     box.querySelectorAll(".tg-hl-c").forEach(c=>{
       c.onclick=(e)=>{e.stopPropagation();tgPlayHighlight(+c.dataset.i);};
     });
     const pa=$("#tgHLPlay");
-    if(pa)pa.onclick=(e)=>{e.stopPropagation();tgPlayHighlight(0);};
+    if(pa)pa.onclick=(e)=>{e.stopPropagation();tgPlayHighlight(tgHLOrder&&tgHLOrder.length?tgHLOrder[0]:0);};
   },force);
 }
 function tgPlayHighlight(i){
@@ -7235,7 +7260,10 @@ function tgArmHighlightEnd(){
     const now=Date.now();
     if(now-tgAdvanceAt<5000)return;
     tgAdvanceAt=now;
-    tgPlayHighlight(tgHLIdx+1); // next highlight, loops at the end
+    // next in this visit's shuffled display order, cycling back to the top
+    let nxt=tgHLIdx+1;
+    if(tgHLOrder&&tgHLOrder.length){ const p=tgHLOrder.indexOf(tgHLIdx); nxt=tgHLOrder[(p+1)%tgHLOrder.length]; }
+    tgPlayHighlight(nxt);
   };
   const mk=()=>{try{
     if(token!==($("#tgPreviewBox")||{})._tid)return;
@@ -11132,7 +11160,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
    start. Below the stage: an ESPN scoreboard strip and TV-Guide-style rows
    for every channel. Lineup, live state and scores re-fetch no-store on
    EVERY open, so a change in what's live shows on that open. */
-let LS_CHANS=[], LS_STATE={}, LS_ACTIVE=null;
+let LS_CHANS=[], LS_STATE={}, LS_ACTIVE=null, LS_ORDER=null, LS_SINGLE=false, LS_ADV_AT=0;
 function lsEnsureStyle(){
   if(document.getElementById("lsStyle"))return;
   const st=document.createElement("style"); st.id="lsStyle";
@@ -11189,7 +11217,12 @@ function lsStageIdleHTML(){
   return '<div class="ls-idle"><div style="font-size:40px">📺</div><div style="font-weight:800;color:#fff">Pick a channel below</div><div style="font-size:12.5px">Live events play the moment they start — replays roll in between.</div></div>';
 }
 function lsSorted(){
-  return LS_CHANS.slice().sort((a,b)=>((lsIsLive(b)?1:0)-(lsIsLive(a)?1:0)));
+  // live channels still lead (standing rule); WITHIN each group the order is
+  // this visit's shuffle, built in liveSports() — fresh every entry, stable
+  // while he browses (his order)
+  const pos=new Map(); (LS_ORDER||[]).forEach((id,i)=>pos.set(id,i));
+  const rank=c=>pos.has(c.channelId)?pos.get(c.channelId):(LS_ORDER?LS_ORDER.length:0)+LS_CHANS.indexOf(c);
+  return LS_CHANS.slice().sort((a,b)=>((lsIsLive(b)?1:0)-(lsIsLive(a)?1:0))||(rank(a)-rank(b)));
 }
 /* TV-Guide-style row: every channel appears, live or not, and every row
    names something real — the live broadcast or the latest replay. */
@@ -11226,6 +11259,10 @@ function lsPlay(cid,keep){
   LS_ACTIVE=cid; LS_TOKEN++;
   const stage=$("#lsStage"); if(!stage)return;
   const live=lsIsLive(ch), s=lsState(ch);
+  // a single-video embed (live broadcast or latest replay) ENDS and must
+  // auto-advance; the uploads-playlist fallback already rolls to the next
+  // video inside YouTube, so it is excluded from channel advance
+  LS_SINGLE=!!((live&&s.videoId)||s.latestVideoId);
   const chip=live
     ? '<div class="ls-chip"><span class="dot"></span>LIVE · '+esc(ch.name)+'</div>'
     : '<div class="ls-chip">↻ REPLAY'+(s.latestTitle?" · "+esc(s.latestTitle):"")+' — live events return soon</div>';
@@ -11236,6 +11273,19 @@ function lsPlay(cid,keep){
   document.querySelectorAll("[data-ls]").forEach(b=>b.classList.toggle("on",b.dataset.ls===cid));
   if(!keep){ try{ stage.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e){} }
   lsArmSound(LS_TOKEN);
+}
+/* Auto-advance (his order): a finished video goes to the NEXT channel in
+   this visit's fresh order and plays it — no tap, no sitting on an ended
+   frame. Cycles back to the top after the last channel. */
+function lsAdvance(){
+  if(!LS_ACTIVE||!LS_SINGLE)return;
+  const now=Date.now();
+  if(now-LS_ADV_AT<5000)return; // same dedup discipline as the TV Guide
+  LS_ADV_AT=now;
+  const chans=lsSorted(); if(chans.length<2)return;
+  const i=chans.findIndex(c=>c.channelId===LS_ACTIVE);
+  const nxt=chans[(i+1)%chans.length];
+  if(nxt)lsPlay(nxt.channelId,true); // keep=true: never yank his scroll
 }
 /* SOUND-FIRST autoplay (his order: "No mute — have the video playing with
    sound"). The stage player is created inside the Live-tab tap's activation
@@ -11262,6 +11312,9 @@ function lsArmSound(token){
             const ub=$("#lsUnmute"); if(ub)ub.style.display="";
           }
         },1800);
+      },onStateChange:(e)=>{
+        if(token!==LS_TOKEN)return;
+        if(e.data===0)lsAdvance(); // ENDED → next channel plays, no tap
       }}});
     }catch(_){}
   });
@@ -11398,6 +11451,7 @@ async function liveSports(){
     return;
   }
   LS_ACTIVE=null;
+  LS_ORDER=svShuffle(LS_CHANS.map(c=>c.channelId)); // fresh order on EVERY entry (his order)
   lsRender();
   // his order: the #1 channel (live-first sort) starts playing — with sound —
   // the moment the Sports section opens
