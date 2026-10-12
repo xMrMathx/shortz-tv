@@ -4292,7 +4292,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012214332";
+const BUILD="20261012215136";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6700,7 +6700,7 @@ function renderProfManga(){
 async function mgBackfillTitles(ids){
   try{
     const q=ids.slice(0,50).map(id=>"ids[]="+encodeURIComponent(id)).join("&");
-    const r=await fetch("https://api.mangadex.org/manga?"+q+"&limit=100");
+    const r=await fetch(MDX+"/manga?"+q+"&limit=100");
     if(!r.ok)return;
     const j=await r.json();
     const mg=store.get("mgLiked",{}); let changed=false;
@@ -9105,7 +9105,7 @@ if("serviceWorker" in navigator){
 </script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
-const MDX="/api/mdx"; // same-origin proxy (functions/api/mdx) — MangaDex sends no CORS headers
+const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
 const MDX_BL="5920b825-4181-4a17-beeb-9918b0ff7a30"; // Boys' Love tag — never shown, his standing rule
 const MDX_RATINGS="contentRating%5B%5D=safe&contentRating%5B%5D=suggestive";
 const MDX_BL_EXCL="excludedTags%5B%5D="+MDX_BL;
@@ -9356,7 +9356,7 @@ function mgOpenReader(idx){
     if(gen!==Manga.gen||!Manga.readerOpen)return;
     const ch=d.chapter,base=d.baseUrl+"/data-saver/"+ch.hash+"/";
     // page images via same-origin proxy — guaranteed reachable, no CORS
-    Manga.pages=(ch.dataSaver||[]).map(f=>"/api/mdximg?u="+encodeURIComponent(base+f));
+    Manga.pages=(ch.dataSaver||[]).map(f=>"https://shortz-tv.pages.dev/api/mdximg?u="+encodeURIComponent(base+f));
     if(!Manga.pages.length)throw new Error("no pages");
     mgDrawPage();
   }).catch(()=>{
