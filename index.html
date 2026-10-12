@@ -1907,49 +1907,136 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
   function voiceCommand(raw){
     const text=String(raw||"").toLowerCase().trim();
     if(!text||text==="listening…")return false;
-    // INTENT PATTERNS: require an action verb so background dialogue can't trigger.
-    // Matches: "take me to X", "open up X", "go to X", "bring up X", "show me X", "open X", "play X", "watch X"
-    const intent=text.match(/(?:take me to|open up|go to|bring up|show me|open|play|watch|search for|find)\s+(.+)/);
+
+    // Resolve pronouns: "it", "that", "this" -> last series; "again" -> repeat last action
+    let resolved=text;
+    if(/\b(it|that|this)\b/.test(text)&&voiceCtx.lastSeries){
+      resolved=text.replace(/\b(it|that|this)\b/g,voiceCtx.lastSeries.title.toLowerCase());
+    }
+
+    // INTENT PATTERNS — natural verbs, not rigid commands
+    const intent=resolved.match(/(?:take me to|open up|go to|bring up|show me|open|play|watch|put on|start|search for|find|look for)\s+(.+)/);
+
+    // --- bare single-word commands (fast path) ---
     if(!intent){
-      // no clear intent — check for bare tab names only if the whole phrase is just that word
-      const bare=text.replace(/[^\w\s]/g,"").trim();
-      if(bare==="home"||bare==="browse"||bare==="live"||bare==="streaming"||bare==="manga"||bare==="profile"||bare==="my list"){
-        try{go(bare==="my list"?"profile":bare);}catch(e){}
+      const bare=resolved.replace(/[^\w\s]/g,"").trim();
+      // "again" / "replay" -> replay last series/episode
+      if(bare==="again"||bare==="replay"||bare==="play it again"){
+        if(voiceCtx.lastSeries){
+          const t=byId(voiceCtx.lastSeries.id);
+          if(t){go("home");playSeries(t);toast("▶ "+t.title);return true;}
+        }
+        return false;
+      }
+      // "next episode" / "next"
+      if(bare==="next"||bare==="next episode"){
+        try{const s=curSlide();if(s){/* auto-advance handles next */} }catch(e){}
+        toast("Playing next");
         return true;
       }
-      if(bare==="genres"||bare==="show genres"){try{go("browse");}catch(e){}return true;}
-      if(bare==="stakes"||bare==="bets"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
-      return false; // ignore background chatter
+      const tabs={home:"home",browse:"browse",live:"live",streaming:"streaming",stream:"streaming",
+        manga:"manga",comics:"manga",profile:"profile","my list":"profile",settings:"profile",
+        stakes:"stakes",bets:"stakes",genres:"genres"};
+      if(tabs[bare]){
+        const dest=tabs[bare];
+        if(dest==="stakes"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
+        if(dest==="genres"){try{go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}return true;}
+        try{go(dest);voiceCtx.lastTab=dest;}catch(e){}
+        return true;
+      }
+      // bare genre name: "westerns" -> Western
+      for(const alias in GENRE_ALIASES){
+        if(bare===alias||bare===alias+"s"){
+          const g=GENRE_ALIASES[alias];
+          try{go("browse");renderBrowse(g);voiceCtx.lastGenre=g;saveCtx();toast("🌐 "+g);}catch(e){}
+          return true;
+        }
+      }
+      return false;
     }
     const target=intent[1].trim();
+    const verb=intent[0].split(/\s+/).slice(0,3).join(" ");
 
-    // 1. genres: "take me to westerns", "bring up sci-fi"
+    // --- "again" with context ---
+    if(target==="again"||target==="it again"){
+      if(voiceCtx.lastSeries){
+        const t=byId(voiceCtx.lastSeries.id);
+        if(t){go("home");playSeries(t);return true;}
+      }
+    }
+
+    // --- genres (expanded: "westerns", "sci-fi stuff", "horror movies") ---
     for(const alias in GENRE_ALIASES){
       if(target.includes(alias)){
         const g=GENRE_ALIASES[alias];
-        try{go("browse");renderBrowse(g);toast("🌐 "+g);}catch(e){}
+        try{go("browse");renderBrowse(g);voiceCtx.lastGenre=g;saveCtx();toast("🌐 "+g);}catch(e){}
         return true;
       }
     }
-    // 2. "show genres" -> open the genre picker
     if(target.includes("genre")){
-      try{
-        go("browse");
-        setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);
-      }catch(e){}
+      try{go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}
       return true;
     }
-    // 3. stakes
+    // --- stakes ---
     if(target.includes("stake")||target.includes("bet")){
       try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}
       return true;
     }
-    // 4. tabs: "go to home", "take me to live"
+    // --- playback controls: "pause", "play", "mute", "next" ---
+    if(/^(pause|pause it|pause video)$/.test(target)){
+      try{const s=curSlide();if(s&&s._player){const st=s._player.getPlayerState();if(st===1)togglePause();}}catch(e){}
+      return true;
+    }
+    if(/^(play|play it|resume|continue|unpause)$/.test(target)){
+      try{const s=curSlide();if(s&&s._player){const st=s._player.getPlayerState();if(st===2)togglePause();}}catch(e){}
+      return true;
+    }
+    if(target==="mute"||target==="mute it"){
+      try{const s=curSlide();const pl=s&&s._player;if(pl&&pl.mute)pl.mute();}catch(e){}
+      return true;
+    }
+    if(target==="unmute"||target==="unmute it"||target==="sound on"){
+      try{doUnmute();}catch(e){}
+      return true;
+    }
+    if(target==="next"||target==="next video"||target==="skip"||target==="skip it"){
+      try{if(typeof advanceAnimated==="function")advanceAnimated(-1);}catch(e){}
+      return true;
+    }
+    // --- my list: "save this", "add to my list", "remove from my list" ---
+    if(target==="save this"||target==="add to my list"||target==="add this to my list"){
+      try{
+        const t=feed.cur;
+        if(t&&t.id){
+          if(mylist.has(t.id)){toast("Already in My List");}
+          else{mylist.add(t.id);saveList();toast("♥ Saved to My List");}
+        }
+      }catch(e){}
+      return true;
+    }
+    if(target==="remove from my list"||target==="unsave this"){
+      try{
+        const t=feed.cur;
+        if(t&&t.id&&mylist.has(t.id)){mylist.delete(t.id);saveList();toast("Removed from My List");}
+      }catch(e){}
+      return true;
+    }
+    // --- picture in picture: "pop out", "mini player", "picture in picture" ---
+    if(target==="pop out"||target==="mini player"||target==="picture in picture"||target==="pip"){
+      try{if(typeof piaEnter==="function")piaEnter();}catch(e){}
+      return true;
+    }
+    // --- back navigation: "go back", "back" ---
+    if(target==="go back"||target==="back"){
+      try{if(typeof goBack==="function")goBack();else history.back();}catch(e){}
+      return true;
+    }
+    // --- tabs (natural: "take me home", "open up live") ---
     const tabs={home:"home",browse:"browse",live:"live",streaming:"streaming",stream:"streaming",
       manga:"manga",comics:"manga",profile:"profile","my list":"profile",settings:"profile"};
-    for(const k in tabs){if(target.includes(k)){try{go(tabs[k]);}catch(e){}return true;}}
-    // 5. "search for X" / "find X"
-    if(intent[0].startsWith("search for")||intent[0].startsWith("find")){
+    for(const k in tabs){if(target===k||target.startsWith(k+" ")||target.endsWith(" "+k)){try{go(tabs[k]);voiceCtx.lastTab=tabs[k];}catch(e){}return true;}}
+    // --- search: "search for X", "find X", "look for X" ---
+    if(verb.includes("search for")||verb.includes("find")||verb.includes("look for")){
       try{
         go("browse");
         setTimeout(()=>{
@@ -1959,7 +2046,7 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
       }catch(e){}
       return true;
     }
-    // 6. series by name + episode: "play Les Kassos episode 5"
+    // --- series by name + episode: "play Les Kassos episode 5", "open up westerns" (genre caught above) ---
     let q=target.replace(/[^\w\s]/g,"").toLowerCase();
     let epNum=null;
     const epMatch=q.match(/(?:episode|ep|part|number)\s+(\w+)/);
@@ -1967,26 +2054,39 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
       epNum=parseNumWord(epMatch[1]);
       if(epNum)q=q.replace(epMatch[0],"").trim();
     }
+    // "the fifth one", "number three" without "episode"
+    if(!epNum){
+      const numMatch=q.match(/\b(first|second|third|fourth|fifth|sixth|seventh|eighth|ninth|tenth|\w+)(?:\s+one)?$/);
+      // handled by parseNumWord below if it's a pure number word at the end
+    }
     if(q.length>1){
       try{
         const best=findSeries(q);
         if(best){
+          voiceCtx.lastSeries={id:best.id,title:best.title};saveCtx();
           if(epNum){
             const ep=(best.episodes||[]).find(e=>e.n===epNum);
             if(ep&&ep.verified){
+              voiceCtx.lastEpisode=epNum;
               go("home");playSeries(best);setTimeout(()=>playEpisode(ep),600);
               toast("▶ "+best.title+" — Ep "+epNum);
               return true;
             }else{
-              toast("Episode "+epNum+" not found");
+              toast("Episode "+epNum+" not found in "+best.title);
               return true;
             }
           }
-          openDetail(best.id);return true;
+          // "play X" with episodes -> start playing; "open X" -> detail page
+          if(verb.includes("play")||verb.includes("watch")||verb.includes("put on")||verb.includes("start")){
+            go("home");playSeries(best);toast("▶ "+best.title);
+          }else{
+            openDetail(best.id);
+          }
+          return true;
         }
       }catch(e){}
     }
-    return false; // no match — stay silent, don't disturb the video
+    return false;
   }
 
   // number words -> int ("five" -> 5, "twenty one" -> 21)
@@ -2085,16 +2185,31 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
     vt.classList.remove("show");vt.setAttribute("aria-hidden","true");vi.value="";
   }
 
-  // hold to talk (350ms), quick tap = type. Never let the press reach the video.
+  // VOICE ENGINE: context memory — remembers what you were doing for "it", "that", "again"
+  const voiceCtx={lastSeries:null,lastGenre:null,lastTab:null,lastEpisode:null};
+  try{
+    const saved=JSON.parse(localStorage.getItem("voiceCtx")||"{}");
+    if(saved.lastSeries)voiceCtx.lastSeries=saved.lastSeries;
+    if(saved.lastGenre)voiceCtx.lastGenre=saved.lastGenre;
+  }catch(e){}
+  function saveCtx(){try{localStorage.setItem("voiceCtx",JSON.stringify({lastSeries:voiceCtx.lastSeries,lastGenre:voiceCtx.lastGenre}));}catch(e){}}
+
+  // hold to talk — INSTANT: listening starts the moment you touch. Quick tap (<250ms, silent) = type.
   btn.addEventListener("pointerdown",e=>{
     e.preventDefault();e.stopPropagation();wasHold=false;
-    holdTimer=setTimeout(()=>{wasHold=true;startListen();},350);
+    // start listening IMMEDIATELY for zero-lag response
+    wasHold=true;startListen();
+    holdTimer=setTimeout(()=>{},250); // tap window marker
   });
   ["pointerup","pointercancel","pointerleave"].forEach(ev=>btn.addEventListener(ev,e=>{
     e.stopPropagation();
     clearTimeout(holdTimer);
-    if(wasHold){stopListen();}
-    else if(ev==="pointerup"){openType();}
+    if(wasHold){
+      // if released super-quick with no speech, treat as tap -> type box
+      const quick=tx.textContent==="Listening…"||!tx.textContent.trim();
+      stopListen();
+      if(quick&&ev==="pointerup")openType();
+    }
     wasHold=false;
   }));
   btn.addEventListener("click",e=>{e.stopPropagation();e.preventDefault();});
@@ -2950,7 +3065,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011220600";
+const BUILD="20261011221000";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
