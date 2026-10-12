@@ -125,6 +125,21 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 @media(min-width:1024px){
   #cfeedInner{max-width:1180px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
 }
+/* ---------- SCOUT-GUIDED BROWSE: landing blocks + Home-style card lists ---------- */
+.bcf-list{max-width:640px;margin:0 auto;padding:0 12px;display:flex;flex-direction:column;gap:14px}
+.bcf-door{max-width:640px;margin:0 auto;padding:0 12px}
+.bpick-reason{font-size:12.5px;color:#ffb02e;font-weight:600;line-height:1.4;padding:0 4px}
+.gtile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
+.gtile{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#101013;border:1px solid #232328;border-radius:14px;padding:16px 14px;color:var(--txt);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-align:left}
+.gtile:active{transform:scale(.98)}
+.gtile .gtile-cnt{font-size:12px;color:var(--mut);font-weight:600;white-space:nowrap}
+.gtile.all{border-color:rgba(229,9,20,.55)}
+#view-genre .gfull-cflist{max-width:640px;margin:0 auto;padding:16px 12px calc(96px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
+@media(min-width:1024px){
+  .bcf-list{max-width:1180px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
+  .gtile-grid{grid-template-columns:repeat(4,1fr)}
+  #view-genre .gfull-cflist{max-width:1180px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
+}
 /* error card: shown instead of auto-advancing on playback failure */
 .errcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(8,8,12,.92);z-index:40;text-align:center;padding:24px}
 .errcard h3{font-size:18px;margin:0 0 8px;color:#fff}
@@ -3385,7 +3400,7 @@ function renderView(v){
     // only opens when a title is actually played (playSeries).
     if(feedMounted&&!piaActive){ try{ showCardFeed(true); }catch(e){} }
   }
-  if(v==="browse")renderBrowse(browseGenre);
+  if(v==="browse"){browseWall=false;renderBrowse(browseGenre);}
   if(v==="live"){ if(curView!=="live")Live.tab="sports"; renderLive(); } // every fresh entry lands on Sports (his order)
   if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
   if(v==="manga")renderManga();
@@ -4292,7 +4307,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012215702";
+const BUILD="20261012171433";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5478,6 +5493,22 @@ function cfSyncCounts(){
   document.addEventListener("visibilitychange",()=>{ if(document.hidden)cfStopPreview(); else cfRecompute(); });
   window.addEventListener("resize",()=>{ if(homeMode==="cards")cfRecompute(); });
 })();
+/* Browse + genre pages reuse the Home card component (cfCardHTML): the
+   like/comment/save/share actions are the feed's own handlers, but a
+   media/body tap opens the title's detail page — center-play previews
+   stay Home-only, so no preview iframe is ever created outside the feed. */
+function bindCfCards(root){
+  if(!root||root._cfBound)return; root._cfBound=true;
+  root.addEventListener("click",e=>{
+    const card=e.target.closest(".cfcard"); if(!card)return;
+    const t=byId(card.dataset.id); if(!t)return;
+    if(e.target.closest("[data-cf-like]")){ cfLikeTap(card,t); return; }
+    if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
+    if(e.target.closest("[data-cf-save]")){ cfSaveTap(card,t); return; }
+    if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
+    if(e.target.closest("[data-cf-media],[data-cf-body]")){ openDetail(t.id); }
+  });
+}
 
 /* ---------- episode drawer: real verified episodes ---------- */
 function epCount(t){
@@ -5798,6 +5829,7 @@ function openDetail(id){
 
 /* ---------- browse ---------- */
 let browseGenre=ALL; // always start Browse on All (everything) — user filters after
+let browseWall=false; // Scout-guided Browse: the landing shows unless he explicitly opened the All wall (All tile / search flip)
 let browseQuery=""; // search text; filters across all series regardless of pill
 let sportsSport=null; // selected sport in Sports genre; null = picker view
 function browseListFiltered(){
@@ -6033,8 +6065,105 @@ function featBindDrag(){
   hero.addEventListener("pointercancel",end);
 }
 
+/* ---------- SCOUT-GUIDED BROWSE LANDING (his approved redesign) ----------
+   Four clean blocks replace the stacked Browse landing: (1) his Scout's
+   greeting + mood chips — the sheet's REAL machinery (greetingHTML /
+   moodHunt / getInbox, reached through window.Scout) — for EVERY
+   signed-in user, not just his testing toggle; (2) Scout's Picks, the
+   inbox as Home-style cards with each pick's Scout reason; (3) genre
+   tiles — a tap opens the shipped full genre page; (4) search up top
+   plus the All wall one tap away (All tile). Guests get blocks 3+4
+   only — no Scout UI is invented for Browse. */
+function browseScoutPicksHTML(){
+  const S=window.Scout; if(!S||!S.getInbox)return "";
+  const used=new Set(), out=[];
+  for(const m of S.getInbox()){
+    if(!m||!m.titleId||used.has(m.titleId))continue;
+    const t=byId(m.titleId); if(!t)continue;
+    used.add(m.titleId);
+    const line=S.msgLine?S.msgLine(m):(m.reason||"Picked for you.");
+    out.push(`<div class="bpick">${cfCardHTML(t)}<div class="bpick-reason">🤖 Scout: ${esc(line)}</div></div>`);
+    if(out.length>=12)break;
+  }
+  return out.length?out.join(""):`<div class="empty">Your Scout is still hunting — picks land here.</div>`;
+}
+function paintBrowseScout(){
+  const S=window.Scout; if(!S)return;
+  const door=$("#browseScoutDoor");
+  if(door&&S.greetingHTML){
+    door.innerHTML=S.greetingHTML();
+    door.querySelectorAll("[data-mood]").forEach(el=>{ el.onclick=()=>browseMoodTap(el.dataset.mood); });
+  }
+  const pk=$("#browseScoutPicks");
+  if(pk){ pk.innerHTML=browseScoutPicksHTML(); try{ likesWatch($("#view-browse")); }catch(e){} }
+}
+let _bMoodBusy=false;
+function browseMoodTap(k){
+  if(_bMoodBusy||!window.Scout||!Scout.moodHunt)return;
+  _bMoodBusy=true;
+  Promise.resolve(Scout.moodHunt(k)).catch(()=>{}).then(()=>{ _bMoodBusy=false; paintBrowseScout(); });
+}
+function renderBrowseLanding(){
+  try{ featStop(); }catch(e){} // no hero carousel on the landing — keep its timer out
+  const cc=catalogCounts();
+  const signed=!!(window.ShortzAuth&&window.ShortzAuth.isSignedIn());
+  const cnt=g=>g==="Rebirth"?cc.rebirth:g==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[g]||0);
+  const tiles=[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"}));
+  $("#view-browse").innerHTML=`
+    <div id="browseLanding">
+    <div class="wrap" style="padding-top:18px">
+      <div class="searchbar">
+        <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="" autocomplete="off" enterkeyhint="search">
+        <button id="bsearchx" aria-label="Clear search" style="display:none">✕</button>
+        <div id="recentSrch"></div>
+      </div>
+    </div>
+    ${signed?`
+    <div class="bcf-door" id="browseScoutDoor"></div>
+    <div class="wrap"><div class="rowlabel" style="margin-top:10px"><h2>🤖 Scout's Picks</h2></div></div>
+    <div class="bcf-list" id="browseScoutPicks"></div>`:""}
+    <div class="wrap">
+      <div class="rowlabel" style="margin-top:14px"><h2>Genres</h2><span>${GENRES.length} genres</span></div>
+      <div class="gtile-grid">
+        <button class="gtile all" data-gtile="${ALL}"><span>All</span><span class="gtile-cnt">${C.length} shows</span></button>
+        ${tiles.map(g=>`<button class="gtile" data-gtile="${esc(g)}"><span>${esc(g)}</span><span class="gtile-cnt">${cnt(g)}</span></button>`).join("")}
+      </div>
+    </div>
+    </div>`;
+  bindCfCards($("#view-browse"));
+  if(signed)paintBrowseScout();
+  document.querySelectorAll("#view-browse [data-gtile]").forEach(b=>{ b.onclick=()=>{
+    const g=b.dataset.gtile;
+    if(g===ALL){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); return; }
+    if(g==="Sports"){ renderBrowse("Sports"); window.scrollTo(0,0); return; } // phase-1 exception: Sports opens its picker
+    openGenreView(g,"browse");
+  };});
+  // Search entry: the first focus or keystroke flips to the full Browse
+  // wall, whose own search machinery (results takeover + recents) takes
+  // over from there — the same behavior as typing in Browse today.
+  // Voice search also lands here: it sets the box value + fires "input".
+  const si=$("#bsearch");
+  if(si){
+    const flip=()=>{
+      if(!document.getElementById("browseLanding"))return;
+      browseWall=true; browseQuery=si.value||"";
+      renderBrowse();
+      const nsi=$("#bsearch");
+      if(nsi){ try{ nsi.focus(); nsi.setSelectionRange(nsi.value.length,nsi.value.length); }catch(e){}
+        if(browseQuery)nsi.dispatchEvent(new Event("input",{bubbles:true})); }
+    };
+    si.addEventListener("focus",flip);
+    si.addEventListener("input",flip);
+  }
+}
 function renderBrowse(g){
-  browseGenre=g||browseGenre;  const list=browseList();
+  browseGenre=g||browseGenre;
+  // SCOUT-GUIDED BROWSE (his approved redesign): opening Browse on All
+  // with no search paints the four-block landing (Scout door, Scout's
+  // Picks, genre tiles, search + All). The full catalog wall below is
+  // one tap away (All tile / typing in search) and otherwise untouched.
+  if(browseGenre===ALL&&!browseQuery.trim()&&!browseWall){ renderBrowseLanding(); return; }
+  const list=browseList();
   // SPEED: dropdown counts come from the one-pass cache — the shell paints immediately.
   // (Cache is idle-precomputed after boot, so the first Browse tap is warm.)
   const cc=catalogCounts();
@@ -6241,23 +6370,17 @@ function sportEntry(sport){ return C.find(t=>t.genre==="Sports"&&t.sport===sport
    back button returns to Browse; from anywhere else it returns Home. */
 let genreChunks=null, genreBackTo=null, genreScrollY=0;
 const GENRE_CHUNK=60; // same chunk size as the Browse grid — big genres stream in on scroll
-function genreCardHTML(t){
-  const img=thumb(t,"mq");
-  return `<div class="gfull-card" data-id="${t.id}">
-    ${img?`<img loading="lazy" src="${esc(img)}" alt="" onerror="this.style.display='none'">`:""}
-    <div class="t">${esc(t.title)}</div>
-  </div>`;
-}
 function genreMore(){
   if(!genreChunks)return;
-  const grid=$("#view-genre .gfull-grid"); if(!grid)return;
+  const grid=$("#view-genre .gfull-cflist"); if(!grid)return;
   const {list}=genreChunks;
   const next=Math.min(list.length,genreChunks.shown+GENRE_CHUNK);
   if(next<=genreChunks.shown)return;
   const frag=document.createElement("div");
-  frag.innerHTML=list.slice(genreChunks.shown,next).map(genreCardHTML).join("");
+  frag.innerHTML=list.slice(genreChunks.shown,next).map(cfCardHTML).join("");
   while(frag.firstChild)grid.appendChild(frag.firstChild);
   genreChunks.shown=next;
+  try{ likesWatch($("#view-genre")); }catch(e){} // live like counts on the new cards, same as the feed
 }
 function openGenreView(g,origin){
   // The genre's titles = exactly what Browse lists/counts for it (browseList is
@@ -6276,16 +6399,10 @@ function openGenreView(g,origin){
       <div class="gfull-title">${esc(g)}</div>
       <div class="gfull-count">${list.length} shows</div>
     </div>
-    <div class="gfull-grid"></div>`;
+    <div class="gfull-cflist"></div>`;
   genreChunks={list:list,shown:0};
+  bindCfCards(v); // Home-card actions; media/body tap opens the detail page
   genreMore();
-  const grid=v.querySelector(".gfull-grid");
-  if(grid)grid.addEventListener("click",e=>{
-    const card=e.target.closest(".gfull-card");
-    if(!card)return;
-    const t=byId(card.dataset.id);
-    if(t)openDetail(t.id);
-  });
   // Chunk loader: like Browse, the DOCUMENT scrolls (this view grows with its
   // content — it does not scroll internally), so listen on window and watch
   // the grid's bottom edge, same math as the Browse chunk hook.
@@ -6293,7 +6410,7 @@ function openGenreView(g,origin){
     window._genreHook=true;
     window.addEventListener("scroll",()=>{
       if(curView!=="genre"||!genreChunks)return;
-      const grid=$("#view-genre .gfull-grid"); if(!grid)return;
+      const grid=$("#view-genre .gfull-cflist"); if(!grid)return;
       try{ if(grid.getBoundingClientRect().bottom<window.innerHeight+900)genreMore(); }catch(e){}
     },{passive:true});
   }
@@ -11169,7 +11286,7 @@ setInterval(()=>{
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",()=>setTimeout(boot,6000));
 else setTimeout(boot,6000);
 
-window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo};
+window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine};
 })();
 </script>
 <script>
