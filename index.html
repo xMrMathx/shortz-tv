@@ -537,25 +537,39 @@ body.pip #evToggle{display:none}
    58px–~215px at the right edge is empty video. On menu views it floats over
    scroll content the user summoned it over, and its X/button dismisses it.
    POSITION AUDIT (button): #tvBtn sits RIGHT of the All button (moved
-   2026-10-12 at the user's word: on the left it crowded the SHORTZ VS logo
-   and its 28px disc / 14px glyph was swallowed by the logo art — now 30px /
-   16px under 400px). Vertically centered on All (All center = 25px +
-   safe-area; button center = 25px + safe-area). At 360px wide: All spans
-   161–199px, the button spans 203–233px (4px gap); the FREE pill's left
-   edge is ~256px, so the button clears it by ~23px. At 320px the pill
-   clearance shrinks to ~3px — tight, no overlap. */
-#tvBtn{position:fixed;top:calc(9px + env(safe-area-inset-top));left:calc(50% + 24px);z-index:9600;
-  width:32px;height:32px;border-radius:50%;padding:0;cursor:pointer;
+   2026-10-12 at the user's word: on the left it crowded the SHORTZ VS logo).
+   VISIBILITY FIX (2026-10-12, second pass): the glyph is now inline SVG
+   (stroke=currentColor, flips white in tv-on like ⊞ does) instead of the 📺
+   emoji, and the disc is 36px (34px under 400px) — near-parity with All's
+   38px. The emoji in a small translucent disc was the weak link on the
+   user's phone; the SVG has no font dependency. DOM/CSS parity with
+   #evToggle was verified headlessly (same parent #app, display:flex,
+   opacity 1, topmost at center in hud-hidden+feedfull state).
+   Vertically centered on All (All center = 25px + safe-area; button
+   center = 25px + safe-area). At 360px wide: All spans 161–199px, the
+   button spans 203–237px (4px gap); the FREE pill (.free-tag in #topbar,
+   ~78px wide + 18px bar padding) starts at ~264px, clearing it by ~27px.
+   At 320px the button spans 183–217px vs pill at ~224px — ~7px, no overlap. */
+#tvBtn{position:fixed;top:calc(7px + env(safe-area-inset-top));left:calc(50% + 24px);z-index:9600;
+  width:36px;height:36px;border-radius:50%;padding:0;cursor:pointer;
   background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
-  font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;
+  line-height:1;display:flex;align-items:center;justify-content:center;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent;
   transition:background .2s,border-color .2s,box-shadow .2s,color .2s,transform .1s}
 #tvBtn:active{transform:scale(.92)}
+#tvBtn svg{display:block}
 body.tv-on #tvBtn{background:rgba(229,9,20,.88);border-color:#ff6b6b;color:#fff;
   box-shadow:0 0 16px rgba(229,9,20,.65)}
 body.pip #tvBtn{display:none}
 @media (max-width:400px){
-  #tvBtn{width:30px;height:30px;left:calc(50% + 23px);top:calc(10px + env(safe-area-inset-top));font-size:16px}
+  #tvBtn{width:34px;height:34px;left:calc(50% + 23px);top:calc(8px + env(safe-area-inset-top))}
+  #tvBtn svg{width:18px;height:18px}
+}
+@media (max-width:340px){
+  /* measured: .free-tag is 88px wide (left edge = width-106); a 34px disc at
+     +23 overlapped it by 3px at 320px — shrink + shift for the narrowest phones */
+  #tvBtn{width:30px;height:30px;left:calc(50% + 21px);top:calc(10px + env(safe-area-inset-top))}
+  #tvBtn svg{width:16px;height:16px}
 }
 #tvBox{position:fixed;top:calc(58px + env(safe-area-inset-top));right:10px;z-index:9400;width:118px;
   display:none;cursor:pointer;-webkit-tap-highlight-color:transparent;animation:tvIn .3s ease}
@@ -1420,8 +1434,13 @@ try{
   <!-- EVERYTHING toggle: persistent — tap to enter/exit the swipeable section hub -->
   <button id="evToggle" aria-label="Browse all sections">⊞</button>
   <!-- UPDATES TV button: sits right of the All button — tap to summon the little
-       TV (NEW / COMING SOON / TOP 10 updates), tap again to put it away -->
-  <button id="tvBtn" aria-label="Updates TV">📺</button>
+       TV (NEW / COMING SOON / TOP 10 updates), tap again to put it away.
+       Glyph is inline SVG (stroke=currentColor), NOT an emoji: the old 📺 emoji
+       was the one device-dependent piece — it relied on the phone's color-emoji
+       font inside a 28–30px translucent disc and vanished against video on the
+       user's phone, while the All button's text glyph (⊞) always rendered. SVG
+       paints identically in every WebView, same as ⊞. -->
+  <button id="tvBtn" aria-label="Updates TV"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 3.5 12 8l3.5-4.5"/><rect x="3" y="8" width="18" height="12" rx="2.5"/><path d="M10.4 11.3 15 14l-4.6 2.7z" fill="currentColor" stroke="none"/></svg></button>
   <!-- UPDATES TV (Phase 1 house promos): tiny floating TV, never blocks the show -->
   <div id="tvBox" aria-hidden="true">
     <div class="tv-ant"></div>
@@ -1544,6 +1563,15 @@ try{
       <button class="btn-play" id="lnsave" style="width:100%;justify-content:center;margin-top:12px">Join Live</button>
       <button id="lnnotnow" style="width:100%;background:none;border:none;color:var(--mut);font-size:14px;padding:10px;cursor:pointer;margin-top:4px">Not now</button>
     </div>
+  </div>
+
+  <!-- SCOUT inbox sheet: messages from the user's personal Scout -->
+  <div id="scoutScrim"></div>
+  <div id="scoutSheet">
+    <div class="grab"></div>
+    <div class="chead"><button id="scoutClose" aria-label="Close">✕</button><h3>🤖 Your Scout</h3></div>
+    <div class="scout-sub">Scout hunts while you're away. Here's what turned up 👇</div>
+    <div id="scoutMsgs"></div>
   </div>
 
   <div id="toast"></div>
@@ -4074,7 +4102,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012024200";
+const BUILD="20261012025700";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5933,6 +5961,7 @@ function renderProfile(){
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
     </div>
     <div id="profAuth" style="margin-top:12px"></div>
+    <div id="scoutSec"></div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
     <div id="profMyList"></div>
     <div class="secttl">\u25B6\uFE0F YouTube</div>
@@ -5963,6 +5992,7 @@ function renderProfile(){
   // SPEED: one id->series Map — byId is a full C.find() scan per lookup
   renderProfMyList();
   renderAuthSection();
+  try{ if(window.Scout) Scout.profile(); }catch(e){}
   const ib=$("#installAppBtn");
   if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
   initFriendsUI();
@@ -8612,6 +8642,10 @@ function showAuthGate(){
 }
 function hideAuthGate(){
   const g=$("authGate"); if(g)g.classList.remove("open");
+  // The gate was passed (signed in or skipped): mark it for THIS session
+  // only, so a mid-session reload never re-shows it. sessionStorage dies
+  // with the app session, so a genuine cold launch still gates.
+  try{ sessionStorage.setItem("svGatePassed","1"); }catch(e){}
 }
 let agMode="signin", agWired=false;
 function agError(m){ const e=$("agErr"); if(e)e.textContent=m||""; }
@@ -8817,6 +8851,18 @@ function bootGates(){
   const delay=isFresh?800:3400; // let the intro finish first
   setTimeout(()=>{
     try{
+      /* Mid-session boots are NOT launches. Our own update system restarts
+         the page mid-browse via ?fresh= reloads (held update flushes the
+         moment playback stops — e.g. a TV spot tap opening a detail view),
+         and the gates must never bounce that user back to sign-in. The
+         intro already skips on ?fresh=; the gates do too — and so does any
+         boot in a session where the gate was already passed (covers any
+         reload that loses the ?fresh= marker). Cold launches are
+         unaffected: sessionStorage clears with the app session, so
+         testing mode still shows the gates on every real launch. */
+      let gatePassed=false;
+      try{ gatePassed=!!sessionStorage.getItem("svGatePassed"); }catch(e){}
+      if(isFresh||gatePassed) return;
       if(!SHOW_GATES_EVERY_TIME&&store.get("auth_done")){ maybeTutorial(); return; }
       showAuthGate();
     }catch(e){}
@@ -8992,6 +9038,371 @@ if(document.readyState==="loading"){
   },1000);
 
   loadData();
+})();
+</script>
+
+<style>
+/* ---------- SCOUT (personal suggestion bot) ---------- */
+#scoutScrim{position:fixed;inset:0;z-index:125;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
+#scoutScrim.open{opacity:1;pointer-events:auto}
+#scoutSheet{position:fixed;left:0;right:0;bottom:0;z-index:130;max-height:72vh;background:#101016;border-radius:22px 22px 0 0;transform:translateY(105%);transition:transform .45s var(--ease);display:flex;flex-direction:column;padding-bottom:calc(14px + env(safe-area-inset-bottom))}
+#scoutSheet.open{transform:none}
+#scoutSheet .grab{width:44px;height:5px;border-radius:3px;background:#333;margin:10px auto 4px;flex-shrink:0}
+body.pip #scoutSheet,body.pip #scoutScrim{display:none!important}
+.scout-sub{padding:2px 18px 10px;font-size:12px;color:var(--mut)}
+#scoutMsgs{overflow-y:auto;padding:0 14px 6px;-webkit-overflow-scrolling:touch}
+.scout-msg{display:flex;gap:11px;align-items:center;padding:10px 6px;border-top:1px solid rgba(255,255,255,.07);cursor:pointer}
+.scout-msg:first-child{border-top:none}
+.scout-th{width:52px;height:74px;object-fit:cover;border-radius:7px;background:#1a1a1a;flex-shrink:0}
+.scout-mmain{flex:1;min-width:0}
+.scout-mt{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.scout-mr{font-size:12px;color:var(--mut);line-height:1.45;margin-top:2px}
+.scout-mts{font-size:11px;color:var(--mut);opacity:.7;margin-top:3px}
+.scout-dot{width:9px;height:9px;border-radius:50%;background:#e50914;flex-shrink:0}
+.scout-badge{display:inline-block;min-width:18px;text-align:center;background:#e50914;color:#fff;font-size:11px;font-weight:800;border-radius:9px;padding:1px 5px;margin-left:4px;vertical-align:1px}
+.scout-empty{padding:22px 10px;text-align:center;color:var(--mut);font-size:13px;line-height:1.6}
+</style>
+<script>
+/* ================= SCOUT — personal suggestion bot =================
+   Every signed-in user has a Scout. On app open (throttled to one hunt
+   per ~3 days) the Scout:
+     1. models taste from profile genre picks + Recently Watched + My List,
+     2. hunts the catalog for unseen titles (genre overlap, award winners
+        first, film/series mix),
+     3. hunts OTHER viewers' public picks (users/{uid}/public — only
+        written when that viewer flips "Public picks" on) and attributes
+        the find: "Found on {name}'s page",
+     4. delivers up to 3 picks as messages to the user's inbox
+        (local store first, mirrored to users/{uid}/inbox in RTDB) and
+        renders them on Profile as the "🤖 Scout's Picks" shelf.
+   Discipline: if the previous batch is still entirely unread AND none
+   of its titles has been watched, the Scout skips the hunt — no nagging.
+   Guests (no real account) get no Scout UI and no runs.
+   NOTE: the backend is Firebase Realtime Database (not Firestore) —
+   this module uses the app's existing Live.db patterns throughout. */
+(function(){
+"use strict";
+const $=id=>document.getElementById(id);
+const RUN_GAP_MS=3*24*3600*1000;
+const MAX_PICKS=3, INBOX_CAP=40;
+let booted=false, running=false, bootTries=0, lastSigned=null;
+
+/* ---------- identity ---------- */
+function signedIn(){ try{ return !!(window.ShortzAuth&&window.ShortzAuth.isSignedIn()); }catch(e){ return false; } }
+function myUid(){ try{ return store.get("auth_uid","")||""; }catch(e){ return ""; } }
+function cat(){ try{ if(typeof C!=="undefined"&&C&&C.length) return C; }catch(e){} return window.SHORTZ_CATALOG||[]; }
+
+/* ---------- taste model ---------- */
+function tasteWeights(){
+  const fav={}, hist={}, list={};
+  try{ const p=getProfile()||{}; (p.favGenres||[]).forEach(g=>{ if(g) fav[g]=1; }); }catch(e){}
+  try{ history.forEach(h=>{ const t=h&&byId(h.id); if(t&&t.genre) hist[t.genre]=(hist[t.genre]||0)+1; }); }catch(e){}
+  try{ mylist.forEach(id=>{ const t=byId(id); if(t&&t.genre) list[t.genre]=(list[t.genre]||0)+1; }); }catch(e){}
+  const w={}, gs=new Set([].concat(Object.keys(fav),Object.keys(hist),Object.keys(list)));
+  gs.forEach(g=>{ w[g]=(fav[g]?3:0)+Math.min(hist[g]||0,3)*2+Math.min(list[g]||0,2)*2; });
+  return w;
+}
+function seenIds(){
+  const s=new Set();
+  try{ history.forEach(h=>{ if(h&&h.id) s.add(h.id); }); }catch(e){}
+  try{ mylist.forEach(id=>s.add(id)); }catch(e){}
+  return s;
+}
+function epCount(t){ return (t&&t.episodes&&t.episodes.length)||0; }
+function scoreTitle(t,w){
+  let s=0; const g=(t&&t.genre)||"";
+  if(g&&w[g]) s+=w[g];
+  if(t&&t.award_verified) s+=5;
+  if(epCount(t)>1) s+=1;
+  return s;
+}
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const x=a[i]; a[i]=a[j]; a[j]=x; } return a; }
+function catalogReason(t,w){
+  const g=t.genre||"";
+  const aw=t.award?String(t.award).split(";")[0].trim().slice(0,48):"";
+  if(t.award_verified&&(w[g]||0)>=3) return "🏆 Award winner — and it's "+g+", right in your wheelhouse"+(aw?" ("+aw+")":"")+".";
+  if(t.award_verified) return "🏆 This one took home awards"+(aw?": "+aw:"")+". Worth your time.";
+  if((w[g]||0)>=6) return "You've been on a "+g+" streak — this one's next in line.";
+  if((w[g]||0)>0) return "More "+g+", hand-picked for your taste.";
+  return "A fresh find for you.";
+}
+
+/* HUNT 1 — catalog: best unseen matches; kinds alternate when possible */
+function huntCatalog(w,seen,exclude,n){
+  const pool=[];
+  for(const t of cat()){
+    if(!t||!t.id||seen.has(t.id)||exclude.has(t.id)) continue;
+    const s=scoreTitle(t,w);
+    if(s<=0) continue;
+    if(!t.award_verified&&!(w[t.genre]||0)) continue; // non-award picks must match taste
+    pool.push({t:t,s:s+Math.random()*2});
+  }
+  pool.sort((a,b)=>b.s-a.s);
+  const cand=pool.slice(0,30), picked=[];
+  while(picked.length<n&&cand.length){
+    let idx=0;
+    if(picked.length){
+      const wantSeries=epCount(picked[picked.length-1].t)<=1;
+      const alt=cand.findIndex(x=>(epCount(x.t)>1)===wantSeries&&x.s>=cand[0].s*0.55);
+      if(alt>0) idx=alt;
+    }
+    picked.push(cand.splice(idx,1)[0]);
+  }
+  return picked.map(p=>({t:p.t,source:"catalog",sourceName:"",reason:catalogReason(p.t,w)}));
+}
+
+/* HUNT 2 — people: public picks of other viewers, attributed by name */
+async function huntPeople(w,seen,exclude){
+  const ok=await liveEnsure(); if(!ok||!Live.db) return null;
+  const me=myUid();
+  const snap=await Live.db.ref("directory").limitToFirst(200).once("value");
+  const dir=snap.val()||{};
+  const uids=shuffle(Object.keys(dir).filter(u=>u&&u!==me)).slice(0,12);
+  let best=null;
+  for(const uid of uids){
+    let pub=null;
+    try{ const ps=await Live.db.ref("users/"+uid+"/public").once("value"); pub=ps.val(); }catch(e){}
+    if(!pub) continue;
+    const ids=[].concat(pub.listIds||[],pub.recentIds||[]);
+    for(const id of ids){
+      if(!id||seen.has(id)||exclude.has(id)) continue;
+      const t=byId(id); if(!t) continue;
+      const s=scoreTitle(t,w);
+      if(s<=0) continue;
+      if(!best||s>best.s) best={t:t,s:s,name:pub.name||(dir[uid]&&dir[uid].name)||"a viewer"};
+    }
+  }
+  if(!best) return null;
+  const g=best.t.genre||"";
+  const reason=best.t.award_verified
+    ? "🏆 Award winner that fits your "+(g||"taste")+" taste."
+    : "It fits your "+(g||"taste")+" taste — straight off their list.";
+  return {t:best.t,source:"user",sourceName:best.name,reason:reason};
+}
+
+/* ---------- inbox: local-first, mirrored to users/{uid}/inbox ---------- */
+function getInbox(){ try{ return store.get("scoutInbox",[])||[]; }catch(e){ return []; } }
+function setInbox(a){ try{ store.set("scoutInbox",(a||[]).slice(0,INBOX_CAP)); }catch(e){} }
+
+async function pullRemote(){
+  try{
+    const ok=await liveEnsure(); if(!ok||!Live.db) return;
+    const uid=myUid(); if(!uid) return;
+    const snap=await Live.db.ref("users/"+uid+"/inbox").once("value");
+    const remote=snap.val()||{};
+    const local=getInbox(), byKey={};
+    local.forEach(m=>{ if(m&&m.key) byKey[m.key]=m; });
+    let changed=false;
+    Object.keys(remote).forEach(k=>{
+      const r=remote[k]; if(!r||!r.titleId) return;
+      if(byKey[k]){ if(r.read&&!byKey[k].read){ byKey[k].read=true; changed=true; } }
+      else{
+        local.push({key:k,titleId:r.titleId,title:r.title||"",reason:r.reason||"",
+          source:r.source||"catalog",sourceName:r.sourceName||"",ts:r.ts||0,read:!!r.read});
+        changed=true;
+      }
+    });
+    if(changed){ local.sort((a,b)=>(b.ts||0)-(a.ts||0)); setInbox(local); }
+  }catch(e){}
+}
+
+async function deliver(picks){
+  const now=Date.now();
+  const fresh=picks.map(p=>({
+    key:"local:"+now+":"+p.t.id, titleId:p.t.id, title:p.t.title||"",
+    reason:p.reason||"", source:p.source||"catalog", sourceName:p.sourceName||"",
+    ts:now, read:false
+  }));
+  const merged=[].concat(fresh,getInbox());
+  setInbox(merged); // local first — UI works even if the mirror lags
+  try{
+    const ok=await liveEnsure(), uid=myUid();
+    if(ok&&Live.db&&uid){
+      for(const m of fresh){
+        try{
+          const ref=Live.db.ref("users/"+uid+"/inbox").push();
+          await ref.set({titleId:m.titleId,title:m.title,reason:m.reason,source:m.source,
+            sourceName:m.sourceName,ts:m.ts,read:false});
+          m.key=ref.key;
+        }catch(e){}
+      }
+      setInbox(merged); // persist the real push keys
+    }
+  }catch(e){}
+}
+
+/* ---------- the hunt ---------- */
+async function maybeRun(){
+  if(running||!signedIn()) return;
+  if(!cat().length) return; // catalog not ready — retry next launch, don't burn the run
+  let last=0, lastBatch=0;
+  try{ last=store.get("scoutLastRun",0)||0; lastBatch=store.get("scoutBatchTs",0)||0; }catch(e){}
+  if(Date.now()-last<RUN_GAP_MS) return;
+  const inbox=getInbox();
+  if(lastBatch>0){
+    const batch=inbox.filter(m=>m.ts>=lastBatch-500);
+    if(batch.length){
+      const seen=seenIds();
+      if(batch.every(m=>!m.read&&!seen.has(m.titleId))) return; // untouched — Scout backs off
+    }
+  }
+  running=true;
+  try{
+    const w=tasteWeights(), seen=seenIds();
+    const exclude=new Set(inbox.map(m=>m.titleId)); // never re-pick an old pick
+    const picks=huntCatalog(w,seen,exclude,2);
+    picks.forEach(p=>exclude.add(p.t.id));
+    try{ const person=await huntPeople(w,seen,exclude); if(person){ picks.push(person); exclude.add(person.t.id); } }catch(e){}
+    while(picks.length<MAX_PICKS){
+      const extra=huntCatalog(w,seen,exclude,1);
+      if(!extra.length) break;
+      picks.push(extra[0]); exclude.add(extra[0].t.id);
+    }
+    if(picks.length){
+      await deliver(picks);
+      try{ store.set("scoutLastRun",Date.now()); store.set("scoutBatchTs",Date.now()); }catch(e){}
+      try{ profile(); }catch(e){}
+    }else{
+      try{ store.set("scoutLastRun",Date.now()); }catch(e){}
+    }
+  }catch(e){}
+  running=false;
+}
+
+/* ---------- public picks node (the privacy switch) ---------- */
+async function syncPublic(){
+  try{
+    if(!signedIn()) return;
+    const ok=await liveEnsure(); if(!ok||!Live.db) return;
+    const uid=myUid(); if(!uid) return;
+    const ref=Live.db.ref("users/"+uid+"/public");
+    let on=false; try{ on=!!store.get("scoutPublic",false); }catch(e){}
+    if(!on){ try{ await ref.remove(); }catch(e){} return; }
+    const p=getProfile()||{};
+    await ref.set({
+      name:p.name||store.get("auth_name","")||"Viewer",
+      listIds:[...mylist].slice(0,50),
+      recentIds:history.map(h=>h&&h.id).filter(Boolean).slice(0,20),
+      genres:p.favGenres||[],
+      ts:Date.now()
+    });
+  }catch(e){}
+}
+
+/* ---------- Profile section: Scout row + shelf + privacy toggle ---------- */
+function profile(){
+  const sec=$("scoutSec"); if(!sec) return;
+  if(!signedIn()){ sec.innerHTML=""; return; }
+  const inbox=getInbox();
+  const unread=inbox.filter(m=>!m.read).length;
+  let pub=false; try{ pub=!!store.get("scoutPublic",false); }catch(e){}
+  sec.innerHTML=
+    '<div class="secttl">🤖 Your Scout</div>'
+    +'<div class="prow" id="scoutRow" style="cursor:pointer">'
+    +'<div class="avatar sm pav2" style="display:flex;align-items:center;justify-content:center;font-size:17px">🤖</div>'
+    +'<div style="flex:1;min-width:0"><div style="font-weight:700;font-size:14px">Scout\'s messages'
+    +(unread?'<span class="scout-badge">'+unread+'</span>':"")
+    +'</div><div style="font-size:12px;color:var(--mut)">'
+    +(inbox.length?"Fresh picks from your Scout's latest hunt.":"Your Scout hunts while you're away — picks land here.")
+    +'</div></div><span style="color:var(--mut);font-size:18px">›</span></div>'
+    +'<div id="scoutShelf"></div>'
+    +'<div class="prow"><div style="flex:1;min-width:0">'
+    +'<div style="font-weight:700;font-size:14px">Public picks</div>'
+    +'<div style="font-size:12px;color:var(--mut)">Let bots &amp; visitors see my list — other Scouts can find picks on your page.</div></div>'
+    +'<button class="pbtn '+(pub?"":"ghost")+' sm" id="scoutPubTgl">'+(pub?"On":"Off")+'</button></div>';
+  const row=$("scoutRow"); if(row) row.onclick=openInbox;
+  const tg=$("scoutPubTgl");
+  if(tg) tg.onclick=()=>{
+    let on=false; try{ on=!store.get("scoutPublic",false); store.set("scoutPublic",on); }catch(e){}
+    syncPublic();
+    profile();
+    try{ toast(on?"Public picks on ✓":"Public picks off"); }catch(e){}
+  };
+  renderShelf();
+  if(pub) syncPublic(); // keep the public node fresh while it's on
+}
+function renderShelf(){
+  const box=$("scoutShelf"); if(!box) return;
+  const seen=seenIds(), used=new Set(), list=[];
+  for(const m of getInbox()){
+    if(!m||!m.titleId||seen.has(m.titleId)||used.has(m.titleId)) continue;
+    const t=byId(m.titleId); if(!t) continue;
+    used.add(m.titleId); list.push(t);
+    if(list.length>=12) break;
+  }
+  if(!list.length){ box.innerHTML=""; return; }
+  box.innerHTML='<div class="sect">🤖 Scout\'s Picks</div><div class="hrow">'+list.map(cardHTML).join("")+'</div>';
+  bindCards(box);
+}
+
+/* ---------- inbox sheet ---------- */
+function relDay(ts){ try{ return new Date(ts||0).toLocaleDateString(undefined,{month:"short",day:"numeric"}); }catch(e){ return ""; } }
+function msgLine(m){
+  if(m.source==="user") return "Found on "+(m.sourceName||"a viewer")+"’s page — "+(m.reason||"fits your taste.");
+  return m.reason||"Picked for you.";
+}
+function renderInbox(){
+  const box=$("scoutMsgs"); if(!box) return;
+  const inbox=getInbox();
+  if(!inbox.length){
+    box.innerHTML='<div class="scout-empty">No picks yet.<br>Scout is still learning your taste — watch a few shorts and check back.</div>';
+    return;
+  }
+  box.innerHTML=inbox.map((m,i)=>{
+    const t=byId(m.titleId);
+    let th=""; try{ th=t?thumb(t,"mq"):""; }catch(e){}
+    return '<div class="scout-msg" data-mi="'+i+'">'
+      +(th?'<img class="scout-th" src="'+th+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">':"")
+      +'<div class="scout-mmain"><div class="scout-mt">'+esc(m.title||(t?t.title:""))+'</div>'
+      +'<div class="scout-mr">🤖 Scout: '+esc(msgLine(m))+'</div>'
+      +'<div class="scout-mts">'+relDay(m.ts)+'</div></div>'
+      +(m.read?"":'<span class="scout-dot"></span>')
+      +'</div>';
+  }).join("");
+  box.querySelectorAll("[data-mi]").forEach(el=>{ el.onclick=()=>openMsg(parseInt(el.dataset.mi,10)); });
+}
+function openInbox(){ renderInbox(); const s=$("scoutSheet"), c=$("scoutScrim"); if(s)s.classList.add("open"); if(c)c.classList.add("open"); }
+function closeInbox(){ const s=$("scoutSheet"), c=$("scoutScrim"); if(s)s.classList.remove("open"); if(c)c.classList.remove("open"); }
+function openMsg(i){
+  const inbox=getInbox(), m=inbox[i]; if(!m) return;
+  if(!m.read){
+    m.read=true; setInbox(inbox);
+    if(m.key&&m.key.indexOf("local:")!==0){
+      try{
+        liveEnsure().then(ok=>{
+          const uid=myUid();
+          if(ok&&Live.db&&uid){ try{ Live.db.ref("users/"+uid+"/inbox/"+m.key).update({read:true}); }catch(e){} }
+        });
+      }catch(e){}
+    }
+  }
+  closeInbox();
+  try{ profile(); }catch(e){}
+  try{ openDetail(m.titleId); }catch(e){}
+}
+
+/* ---------- boot ---------- */
+function boot(){
+  if(booted||!signedIn()) return;
+  if(typeof window.firebase==="undefined"&&bootTries<4){ bootTries++; setTimeout(boot,5000); return; }
+  booted=true;
+  pullRemote().then(()=>{ try{ profile(); }catch(e){} maybeRun(); });
+}
+try{
+  const c=$("scoutClose"), s=$("scoutScrim");
+  if(c) c.onclick=closeInbox;
+  if(s) s.onclick=closeInbox;
+}catch(e){}
+/* sign-in can complete after load (the gate) — watch for the flip */
+setInterval(()=>{
+  const s=signedIn();
+  if(lastSigned===null){ lastSigned=s; if(s) boot(); return; }
+  if(s!==lastSigned){ lastSigned=s; if(s){ booted=false; boot(); } else { try{ profile(); }catch(e){} } }
+},4000);
+if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",()=>setTimeout(boot,6000));
+else setTimeout(boot,6000);
+
+window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote};
 })();
 </script>
 </body>
