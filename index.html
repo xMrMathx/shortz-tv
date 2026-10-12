@@ -1216,6 +1216,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
     <div class="ag-title">Welcome to Shortz VS</div>
     <div class="ag-sub">Sign in to save your list and pick up where you left off — on any device.</div>
     <div id="agMsg"></div>
+    <button class="ag-btn" id="agContinue" style="display:none"></button>
     <button class="ag-btn ag-google" id="agGoogle"><span style="font-size:18px">G</span> Continue with Google</button>
     <button class="ag-btn" id="agEmailBtn">✉️ Continue with Email</button>
     <button class="ag-btn" id="agCreateBtn">＋ Create account</button>
@@ -1269,13 +1270,21 @@ try{localStorage.removeItem("blockedVids");}catch(e){}
 try{for(let i=localStorage.length-1;i>=0;i--){const k=localStorage.key(i);if(k&&/blockedVids/i.test(k))localStorage.removeItem(k);}}catch(e){}
 // Shortz VS intro sting: "What's Next" clip, plays once per cold launch during the 3s splash
 try{
-  // Freshness reload (?fresh=): skip the intro replay — the user already saw it
-  // on the previous load. Remove the splash immediately, no sting, no animation.
+  // Intro plays ONCE per cold session. The marker lives in sessionStorage:
+  // a mid-session freshness reload (?fresh=) finds it set and skips the
+  // replay (the user already saw it this session) — but a COLD launch whose
+  // first load happens to carry ?fresh= (stale tab/page flushed straight to
+  // the current build) has NO marker, so the intro still plays. The old bare
+  // ?fresh= check skipped the intro for exactly those cold launches (James
+  // saw no intro at all). The reload-loop guard (svFreshRL) is untouched.
   let _skipSplash=false;
-  try{_skipSplash=new URLSearchParams(location.search).has("fresh");}catch(e){}
+  try{ _skipSplash=!!sessionStorage.getItem("svIntroShown"); }catch(e){}
+  window.__svIntroPlayed=false;
   if(_skipSplash){
     const _s=document.getElementById("splash");if(_s)_s.remove();
   }else{
+  try{ sessionStorage.setItem("svIntroShown","1"); }catch(e){}
+  window.__svIntroPlayed=true;
   const a=new Audio("whats-next-sting.wav");
   a.volume=1.0; a.preload="auto";
   let stingDone=false;
@@ -1307,7 +1316,7 @@ try{
     document.querySelectorAll(".splashReel").forEach(r=>{r.innerHTML+=r.innerHTML;});
   }
   setTimeout(()=>{const s=document.getElementById("splash");if(s)s.remove();},3150);
-  } // end else (skip splash on ?fresh= reloads)
+  } // end else (skip splash only when the intro already played this session)
 }catch(e){}
 </script>
 <script>
@@ -4127,7 +4136,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012034500";
+const BUILD="20261012034700";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6059,7 +6068,11 @@ function renderProfMyList(){
   renderProfManga();
 }
 function renderProfile(){
-  checkAcceptedFriends();
+  // Resolve the real friends identity (async). When it lands, Friends._adopt
+  // sweeps accepted friends and attaches the friends/requests listeners.
+  // (The old bare checkAcceptedFriends() call here ran before Live.db /
+  // Live.uid existed on a cold open and silently no-opped in its catch.)
+  friendsEnsure();
   const p=getProfile();
   if(!p){ renderProfileSetup(); return; }
   const friendsN=(Live.friendsSnap&&Object.keys(Live.friendsSnap).length)||0;
@@ -6790,6 +6803,92 @@ async function uploadProfilePhoto(file){
   }catch(e){ return null; }
 }
 
+/* ---------- friends identity: ONE stable, REAL account uid ----------
+   Friend data (requests, friends, accepted) is keyed by the user's real
+   Google/email Firebase uid — never by Live.uid. Live.uid cannot key
+   friend data: liveEnsure() reads auth.currentUser synchronously (it
+   races the persisted-session restore) and falls back to
+   signInAnonymously(), and likesEnsure()/Presence.start()/
+   reportBlockedVid() also call signInAnonymously() on the SAME shared
+   auth — any of them REPLACES a real session with an anonymous one.
+   So the same person got keyed under their real uid on one boot and a
+   throwaway anon uid on the next: a request was written to
+   users/<uidA>/friendRequests while the recipient's listener sat on
+   users/<uidB>/friendRequests — nothing arrived, in either direction.
+   Friends identity therefore comes from onAuthStateChanged (which only
+   fires after the persisted session is restored) and tracks the latest
+   NON-anonymous user. Anonymous-only state means NOT signed in for
+   friends purposes: actions must say "sign in" honestly instead of
+   sending under a throwaway identity. */
+const Friends={uid:null,db:null,_settled:false,_watching:false,_waiters:[],_listeningUid:null,_friendsRef:null,_reqRef:null,_tabUid:null,
+  _emit(){ const ws=this._waiters.splice(0); ws.forEach(f=>{ try{f(this.uid);}catch(e){} }); },
+  _adopt(user){
+    const uid=(user&&!user.isAnonymous)?user.uid:null;
+    const changed=(uid!==this.uid);
+    this.uid=uid; this._settled=true;
+    if(uid){
+      // keep Live aligned — liveEnsure's own stated intent is "prefer the real session"
+      try{ Live.uid=uid; Live.authed=true; if(user.displayName)Live.name=user.displayName; }catch(e){}
+      if(changed){
+        // be findable at the uid friends actually use (directory code)
+        try{
+          const p=getProfile()||{};
+          (this.db||Live.db).ref("directory/"+uid).update({name:p.name||user.displayName||"Viewer",photo:p.photo||"",ts:Date.now()});
+        }catch(e){}
+        try{ checkAcceptedFriends(); }catch(e){}
+        try{ friendsAttachListeners(); }catch(e){}
+      }
+    }
+    this._emit();
+  }
+};
+function friendsEnsure(){
+  return new Promise(res=>{
+    try{
+      if(!FIREBASE_READY||!window.firebase){ res(null); return; }
+      if(!Live.app){
+        try{ Live.app=firebase.initializeApp(FIREBASE_CONFIG); }catch(e){ Live.app=firebase.app(); }
+      }
+      if(!Live.auth) Live.auth=firebase.auth();
+      if(!Live.db) Live.db=firebase.database();
+      Friends.db=Live.db;
+      if(!Friends._watching){
+        Friends._watching=true;
+        firebase.auth().onAuthStateChanged(u=>{ try{ Friends._adopt(u); }catch(e){} });
+      }
+      if(Friends._settled){ res(Friends.uid); return; }
+      Friends._waiters.push(res);
+      setTimeout(()=>{ // never hang the UI waiting on auth
+        const i=Friends._waiters.indexOf(res);
+        if(i>=0){ Friends._waiters.splice(i,1); res(Friends.uid); }
+      },5000);
+    }catch(e){ res(null); }
+  });
+}
+/* Profile friends + requests listeners, keyed to the REAL uid.
+   Re-keys automatically if the account lands mid-session. */
+function friendsAttachListeners(){
+  const uid=Friends.uid, db=Friends.db||Live.db;
+  if(!uid||!db) return;
+  if(Friends._listeningUid===uid) return;
+  if(Friends._friendsRef){ try{ Friends._friendsRef.off(); }catch(e){} }
+  if(Friends._reqRef){ try{ Friends._reqRef.off(); }catch(e){} }
+  Friends._listeningUid=uid;
+  Friends._friendsRef=db.ref("users/"+uid+"/friends");
+  Friends._friendsRef.on("value",s=>{
+    Live.friendsSnap=s.val()||{};
+    try{ store.set("friendsCache",Live.friendsSnap); }catch(_){}
+    const n=$("#profFriendN"); if(n)n.textContent=Object.keys(Live.friendsSnap).length;
+    renderFriendList();
+  });
+  Friends._reqRef=db.ref("users/"+uid+"/friendRequests");
+  Friends._reqRef.on("value",s=>renderFriendRequests(s.val()||{}));
+}
+function friendsNeedSignIn(msg){
+  toast(msg||"Sign in to add friends");
+  try{ if(window.ShortzAuth) ShortzAuth.showGate(); }catch(e){}
+}
+
 /* ---------- friends: search, requests, list ---------- */
 function initFriendsUI(){
   const go=$("#frGo"), inp=$("#frSearch");
@@ -6807,7 +6906,7 @@ async function searchUsers(q){
     const ql=q.toLowerCase();
     const hits=[];
     Object.keys(all).forEach(uid=>{
-      if(uid===Live.uid)return;
+      if(uid===Live.uid||uid===Friends.uid)return;
       const prof=all[uid]||{};
       const nm=(prof.name||"").toString();
       if(nm.toLowerCase().includes(ql)) hits.push({uid:uid,name:nm,photo:prof.photo||""});
@@ -6827,10 +6926,15 @@ async function searchUsers(q){
   }catch(e){ box.innerHTML=`<div style="color:var(--mut);font-size:13px">Search failed — try again.</div>`; }
 }
 async function sendFriendRequest(toUid,info){
+  // Identity gate: no real account = no send. Previously this ran
+  // liveEnsure(), which anonymous-signs-in, and the request went out
+  // under a throwaway anon identity while the UI toasted "Request sent ✓".
+  const uid=await friendsEnsure();
+  if(!uid){ friendsNeedSignIn("Sign in to add friends"); return; }
+  if(toUid===uid){ toast("That's you 🙂"); return; }
   try{
-    const ok=await liveEnsure(); if(!ok)return;
     const me=getProfile()||{};
-    await Live.db.ref("users/"+toUid+"/friendRequests/"+Live.uid).set({
+    await Friends.db.ref("users/"+toUid+"/friendRequests/"+uid).set({
       name:me.name||Live.name||"Viewer", photo:me.photo||"", ts:Date.now()
     });
     toast("Request sent ✓");
@@ -6853,38 +6957,46 @@ function renderFriendRequests(reqs){
   }).join("");
   box.querySelectorAll("[data-acc]").forEach(b=>b.onclick=()=>acceptFriend(b.dataset.acc,{name:b.dataset.nm,photo:b.dataset.ph}));
   box.querySelectorAll("[data-dec]").forEach(b=>b.onclick=async()=>{
-    try{await Live.db.ref("users/"+Live.uid+"/friendRequests/"+b.dataset.dec).remove();}catch(e){}
+    try{await (Friends.db||Live.db).ref("users/"+(Friends.uid||Live.uid)+"/friendRequests/"+b.dataset.dec).remove();}catch(e){}
   });
 }
-async function acceptFriend(uid,info){
+async function acceptFriend(fromUid,info){
+  const uid=await friendsEnsure();
+  if(!uid){ friendsNeedSignIn("Sign in to accept requests"); return; }
   try{
     const me=getProfile()||{};
+    const db=Friends.db;
     // Step 1: write to MY node only (always allowed) — add friend + remove request
     const batch={};
-    batch["users/"+Live.uid+"/friends/"+uid]={name:info.name||"Viewer",photo:info.photo||"",since:Date.now()};
-    batch["users/"+Live.uid+"/friendRequests/"+uid]=null;
-    await Live.db.ref().update(batch);
+    batch["users/"+uid+"/friends/"+fromUid]={name:info.name||"Viewer",photo:info.photo||"",since:Date.now()};
+    batch["users/"+uid+"/friendRequests/"+fromUid]=null;
+    await db.ref().update(batch);
     // Step 2 (best-effort): notify them so their app auto-adds me back.
     // If Firebase rules block this, the friendship still saved on my side.
     try{
-      await Live.db.ref("users/"+uid+"/friendAccepted/"+Live.uid).set({name:me.name||Live.name||"Viewer",photo:me.photo||"",since:Date.now()});
+      await db.ref("users/"+fromUid+"/friendAccepted/"+uid).set({name:me.name||Live.name||"Viewer",photo:me.photo||"",since:Date.now()});
     }catch(e2){}
     toast("Friends ✓");
   }catch(e){ toast("Couldn't accept — try again"); }
 }
-// Auto-add friends who accepted my request (their accept wrote to my friendAccepted node)
+// Auto-add friends who accepted my request (their accept wrote to my friendAccepted node).
+// Keyed to the Friends identity; safe to call before identity lands (no-ops).
 async function checkAcceptedFriends(){
   try{
-    const snap=await Live.db.ref("users/"+Live.uid+"/friendAccepted").once("value");
+    const uid=Friends.uid||(await friendsEnsure());
+    const db=Friends.db||Live.db;
+    if(!uid||!db)return;
+    const snap=await db.ref("users/"+uid+"/friendAccepted").once("value");
     const acc=snap.val()||{};
     const uids=Object.keys(acc);
     if(!uids.length)return;
     const batch={};
-    uids.forEach(uid=>{
-      batch["users/"+Live.uid+"/friends/"+uid]={name:acc[uid].name||"Viewer",photo:acc[uid].photo||"",since:acc[uid].since||Date.now()};
-      batch["users/"+Live.uid+"/friendAccepted/"+uid]=null;
+    uids.forEach(fuid=>{
+      batch["users/"+uid+"/friends/"+fuid]={name:acc[fuid].name||"Viewer",photo:acc[fuid].photo||"",since:acc[fuid].since||Date.now()};
+      batch["users/"+uid+"/friendAccepted/"+fuid]=null;
     });
-    await Live.db.ref().update(batch);
+    await db.ref().update(batch);
+    try{ friendsAttachListeners(); }catch(e){}
   }catch(e){}
 }
 function renderFriendList(){
@@ -8795,13 +8907,52 @@ async function finishAuth(user,method){
 }
 function doSkip(){
   googlePendingClear();
-  try{ store.set("auth_done",true); store.set("auth_guest",true); }catch(e){}
+  try{
+    /* Skip means "guest for this session" — it must NEVER stamp the
+       persistent guest flag over an existing account. One Skip tap used to
+       set auth_guest=true in localStorage forever, and nothing cleared it
+       if the session-restore listener missed a boot: a fully signed-in
+       user came back to a guest app ("It didn't remember my sign in").
+       Now: if an account exists (stored uid, or a live non-anonymous
+       Firebase session), Skip only dismisses the gate. */
+    let hasAccount=false;
+    try{ hasAccount=!!(store.get("auth_done")&&store.get("auth_uid")); }catch(e){}
+    if(!hasAccount){
+      try{ const a=fbAuth(); const cu=a&&a.currentUser; if(cu&&!cu.isAnonymous)hasAccount=true; }catch(e){}
+    }
+    if(!hasAccount){ store.set("auth_done",true); store.set("auth_guest",true); }
+  }catch(e){}
   hideAuthGate();
   maybeTutorial();
+}
+/* Testing mode re-shows the gate on cold launches even for signed-in
+   users. When a session HAS restored, recognize the account instead of
+   presenting a cold form over a signed-in app: one tap continues as them. */
+function continueAsAccount(){
+  googlePendingClear();
+  try{
+    const uid=store.get("auth_uid");
+    if(uid){
+      Live.uid=uid; Live.authed=true;
+      Live.name=store.get("auth_name")||Live.name||"Viewer";
+    }
+  }catch(e){}
+  hideAuthGate();
+  maybeTutorial();
+}
+function refreshContinueBtn(){
+  try{
+    const c=$("agContinue"); if(!c)return;
+    if(isSignedIn()){
+      c.style.display="";
+      c.textContent="Continue as "+(store.get("auth_name")||store.get("auth_email")||"your account");
+    }else{ c.style.display="none"; }
+  }catch(e){}
 }
 function showAuthGate(){
   const g=$("authGate"); if(!g)return;
   g.classList.add("open");
+  refreshContinueBtn();
   wireAuthButtons();
 }
 function hideAuthGate(){
@@ -8837,6 +8988,7 @@ function wireAuthButtons(){
     $("agEmailBtn").style.display=""; $("agCreateBtn").style.display="";
     $("agGoogle").style.display="";
   };
+  $("agContinue").onclick=continueAsAccount;
   $("agGoogle").onclick=googleSignIn;
   $("agEmailBtn").onclick=()=>showForm("signin");
   $("agCreateBtn").onclick=()=>showForm("signup");
@@ -8912,10 +9064,22 @@ async function googleSignIn(){
     }
   }
 }
+/* Email fields pick up stray spaces from mobile keyboards/autofill
+   ("craigjrbb@ gmail.com") — an address never legally contains whitespace,
+   so strip ALL of it before validation and before every submit, and write
+   the cleaned value back so the user sees the real address. A stray space
+   can never reject a real address again. */
+function cleanEmail(raw){ return String(raw==null?"":raw).replace(/\s+/g,""); }
+function readEmailInput(){
+  const inp=$("agEmailIn"); if(!inp)return "";
+  const v=cleanEmail(inp.value||"");
+  try{ if(inp.value!==v)inp.value=v; }catch(e){}
+  return v;
+}
 async function emailGo(){
   const auth=fbAuth();
   if(!auth){ agError("Sign-in isn't available right now."); return; }
-  const email=($("agEmailIn").value||"").trim();
+  const email=readEmailInput();
   const pass=$("agPassIn").value||"";
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ agError("Enter a valid email."); return; }
   if(pass.length<6){ agError("Password needs 6+ characters."); return; }
@@ -8952,7 +9116,7 @@ async function emailGo(){
 async function createFromSignin(){
   const auth=fbAuth();
   if(!auth){ agError("Sign-in isn't available right now."); return; }
-  const email=($("agEmailIn").value||"").trim();
+  const email=readEmailInput();
   const pass=$("agPassIn").value||"";
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ agError("Enter a valid email."); return; }
   if(pass.length<6){ agError("Password needs 6+ characters."); return; }
@@ -8985,7 +9149,7 @@ async function createFromSignin(){
 async function forgotPassword(){
   const auth=fbAuth();
   if(!auth){ agError("Sign-in isn't available right now."); return; }
-  const email=($("agEmailIn").value||"").trim();
+  const email=readEmailInput();
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ agError("Type your email above first, then tap Forgot password."); return; }
   try{
     await auth.sendPasswordResetEmail(email);
@@ -9104,10 +9268,25 @@ function maybeTutorial(){ showTutorial(false); }
 
 /* ---------- boot sequence ---------- */
 function bootGates(){
-  try{
+  /* Auth wiring (redirect result + session restore) must not depend on the
+     deferred Firebase SDK having arrived by DOMContentLoaded. fbAuth()
+     returns null while window.firebase is missing, and the old single-shot
+     wiring then NEVER registered the restore listener for that whole
+     session — the app fell back to guest/anonymous and "didn't remember"
+     a perfectly good sign-in. Retry until the SDK shows up (same pattern
+     as likesWatch / Scout.boot). */
+  let authWired=false, authTries=0;
+  const wireAuth=()=>{
+    if(authWired)return;
+    let auth=null;
+    try{ auth=fbAuth(); }catch(e){}
+    if(!auth){
+      if(authTries++<20)setTimeout(wireAuth,1500);
+      return;
+    }
+    authWired=true;
+    try{
     // Returning Google-redirect sign-in? Finish it.
-    const auth=fbAuth();
-    if(auth){
       auth.getRedirectResult().then(res=>{
         if(res&&res.user){ googlePendingClear(); finishAuth(res.user,"google"); }
       }).catch(err=>{
@@ -9150,26 +9329,62 @@ function bootGates(){
               if(user.email)store.set("auth_email",user.email);
             }catch(e){}
             try{ await authPullLists(); }catch(e){}
+            /* The app behind the gate may already have rendered as guest
+               (Profile header, Scout) before the session landed — repaint
+               the account surfaces so a restored session = signed-in app
+               state everywhere, not just in the store flags. */
+            try{ renderAuthSection(); }catch(e){}
+            try{ refreshContinueBtn(); }catch(e){}
+            try{ if(window.Scout&&window.Scout.profile)window.Scout.profile(); }catch(e){}
           }
         });
       }catch(e){}
-    }
-  }catch(e){}
-  const delay=isFresh?800:3400; // let the intro finish first
+    }catch(e){}
+  };
+  wireAuth();
+  const delay=window.__svIntroPlayed?3400:800; // let the intro finish first — only when it actually played this load
   setTimeout(()=>{
     try{
-      /* Mid-session boots are NOT launches. Our own update system restarts
-         the page mid-browse via ?fresh= reloads (held update flushes the
-         moment playback stops — e.g. a TV spot tap opening a detail view),
-         and the gates must never bounce that user back to sign-in. The
-         intro already skips on ?fresh=; the gates do too — and so does any
-         boot in a session where the gate was already passed (covers any
-         reload that loses the ?fresh= marker). Cold launches are
-         unaffected: sessionStorage clears with the app session, so
-         testing mode still shows the gates on every real launch. */
+      /* Mid-session boots are NOT launches — but the ONLY proof of that is
+         svGatePassed, set when the gate was actually passed (sign-in,
+         Continue-as, or Skip) earlier in THIS session. Our update system
+         restarts the page mid-browse via ?fresh= reloads (held update
+         flushes the moment playback stops — e.g. a TV spot tap opening a
+         detail view), and those boots carry svGatePassed, so the sign-in
+         trap stays dead. The bare ?fresh= marker must NOT skip the gate:
+         a cold launch can arrive THROUGH a ?fresh= reload (stale tab, or
+         a first paint flushed straight to the current build) before the
+         gate was ever passed — skipping there erased the intro, the gate,
+         AND the tutorial in one shot (James). Nobody can be mid-session
+         without having passed the gate (it blocks the app), so
+         svGatePassed alone is both necessary and sufficient. Cold
+         launches are unaffected: sessionStorage clears with the app
+         session, so testing mode still gates every real launch. */
       let gatePassed=false;
       try{ gatePassed=!!sessionStorage.getItem("svGatePassed"); }catch(e){}
-      if(isFresh||gatePassed) return;
+      if(gatePassed) return;
+      /* GRADUATED USERS: a completed sign-in is remembered — one time,
+         forever (the owner's rule). auth_done + a stored uid means a real
+         account finished sign-in on this device; such a user NEVER sees
+         the gate again, testing mode included — session restore owns the
+         state from here. The check deliberately ignores a stale
+         auth_guest stamp: under the old doSkip that stamp could be
+         poisoned over a live account, so here it is healed on sight and
+         Live is re-synced, making the whole app agree the user is
+         signed in. The tutorial still gets its single showing if it was
+         never completed. Never-signed-in users (James) fall through to
+         the testing/market logic below, unchanged. */
+      let graduated=false;
+      try{ graduated=!!(store.get("auth_done")&&store.get("auth_uid")); }catch(e){}
+      if(graduated){
+        try{ if(store.get("auth_guest"))store.set("auth_guest",false); }catch(e){}
+        try{
+          Live.uid=store.get("auth_uid"); Live.authed=true;
+          Live.name=store.get("auth_name")||Live.name||"Viewer";
+        }catch(e){}
+        try{ if(!store.get("tutorial_done"))showTutorial(false); }catch(e){}
+        return;
+      }
       if(!SHOW_GATES_EVERY_TIME&&store.get("auth_done")){ maybeTutorial(); return; }
       showAuthGate();
     }catch(e){}
