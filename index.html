@@ -4307,7 +4307,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012222118";
+const BUILD="20261012222433";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9146,11 +9146,11 @@ mountFeed();
   });
 })();
 
-/* back-to-top: floating arrow on long lists (Browse, Profile/Guide, Manga, detail) */
+/* back-to-top: floating arrow on long lists (Browse, genre pages, Profile/Guide, Manga, detail) */
 (function(){
   const btn=document.getElementById("toTop");
   if(!btn)return;
-  const OK_VIEWS={browse:1,profile:1,detail:1,manga:1};
+  const OK_VIEWS={browse:1,genre:1,profile:1,detail:1,manga:1};
   function upd(){
     try{
       const show=OK_VIEWS[curView]&&window.scrollY>700;
