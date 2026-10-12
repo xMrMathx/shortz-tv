@@ -96,6 +96,32 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #feedTrack{position:absolute;inset:0;z-index:1}
 #feedTrack.anim{transition:transform .32s cubic-bezier(.25,.8,.3,1)}
 #feedTrack .slide{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;will-change:transform}
+/* ---------- HOME CARD FEED (Reddit-style cards; center card previews) ---------- */
+#cfeed{position:relative;height:100dvh;overflow-y:auto;overflow-x:hidden;background:#050506;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+#cfeedInner{max-width:640px;margin:0 auto;padding:calc(66px + env(safe-area-inset-top)) 12px calc(96px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
+.cfcard{background:#101013;border:1px solid #232328;border-radius:16px;overflow:hidden;flex:none}
+.cfcard.playing{border-color:rgba(229,9,20,.55);box-shadow:0 0 0 1px rgba(229,9,20,.35),0 8px 30px rgba(0,0,0,.5)}
+.cfmedia{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden}
+.cfmedia .cfart{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cfmedia .cfprev{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000;z-index:2}
+.cfmedia .cfbadge{position:absolute;left:10px;top:10px;z-index:3;background:var(--red);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:1px;padding:4px 9px;border-radius:6px;text-transform:uppercase;max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cfmedia .cfdur{position:absolute;right:10px;top:10px;z-index:3;background:rgba(0,0,0,.62);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
+.cfmedia .cfplay{position:absolute;right:12px;bottom:12px;z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.55);border:1.5px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;padding-left:3px;pointer-events:none}
+.cfcard.playing .cfplay{display:none}
+.cfbody{padding:12px 14px 4px;cursor:pointer}
+.cftitle{font-size:17px;font-weight:700;line-height:1.25;color:var(--txt)}
+.cfmeta{font-size:13px;color:var(--mut);margin-top:4px}
+.cfaward{font-size:12.5px;color:#ffb02e;font-weight:600;margin-top:3px;line-height:1.35}
+.cfactions{display:flex;align-items:center;gap:8px;padding:8px 10px 12px}
+.cfact{display:flex;align-items:center;gap:7px;background:#1c1c21;border:1px solid transparent;border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;color:var(--txt);cursor:pointer;user-select:none;font-family:inherit}
+.cfact:active{transform:scale(.96)}
+.cfact.liked{color:#ff3355;border-color:rgba(229,9,20,.45)}
+.cfact.share{margin-left:auto}
+#cfBack{position:absolute;top:calc(60px + env(safe-area-inset-top));left:12px;z-index:60;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.6);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center}
+#cfBack.on{display:flex}
+@media(min-width:1024px){
+  #cfeedInner{max-width:1180px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
+}
 /* error card: shown instead of auto-advancing on playback failure */
 .errcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(8,8,12,.92);z-index:40;text-align:center;padding:24px}
 .errcard h3{font-size:18px;margin:0 0 8px;color:#fff}
@@ -2324,6 +2350,7 @@ function likesWatch(root){
   root.querySelectorAll(".award-item[data-aid]").forEach(c=>cards.push({el:c,id:c.dataset.aid}));
   root.querySelectorAll(".top10-item[data-tid]").forEach(c=>cards.push({el:c,id:c.dataset.tid}));
   root.querySelectorAll(".feat-slide[data-id]").forEach(c=>cards.push({el:c,id:c.dataset.id}));
+  root.querySelectorAll(".cfcard[data-id]").forEach(c=>cards.push({el:c,id:c.dataset.id}));
   const ids={};cards.forEach(c=>{ids[c.id]=1;});
   likesDetach(Object.keys(Likes.listeners).filter(id=>!ids[id])); // drop off-screen
   if(!window.firebase){
@@ -2339,7 +2366,8 @@ function likesWatch(root){
       const paintAll=v=>{document.querySelectorAll('.vcard[data-id="'+id+'"]').forEach(x=>likePaint(x,v,x.dataset.id));
         document.querySelectorAll('.award-item[data-aid="'+id+'"]').forEach(x=>likePaint(x,v,id));
         document.querySelectorAll('.top10-item[data-tid="'+id+'"]').forEach(x=>likePaint(x,v,id));
-        document.querySelectorAll('.feat-slide[data-id="'+id+'"]').forEach(x=>likePaint(x,v,id));};
+        document.querySelectorAll('.feat-slide[data-id="'+id+'"]').forEach(x=>likePaint(x,v,id));
+        document.querySelectorAll('.cfcard[data-id="'+id+'"]').forEach(x=>cfLikePaint(x,v));};
       if(Likes.listeners[id]){if(Likes.cache[id])paintAll(Likes.cache[id]);return;}
       const ref=Likes.db.ref("likes/"+id);
       Likes.listeners[id]=ref;
@@ -2421,6 +2449,7 @@ let curView="home", returnView="home";
 function go(v){
   if(v===curView&&v!=="detail")return;
   if(curView==="home"&&v!=="home"&&!piaActive)pauseFeedVideo(); // PIA: keep playing while browsing
+  if(curView==="home"&&v!=="home"){try{cfStopPreview();}catch(e){}} // card previews never play off-Home
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
   if(curView==="live"&&v!=="live"&&typeof lsStop==="function")lsStop(); // stop Free Live Sports stage
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
@@ -2429,7 +2458,7 @@ function go(v){
   if(curView==="browse"&&v!=="browse"&&typeof featStop==="function")featStop(); // stop featured carousel
   if(v==="browse"&&typeof featBegin==="function")featBegin(); // (re)start featured carousel on entering Browse
   if(curView==="manga"&&v!=="manga"&&typeof mangaExit==="function")mangaExit();
-  if(v==="home"&&curView!=="home")resumeFeedVideo(); // instant: iframe stayed warm
+  if(v==="home"&&curView!=="home"&&homeMode==="stage")resumeFeedVideo(); // instant: iframe stayed warm (stage mode only — card mode has nothing to resume)
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
   TAB_BTNS.forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
   try{document.querySelectorAll("#deskNav button").forEach(b=>b.classList.toggle("on",b.dataset.nav===v||(v==="detail"&&b.dataset.nav===returnView)));}catch(e){}
@@ -3365,8 +3394,10 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
 function renderView(v){
   if(v==="home"){
     mountFeed();
-    // HIS LAW: every Home visit opens a fresh random lineup — never the same videos.
-    if(feedMounted&&!piaActive){ try{ playSeries(pickRandom(null)); }catch(e){} }
+    // HIS LAW: every Home visit opens a fresh random lineup — never the same
+    // videos. NEW HOME: the lineup is the card feed; the full-screen stage
+    // only opens when a title is actually played (playSeries).
+    if(feedMounted&&!piaActive){ try{ showCardFeed(true); }catch(e){} }
   }
   if(v==="browse")renderBrowse(browseGenre);
   if(v==="live"){ if(curView!=="live")Live.tab="sports"; renderLive(); } // every fresh entry lands on Sports (his order)
@@ -4151,8 +4182,15 @@ function mountFeed(){
   document.body.classList.add("feedfull");
   if(feedMounted)return; feedMounted=true;
   $("#view-home").innerHTML=`
-    <div class="feedstage" id="feedStage"><div id="feedTrack"></div></div>`;
+    <div id="cfeed"><div id="cfeedInner"></div></div>
+    <div class="feedstage" id="feedStage" style="display:none"><div id="feedTrack"></div></div>
+    <button id="cfBack" aria-label="Back to feed">‹</button>`;
   const track=$("#feedTrack"), stage=$("#feedStage");
+  // NEW HOME: back-to-feed button + card scroller wiring (engine below)
+  const cfBackBtn=$("#cfBack");
+  if(cfBackBtn)cfBackBtn.addEventListener("click",e=>{e.stopPropagation();try{showCardFeed(false);}catch(err){}});
+  const cfScrollEl=$("#cfeed");
+  if(cfScrollEl)cfScrollEl.addEventListener("scroll",()=>{try{cfOnScroll();}catch(err){}},{passive:true});
   for(let i=0;i<3;i++){
     const s=document.createElement("div");
     s.className="slide";s.innerHTML=slideHTML();
@@ -4253,10 +4291,11 @@ function mountFeed(){
   window.addEventListener("mouseup",()=>{if(dragging)onEnd()});
   document.addEventListener("keydown",e=>{
     if(curView!=="home")return;
+    if(homeMode!=="stage")return; // card mode: arrows scroll the feed natively
     if(e.key==="ArrowUp")advanceAnimated(1);
     if(e.key==="ArrowDown")advanceAnimated(-1);
   });
-  playSeries(pickRandom(null));
+  buildCardFeed();
 }
 /* Fresh home on every app open: when the app comes back to the foreground
    after being away a while, start a new random video so it never feels
@@ -4267,7 +4306,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012201149";
+const BUILD="20261012202025";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -4498,8 +4537,10 @@ document.addEventListener("visibilitychange",()=>{
     if(curView!=="home")return;
     if(Date.now()-_hiddenAt<30000)return; // quick switch: keep your place
     try{
-      const t=pickRandom(feed.cur&&feed.cur.id);
-      if(t)playSeries(t);
+      // NEW HOME: in card mode a long absence re-deals the card lineup;
+      // in stage mode keep the old behavior (fresh video in the player).
+      if(homeMode==="cards"){ buildCardFeed(); }
+      else{ const t=pickRandom(feed.cur&&feed.cur.id); if(t)playSeries(t); }
     }catch(e){}
   });
 });
@@ -5027,6 +5068,7 @@ window.addEventListener("message",e=>{
 });
 function playSeries(t){
   if(!t)return;
+  try{cfEnterStage();}catch(e){} // NEW HOME: playing a title opens the stage over the card feed
   try{if(feedMounted&&slotNodes[1])saveProg(slotNodes[1])}catch(e){}
   const nx=pickRandom(t.id);
   feedStack=[t,nx];feedPos=0;
@@ -5087,8 +5129,8 @@ function commitSnap(dir){
   pushHistory(feed.cur);
   snapAnim=false;
 }
-function shareCur(){
-  const t=feed.cur; if(!t)return;
+function shareTitle(t,epIdx){
+  if(!t)return;
   const txt=`Watch "${t.title}" free on Shortz VS`;
   (async()=>{
     // attach the cover art image when the platform supports it
@@ -5103,8 +5145,7 @@ function shareCur(){
       }
     }catch(e){}
     try{
-      const _epIdx=(feed.curEp&&(t.episodes||[]).indexOf(feed.curEp));
-      const _shareLink=shareUrl(t.id,_epIdx>=0?_epIdx:undefined);
+      const _shareLink=shareUrl(t.id,epIdx);
       if(navigator.share){
         const p={title:"Shortz VS",text:txt,url:_shareLink};
         if(files.length)p.files=files;
@@ -5112,9 +5153,14 @@ function shareCur(){
       }
       else{await navigator.clipboard.writeText(txt+" — "+_shareLink);toast("Link copied")}
     }catch(e){
-      try{await navigator.clipboard.writeText(txt+" — "+_shareLink);toast("Link copied")}catch(_){}
+      try{await navigator.clipboard.writeText(txt+" — "+shareUrl(t.id,epIdx));toast("Link copied")}catch(_){}
     }
   })();
+}
+function shareCur(){
+  const t=feed.cur; if(!t)return;
+  const _epIdx=(feed.curEp&&(t.episodes||[]).indexOf(feed.curEp));
+  shareTitle(t,_epIdx>=0?_epIdx:undefined);
 }
 let commentTarget=null; // when set, comments attach here instead of feed.cur (used by sports reel)
 function renderComments(){
@@ -5131,6 +5177,7 @@ $("#cform").addEventListener("submit",e=>{
   (comments[tid]=comments[tid]||[]).push({n:"You",x:v,ts:Date.now()});
   store.set("comments",comments);$("#cinput").value="";
   renderComments();
+  try{cfSyncCounts();}catch(e){} // home cards show live comment counts
   if(!commentTarget&&feed.cur)updateRail(feed.cur);
   // refresh sports reel comment counts if commenting on a highlight
   if(commentTarget&&commentTarget.indexOf("sport_")===0){
@@ -5145,10 +5192,212 @@ $("#cform").addEventListener("submit",e=>{
   toast("Comment posted");
 });
 $("#cdraw").addEventListener("click",e=>{if(e.target.id==="cdraw")closeComments()});
-function closeComments(){$("#cdraw").classList.remove("open");$("#cscrim").classList.remove("open");commentTarget=null;}
+function closeComments(){$("#cdraw").classList.remove("open");$("#cscrim").classList.remove("open");commentTarget=null;try{cfSyncCounts();}catch(e){}}
 $("#cclose").addEventListener("click",closeComments);
 $("#cscrim").addEventListener("click",()=>{closeComments();closeCc();});
 $("#ccclose").addEventListener("click",closeCc);
+
+/* ================= HOME CARD FEED (his design, 2026-10-12) =================
+   Home is a Reddit-style card feed now: continuous scroll, real cover art,
+   Like / Comment / Share under every card. Whichever card sits nearest the
+   viewport center plays a muted preview — only one at a time; every other
+   card shows its cover. Tapping a card opens the existing full-screen
+   player (playSeries): the pager stage is untouched, just hidden until
+   something plays, with a back button to return to the cards.
+   Feed source/order is unchanged: the HOME FRESH pickRandom pool and
+   scoring the pager always used — dealt as cards instead of slides. */
+var homeMode="cards";           // "cards" | "stage"
+var cfLineup=[], cfBuilt=false, cfActive=null, cfScrollTick=false;
+
+function cfCardHTML(t){
+  const art=thumb(t,"hq");
+  const badge=t.award?(/winner/i.test(t.award)?"🏆 Award Winner":(/nominee/i.test(t.award)?"🏆 Nominee":"🏆 Award")):"";
+  const dur=esc(t.eps||t.runtime||"");
+  const liked=!!likes[t.id];
+  const cc=(comments[t.id]||[]).length;
+  const lc=(window.Likes&&Likes.cache&&Likes.cache[t.id])?Object.keys(Likes.cache[t.id]).length:0;
+  return `<article class="cfcard" data-id="${t.id}">
+    <div class="cfmedia" data-cf-media style="background:${artBg(t.title)}">
+      ${art?`<img class="cfart" src="${art}" alt="" loading="lazy" onerror="this.style.display='none'">`:""}
+      ${badge?`<span class="cfbadge">${badge}</span>`:""}
+      ${dur?`<span class="cfdur">${dur}</span>`:""}
+      <span class="cfplay">▶</span>
+    </div>
+    <div class="cfbody" data-cf-body>
+      <div class="cftitle">${t.award_verified?"🏆 ":""}${esc(t.title)}</div>
+      <div class="cfmeta">${esc(metaLine(t))}</div>
+      ${t.award?`<div class="cfaward">${esc(t.award)}</div>`:""}
+    </div>
+    <div class="cfactions">
+      <button class="cfact${liked?" liked":""}" data-cf-like><span data-cf-heart>${liked?"♥":"♡"}</span><span data-cf-likenum>${lc}</span></button>
+      <button class="cfact" data-cf-com><span>💬</span><span data-cf-comnum>${cc}</span></button>
+      <button class="cfact share" data-cf-share><span>⤴</span><span>Share</span></button>
+    </div>
+  </article>`;
+}
+function cfPickBatch(n,avoidId){
+  const out=[]; let last=avoidId||null, guard=0;
+  while(out.length<n&&guard<n*8){
+    guard++;
+    let t=null;
+    try{ t=pickRandom(last); }catch(e){}
+    if(!t)break;
+    last=t.id;
+    if(cfLineup.some(x=>x.id===t.id)||out.some(x=>x.id===t.id))continue;
+    out.push(t);
+  }
+  return out;
+}
+function cfAppendCards(batch){
+  const inner=$("#cfeedInner"); if(!inner||!batch.length)return;
+  const frag=document.createElement("div");
+  frag.innerHTML=batch.map(cfCardHTML).join("");
+  [...frag.children].forEach(n=>inner.appendChild(n));
+  cfLineup=cfLineup.concat(batch);
+  // paint live social-like counts on the new cards (existing Likes system)
+  try{ likesWatch($("#view-home")); }catch(e){}
+}
+function buildCardFeed(){
+  const inner=$("#cfeedInner"); if(!inner)return;
+  cfStopPreview();
+  cfLineup=[];
+  inner.innerHTML="";
+  const batch=cfPickBatch(12,null);
+  if(!batch.length){ // catalog still loading — retry shortly, once
+    if(!buildCardFeed._rt)buildCardFeed._rt=setTimeout(()=>{buildCardFeed._rt=null;
+      if(homeMode==="cards"&&curView==="home")buildCardFeed();},900);
+    return;
+  }
+  cfAppendCards(batch);
+  cfBuilt=true;
+  requestAnimationFrame(()=>cfRecompute());
+}
+/* --- muted preview: forced mute regardless of the app sound default --- */
+function cfPreviewSrc(t){
+  const u=(t&&(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"")))||"";
+  if(!u)return "";
+  const id=ytId(u);
+  if(id)return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&controls=0&loop=1&playlist="+id;
+  if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted=1&loop=1";
+  return embedSrc(u,false)+"&autoplay=1&mute=1";
+}
+function cfActivate(card){
+  if(cfActive===card)return;
+  cfStopPreview();
+  if(!card)return;
+  const t=byId(card.dataset.id); if(!t)return;
+  const media=card.querySelector("[data-cf-media]"); if(!media)return;
+  const src=cfPreviewSrc(t); if(!src)return;
+  const fr=document.createElement("iframe");
+  fr.className="cfprev";
+  fr.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
+  fr.setAttribute("allow","autoplay; fullscreen; encrypted-media; picture-in-picture");
+  fr.setAttribute("title","Shortz VS preview");
+  fr.src=src;
+  media.appendChild(fr);
+  card.classList.add("playing");
+  cfActive=card;
+}
+function cfStopPreview(){
+  if(!cfActive)return;
+  try{ const fr=cfActive.querySelector(".cfprev"); if(fr)fr.remove(); }catch(e){}
+  try{ cfActive.classList.remove("playing"); }catch(e){}
+  cfActive=null;
+}
+/* the card nearest the scroll container's center is the one that plays */
+function cfRecompute(){
+  if(homeMode!=="cards"||curView!=="home"||document.hidden||piaActive){ cfStopPreview(); return; }
+  const sc=$("#cfeed"); if(!sc)return;
+  const sr=sc.getBoundingClientRect();
+  const cx=sr.left+sr.width/2, cy=sr.top+sr.height/2;
+  let best=null,bestD=1e18;
+  sc.querySelectorAll(".cfcard").forEach(c=>{
+    const r=c.getBoundingClientRect();
+    if(r.bottom<sr.top||r.top>sr.bottom)return;
+    const d=Math.abs((r.top+r.height/2)-cy)+Math.abs((r.left+r.width/2)-cx)*0.5;
+    if(d<bestD){bestD=d;best=c;}
+  });
+  cfActivate(best);
+}
+function cfOnScroll(){
+  if(cfScrollTick)return; cfScrollTick=true;
+  requestAnimationFrame(()=>{
+    cfScrollTick=false;
+    cfRecompute();
+    const sc=$("#cfeed");
+    if(sc&&sc.scrollTop+sc.clientHeight>sc.scrollHeight-900){
+      const batch=cfPickBatch(8,cfLineup.length?cfLineup[cfLineup.length-1].id:null);
+      if(batch.length)cfAppendCards(batch);
+    }
+  });
+}
+/* --- mode switching: cards <-> the existing full-screen stage --- */
+function cfEnterStage(){
+  homeMode="stage";
+  cfStopPreview();
+  const f=$("#cfeed"), s=$("#feedStage"), b=$("#cfBack");
+  if(f)f.style.display="none";
+  if(s)s.style.display="";
+  if(b)b.classList.add("on");
+}
+function showCardFeed(fresh){
+  try{ pauseFeedVideo(); }catch(e){}
+  homeMode="cards";
+  const f=$("#cfeed"), s=$("#feedStage"), b=$("#cfBack");
+  if(s)s.style.display="none";
+  if(f)f.style.display="";
+  if(b)b.classList.remove("on");
+  if(fresh||!cfBuilt)buildCardFeed();
+  else requestAnimationFrame(()=>cfRecompute());
+}
+/* --- card actions: the app's existing like / comment / share systems --- */
+function cfPaintLike(card){
+  const on=!!likes[card.dataset.id];
+  const b=card.querySelector("[data-cf-like]"); if(!b)return;
+  b.classList.toggle("liked",on);
+  const h=card.querySelector("[data-cf-heart]"); if(h)h.textContent=on?"♥":"♡";
+}
+function cfLikePaint(card,v){
+  // called by likesWatch's paintAll with the live social-like map for this id
+  const num=card.querySelector("[data-cf-likenum]");
+  if(num)num.textContent=Object.keys(v||{}).length;
+  const mine=(window.Likes&&Likes.uid&&v&&v[Likes.uid])||likes[card.dataset.id];
+  const b=card.querySelector("[data-cf-like]"); if(b)b.classList.toggle("liked",!!mine);
+  const h=card.querySelector("[data-cf-heart]"); if(h)h.textContent=mine?"♥":"♡";
+}
+function cfLikeTap(card,t){
+  // feed like (the store the player rail reads) + social like (the system
+  // every other card in the app uses) — one tap flips both, kept in sync.
+  if(likes[t.id]){ delete likes[t.id]; } else { likes[t.id]=1; }
+  try{ store.set("likes",likes); }catch(e){}
+  cfPaintLike(card);
+  try{ buzz(15); }catch(e){}
+  try{ likeToggle(t.id); }catch(e){}
+}
+function cfOpenComments(t){
+  commentTarget=t.id; // the drawer's existing non-feed target (sports reel uses it too)
+  renderComments();
+  $("#cdraw").classList.add("open");$("#cscrim").classList.add("open");
+}
+function cfSyncCounts(){
+  document.querySelectorAll(".cfcard").forEach(c=>{
+    const el=c.querySelector("[data-cf-comnum]");
+    if(el)el.textContent=(comments[c.dataset.id]||[]).length;
+  });
+}
+(function(){
+  const vh=$("#view-home"); if(!vh)return;
+  vh.addEventListener("click",e=>{
+    const card=e.target.closest(".cfcard"); if(!card)return;
+    const t=byId(card.dataset.id); if(!t)return;
+    if(e.target.closest("[data-cf-like]")){ cfLikeTap(card,t); return; }
+    if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
+    if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
+    if(e.target.closest("[data-cf-media],[data-cf-body]")){ playSeries(t); }
+  });
+  document.addEventListener("visibilitychange",()=>{ if(document.hidden)cfStopPreview(); else cfRecompute(); });
+  window.addEventListener("resize",()=>{ if(homeMode==="cards")cfRecompute(); });
+})();
 
 /* ---------- episode drawer: real verified episodes ---------- */
 function epCount(t){
