@@ -51,6 +51,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   background:linear-gradient(rgba(8,8,13,.92),rgba(8,8,13,.75));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .logo{font-weight:900;font-size:21px;letter-spacing:1.5px}
 #deskNav{display:none;gap:28px;align-items:center}
+#sideBar{display:none} /* desktop left sidebar: enabled only in the 1024px media query */
 #deskNav button{background:none;border:0;color:#999;font-size:15px;font-weight:600;cursor:pointer;padding:8px 4px;position:relative;transition:color .2s}
 #deskNav button:hover{color:#fff}
 #deskNav button.on{color:#fff}
@@ -614,25 +615,55 @@ body.pip #hudHint{display:none}
   #splash{max-width:520px !important;left:0 !important;right:0 !important;margin:0 auto !important;width:100% !important;transform:none !important}
 
 }
-/* TRUE DESKTOP (>=1024px): full-screen layout, not a centered phone column.
-   Video theater-mode with info sidebar using the full width. */
+/* ===== DESKTOP >=1024px: TikTok-web BLUEPRINT (Shortz VS branding kept) =====
+   Fixed 240px left sidebar + main area shifted right. Feed engine untouched:
+   home stays a centered vertical-video column (rail right, info bottom),
+   grids go full-width in the remaining space. */
 @media(min-width:1024px){
-  .feedstage{max-width:none;margin:0;width:100%}
-  #tabbar{max-width:none;left:0;right:0;width:100%;transform:none}
-  #topbar{max-width:none;left:0;right:0;width:100%;transform:none;padding-left:24px;padding-right:24px}
-  #splash{max-width:none !important;left:0 !important;right:0 !important;margin:0 !important;width:100% !important}
-  /* Theater: video centered at natural vertical size */
-  #view-home .slide{display:flex;align-items:center;justify-content:center;gap:32px;padding:0 48px}
-  #view-home .feed-video{position:relative;inset:auto;width:min(480px,38vw);height:min(86vh,850px);flex:none;border-radius:16px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.6)}
-  /* Browse: full-width grid */
-  #view-browse .wrap{max-width:1400px;margin:0 auto;padding-left:32px;padding-right:32px}
-  /* Genre view: wider grid */
-  #view-genre .gfull-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));max-width:1400px;margin:0 auto;gap:20px;padding:24px 32px}
-  #view-genre .gfull-head{padding-left:32px;padding-right:32px}
-  /* Desktop nav: show top nav, hide mobile bottom tabs */
-  #deskNav{display:flex}
+  /* --- left sidebar --- */
+  #sideBar{display:flex;position:fixed;top:0;left:0;bottom:0;width:240px;z-index:200;
+    flex-direction:column;background:#0a0a10;border-right:1px solid var(--line);
+    padding:22px 12px;gap:2px}
+  #sideBar .slogo{font-weight:900;font-size:22px;letter-spacing:1.5px;color:#fff;padding:4px 12px 18px}
+  #sideBar .slogo b{color:#e50914}
+  #sideBar .snav{display:flex;flex-direction:column;gap:2px}
+  #sideBar .snav button{display:flex;align-items:center;gap:14px;width:100%;
+    background:none;border:0;color:#cfcfd8;font-size:16px;font-weight:700;
+    padding:13px 14px;border-radius:12px;cursor:pointer;text-align:left;
+    transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
+  #sideBar .snav button:hover{background:rgba(255,255,255,.06);color:#fff}
+  #sideBar .snav button.on{color:#fff;background:rgba(229,9,20,.14)}
+  #sideBar .sico{font-size:22px;width:28px;text-align:center;flex:none}
+  #sideBar .slab{flex:1}
+  #sideBar .sfoot{margin-top:auto;padding:14px 12px 4px;border-top:1px solid var(--line)}
+  #sideBar .sfoot .free-tag{display:inline-block}
+  /* --- kill mobile chrome + old desktop top nav --- */
+  #deskNav{display:none !important}
   #tabbar{display:none !important}
   #viewpad{display:none !important}
+  /* --- main area sits right of the sidebar --- */
+  #views{margin-left:240px}
+  #topbar{margin-left:240px;max-width:none;left:auto;right:0;width:auto;transform:none;
+    padding-left:32px;padding-right:32px}
+  body.feedfull #topbar{left:240px}
+  /* --- HOME: TikTok-style centered vertical video column --- */
+  #view-home .feedstage{max-width:520px;margin:0 auto;width:100%}
+  #hudHint{left:calc(50% + 120px)}
+  #voicePop{left:calc(50% + 120px)}
+  /* --- SPLASH: true full-screen on desktop --- */
+  #splash{max-width:none !important;left:0 !important;right:0 !important;margin:0 !important;
+    width:100% !important;transform:none !important}
+  #splashLogo{width:min(44vw,460px)}
+  /* --- grids use the full main-area width --- */
+  #view-browse .wrap{max-width:1500px;margin:0 auto;padding-left:36px;padding-right:36px}
+  #view-browse .grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
+  #view-live .wrap,#view-streaming .wrap,#view-manga .wrap{max-width:1500px;margin:0 auto;
+    padding-left:36px;padding-right:36px}
+  .sgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+  .mg-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px}
+  #view-genre .gfull-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+    max-width:1500px;margin:0 auto;gap:20px;padding:24px 36px}
+  #view-genre .gfull-head{padding-left:36px;padding-right:36px}
 }
 /* ---------- feed fullscreen: video edge-to-edge, chrome overlaid PineDrama-style ---------- */
 body.feedfull{overflow:hidden}
@@ -1099,6 +1130,22 @@ try{
       <button id="topShareApp" class="free-tag" style="display:none;border:none;cursor:pointer;background:linear-gradient(135deg,#e50914,#b00610);color:#fff;box-shadow:0 0 14px rgba(229,9,20,.35)">&#8599; SHARE APP</button>
     </div>
   </header>
+
+  <!-- DESKTOP: fixed left sidebar (TikTok-web blueprint, Shortz VS branding).
+       Hidden below 1024px — mobile keeps its own chrome. -->
+  <nav id="sideBar" aria-label="Main navigation">
+    <div class="slogo">SHORTZ <b>VS</b></div>
+    <div class="snav">
+      <button data-nav="home" class="on"><span class="sico">🏠</span><span class="slab">Home</span></button>
+      <button data-nav="browse"><span class="sico">🎬</span><span class="slab">Browse</span></button>
+      <button data-nav="live"><span class="sico">🔴</span><span class="slab">Live</span></button>
+      <button data-nav="streaming"><span class="sico">📡</span><span class="slab">Streaming</span></button>
+      <button data-nav="manga"><span class="sico">📖</span><span class="slab">Manga</span></button>
+      <button data-nav="profile"><span class="sico">⭐</span><span class="slab">My List</span></button>
+      <button data-nav="stakes"><span class="sico">🪙</span><span class="slab">Stakes</span></button>
+    </div>
+    <div class="sfoot"><div class="free-tag">100% FREE</div></div>
+  </nav>
 
   <!-- PIA: Picture In App mini-player -->
   <div id="piaWrap">
@@ -1933,6 +1980,7 @@ function go(v){
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
   TAB_BTNS.forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
   try{document.querySelectorAll("#deskNav button").forEach(b=>b.classList.toggle("on",b.dataset.nav===v||(v==="detail"&&b.dataset.nav===returnView)));}catch(e){}
+  try{document.querySelectorAll("#sideBar button").forEach(b=>b.classList.toggle("on",b.dataset.nav===v||(v==="detail"&&b.dataset.nav===returnView)));}catch(e){}
   const cur=$("#view-"+curView), nxt=$("#view-"+v);
   cur.classList.remove("active");cur.classList.add("leaving");
   setTimeout(()=>cur.classList.remove("leaving"),550);
@@ -1951,6 +1999,14 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
 document.querySelectorAll("#deskNav button").forEach(b=>b.onclick=()=>{
   const v=b.dataset.nav;
   document.querySelectorAll("#deskNav button").forEach(x=>x.classList.toggle("on",x===b));
+  try{renderView(v)}catch(err){}
+  go(v);
+});
+// Desktop LEFT SIDEBAR nav (TikTok-web blueprint, >=1024px). Stakes opens the sheet.
+document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
+  const v=b.dataset.nav;
+  if(v==="stakes"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return;}
+  document.querySelectorAll("#sideBar button").forEach(x=>x.classList.toggle("on",x===b));
   try{renderView(v)}catch(err){}
   go(v);
 });
@@ -3198,7 +3254,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011231800";
+const BUILD="20261011232000";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
