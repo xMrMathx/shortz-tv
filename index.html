@@ -4102,7 +4102,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012025700";
+const BUILD="20261012030600";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -4201,8 +4201,93 @@ function forceFreshReload(){
   try{toast("Updating to the latest version…");}catch(e){}
   // replace() keeps stale ?fresh= pages out of back-button history.
   // Small delay so the toast is seen instead of a mystery reload.
-  setTimeout(()=>{try{location.replace(url);}catch(e){location.href=url;}},1200);
+  setTimeout(()=>{ try{_stashFreshIntent();}catch(e){} try{location.replace(url);}catch(e){location.href=url;} },1200);
 }
+/* ---------- held-update intent: keep the user's place across this reload ----------
+   The flush above restarts the page the moment playback stops — which is
+   exactly when a tap has just opened a title or a view (opening a detail
+   pauses the feed, so the watcher fires). Without this, the reload lands
+   the user back on Home and the title they tapped is lost. So the funnel
+   stashes the current intent (view + open detail ID) in sessionStorage at
+   the last moment before reload, and a ?fresh= boot restores it once the
+   catalog is in — then clears the stash so it can never replay twice.
+   The app keeps NO global for the open detail's ID (openDetail renders
+   from its argument only), so the tracker below wraps openDetail once and
+   remembers the last ID it was called with. */
+let _svDetailId=null;
+try{
+  if(typeof openDetail==="function"&&!openDetail.__svTracked){
+    const _svOrigDetail=openDetail;
+    const _svWrap=function(id){ try{_svDetailId=id||null;}catch(e){} return _svOrigDetail.apply(this,arguments); };
+    _svWrap.__svTracked=true;
+    openDetail=_svWrap;
+  }
+}catch(e){}
+function _stashFreshIntent(){
+  try{
+    let v=null;
+    try{ if(typeof curView!=="undefined")v=curView; }catch(e){}
+    // Plain Home needs no restore (boot lands there anyway) — and clearing
+    // any older stash stops a stale intent from a previous flush replaying.
+    if(!v||v==="home"){ try{sessionStorage.removeItem("svFreshIntent");}catch(e){} return; }
+    let id=null,g=null;
+    if(v==="detail"){
+      id=_svDetailId||null;
+      if(!id){
+        // Detail opened by a path the tracker missed — fall back to the
+        // view it was opened from rather than losing the user's place.
+        let rv=null; try{ if(typeof returnView!=="undefined")rv=returnView; }catch(e){}
+        if(rv&&rv!=="detail"&&rv!=="home"){ v=rv; }
+        else{ try{sessionStorage.removeItem("svFreshIntent");}catch(e){} return; }
+      }
+    }
+    if(v==="genre"){
+      try{ const gt=document.querySelector("#view-genre .gfull-title"); if(gt)g=(gt.textContent||"").trim()||null; }catch(e){}
+      if(!g){ try{sessionStorage.removeItem("svFreshIntent");}catch(e){} return; }
+    }
+    sessionStorage.setItem("svFreshIntent",JSON.stringify({v:v,id:id,g:g,ts:Date.now()}));
+  }catch(e){}
+}
+function _restoreFreshIntent(){
+  try{
+    if(!/[?&]fresh=/.test(location.search))return; // ?fresh= boots only
+    let raw=null;
+    // Read + clear up front: whatever happens below, it never replays twice.
+    try{ raw=sessionStorage.getItem("svFreshIntent"); sessionStorage.removeItem("svFreshIntent"); }catch(e){}
+    if(!raw)return;
+    let it=null; try{ it=JSON.parse(raw); }catch(e){}
+    if(!it||typeof it.ts!=="number"||Date.now()-it.ts>2*60*1000)return; // stale → Home silently
+    // Share links preserved on the URL (?watch= / ?stream=) carry their own
+    // restore handlers — they outrank a stashed intent.
+    try{ const q=new URLSearchParams(location.search); if(q.get("watch")||q.get("stream"))return; }catch(e){}
+    let tries=0;
+    const tick=()=>{
+      tries++;
+      try{
+        const ready=(typeof C!=="undefined"&&C&&C.length>0);
+        if(!ready){ if(tries<40)setTimeout(tick,300); return; }
+        if(it.id){
+          const t=(typeof byId==="function")?byId(it.id):null;
+          if(t){ openDetail(it.id); return; }
+          if(tries<40){ setTimeout(tick,300); return; } // index may still be filling
+          return; // ID no longer exists — Home silently
+        }
+        if(it.v==="genre"&&it.g){
+          const has=C.some(x=>x&&x.genre===it.g);
+          if(has&&typeof openGenreView==="function"){ openGenreView(it.g); return; }
+          return; // genre gone — Home silently
+        }
+        if(it.v&&it.v!=="home"&&it.v!=="detail"&&it.v!=="genre"){
+          try{ renderView(it.v); }catch(e){}
+          try{ go(it.v); }catch(e){}
+          return;
+        }
+      }catch(e){}
+    };
+    setTimeout(tick,600);
+  }catch(e){}
+}
+try{ window.addEventListener("load",_restoreFreshIntent); }catch(e){}
 function _runFreshCheck(reason){
   // Watchdog: skip if we just checked (<10s) — avoids stampedes, except manual.
   if(reason!=="manual"&&Date.now()-_fresh.lastCheck<10000)return Promise.resolve(false);
@@ -6219,8 +6304,9 @@ function renderTvGuide(){
   tgMore();
   // preview the first show so the box isn't empty
   if(tgList.length)tgPreview(tgList[0].id);
-  renderTgHighlights();
-  renderTgScoreboard();
+  renderTgHighlights(true);
+  renderTgScoreboard(true);
+  tgRefreshGuideData(); // guide opens on live data, same as Home — see below
   const pb=$("#tgPreviewBox");
   const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); go("home"); playSeries(t);};
   pb.onclick=goFull;
@@ -6241,6 +6327,55 @@ function renderTvGuide(){
     },{passive:true});
   }
   tgStickInit();
+}
+/* ---------- TV Guide freshness: live data on every open, same as Home ----------
+   The channel list renders from C, but C was only fetched at launch — in a long
+   session the guide drifted stale while the catalog moved on server-side. Every
+   guide open now re-pulls the catalog exactly like SHORTZ_CATALOG_READY does
+   (version.json cache-bust + cache:"no-store") and splices it into the SAME C
+   array — never a replacement object — so Home/Browse/every existing reference
+   sees the fresh data too. The on-screen (boot/bundled) copy stays untouched if
+   the fetch fails: it is the offline fallback, not the source. */
+let tgFreshBusy=false;
+function tgCatSig(){
+  let eps=0;
+  for(let i=0;i<C.length;i++){const t=C[i]; if(t&&t.episodes)eps+=t.episodes.length;}
+  return C.length+"|"+(C[0]?C[0].id:"")+"|"+(C[C.length-1]?C[C.length-1].id:"")+"|"+eps;
+}
+function tgRerenderList(){
+  const box=$("#tgList"); if(!box||curView!=="profile")return;
+  tgShown=0; tgList=tgFiltered(); // respects any search typed while the fetch flew
+  box.innerHTML=""; tgMore();
+  const em=$("#tgEmpty"); if(em)em.style.display=tgList.length?"none":"";
+  const pv=$("#tgPreviewBox");
+  if(pv&&pv._tid){ // a preview is playing: keep its row highlighted, touch nothing else
+    const row=box.querySelector('.tg-row[data-id="'+pv._tid+'"]');
+    if(row)row.classList.add("sel");
+  }else{
+    const sb=$("#tgSub"); if(sb)sb.textContent=C.length+" shows · tap one to preview";
+  }
+}
+function tgRefreshGuideData(){
+  if(tgFreshBusy)return; tgFreshBusy=true;
+  const done=()=>{tgFreshBusy=false;};
+  const before=tgCatSig();
+  fetch("https://xmrmathx.github.io/shortz-tv/version.json",{cache:"no-store"})
+    .then(r=>r.ok?r.json():null)
+    .then(v=>(v&&v.v)||String(Date.now()))
+    .catch(()=>String(Date.now()))
+    .then(ver=>fetch("https://xmrmathx.github.io/shortz-tv/catalog.json?v="+encodeURIComponent(ver),{cache:"no-store"}))
+    .then(r=>{if(!r.ok)throw 0;return r.json();})
+    .then(data=>{
+      if(Array.isArray(data)&&data.length){
+        C.length=0;
+        for(let i=0;i<data.length;i++)C.push(data[i]);
+        window.__catRev=(window.__catRev||0)+1;
+        try{buildCatalogIndexes();}catch(e){}
+        if(tgCatSig()!==before)tgRerenderList();
+      }
+      done();
+    })
+    .catch(done); /* offline/failure: keep what's already on screen */
 }
 /* keep the guide preview fully visible while it follows the scroll */
 function tgStickInit(){
@@ -6276,10 +6411,10 @@ function tgStickCheck(){
 
 /* ---------- live sports highlights in TV Guide ---------- */
 let tgHLData=null, tgHLAt=0, tgHLIdx=-1;
-function loadHighlights(cb){
+function loadHighlights(cb,force){
   const now=Date.now();
-  if(tgHLData&&now-tgHLAt<30*60*1000){cb&&cb(tgHLData);return;}
-  fetch("sports-highlights.json?"+now).then(r=>r.ok?r.json():null).then(d=>{
+  if(!force&&tgHLData&&now-tgHLAt<30*60*1000){cb&&cb(tgHLData);return;}
+  fetch("sports-highlights.json?"+now,{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{
     if(d&&d.highlights&&d.highlights.length){tgHLData=d;tgHLAt=now;}
     cb&&cb(tgHLData);
   }).catch(()=>cb&&cb(tgHLData));
@@ -6295,10 +6430,10 @@ function agoStr(iso){
 }
 /* ---------- live scoreboard in TV Guide (ESPN API) ---------- */
 let tgScoreAt=0;
-function renderTgScoreboard(){
+function renderTgScoreboard(force){
   const box=document.getElementById("tgScore"); if(!box)return;
   const now=Date.now();
-  if(now-tgScoreAt<5*60*1000&&box.dataset.loaded)return;
+  if(!force&&now-tgScoreAt<5*60*1000&&box.dataset.loaded)return;
   const leagues=[
     {key:"NFL",url:"https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"},
     {key:"NBA",url:"https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard"},
@@ -6308,7 +6443,7 @@ function renderTgScoreboard(){
   box.innerHTML='<div class="tg-sc-h"><div><div class="t"><span class="live"></span>SCOREBOARD</div>'
     +'<div class="upd">Live scores · ESPN</div></div></div><div style="color:var(--mut);font-size:12px;padding:8px 2px">Loading scores…</div>';
   Promise.all(leagues.map(l=>
-    fetch(l.url).then(r=>r.ok?r.json():null).then(d=>({key:l.key,events:(d&&d.events)||[]})).catch(()=>({key:l.key,events:[]}))
+    fetch(l.url,{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>({key:l.key,events:(d&&d.events)||[]})).catch(()=>({key:l.key,events:[]}))
   )).then(results=>{
     tgScoreAt=Date.now(); box.dataset.loaded="1";
     let html='<div class="tg-sc-h"><div><div class="t"><span class="live"></span>SCOREBOARD</div>'
@@ -6431,7 +6566,7 @@ function openGameDetail(gid, league){
         ▶ Watch ${esc(an)} vs ${esc(hn)} highlights on YouTube</a>`;
     }).catch(()=>{});
 }
-function renderTgHighlights(){
+function renderTgHighlights(force){
   const box=$("#tgHL"); if(!box)return;
   loadHighlights(d=>{
     if(!d||!d.highlights||!d.highlights.length){box.innerHTML="";return;}
@@ -6456,7 +6591,7 @@ function renderTgHighlights(){
     });
     const pa=$("#tgHLPlay");
     if(pa)pa.onclick=(e)=>{e.stopPropagation();tgPlayHighlight(0);};
-  });
+  },force);
 }
 function tgPlayHighlight(i){
   if(!tgHLData||!tgHLData.highlights.length)return;
@@ -8901,42 +9036,79 @@ if(document.readyState==="loading"){
   let lastAuto=0, watchSecs=0, shownAt=0, rotTimer=null;
   const bootAt=Date.now();
 
+  /* FRESH-AS-HOME: the rotation is rebuilt from the app's LIVE in-memory
+     data at the moment the TV opens (auto-show and manual 📺 alike) —
+     never from a snapshot taken at boot. NEW reads the live catalog array
+     (window.SHORTZ_CATALOG — the same array Home renders from; the fresh
+     catalog.json is spliced into it in place on every launch). The array
+     is in ingest order (new titles append at the tail), so newest-first
+     = tail-first. (Home's per-title freshness field is dateAdded —
+     isNewArrival/freshScore — but the newest ingests don't carry it, so
+     the live array's tail is the authoritative newest-first order.)
+     COMING SOON reads the app's own runtime cache (csCache, filled by
+     renderComingSoon with a no-cache fetch) and TOP 10 the app's cache
+     (top10Caches.afilms); a still-cold cache falls back to the same
+     no-cache fetch the shelves themselves use, then rebuilds. */
+  function fetchJsonFresh(file){
+    return fetch("https://xmrmathx.github.io/shortz-tv/"+file,{cache:"no-cache"})
+      .then(r=>{ if(!r||!r.ok) throw 0; return r.json(); })
+      .catch(()=>fetch(file,{cache:"no-cache"}).then(r=>{ if(!r||!r.ok) throw 0; return r.json(); }))
+      .catch(()=>null);
+  }
+  function fillComing(list,out){
+    (list||[]).filter(x=>x&&x.thumb)
+      .sort((a,b)=>String(a.drop_date||"").localeCompare(String(b.drop_date||""))) // nearest drop first, like the shelf
+      .forEach(x=>out.push({tag:"COMING SOON", title:x.title||"",
+        sub:(x.drop_label?("Drops "+x.drop_label+" · "):"")+(x.genre||""), img:x.thumb, go:"browse"}));
+  }
+  function fillTops(list,out){
+    (list||[]).slice(0,6).forEach(x=>{
+      if(x&&x.thumb) out.push({tag:"TOP 10", title:x.title||"",
+        sub:(x.genre||"")+" · Award Winner", img:x.thumb, id:x.id});
+    });
+  }
+  function assemble(news,coming,tops){
+    const out=[]; const max=Math.max(news.length,coming.length,tops.length);
+    for(let i=0;i<max;i++){
+      if(news[i]) out.push(news[i]);
+      if(coming[i]) out.push(coming[i]);
+      if(tops[i]) out.push(tops[i]);
+    }
+    return out;
+  }
   function buildSpots(){
     const news=[], coming=[], tops=[];
+    /* NEW — live catalog, tail-first, read right now */
     try{
-      const cat=(window.SHORTZ_CATALOG||[]).slice();
-      const num=t=>parseInt(String(t.id||"").replace(/\D/g,""),10)||0;
-      cat.sort((a,b)=>num(b)-num(a));
-      for(const t of cat){
-        if(news.length>=6) break;
+      const cat=window.SHORTZ_CATALOG||[];
+      for(let i=cat.length-1;i>=0&&news.length<6;i--){
+        const t=cat[i]; if(!t) continue;
         let th=""; try{ th=thumb(t,"mq"); }catch(e){}
         if(th) news.push({tag:"NEW", title:t.title||"", sub:t.genre||"", img:th, id:t.id});
       }
     }catch(e){}
-    const jobs=[];
-    jobs.push(fetch("coming_soon.json").then(r=>r.json()).then(list=>{
-      (list||[]).forEach(x=>{
-        if(x&&x.thumb) coming.push({tag:"COMING SOON", title:x.title||"",
-          sub:(x.drop_label?("Drops "+x.drop_label+" · "):"")+(x.genre||""), img:x.thumb, go:"browse"});
+    /* COMING SOON / TOP 10 — the app's runtime caches when warm */
+    let csCold=true, t10Cold=true;
+    try{ if(typeof csCache!=="undefined"&&Array.isArray(csCache)){ fillComing(csCache,coming); csCold=false; } }catch(e){}
+    try{ if(typeof top10Caches!=="undefined"&&top10Caches&&Array.isArray(top10Caches.afilms)){ fillTops(top10Caches.afilms,tops); t10Cold=false; } }catch(e){}
+    spots=assemble(news,coming,tops);
+    dataReady=spots.length>0;
+    if(dataReady&&pendingManual){ pendingManual=false; show("manual"); }
+    else if(mode) render(); // already open on a previous build: swap the fresh rotation in
+    /* Cold buckets: pull the same files the shelves pull, then rebuild —
+       an open TV picks up the completed rotation when it lands. */
+    if(csCold||t10Cold){
+      const jobs=[];
+      if(csCold) jobs.push(fetchJsonFresh("coming_soon.json").then(l=>{ if(Array.isArray(l)) fillComing(l,coming); }));
+      if(t10Cold) jobs.push(fetchJsonFresh("top10-award-films.json").then(l=>{ if(Array.isArray(l)) fillTops(l,tops); }));
+      Promise.all(jobs).then(()=>{
+        spots=assemble(news,coming,tops);
+        dataReady=spots.length>0;
+        if(dataReady&&pendingManual){ pendingManual=false; show("manual"); }
+        else if(mode) render();
       });
-    }).catch(()=>{}));
-    jobs.push(fetch("top10-award-films.json").then(r=>r.json()).then(list=>{
-      (list||[]).slice(0,6).forEach(x=>{
-        if(x&&x.thumb) tops.push({tag:"TOP 10", title:x.title||"",
-          sub:(x.genre||"")+" · Award Winner", img:x.thumb, id:x.id});
-      });
-    }).catch(()=>{}));
-    return Promise.all(jobs).then(()=>{
-      spots=[]; const max=Math.max(news.length,coming.length,tops.length);
-      for(let i=0;i<max;i++){
-        if(news[i]) spots.push(news[i]);
-        if(coming[i]) spots.push(coming[i]);
-        if(tops[i]) spots.push(tops[i]);
-      }
-      dataReady=spots.length>0;
-      if(dataReady&&pendingManual){ pendingManual=false; show("manual"); }
-      return dataReady;
-    });
+    }
+    return Promise.resolve(dataReady);
   }
   function loadData(){
     if(dataReady||loadTries>=6) return;
@@ -8997,8 +9169,8 @@ if(document.readyState==="loading"){
       mode="manual"; shownAt=Date.now();
       box.classList.add("xready"); startRotation(); return;
     }
-    if(!dataReady){ pendingManual=true; loadData(); return; }
-    show("manual");
+    buildSpots(); // rebuild from live data at open time — as fresh as Home
+    if(dataReady) show("manual"); else pendingManual=true;
   });
   xBtn.addEventListener("click",e=>{ e.stopPropagation(); hide(); });
   box.addEventListener("click",e=>{
@@ -9031,7 +9203,8 @@ if(document.readyState==="loading"){
       if(blocked()||!playingNow()){ watchSecs=0; return; }
       watchSecs++;
       if(watchSecs>=WATCH_NEED&&Date.now()-lastAuto>=CAP_MS){
-        if(!dataReady){ loadData(); watchSecs=0; return; }
+        buildSpots(); // rebuild from live data at open time — as fresh as Home
+        if(!dataReady){ watchSecs=0; return; }
         lastAuto=Date.now(); watchSecs=0; show("auto");
       }
     }catch(e){}
@@ -9250,7 +9423,10 @@ async function maybeRun(){
   try{
     const w=tasteWeights(), seen=seenIds();
     const exclude=new Set(inbox.map(m=>m.titleId)); // never re-pick an old pick
-    const picks=huntCatalog(w,seen,exclude,2);
+    /* order matters: 1 catalog pick, then the people hunt (the scarcer,
+       personal signal — it gets first claim before the catalog hunt can
+       take the same title unattributed), then catalog fills to MAX. */
+    const picks=huntCatalog(w,seen,exclude,1);
     picks.forEach(p=>exclude.add(p.t.id));
     try{ const person=await huntPeople(w,seen,exclude); if(person){ picks.push(person); exclude.add(person.t.id); } }catch(e){}
     while(picks.length<MAX_PICKS){
