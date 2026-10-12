@@ -112522,7 +112522,9 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "Public YouTube embed"
+  "rights_basis": "Public YouTube embed",
+  "award": "Webby winner (2010) — People's Voice, Best Comedy: Short or Series",
+  "award_verified": true
  },
  {
   "id": "stv-1992",
@@ -319753,5 +319755,253 @@
   "desc": "Short film from Omeleto (15 min).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Omeleto"
+ },
+ {
+  "id": "stv-6219",
+  "title": "Colbert Before Air",
+  "genre": "Comedy",
+  "award": "Primetime Emmy winner (2026) — Outstanding Short Form Comedy, Drama or Variety Series",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Colbert Before Air: Stephen Dishes with Julia Roberts",
+    "url": "https://www.youtube.com/embed/UTl1ttoBuWc",
+    "video_id": "UTl1ttoBuWc",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 2,
+    "title": "Colbert Before Air: Stephen Recalls The Time Tom Hiddleston Met Evie",
+    "url": "https://www.youtube.com/embed/Qo3aqVqzGWM",
+    "video_id": "Qo3aqVqzGWM",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 3,
+    "title": "Colbert Before Air: Robert Plant Hates Sea Shanties",
+    "url": "https://www.youtube.com/embed/ajN8CDvCgWk",
+    "video_id": "ajN8CDvCgWk",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 4,
+    "title": "Colbert Before Air: 'Best Friends Forever... For 6 Months' With Jimmy Fallon",
+    "url": "https://www.youtube.com/embed/M6hz8l48K0Y",
+    "video_id": "M6hz8l48K0Y",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 5,
+    "title": "Colbert Before Air: Stephen's Fondest Late Show Memory",
+    "url": "https://www.youtube.com/embed/azTxPblCD7E",
+    "video_id": "azTxPblCD7E",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 6,
+    "title": "Colbert Before Air: After The Interview With Strike Force Five",
+    "url": "https://www.youtube.com/embed/oyv_L6VFwTY",
+    "video_id": "oyv_L6VFwTY",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/UTl1ttoBuWc",
+  "eps": "6 eps",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-6220",
+  "title": "How It Should Have Ended",
+  "genre": "Comedy",
+  "award": "Streamy winner (2010) — Best Animated Web Series",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "How Avengers Endgame Encore Should Have Ended",
+    "url": "https://www.youtube.com/embed/DTZ8g7OPT6M",
+    "video_id": "DTZ8g7OPT6M",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 2,
+    "title": "How Spider-Man Brand New Day Should Have Ended",
+    "url": "https://www.youtube.com/embed/MGboSWeEpLk",
+    "video_id": "MGboSWeEpLk",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 3,
+    "title": "How Supergirl Should Have Ended",
+    "url": "https://www.youtube.com/embed/3igNhvzt7_k",
+    "video_id": "3igNhvzt7_k",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 4,
+    "title": "How Toy Story 3 Should Have Ended",
+    "url": "https://www.youtube.com/embed/HFwoSjacbpw",
+    "video_id": "HFwoSjacbpw",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 5,
+    "title": "How Super Mario Galaxy Should Have Ended",
+    "url": "https://www.youtube.com/embed/TLGTuWHI1ig",
+    "video_id": "TLGTuWHI1ig",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 6,
+    "title": "How Zootopia 2 Should Have Ended",
+    "url": "https://www.youtube.com/embed/VfEgLZkUoY0",
+    "video_id": "VfEgLZkUoY0",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/DTZ8g7OPT6M",
+  "eps": "6 eps",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-6221",
+  "title": "Auto-Tune the News",
+  "genre": "Comedy",
+  "award": "Streamy winner (2010) — Best News or Politics Web Series",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sarah Palin Quits! Auto-Tune the News #6",
+    "url": "https://www.youtube.com/embed/b0OzxvClwoU",
+    "video_id": "b0OzxvClwoU",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 2,
+    "title": "Turtles. // Auto-Tune the News #10",
+    "url": "https://www.youtube.com/embed/qizNQKzatXA",
+    "video_id": "qizNQKzatXA",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 3,
+    "title": "weed. lesbian allegaytions. // Auto-Tune the News #1x",
+    "url": "https://www.youtube.com/embed/jbc2NaLuv1A",
+    "video_id": "jbc2NaLuv1A",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 4,
+    "title": "Nobel. health care. United Nations. // Auto-Tune the News",
+    "url": "https://www.youtube.com/embed/LnoD3NUux3M",
+    "video_id": "LnoD3NUux3M",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 5,
+    "title": "dragons. geese. Michael Vick. (ft. T-Pain) // Auto-Tune the News",
+    "url": "https://www.youtube.com/embed/bDOYN-6gdRE",
+    "video_id": "bDOYN-6gdRE",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 6,
+    "title": "texting. rhyming. pat buchanan fail. // Auto-Tune the News",
+    "url": "https://www.youtube.com/embed/dAfQhQJOquA",
+    "video_id": "dAfQhQJOquA",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/b0OzxvClwoU",
+  "eps": "6 eps",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
+ },
+ {
+  "id": "stv-6222",
+  "title": "Sarah & Duck",
+  "genre": "Kids",
+  "award": "BAFTA winner (2014) — Best Pre-School Animation",
+  "verified": true,
+  "dateAdded": "2026-10-11",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Stargazing | Full Episode | Sarah and Duck Official",
+    "url": "https://www.youtube.com/embed/XENHS1UnCAU",
+    "video_id": "XENHS1UnCAU",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 2,
+    "title": "Cake Bake | Sarah and Duck Series 1 Episode 4 | CBeebies",
+    "url": "https://www.youtube.com/embed/r_0YzG5Q8-Q",
+    "video_id": "r_0YzG5Q8-Q",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 3,
+    "title": "Sarah, Duck and the Penguins | Series 1 Episode 2 | CBeebies",
+    "url": "https://www.youtube.com/embed/zGn6PwRkD7c",
+    "video_id": "zGn6PwRkD7c",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 4,
+    "title": "Petal Light Picking | FULL EPISODE | Sarah and Duck Official",
+    "url": "https://www.youtube.com/embed/O5VLQOqUk9w",
+    "video_id": "O5VLQOqUk9w",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 5,
+    "title": "Octagon Club | Full Episode | Sarah and Duck Official",
+    "url": "https://www.youtube.com/embed/EN_oPjZG0yA",
+    "video_id": "EN_oPjZG0yA",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 6,
+    "title": "No More Wool | Full Episode | Sarah and Duck Official",
+    "url": "https://www.youtube.com/embed/-cgcojnRLbk",
+    "video_id": "-cgcojnRLbk",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "url": "https://www.youtube.com/embed/XENHS1UnCAU",
+  "eps": "6 eps",
+  "rights_basis": "Public YouTube embed",
+  "award_verified": true
  }
 ]
