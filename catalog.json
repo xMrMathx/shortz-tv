@@ -354084,5 +354084,261 @@
     "award": "Winner — BAFTA, Best Short Animation (2013)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8056",
+    "title": "Fame Dogs",
+    "genre": "Comedy",
+    "eps": "6 eps",
+    "runtime": "8–19 min",
+    "desc": "A struggling actress's brush with a Hollywood suicide rockets her to fame.",
+    "url": "https://www.youtube.com/embed/kWnJCgJ0ljI",
+    "source_channel": "YouTube (FAME DOGS)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Fame Dogs Part One",
+        "video_id": "kWnJCgJ0ljI",
+        "url": "https://www.youtube.com/embed/kWnJCgJ0ljI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Fame Dogs Part Two",
+        "video_id": "2kSSkXRaErU",
+        "url": "https://www.youtube.com/embed/2kSSkXRaErU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Fame Dogs Part Three",
+        "video_id": "6Wq2QjQSNbM",
+        "url": "https://www.youtube.com/embed/6Wq2QjQSNbM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Fame Dogs Part Four",
+        "video_id": "sxoAzJxotZE",
+        "url": "https://www.youtube.com/embed/sxoAzJxotZE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Fame Dogs Part Five",
+        "video_id": "2DkpL_vTXIc",
+        "url": "https://www.youtube.com/embed/2DkpL_vTXIc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Fame Dogs Part Six",
+        "video_id": "H6kuxR1BSWk",
+        "url": "https://www.youtube.com/embed/H6kuxR1BSWk",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Indie Series Awards (2017), Best Web Series (Comedy); also Best Ensemble (Comedy)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8057",
+    "title": "Cady Did",
+    "genre": "Comedy",
+    "eps": "10 eps",
+    "runtime": "6–13 min",
+    "desc": "Cady Huffman plays an actress starting her life over.",
+    "url": "https://www.youtube.com/embed/YgHsi1mhpdU",
+    "source_channel": "YouTube (Cady Did)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Cady Did Episode 1",
+        "video_id": "YgHsi1mhpdU",
+        "url": "https://www.youtube.com/embed/YgHsi1mhpdU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Cady Did Episode 2",
+        "video_id": "-SwHjy_Hxm0",
+        "url": "https://www.youtube.com/embed/-SwHjy_Hxm0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Cady Did Episode 3",
+        "video_id": "kvzjbKZC1Sc",
+        "url": "https://www.youtube.com/embed/kvzjbKZC1Sc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Cady Did Episode 4",
+        "video_id": "LC6j3_7eUtU",
+        "url": "https://www.youtube.com/embed/LC6j3_7eUtU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Cady Did Episode 5",
+        "video_id": "MtBCmjvt2to",
+        "url": "https://www.youtube.com/embed/MtBCmjvt2to",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Cady Did Episode 6",
+        "video_id": "f1pFrmtM5TY",
+        "url": "https://www.youtube.com/embed/f1pFrmtM5TY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Cady Did Episode 7",
+        "video_id": "UaFaxxX5A9E",
+        "url": "https://www.youtube.com/embed/UaFaxxX5A9E",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Cady Did Episode 8",
+        "video_id": "L4PrgEO5oL4",
+        "url": "https://www.youtube.com/embed/L4PrgEO5oL4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Cady Did Episode 9",
+        "video_id": "hQzUSFWN8k4",
+        "url": "https://www.youtube.com/embed/hQzUSFWN8k4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Cady Did Episode 10",
+        "video_id": "2y65ePRy4QI",
+        "url": "https://www.youtube.com/embed/2y65ePRy4QI",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Indie Series Awards (2022), Best Comedy Series",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8058",
+    "title": "Bright Summer Night",
+    "genre": "Drama",
+    "eps": "10 eps",
+    "runtime": "6–10 min",
+    "desc": "Ten teens, one house-party night — a Midsummer Night's Dream retelling.",
+    "url": "https://www.youtube.com/embed/TFqTpKKwhLA",
+    "source_channel": "YouTube (The Candle Wasters)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ep. 1 - Puck",
+        "video_id": "TFqTpKKwhLA",
+        "url": "https://www.youtube.com/embed/TFqTpKKwhLA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Ep. 2 - Lena",
+        "video_id": "rZhH3tFpMX4",
+        "url": "https://www.youtube.com/embed/rZhH3tFpMX4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Ep. 3 - Petra",
+        "video_id": "hacdY1hJdHk",
+        "url": "https://www.youtube.com/embed/hacdY1hJdHk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Ep. 4 - Bryn",
+        "video_id": "y10zdypjpug",
+        "url": "https://www.youtube.com/embed/y10zdypjpug",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Ep. 5 - Zander",
+        "video_id": "hj8oRdIyjr8",
+        "url": "https://www.youtube.com/embed/hj8oRdIyjr8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Ep. 6 - Nicky",
+        "video_id": "CvcyzvRfStE",
+        "url": "https://www.youtube.com/embed/CvcyzvRfStE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Ep. 7 - Deme",
+        "video_id": "ke_M__WFPVA",
+        "url": "https://www.youtube.com/embed/ke_M__WFPVA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Ep. 8 - Mia",
+        "video_id": "ryCxnWjz5XA",
+        "url": "https://www.youtube.com/embed/ryCxnWjz5XA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Ep. 9 - Awhina",
+        "video_id": "KR-6bzU7dPo",
+        "url": "https://www.youtube.com/embed/KR-6bzU7dPo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Ep. 10 - Finale",
+        "video_id": "mPRBgxi0cxo",
+        "url": "https://www.youtube.com/embed/mPRBgxi0cxo",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — HollyWeb Festival (2017), Best Drama",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
