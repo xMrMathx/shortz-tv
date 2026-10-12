@@ -682,8 +682,11 @@ body.pip #micDot{display:none}
   #voicePop{left:calc(50% + 120px)}
   /* mic dot is a mobile watch-surface affordance — not needed with the desktop sidebar */
   #micDot{display:none!important}
-  /* --- SPLASH: base inset:0 is already full-screen — just scale the logo up --- */
-  #splashLogo{width:min(44vw,460px)}
+  /* --- SPLASH: laptop gets a full cinematic intro — reels span the screen --- */
+  #splashLogo{width:min(44vw,520px)}
+  .splashReel img{width:200px;height:112px}
+  @keyframes splashScrollDesk{from{transform:translateX(0)}to{transform:translateX(-420px)}}
+  .splashReel{animation-name:splashScrollDesk}
   /* --- grids use the full main-area width --- */
   #view-browse .wrap{max-width:1500px;margin:0 auto;padding-left:36px;padding-right:36px}
   #view-browse .grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:20px}
@@ -1076,6 +1079,10 @@ try{
   document.querySelectorAll(".splashReel").forEach(r=>{
     r.style.animationDuration=r.dataset.speed+"s";
   });
+  // laptop: double the reel images so each row spans the full screen width
+  if(window.matchMedia&&matchMedia("(min-width:1024px)").matches){
+    document.querySelectorAll(".splashReel").forEach(r=>{r.innerHTML+=r.innerHTML;});
+  }
   setTimeout(()=>{const s=document.getElementById("splash");if(s)s.remove();},3150);
 }catch(e){}
 </script>
