@@ -2019,7 +2019,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         vi=document.getElementById("voiceInput");
   if(!btn)return;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  let rec=null, listening=false, holdTimer=null, wasHold=false, voicePausedSlide=null;
+  let rec=null, listening=false, holdTimer=null, wasHold=false, voicePausedSlide=null, noExec=false;
   // VS VOICE ENGINE v2: pre-warmed recognition instance for <150ms tap-to-listening.
   // Created once at startup, reused across activations (no cold-start delay).
   let warmRec=null;
@@ -2042,6 +2042,27 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     "short film":"Short Films","short films":"Short Films","space":"Space","sports":"Sports",
     "thriller":"Thriller","western":"Western","westerns":"Western"
   };
+
+  // Pre-compiled fuzzy tab matchers — built ONCE, not per voice command.
+  const _fesc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+  const FUZZ_BARE=[
+    {keys:["browsing","browser","browse","brows"],dest:"browse"},
+    {keys:["homepage","home","main"],dest:"home"},
+    {keys:["live"],dest:"live"},
+    {keys:["streaming","streams","stream"],dest:"streaming"},
+    {keys:["manga","comics","comic","anime"],dest:"manga"},
+    {keys:["profile","my list","mylist","settings","account"],dest:"profile"},
+    {keys:["stakes","stake","bets","bet"],dest:"stakes"},
+    {keys:["genres","genre"],dest:"genres"},
+  ].map(o=>({...o,re:new RegExp("\\b(?:"+o.keys.map(_fesc).join("|")+")\\b")}));
+  const FUZZ_TAB=[
+    {keys:["browsing","browser","browse","brows"],dest:"browse"},
+    {keys:["homepage","home","main"],dest:"home"},
+    {keys:["live"],dest:"live"},
+    {keys:["streaming","streams","stream"],dest:"streaming"},
+    {keys:["manga","comics","comic","anime"],dest:"manga"},
+    {keys:["profile","my list","mylist","settings","account"],dest:"profile"},
+  ].map(o=>({...o,re:new RegExp("\\b(?:"+o.keys.map(_fesc).join("|")+")")}));
 
   function voiceCommand(raw){
     const text=String(raw||"").toLowerCase().trim();
@@ -2073,24 +2094,36 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         toast("Playing next");
         return true;
       }
-      // FUZZY bare tabs: "browser"->browse, "browsing"->browse, etc.
-      const bareFuzzy=[
-        {keys:["browse","browser","browsing","brows"],dest:"browse"},
-        {keys:["home","homepage","main"],dest:"home"},
-        {keys:["live"],dest:"live"},
-        {keys:["streaming","stream","streams"],dest:"streaming"},
-        {keys:["manga","comics","comic","anime"],dest:"manga"},
-        {keys:["profile","my list","mylist","settings","account"],dest:"profile"},
-        {keys:["stakes","stake","bets","bet"],dest:"stakes"},
-        {keys:["genres","genre"],dest:"genres"},
-      ];
+      // bare playback: "pause", "play", "mute", "stop", "back" said ALONE.
+      // (Previously these fell through to a browse search for the word — wrong.)
+      if(bare==="pause"||bare==="pause it"||bare==="pause video"||bare==="pause this"||bare==="stop"||bare==="stop it"){
+        try{togglePause();}catch(e){}
+        return true;
+      }
+      if(bare==="play"||bare==="resume"||bare==="continue"||bare==="unpause"){
+        try{const s=curSlide();if(s&&s._player&&s._player.getPlayerState&&s._player.getPlayerState()===2)togglePause();}catch(e){}
+        return true;
+      }
+      if(bare==="mute"||bare==="mute it"){
+        try{const s=curSlide();const pl=s&&s._player;if(pl&&pl.mute)pl.mute();}catch(e){}
+        return true;
+      }
+      if(bare==="unmute"||bare==="unmute it"||bare==="sound on"){
+        try{doUnmute();}catch(e){}
+        return true;
+      }
+      if(bare==="back"||bare==="go back"){
+        try{
+          if(curView==="genre"||curView==="detail")go("home");
+          else if(typeof goBack==="function")goBack();
+          else history.back();
+        }catch(e){}
+        return true;
+      }
+      // FUZZY bare tabs (pre-compiled): "browser"->browse, "browsing"->browse, etc.
       let bareDest=null;
-      for(const bf of bareFuzzy){
-        for(const k of bf.keys){
-          const re=new RegExp("\\b"+k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\b");
-          if(re.test(bare)||bare===k){bareDest=bf.dest;break;}
-        }
-        if(bareDest)break;
+      for(const bf of FUZZ_BARE){
+        if(bf.re.test(bare)){bareDest=bf.dest;break;}
       }
       if(bareDest){
         const dest=bareDest;
@@ -2151,7 +2184,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       return true;
     }
     // --- playback controls: "pause", "play", "mute", "next" ---
-    if(/^(pause|pause it|pause video)$/.test(target)){
+    if(/^(pause|pause it|pause video|pause this|pause the video|stop|stop it)$/.test(target)){
       try{const s=curSlide();if(s&&s._player){const st=s._player.getPlayerState();if(st===1)togglePause();}}catch(e){}
       return true;
     }
@@ -2204,24 +2237,14 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       return true;
     }
     // --- tabs (natural: "take me home", "open up live") ---
-    // FUZZY: understands mispronunciations like "browser"->browse, "browsing"->browse,
-    // "stream"->streaming, extra words like "browse page". Knows what you mean like I do.
-    const tabFuzzy=[
-      {keys:["browse","browser","browsing","brows"],dest:"browse"},
-      {keys:["home","homepage","main"],dest:"home"},
-      {keys:["live"],dest:"live"},
-      {keys:["streaming","stream","streams"],dest:"streaming"},
-      {keys:["manga","comics","comic","anime"],dest:"manga"},
-      {keys:["profile","my list","mylist","settings","account"],dest:"profile"},
-    ];
-    for(const tf of tabFuzzy){
-      for(const k of tf.keys){
-        // match if target contains the key as a word (or the key contains target for short utterances)
-        const re=new RegExp("\\b"+k.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));
-        if(re.test(target)||(target.length>=3&&k.startsWith(target))){
-          try{if(tf.dest==="browse"){try{renderView("browse")}catch(e){}}go(tf.dest);voiceCtx.lastTab=tf.dest;}catch(e){}
-          return true;
-        }
+    // FUZZY (pre-compiled): understands mispronunciations like "browser"->browse,
+    // "browsing"->browse, "stream"->streaming, extra words like "browse page".
+    for(const tf of FUZZ_TAB){
+      let hit=tf.re.test(target);
+      if(!hit&&target.length>=3){for(const k of tf.keys){if(k.startsWith(target)){hit=true;break;}}}
+      if(hit){
+        try{if(tf.dest==="browse"){try{renderView("browse")}catch(e){}}go(tf.dest);voiceCtx.lastTab=tf.dest;}catch(e){}
+        return true;
       }
     }
     // --- search: "search for X", "find X", "look for X" ---
@@ -2349,6 +2372,8 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(TITLE_MEMORY.has(norm))return TITLE_MEMORY.get(norm);
     const qwords=q.split(/\s+/).filter(w=>w.length>1);
     if(!qwords.length)return null;
+    // Pre-compile word-boundary regexes ONCE per query (not per title — 7,526x fewer constructions)
+    const qres=qwords.map(w=>new RegExp("\\b"+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")));
     let best=null,bestScore=0;
     for(const t of C){
       const title=String(t.title||"").toLowerCase().replace(/[^\w\s]/g,"");
@@ -2356,11 +2381,11 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       let score=0;
       // exact phrase match = jackpot
       if(title.includes(q))score+=qwords.length*3+5;
-      for(const w of qwords){
-        if(title.includes(w)){
+      for(let i=0;i<qwords.length;i++){
+        if(title.includes(qwords[i])){
           score+=2;
           // word-boundary bonus (matches "kassos" in "les kassos", not inside another word)
-          if(new RegExp("\\b"+w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).test(title))score+=1;
+          if(qres[i].test(title))score+=1;
         }
       }
       // prefer titles where MORE of the title was matched (precision)
@@ -2386,7 +2411,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       rec=warmRec||new SR();
       if(!warmRec){rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;}
     }catch(e){toast("Voice not supported here — type instead");openType();return;}
-    listening=true;btn.classList.add("listening");pop.classList.add("show");
+    listening=true;noExec=false;btn.classList.add("listening");pop.classList.add("show");
     tx.textContent="Listening…";
     // AUTO-PAUSE: if the video is playing, pause it while you talk (mic hears YOU, not the video).
     // On release, it resumes — unless you paused it yourself before holding.
@@ -2418,6 +2443,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     };
     rec.onerror=(e)=>{
       const err=(e&&e.error)||"unknown";
+      noExec=true; // error stop: don't run a partial command onend
       stopListen();
       if(err==="not-allowed"||err==="service-not-allowed"){
         toast("Mic blocked — allow microphone for the app, then try again");
@@ -2433,10 +2459,15 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     };
     rec.onend=()=>{
       const said=tx.textContent;
-      const wasListening=listening;
+      const exec=!noExec; // tap-to-stop or silence: RUN it. error-stop: don't.
+      noExec=false;
       stopListen(false);
-      if(wasListening&&said&&said!=="Listening…")voiceCommand(said);
+      if(exec&&said&&said!=="Listening…"){
+        if(!voiceCommand(said))toast("Didn't catch that — try again");
+      }
     };
+    // Instant visual: pulse the moment sound is detected, before first words arrive.
+    rec.onsoundstart=()=>{pop.classList.add("hearing");};
     try{rec.start();}catch(e){warmRec=null;stopListen(false);}
   }
   function stopListen(){
@@ -3375,7 +3406,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011234800";
+const BUILD="20261011235000";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
