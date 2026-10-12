@@ -352854,5 +352854,397 @@
     "award": "Academy Award nominee — Best Live Action Short Film (2008)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8042",
+    "title": "Ragged Isle",
+    "genre": "Horror",
+    "eps": "10 eps",
+    "runtime": "7–15 min",
+    "desc": "A reporter returns to her Maine island hometown and uncovers ritualistic murders tied to the island's dark past.",
+    "url": "https://www.youtube.com/embed/HQ3NIKmTfSA",
+    "source_channel": "YouTube (raggedisle)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ragged Isle Episode One",
+        "video_id": "HQ3NIKmTfSA",
+        "url": "https://www.youtube.com/embed/HQ3NIKmTfSA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Ragged Isle Episode Two",
+        "video_id": "RZUGmLfcpCU",
+        "url": "https://www.youtube.com/embed/RZUGmLfcpCU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Ragged Isle Episode Three",
+        "video_id": "GcpHut_pQpM",
+        "url": "https://www.youtube.com/embed/GcpHut_pQpM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Ragged Isle Episode Four",
+        "video_id": "UkM5WsuiBTs",
+        "url": "https://www.youtube.com/embed/UkM5WsuiBTs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Ragged Isle Episode Five",
+        "video_id": "PgVieBav5ls",
+        "url": "https://www.youtube.com/embed/PgVieBav5ls",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Ragged Isle Episode Six",
+        "video_id": "gu992ezGuKY",
+        "url": "https://www.youtube.com/embed/gu992ezGuKY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Ragged Isle Episode Seven",
+        "video_id": "3h4rlF2KS0I",
+        "url": "https://www.youtube.com/embed/3h4rlF2KS0I",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Ragged Isle Episode Eight",
+        "video_id": "_IjLkzaKOck",
+        "url": "https://www.youtube.com/embed/_IjLkzaKOck",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Ragged Isle Episode Nine",
+        "video_id": "K0KGmNlAgBc",
+        "url": "https://www.youtube.com/embed/K0KGmNlAgBc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Ragged Isle Episode Ten - Season One Finale",
+        "video_id": "Caf6neBEvrc",
+        "url": "https://www.youtube.com/embed/Caf6neBEvrc",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Indie Series Awards (2012), Best Web Series (Drama); also Best Director, Best Cinematography & Best Ensemble",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8043",
+    "title": "Squaresville",
+    "genre": "Comedy",
+    "eps": "16 eps",
+    "runtime": "2–8 min",
+    "desc": "Two teen best friends in a dull suburb turn having nothing to do into deadpan comedy.",
+    "url": "https://www.youtube.com/embed/Pq8YjE-IvRI",
+    "source_channel": "YouTube (Squaresville)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ep. 1 Nerds On The Run",
+        "video_id": "Pq8YjE-IvRI",
+        "url": "https://www.youtube.com/embed/Pq8YjE-IvRI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Ep. 2 Let's Hang Out In The Treehouse",
+        "video_id": "iH5zoIOB7Jg",
+        "url": "https://www.youtube.com/embed/iH5zoIOB7Jg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Ep. 3 MALLSCAPADE",
+        "video_id": "lxmFcMolsJE",
+        "url": "https://www.youtube.com/embed/lxmFcMolsJE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Ep. 4 Sassy Girl",
+        "video_id": "j3ddZeGcHCw",
+        "url": "https://www.youtube.com/embed/j3ddZeGcHCw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Ep. 5 The Hottest of Messes",
+        "video_id": "bFaVX3IKqik",
+        "url": "https://www.youtube.com/embed/bFaVX3IKqik",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Ep. 6 I Don't Wanna Wait",
+        "video_id": "y6ZAsOnX6Bk",
+        "url": "https://www.youtube.com/embed/y6ZAsOnX6Bk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Ep. 7 Shelly at Large",
+        "video_id": "MX0erOjew5w",
+        "url": "https://www.youtube.com/embed/MX0erOjew5w",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Ep. 8 I Know, Right?",
+        "video_id": "0xQs9sjoc8M",
+        "url": "https://www.youtube.com/embed/0xQs9sjoc8M",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Ep. 9 Make Out City",
+        "video_id": "7Miudix0LAo",
+        "url": "https://www.youtube.com/embed/7Miudix0LAo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Ep. 10 Tele-marathon",
+        "video_id": "0oEySpON4bw",
+        "url": "https://www.youtube.com/embed/0oEySpON4bw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "Ep. 11 Before Supper",
+        "video_id": "Md7izcjqUrg",
+        "url": "https://www.youtube.com/embed/Md7izcjqUrg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "Ep. 12 Cougarville",
+        "video_id": "Ws4QmsbCdcA",
+        "url": "https://www.youtube.com/embed/Ws4QmsbCdcA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "Ep. 13 Real Girl Talk",
+        "video_id": "1AgNlCccdRE",
+        "url": "https://www.youtube.com/embed/1AgNlCccdRE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "Ep. 14 Adventure Date (Director's Cut)",
+        "video_id": "kh38Z9pcPNE",
+        "url": "https://www.youtube.com/embed/kh38Z9pcPNE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "Ep. 15 Star Cross't Action News",
+        "video_id": "noZnoavBx-w",
+        "url": "https://www.youtube.com/embed/noZnoavBx-w",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "Ep. 16 Season Finale",
+        "video_id": "xpeoPiMAk44",
+        "url": "https://www.youtube.com/embed/xpeoPiMAk44",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — IAWTV Awards (2013), Best Web Series (Comedy)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8044",
+    "title": "Anyone But Me",
+    "genre": "Drama",
+    "eps": "10 eps",
+    "runtime": "6–16 min",
+    "desc": "Teen couple Vivian and Aster navigate first love while keeping their relationship secret after Vivian's move to the suburbs.",
+    "url": "https://www.youtube.com/embed/7q0edfw__fc",
+    "source_channel": "YouTube (AnyoneButMeWebSeries)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Heavy Lifting",
+        "video_id": "7q0edfw__fc",
+        "url": "https://www.youtube.com/embed/7q0edfw__fc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "New Alliance",
+        "video_id": "-yATO0PM1bU",
+        "url": "https://www.youtube.com/embed/-yATO0PM1bU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Countdown",
+        "video_id": "BhY5DylarpE",
+        "url": "https://www.youtube.com/embed/BhY5DylarpE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Vivian + Aster",
+        "video_id": "JByCNMRXuVo",
+        "url": "https://www.youtube.com/embed/JByCNMRXuVo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "The Note (Part 1)",
+        "video_id": "v3_y9ma5Rso",
+        "url": "https://www.youtube.com/embed/v3_y9ma5Rso",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "The Note (Part 2)",
+        "video_id": "1YM1FRxaPeM",
+        "url": "https://www.youtube.com/embed/1YM1FRxaPeM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Welcome to the Party. Now Clean Up the Mess.",
+        "video_id": "bZWSGA9_8fQ",
+        "url": "https://www.youtube.com/embed/bZWSGA9_8fQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Welcome to the Party. Now Clean Up the Mess.",
+        "video_id": "rTDknR87xPw",
+        "url": "https://www.youtube.com/embed/rTDknR87xPw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Out of the Gate",
+        "video_id": "050TGfzrBm8",
+        "url": "https://www.youtube.com/embed/050TGfzrBm8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Enormous Changes at the Last Minute",
+        "video_id": "HE9_RcvcYBg",
+        "url": "https://www.youtube.com/embed/HE9_RcvcYBg",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Writers Guild of America Award (2011), Outstanding Achievement in Writing, Original New Media",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8045",
+    "title": "Pretty",
+    "genre": "Comedy",
+    "eps": "5 eps",
+    "runtime": "5–7 min",
+    "desc": "A father obsessed with child beauty pageants keeps entering his daughter — who is now 35 years old.",
+    "url": "https://www.youtube.com/embed/6wpaBV0m_WI",
+    "source_channel": "YouTube (PRETTYTHESERIES)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Pretty - Episode 1",
+        "video_id": "6wpaBV0m_WI",
+        "url": "https://www.youtube.com/embed/6wpaBV0m_WI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Pretty - Episode 2",
+        "video_id": "aBzlxbpeZ74",
+        "url": "https://www.youtube.com/embed/aBzlxbpeZ74",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Pretty - Episode 3",
+        "video_id": "A5T57E-qFvw",
+        "url": "https://www.youtube.com/embed/A5T57E-qFvw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Pretty - Episode 4",
+        "video_id": "qsm4Bobt4_Q",
+        "url": "https://www.youtube.com/embed/qsm4Bobt4_Q",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Pretty - Episode 5 - Season Finale",
+        "video_id": "7ZJEHwkucP8",
+        "url": "https://www.youtube.com/embed/7ZJEHwkucP8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Indie Series Awards (2012), Best Web Series (Comedy)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
