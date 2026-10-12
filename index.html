@@ -2726,8 +2726,11 @@ function embedSrc(u,autoplay){
   if(autoplay===false)
     return vimeo ? u+sep+"title=0&byline=0&portrait=0&controls=0"
                  : u+sep+"enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080&controls=0";
-  return vimeo ? u+sep+"autoplay=1&muted=1&title=0&byline=0&portrait=0&controls=0"
-               : u+sep+"autoplay=1&mute=1&enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080&controls=0";
+  // APK (soundOn): load unmuted directly — WebView allows sound autoplay.
+  // Web (soundOn=false): stay muted until the user taps.
+  const mp=soundOn?"0":"1";
+  return vimeo ? u+sep+"autoplay=1&muted="+mp+"&title=0&byline=0&portrait=0&controls=0"
+               : u+sep+"autoplay=1&mute="+mp+"&enablejsapi=1&rel=0&playsinline=1&modestbranding=1&vq=hd1080&controls=0";
 }
 function frameModeClass(t,fit){
   if(t.orientation==="vertical"||t.vertical||isVertMain(t))return "vert";
@@ -3459,7 +3462,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261011235800";
+const BUILD="20261011235900";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -3939,8 +3942,8 @@ function loadVideoInto(node,url,vid){
     node._vid=vid||null; node._seekDone=false; node._dur=0; node._durReq=0;
     const sh=makeArchivePlayer(v);
     node._player=sh;
-    v.muted=!soundOn; // muted autoplay start, unmute shortly after like the YT path
-    v.onloadedmetadata=()=>{ maybeResume(node,sh); if(soundOn){ setTimeout(()=>{ try{if(node._player===sh)v.muted=false;}catch(e){} },900); } };
+    v.muted=!soundOn; // soundOn (APK): start unmuted directly; web: muted until tap
+    v.onloadedmetadata=()=>{ maybeResume(node,sh); if(soundOn){ try{if(node._player===sh)v.muted=false;}catch(e){} } };
     v.onplaying=()=>{try{suggestFit(node)}catch(e){}};
     v.onended=()=>{ try{clearProg(node);}catch(e){} autoNext(node,vid); };
     v.onpause=()=>{ try{if(!v.ended)saveProg(node);}catch(e){} };
@@ -3990,7 +3993,7 @@ function loadVideoInto(node,url,vid){
     if(node._vid!==vid)return;
     try{
       node._player=new YT.Player(fr,{events:{
-        onReady:ev=>{maybeResume(node,ev.target);applySavedTracks(node,ev.target);try{ev.target.setPlaybackQuality("hd1080")}catch(e){}},
+        onReady:ev=>{maybeResume(node,ev.target);applySavedTracks(node,ev.target);try{ev.target.setPlaybackQuality("hd1080")}catch(e){}if(soundOn){try{ev.target.unMute();ev.target.setVolume(100);}catch(e){}}},
         onApiChange:ev=>{try{applySavedTracks(node,ev.target)}catch(e){}},
         onError:ev=>{try{onYtPlayerError(node,vid,ev.data);}catch(e){}},
         // KILL 2x: long-press speed-up is banned — force back to 1x instantly.
