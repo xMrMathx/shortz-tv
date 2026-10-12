@@ -236,6 +236,7 @@ body.hud-hidden #view-home .soundprompt,
 body.hud-hidden.feedfull #topbar,
 body.hud-hidden.feedfull #tabbar,
 body.hud-hidden.feedfull #view-home .scrub,
+body.hud-hidden.feedfull #view-home .uprog,
 body.hud-hidden .sreel-rail,
 body.hud-hidden .sreel-cap,
 body.hud-hidden .sreel-sport,
@@ -2672,7 +2673,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011203000";
+const BUILD="20261011211000";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
@@ -6271,6 +6272,13 @@ if("serviceWorker" in navigator){
       }
     }catch(e){}
     navigator.serviceWorker.register("sw.js").catch(()=>{});
+    // STALE-CLIENT HEALER: if a newer service worker takes over, reload so the
+    // fresh app arrives on its own — no manual refresh ever needed. Also poll
+    // for SW updates every 5 min while the app sits open.
+    try{
+      navigator.serviceWorker.addEventListener("controllerchange",()=>{location.reload();});
+      setInterval(()=>{try{navigator.serviceWorker.getRegistration().then(r=>{if(r)r.update();});}catch(e){}},5*60*1000);
+    }catch(e){}
     // Live visitor presence: start heartbeating (delayed so boot stays instant)
     setTimeout(()=>{try{Presence.start();}catch(e){}},8000);
   });

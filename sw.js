@@ -1,5 +1,5 @@
 /* Shortz TV service worker — app shell: network-first for the page (always fresh when online), cache-first for the rest */
-const CACHE = "shortztv-v4";
+const CACHE = "shortztv-v5"; // bumped 2026-10-11: forces every client onto the self-healing updater
 const THUMBS = "shortztv-thumbs-v1";
 const SHELL = ["catalog.js", "manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
