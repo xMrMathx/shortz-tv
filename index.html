@@ -1053,6 +1053,13 @@ try{localStorage.removeItem("blockedVids");}catch(e){}
 try{for(let i=localStorage.length-1;i>=0;i--){const k=localStorage.key(i);if(k&&/blockedVids/i.test(k))localStorage.removeItem(k);}}catch(e){}
 // Shortz VS intro sting: "What's Next" clip, plays once per cold launch during the 3s splash
 try{
+  // Freshness reload (?fresh=): skip the intro replay — the user already saw it
+  // on the previous load. Remove the splash immediately, no sting, no animation.
+  let _skipSplash=false;
+  try{_skipSplash=new URLSearchParams(location.search).has("fresh");}catch(e){}
+  if(_skipSplash){
+    const _s=document.getElementById("splash");if(_s)_s.remove();
+  }else{
   const a=new Audio("whats-next-sting.wav");
   a.volume=1.0; a.preload="auto";
   let stingDone=false;
@@ -1084,6 +1091,7 @@ try{
     document.querySelectorAll(".splashReel").forEach(r=>{r.innerHTML+=r.innerHTML;});
   }
   setTimeout(()=>{const s=document.getElementById("splash");if(s)s.remove();},3150);
+  } // end else (skip splash on ?fresh= reloads)
 }catch(e){}
 </script>
 <script>
@@ -3687,7 +3695,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012003100";
+const BUILD="20261012004000";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -3706,10 +3714,18 @@ function _videoPlaying(){
 function forceFreshReload(){
   // Reload-loop guard: >3 freshness reloads in 5 min means the CDN is serving
   // mixed versions — stop looping and tell the user instead of spinning forever.
+  // NOTE: the counter lives in sessionStorage because location.replace() wipes
+  // all JS state on every reload — an in-memory counter can never fire.
   const now=Date.now();
-  if(now-_fresh.reloadWin>5*60*1000){_fresh.reloadWin=now;_fresh.reloads=0;}
-  _fresh.reloads++;
-  if(_fresh.reloads>3){try{toast("Update available — please reopen the app to apply it");}catch(e){}return;}
+  let rl={n:0,win:now};
+  try{
+    const raw=sessionStorage.getItem("svFreshRL");
+    if(raw){rl=JSON.parse(raw);if(typeof rl.n!=="number"||typeof rl.win!=="number")rl={n:0,win:now};}
+  }catch(e){rl={n:0,win:now};}
+  if(now-rl.win>5*60*1000){rl={n:0,win:now};}
+  rl.n++;
+  try{sessionStorage.setItem("svFreshRL",JSON.stringify(rl));}catch(e){}
+  if(rl.n>3){try{toast("Update available — please reopen the app to apply it");}catch(e){}return;}
   // Preserve share-link params (?watch=, ?stream=, ?ep=); drop cache-busters.
   let q="";
   try{
@@ -3750,6 +3766,8 @@ function _runFreshCheck(reason){
       }
       return true;
     }
+    // Build matches — clear any stale reload-loop counter from sessionStorage.
+    try{sessionStorage.removeItem("svFreshRL");}catch(e){}
     return false;
   });
 }
