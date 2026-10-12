@@ -320,6 +320,20 @@ body.rot-full #rotexit{display:block}
 .award-item{position:relative;flex:0 0 auto;width:120px;cursor:pointer}
 .award-item img{display:block;width:120px;height:170px;object-fit:cover;border-radius:8px;background:#1a1a1a;box-shadow:0 6px 18px rgba(0,0,0,.55)}
 .award-t{font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* coming soon / premieres shelf — same row pattern as award-sec, with drop-date badge */
+.cs-sec{margin:16px -16px 8px}
+.cs-head{display:flex;align-items:baseline;gap:8px;padding:0 16px;margin-bottom:6px}
+.cs-head h3{font-size:17px;font-weight:800;color:#fff;margin:0}
+.cs-head span{font-size:12px;color:var(--mut)}
+.cs-row{display:flex;gap:10px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.cs-row::-webkit-scrollbar{display:none}
+.cs-item{position:relative;flex:0 0 auto;width:140px}
+.cs-item img{display:block;width:140px;height:190px;object-fit:cover;border-radius:8px;background:#1a1a1a;box-shadow:0 6px 18px rgba(0,0,0,.55)}
+.cs-item .cs-noimg{display:flex;align-items:center;justify-content:center;width:140px;height:190px;border-radius:8px;background:linear-gradient(135deg,#1a1a2e,#16213e);color:#888;font-size:12px;text-align:center;padding:12px;box-shadow:0 6px 18px rgba(0,0,0,.55)}
+.cs-drop{position:absolute;top:8px;left:8px;background:rgba(229,9,20,.92);color:#fff;font-size:10px;font-weight:800;padding:3px 8px;border-radius:20px;letter-spacing:.3px}
+.cs-t{font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cs-g{font-size:10px;color:var(--mut);margin:1px 0 0}
+.cs-award{font-size:10px;color:#f6c945;margin:1px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .award-e{font-size:10px;color:var(--mut);margin:1px 0 0}
 /* ---------- browse ---------- */
 body.force-land #view-home{transform:rotate(90deg);transform-origin:center center;width:100vh;height:100vw;position:fixed;top:50%;left:50%;margin-left:-50vw;margin-top:-50vh}
@@ -333,6 +347,7 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 #view-browse.searching #featHero,
 #view-browse.searching #prevSpot,
 #view-browse.searching #awardWinSec,
+#view-browse.searching #comingSoonSec,
 #view-browse.searching #awardFilmsSec,
 #view-browse.searching #awardSeriesSec,
 #view-browse.searching #top10sec,
@@ -3578,7 +3593,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012001400";
+const BUILD="20261012002200";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -4655,6 +4670,38 @@ function renderAwardWinners(){
   const all=$("#awardWinAll");
   if(all)all.onclick=()=>{renderBrowse(AWARD);};
 }
+/* ---------- 🔜 Coming Soon shelf: verified drops on the way (data: coming_soon.json) ---------- */
+let csCache=null;
+async function renderComingSoon(){
+  const sec=$("#comingSoonSec"),row=$("#comingSoonRow");
+  if(!sec||!row)return;
+  try{
+    if(!csCache){
+      let r=null;
+      try{ r=await fetch("https://xmrmathx.github.io/shortz-tv/coming_soon.json",{cache:"no-cache"}); }catch(e){}
+      if(!r||!r.ok){ r=await fetch("coming_soon.json",{cache:"no-cache"}); }
+      if(!r.ok)throw 0;
+      csCache=await r.json();
+    }
+    const items=(csCache||[]).filter(x=>x&&x.title);
+    if(!items.length)return;
+    // sort by drop_date ascending — nearest drop first
+    items.sort((a,b)=>String(a.drop_date||"").localeCompare(String(b.drop_date||"")));
+    row.innerHTML=items.map(x=>{
+      const img=x.thumb
+        ? `<img decoding="async" src="${esc(x.thumb)}" alt="" loading="lazy" onerror="this.style.display='none'">`
+        : `<div class="cs-noimg">🔜<br>${esc(x.title)}</div>`;
+      const award=x.award?`<div class="cs-award">🏆 ${esc(x.award)}</div>`:"";
+      return `<div class="cs-item">
+        <div class="cs-drop">${esc(x.drop_label||"Soon")}</div>
+        ${img}
+        <div class="cs-t">${esc(x.title)}</div>
+        <div class="cs-g">${esc(x.genre||"")}</div>
+        ${award}
+      </div>`;}).join("");
+    sec.style.display="";
+  }catch(e){ /* row stays hidden if the file is missing */ }
+}
 /* award-winning carousels: films + series (IDs curated from catalog award mentions) */
 const AWARD_TOP_FILMS=["stv-4670","stv-4669","stv-4668","stv-4886","stv-4740"]; // Oscar winners: Last Repair Shop, Queen of Basketball, Colette, Sing, Sand Castle
 const AWARD_TOP_SERIES=["stv-5032","stv-5034","stv-5035","stv-5033","stv-4513","stv-096","stv-1571","stv-1749","stv-1715"]; // Continues #1, Phase II #2, Farragut #3, Mission Backup Earth #4, Zenith Run #5, then Lizzie Bennet, Creature Comforts, Emma Approved, Vox Borders
@@ -4862,6 +4909,10 @@ function renderBrowse(g){
       <div class="award-head"><h3>🏆 Award Winners</h3><button id="awardWinAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
       <div class="award-row" id="awardWinRow"></div>
     </div></div>
+    <div class="wrap"><div class="cs-sec" id="comingSoonSec" style="display:none">
+      <div class="cs-head"><h3>🔜 Coming Soon</h3><span>Verified drops on the way</span></div>
+      <div class="cs-row" id="comingSoonRow"></div>
+    </div></div>
     <div class="wrap" style="padding-top:0">
       <div class="rowlabel" style="margin-top:0"><h2 id="browseHead">${browseQuery.trim()?`${list.length} result${list.length===1?"":"s"} for &ldquo;${esc(browseQuery.trim())}&rdquo;`:`Browse ${C.length} series`}</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
       <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
@@ -4922,6 +4973,7 @@ function renderBrowse(g){
   loadTop10Award(); // Top 10 award-winning films + series, ranked by real views
   loadAwardCarousels(); // award-winning short films + short series carousels
   renderAwardWinners(); // 🏆 verified-winners shelf under the genre dropdown
+  renderComingSoon(); // 🔜 coming-soon premieres shelf (coming_soon.json)
   // Previously spotlight: open James's site in the system browser
   const psb=$("#prevSpotBtn"), psp=$("#prevSpot");
   const openPrev=()=>{ try{ window.open("https://watchpreviously.com/","_blank"); }catch(e){ location.href="https://watchpreviously.com/"; } };
