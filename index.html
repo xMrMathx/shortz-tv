@@ -3936,7 +3936,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012012300";
+const BUILD="20261012013100";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8317,11 +8317,17 @@ setTimeout(()=>Stake.init(),2500);
      account and sync across devices (existing
      syncMyListRemote/syncHistoryRemote pick up the real UID).
    - Tutorial is a 4-page swipeable overlay, shown once.
+   - TESTING MODE (see SHOW_GATES_EVERY_TIME below): both
+     gates currently show on EVERY launch so the owner can
+     test the new-user flow. Flip the constant to false
+     before market launch to restore once-only behavior.
    ============================================================ */
 (function(){
 "use strict";
 const $=id=>document.getElementById(id);
 const isFresh=/[?&]fresh=/.test(location.search);
+// TESTING MODE: gates show every launch — flip SHOW_GATES_EVERY_TIME to false before market launch
+const SHOW_GATES_EVERY_TIME=true;
 
 /* ---------- Firebase ---------- */
 function fbAuth(){
@@ -8541,7 +8547,7 @@ function paintTut(){
   $("tutNext").textContent=(tutIdx===TUTS.length-1)?"Get Started":"Next";
 }
 function showTutorial(force){
-  try{ if(!force&&store.get("tutorial_done"))return; }catch(e){ return; }
+  try{ if(!force&&!SHOW_GATES_EVERY_TIME&&store.get("tutorial_done"))return; }catch(e){ return; }
   const g=$("tutGate"); if(!g)return;
   tutIdx=0;
   $("tutTrack").innerHTML=TUTS.map(t=>
@@ -8608,7 +8614,7 @@ function bootGates(){
   const delay=isFresh?800:3400; // let the intro finish first
   setTimeout(()=>{
     try{
-      if(store.get("auth_done")){ maybeTutorial(); return; }
+      if(!SHOW_GATES_EVERY_TIME&&store.get("auth_done")){ maybeTutorial(); return; }
       showAuthGate();
     }catch(e){}
   },delay);
