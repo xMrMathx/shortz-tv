@@ -2092,7 +2092,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       if(bareDest){
         const dest=bareDest;
         if(dest==="stakes"){try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}return true;}
-        if(dest==="genres"){try{go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}return true;}
+        if(dest==="genres"){try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}return true;}
         try{go(dest);voiceCtx.lastTab=dest;}catch(e){}
         return true;
       }
@@ -2107,6 +2107,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       // SHOW-EVERYTHING: bare query like "Star Trek" -> browse search showing ALL matches
       if(bare.length>1){
         try{
+          try{renderView("browse")}catch(e){}
           go("browse");
           setTimeout(()=>{
             const s=document.getElementById("bsearch");
@@ -2138,7 +2139,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }
     }
     if(target.includes("genre")){
-      try{go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}
+      try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);}catch(e){}
       return true;
     }
     // --- stakes ---
@@ -2223,6 +2224,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     // --- search: "search for X", "find X", "look for X" ---
     if(verb.includes("search for")||verb.includes("find")||verb.includes("look for")){
       try{
+        try{renderView("browse")}catch(e){}
         go("browse");
         setTimeout(()=>{
           const s=document.getElementById("bsearch");
@@ -2260,6 +2262,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const wantShow=!wantPlay||!intent; // bare query ("Star Trek") or show-verb ("show me X")
     if(q.length>1&&wantShow&&!epNum){
       try{
+        try{renderView("browse")}catch(e){}
         go("browse");
         setTimeout(()=>{
           const s=document.getElementById("bsearch");
@@ -3350,7 +3353,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011233000";
+const BUILD="20261011233200";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
