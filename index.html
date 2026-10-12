@@ -4325,7 +4325,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012235811";
+const BUILD="20261012235859";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5850,10 +5850,27 @@ let browseGenre=ALL; // always start Browse on All (everything) — user filters
 let browseWall=false; // Scout-guided Browse: the landing shows unless he explicitly opened the All wall (All tile / search flip)
 let browseQuery=""; // search text; filters across all series regardless of pill
 let sportsSport=null; // selected sport in Sports genre; null = picker view
+/* ---------- search matching: spelled the way people type ---------- */
+// Query and catalog text go through the SAME normalizer: case folded,
+// accents folded (shogun finds Shōgun), apostrophes dropped (curly,
+// straight, or missing all land), other punctuation collapsed to spaces.
+// A hit on the space-stripped form counts too, so a camelcase/compound
+// title ("BlackBoxTV") matches the spaced query ("black box tv") and an
+// unspaced query matches a spaced title. Root cause of the "black box tv
+// presents" 0-result bug: this filter used to raw-substring the whole
+// query against the raw title — the spaces a person types between
+// "Black Box TV" don't exist inside the one-word stored "BlackBoxTV".
+function searchNorm(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/['\u2018\u2019\u02bc`]/g,"").replace(/[^a-z0-9]+/g," ").trim();}
+function searchMatch(hay,q,qf){
+  if(!q&&!qf)return false;
+  const hn=searchNorm(hay);
+  if(q&&hn.indexOf(q)>=0)return true;
+  return !!qf&&hn.replace(/ /g,"").indexOf(qf)>=0;
+}
 function browseListFiltered(){
-  const q=browseQuery.trim().toLowerCase();
-  if(!q)return null;
-  return C.filter(t=>((t.title||"")+" "+(t.genre||"")+" "+(t.desc||"")).toLowerCase().indexOf(q)>=0);
+  if(!browseQuery.trim())return null;
+  const q=searchNorm(browseQuery), qf=q.replace(/ /g,"");
+  return C.filter(t=>searchMatch((t.title||"")+" "+(t.genre||"")+" "+(t.desc||""),q,qf));
 }
 /* ---------- Top 10 rows: most-watched + award-winning films/series ---------- */
 function fmtViews(v){
@@ -6959,9 +6976,9 @@ function tgRowHTML(t){
     <span class="tg-rplay">▶</span></div>`;
 }
 function tgFiltered(){
-  const q=tgQuery.trim().toLowerCase();
+  const raw=tgQuery.trim(), q=searchNorm(tgQuery), qf=q.replace(/ /g,"");
   if(!tgOrder)tgOrder=svShuffle(C.map(t=>t.id)); // first use builds the visit order
-  const match=t=>!q||(((t.title||"")+" "+(t.genre||"")).toLowerCase().indexOf(q)>=0);
+  const match=t=>!raw||searchMatch((t.title||"")+" "+(t.genre||""),q,qf);
   const seen=new Set(), out=[];
   // the visit's fresh order is the list; search narrows FROM it, never re-sorts
   tgOrder.forEach(id=>{ const t=byId(id); if(t&&match(t)){ out.push(t); seen.add(id); } });
@@ -8859,7 +8876,8 @@ function liveSeriesPicker(){
   $("#lvstitle").textContent="Pick a series to host";
   $("#lvsbody").innerHTML=`<input id="lvsearch" placeholder="Search series…" autocomplete="off"><div id="lvlist"></div>`;
   const render=q=>{
-    const list=C.filter(t=>!q||t.title.toLowerCase().includes(q)||(t.genre||"").toLowerCase().includes(q)).slice(0,60);
+    const qn=searchNorm(q), qf=qn.replace(/ /g,"");
+    const list=C.filter(t=>!q||searchMatch((t.title||"")+" "+(t.genre||""),qn,qf)).slice(0,60);
     const box=$("#lvlist");
     box.innerHTML=list.map(t=>{const th=thumb(t,"mq");return `<button class="lvrow" data-sid="${t.id}">${th?`<img decoding="async" class="lvrow-img" src="${th}" alt="" loading="lazy" onerror="this.style.display='none'">`:""}<span class="lvrow-main"><span class="lvrow-t">${esc(t.title)}</span>${t.desc?`<span class="lvrow-d">${esc(t.desc)}</span>`:""}</span><span class="lvrow-s">${esc(t.eps||"")}</span></button>`}).join("")
       || `<div class="live-empty">No matches.</div>`;
