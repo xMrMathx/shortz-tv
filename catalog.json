@@ -353246,5 +353246,105 @@
     "award": "Winner — Indie Series Awards (2012), Best Web Series (Comedy)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8046",
+    "title": "All These Creatures",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "A teenage boy pieces together fragmented memories of a backyard infestation and his father's mental unravelling.",
+    "source_channel": "Vimeo (Charles Williams)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/375749787",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "All These Creatures",
+        "video_id": "375749787",
+        "url": "https://player.vimeo.com/video/375749787",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Palme d'Or, Best Short Film, Cannes Film Festival (2018); also AACTA Best Short Film (2018)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8047",
+    "title": "Thunder Road",
+    "genre": "Comedy",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "In one unbroken take, a police officer's eulogy for his mother unravels into a raw, funny, heartbreaking Springsteen sing-along.",
+    "source_channel": "Vimeo (Jim Cummings)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/174957219",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Thunder Road",
+        "video_id": "174957219",
+        "url": "https://player.vimeo.com/video/174957219",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Short Film Grand Jury Prize, Sundance Film Festival (2016)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8048",
+    "title": "The Bigger Picture",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~7.5 min",
+    "desc": "Two brothers clash over caring for their elderly mother, in life-size painted stop-motion where the room's walls become the canvas.",
+    "source_channel": "Vimeo (Daisy Jacobs)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/203126235",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Bigger Picture",
+        "video_id": "203126235",
+        "url": "https://player.vimeo.com/video/203126235",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, Best British Short Animation (2015)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8049",
+    "title": "27",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "Alice, 27 and still living with her parents, escapes a dreary Budapest life into vivid fantasy — until a drunken bike crash after a rooftop party.",
+    "source_channel": "Vimeo (Miyu Distribution)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1083549816",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "27",
+        "video_id": "1083549816",
+        "url": "https://player.vimeo.com/video/1083549816",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Palme d'Or, Best Short Film, Cannes Film Festival (2023); Cristal for a Short Film, Annecy (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
