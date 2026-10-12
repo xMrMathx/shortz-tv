@@ -1252,6 +1252,15 @@ try{
     if(Date.now()-lastTouch<3*60*1000)return false; // user active in last 3 min
     return true;
   }
+  // Funnel through STALE-BUILD GUARD v2's safe applier (resolved at call time —
+  // these paths only fire on intervals, long after the whole page parsed). It
+  // holds the reload while ANY media plays (incl. the sports reel this guard
+  // can't see) and reloads via the ?fresh= URL so the intro never replays.
+  // A bare location.reload() here was the mid-video intro-restart bug.
+  function requestSafeReload(){
+    if(typeof window.__requestFreshReload==="function"){ window.__requestFreshReload(); return; }
+    pendingUpdate = true; // v2 applier missing: hold, never bare-reload mid-watch
+  }
   function check(){
     fetch('version.json?t='+Date.now(), {cache:'no-cache'})
       .then(function(r){ return r.ok ? r.json() : null; })
@@ -1259,7 +1268,7 @@ try{
         if(!v || !v.v) return;
         var mine = window.__SHORTZ_BUILD || null;
         if(mine && mine !== v.v){
-          if(safeToReload()){ location.reload(); }
+          if(safeToReload()){ requestSafeReload(); }
           else{ pendingUpdate = true; } // wait until safe
         } else if(!mine){
           window.__SHORTZ_BUILD = v.v;
@@ -1268,7 +1277,7 @@ try{
   }
   // if an update is pending, apply it the moment playback stops and user is idle
   setInterval(function(){
-    if(pendingUpdate&&safeToReload()){ location.reload(); }
+    if(pendingUpdate&&safeToReload()){ requestSafeReload(); }
   }, 30000);
   // Stamp this build's version as early as possible
   fetch('version.json?t='+Date.now(), {cache:'no-cache'})
@@ -3989,21 +3998,78 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012021500";
-const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
+const BUILD="20261012022300";
+const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
   return fetch("version.txt?t="+Date.now(),{cache:"no-store",method:"GET"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
 }
+/* UNIVERSAL playing detector — EVERY playback surface, not just the main
+   YouTube player. The old version only asked the home feed's YT API, so it was
+   blind to Vimeo, archive.org, the sports highlights reel, the TV Guide
+   player, live/streaming embeds and PiP — and the guard reloaded mid-watch.
+   Rule: if any surface might be playing, it IS playing. */
 function _videoPlaying(){
   try{
+    // Main feed slide: every provider (YouTube API, Vimeo, archive.org shim)
+    // keeps the app-level _paused flag honest — the cross-provider signal.
     const s=(typeof curSlide==="function")?curSlide():null;
-    const pl=s&&s._player;
-    if(pl&&pl.getPlayerState)return pl.getPlayerState()===1;
+    if(s&&s._vid&&!s._paused)return true;
+    if(s&&s._player&&s._player.getPlayerState){
+      const st=s._player.getPlayerState();
+      if(st===1||st===3)return true; // playing or buffering
+    }
+    // Any HTML5 <video> (archive.org direct files use real <video> tags).
+    const vs=document.querySelectorAll("video");
+    for(let i=0;i<vs.length;i++){if(!vs[i].paused&&!vs[i].ended)return true;}
+    // Sports highlights reel: raw autoplay iframes expose no state to query —
+    // an open reel is playing by design.
+    const reel=document.getElementById("sportsReel");
+    if(reel&&reel.classList&&reel.classList.contains("open"))return true;
+    // TV Guide preview / highlights player.
+    const pv=document.getElementById("tgPreviewBox");
+    if(pv&&pv._tid)return true;
+    // Live / Streaming: Twitch/Kick/YouTube embeds autoplay and their state is
+    // not queryable cross-origin — an open player view counts as playing.
+    // Leaving the view is the natural break that lets a held update apply.
+    if(typeof curView!=="undefined"&&(curView==="live"||curView==="streaming"))return true;
+    // System PiP: the video lives in the floating window.
+    if(document.body&&document.body.classList&&document.body.classList.contains("pip"))return true;
   }catch(e){}
   return false;
 }
+/* Held-update watcher: while an update is pending, re-check every 2s and apply
+   it at the first natural break — media paused/ended, view switched, or the
+   app went to the background. There is NO time-based expiry: a held update
+   waits indefinitely rather than ever yanking a playing video. */
+let _freshWatch=null;
+function _armFreshWatcher(){
+  if(_freshWatch)return;
+  _freshWatch=setInterval(()=>{
+    if(!_fresh.pending){clearInterval(_freshWatch);_freshWatch=null;return;}
+    if(document.hidden||!_videoPlaying()){
+      _fresh.pending=false;
+      clearInterval(_freshWatch);_freshWatch=null;
+      forceFreshReload();
+    }
+  },2000);
+}
+/* Single safe entry point for EVERY update signal (this guard, the legacy
+   version.json guard, the service-worker healer): hold while anything plays,
+   reload via the ?fresh= URL (intro skipped) when clear. Never a bare reload. */
+window.__requestFreshReload=function(){
+  if(_videoPlaying()){
+    if(!_fresh.pending){
+      _fresh.pending=true;
+      try{toast("Update ready — applying when the video pauses");}catch(e){}
+    }
+    _armFreshWatcher();
+    return false;
+  }
+  forceFreshReload();
+  return true;
+};
 // Force a truly fresh load — bypasses browser cache completely. No hard-refresh needed.
 function forceFreshReload(){
   // Reload-loop guard: >3 freshness reloads in 5 min means the CDN is serving
@@ -4045,17 +4111,18 @@ function _runFreshCheck(reason){
     }
     _fresh.fails=0;
     if(v!==BUILD){
-      if(_videoPlaying()&&!_fresh.deferred){
-        // Don't yank a playing video mid-watch — apply on pause/end, 45s max.
-        _fresh.deferred=true;
-        try{toast("Update ready — applying when the video pauses");}catch(e){}
-        const to=setTimeout(()=>{_fresh.deferred=false;forceFreshReload();},45000);
-        const watchPause=()=>{
-          if(!_videoPlaying()){clearTimeout(to);_fresh.deferred=false;forceFreshReload();}
-          else setTimeout(watchPause,5000);
-        };
-        setTimeout(watchPause,5000);
-      }else if(!_fresh.deferred){
+      if(_videoPlaying()){
+        // NEVER yank a playing video mid-watch. Hold the update silently and
+        // let the watcher apply it at the first natural break (pause/end,
+        // view switch, background return). No expiry — it waits as long as
+        // playback lasts.
+        if(!_fresh.pending){
+          _fresh.pending=true;
+          try{toast("Update ready — applying when the video pauses");}catch(e){}
+        }
+        _armFreshWatcher();
+      }else{
+        _fresh.pending=false;
         forceFreshReload();
       }
       return true;
@@ -7760,11 +7827,16 @@ if("serviceWorker" in navigator){
       }
     }catch(e){}
     navigator.serviceWorker.register("sw.js").catch(()=>{});
-    // STALE-CLIENT HEALER: if a newer service worker takes over, reload so the
-    // fresh app arrives on its own — no manual refresh ever needed. Also poll
-    // for SW updates every 5 min while the app sits open.
+    // STALE-CLIENT HEALER: if a newer service worker takes over, apply the
+    // fresh app on its own — no manual refresh ever needed. Routed through
+    // the safe applier: it holds while ANY media plays and reloads via the
+    // ?fresh= URL (intro skipped). A bare location.reload() here yanked
+    // playing videos and replayed the intro. Also poll for SW updates every
+    // 5 min while the app sits open.
     try{
-      navigator.serviceWorker.addEventListener("controllerchange",()=>{location.reload();});
+      navigator.serviceWorker.addEventListener("controllerchange",()=>{
+        if(typeof window.__requestFreshReload==="function")window.__requestFreshReload();
+      });
       setInterval(()=>{try{navigator.serviceWorker.getRegistration().then(r=>{if(r)r.update();});}catch(e){}},5*60*1000);
     }catch(e){}
     // Live visitor presence: start heartbeating (delayed so boot stays instant)
