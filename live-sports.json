@@ -1,0 +1,100 @@
+{
+ "channels": [
+  {
+   "name": "FIBA Basketball",
+   "channelId": "UCtInrnU3QbWqFGsdKT1GZtg",
+   "handle": "@FIBA",
+   "sport": "Basketball",
+   "blurb": "World basketball \u2014 qualifiers, 3x3 & youth championships live.",
+   "avatar": "https://yt3.ggpht.com/J09pwEf655991JjUDUvEqBb24t5oYoLeihQ0FL9AP06KEo-w58J8v8AgxiCVIky_I5J4Ly19=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "World Surf League",
+   "channelId": "UChuLeaTGRcfzo0UjL-2qSbQ",
+   "handle": "@WSL",
+   "sport": "Surfing",
+   "blurb": "Every Championship Tour surf event, live and free.",
+   "avatar": "https://yt3.ggpht.com/YQoVzEJ1DqlXxZO4l5ITeNWJT_6oHJQzzEjEU0YWmusfI-MoB3NfhR-SI3amNo4fxb1x8a9wHw=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "FIFA",
+   "channelId": "UCpcTrCXblq78GZrTUTLWeBw",
+   "handle": "@FIFA",
+   "sport": "Soccer",
+   "blurb": "Youth World Cups, futsal, beach soccer & women's tournaments live.",
+   "avatar": "https://yt3.ggpht.com/9UB1blxIJIz-OQmtHTsGEvYnMSYU3i77CRrYyD4EIA34kxseG0z5BYebP_P7KkWniL1W-7ZN=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Volleyball World",
+   "channelId": "UCNMg6XDhRZI2QzL4pWOvP_w",
+   "handle": "@volleyballworld",
+   "sport": "Volleyball",
+   "blurb": "International volleyball & beach pro tour matches live.",
+   "avatar": "https://yt3.ggpht.com/EyrUl_ojXxxo5NrH_7UGPeN3QxeFhb-FMxNzy_xA4E3kUz986SJiZXE_AiaBsj41wegZS4Bh=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "World Athletics",
+   "channelId": "UCQk7fWv15ChjMJLCRVmtApw",
+   "handle": "@WorldAthletics",
+   "sport": "Athletics",
+   "blurb": "Continental Tour, indoor & U20 championship action live.",
+   "avatar": "https://yt3.ggpht.com/25UH_Y6LCjT3oBBly2H9Wc-_j4ZYheaqP4enl2OKodnRiT8qyJ0xnCbFZTxupGMXk5LmaK1B9A=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "NBA G League",
+   "channelId": "UCpGimyrbwRtrcJ-CIiRDXbA",
+   "handle": "@nbagleague",
+   "sport": "Basketball",
+   "blurb": "Official G League games live all season.",
+   "avatar": "https://yt3.ggpht.com/7OB3Qd_1amPSxDw0zA_AuTKS1LeGPSfLKlIK4cIRVUSqmF3fqGiwpiXTaKyjndD5Eh2oNihxhA=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "PFL MMA",
+   "channelId": "UCPrONRG9hO1f-OrxW-WH-xg",
+   "handle": "@PFLMMA",
+   "sport": "MMA",
+   "blurb": "Full PFL events \u2014 international & tournament cards live.",
+   "avatar": "https://yt3.ggpht.com/PMIaWJqNWPZHQnPOHPuw8FNbjAzACHA_HvhrFjekU_5dMZqlp7UQr4m7EFH9nzbAJnNjT2yfMA=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "ONE Championship",
+   "channelId": "UCiormkBf3jm6mfb7k0yPbKA",
+   "handle": "@ONEChampionship",
+   "sport": "MMA",
+   "blurb": "Friday Fights and ONE events live from Asia.",
+   "avatar": "https://yt3.ggpht.com/ytc/AIdro_n_M052s_0ib-9MPEZdCGoEsNw0jyggZQ7h-GT1A8PyFpc=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "World Table Tennis",
+   "channelId": "UC9ckyA_A3MfXUa0ttxMoIZw",
+   "handle": "@WTTGlobal",
+   "sport": "Table Tennis",
+   "blurb": "Every World Table Tennis event, live.",
+   "avatar": "https://yt3.ggpht.com/2KCwNbeOIosyvVoz1uCMF5XeN4pvkjcoY4jexvJp3XGVKVxA2UG-4-6EruHi0EKXViOMusqaeg=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "World Rugby",
+   "channelId": "UCE28rwYoaV7jvU6GVzdu_GQ",
+   "handle": "@WorldRugby",
+   "sport": "Rugby",
+   "blurb": "U20s, Sevens Challenger & international rugby live.",
+   "avatar": "https://yt3.ggpht.com/iLWvjwtBpNga5oQopnTzx4ZdHqJe5MhSwH9GLDI3OUviJYcS8Ef9BfUnEP_6oZjLF0s6bJ2ZzQ=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "UCI",
+   "channelId": "UCloqTh1nPpW13LCntQglS-Q",
+   "handle": "@ucichannel",
+   "sport": "Cycling",
+   "blurb": "BMX, mountain bike, cyclo-cross & track World Cups live.",
+   "avatar": "https://yt3.ggpht.com/r9R3wMUCfxeLYXOKECkGh13pbzgu5kX3hjCssZOZ76ZM3EdRubc8VdQIr2zjt7SQll-DYHN-7x4=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Matchroom Boxing",
+   "channelId": "UC7LReVje9aPB4B6XAsXX8WQ",
+   "handle": "@MatchroomBoxing",
+   "sport": "Boxing",
+   "blurb": "Live undercards, prelims & fight-week events.",
+   "avatar": "https://yt3.ggpht.com/U4KDjaD7b8IE_OcKHH2Y8HGrKmHJgmk43GTYeiT-tKz8uhaqtkWTGuG17fvL4HOf-d_XIqTeYQ=s240-c-k-c0x00ffffff-no-rj"
+  }
+ ]
+}

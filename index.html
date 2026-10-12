@@ -2274,6 +2274,7 @@ function go(v){
   if(v===curView&&v!=="detail")return;
   if(curView==="home"&&v!=="home"&&!piaActive)pauseFeedVideo(); // PIA: keep playing while browsing
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
+  if(curView==="live"&&v!=="live"&&typeof lsStop==="function")lsStop(); // stop Free Live Sports stage
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
   if(curView==="manga"&&v!=="manga")likesDetach(); // same for manga likes
   if(curView==="profile"&&v!=="profile"&&typeof tgPause==="function")tgPause(); // stop the TV Guide preview
@@ -4114,7 +4115,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012032000";
+const BUILD="20261012033000";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7139,6 +7140,7 @@ function liveShellHTML(){
       <button data-lt="lobby" class="${Live.tab==="lobby"?"on":""}">🔴 Live</button>
       <button data-lt="friends" class="${Live.tab==="friends"?"on":""}">👥 Friends</button>
       <button data-lt="plan" class="${Live.tab==="plan"?"on":""}">📅 Plan</button>
+      <button data-lt="sports" class="${Live.tab==="sports"?"on":""}">📺 Sports</button>
     </div>
     <div id="livebody"></div>
   </div>`;
@@ -7650,6 +7652,7 @@ async function renderLive(){
   if(!FIREBASE_READY){ v.innerHTML=liveSetupHTML(); return; }
   v.innerHTML=liveShellHTML();
   v.querySelectorAll("[data-lt]").forEach(b=>b.onclick=()=>{ Live.tab=b.dataset.lt; renderLive(); });
+  if(Live.tab==="sports"){ if(typeof liveSports==="function")liveSports(); return; } // public channels — no Firebase sign-in needed
   const ok=await liveEnsure();
   if(!ok){ v.innerHTML=liveSetupHTML(); return; }
   if(Live.tab==="lobby") liveLobby();
@@ -9751,6 +9754,119 @@ else setTimeout(boot,6000);
 
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote};
 })();
+</script>
+<script>
+"use strict";
+/* ---------- FREE LIVE SPORTS (Live tab → 📺 Sports) ----------
+   Official league/federation YouTube channels ONLY — each verified free +
+   embeddable before it made the list (live-sports.json). Live state and the
+   latest-upload replay id ride the existing yt-live.json pipeline
+   (bin/auto-stakes.py checks these channels on the same pass as streamers).
+   NO DEAD SCREENS: live → the live broadcast; offline → the channel's latest
+   upload as a replay under a "live events return soon" chip; no ids known
+   yet → the channel's uploads playlist, which is always playable. */
+let LS_CHANS=[], LS_STATE={}, LS_ACTIVE=null;
+function lsEnsureStyle(){
+  if(document.getElementById("lsStyle"))return;
+  const st=document.createElement("style"); st.id="lsStyle";
+  st.textContent=
+  ".ls-head{font-size:19px;font-weight:900;margin:2px 0 2px}"+
+  ".ls-sub{color:var(--mut);font-size:12.5px;margin-bottom:12px}"+
+  ".ls-stage{position:relative;width:100%;aspect-ratio:16/9;background:#000;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:14px}"+
+  ".ls-stage iframe{width:100%;height:100%;border:0;display:block}"+
+  ".ls-idle{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--mut);text-align:center;padding:16px}"+
+  ".ls-chip{position:absolute;top:10px;left:10px;background:rgba(5,5,10,.82);color:#fff;font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:999px;pointer-events:none;max-width:88%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
+  ".ls-chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff2d55;margin-right:6px;animation:lsPulse 1.2s infinite}"+
+  "@keyframes lsPulse{0%,100%{opacity:1}50%{opacity:.25}}"+
+  ".ls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:10px}"+
+  ".ls-card{background:#101016;border:1px solid var(--line);border-radius:14px;padding:12px;cursor:pointer;text-align:left;width:100%;color:inherit;font:inherit}"+
+  ".ls-card.on{border-color:var(--red);box-shadow:0 0 0 1px var(--red)}"+
+  ".ls-top{display:flex;align-items:center;gap:9px;margin-bottom:7px}"+
+  ".ls-av{width:42px;height:42px;border-radius:50%;object-fit:cover;background:#1c1c26;flex:none}"+
+  ".ls-name{font-weight:800;font-size:13.5px;line-height:1.25}"+
+  ".ls-sport{color:var(--mut);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px}"+
+  ".ls-blurb{color:var(--mut);font-size:12px;line-height:1.4;min-height:32px}"+
+  ".ls-live{display:inline-flex;align-items:center;gap:5px;color:#ff2d55;font-size:11px;font-weight:900;margin-top:7px}"+
+  ".ls-live i{width:7px;height:7px;border-radius:50%;background:#ff2d55;animation:lsPulse 1.2s infinite}"+
+  ".ls-off{color:var(--mut);font-size:11px;font-weight:800;margin-top:7px}";
+  document.head.appendChild(st);
+}
+function lsState(ch){ return LS_STATE[ch.channelId]||{}; }
+function lsIsLive(ch){ const s=lsState(ch); return !!(s.live&&s.videoId); }
+function lsEmbed(ch){
+  const s=lsState(ch);
+  if(s.live&&s.videoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.videoId)+"?autoplay=1&rel=0";
+  if(s.latestVideoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.latestVideoId)+"?autoplay=1&rel=0";
+  return "https://www.youtube.com/embed?listType=playlist&list="+encodeURIComponent("UU"+String(ch.channelId).slice(2))+"&autoplay=1&rel=0";
+}
+function lsHeadHTML(){
+  return '<div class="ls-head">📺 Free Live Sports</div><div class="ls-sub">Official live channels — free to watch, right here. When a channel is between events, its latest replay plays instead.</div>';
+}
+function lsStageIdleHTML(){
+  return '<div class="ls-idle"><div style="font-size:40px">📺</div><div style="font-weight:800;color:#fff">Pick a channel below</div><div style="font-size:12.5px">Live events play the moment they start — replays roll in between.</div></div>';
+}
+function lsCardHTML(ch){
+  const live=lsIsLive(ch), on=LS_ACTIVE===ch.channelId, s=lsState(ch);
+  const status=live
+    ? '<div class="ls-live"><i></i>LIVE NOW</div>'
+    : '<div class="ls-off">'+(s.latestTitle?"Latest replay ready":"Replays · live events return soon")+'</div>';
+  return '<button class="ls-card'+(on?" on":"")+'" data-ls="'+esc(ch.channelId)+'">'
+    +'<div class="ls-top"><img class="ls-av" src="'+esc(ch.avatar||"")+'" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">'
+    +'<div><div class="ls-name">'+esc(ch.name)+'</div><div class="ls-sport">'+esc(ch.sport||"Sports")+'</div></div></div>'
+    +'<div class="ls-blurb">'+esc(ch.blurb||"")+'</div>'+status+'</button>';
+}
+function lsRender(){
+  const body=$("#livebody"); if(!body)return;
+  const chans=LS_CHANS.slice().sort((a,b)=>((lsIsLive(b)?1:0)-(lsIsLive(a)?1:0)));
+  body.innerHTML=lsHeadHTML()
+    +'<div class="ls-stage" id="lsStage">'+lsStageIdleHTML()+'</div>'
+    +'<div class="ls-grid">'+chans.map(lsCardHTML).join("")+'</div>';
+  body.querySelectorAll("[data-ls]").forEach(b=>b.onclick=()=>lsPlay(b.dataset.ls));
+  if(LS_ACTIVE&&LS_CHANS.some(c=>c.channelId===LS_ACTIVE)){
+    const ch=LS_CHANS.find(c=>c.channelId===LS_ACTIVE); lsPlay(ch.channelId,true);
+  }
+}
+function lsPlay(cid,keep){
+  const ch=LS_CHANS.find(c=>c.channelId===cid); if(!ch)return;
+  LS_ACTIVE=cid;
+  const stage=$("#lsStage"); if(!stage)return;
+  const live=lsIsLive(ch), s=lsState(ch);
+  const chip=live
+    ? '<div class="ls-chip"><span class="dot"></span>LIVE · '+esc(ch.name)+'</div>'
+    : '<div class="ls-chip">↻ REPLAY'+(s.latestTitle?" · "+esc(s.latestTitle):"")+' — live events return soon</div>';
+  stage.innerHTML='<iframe id="lsFrame" src="'+lsEmbed(ch)+'" frameborder="0" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>'+chip;
+  document.querySelectorAll("[data-ls]").forEach(b=>b.classList.toggle("on",b.dataset.ls===cid));
+  if(!keep){ try{ stage.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e){} }
+}
+function lsStop(){
+  const f=$("#lsFrame");
+  if(f){ try{ f.src="about:blank"; }catch(e){} }
+  LS_ACTIVE=null;
+}
+async function liveSports(){
+  lsEnsureStyle();
+  const body=$("#livebody"); if(!body)return;
+  body.innerHTML=lsHeadHTML()+'<div style="color:var(--mut);font-size:13px;padding:8px 0">Loading channels…</div>';
+  // fresh lineup on every open — same no-store pattern as streamers.json
+  try{
+    const r=await fetch("live-sports.json",{cache:"no-store"});
+    if(r.ok){ const d=await r.json(); if(d&&Array.isArray(d.channels)&&d.channels.length)LS_CHANS=d.channels; }
+  }catch(e){}
+  // fresh live/replay state on every open — same yt-live.json the Streaming tab polls
+  try{
+    const to=new Promise((_,rej)=>setTimeout(rej,3000));
+    const r=await Promise.race([fetch("yt-live.json",{cache:"no-store"}),to]);
+    if(r&&r.ok){ const d=await r.json(); if(d&&typeof d==="object")LS_STATE=d; }
+  }catch(e){}
+  if(typeof curView!=="undefined"&&curView!=="live")return;
+  if(typeof Live!=="undefined"&&Live.tab!=="sports")return;
+  if(!LS_CHANS.length){
+    body.innerHTML=lsHeadHTML()+'<div style="color:var(--mut);font-size:13px;padding:8px 0">Channels are on their way — check back soon.</div>';
+    return;
+  }
+  LS_ACTIVE=null;
+  lsRender();
+}
 </script>
 </body>
 </html>
