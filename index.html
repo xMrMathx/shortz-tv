@@ -509,7 +509,7 @@ body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
 /* EVERYTHING TOGGLE: persistent floating button — ALWAYS on screen, even when the HUD
    is hidden. Tap to enter ev-mode (swipe between sections); tap again to exit and stay
    on the current section. Glows red while ev-mode is active. */
-#evToggle{position:fixed;top:calc(64px + env(safe-area-inset-top));left:12px;z-index:9600;
+#evToggle{position:fixed;top:calc(64px + env(safe-area-inset-top));right:12px;z-index:9600;
   width:40px;height:40px;border-radius:50%;padding:0;cursor:pointer;
   background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
   font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;
@@ -765,8 +765,8 @@ body.pip #evToggle{display:none}
   #voicePop{left:calc(50% + 120px)}
   /* mic dot is a mobile watch-surface affordance — not needed with the desktop sidebar */
   #micDot{display:none!important}
-  /* everything toggle sits right of the 240px desktop sidebar */
-  #evToggle{left:252px}
+  /* everything toggle sits clear at top-right on desktop too */
+  #evToggle{left:auto;right:12px}
   /* --- SPLASH: laptop gets a full cinematic intro — reels span the screen --- */
   #splashLogo{width:min(44vw,520px)}
   .splashReel img{width:200px;height:112px}
@@ -3936,7 +3936,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012012200";
+const BUILD="20261012012300";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
