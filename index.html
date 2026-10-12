@@ -613,6 +613,11 @@ body.pip #tvBox{display:none!important}
 #agForm{margin-bottom:6px}
 #agForm .pinput{width:100%;margin-bottom:10px}
 #agErr{color:#ff6b6b;font-size:13px;min-height:18px;margin-bottom:6px}
+#agMsg{color:#ff6b6b;font-size:13px;margin-bottom:8px}
+#agMsg:empty{display:none}
+#agNote{color:#7ee2a0;font-size:13px;margin:6px 0 2px}
+#agNote:empty{display:none}
+#agAlt .ag-btn{margin-top:8px}
 .ag-row{display:flex;gap:10px}
 .ag-row .ag-btn{margin-bottom:0}
 /* tutorial */
@@ -1202,6 +1207,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
     <img class="ag-logo" src="shortzvs-logo-transparent.webp" alt="Shortz VS">
     <div class="ag-title">Welcome to Shortz VS</div>
     <div class="ag-sub">Sign in to save your list and pick up where you left off — on any device.</div>
+    <div id="agMsg"></div>
     <button class="ag-btn ag-google" id="agGoogle"><span style="font-size:18px">G</span> Continue with Google</button>
     <button class="ag-btn" id="agEmailBtn">✉️ Continue with Email</button>
     <button class="ag-btn" id="agCreateBtn">＋ Create account</button>
@@ -1213,6 +1219,12 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
         <button class="ag-btn" id="agGo">Continue</button>
         <button class="ag-btn" id="agBack" style="flex:0 0 64px">←</button>
       </div>
+      <div id="agAlt" style="display:none">
+        <button class="ag-btn" id="agCreateFromSignin">Create account with this email &amp; password</button>
+        <button class="ag-btn" id="agGoogleAlt">Continue with Google instead</button>
+      </div>
+      <div id="agNote"></div>
+      <button class="ag-skip" id="agForgot" style="display:none">Forgot password?</button>
     </div>
     <button class="ag-skip" id="agSkip">Skip for now</button>
   </div>
@@ -4102,7 +4114,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012030600";
+const BUILD="20261012032000";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8751,6 +8763,7 @@ function isSignedIn(){
 }
 async function finishAuth(user,method){
   if(!user)return;
+  googlePendingClear();
   try{
     const nm=user.displayName||(user.email?String(user.email).split("@")[0]:"Viewer");
     store.set("auth_done",true); store.set("auth_guest",false);
@@ -8766,6 +8779,7 @@ async function finishAuth(user,method){
   maybeTutorial();
 }
 function doSkip(){
+  googlePendingClear();
   try{ store.set("auth_done",true); store.set("auth_guest",true); }catch(e){}
   hideAuthGate();
   maybeTutorial();
@@ -8784,17 +8798,27 @@ function hideAuthGate(){
 }
 let agMode="signin", agWired=false;
 function agError(m){ const e=$("agErr"); if(e)e.textContent=m||""; }
+/* Gate-level message (visible even when the email form is closed — toasts
+   render UNDER the gate overlay, z 130 vs 100000, so they can't be used
+   for sign-in errors). Set by boot/redirect handling and Google failures;
+   cleared when a new sign-in attempt starts. */
+function gateMsg(m){ const e=$("agMsg"); if(e)e.textContent=m||""; }
+function agNote(m){ const e=$("agNote"); if(e)e.textContent=m||""; }
+function agShowAlt(show){ const a=$("agAlt"); if(a)a.style.display=show?"block":"none"; }
 function wireAuthButtons(){
   if(agWired)return; agWired=true;
   const showForm=mode=>{
-    agMode=mode; agError("");
+    agMode=mode; agError(""); agNote(""); agShowAlt(false);
     $("agForm").style.display="block";
+    $("agForgot").style.display=(mode==="signin")?"":"none";
     $("agEmailBtn").style.display="none"; $("agCreateBtn").style.display="none";
     $("agGoogle").style.display="none";
     setTimeout(()=>{try{$("agEmailIn").focus();}catch(e){}},300);
   };
   const hideForm=()=>{
-    agError(""); $("agForm").style.display="none";
+    agError(""); agNote(""); agShowAlt(false);
+    $("agForgot").style.display="none";
+    $("agForm").style.display="none";
     $("agEmailBtn").style.display=""; $("agCreateBtn").style.display="";
     $("agGoogle").style.display="";
   };
@@ -8804,26 +8828,72 @@ function wireAuthButtons(){
   $("agBack").onclick=hideForm;
   $("agSkip").onclick=doSkip;
   $("agGo").onclick=emailGo;
+  $("agCreateFromSignin").onclick=createFromSignin;
+  $("agGoogleAlt").onclick=googleSignIn;
+  $("agForgot").onclick=forgotPassword;
   $("agPassIn").addEventListener("keydown",e=>{ if(e.key==="Enter")emailGo(); });
+}
+/* --- Google redirect handoff tracking ----------------------------------
+   The redirect flow navigates to the Firebase auth handler. In the APK
+   shell that navigation is kicked OUT of the WebView into the external
+   browser (MainActivity.shouldOverrideUrlLoading), where the handler
+   page has no path back — the user lands on a blank stuck page and the
+   app never hears anything. So a redirect attempt arms a pending flag;
+   boot (getRedirectResult) and the in-page watchdog below make sure a
+   lost handoff is REPORTED in the gate, never a silent dead end. */
+function googlePendingSet(){ try{ sessionStorage.setItem("svGooglePending",String(Date.now())); }catch(e){} }
+function googlePendingClear(){ try{ sessionStorage.removeItem("svGooglePending"); }catch(e){} }
+function googlePendingAge(){ try{ const t=parseInt(sessionStorage.getItem("svGooglePending")||"0",10); return t?(Date.now()-t):-1; }catch(e){ return -1; } }
+const GOOGLE_LOST_MSG="Google sign-in didn't come back — if you saw a blank page, that window can't hand you back to the app. Email sign-in below works right now.";
+let googleWatchArmed=false;
+function watchGoogleReturn(){
+  if(googleWatchArmed)return; googleWatchArmed=true;
+  const report=()=>{
+    setTimeout(()=>{
+      googleWatchArmed=false;
+      if(googlePendingAge()<0)return; // finished, or already reported
+      let cu=null; try{ const a=fbAuth(); cu=a&&a.currentUser; }catch(e){}
+      if(cu||isSignedIn()){ googlePendingClear(); return; }
+      googlePendingClear();
+      gateMsg(GOOGLE_LOST_MSG);
+    },1500);
+  };
+  const onVis=()=>{ if(!document.hidden){ document.removeEventListener("visibilitychange",onVis); report(); } };
+  document.addEventListener("visibilitychange",onVis);
+  // If the navigation never happens at all (intercepted by the shell),
+  // the watchdog still reports instead of leaving the gate sitting dead.
+  setTimeout(()=>{
+    if(googleWatchArmed&&googlePendingAge()>=0&&!document.hidden){
+      document.removeEventListener("visibilitychange",onVis); report();
+    }
+  },6000);
 }
 async function googleSignIn(){
   const auth=fbAuth();
-  if(!auth){ try{toast("Sign-in isn't available right now — try Skip");}catch(e){} return; }
+  if(!auth){ gateMsg("Sign-in isn't available right now — try email or Skip."); return; }
   let provider;
-  try{ provider=new firebase.auth.GoogleAuthProvider(); }catch(e){ return; }
+  try{ provider=new firebase.auth.GoogleAuthProvider(); }catch(e){ gateMsg("Google sign-in isn't available right now."); return; }
+  gateMsg("");
   try{
     const cred=await auth.signInWithPopup(provider);
+    googlePendingClear();
     finishAuth(cred.user,"google");
   }catch(e){
     const c=(e&&e.code)||"";
-    if(c==="auth/popup-blocked"||c==="auth/operation-not-supported"){
-      // WebView / blocked popup → redirect flow (result handled on return)
+    if(c==="auth/popup-blocked"||c==="auth/operation-not-supported"||c==="auth/operation-not-supported-in-this-environment"){
+      // Popups can't run here (WebView / blocked) → redirect flow. Arm the
+      // pending flag + watchdog first, so a handoff that escapes the app
+      // and never returns is surfaced in the gate instead of going dead.
+      googlePendingSet();
+      watchGoogleReturn();
       try{ await auth.signInWithRedirect(provider); }
-      catch(e2){ try{toast("Google sign-in failed");}catch(_){} }
+      catch(e2){ googlePendingClear(); gateMsg("Google sign-in couldn't start — try email instead."); }
     }else if(c==="auth/unauthorized-domain"){
-      try{toast("Google sign-in needs this domain authorized");}catch(_){}
-    }else if(c!=="auth/popup-closed-by-user"){
-      try{toast("Google sign-in failed");}catch(_){}
+      gateMsg("Google sign-in needs this domain authorized in Firebase.");
+    }else if(c==="auth/popup-closed-by-user"||c==="auth/cancelled-popup-request"){
+      /* user backed out — no message, no state change */
+    }else{
+      gateMsg("Google sign-in failed — try email instead.");
     }
   }
 }
@@ -8834,7 +8904,7 @@ async function emailGo(){
   const pass=$("agPassIn").value||"";
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ agError("Enter a valid email."); return; }
   if(pass.length<6){ agError("Password needs 6+ characters."); return; }
-  agError(""); $("agGo").textContent="…";
+  agError(""); agNote(""); agShowAlt(false); gateMsg(""); $("agGo").textContent="…";
   try{
     const cred = agMode==="signup"
       ? await auth.createUserWithEmailAndPassword(email,pass)
@@ -8844,15 +8914,77 @@ async function emailGo(){
   }catch(e){
     $("agGo").textContent="Continue";
     const c=(e&&e.code)||"";
+    if(agMode==="signin"&&(c==="auth/invalid-credential"||c==="auth/user-not-found"||c==="auth/wrong-password")){
+      /* Email-enumeration protection makes a MISSING account and a WRONG
+         password return the same error — the old flat "Wrong email or
+         password." sent users with no password account at all (e.g. they
+         only ever used Google) into a dead end. Say what's true and put
+         both ways out right here, using the fields already typed. */
+      agError("No password account for this email yet — or the password doesn't match.");
+      agShowAlt(true);
+      return;
+    }
     const msg={
-      "auth/email-already-in-use":"That email already has an account — try Continue with Email.",
-      "auth/user-not-found":"No account for that email — try Create account.",
-      "auth/wrong-password":"Wrong password.",
-      "auth/invalid-credential":"Wrong email or password.",
+      "auth/email-already-in-use":"That email already has an account — sign in instead (←, then Continue with Email).",
+      "auth/weak-password":"That password is too weak — use 6+ characters.",
       "auth/too-many-requests":"Too many tries — wait a bit.",
       "auth/network-request-failed":"No connection — check and retry."
     }[c]||"Couldn't sign in — try again.";
     agError(msg);
+  }
+}
+/* One-tap create from the sign-in form, using the already-typed fields. */
+async function createFromSignin(){
+  const auth=fbAuth();
+  if(!auth){ agError("Sign-in isn't available right now."); return; }
+  const email=($("agEmailIn").value||"").trim();
+  const pass=$("agPassIn").value||"";
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ agError("Enter a valid email."); return; }
+  if(pass.length<6){ agError("Password needs 6+ characters."); return; }
+  const btn=$("agCreateFromSignin"); if(!btn)return;
+  const old=btn.textContent; btn.textContent="Creating…"; btn.disabled=true;
+  try{
+    const cred=await auth.createUserWithEmailAndPassword(email,pass);
+    btn.textContent=old; btn.disabled=false;
+    finishAuth(cred.user,"email");
+  }catch(e){
+    btn.textContent=old; btn.disabled=false;
+    const c=(e&&e.code)||"";
+    if(c==="auth/email-already-in-use"){
+      /* It DOES exist — so the sign-in failure was the password (or the
+         account was made with Google). Point at both real recoveries. */
+      agError("That email already has an account — the password doesn't match, or it was made with Google. Try Forgot password, or Continue with Google.");
+      agShowAlt(false);
+      $("agForgot").style.display="";
+    }else if(c==="auth/weak-password"){
+      agError("That password is too weak — use 6+ characters.");
+    }else if(c==="auth/invalid-email"){
+      agError("That email doesn't look right.");
+    }else if(c==="auth/network-request-failed"){
+      agError("No connection — check and retry.");
+    }else{
+      agError("Couldn't create the account — try again.");
+    }
+  }
+}
+async function forgotPassword(){
+  const auth=fbAuth();
+  if(!auth){ agError("Sign-in isn't available right now."); return; }
+  const email=($("agEmailIn").value||"").trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ agError("Type your email above first, then tap Forgot password."); return; }
+  try{
+    await auth.sendPasswordResetEmail(email);
+    agError(""); agNote("Password reset sent to "+email+" — check your inbox.");
+  }catch(e){
+    const c=(e&&e.code)||"";
+    if(c==="auth/user-not-found"||c==="auth/invalid-credential"){
+      agError("No account for that email — create one instead.");
+      agShowAlt(true);
+    }else if(c==="auth/network-request-failed"){
+      agError("No connection — check and retry.");
+    }else{
+      agError("Couldn't send the reset — try again.");
+    }
   }
 }
 async function signOut(){
@@ -8962,12 +9094,37 @@ function bootGates(){
     const auth=fbAuth();
     if(auth){
       auth.getRedirectResult().then(res=>{
-        if(res&&res.user){ finishAuth(res.user,"google"); }
-      }).catch(()=>{});
+        if(res&&res.user){ googlePendingClear(); finishAuth(res.user,"google"); }
+      }).catch(err=>{
+        /* Never swallow this: a failed Google return used to vanish into
+           .catch(()=>{}) and the user just got a dead gate. Surface it. */
+        googlePendingClear();
+        const c=(err&&err.code)||"";
+        gateMsg(c==="auth/unauthorized-domain"
+          ? "Google sign-in needs this domain authorized in Firebase."
+          : "Google sign-in didn't finish. Try again, or use email below.");
+      });
+      /* Lost-redirect check: svGooglePending was armed before the browser
+         left for Google. If we're back, the redirect produced no result
+         and nobody is signed in, the handoff was lost (e.g. the auth page
+         opened in a different browser/app and couldn't return). Say so
+         in the gate instead of sitting silent. Stale flags (>30 min) are
+         dropped quietly. */
+      setTimeout(()=>{
+        const age=googlePendingAge();
+        if(age<0)return;
+        if(age>30*60*1000){ googlePendingClear(); return; }
+        let cu=null; try{ cu=auth.currentUser; }catch(e){}
+        if(!cu&&!isSignedIn()){
+          googlePendingClear();
+          gateMsg(GOOGLE_LOST_MSG);
+        }
+      },4000);
       // Restore a persisted session (Google/email) across launches.
       try{
         auth.onAuthStateChanged(async user=>{
           if(user&&!user.isAnonymous){
+            googlePendingClear();
             Live.uid=user.uid; Live.authed=true;
             Live.name=user.displayName||Live.name||"Viewer";
             try{
@@ -9468,7 +9625,21 @@ async function syncPublic(){
 /* ---------- Profile section: Scout row + shelf + privacy toggle ---------- */
 function profile(){
   const sec=$("scoutSec"); if(!sec) return;
-  if(!signedIn()){ sec.innerHTML=""; return; }
+  if(!signedIn()){
+    /* Guest: no runs, no picks — but never invisible. A locked teaser keeps
+       the feature discoverable and names the one-tap remedy (sign-in),
+       instead of blanking the section as if Scout didn't exist. */
+    sec.innerHTML=
+      '<div class="secttl">🤖 Your Scout</div>'
+      +'<div class="prow">'
+      +'<div class="avatar sm pav2" style="display:flex;align-items:center;justify-content:center;font-size:17px">🤖</div>'
+      +'<div style="flex:1;min-width:0"><div style="font-weight:700;font-size:14px">Your Scout is waiting</div>'
+      +'<div style="font-size:12px;color:var(--mut)">Sign in and your Scout hunts the catalog — and other viewers\' public pages — for picks matched to your taste.</div></div>'
+      +'<button class="pbtn sm" id="scoutSignIn">Sign in</button></div>';
+    const sb=$("scoutSignIn");
+    if(sb) sb.onclick=()=>{ try{ if(window.ShortzAuth) ShortzAuth.showGate(); }catch(e){} };
+    return;
+  }
   const inbox=getInbox();
   const unread=inbox.filter(m=>!m.read).length;
   let pub=false; try{ pub=!!store.get("scoutPublic",false); }catch(e){}
