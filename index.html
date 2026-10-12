@@ -78,6 +78,11 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .fit-suggest:active{transform:translateX(-50%) scale(.95)}
 .feed-flash{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:5;pointer-events:none;font-size:64px;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.7);opacity:0}
 .feed-flash.show{animation:flashpop .7s ease forwards}
+/* flash icons: drawn in brand red, never platform emoji (which renders yellowish) */
+.fp-pause{display:inline-flex;gap:16px;align-items:center}
+.fp-pause i{display:block;width:15px;height:60px;background:#e50914;border-radius:5px;box-shadow:0 2px 24px rgba(0,0,0,.7)}
+.fp-play{display:inline-block;width:0;height:0;border-left:46px solid #e50914;border-top:30px solid transparent;border-bottom:30px solid transparent;filter:drop-shadow(0 2px 18px rgba(0,0,0,.7))}
+.fp-play.sm{border-left-width:20px;border-top-width:13px;border-bottom-width:13px;vertical-align:-1px;margin-right:12px}
 @keyframes flashpop{0%{opacity:.92;transform:translate(-50%,-50%) scale(.8)}35%{opacity:.92;transform:translate(-50%,-50%) scale(1.06)}100%{opacity:0;transform:translate(-50%,-50%) scale(1.16)}}
 #feedTrack{position:absolute;inset:0;z-index:1}
 #feedTrack.anim{transition:transform .32s cubic-bezier(.25,.8,.3,1)}
@@ -2689,7 +2694,7 @@ function doUnmute(){
 }
 function flashPauseIcon(slide,paused){
   const f=slide.querySelector("[data-flash]");if(!f)return;
-  f.textContent=paused?"⏸":"▶";
+  f.innerHTML=paused?'<span class="fp-pause"><i></i><i></i></span>':'<span class="fp-play"></span>';
   f.classList.remove("show");void f.offsetWidth;f.classList.add("show");
 }
 function togglePause(){
@@ -2951,7 +2956,7 @@ function isVimeoUrl(u){return String(u||"").indexOf("vimeo.com")>=0}
 function fmtTime(s){s=Math.floor(s);return Math.floor(s/60)+":"+String(s%60).padStart(2,"0")}
 function flashResume(node,s){
   const f=node.querySelector("[data-flash]");if(!f)return;
-  f.textContent="▶ "+fmtTime(s);
+  f.innerHTML='<span class="fp-play sm"></span>'+fmtTime(s);
   f.classList.remove("show");void f.offsetWidth;f.classList.add("show");
 }
 function saveProg(node){
