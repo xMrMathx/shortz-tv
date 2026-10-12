@@ -4306,7 +4306,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012202025";
+const BUILD="20261012202436";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6513,6 +6513,9 @@ function renderProfile(){
   // and must never key friend data (requests landed on a node nobody
   // listened to). If identity is already settled, this attaches now; if the
   // account lands later, Friends._adopt attaches then.
+  // Opening Profile is a repair moment too: if a real session matching
+  // the account exists, Friends re-keys to it before the state paints.
+  try{ sessionRepair(); }catch(e){}
   friendsEnsure().then(uid=>paintProfileFriendsState(uid));
   // keep friend count fresh (listeners attach once per session — not per profile visit)
   liveEnsure().then(ok=>{
@@ -7365,22 +7368,95 @@ function friendsEnsure(){
     }catch(e){ res(null); }
   });
 }
+/* ---------- silent session repair ----------
+   The account of record (localStorage graduation — what puts "Continue
+   as <name>" on the gate) and the LIVE Firebase session are two
+   different layers. If the live session is anonymous or missing — an
+   older build's anonymous sign-in replaced the real one (signInAnonymously
+   REPLACES the current user, discarding its refresh token), or WebView
+   storage lost the SDK's persisted session — RTDB rules
+   (auth.uid === uid on the friend nodes) deny every friend read even
+   though the app is signed in. The app holds NO reusable credential for
+   the graduated account: Google sign-in was popup/redirect OAuth (the
+   app never sees a token or password) and the email password was never
+   stored — so a gone session CANNOT be re-authenticated silently, and
+   nothing here pretends otherwise. What CAN be done silently, and is:
+   detect the mismatch at boot and on every return to the foreground,
+   wait out the SDK's session restore, and the moment a real session
+   matching the account exists, re-key Friends to it — Friends._adopt
+   re-attaches the listeners and the real data paints, and Scout's
+   remote sync retries. Fully automatic: no tap, no prompt, no button.
+   If no real session exists, the repair stays armed and silent, and
+   the Profile sections render their clean states (below). */
+let _sessRepairBusy=false, _sessRepairWired=false;
+async function sessionRepair(){
+  if(_sessRepairBusy)return;
+  let acctUid="";
+  try{ if(window.ShortzAuth&&ShortzAuth.isSignedIn()) acctUid=store.get("auth_uid")||""; }catch(e){}
+  if(!acctUid)return; // no account on this device — nothing to repair
+  const auth=fbAuth(); if(!auth)return;
+  _sessRepairBusy=true;
+  try{
+    const user=await authCurrentUser(auth);
+    if(user&&!user.isAnonymous&&user.uid===acctUid){
+      // a real session matching the account: make Friends ride it, and
+      // retry Scout's remote sync, which keys off the same session
+      try{ Friends._adopt(user); }catch(e){}
+      try{ if(window.Scout&&window.Scout.pullRemote)window.Scout.pullRemote(); }catch(e){}
+      try{ if(window.Scout&&window.Scout.syncPublic)window.Scout.syncPublic(); }catch(e){}
+    }
+    // anonymous / absent / foreign session: no credential exists to
+    // restore with — stay silent and stay armed (see header comment).
+  }catch(e){}
+  _sessRepairBusy=false;
+}
+function sessionRepairWire(){
+  if(_sessRepairWired)return; _sessRepairWired=true;
+  document.addEventListener("visibilitychange",()=>{ if(!document.hidden)sessionRepair(); });
+  // boot run, retried until the deferred Firebase SDK shows up
+  let tries=0;
+  const kick=()=>{ if(fbAuth()){ sessionRepair(); return; } if(tries++<20)setTimeout(kick,1500); };
+  setTimeout(kick,1200);
+}
+sessionRepairWire();
+
+/* Clean render for the Profile friends boxes when the device holds a
+   signed-in account but live friend data can't be read right now: the
+   last-known friends/requests (live snapshots, seeded from the local
+   caches) or the plain empty states. NEVER a sign-in/reconnect prompt,
+   never a button — his order. When a real session lands, the listeners
+   re-attach and live data paints over this. */
+function paintFriendsCleanState(){
+  const rb=$("#frRequests");
+  if(rb){
+    try{
+      if(!Live.requestsSnap){ const c=store.get("requestsCache",null); if(c)Live.requestsSnap=c; }
+      if(Live.requestsSnap) renderFriendRequests(Live.requestsSnap);
+      else rb.innerHTML=`<div style="color:var(--mut);font-size:13px">No pending requests.</div>`;
+    }catch(e){}
+  }
+  const lb=$("#frList");
+  if(lb){
+    try{
+      if(!Live.friendsSnap||!Object.keys(Live.friendsSnap).length){
+        const c=store.get("friendsCache",null); if(c)Live.friendsSnap=c;
+      }
+      renderFriendList();
+    }catch(e){
+      lb.innerHTML=`<div style="color:var(--mut);font-size:13px">No friends yet — search above to add some.</div>`;
+    }
+  }
+}
 /* Listener-error paint for the Profile friends boxes. A signed-in
-   account whose reads are denied means the live session lapsed under
-   the account (see Friends._adopt) — not a connection problem and
-   never a guest state: offer the one-tap reconnect through the gate,
-   after which _adopt re-attaches and the real data paints over this.
-   Devices with no account keep the plain load-error text. */
+   account whose reads are denied means the live session under the
+   account can't key the friend nodes (see sessionRepair) — the
+   sections render their clean states, never a reconnect/sign-in
+   prompt. Devices with no account keep the plain load-error text. */
 function paintFriendsLoadError(box,what){
   if(!box)return;
   let acct=false;
   try{ acct=!!(window.ShortzAuth&&ShortzAuth.isSignedIn()); }catch(e){}
-  if(acct){
-    box.innerHTML=`<div style="color:var(--mut);font-size:13px">Your account session needs a quick reconnect to load ${what}. <button class="pbtn sm" data-reconnect="1">Reconnect</button></div>`;
-    const rb=box.querySelector("[data-reconnect]");
-    if(rb) rb.onclick=()=>{ try{ if(window.ShortzAuth)ShortzAuth.showGate(); }catch(e){} };
-    return;
-  }
+  if(acct){ paintFriendsCleanState(); return; }
   box.innerHTML=`<div style="color:var(--mut);font-size:13px">Couldn't load ${what} — check your connection and reopen Profile.</div>`;
 }
 /* Profile friends + requests listeners, keyed to the REAL uid.
@@ -7405,6 +7481,7 @@ function friendsAttachListeners(){
   Friends._reqRef=db.ref("users/"+uid+"/friendRequests");
   Friends._reqRef.on("value",s=>{
     Live.requestsSnap=s.val()||{};
+    try{ store.set("requestsCache",Live.requestsSnap); }catch(_){}
     renderFriendRequests(Live.requestsSnap);
   },()=>{ // listener error: never sit on "Loading…"
     Friends._listeningUid=null;
@@ -7413,6 +7490,8 @@ function friendsAttachListeners(){
 }
 /* Resolve the Profile Requests / My friends boxes for a settled identity.
    Every outcome ends in a rendered state — never "Loading…" forever:
+   - account on device, identity not landed yet → clean states (below);
+     the sign-in paint is ONLY for devices with no account at all
    - no real account → honest sign-in state in BOTH boxes
    - real account, listeners already live → repaint from the last snapshots
      (a re-render reset the boxes to "Loading…" and the live listeners only
@@ -7420,6 +7499,9 @@ function friendsAttachListeners(){
    - real account, first attach → the listeners' initial snapshot paints */
 function paintProfileFriendsState(uid){
   if(!uid){
+    let acct=false;
+    try{ acct=!!(window.ShortzAuth&&window.ShortzAuth.isSignedIn()); }catch(e){}
+    if(acct){ paintFriendsCleanState(); return; }
     const rb=$("#frRequests");
     if(rb) rb.innerHTML=`<div style="color:var(--mut);font-size:13px">Sign in to see friend requests. <button class="pbtn sm" id="frSignIn">Sign in</button></div>`;
     const lb=$("#frList");
