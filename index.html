@@ -457,6 +457,41 @@ body.pip #hudHint{display:none}
 .tab .ico{font-size:20px;display:block;margin-bottom:3px}
 .tab.on{color:#fff}
 #viewpad{height:calc(70px + env(safe-area-inset-bottom))}
+/* ---------- voice button: single-button navigation ---------- */
+#voiceBtn{flex:1;display:flex;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg,#e50914,#b00610);border:none;border-radius:999px;
+  margin:0 20px;padding:13px 20px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;
+  box-shadow:0 4px 20px rgba(229,9,20,.35);-webkit-tap-highlight-color:transparent;
+  user-select:none;-webkit-user-select:none;touch-action:none}
+#voiceBtn .vico{font-size:22px;line-height:1}
+#voiceBtn .vlabel{letter-spacing:.3px}
+#voiceBtn.listening{animation:vpulse 1s ease-in-out infinite}
+@keyframes vpulse{0%,100%{transform:scale(1);box-shadow:0 4px 20px rgba(229,9,20,.35)}
+  50%{transform:scale(1.04);box-shadow:0 4px 32px rgba(229,9,20,.65)}}
+/* voice overlay: full-screen listening feedback */
+#voiceOverlay{position:fixed;inset:0;z-index:99990;display:none;align-items:center;justify-content:center;
+  flex-direction:column;gap:18px;background:rgba(5,5,10,.82);backdrop-filter:blur(6px)}
+#voiceOverlay.show{display:flex}
+#voiceOverlay .vo-ring{width:110px;height:110px;border-radius:50%;
+  background:linear-gradient(135deg,#e50914,#b00610);display:flex;align-items:center;justify-content:center;
+  font-size:48px;animation:vpulse 1s ease-in-out infinite}
+#voiceOverlay .vo-ring::before{content:"🎙"}
+#voiceOverlay .vo-text{color:#fff;font-size:18px;font-weight:600;max-width:80%;text-align:center;min-height:28px}
+#voiceOverlay .vo-sub{color:#8b8b96;font-size:13px}
+/* voice type fallback */
+#voiceType{position:fixed;inset:0;z-index:99991;display:none;align-items:center;justify-content:center;
+  background:rgba(5,5,10,.7);padding:24px}
+#voiceType.show{display:flex}
+#voiceType .vt-box{width:100%;max-width:380px;background:#14141c;border:1px solid var(--line);
+  border-radius:18px;padding:22px}
+#voiceType .vt-title{color:#fff;font-size:18px;font-weight:800;margin-bottom:6px}
+#voiceType .vt-hint{color:#8b8b96;font-size:13px;margin-bottom:14px}
+#voiceType input{width:100%;box-sizing:border-box;background:#0a0a10;border:1px solid var(--line);
+  border-radius:12px;padding:13px 14px;color:#fff;font-size:16px;margin-bottom:14px}
+#voiceType .vt-row{display:flex;gap:10px}
+#voiceType .vt-row button{flex:1;padding:12px;border-radius:12px;font-size:15px;font-weight:700;cursor:pointer;border:none}
+#voiceCancel{background:#1e1e28;color:#cfcfd8}
+#voiceGo{background:#e50914;color:#fff}
 /* ---------- back-to-top floating button ---------- */
 #toTop{position:fixed;right:16px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:60;
   width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
@@ -1027,13 +1062,29 @@ try{
   <button id="hudHint" aria-label="Show controls">Tap for controls</button>
 
   <nav id="tabbar">
-    <button class="tab on" data-v="home"><span class="ico">⌂</span>Home</button>
-    <button class="tab" data-v="browse"><span class="ico">▦</span>Browse</button>
-    <button class="tab" data-v="live"><span class="ico liveico">●</span>Live</button>
-    <button class="tab" data-v="streaming"><span class="ico">📡</span>Streaming</button>
-    <button class="tab" data-v="manga"><span class="ico">📚</span>Manga</button>
-    <button class="tab" data-v="profile"><span class="ico">◉</span>Profile</button>
+    <button id="voiceBtn" aria-label="Hold to speak, tap to type">
+      <span class="vico" id="voiceIco">🎙</span>
+      <span class="vlabel" id="voiceLabel">Hold to talk</span>
+    </button>
   </nav>
+  <!-- voice command overlay: listening feedback + transcript -->
+  <div id="voiceOverlay" aria-hidden="true">
+    <div class="vo-ring"></div>
+    <div class="vo-text" id="voiceTranscript">Listening…</div>
+    <div class="vo-sub">Release to send</div>
+  </div>
+  <!-- voice fallback: type a command -->
+  <div id="voiceType" aria-hidden="true">
+    <div class="vt-box">
+      <div class="vt-title">Type a command</div>
+      <div class="vt-hint">Try "take me to westerns" or "show my list"</div>
+      <input id="voiceInput" type="text" placeholder="What should I do?" autocomplete="off" enterkeyhint="go">
+      <div class="vt-row">
+        <button id="voiceCancel">Cancel</button>
+        <button id="voiceGo">Go</button>
+      </div>
+    </div>
+  </div>
   <button id="toTop" aria-label="Back to top">↑</button>
 
   <div id="nextCd"><div class="nc-num" id="nextCdN">5</div><div class="nc-tx"><div class="nc-k">Next episode</div><div class="nc-t" id="nextCdT"></div></div><button class="nc-x" id="nextCdX">Cancel</button></div>
@@ -1830,6 +1881,123 @@ function go(v){
 // tab buttons cached once — go() runs on every tab switch
 const TAB_BTNS=[...document.querySelectorAll(".tab")];
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dataset.v)}catch(err){console.error("renderView",err)}go(t.dataset.v)});
+
+/* ---------- voice navigation: hold the mic button to speak, tap to type ---------- */
+(function(){
+  const btn=document.getElementById("voiceBtn"), ov=document.getElementById("voiceOverlay"),
+        tx=document.getElementById("voiceTranscript"), vt=document.getElementById("voiceType"),
+        vi=document.getElementById("voiceInput");
+  if(!btn)return;
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  let rec=null, listening=false, holdTimer=null, wasHold=false;
+
+  // genre aliases: what people say -> GENRES entry
+  const GENRE_ALIASES={
+    "action":"Action","animation":"Animation","anime":"Anime","body cam":"Body Cam","bodycam":"Body Cam",
+    "comedy":"Comedy","faith":"Faith","family":"Family","fantasy":"Fantasy","hood":"Hood","horror":"Horror",
+    "mr ballin":"Mr. Ballin","ballin":"Mr. Ballin","mystery":"Mystery","reality":"Reality",
+    "reborn":"Rebirth","rebirth":"Rebirth","revenge":"Revenge","romance":"Romance",
+    "sci fi":"Sci-Fi","sci-fi":"Sci-Fi","scifi":"Sci-Fi","science fiction":"Sci-Fi",
+    "short film":"Short Films","short films":"Short Films","space":"Space","sports":"Sports",
+    "thriller":"Thriller","western":"Western","westerns":"Western"
+  };
+
+  function voiceCommand(raw){
+    const text=String(raw||"").toLowerCase().trim();
+    if(!text)return false;
+    // 1. genres (incl. "take me to westerns", "bring up sci-fi")
+    for(const alias in GENRE_ALIASES){
+      if(text.includes(alias)){
+        const g=GENRE_ALIASES[alias];
+        try{go("browse");renderBrowse(g);toast("🌐 "+g);}catch(e){}
+        return true;
+      }
+    }
+    // 2. "show genres" -> open the genre picker
+    if(text.includes("genre")){
+      try{
+        go("browse");
+        setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},400);
+      }catch(e){}
+      return true;
+    }
+    // 3. tabs
+    if(text.includes("home")){try{go("home");}catch(e){}return true;}
+    if(text.includes("browse")){try{go("browse");}catch(e){}return true;}
+    if(text.includes("live")&&!text.includes("deliver")){try{go("live");}catch(e){}return true;}
+    if(text.includes("stream")){try{go("streaming");}catch(e){}return true;}
+    if(text.includes("manga")||text.includes("comic")){try{go("manga");}catch(e){}return true;}
+    if(text.includes("profile")||text.includes("my list")||text.includes("mylist")){try{go("profile");}catch(e){}return true;}
+    // 4. "search for X"
+    let m=text.match(/search(?: for)? (.+)/);
+    if(m&&m[1]){
+      try{
+        go("browse");
+        setTimeout(()=>{
+          const s=document.getElementById("bsearch");
+          if(s){s.value=m[1].trim();s.dispatchEvent(new Event("input",{bubbles:true}));}
+        },400);
+      }catch(e){}
+      return true;
+    }
+    toast("Didn't catch that — try again");
+    return false;
+  }
+
+  function startListen(){
+    if(!SR){toast("Voice not supported here — type instead");openType();return;}
+    try{rec=new SR();}catch(e){toast("Voice not supported here — type instead");openType();return;}
+    rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;
+    listening=true;btn.classList.add("listening");ov.classList.add("show");
+    tx.textContent="Listening…";
+    rec.onresult=e=>{
+      let interim="",final="";
+      for(let i=e.resultIndex;i<e.results.length;i++){
+        const tr=e.results[i][0].transcript;
+        if(e.results[i].isFinal)final+=tr;else interim+=tr;
+      }
+      tx.textContent=final||interim||"Listening…";
+    };
+    rec.onerror=()=>{stopListen(false);};
+    rec.onend=()=>{
+      const said=tx.textContent;
+      const wasListening=listening;
+      stopListen(false);
+      if(wasListening&&said&&said!=="Listening…")voiceCommand(said);
+    };
+    try{rec.start();}catch(e){stopListen(false);}
+  }
+  function stopListen(){
+    listening=false;
+    try{if(rec)rec.stop();}catch(e){}
+    rec=null;btn.classList.remove("listening");ov.classList.remove("show");
+  }
+  function openType(){
+    vt.classList.add("show");vt.setAttribute("aria-hidden","false");
+    setTimeout(()=>{try{vi.focus();}catch(e){}},100);
+  }
+  function closeType(){
+    vt.classList.remove("show");vt.setAttribute("aria-hidden","true");vi.value="";
+  }
+
+  // hold to talk (350ms), quick tap = type
+  btn.addEventListener("pointerdown",e=>{
+    e.preventDefault();wasHold=false;
+    holdTimer=setTimeout(()=>{wasHold=true;startListen();},350);
+  });
+  ["pointerup","pointercancel","pointerleave"].forEach(ev=>btn.addEventListener(ev,e=>{
+    clearTimeout(holdTimer);
+    if(wasHold){stopListen();}
+    else if(ev==="pointerup"){openType();}
+    wasHold=false;
+  }));
+  btn.addEventListener("contextmenu",e=>e.preventDefault());
+
+  document.getElementById("voiceCancel").onclick=closeType;
+  document.getElementById("voiceGo").onclick=()=>{const v=vi.value;closeType();voiceCommand(v);};
+  vi.addEventListener("keydown",e=>{if(e.key==="Enter"){const v=vi.value;closeType();voiceCommand(v);}});
+  vt.addEventListener("click",e=>{if(e.target===vt)closeType();});
+})();
 function renderView(v){
   if(v==="home"){
     mountFeed();
