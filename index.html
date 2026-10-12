@@ -3249,6 +3249,17 @@ function mountFeed(){
   // one delegated click handler: rail / up-next / sound / tapzone (mouse + post-touch taps)
   track.addEventListener("click",e=>{
     if(suppressClick)return;
+    // MIC ZONE FIRST: bottom 100px always toggles mic — before any element checks.
+    // (The .feed-bottom episode button overlaps this zone; without this, taps there
+    // open the episode drawer instead of the mic.)
+    try{
+      const vh=window.innerHeight||700;
+      if(typeof e.clientY==="number"&&e.clientY>vh-100){
+        if(typeof window._micToggle==="function"){window._micToggle();}
+        e.stopPropagation();
+        return;
+      }
+    }catch(err){}
     const slide=e.target.closest(".slide");
     if(e.target.closest("[data-fitsuggest]")&&slide){
       e.stopPropagation();
@@ -3353,7 +3364,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011233200";
+const BUILD="20261011233500";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
