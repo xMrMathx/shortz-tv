@@ -2104,8 +2104,64 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     "play","resume","continue","unpause","mute","mute it","unmute","unmute it","sound on",
     "back","go back","next","next episode","again","replay","play it again"]);
 
-  function voiceCommand(raw){
-    const text=String(raw||"").toLowerCase().trim();
+  // ===== VS VOICE ENGINE v4 (Pinky & Brain) — ACCURACY =====
+  // phoneticFix(): repairs Web Speech mis-transcriptions BEFORE command parsing.
+  //  "life"->"live", "monga"/"monka"->"manga", "brows"->"browse", "steaks"->"stakes".
+  // Layers: (1) PHONETIC_WORD — per-word homophone map, always safe;
+  // (2) PHONETIC_BARE — whole-transcript only ("paws"->"pause": too risky per-word);
+  // (3) edit-distance fallback — unknown word 1 edit from a nav target becomes
+  // the target. Words already valid (commands, genres, nav) are never touched.
+  // Idempotent — safe to run twice on the same text.
+  function _ed(a,b){
+    const m=a.length,n=b.length;
+    if(!m)return n;if(!n)return m;
+    let prev=new Array(n+1),cur=new Array(n+1);
+    for(let j=0;j<=n;j++)prev[j]=j;
+    for(let i=1;i<=m;i++){cur[0]=i;
+      for(let j=1;j<=n;j++){const c=a[i-1]===b[j-1]?0:1;
+        const v=prev[j-1]+c,d1=prev[j]+1,d2=cur[j-1]+1;
+        cur[j]=v<d1?(v<d2?v:d2):(d1<d2?d1:d2);}
+      const t=prev;prev=cur;cur=t;}
+    return prev[n];
+  }
+  const PHONETIC_WORD={
+    "life":"live","lyfe":"live","lyve":"live",
+    "monga":"manga","monka":"manga","manka":"manga","mango":"manga",
+    "brows":"browse","brouse":"browse",
+    "streeming":"streaming","streamin":"streaming",
+    "steaks":"stakes","stacks":"stakes",
+    "profil":"profile","animay":"anime","hom":"home",
+    "jonra":"genre","johnra":"genre"
+  };
+  const PHONETIC_BARE={"paws":"pause","pase":"pause","on pause":"pause"};
+  const NAV_WORDS=["home","browse","live","streaming","stream","streams","manga","anime",
+    "comics","comic","profile","stakes","stake","genres","genre","mylist"];
+  // v4: command verbs & structural words the edit-distance fallback must NEVER
+  // touch — "take" is 1 edit from "stake" and appears in every "take me to".
+  const FIX_SKIP=new Set(["take","open","bring","show","watch","put","start","search",
+    "find","look","episode","part","number","video","series","channel","hope","and","the",
+    "for","with","from","your","you","what","when",
+    "one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve",
+    "thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen","twenty",
+    "thirty","forty","fifty","sixty","seventy","eighty","ninety","hundred",
+    "first","second","third","fourth","fifth","sixth","seventh","eighth","ninth","tenth"]);
+  function phoneticFix(raw){
+    let s=String(raw||"").toLowerCase().trim();
+    if(!s)return s;
+    if(PHONETIC_BARE[s])return PHONETIC_BARE[s];
+    return s.split(/\s+/).map(w=>{
+      if(PHONETIC_WORD[w])return PHONETIC_WORD[w];
+      if(w.length<3||NAV_WORDS.indexOf(w)>=0||GENRE_ALIASES[w]||INSTANT.has(w)||FIX_SKIP.has(w))return w;
+      let best=null,bd=99;
+      for(const nv of NAV_WORDS){const d=_ed(w,nv);if(d<bd){bd=d;best=nv;}}
+      return (best&&bd<=1)?best:w;
+    }).join(" ");
+  }
+
+  function voiceCommand(raw,spoken){
+    if(spoken===undefined)spoken=true;
+    // v4: repair mis-transcriptions on SPOKEN input only — typed text is literal.
+    const text=(spoken?phoneticFix(raw):String(raw||"")).toLowerCase().trim();
     if(!text||text==="listening…")return false;
 
     // Resolve pronouns: "it", "that", "this" -> last series; "again" -> repeat last action
@@ -2297,6 +2353,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // ENGINE v3: bare-command executor — ONE code path shared by the final-parse
   // path and instant early-execution. Identical behavior, no drift.
   function execBare(bare){
+      bare=phoneticFix(String(bare||"")); // v4: idempotent — already fixed via voiceCommand, safe for direct callers
       // "again" / "replay" -> replay last series/episode
       if(bare==="again"||bare==="replay"||bare==="play it again"){
         if(voiceCtx.lastSeries){
@@ -2499,14 +2556,15 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       // V3-B: interim settle — exact match against the instant vocabulary only.
       // 350ms of stability guards "play" (resume) vs "play star trek" (search):
       // if the transcript keeps growing, the timer resets and we wait for final.
-      const nb=normTx(said);
+      // v4: run through phoneticFix so "paws" can early-fire as "pause".
+      const nb=phoneticFix(normTx(said));
       if(nb&&INSTANT.has(nb)){
         if(settleText!==nb){
           settleText=nb;if(settleTimer)clearTimeout(settleTimer);
           settleTimer=setTimeout(()=>{
             settleTimer=null;
             if(execDone||noExec)return;
-            if(normTx(pendingText)===settleText&&settleText){
+            if(phoneticFix(normTx(pendingText))===settleText&&settleText){
               execDone=true;const cmd=settleText;settleText="";stopListen();execBare(cmd);
             }
           },350);
@@ -2597,8 +2655,8 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
 
   document.getElementById("voiceCancel").onclick=closeType;
 
-  document.getElementById("voiceGo").onclick=()=>{const v=vi.value;closeType();voiceCommand(v);};
-  vi.addEventListener("keydown",e=>{if(e.key==="Enter"){const v=vi.value;closeType();voiceCommand(v);}});
+  document.getElementById("voiceGo").onclick=()=>{const v=vi.value;closeType();voiceCommand(v,false);};
+  vi.addEventListener("keydown",e=>{if(e.key==="Enter"){const v=vi.value;closeType();voiceCommand(v,false);}});
   vt.addEventListener("click",e=>{if(e.target===vt)closeType();});
   // EXPOSE for the invisible mic zone: handleTap() is global, but startListen/stopListen
   // live inside this IIFE. This bridge makes the bottom-tap mic actually work.
@@ -3520,7 +3578,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261012000400";
+const BUILD="20261012001100";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),deferred:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
