@@ -67,7 +67,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .feed-video.cover iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:16/9;transform:translateX(-50%)}
 .feed-video.vert iframe{position:absolute;top:0;left:50%;height:100%;width:auto;aspect-ratio:9/16;transform:translateX(-50%)}
 .feed-video.fit iframe{position:absolute;top:50%;left:0;width:100%;height:auto;aspect-ratio:16/9;transform:translateY(-50%)}
-.feed-tapzone{position:absolute;inset:0;z-index:4;cursor:pointer}
+.feed-tapzone{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;z-index:4;cursor:pointer}
 /* fit-to-screen quick suggestion: small pill offered when a cropped (cover) video starts */
 .fit-suggest{position:absolute;left:50%;bottom:calc(215px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(10px);z-index:7;
  background:rgba(12,12,16,.78);color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:999px;
@@ -2863,7 +2863,7 @@ function mountFeed(){
     if(e.target.closest("[data-next]")){openEpDrawer();return;}
     if(e.target.closest("[data-sound]")){e.stopPropagation();doUnmute();return;}
     if(e.target.closest("[data-tap]")){
-      handleTap(e.clientX);
+      handleTap(e.clientX,e.clientY);
     }
   },true);
   let startOnAction=false;
@@ -2910,7 +2910,7 @@ function mountFeed(){
       }
       if(startOnAction){return;}
       suppressClick=true;setTimeout(()=>suppressClick=false,500);
-      handleTap(dragX0);
+      handleTap(dragX0,dragY0);
       return;
     }
     clearTimeout(tapTimer);tapTimer=null;lastTapT=0;
@@ -3063,7 +3063,11 @@ function resumeFeedVideo(){
   }catch(e){}
 }
 /* ---------- tap: single = pause/resume, double-tap left = -10s, right = +10s ---------- */
-function handleTap(x){
+function handleTap(x,y){
+  // CENTER ONLY: the video only responds to taps in the middle (where play/pause lives).
+  // Taps anywhere else (mic button, edges) are ignored by the video.
+  const w=window.innerWidth||390, h=window.innerHeight||700, s=170;
+  if(typeof x!=="number"||typeof y!=="number"||Math.abs(x-w/2)>s/2||Math.abs(y-h/2)>s/2)return;
   const wasHidden=tapHudHidden; tapHudHidden=false;
   try{hudWake();}catch(e){} // every tap on the video wakes the HUD (HUD law)
   if(wasHidden)return; // first tap only reveals the menu; the next tap acts
