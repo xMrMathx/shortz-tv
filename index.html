@@ -50,6 +50,11 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   padding:14px 18px 10px;padding-top:calc(14px + env(safe-area-inset-top));
   background:linear-gradient(rgba(8,8,13,.92),rgba(8,8,13,.75));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .logo{font-weight:900;font-size:21px;letter-spacing:1.5px}
+#deskNav{display:none;gap:28px;align-items:center}
+#deskNav button{background:none;border:0;color:#999;font-size:15px;font-weight:600;cursor:pointer;padding:8px 4px;position:relative;transition:color .2s}
+#deskNav button:hover{color:#fff}
+#deskNav button.on{color:#fff}
+#deskNav button.on::after{content:"";position:absolute;left:4px;right:4px;bottom:2px;height:2px;background:#e50914;border-radius:2px}
 .logo b{color:var(--red)}
 .free-tag{font-size:10px;font-weight:800;letter-spacing:1px;color:#04140a;background:linear-gradient(135deg,#4ade80,#22c55e);
   padding:6px 12px;border-radius:20px;box-shadow:0 0 18px rgba(34,197,94,.35)}
@@ -619,6 +624,10 @@ body.pip #hudHint{display:none}
   /* Genre view: wider grid */
   #view-genre .gfull-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));max-width:1400px;margin:0 auto;gap:20px;padding:24px 32px}
   #view-genre .gfull-head{padding-left:32px;padding-right:32px}
+  /* Desktop nav: show top nav, hide mobile bottom tabs */
+  #deskNav{display:flex}
+  #tabbar{display:none !important}
+  #viewpad{display:none !important}
 }
 /* ---------- feed fullscreen: video edge-to-edge, chrome overlaid PineDrama-style ---------- */
 body.feedfull{overflow:hidden}
@@ -1072,6 +1081,14 @@ try{
 <div id="app">
   <header id="topbar">
     <div class="logo">SHORTZ <b>VS</b></div>
+    <nav id="deskNav">
+      <button data-nav="home" class="on">Home</button>
+      <button data-nav="browse">Browse</button>
+      <button data-nav="live">Live</button>
+      <button data-nav="streaming">Streaming</button>
+      <button data-nav="manga">Manga</button>
+      <button data-nav="profile">My List</button>
+    </nav>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
       <div class="free-tag">100% FREE</div>
       <button id="topShareApp" class="free-tag" style="display:none;border:none;cursor:pointer;background:linear-gradient(135deg,#e50914,#b00610);color:#fff;box-shadow:0 0 14px rgba(229,9,20,.35)">&#8599; SHARE APP</button>
@@ -1910,6 +1927,7 @@ function go(v){
   if(v==="home"&&curView!=="home")resumeFeedVideo(); // instant: iframe stayed warm
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
   TAB_BTNS.forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
+  try{document.querySelectorAll("#deskNav button").forEach(b=>b.classList.toggle("on",b.dataset.nav===v||(v==="detail"&&b.dataset.nav===returnView)));}catch(e){}
   const cur=$("#view-"+curView), nxt=$("#view-"+v);
   cur.classList.remove("active");cur.classList.add("leaving");
   setTimeout(()=>cur.classList.remove("leaving"),550);
@@ -1924,6 +1942,13 @@ function go(v){
 // tab buttons cached once — go() runs on every tab switch
 const TAB_BTNS=[...document.querySelectorAll(".tab")];
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dataset.v)}catch(err){console.error("renderView",err)}go(t.dataset.v)});
+// Desktop top nav: same as mobile tabs
+document.querySelectorAll("#deskNav button").forEach(b=>b.onclick=()=>{
+  const v=b.dataset.nav;
+  document.querySelectorAll("#deskNav button").forEach(x=>x.classList.toggle("on",x===b));
+  try{renderView(v)}catch(err){}
+  go(v);
+});
 
 /* ---------- voice navigation: hold the mic button to speak, tap to type ---------- */
 (function(){
@@ -3147,7 +3172,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011230500";
+const BUILD="20261011230800";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
