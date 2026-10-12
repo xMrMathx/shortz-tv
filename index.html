@@ -2496,6 +2496,24 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       return true;
     }catch(e){return false;}
   };
+  // DOCUMENT-LEVEL invisible mic zone (capture phase): bottom 100px of the viewport,
+  // fires BEFORE any other handler regardless of z-index or element stacking.
+  // Only triggers on NON-interactive elements — real buttons/inputs/links keep
+  // their normal behavior (voiceBtn toggles mic via its own handler, episode
+  // buttons open episodes, etc.).
+  document.addEventListener("click",function(e){
+    try{
+      const vh=window.innerHeight||700;
+      if(typeof e.clientY!=="number"||e.clientY<=vh-100)return;
+      const t=e.target;
+      if(t&&t.closest&&t.closest("button,input,a,select,textarea,[data-a],[data-next],[data-like]"))return;
+      if(typeof window._micToggle==="function"){
+        window._micToggle();
+        e.stopPropagation();
+        e.preventDefault();
+      }
+    }catch(err){}
+  },true);
 })();
 function renderView(v){
   if(v==="home"){
@@ -3364,7 +3382,7 @@ let _hiddenAt=0;
    instead of reloading, so updates never arrive. On every foreground after 30s
    away, compare against version.txt — if the build moved, reload to the fresh
    copy instead of replaying stale code. */
-const BUILD="20261011233500";
+const BUILD="20261011233800";
 function checkBuildFresh(){
   return fetch("version.txt?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.ok?r.text():"").then(t=>(t||"").trim()).catch(()=>"");
