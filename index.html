@@ -1891,7 +1891,7 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
         vi=document.getElementById("voiceInput");
   if(!btn)return;
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-  let rec=null, listening=false, holdTimer=null, wasHold=false;
+  let rec=null, listening=false, holdTimer=null, wasHold=false, voiceGuard=null;
 
   // genre aliases: what people say -> GENRES entry
   const GENRE_ALIASES={
@@ -2031,8 +2031,21 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
     if(!SR){toast("Voice not supported here — type instead");openType();return;}
     try{rec=new SR();}catch(e){toast("Voice not supported here — type instead");openType();return;}
     rec.lang="en-US";rec.interimResults=true;rec.maxAlternatives=1;
-    listening=true;btn.classList.add("listening");pop.classList.add("show");
+    listening=true;window.voiceListening=true;btn.classList.add("listening");pop.classList.add("show");
     tx.textContent="Listening…";
+    // PLAYBACK GUARD: while the mic is live, the video must not pause for any
+    // reason (mic activation, audio focus, stray events). If it pauses, resume.
+    try{
+      voiceGuard=setInterval(()=>{
+        if(!window.voiceListening)return;
+        try{
+          const s=curSlide();if(!s)return;
+          const pl=s._player;if(!pl||!pl.getPlayerState||!pl.playVideo)return;
+          const st=pl.getPlayerState();
+          if(st===2)pl.playVideo(); // 2 = paused -> resume immediately
+        }catch(e){}
+      },400);
+    }catch(e){}
     rec.onresult=e=>{
       let interim="",final="";
       for(let i=e.resultIndex;i<e.results.length;i++){
@@ -2051,7 +2064,8 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
     try{rec.start();}catch(e){stopListen(false);}
   }
   function stopListen(){
-    listening=false;
+    listening=false;window.voiceListening=false;
+    try{if(voiceGuard){clearInterval(voiceGuard);voiceGuard=null;}}catch(e){}
     try{if(rec)rec.stop();}catch(e){}
     rec=null;btn.classList.remove("listening");pop.classList.remove("show");
   }
