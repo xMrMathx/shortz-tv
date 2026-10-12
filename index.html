@@ -3850,7 +3850,7 @@ function renderBrowse(g){
       <div class="award-row" id="awardWinRow"></div>
     </div></div>
     <div class="wrap" style="padding-top:0">
-      <div class="rowlabel" style="margin-top:0"><h2>Browse ${C.length} series</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
+      <div class="rowlabel" style="margin-top:0"><h2 id="browseHead">${browseQuery.trim()?`${list.length} result${list.length===1?"":"s"} for &ldquo;${esc(browseQuery.trim())}&rdquo;`:`Browse ${C.length} series`}</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
       <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
       <div class="prev-spot" id="prevSpot">
         <div class="prev-spot-tx">
@@ -3927,8 +3927,8 @@ function renderBrowse(g){
     // SEARCH TAKES OVER: hide curated sections so results sit at the top
     $("#view-browse").classList.toggle("searching",searching);
     const mlw=$("#browseMyListWrap"); if(mlw)mlw.style.display=searching?"none":"";
-    const h2=document.querySelector("#view-browse .rowlabel h2");
-    if(h2)h2.textContent=searching?`${l.length} result${l.length===1?"":"s"} for "${si.value.trim()}"`:`Browse ${C.length} series`;
+    const h2=$("#browseHead");
+    if(h2)h2.innerHTML=searching?`${l.length} result${l.length===1?"":"s"} for &ldquo;${esc(si.value.trim())}&rdquo;`:`Browse ${C.length} series`;
     bc.textContent=searching?"":`${GENRES.length} genres`;
   };
   si.addEventListener("input",applySearch);
@@ -3969,7 +3969,7 @@ function renderBrowse(g){
   si.addEventListener("keydown",e=>{if(e.key==="Enter"){saveRecent(si.value);hideRecent();si.blur();}});
   let rsT=null;
   si.addEventListener("input",()=>{clearTimeout(rsT);rsT=setTimeout(()=>saveRecent(si.value),1500);});
-  if(bc&&browseQuery.trim())bc.textContent=`${list.length} result${list.length===1?"":"s"}`;
+  // (heading + bcount already reflect the persisted query from the initial HTML above)
   // apply search-takeover state on re-render with a persisted query
   if(browseQuery.trim())$("#view-browse").classList.add("searching");
   // Browse ♥ My List row (visible even without a profile)
