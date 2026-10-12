@@ -227,8 +227,6 @@ body.pip .scrub{display:none!important}
 body.hud-hidden #view-home .feed-rail,
 body.hud-hidden #view-home .feed-bottom,
 body.hud-hidden #view-home .soundprompt,
-body.hud-hidden.feedfull #topbar,
-body.hud-hidden.feedfull #tabbar,
 body.hud-hidden .sreel-rail,
 body.hud-hidden .sreel-cap,
 body.hud-hidden .sreel-sport,
@@ -312,6 +310,16 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .gdrop-btn .arr{transition:transform .2s}
 .gdrop.open .gdrop-btn .arr{transform:rotate(180deg)}
 .gmenu{position:absolute;top:calc(100% + 6px);left:0;right:0;max-height:50vh;overflow-y:auto;background:#16161e;border:1px solid var(--line);border-radius:14px;z-index:50;display:none;box-shadow:0 12px 40px rgba(0,0,0,.6);padding:12px}
+/* SEARCH TAKES OVER: curated sections hide while a query is active */
+#view-browse.searching #featHero,
+#view-browse.searching #prevSpot,
+#view-browse.searching #awardWinSec,
+#view-browse.searching #awardFilmsSec,
+#view-browse.searching #awardSeriesSec,
+#view-browse.searching #top10sec,
+#view-browse.searching #top10AFsec,
+#view-browse.searching #top10ASsec,
+#view-browse.searching .sportpick{display:none!important}
 .gdrop.open .gmenu{display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
 .gitem{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;background:#14141c;border:1px solid var(--line);border-radius:20px;color:var(--txt);font-size:13px;font-weight:700;cursor:pointer}
 .gitem:active{background:#22222e}
@@ -424,7 +432,7 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .setitem small{color:var(--mut);font-size:12px}
 
 /* ---------- tab bar ---------- */
-#tabbar{position:fixed;bottom:0;left:0;right:0;z-index:40;display:flex;
+#tabbar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:flex;
   background:rgba(10,10,16,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
   border-top:1px solid var(--line);padding:10px 0 calc(14px + env(safe-area-inset-bottom))}
 .tab{flex:1;text-align:center;font-size:10px;color:#8b8b96;font-weight:600;transition:color .3s}
@@ -520,6 +528,11 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .vbadge{font-size:9px;font-weight:800;letter-spacing:.6px;color:#d8b94a;background:rgba(245,197,24,.12);
   border:1px solid rgba(245,197,24,.4);padding:5px 10px;border-radius:10px;flex-shrink:0}
 .erow.now .en{color:var(--red)}
+/* detail-screen episode list (same rows as the feed's episode drawer) */
+.eplist{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.02)}
+.eplist .erow{width:100%;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.05);color:#fff;text-align:left;cursor:pointer}
+.eplist .erow:last-child{border-bottom:0}
+.eplist .erow:active{background:rgba(255,255,255,.06)}
 .ed-note{padding:12px 18px calc(18px + env(safe-area-inset-bottom));font-size:11px;color:var(--mut);text-align:center;flex-shrink:0}
 
 @media(min-width:760px){
@@ -567,7 +580,9 @@ body.pia #piaWrap{display:block}
 body.pia #view-home{visibility:hidden;pointer-events:none}
 
 /* ---------- live / chat (v1.2.0) ---------- */
-.liveico{color:var(--red)}
+.liveico{color:#8b8b96}
+.liveico.hot{color:var(--red)}
+/* red only when a watch party is actually live — never a phantom notification */
 .liveseg{display:flex;gap:8px;margin-bottom:14px}
 .liveseg button{flex:1;background:#16161e;border:1px solid var(--line);color:var(--mut);font-weight:800;font-size:13px;padding:10px 0;border-radius:14px}
 .liveseg button.on{background:var(--red);border-color:var(--red);color:#fff}
@@ -649,6 +664,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 #sstreamTrack .slide{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;will-change:transform;background:#000}
 .sstream-frame{position:absolute;inset:0;background:#000}
 .sstream-frame iframe{width:100%;height:100%;border:0;display:block}
+.sstream-novid{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px;background:radial-gradient(ellipse at center,#14141c 0%,#000 70%)}
 .sstream-ov{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding:14px 14px 90px}
 .sstream-top{display:flex;gap:8px;align-items:center}
 .sstream-plat{background:rgba(0,0,0,.65);border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:12px;font-weight:800}
@@ -1458,6 +1474,11 @@ const AWARD="__award__";
 const REBIRTH="__rebirth__";
 const ONLYSHORTZ="__onlyshortz__";
 const TREK="__trek__";
+/* human label for the genre/collection filter button — always prefixed so it's obvious this is a filter */
+function genreLabel(g){
+  const base=g===ONLYSHORTZ?"Shortz Picks":g===EARLY?"Early Release":g===AI?"AI Shorts":g===AWARD?"🏆 Award-Winning":g===TREK?"🚀 Star Trek Fan":g;
+  return "🌐 Genre: "+base;
+}
 function alphaSort(a){return [...a].sort((x,y)=>String(x.title||"").localeCompare(String(y.title||""),"en",{sensitivity:"base"}))}
 function browseList(){
   const qf=browseListFiltered();
@@ -1533,6 +1554,7 @@ function cardHTML(t){
   const sm=thumb(t,"mq");
   const newBadge=isNewArrival(t)?`<span class="newbadge"${t.award_verified?' style="top:34px"':""}>NEW</span>`:"";
   const awBadge=t.award_verified?'<span class="awardbadge" title="Award winner">🏆</span>':"";
+  const sub=[t.runtime||"",((GICON[t.genre]||"")+" "+(t.genre||"")).trim()].filter(x=>x&&String(x).trim()).join(" · ");
   return `<div class="vcard" data-id="${t.id}">
     <div class="vthumb" style="background:${artBg(t.title)}">
       <img decoding="async" src="${sm}" alt="" loading="lazy" onerror="this.style.display='none'">
@@ -1540,7 +1562,7 @@ function cardHTML(t){
       ${awBadge}
       ${newBadge}
       <div class="vtitle">${esc(t.title)}</div>
-      <div class="vsub">${esc(t.runtime)} · ${GICON[t.genre]||""} ${esc(t.genre)}</div>
+      ${sub?`<div class="vsub">${esc(sub)}</div>`:""}
       ${t.ai_made?'<span class="aibadge">✦ AI</span>':""}
     </div></div>`;
 }
@@ -2267,6 +2289,19 @@ function ensureFrame(node){
   }
   return fr;
 }
+/* metadata line helpers — never render raw "undefined" for missing runtime/genre/eps */
+function rtEach(t){
+  const r=String(t.runtime||"").trim();
+  return r+((r&&!/each/i.test(r))?" each":"");
+}
+function metaLine(t,epLabel){
+  const p=[];
+  const ep=String(epLabel||"")+(t.eps||"");
+  if(ep.trim())p.push(ep.trim());
+  const rt=rtEach(t); if(rt)p.push(rt);
+  if(t.genre)p.push(t.genre);
+  return p.join(" · ");
+}
 function fillSlide(node,t,mode){
   const fv=node.querySelector("[data-fv]");
   const fr=ensureFrame(node);
@@ -2290,7 +2325,7 @@ function fillSlide(node,t,mode){
   const feps=t.episodes||[], fvid=vidOf(t.url||"");
   const fei=feps.findIndex(x=>(x.video_id||vidOf(x.url||""))===fvid);
   const feplabel = fei>=0 ? `Episode ${feps[fei].n||fei+1} of ${feps.length} · ` : "";
-  node.querySelector("[data-meta]").textContent=`${feplabel}${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}`;
+  node.querySelector("[data-meta]").textContent=metaLine(t,feplabel)+(t.ai_made?" · ✦ Made with AI":"");
   updateRailIn(node,t);
   if(mode==="current"){
     loadVideoInto(node,t.url,vidOf(t.url));
@@ -3413,7 +3448,7 @@ function playEpisode(e){
   if(meta){
     const eps=t.episodes||[], ei=eps.indexOf(e);
     const eplabel = ei>=0 ? `Episode ${e.n||ei+1} of ${eps.length} · ` : "";
-    meta.textContent=`${eplabel}${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""} · ${epRowTitle(e,partIdxOf(t,e))}`;
+    meta.textContent=metaLine(t,eplabel)+(t.ai_made?" · ✦ Made with AI":"")+" · "+epRowTitle(e,partIdxOf(t,e));
   }
   pushHistory(t);
   toast("▶ "+epRowTitle(e,partIdxOf(t,e)));
@@ -3436,7 +3471,7 @@ function openEpDrawer(){
   th.style.display=""; th.onerror=()=>{th.style.display="none"}; th.src=thumb(t,"hq");
   $("#edTitle").textContent=t.title;
   const eps=(t.episodes&&t.episodes.length)?t.episodes:[];
-  $("#edMeta").textContent=`${t.eps} · ${t.runtime}${/each/i.test(t.runtime||"")?"":" each"} · ${t.genre}${t.ai_made?" · ✦ Made with AI":""}${eps.length?` · ${eps.length} verified`:""}`;
+  $("#edMeta").textContent=metaLine(t,"")+(t.ai_made?" · ✦ Made with AI":"")+(eps.length?` · ${eps.length} verified`:"");
   const rt=t.runtime||"";
   const list=$("#elist");
   if(!eps.length){
@@ -3540,9 +3575,23 @@ function openDetail(id){
         <button class="btn-ghost" id="dSave">${inList?"♥ Saved":"＋ My List"}</button>
         <button class="btn-ghost" id="dShare">⤴ Share</button>
       </div>
+      ${((t.episodes||[]).length>1)?`<div class="sect" style="margin-top:16px">Episodes (${t.episodes.length})</div><div class="eplist" id="dEps">${
+        t.episodes.map((e,idx)=>{
+          const k=e.kind||"episode", pi=partIdxOf(t,e);
+          const num=epNumLabel(e,pi), title=epRowTitle(e,pi);
+          const badge=!e.verified?`<span class="unbadge">Unavailable</span>`:k==="special"?`<span class="spbadge">SPECIAL</span>`:k==="compilation"?`<span class="cpbadge">COMPILATION</span>`:"";
+          const cls="erow"+(!e.verified?" unav":"");
+          const inner=`<span class="en">${esc(num)}</span><span class="em"><div class="et">${esc(title)}</div><div class="es">${esc(t.runtime||"")}</div></span>${badge}`;
+          return e.verified?`<button class="${cls}" data-idx="${idx}">${inner}</button>`:`<div class="${cls}">${inner}</div>`;
+        }).join("")
+      }</div>`:""}
     </div></div>`;
   $("#dBack").onclick=()=>go(returnView);
   $("#dPlay").onclick=()=>{go("home");loadFeed(t)};
+  const dl=$("#dEps");
+  if(dl)dl.querySelectorAll("button.erow").forEach(r=>{
+    r.onclick=()=>{ const e=(t.episodes||[])[parseInt(r.dataset.idx,10)]; if(!e||!e.verified)return; go("home"); playSeries(t); playEpisode(e); };
+  });
   $("#dSave").onclick=()=>{
     if(mylist.has(id)){mylist.delete(id);toast("Removed from My List")}else{mylist.add(id);toast("Saved to My List")}
     saveList();$("#dSave").textContent=mylist.has(id)?"♥ Saved":"＋ My List";
@@ -3769,8 +3818,12 @@ function renderBrowse(g){
         <div id="recentSrch"></div>
       </div>
     </div>
+    <div class="wrap" id="browseMyListWrap" style="display:${browseQuery.trim()||![...mylist].length?"none":""}">
+      <div class="rowlabel" style="margin-top:2px"><h2>♥ My List</h2><span>${[...mylist].length} saved</span></div>
+      <div class="hrow" id="browseMyList"></div>
+    </div>
     <div class="wrap"><div class="gdrop" id="gdrop">
-      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${browseGenre===ONLYSHORTZ?"Shortz Picks":browseGenre===EARLY?"Early Release":browseGenre===AI?"AI Shorts":browseGenre===AWARD?"🏆 Award-Winning":browseGenre===TREK?"🚀 Star Trek Fan":browseGenre}</span><span class="arr">▼</span></button>
+      <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${genreLabel(browseGenre)}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
         <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Shortz Picks</span><span class="cnt">${cc.onlyShortz}</span></button>
         <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
@@ -3859,7 +3912,13 @@ function renderBrowse(g){
     gr.innerHTML="";browseChunks={list:l,shown:0};browseMore(gr);
     nr.style.display=l.length?"none":"";
     sx.style.display=si.value?"":"none";
-    bc.textContent=si.value.trim()?`${l.length} result${l.length===1?"":"s"}`:`${GENRES.length} genres`;
+    const searching=!!si.value.trim();
+    // SEARCH TAKES OVER: hide curated sections so results sit at the top
+    $("#view-browse").classList.toggle("searching",searching);
+    const mlw=$("#browseMyListWrap"); if(mlw)mlw.style.display=searching?"none":"";
+    const h2=document.querySelector("#view-browse .rowlabel h2");
+    if(h2)h2.textContent=searching?`${l.length} result${l.length===1?"":"s"} for "${si.value.trim()}"`:`Browse ${C.length} series`;
+    bc.textContent=searching?"":`${GENRES.length} genres`;
   };
   si.addEventListener("input",applySearch);
   sx.onclick=()=>{si.value="";applySearch();si.focus();};
@@ -3900,6 +3959,16 @@ function renderBrowse(g){
   let rsT=null;
   si.addEventListener("input",()=>{clearTimeout(rsT);rsT=setTimeout(()=>saveRecent(si.value),1500);});
   if(bc&&browseQuery.trim())bc.textContent=`${list.length} result${list.length===1?"":"s"}`;
+  // apply search-takeover state on re-render with a persisted query
+  if(browseQuery.trim())$("#view-browse").classList.add("searching");
+  // Browse ♥ My List row (visible even without a profile)
+  (function(){
+    const ml=$("#browseMyList"); if(!ml)return;
+    const idx=new Map(); for(const t of C)idx.set(t.id,t);
+    const saved=[...mylist].map(id=>idx.get(id)).filter(Boolean).slice(0,20);
+    ml.innerHTML=saved.map(cardHTML).join("");
+    bindCards(ml);
+  })();
   const gd=$("#gdrop"),gb=$("#gdropbtn"),gm=$("#gmenu"),gc=$("#gdropcur");
   gb.onclick=(e)=>{e.stopPropagation();gd.classList.toggle("open");};
   document.addEventListener("click",function h(e){ if(gd&&!gd.contains(e.target)) gd.classList.remove("open"); });
@@ -3910,7 +3979,7 @@ function renderBrowse(g){
       if(wasSearching){si.value="";browseQuery="";} // selecting a genre clears the search
       if(p.dataset.g===browseGenre&&!wasSearching)return;
       gm.querySelectorAll(".gitem").forEach(q=>q.classList.toggle("sel",q===p));
-      gc.textContent=p.dataset.g===ONLYSHORTZ?"Shortz Picks":p.dataset.g===EARLY?"Early Release":p.dataset.g===AI?"AI Shorts":p.dataset.g===TREK?"🚀 Star Trek Fan":p.dataset.g;
+      gc.textContent=genreLabel(p.dataset.g);
       const toSports=p.dataset.g==="Sports", fromSports=browseGenre==="Sports";
       if(toSports||fromSports){ renderBrowse(p.dataset.g); return; } // full re-render for Sports transitions
       gr.classList.add("fading");
@@ -4172,6 +4241,27 @@ function bioLine(p){
   return g.length?("Into: "+g.join(", ")):"Pick your favorite genres below";
 }
 
+/* shared: My List + Recently Watched + saved manga — shown with or without a profile */
+function renderProfMyList(){
+  const idx=new Map();
+  for(const t of C) idx.set(t.id,t);
+  const saved=[...mylist].map(id=>idx.get(id)).filter(Boolean);
+  const hist=history.map(h=>idx.get(h.id)).filter(Boolean);
+  const row=list=>`<div class="hrow">${list.map(cardHTML).join("")}</div>`;
+  const box=$("#profMyList");
+  if(!box)return;
+  box.innerHTML=`
+    <div class="sect">♥ My List ${saved.length?`(${saved.length})`:""}</div>
+    ${saved.length?row(saved)
+      :'<div class="empty">Nothing saved yet.<br>Tap ＋ Save on any short to keep it here.</div>'}
+    <div class="sect">🕘 Recently watched ${hist.length?`(${hist.length})`:""}</div>
+    ${hist.length?row(hist)
+      :'<div class="empty">No watch history yet.</div>'}
+    <div class="sect">📚 Manga <span id="profMangaN"></span></div>
+    <div class="hrow" id="profMangaRow"></div>`;
+  bindCards(box);
+  renderProfManga();
+}
 function renderProfile(){
   checkAcceptedFriends();
   const p=getProfile();
@@ -4212,27 +4302,7 @@ function renderProfile(){
   paintLiveVisitors();
   // My List + Recently Watched live inside the profile now (same cards as before)
   // SPEED: one id->series Map — byId is a full C.find() scan per lookup
-  (function(){
-    const idx=new Map();
-    for(const t of C) idx.set(t.id,t);
-    const saved=[...mylist].map(id=>idx.get(id)).filter(Boolean);
-    const hist=history.map(h=>idx.get(h.id)).filter(Boolean);
-    const row=list=>`<div class="hrow">${list.map(cardHTML).join("")}</div>`;
-    const box=$("#profMyList");
-    if(box){
-      box.innerHTML=`
-        <div class="sect">♥ My List ${saved.length?`(${saved.length})`:""}</div>
-        ${saved.length?row(saved)
-          :'<div class="empty">Nothing saved yet.<br>Tap ＋ Save on any short to keep it here.</div>'}
-        <div class="sect">🕘 Recently watched ${hist.length?`(${hist.length})`:""}</div>
-        ${hist.length?row(hist)
-          :'<div class="empty">No watch history yet.</div>'}
-        <div class="sect">📚 Manga <span id="profMangaN"></span></div>
-        <div class="hrow" id="profMangaRow"></div>`;
-      bindCards(box);
-      renderProfManga();
-    }
-  })();
+  renderProfMyList();
   const ib=$("#installAppBtn");
   if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
   initFriendsUI();
@@ -4757,7 +4827,7 @@ function renderProfileSetup(){
     renderProfileLegacy();
   };
 }
-/* legacy read-only view for users who skip setup */
+/* legacy read-only view for users who skip setup — still shows their saved list */
 function renderProfileLegacy(){
   $("#view-profile").innerHTML=`<div class="wrap">
     <div class="profhead">
@@ -4766,8 +4836,10 @@ function renderProfileLegacy(){
       <div style="font-size:12px;color:var(--mut);margin-top:2px">Watching free since day one</div></div>
       <button class="pbtn sm" id="profCreate">Create profile</button>
     </div>
+    <div id="profMyList"></div>
   </div>`;
   $("#profCreate").onclick=()=>{store.set("profile_skipped",0);renderProfileSetup();};
+  renderProfMyList();
 }
 
 /* ---------- profile edit form ---------- */
@@ -5392,12 +5464,19 @@ async function refreshStreamersLive(){
     streamersRefreshing=false;
   }
 }
-/* unified list: Kick first, then Twitch; live streamers first within each */
+/* unified list: Kick first, then Twitch; live streamers first within each.
+   A streamer counts as playable when live OR when a genuine replay exists.
+   Non-playable (offline, no replay) sink to the bottom — the feed never leads with a dead player. */
+function sstreamPlayable(s){
+  if(s.live)return true;
+  if(s.platform==="youtube")return !!s.ytLatestId;
+  return !!(s.vod_hls||s.vod_id);
+}
 function sstreamList(){
   const out=[];
   ["kick","twitch","youtube"].forEach(p=>{ (STREAMERS[p]||[]).forEach(s=>out.push(Object.assign({platform:p},s))); });
-  // pinned first (Mr. Moore's favorites), then live, then the rest
-  out.sort((a,b)=>((b.pinned?1:0)-(a.pinned?1:0))||((b.live?1:0)-(a.live?1:0)));
+  // pinned first (Mr. Moore's favorites), then playable, then live
+  out.sort((a,b)=>((b.pinned?1:0)-(a.pinned?1:0))||((sstreamPlayable(b)?1:0)-(sstreamPlayable(a)?1:0))||((b.live?1:0)-(a.live?1:0)));
   return out;
 }
 function sstreamChannel(s){ return String(s.url||"").split("/").filter(Boolean).pop()||""; }
@@ -5499,6 +5578,11 @@ function sstreamFill(node,s,mode){
     shb.onmousedown=(e)=>{ try{e.stopPropagation();}catch(_){} };
   }
   if(mode==="unload"){ fr.innerHTML=""; return; }
+  // nothing playable (offline + no genuine replay): honest card, never a broken "video unavailable" embed
+  if(!live&&!replay){
+    fr.innerHTML=`<div class="sstream-novid"><div style="font-size:44px">📡</div><div style="font-weight:800;font-size:16px;margin-top:10px">@${esc(s.name||"unknown")} is offline</div><div style="color:var(--mut);font-size:13px;margin-top:6px">No recent replay available — check back soon.</div></div>`;
+    return;
+  }
   // offline Kick with VOD: native <video> tag with direct HLS (bypasses broken Kick player embed)
   if(s.platform!=="twitch"&&!s.live&&s.vod_hls){
     fr.innerHTML=sstreamVodHTML(s,streamMuted);
@@ -5729,12 +5813,20 @@ async function renderLive(){
 
 /* ---------- lobby ---------- */
 const liveCounts={}; // roomId -> viewer count
+/* Live tab dot: red ONLY while a watch party is actually live */
+function paintLiveDot(n){
+  try{
+    const el=document.querySelector('#tabbar [data-v="live"] .liveico');
+    if(el)el.classList.toggle("hot",n>0);
+  }catch(e){}
+}
 function liveLobby(){
   const body=$("#livebody"); if(!body) return;
   body.innerHTML=`
     <div style="display:flex;align-items:center;justify-content:space-between;margin:6px 0 12px">
       <div><div style="font-size:20px;font-weight:800">🔴 Watch parties</div>
-      <div style="font-size:12px;color:var(--mut)">Watch together, chat live</div></div>
+      <div style="font-size:12px;color:var(--mut)">Watch together, chat live</div>
+      <div style="font-size:11px;color:var(--mut);margin-top:3px">👥 Parties you host or join with friends · 📡 Pro streamer feeds live under <b>Streaming</b></div></div>
       <button class="btn-play" id="liveStart" style="font-size:13px;padding:10px 16px">+ Start a watch party</button>
     </div>
     <div id="liveRooms"><div class="live-empty">Looking for watch parties…</div></div>`;
@@ -5761,7 +5853,8 @@ function liveRenderRooms(rooms){
       // room-level listeners persist for the session (cheap); cleaned on reload
     }
   });
-  if(!ids.length){ wrap.innerHTML=`<div class="live-empty">No watch parties right now — start one.</div>`; return; }
+  if(!ids.length){ wrap.innerHTML=`<div class="live-empty">No watch parties right now — start one.</div>`; paintLiveDot(0); return; }
+  paintLiveDot(ids.length);
   wrap.innerHTML=ids.map(id=>{
     const r=rooms[id], t=byId(r.seriesId), img=t?thumb(t,"hq"):"";
     return `<div class="lroom">
@@ -6606,6 +6699,14 @@ const Stake={
   async openSheet(){
     document.getElementById("stkScrim").classList.add("open");
     document.getElementById("stkSheet").classList.add("open");
+    // first visit: land on "How it works" so the coin balance is never a mystery
+    try{
+      if(!store.get("stkSeenHow",0)){
+        store.set("stkSeenHow",1);
+        document.querySelectorAll(".stkTab").forEach(x=>x.classList.toggle("sel",x.dataset.st==="how"));
+        document.querySelectorAll(".stkSec").forEach(x=>x.classList.toggle("sel",x.id==="stkSec-how"));
+      }
+    }catch(e){}
     // ensure events AND bets are fresh every time the sheet opens
     if(!this.events.length){ await this.loadEvents(); }
     await this.loadMyBets();
@@ -6620,7 +6721,7 @@ const Stake={
     const w=document.getElementById("stkEvents"); if(!w)return;
     const open=this.events.filter(e=>e.status==="open");
     const done=this.events.filter(e=>e.status!=="open").slice(0,3);
-    let h="";
+    let h='<div class="stkNote" style="margin-bottom:8px">🪙 Free coins, no real money — stake on live streamers, win bragging rights. <b>How it works</b> explains it all.</div>';
     if(!open.length)h+='<div class="stkNote">No live stake events right now — check back soon. New matchups drop regularly.</div>';
     open.forEach(ev=>{
       const bet=this.myBets[ev.id];
