@@ -355750,5 +355750,80 @@
     "award": "Winner — Melbourne International Film Festival City of Melbourne Grand Prix for Best Short Film (2016)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8166",
+    "title": "Teacups",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~8 min",
+    "desc": "A hand-drawn animated tribute to Don Ritchie, the Sydney man who spent some 50 years gently talking people back from the cliff near his home — voiced by Hugo Weaving. A warm, life-affirming story about suicide prevention, told from the rescuer's side: nothing graphic, just the quiet power of a conversation and a cup of tea.",
+    "source_channel": "YouTube (and maps and plans)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/WK4RKN9Zy-M",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Teacups",
+        "video_id": "WK4RKN9Zy-M",
+        "url": "https://www.youtube.com/embed/WK4RKN9Zy-M",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sydney Film Festival Yoram Gross Animation Award, Dendy Awards for Australian Short Films (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8167",
+    "title": "The Dancing Girl and the Balloon Man",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~21 min",
+    "desc": "A gentle, absurdist romance in Sydney's Chinatown between a dim sum shop assistant and a street performer who twists balloon animals. Playful and tender — the festival jury noted the film is punctuated by the odd profane outburst, and nothing more.",
+    "source_channel": "YouTube (Directors Notes)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/y6Mj05dIWbg",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Dancing Girl and the Balloon Man",
+        "video_id": "y6Mj05dIWbg",
+        "url": "https://www.youtube.com/embed/y6Mj05dIWbg",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sydney Film Festival Dendy Live Action Short Award, Best Australian Live Action Short (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8168",
+    "title": "A Confession",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "A grown man tracks down the priest who sexually abused him as a child and confronts him in the confession booth. A two-man dialogue film — the abuse is confronted in words, never depicted — about guilt, faith, and who gets to be forgiven.",
+    "source_channel": "YouTube (wocomoMOVIES)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/UHDBKPkaoBc",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Confession",
+        "video_id": "UHDBKPkaoBc",
+        "url": "https://www.youtube.com/embed/UHDBKPkaoBc",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Berlinale Crystal Bear for Best Short Film, Generation 14plus (2015) · Aesthetica Short Film Festival Festival Winner (2015) · Aesthetica Short Film Festival Best Thriller (2015)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
