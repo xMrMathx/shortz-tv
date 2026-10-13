@@ -354340,5 +354340,80 @@
     "award": "Winner — HollyWeb Festival (2017), Best Drama",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8059",
+    "title": "The Eagleman Stag",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "An entomologist obsessed with how time seems to speed up as we age hunts for a way to slow it down — told in luminous all-white stop-motion.",
+    "source_channel": "Vimeo (Mikey Please)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/41756240",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Eagleman Stag",
+        "video_id": "41756240",
+        "url": "https://player.vimeo.com/video/41756240",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, Best Short Animation (2011)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8060",
+    "title": "Roughhouse",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "Three friends move to a strange town for art school, but a manipulative newcomer turns their house share into a campaign of bullying with lasting scars.",
+    "source_channel": "Vimeo (Papy3D Productions)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/444712888",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Roughhouse",
+        "video_id": "444712888",
+        "url": "https://player.vimeo.com/video/444712888",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, British Short Animation (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8061",
+    "title": "73 Cows",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "A beef farmer who can no longer bear sending his herd to slaughter gives all 73 of his cows to a sanctuary and reinvents his farm.",
+    "source_channel": "Vimeo (Alex Lockwood)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/293352305",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "73 Cows",
+        "video_id": "293352305",
+        "url": "https://player.vimeo.com/video/293352305",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, Best Short Film (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
