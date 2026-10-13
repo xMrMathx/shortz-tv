@@ -1260546,5 +1260546,5376 @@
     "rights_basis": "Public domain (archive.org)",
     "source_channel": "Miscellaneous Feature Films",
     "award_verified": false
+  },
+  {
+    "id": "stv-46088",
+    "title": "Dizzy Dishes",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Dizzy Dishes",
+        "url": "https://archive.org/download/dizzy-dishes_1930/dizzy-dishes_1930.mp4",
+        "video_id": "archive:dizzy-dishes_1930",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/dizzy-dishes_1930/dizzy-dishes_1930.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Betty collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Betty",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46089",
+    "title": "Betty Boop's Ker-Choo",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Betty Boop's Ker-Choo",
+        "url": "https://archive.org/download/BettyBoopsKerChoo/BettyBoop-1932-BettyBoopsKerChoo.mp4",
+        "video_id": "archive:BettyBoopsKerChoo",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/BettyBoopsKerChoo/BettyBoop-1932-BettyBoopsKerChoo.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1933) from archive.org's Betty collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Betty",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46090",
+    "title": "Poor Cinderella",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Poor Cinderella",
+        "url": "https://archive.org/download/PoorCinderella1934/Poor Cinderella (1934).mp4",
+        "video_id": "archive:PoorCinderella1934",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/PoorCinderella1934/Poor Cinderella (1934).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1934) from archive.org's Betty collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Betty",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46091",
+    "title": "Feline Follies",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Feline Follies",
+        "url": "https://archive.org/download/silent-feline-follies/Feline Follies.mp4",
+        "video_id": "archive:silent-feline-follies",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-feline-follies/Feline Follies.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1919) from archive.org's Felix collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46092",
+    "title": "Felix the Big Game Hunter",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix the Big Game Hunter",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/005. Felix the Big Game Hunter (French Writing) (1920).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/005. Felix the Big Game Hunter (French Writing) (1920).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/005. Felix the Big Game Hunter (French Writing) (1920).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1920) from archive.org's Felix collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46093",
+    "title": "The Circus",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Circus",
+        "url": "https://archive.org/download/felix-war-of-thunder/014 - The Circus (1920) (Pathe Release; Retitled Felix Frolics At The Circus).mp4",
+        "video_id": "archive:felix-war-of-thunder/014 - The Circus (1920) (Pathe Release; Retitled Felix Frolics At The Circus).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/felix-war-of-thunder/014 - The Circus (1920) (Pathe Release; Retitled Felix Frolics At The Circus).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1920) from archive.org's Felix collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46094",
+    "title": "Felix Out of Luck",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Out of Luck",
+        "url": "https://archive.org/download/FelixOutOfLuck1924/Felix Out of Luck [1924].mp4",
+        "video_id": "archive:FelixOutOfLuck1924",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixOutOfLuck1924/Felix Out of Luck [1924].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1921) from archive.org's Felix collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46095",
+    "title": "Felix Comes Back",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Comes Back",
+        "url": "https://archive.org/download/silent-felix-comes-back/Felix Comes Back.mp4",
+        "video_id": "archive:silent-felix-comes-back",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-felix-comes-back/Felix Comes Back.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46096",
+    "title": "Felix Fifty-Fifty",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Fifty-Fifty",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/037. Felix Fifty Fifty (Felix Finds a Friend) (Longer Version) (1922).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/037. Felix Fifty Fifty (Felix Finds a Friend) (Longer Version) (1922).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/037. Felix Fifty Fifty (Felix Finds a Friend) (Longer Version) (1922).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46097",
+    "title": "Felix Finds a Way",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Finds a Way",
+        "url": "https://archive.org/download/felix-the-cat-felix-in-love/FELIX FINDS A WAY.ia.mp4",
+        "video_id": "archive:felix-the-cat-felix-in-love/FELIX FINDS A WAY.ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/felix-the-cat-felix-in-love/FELIX FINDS A WAY.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46098",
+    "title": "Felix Gets Left",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Gets Left",
+        "url": "https://archive.org/download/felix-war-of-thunder/041 - Felix Gets Left (1922).mp4",
+        "video_id": "archive:felix-war-of-thunder/041 - Felix Gets Left (1922).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/felix-war-of-thunder/041 - Felix Gets Left (1922).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46099",
+    "title": "Felix Gets Revenge",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Gets Revenge",
+        "url": "https://archive.org/download/FelixGetsRevenge1922/Felix Gets Revenge [1922].mp4",
+        "video_id": "archive:FelixGetsRevenge1922",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixGetsRevenge1922/Felix Gets Revenge [1922].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46100",
+    "title": "Felix Lends a Hand",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Lends a Hand",
+        "url": "https://archive.org/download/FelixTheCatFelixLendsAHand1922/Felix The Cat - Felix Lends A Hand (1922).mp4",
+        "video_id": "archive:FelixTheCatFelixLendsAHand1922",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixTheCatFelixLendsAHand1922/Felix The Cat - Felix Lends A Hand (1922).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46101",
+    "title": "Felix Makes Good",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Makes Good",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/028. Felix Makes Good (Felix Has a Narrow Escape) (1922).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/028. Felix Makes Good (Felix Has a Narrow Escape) (1922).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/028. Felix Makes Good (Felix Has a Narrow Escape) (1922).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46102",
+    "title": "Felix Minds the Kid",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Minds the Kid",
+        "url": "https://archive.org/download/silent-felix-minds-the-kid/Felix Minds the Kid.mp4",
+        "video_id": "archive:silent-felix-minds-the-kid",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-felix-minds-the-kid/Felix Minds the Kid.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46103",
+    "title": "Felix Saves the Day",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Saves the Day",
+        "url": "https://archive.org/download/silent-felix-saves-the-day/Felix Saves the Day.mp4",
+        "video_id": "archive:silent-felix-saves-the-day",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-felix-saves-the-day/Felix Saves the Day.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46104",
+    "title": "Felix Turns the Tide",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Turns the Tide",
+        "url": "https://archive.org/download/silent-felix-turns-the-tide/Felix Turns the Tide.mp4",
+        "video_id": "archive:silent-felix-turns-the-tide",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-felix-turns-the-tide/Felix Turns the Tide.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46105",
+    "title": "Felix at the Fair",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix at the Fair",
+        "url": "https://archive.org/download/felix-at-the-fair/Felix At The Fair.ia.mp4",
+        "video_id": "archive:felix-at-the-fair",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/felix-at-the-fair/Felix At The Fair.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 3 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46106",
+    "title": "Felix in Love",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix in Love",
+        "url": "https://archive.org/download/felix-the-cat-felix-in-love/Felix the Cat Felix in Love.ia.mp4",
+        "video_id": "archive:felix-the-cat-felix-in-love/Felix the Cat Felix in Love.ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/felix-the-cat-felix-in-love/Felix the Cat Felix in Love.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46107",
+    "title": "Felix in the Bone Age",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix in the Bone Age",
+        "url": "https://archive.org/download/silent-felix-in-the-bone-age/Felix in the Bone Age.mp4",
+        "video_id": "archive:silent-felix-in-the-bone-age",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-felix-in-the-bone-age/Felix in the Bone Age.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 3 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46108",
+    "title": "Felix in the Swim",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix in the Swim",
+        "url": "https://archive.org/download/silent-felix-in-the-swim/Felix in the Swim.mp4",
+        "video_id": "archive:silent-felix-in-the-swim",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-felix-in-the-swim/Felix in the Swim.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1922) from archive.org's Felix collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46109",
+    "title": "Felix Gets Broadcasted",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Gets Broadcasted",
+        "url": "https://archive.org/download/ptp_felix-gets-broadcast_otto-messmer_avi_xvid_768x576_179228/Felix Gets Broadcasted.mp4",
+        "video_id": "archive:ptp_felix-gets-broadcast_otto-messmer_avi_xvid_768x576_179228",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ptp_felix-gets-broadcast_otto-messmer_avi_xvid_768x576_179228/Felix Gets Broadcasted.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 3 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46110",
+    "title": "Felix Goes A-Hunting",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Goes A-Hunting",
+        "url": "https://archive.org/download/ptp_felix-goes-a-hunting_otto-messmer_avi_xvid_768x576_179229/Felix Goes A-Hunting.mp4",
+        "video_id": "archive:ptp_felix-goes-a-hunting_otto-messmer_avi_xvid_768x576_179229",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ptp_felix-goes-a-hunting_otto-messmer_avi_xvid_768x576_179229/Felix Goes A-Hunting.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46111",
+    "title": "Felix In Hollywood",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix In Hollywood",
+        "url": "https://archive.org/download/silent-felix-in-hollywood/Felix in Hollywood.mp4",
+        "video_id": "archive:silent-felix-in-hollywood",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-felix-in-hollywood/Felix in Hollywood.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46112",
+    "title": "Felix Laughs Last",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Laughs Last",
+        "url": "https://archive.org/download/All-Silent-Felix-The-Cat-Cartoons/23.08.15 Felix Laughs Last.ia.mp4",
+        "video_id": "archive:All-Silent-Felix-The-Cat-Cartoons/23.08.15 Felix Laughs Last.ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/All-Silent-Felix-The-Cat-Cartoons/23.08.15 Felix Laughs Last.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46113",
+    "title": "Felix Strikes It Rich",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Strikes It Rich",
+        "url": "https://archive.org/download/All-Silent-Felix-The-Cat-Cartoons/23.07.01 Felix Strikes it Rich.mp4",
+        "video_id": "archive:All-Silent-Felix-The-Cat-Cartoons/23.07.01 Felix Strikes it Rich.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/All-Silent-Felix-The-Cat-Cartoons/23.07.01 Felix Strikes it Rich.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46114",
+    "title": "Felix Tries for Treasure",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Tries for Treasure",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/045. Felix Tries For Treasure (1923).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/045. Felix Tries For Treasure (1923).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/045. Felix Tries For Treasure (1923).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46115",
+    "title": "Felix Wins Out",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Wins Out",
+        "url": "https://archive.org/download/ptp_felix-wins-out_otto-messmer_avi_xvid_768x576_179242/Felix Wins Out.mp4",
+        "video_id": "archive:ptp_felix-wins-out_otto-messmer_avi_xvid_768x576_179242",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ptp_felix-wins-out_otto-messmer_avi_xvid_768x576_179242/Felix Wins Out.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46116",
+    "title": "Felix in Fairyland",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix in Fairyland",
+        "url": "https://archive.org/download/ptp_felix-in-fairyland_otto-messmer_avi_xvid_768x576_179231/Felix in Fairyland.mp4",
+        "video_id": "archive:ptp_felix-in-fairyland_otto-messmer_avi_xvid_768x576_179231",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ptp_felix-in-fairyland_otto-messmer_avi_xvid_768x576_179231/Felix in Fairyland.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46117",
+    "title": "Felix the Ghost Breaker",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix the Ghost Breaker",
+        "url": "https://archive.org/download/FelixTheGhostBreaker1923/Felix the Ghost Breaker [1923].mp4",
+        "video_id": "archive:FelixTheGhostBreaker1923",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixTheGhostBreaker1923/Felix the Ghost Breaker [1923].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1923) from archive.org's Felix collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46118",
+    "title": "Felix All Balled Up",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix All Balled Up",
+        "url": "https://archive.org/download/AprilMaze1930/Felix All Balled Up (1924).mp4",
+        "video_id": "archive:AprilMaze1930/Felix All Balled Up (1924).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/AprilMaze1930/Felix All Balled Up (1924).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1924) from archive.org's Felix collection, 3 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46119",
+    "title": "Felix Crosses the Crooks",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Crosses the Crooks",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/061. Felix Crosses the Crooks (Felix the Bold) (Part 2) (1924).mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/061. Felix Crosses the Crooks (Felix the Bold) (Part 2) (1924).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/061. Felix Crosses the Crooks (Felix the Bold) (Part 2) (1924).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1924) from archive.org's Felix collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46120",
+    "title": "Felix Doubles for Darwin",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Doubles for Darwin",
+        "url": "https://archive.org/download/Felix_DoublesforDarwin_NoAudio/Felix_DoublesforDarwin_NoAudio_512kb.mp4",
+        "video_id": "archive:Felix_DoublesforDarwin_NoAudio",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/Felix_DoublesforDarwin_NoAudio/Felix_DoublesforDarwin_NoAudio_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1924) from archive.org's Felix collection, 11 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46121",
+    "title": "Felix Finds 'Em Fickle",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Finds 'Em Fickle",
+        "url": "https://archive.org/download/silent-felix-finds-em-fickle/Felix Finds 'Em Fickle.mp4",
+        "video_id": "archive:silent-felix-finds-em-fickle",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/silent-felix-finds-em-fickle/Felix Finds 'Em Fickle.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1924) from archive.org's Felix collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46122",
+    "title": "Felix Finds Out",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Finds Out",
+        "url": "https://archive.org/download/FELIXTHECATFELIXFINDSOUT/FFO_512kb.mp4",
+        "video_id": "archive:FELIXTHECATFELIXFINDSOUT",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FELIXTHECATFELIXFINDSOUT/FFO_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1924) from archive.org's Felix collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46123",
+    "title": "Felix Goes West",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Goes West",
+        "url": "https://archive.org/download/Felix_GoesWest_NoAudio/Felix_GoesWest_NoAudio_512kb.mp4",
+        "video_id": "archive:Felix_GoesWest_NoAudio",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/Felix_GoesWest_NoAudio/Felix_GoesWest_NoAudio_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1924) from archive.org's Felix collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46124",
+    "title": "Felix Grabs His Grub",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Grabs His Grub",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/068. Felix Grabs His Grub (1924).mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/068. Felix Grabs His Grub (1924).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/068. Felix Grabs His Grub (1924).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1924) from archive.org's Felix collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46125",
+    "title": "Felix Pinches the Pole",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Pinches the Pole",
+        "url": "https://archive.org/download/FelixPinchesThePole1924/Felix Pinches the Pole [1924].mp4",
+        "video_id": "archive:FelixPinchesThePole1924",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixPinchesThePole1924/Felix Pinches the Pole [1924].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1924) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46126",
+    "title": "Felix All Puzzled",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix All Puzzled",
+        "url": "https://archive.org/download/Felix_AllPuzzled_NoAudio/Felix_AllPuzzled_NoAudio_512kb.mp4",
+        "video_id": "archive:Felix_AllPuzzled_NoAudio",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/Felix_AllPuzzled_NoAudio/Felix_AllPuzzled_NoAudio_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1925) from archive.org's Felix collection, 3 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46127",
+    "title": "Felix Full O' Fight",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Full O' Fight",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/084. Felix Full O' Fight (1925).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/084. Felix Full O' Fight (1925).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/084. Felix Full O' Fight (1925).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1925) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46128",
+    "title": "Felix Gets His Fill",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Gets His Fill",
+        "url": "https://archive.org/download/y-2mate.is-felix-gets-his-fill-1925-complete-w-1-ei-iy-bm-1-qy-480pp-1703257806/y2mate.is - Felix Gets His Fill 1925 Complete -w1EiIyBM1QY-480pp-1703257806.ia.mp4",
+        "video_id": "archive:y-2mate.is-felix-gets-his-fill-1925-complete-w-1-ei-iy-bm-1-qy-480pp-1703257806",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/y-2mate.is-felix-gets-his-fill-1925-complete-w-1-ei-iy-bm-1-qy-480pp-1703257806/y2mate.is - Felix Gets His Fill 1925 Complete -w1EiIyBM1QY-480pp-1703257806.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1925) from archive.org's Felix collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46129",
+    "title": "Felix Gets the Can",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Gets the Can",
+        "url": "https://archive.org/download/Felix_GetstheCan_NoAudio/Felix_GetstheCan_NoAudio_512kb.mp4",
+        "video_id": "archive:Felix_GetstheCan_NoAudio",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/Felix_GetstheCan_NoAudio/Felix_GetstheCan_NoAudio_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1925) from archive.org's Felix collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46130",
+    "title": "Felix Trifles with Time",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Trifles with Time",
+        "url": "https://archive.org/download/FelixTriflesWithTime1925/Felix Trifles with Time [1925].mp4",
+        "video_id": "archive:FelixTriflesWithTime1925",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixTriflesWithTime1925/Felix Trifles with Time [1925].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1925) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46131",
+    "title": "Felix Trips thru Toyland",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Trips thru Toyland",
+        "url": "https://archive.org/download/felixtripsthrutoyland-1925/FELIXTRIPSTHRUTOYLAND1925.mp4",
+        "video_id": "archive:felixtripsthrutoyland-1925",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/felixtripsthrutoyland-1925/FELIXTRIPSTHRUTOYLAND1925.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1925) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46132",
+    "title": "Monkeys with Magic",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Monkeys with Magic",
+        "url": "https://archive.org/download/FelixMonkeysWithMagic1925/Felix Monkeys with Magic [1925].mp4",
+        "video_id": "archive:FelixMonkeysWithMagic1925",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixMonkeysWithMagic1925/Felix Monkeys with Magic [1925].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1925) from archive.org's Felix collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46133",
+    "title": "The Cat and the Kit",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Cat and the Kit",
+        "url": "https://archive.org/download/FelixTheCatAndTheKitcirca1927/Felix The Cat and the Kit [circa 1927].mp4",
+        "video_id": "archive:FelixTheCatAndTheKitcirca1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixTheCatAndTheKitcirca1927/Felix The Cat and the Kit [circa 1927].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1925) from archive.org's Felix collection, 11 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46134",
+    "title": "Felix Busts a Bubble",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Busts a Bubble",
+        "url": "https://archive.org/download/FelixBustsABubble1926/Felix Busts a Bubble [1926].mp4",
+        "video_id": "archive:FelixBustsABubble1926",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixBustsABubble1926/Felix Busts a Bubble [1926].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1926) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46135",
+    "title": "Felix Laughs It Off",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Laughs It Off",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/105. Felix the Cat Laughs it Off (1926).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/105. Felix the Cat Laughs it Off (1926).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/105. Felix the Cat Laughs it Off (1926).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1926) from archive.org's Felix collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46136",
+    "title": "Land O' Fancy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Land O' Fancy",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/121. The Land Of Fancy (1926).mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/121. The Land Of Fancy (1926).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/121. The Land Of Fancy (1926).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1926) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46137",
+    "title": "Two-Lip Time",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Two-Lip Time",
+        "url": "https://archive.org/download/CartoonFelixTheCat1926TwoLipTime/Cartoon - Felix The Cat - (1926) Two-Lip Time.mp4",
+        "video_id": "archive:CartoonFelixTheCat1926TwoLipTime",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/CartoonFelixTheCat1926TwoLipTime/Cartoon - Felix The Cat - (1926) Two-Lip Time.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1926) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46138",
+    "title": "Daze and Knights",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Daze and Knights",
+        "url": "https://archive.org/download/FelixDazeAndKnights1927/Felix Daze and Knights [1927].mp4",
+        "video_id": "archive:FelixDazeAndKnights1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixDazeAndKnights1927/Felix Daze and Knights [1927].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46139",
+    "title": "Felix Dines and Pines",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Dines and Pines",
+        "url": "https://archive.org/download/FelixDinesAndPines1927/Felix Dines and Pines [1927].mp4",
+        "video_id": "archive:FelixDinesAndPines1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixDinesAndPines1927/Felix Dines and Pines [1927].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46140",
+    "title": "Felix Switches Witches",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Felix Switches Witches",
+        "url": "https://archive.org/download/FelixSwitchesWitches1927/Felix Switches Witches [1927].mp4",
+        "video_id": "archive:FelixSwitchesWitches1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixSwitchesWitches1927/Felix Switches Witches [1927].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46141",
+    "title": "Flim Flam Films",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Flim Flam Films",
+        "url": "https://archive.org/download/FelixFlimFlamFilms1927/Felix Flim Flam Films [1927].mp4",
+        "video_id": "archive:FelixFlimFlamFilms1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixFlimFlamFilms1927/Felix Flim Flam Films [1927].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46142",
+    "title": "Germ Mania",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Germ Mania",
+        "url": "https://archive.org/download/FelixGermMania1927/Felix Germ Mania [1927].mp4",
+        "video_id": "archive:FelixGermMania1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixGermMania1927/Felix Germ Mania [1927].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46143",
+    "title": "Pedigreedy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Pedigreedy",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/128. Pedigreedy (1927).mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/128. Pedigreedy (1927).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/128. Pedigreedy (1927).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46144",
+    "title": "The Non-Stop Fright",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Non-Stop Fright",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/143. The Non-Stop Fright (Sound Reissue) (1927).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/143. The Non-Stop Fright (Sound Reissue) (1927).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/143. The Non-Stop Fright (Sound Reissue) (1927).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Felix collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46145",
+    "title": "The Travel-Hog",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Travel-Hog",
+        "url": "https://archive.org/download/y-2mate.is-felix-the-cat-the-travel-hog-1927-tp-az-dagi-ma-y-360p-1703258788/y2mate.is - Felix the Cat - The Travel-Hog (1927)-tpAzDagiMaY-360p-1703258788.mp4",
+        "video_id": "archive:y-2mate.is-felix-the-cat-the-travel-hog-1927-tp-az-dagi-ma-y-360p-1703258788",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/y-2mate.is-felix-the-cat-the-travel-hog-1927-tp-az-dagi-ma-y-360p-1703258788/y2mate.is - Felix the Cat - The Travel-Hog (1927)-tpAzDagiMaY-360p-1703258788.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Felix collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46146",
+    "title": "Comicalamities",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Comicalamities",
+        "url": "https://archive.org/download/comicalamities_1928/comicalamities_1928.mp4",
+        "video_id": "archive:comicalamities_1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/comicalamities_1928/comicalamities_1928.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46147",
+    "title": "Eskimotive",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Eskimotive",
+        "url": "https://archive.org/download/FelixEskimotive1928/Felix Eskimotive [1928].mp4",
+        "video_id": "archive:FelixEskimotive1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixEskimotive1928/Felix Eskimotive [1928].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46148",
+    "title": "Futuritzy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Futuritzy",
+        "url": "https://archive.org/download/FelixFuturitzy1928/Felix Futuritzy [1928].mp4",
+        "video_id": "archive:FelixFuturitzy1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixFuturitzy1928/Felix Futuritzy [1928].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46149",
+    "title": "Outdoor Indore",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Outdoor Indore",
+        "url": "https://archive.org/download/FelixOutdoorIndore1928/Felix Outdoor Indore [1928].mp4",
+        "video_id": "archive:FelixOutdoorIndore1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixOutdoorIndore1928/Felix Outdoor Indore [1928].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46150",
+    "title": "Polly-tics",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Polly-tics",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/158. Polly-tics (1928).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/158. Polly-tics (1928).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/158. Polly-tics (1928).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46151",
+    "title": "Sure-Locked Homes",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sure-Locked Homes",
+        "url": "https://archive.org/download/surelocked-homes_1928/surelocked-homes_1928.mp4",
+        "video_id": "archive:surelocked-homes_1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/surelocked-homes_1928/surelocked-homes_1928.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46152",
+    "title": "The Smoke Scream",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Smoke Scream",
+        "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/153. The Smoke Scream (Sound Reissue) (1928).ia.mp4",
+        "video_id": "archive:028.-felix-makes-good-felix-has-a-narrow-escape-1922/153. The Smoke Scream (Sound Reissue) (1928).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/028.-felix-makes-good-felix-has-a-narrow-escape-1922/153. The Smoke Scream (Sound Reissue) (1928).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46153",
+    "title": "False Vases",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "False Vases",
+        "url": "https://archive.org/download/2-april-maze/3 False Vases.mp4",
+        "video_id": "archive:2-april-maze/3 False Vases.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/2-april-maze/3 False Vases.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1929) from archive.org's Felix collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46154",
+    "title": "One Good Turn",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "One Good Turn",
+        "url": "https://archive.org/download/FelixOneGoodTurn1929/Felix One Good Turn [1929].mp4",
+        "video_id": "archive:FelixOneGoodTurn1929",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixOneGoodTurn1929/Felix One Good Turn [1929].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1929) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46155",
+    "title": "April Maze",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "April Maze",
+        "url": "https://archive.org/download/AprilMaze1930/April Maze (1930).mp4",
+        "video_id": "archive:AprilMaze1930/April Maze (1930).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/AprilMaze1930/April Maze (1930).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46156",
+    "title": "Forty Winks",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Forty Winks",
+        "url": "https://archive.org/download/2-april-maze/4 Forty Winks.mp4",
+        "video_id": "archive:2-april-maze/4 Forty Winks.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/2-april-maze/4 Forty Winks.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Felix collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46157",
+    "title": "Oceantics",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Oceantics",
+        "url": "https://archive.org/download/2-april-maze/5 Oceantics.mp4",
+        "video_id": "archive:2-april-maze/5 Oceantics.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/2-april-maze/5 Oceantics.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Felix collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46158",
+    "title": "Skulls and Sculls",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Skulls and Sculls",
+        "url": "https://archive.org/download/felix-the-cat-in-skulls-and-sculls_1930/felix-the-cat-in-skulls-and-sculls_1930.mp4",
+        "video_id": "archive:felix-the-cat-in-skulls-and-sculls_1930",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/felix-the-cat-in-skulls-and-sculls_1930/felix-the-cat-in-skulls-and-sculls_1930.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Felix collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46159",
+    "title": "Woos Whoopee",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Woos Whoopee",
+        "url": "https://archive.org/download/FelixWoosWhoopee1930/Felix Woos Whoopee [1930].mp4",
+        "video_id": "archive:FelixWoosWhoopee1930",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FelixWoosWhoopee1930/Felix Woos Whoopee [1930].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Felix collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Felix",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46160",
+    "title": "Fiddlesticks",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Fiddlesticks",
+        "url": "https://archive.org/download/fiddlesticks_1930/fiddlesticks_1930.mp4",
+        "video_id": "archive:fiddlesticks_1930",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/fiddlesticks_1930/fiddlesticks_1930.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Flip collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Flip",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46161",
+    "title": "Flying Fists",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Flying Fists",
+        "url": "https://archive.org/download/FlyingFists1930UbIwerks/Flying Fists 1930  Ub Iwerks.mp4",
+        "video_id": "archive:FlyingFists1930UbIwerks",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FlyingFists1930UbIwerks/Flying Fists 1930  Ub Iwerks.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Flip collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Flip",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46162",
+    "title": "Little Orphan Willie",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Little Orphan Willie",
+        "url": "https://archive.org/download/LittleOrphanWillie1930UbIwerks/Little Orphan Willie 1930 Ub Iwerks.mp4",
+        "video_id": "archive:LittleOrphanWillie1930UbIwerks",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/LittleOrphanWillie1930UbIwerks/Little Orphan Willie 1930 Ub Iwerks.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Flip collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Flip",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46163",
+    "title": "Puddle Pranks",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Puddle Pranks",
+        "url": "https://archive.org/download/puddle-pranks_1930/puddle-pranks_1930.ia.mp4",
+        "video_id": "archive:puddle-pranks_1930",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/puddle-pranks_1930/puddle-pranks_1930.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Flip collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Flip",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46164",
+    "title": "The Cuckoo Murder Case",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Cuckoo Murder Case",
+        "url": "https://archive.org/download/TheCuckooMurderCase1930UbIwerks/The Cuckoo Murder Case 1930 Ub Iwerks.mp4",
+        "video_id": "archive:TheCuckooMurderCase1930UbIwerks",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/TheCuckooMurderCase1930UbIwerks/The Cuckoo Murder Case 1930 Ub Iwerks.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Flip collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Flip",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46165",
+    "title": "The Village Barber",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Village Barber",
+        "url": "https://archive.org/download/the-village-barber_1930/the-village-barber_1930.ia.mp4",
+        "video_id": "archive:the-village-barber_1930",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-village-barber_1930/the-village-barber_1930.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1930) from archive.org's Flip collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Flip",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46166",
+    "title": "All Wet",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "All Wet",
+        "url": "https://archive.org/download/all-wet-1927-restored/All Wet.mp4",
+        "video_id": "archive:all-wet-1927-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/all-wet-1927-restored/All Wet.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46167",
+    "title": "Empty Socks",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Empty Socks",
+        "url": "https://archive.org/download/empty-socks-1927/Empty-Socks-1927.mp4",
+        "video_id": "archive:empty-socks-1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/empty-socks-1927/Empty-Socks-1927.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46168",
+    "title": "Great Guns!",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Great Guns!",
+        "url": "https://archive.org/download/great-guns-1927/Great Guns! (1927).mp4",
+        "video_id": "archive:great-guns-1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/great-guns-1927/Great Guns! (1927).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46169",
+    "title": "Oh Teacher",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Oh Teacher",
+        "url": "https://archive.org/download/oh-teacher-1927/Oh Teacher (1927).mp4",
+        "video_id": "archive:oh-teacher-1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/oh-teacher-1927/Oh Teacher (1927).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46170",
+    "title": "Poor Papa",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Poor Papa",
+        "url": "https://archive.org/download/poor-papa_1928/poor-papa_1928.mp4",
+        "video_id": "archive:poor-papa_1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/poor-papa_1928/poor-papa_1928.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46171",
+    "title": "The Banker's Daughter",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Banker's Daughter",
+        "url": "https://archive.org/download/the-bankers-daughter-1933/The Banker's Daughter (1933).mp4",
+        "video_id": "archive:the-bankers-daughter-1933",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-bankers-daughter-1933/The Banker's Daughter (1933).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46172",
+    "title": "The Mechanical Cow",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Mechanical Cow",
+        "url": "https://archive.org/download/03-the-mechanical-cow/03 - The Mechanical Cow.ia.mp4",
+        "video_id": "archive:03-the-mechanical-cow",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/03-the-mechanical-cow/03 - The Mechanical Cow.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46173",
+    "title": "The Ocean Hop",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Ocean Hop",
+        "url": "https://archive.org/download/the-ocean-hop-1927/The Ocean Hop (1927).mp4",
+        "video_id": "archive:the-ocean-hop-1927",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-ocean-hop-1927/The Ocean Hop (1927).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46174",
+    "title": "Trolley Troubles",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Trolley Troubles",
+        "url": "https://archive.org/download/trolley-troubles-1927-restored/Trolley Troubles.mp4",
+        "video_id": "archive:trolley-troubles-1927-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/trolley-troubles-1927-restored/Trolley Troubles.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1927) from archive.org's Oswald collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46175",
+    "title": "Bright Lights",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Bright Lights",
+        "url": "https://archive.org/download/oswaldbrightlights/015 Bright Lights.mp4",
+        "video_id": "archive:oswaldbrightlights",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/oswaldbrightlights/015 Bright Lights.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Oswald collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46176",
+    "title": "Hungry Hoboes",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hungry Hoboes",
+        "url": "https://archive.org/download/hungry-hoboes-1928_202502/Hungry Hoboes (1928).ia.mp4",
+        "video_id": "archive:hungry-hoboes-1928_202502",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/hungry-hoboes-1928_202502/Hungry Hoboes (1928).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Oswald collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46177",
+    "title": "Ozzie of the Mounted",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ozzie of the Mounted",
+        "url": "https://archive.org/download/ozzie-of-the-mounted_1928/ozzie-of-the-mounted_1928.ia.mp4",
+        "video_id": "archive:ozzie-of-the-mounted_1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ozzie-of-the-mounted_1928/ozzie-of-the-mounted_1928.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Oswald collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46178",
+    "title": "Rival Romeos",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Rival Romeos",
+        "url": "https://archive.org/download/rival-romeos_1928/rival-romeos_1928.ia.mp4",
+        "video_id": "archive:rival-romeos_1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/rival-romeos_1928/rival-romeos_1928.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Oswald collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46179",
+    "title": "Sleigh Bells",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sleigh Bells",
+        "url": "https://archive.org/download/sleigh-bells-1928/Sleigh Bells (1928).mp4",
+        "video_id": "archive:sleigh-bells-1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/sleigh-bells-1928/Sleigh Bells (1928).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Oswald collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46180",
+    "title": "Tall Timber",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Tall Timber",
+        "url": "https://archive.org/download/tall-timber_1928/tall-timber_1928.ia.mp4",
+        "video_id": "archive:tall-timber_1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/tall-timber_1928/tall-timber_1928.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Oswald collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46181",
+    "title": "The Fox Chase",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Fox Chase",
+        "url": "https://archive.org/download/the-fox-chase_1928/the-fox-chase_1928.ia.mp4",
+        "video_id": "archive:the-fox-chase_1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-fox-chase_1928/the-fox-chase_1928.ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Oswald collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46182",
+    "title": "The Ol' Swimmin' Hole",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Ol' Swimmin' Hole",
+        "url": "https://archive.org/download/the-ol-swimmin-hole-1928/The Ol' Swimmin' Hole (1928).mp4",
+        "video_id": "archive:the-ol-swimmin-hole-1928",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-ol-swimmin-hole-1928/The Ol' Swimmin' Hole (1928).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1928) from archive.org's Oswald collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Oswald",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46183",
+    "title": "Popeye the Sailor Meets Sindbad the Sailor",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Popeye the Sailor Meets Sindbad the Sailor",
+        "url": "https://archive.org/download/popeye-the-sailor-meets-sindbad-the-sailor-1936/Popeye the Sailor Meets Sindbad the Sailor (1936).mp4",
+        "video_id": "archive:popeye-the-sailor-meets-sindbad-the-sailor-1936",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/popeye-the-sailor-meets-sindbad-the-sailor-1936/Popeye the Sailor Meets Sindbad the Sailor (1936).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1936) from archive.org's Popeye collection, 17 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46184",
+    "title": "Aladdin and His Wonderful Lamp",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Aladdin and His Wonderful Lamp",
+        "url": "https://archive.org/download/popeye-meets-aladdin/Aladdin and his Wonderful .ia.mp4",
+        "video_id": "archive:popeye-meets-aladdin",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/popeye-meets-aladdin/Aladdin and his Wonderful .ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1939) from archive.org's Popeye collection, 21 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46185",
+    "title": "Shuteye Popeye",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Shuteye Popeye",
+        "url": "https://archive.org/download/shuteye_popeye/shuteye_popeye_512kb.mp4",
+        "video_id": "archive:shuteye_popeye",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/shuteye_popeye/shuteye_popeye_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1952) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46186",
+    "title": "A Haul in One",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Haul in One",
+        "url": "https://archive.org/download/AHaulInOne1956/A Haul in One (1956).mp4",
+        "video_id": "archive:AHaulInOne1956",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/AHaulInOne1956/A Haul in One (1956).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1956) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46187",
+    "title": "Assault and Flattery",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Assault and Flattery",
+        "url": "https://archive.org/download/Popeye_Assault_and_Flattery_1956/Popeye_Assault_and_Flattery_512kb.mp4",
+        "video_id": "archive:Popeye_Assault_and_Flattery_1956",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/Popeye_Assault_and_Flattery_1956/Popeye_Assault_and_Flattery_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1956) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46188",
+    "title": "I Don't Scare",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "I Don't Scare",
+        "url": "https://archive.org/download/popeye_i_dont_scare/popeye_i_dont_scare_512kb.mp4",
+        "video_id": "archive:popeye_i_dont_scare",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/popeye_i_dont_scare/popeye_i_dont_scare_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1956) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46189",
+    "title": "Insect to Injury",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Insect to Injury",
+        "url": "https://archive.org/download/insect_to_injury/insect_to_injury_512kb.mp4",
+        "video_id": "archive:insect_to_injury",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/insect_to_injury/insect_to_injury_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1956) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46190",
+    "title": "Out to Punch",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Out to Punch",
+        "url": "https://archive.org/download/Popeye_Out_of_the_Punch_1956/Popeye_Out_To_Punch_1956_512kb.mp4",
+        "video_id": "archive:Popeye_Out_of_the_Punch_1956",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/Popeye_Out_of_the_Punch_1956/Popeye_Out_To_Punch_1956_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1956) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46191",
+    "title": "Parlez Vous Woo",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Parlez Vous Woo",
+        "url": "https://archive.org/download/parlez-vous-woo/🥗🏋 Popeye-Parlez Vous Woo (1956)-360p.mp4",
+        "video_id": "archive:parlez-vous-woo",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/parlez-vous-woo/🥗🏋 Popeye-Parlez Vous Woo (1956)-360p.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1956) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46192",
+    "title": "Popeye for President",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Popeye for President",
+        "url": "https://archive.org/download/Popeye_forPresident/Popeye_forPresident_512kb.mp4",
+        "video_id": "archive:Popeye_forPresident",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/Popeye_forPresident/Popeye_forPresident_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1956) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46193",
+    "title": "Nearlyweds",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Nearlyweds",
+        "url": "https://archive.org/download/Popeye_Nearlyweds/Popeye_Nearlyweds_512kb.mp4",
+        "video_id": "archive:Popeye_Nearlyweds",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/Popeye_Nearlyweds/Popeye_Nearlyweds_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1957) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46194",
+    "title": "Patriotic Popeye",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Patriotic Popeye",
+        "url": "https://archive.org/download/popeye_patriotic_popeye/popeye_patriotic_popeye_512kb.mp4",
+        "video_id": "archive:popeye_patriotic_popeye",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/popeye_patriotic_popeye/popeye_patriotic_popeye_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1957) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46195",
+    "title": "Spooky Swabs",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Spooky Swabs",
+        "url": "https://archive.org/download/SpookySwabs/SpookySwabs.mp4",
+        "video_id": "archive:SpookySwabs",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/SpookySwabs/SpookySwabs.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1957) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46196",
+    "title": "Spree Lunch",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Spree Lunch",
+        "url": "https://archive.org/download/spree_lunch/spree_lunch_512kb.mp4",
+        "video_id": "archive:spree_lunch",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/spree_lunch/spree_lunch_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1957) from archive.org's Popeye collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46197",
+    "title": "The Crystal Brawl",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Crystal Brawl",
+        "url": "https://archive.org/download/popeye-the-crystal-brawl-1957_202605/Popeye The Crystal Brawl (1957).ia.mp4",
+        "video_id": "archive:popeye-the-crystal-brawl-1957_202605",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/popeye-the-crystal-brawl-1957_202605/Popeye The Crystal Brawl (1957).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1957) from archive.org's Popeye collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Popeye",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46198",
+    "title": "Lady, Play Your Mandolin!",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Lady, Play Your Mandolin!",
+        "url": "https://archive.org/download/lady-play-your-mandolin_202311/Lady, Play Your Mandolin!.mp4",
+        "video_id": "archive:lady-play-your-mandolin_202311",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/lady-play-your-mandolin_202311/Lady, Play Your Mandolin!.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1931) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46199",
+    "title": "One More Time",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "One More Time",
+        "url": "https://archive.org/download/one-more-time-1931/One More Time (1931).mp4",
+        "video_id": "archive:one-more-time-1931",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/one-more-time-1931/One More Time (1931).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1931) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46200",
+    "title": "Red-Headed Baby",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Red-Headed Baby",
+        "url": "https://archive.org/download/red-headed-baby-1931/Red-Headed Baby (1931).mp4",
+        "video_id": "archive:red-headed-baby-1931",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/red-headed-baby-1931/Red-Headed Baby (1931).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1931) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46201",
+    "title": "Smile, Darn Ya, Smile!",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Smile, Darn Ya, Smile!",
+        "url": "https://archive.org/download/sdys1125578/sdys1125578.mp4",
+        "video_id": "archive:sdys1125578",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/sdys1125578/sdys1125578.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1931) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46202",
+    "title": "You Don't Know What You're Doin'!",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "You Don't Know What You're Doin'!",
+        "url": "https://archive.org/download/YouDontKnowWhatYoureDoinCartoon/YouDontKnowWhatYoureDoinCartoon.mp4",
+        "video_id": "archive:YouDontKnowWhatYoureDoinCartoon",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/YouDontKnowWhatYoureDoinCartoon/YouDontKnowWhatYoureDoinCartoon.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1931) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46203",
+    "title": "A Great Big Bunch of You",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Great Big Bunch of You",
+        "url": "https://archive.org/download/a-great-big-bunch-of-you-1932-restored/S01E008_A Great Big Bunch of You.mp4",
+        "video_id": "archive:a-great-big-bunch-of-you-1932-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/a-great-big-bunch-of-you-1932-restored/S01E008_A Great Big Bunch of You.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46204",
+    "title": "Crosby, Columbo, and Vallee",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Crosby, Columbo, and Vallee",
+        "url": "https://archive.org/download/crosby-columbo-and-vallee-1932/Crosby, Columbo, and Vallee (1932).mp4",
+        "video_id": "archive:crosby-columbo-and-vallee-1932",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/crosby-columbo-and-vallee-1932/Crosby, Columbo, and Vallee (1932).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46205",
+    "title": "Freddy the Freshman",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Freddy the Freshman",
+        "url": "https://archive.org/download/MyMovie_201501/My Movie.mp4",
+        "video_id": "archive:MyMovie_201501",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/MyMovie_201501/My Movie.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46206",
+    "title": "Goopy Geer",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Goopy Geer",
+        "url": "https://archive.org/download/goopy-geer-1932-restored/S01E004_Goopy Geer.mp4",
+        "video_id": "archive:goopy-geer-1932-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/goopy-geer-1932-restored/S01E004_Goopy Geer.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46207",
+    "title": "I Love a Parade",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "I Love a Parade",
+        "url": "https://archive.org/download/i-love-a-parade-1932/I Love a Parade (1932).ia.mp4",
+        "video_id": "archive:i-love-a-parade-1932",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/i-love-a-parade-1932/I Love a Parade (1932).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46208",
+    "title": "I Wish I Had Wings",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "I Wish I Had Wings",
+        "url": "https://archive.org/download/i-wish-i-had-wings-1932-restored/S01E007_I Wish I Had Wings.mp4",
+        "video_id": "archive:i-wish-i-had-wings-1932-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/i-wish-i-had-wings-1932-restored/S01E007_I Wish I Had Wings.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46209",
+    "title": "It's Got Me Again!",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "It's Got Me Again!",
+        "url": "https://archive.org/download/ItsGotMeAgain1932HughHarmanRudolfIsing/It's Got Me Again 1932 Hugh Harman, Rudolf Ising .mp4",
+        "video_id": "archive:ItsGotMeAgain1932HughHarmanRudolfIsing",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ItsGotMeAgain1932HughHarmanRudolfIsing/It's Got Me Again 1932 Hugh Harman, Rudolf Ising .mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46210",
+    "title": "Moonlight for Two",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Moonlight for Two",
+        "url": "https://archive.org/download/moonlight-for-two-1932/Moonlight for Two (1932).ia.mp4",
+        "video_id": "archive:moonlight-for-two-1932",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/moonlight-for-two-1932/Moonlight for Two (1932).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46211",
+    "title": "Pagan Moon",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Pagan Moon",
+        "url": "https://archive.org/download/pagan-moon-1932/Pagan Moon (1932).ia.mp4",
+        "video_id": "archive:pagan-moon-1932",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/pagan-moon-1932/Pagan Moon (1932).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46212",
+    "title": "The Queen Was in the Parlor",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Queen Was in the Parlor",
+        "url": "https://archive.org/download/the-queen-was-in-the-parlor-1932-restored/S01E006_The Queen Was in the Parlor.mp4",
+        "video_id": "archive:the-queen-was-in-the-parlor-1932-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-queen-was-in-the-parlor-1932-restored/S01E006_The Queen Was in the Parlor.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46213",
+    "title": "The Shanty Where Santy Claus Lives",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Shanty Where Santy Claus Lives",
+        "url": "https://archive.org/download/the-shanty-where-santy-claus-lives-1933_202305/The Shanty Where Santy Claus Lives (1933).ia.mp4",
+        "video_id": "archive:the-shanty-where-santy-claus-lives-1933_202305",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-shanty-where-santy-claus-lives-1933_202305/The Shanty Where Santy Claus Lives (1933).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46214",
+    "title": "Three's a Crowd",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Three's a Crowd",
+        "url": "https://archive.org/download/threes-a-crowd-1932/Three's a Crowd (1932).mp4",
+        "video_id": "archive:threes-a-crowd-1932",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/threes-a-crowd-1932/Three's a Crowd (1932).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46215",
+    "title": "You're Too Careless with Your Kisses!",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "You're Too Careless with Your Kisses!",
+        "url": "https://archive.org/download/youre-too-careless-with-your-kisses-1932/You're Too Careless with Your Kisses! (1932).ia.mp4",
+        "video_id": "archive:youre-too-careless-with-your-kisses-1932",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/youre-too-careless-with-your-kisses-1932/You're Too Careless with Your Kisses! (1932).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1932) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46216",
+    "title": "Hollywood Capers",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hollywood Capers",
+        "url": "https://archive.org/download/hollywood-capers-1935/Hollywood Capers (1935).ia.mp4",
+        "video_id": "archive:hollywood-capers-1935",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/hollywood-capers-1935/Hollywood Capers (1935).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1935) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46217",
+    "title": "Boom Boom",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Boom Boom",
+        "url": "https://archive.org/download/boom-boom-1936/Boom Boom (1936).mp4",
+        "video_id": "archive:boom-boom-1936",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/boom-boom-1936/Boom Boom (1936).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1936) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46218",
+    "title": "Westward Whoa",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Westward Whoa",
+        "url": "https://archive.org/download/westward-whoa-1936_202305/Westward Whoa (1936).ia.mp4",
+        "video_id": "archive:westward-whoa-1936_202305",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/westward-whoa-1936_202305/Westward Whoa (1936).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1936) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46219",
+    "title": "Get Rich Quick Porky",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Get Rich Quick Porky",
+        "url": "https://archive.org/download/get-rich-quick-porky-1937/Get Rich Quick Porky (1937).mp4",
+        "video_id": "archive:get-rich-quick-porky-1937",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/get-rich-quick-porky-1937/Get Rich Quick Porky (1937).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1937) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46220",
+    "title": "I Wanna Be a Sailor",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "I Wanna Be a Sailor",
+        "url": "https://archive.org/download/IWANNABEASAILOR/I WANNA BE A SAILOR.mp4",
+        "video_id": "archive:IWANNABEASAILOR",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/IWANNABEASAILOR/I WANNA BE A SAILOR.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1937) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46221",
+    "title": "Porky's Garden",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Garden",
+        "url": "https://archive.org/download/porkys-garden-1937/Porky's Garden (1937).ia.mp4",
+        "video_id": "archive:porkys-garden-1937",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-garden-1937/Porky's Garden (1937).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1937) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46222",
+    "title": "Porky's Railroad",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Railroad",
+        "url": "https://archive.org/download/porkys-railroad-1937/Porky's Railroad (1937).ia.mp4",
+        "video_id": "archive:porkys-railroad-1937",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-railroad-1937/Porky's Railroad (1937).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1937) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46223",
+    "title": "Have You Got Any Castles?",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Have You Got Any Castles?",
+        "url": "https://archive.org/download/HaveYouGotAnyCastles/Have_You_Got_Any_Castles_1938_512kb.mp4",
+        "video_id": "archive:HaveYouGotAnyCastles",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/HaveYouGotAnyCastles/Have_You_Got_Any_Castles_1938_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1938) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46224",
+    "title": "A Day at the Zoo",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Day at the Zoo",
+        "url": "https://archive.org/download/ADayAtTheZoo1939_201810/A Day at the Zoo (1939).MP4",
+        "video_id": "archive:ADayAtTheZoo1939_201810",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ADayAtTheZoo1939_201810/A Day at the Zoo (1939).MP4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1939) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46225",
+    "title": "Bars and Stripes Forever",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Bars and Stripes Forever",
+        "url": "https://archive.org/download/bars-and-stripes-forever-1939_202305/Bars and Stripes Forever (1939).mp4",
+        "video_id": "archive:bars-and-stripes-forever-1939_202305",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/bars-and-stripes-forever-1939_202305/Bars and Stripes Forever (1939).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1939) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46226",
+    "title": "Daffy Duck and the Dinosaur",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Daffy Duck and the Dinosaur",
+        "url": "https://archive.org/download/DaffyDuckAndTheDinosaur1939/Daffy Duck and the Dinosaur (1939)-cfVna0EA_L8.mp4",
+        "video_id": "archive:DaffyDuckAndTheDinosaur1939",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/DaffyDuckAndTheDinosaur1939/Daffy Duck and the Dinosaur (1939)-cfVna0EA_L8.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1939) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46227",
+    "title": "Gold Rush Daze",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Gold Rush Daze",
+        "url": "https://archive.org/download/GoldRushDaze/goldrushdaze.mp4",
+        "video_id": "archive:GoldRushDaze",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/GoldRushDaze/goldrushdaze.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1939) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46228",
+    "title": "Hamateur Night",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hamateur Night",
+        "url": "https://archive.org/download/hamateur-night-1939/Hamateur Night (1939).mp4",
+        "video_id": "archive:hamateur-night-1939",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/hamateur-night-1939/Hamateur Night (1939).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1939) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46229",
+    "title": "Prest-O Change-O",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Prest-O Change-O",
+        "url": "https://archive.org/download/PrestOChangeO1939/Prest-O Change-O (1939).MP4",
+        "video_id": "archive:PrestOChangeO1939",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/PrestOChangeO1939/Prest-O Change-O (1939).MP4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1939) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46230",
+    "title": "Robin Hood Makes Good",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Robin Hood Makes Good",
+        "url": "https://archive.org/download/robin-hood-makes-good-1939-restored/S05E012_Robin Hood Makes Good.mp4",
+        "video_id": "archive:robin-hood-makes-good-1939-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/robin-hood-makes-good-1939-restored/S05E012_Robin Hood Makes Good.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1939) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46231",
+    "title": "The Timid Toreador",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Timid Toreador",
+        "url": "https://archive.org/download/the-timid-toreador-1940/The Timid Toreador (1940).mp4",
+        "video_id": "archive:the-timid-toreador-1940",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-timid-toreador-1940/The Timid Toreador (1940).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1940) from archive.org's Warner collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46232",
+    "title": "A Coy Decoy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Coy Decoy",
+        "url": "https://archive.org/download/a-coy-decoy-1941/A Coy Decoy (1941).mp4",
+        "video_id": "archive:a-coy-decoy-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/a-coy-decoy-1941/A Coy Decoy (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46233",
+    "title": "Farm Frolics",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Farm Frolics",
+        "url": "https://archive.org/download/FarmFrolics1941/Farm Frolics (1941).MP4",
+        "video_id": "archive:FarmFrolics1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FarmFrolics1941/Farm Frolics (1941).MP4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46234",
+    "title": "Joe Glow, the Firefly",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Joe Glow, the Firefly",
+        "url": "https://archive.org/download/JoeGlowTheFirefly1941/Joe Glow the Firefly (1941).mp4",
+        "video_id": "archive:JoeGlowTheFirefly1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/JoeGlowTheFirefly1941/Joe Glow the Firefly (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46235",
+    "title": "Meet John Doughboy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Meet John Doughboy",
+        "url": "https://archive.org/download/meetjohndoughboy1941/Meet John Doughboy (1941).mp4",
+        "video_id": "archive:meetjohndoughboy1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/meetjohndoughboy1941/Meet John Doughboy (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46236",
+    "title": "Notes to You",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Notes to You",
+        "url": "https://archive.org/download/notes-to-you-1941/Notes to You (1941).mp4",
+        "video_id": "archive:notes-to-you-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/notes-to-you-1941/Notes to You (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46237",
+    "title": "Porky's Ant",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Ant",
+        "url": "https://archive.org/download/porkys-ant-1941/Porky's Ant (1941).ia.mp4",
+        "video_id": "archive:porkys-ant-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-ant-1941/Porky's Ant (1941).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46238",
+    "title": "Porky's Bear Facts",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Bear Facts",
+        "url": "https://archive.org/download/porkys-bear-facts-1941/Porky's Bear Facts (1941).ia.mp4",
+        "video_id": "archive:porkys-bear-facts-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-bear-facts-1941/Porky's Bear Facts (1941).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46239",
+    "title": "Porky's Midnight Matinee",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Midnight Matinee",
+        "url": "https://archive.org/download/porkys-midnight-matinee-1941/Porky's Midnight Matinee (1941).mp4",
+        "video_id": "archive:porkys-midnight-matinee-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-midnight-matinee-1941/Porky's Midnight Matinee (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46240",
+    "title": "Porky's Pooch",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Pooch",
+        "url": "https://archive.org/download/porkyspooch1941/Porky's Pooch (1941).mp4",
+        "video_id": "archive:porkyspooch1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkyspooch1941/Porky's Pooch (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46241",
+    "title": "Porky's Preview",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Preview",
+        "url": "https://archive.org/download/porkys-preview-1941/Porky's Preview (1941).mp4",
+        "video_id": "archive:porkys-preview-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-preview-1941/Porky's Preview (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46242",
+    "title": "Porky's Prize Pony",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Prize Pony",
+        "url": "https://archive.org/download/porkys-prize-pony-1941/Porky's Prize Pony (1941).mp4",
+        "video_id": "archive:porkys-prize-pony-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-prize-pony-1941/Porky's Prize Pony (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46243",
+    "title": "Robinson Crusoe Jr.",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Robinson Crusoe Jr.",
+        "url": "https://archive.org/download/robinson-crusoe-jr.-1941/Robinson Crusoe Jr. (1941).ia.mp4",
+        "video_id": "archive:robinson-crusoe-jr.-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/robinson-crusoe-jr.-1941/Robinson Crusoe Jr. (1941).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46244",
+    "title": "Rookie Revue",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Rookie Revue",
+        "url": "https://archive.org/download/RookieRevue1941WW2Cartoon/Rookie Revue (1941) WW2 Cartoon.mp4",
+        "video_id": "archive:RookieRevue1941WW2Cartoon",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/RookieRevue1941WW2Cartoon/Rookie Revue (1941) WW2 Cartoon.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46245",
+    "title": "Sport Chumpions",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sport Chumpions",
+        "url": "https://archive.org/download/sportchumpions1941/Sport Chumpions (1941).mp4",
+        "video_id": "archive:sportchumpions1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/sportchumpions1941/Sport Chumpions (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46246",
+    "title": "The Haunted Mouse",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Haunted Mouse",
+        "url": "https://archive.org/download/the-haunted-mouse-1941/The Haunted Mouse (1941).mp4",
+        "video_id": "archive:the-haunted-mouse-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-haunted-mouse-1941/The Haunted Mouse (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46247",
+    "title": "The Henpecked Duck",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Henpecked Duck",
+        "url": "https://archive.org/download/the-henpecked-duck-1941/The Henpecked Duck (1941).mp4",
+        "video_id": "archive:the-henpecked-duck-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-henpecked-duck-1941/The Henpecked Duck (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46248",
+    "title": "We, the Animals - Squeak!",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "We, the Animals - Squeak!",
+        "url": "https://archive.org/download/we-the-animals-squeak-1941/We, the Animals Squeak! (1941).mp4",
+        "video_id": "archive:we-the-animals-squeak-1941",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/we-the-animals-squeak-1941/We, the Animals Squeak! (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Warner collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46249",
+    "title": "A Tale of Two Kitties",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Tale of Two Kitties",
+        "url": "https://archive.org/download/ATaleOfTwoKitties1942/A Tale of Two Kitties (1942).mp4",
+        "video_id": "archive:ATaleOfTwoKitties1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ATaleOfTwoKitties1942/A Tale of Two Kitties (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46250",
+    "title": "Any Bonds Today?",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Any Bonds Today?",
+        "url": "https://archive.org/download/AnyBondsToday/Any Bonds Today-Nh_oc5hQt-A.mp4",
+        "video_id": "archive:AnyBondsToday",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/AnyBondsToday/Any Bonds Today-Nh_oc5hQt-A.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 2 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46251",
+    "title": "Case of the Missing Hare",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Case of the Missing Hare",
+        "url": "https://archive.org/download/case-of-the-missing-hare-1942/Case of the Missing Hare (1942).mp4",
+        "video_id": "archive:case-of-the-missing-hare-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/case-of-the-missing-hare-1942/Case of the Missing Hare (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46252",
+    "title": "Daffy's Southern Exposure",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Daffy's Southern Exposure",
+        "url": "https://archive.org/download/daffys-southern-exposure-1942/Daffy's Southern Exposure (1942).mp4",
+        "video_id": "archive:daffys-southern-exposure-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/daffys-southern-exposure-1942/Daffy's Southern Exposure (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46253",
+    "title": "Ding Dog Daddy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ding Dog Daddy",
+        "url": "https://archive.org/download/dingdogdaddy1942looneytunesclassiccartoon/Ding Dog Daddy (1942) - Looney Tunes Classic Cartoon.mp4",
+        "video_id": "archive:dingdogdaddy1942looneytunesclassiccartoon",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/dingdogdaddy1942looneytunesclassiccartoon/Ding Dog Daddy (1942) - Looney Tunes Classic Cartoon.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46254",
+    "title": "Eatin' on the Cuff",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Eatin' on the Cuff",
+        "url": "https://archive.org/download/eatin-on-the-cuff-or-the-moth-who-came-to-dinner-1942/Eatin' on the Cuff or the Moth Who Came to Dinner (1942).mp4",
+        "video_id": "archive:eatin-on-the-cuff-or-the-moth-who-came-to-dinner-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/eatin-on-the-cuff-or-the-moth-who-came-to-dinner-1942/Eatin' on the Cuff or the Moth Who Came to Dinner (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46255",
+    "title": "Foney Fables",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Foney Fables",
+        "url": "https://archive.org/download/foneyfables1942_201908/Foney Fables (1942).mp4",
+        "video_id": "archive:foneyfables1942_201908",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/foneyfables1942_201908/Foney Fables (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46256",
+    "title": "Fox Pop",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Fox Pop",
+        "url": "https://archive.org/download/FoxPop/foxpop.mp4",
+        "video_id": "archive:FoxPop",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FoxPop/foxpop.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46257",
+    "title": "Gopher Goofy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Gopher Goofy",
+        "url": "https://archive.org/download/gopher-goofy-1942/Gopher Goofy (1942).ia.mp4",
+        "video_id": "archive:gopher-goofy-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/gopher-goofy-1942/Gopher Goofy (1942).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46258",
+    "title": "Hobby Horse-Laffs",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hobby Horse-Laffs",
+        "url": "https://archive.org/download/hobby-horse-laffs-1942/Hobby Horse-Laffs (1942).mp4",
+        "video_id": "archive:hobby-horse-laffs-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/hobby-horse-laffs-1942/Hobby Horse-Laffs (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46259",
+    "title": "Nutty News",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Nutty News",
+        "url": "https://archive.org/download/nutty-news-1942/Nutty News (1942).ia.mp4",
+        "video_id": "archive:nutty-news-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/nutty-news-1942/Nutty News (1942).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46260",
+    "title": "Porky's Cafe",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Cafe",
+        "url": "https://archive.org/download/porkys-cafe-1942/Porky's Cafe (1942).mp4",
+        "video_id": "archive:porkys-cafe-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-cafe-1942/Porky's Cafe (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46261",
+    "title": "Porky's Pastry Pirates",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky's Pastry Pirates",
+        "url": "https://archive.org/download/porkys-pastry-pirates-1942/Porky's Pastry Pirates (1942).mp4",
+        "video_id": "archive:porkys-pastry-pirates-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porkys-pastry-pirates-1942/Porky's Pastry Pirates (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46262",
+    "title": "Saps in Chaps",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Saps in Chaps",
+        "url": "https://archive.org/download/saps-in-chaps-1942/Saps in Chaps (1942).ia.mp4",
+        "video_id": "archive:saps-in-chaps-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/saps-in-chaps-1942/Saps in Chaps (1942).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46263",
+    "title": "The Daffy Duckaroo",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Daffy Duckaroo",
+        "url": "https://archive.org/download/the-daffy-duckaroo-1942/The Daffy Duckaroo (1942).mp4",
+        "video_id": "archive:the-daffy-duckaroo-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-daffy-duckaroo-1942/The Daffy Duckaroo (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46264",
+    "title": "The Dover Boys",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Dover Boys",
+        "url": "https://archive.org/download/TheDoverBoys1942/The Dover Boys (1942).mp4",
+        "video_id": "archive:TheDoverBoys1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/TheDoverBoys1942/The Dover Boys (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46265",
+    "title": "The Sheepish Wolf",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Sheepish Wolf",
+        "url": "https://archive.org/download/the-sheepish-wolf-1942-metv-airing/The Sheepish Wolf (1942) METV+ AIRING.mp4",
+        "video_id": "archive:the-sheepish-wolf-1942-metv-airing",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-sheepish-wolf-1942-metv-airing/The Sheepish Wolf (1942) METV+ AIRING.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46266",
+    "title": "The Wabbit Who Came to Supper",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Wabbit Who Came to Supper",
+        "url": "https://archive.org/download/TheWabbitWhoCameToSupper1942YouTube1/The Wabbit Who Came to Supper (1942) - YouTube-1.mp4",
+        "video_id": "archive:TheWabbitWhoCameToSupper1942YouTube1",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/TheWabbitWhoCameToSupper1942YouTube1/The Wabbit Who Came to Supper (1942) - YouTube-1.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46267",
+    "title": "The Wacky Wabbit",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Wacky Wabbit",
+        "url": "https://archive.org/download/TheWackyWabbit1942_201810/The Wacky Wabbit (1942).mp4",
+        "video_id": "archive:TheWackyWabbit1942_201810",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/TheWackyWabbit1942_201810/The Wacky Wabbit (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46268",
+    "title": "Wacky Blackout",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Wacky Blackout",
+        "url": "https://archive.org/download/WackyBlackout1942WW2Cartoon/Wacky Blackout (1942) WW2 Cartoon.mp4",
+        "video_id": "archive:WackyBlackout1942WW2Cartoon",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/WackyBlackout1942WW2Cartoon/Wacky Blackout (1942) WW2 Cartoon.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46269",
+    "title": "Who's Who in the Zoo",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Who's Who in the Zoo",
+        "url": "https://archive.org/download/whos-who-in-the-zoo-1942/Who's Who in the Zoo (1942).mp4",
+        "video_id": "archive:whos-who-in-the-zoo-1942",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/whos-who-in-the-zoo-1942/Who's Who in the Zoo (1942).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1942) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46270",
+    "title": "A Corny Concerto",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Corny Concerto",
+        "url": "https://archive.org/download/a-corny-concerto-1943-restored/S09E008_A Corny Concerto.mp4",
+        "video_id": "archive:a-corny-concerto-1943-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/a-corny-concerto-1943-restored/S09E008_A Corny Concerto.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46271",
+    "title": "Coming!! Snafu",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Coming!! Snafu",
+        "url": "https://archive.org/download/coming-snafu-1943/Coming!! Snafu (1943).mp4",
+        "video_id": "archive:coming-snafu-1943",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/coming-snafu-1943/Coming!! Snafu (1943).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 3 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46272",
+    "title": "Falling Hare",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Falling Hare",
+        "url": "https://archive.org/download/FallingHare19431/Falling Hare (1943)-1.mp4",
+        "video_id": "archive:FallingHare19431",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/FallingHare19431/Falling Hare (1943)-1.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46273",
+    "title": "Fighting Tools",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Fighting Tools",
+        "url": "https://archive.org/download/fighting-tools-1943/Fighting Tools (1943).mp4",
+        "video_id": "archive:fighting-tools-1943",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/fighting-tools-1943/Fighting Tools (1943).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46274",
+    "title": "Flop Goes the Weasel",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Flop Goes the Weasel",
+        "url": "https://archive.org/download/flopgoestheweasel1943english/#Flop Goes The Weasel [1943] [English].mp4",
+        "video_id": "archive:flopgoestheweasel1943english",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/flopgoestheweasel1943english/#Flop Goes The Weasel [1943] [English].mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46275",
+    "title": "Gripes",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Gripes",
+        "url": "https://archive.org/download/private-snafu-collection/Gripes (1943).ia.mp4",
+        "video_id": "archive:private-snafu-collection/Gripes (1943).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/Gripes (1943).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46276",
+    "title": "Hop and Go",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hop and Go",
+        "url": "https://archive.org/download/hop-and-go-1943_202304/Hop and Go (1943).mp4",
+        "video_id": "archive:hop-and-go-1943_202304",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/hop-and-go-1943_202304/Hop and Go (1943).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46277",
+    "title": "In the Aleutians - Isles of Enchantment",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "In the Aleutians - Isles of Enchantment",
+        "url": "https://archive.org/download/in-the-aleutians-isles-of-enchantment-1945/In the Aleutians – Isles of Enchantment (1945).mp4",
+        "video_id": "archive:in-the-aleutians-isles-of-enchantment-1945",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/in-the-aleutians-isles-of-enchantment-1945/In the Aleutians – Isles of Enchantment (1945).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 3 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46278",
+    "title": "Outpost (1944)",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Outpost (1944)",
+        "url": "https://archive.org/download/private-snafu-collection/The Outpost (1944).mp4",
+        "video_id": "archive:private-snafu-collection/The Outpost (1944).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/The Outpost (1944).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46279",
+    "title": "Pigs in a Polka",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Pigs in a Polka",
+        "url": "https://archive.org/download/pigs-in-a-polka-1943-restored/S09E006_Pigs in a Polka.mp4",
+        "video_id": "archive:pigs-in-a-polka-1943-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/pigs-in-a-polka-1943-restored/S09E006_Pigs in a Polka.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46280",
+    "title": "Point Rationing of Foods",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Point Rationing of Foods",
+        "url": "https://archive.org/download/point-rationing-of-foods-1943/Point Rationing of Foods (1943).mp4",
+        "video_id": "archive:point-rationing-of-foods-1943",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/point-rationing-of-foods-1943/Point Rationing of Foods (1943).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46281",
+    "title": "Porky Pig's Feat",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Porky Pig's Feat",
+        "url": "https://archive.org/download/porky-pigs-feat-1943/Porky Pig's Feat (1943).mp4",
+        "video_id": "archive:porky-pigs-feat-1943",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/porky-pigs-feat-1943/Porky Pig's Feat (1943).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 9 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46282",
+    "title": "Puss n' Booty",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Puss n' Booty",
+        "url": "https://archive.org/download/puss-n-booty-1943-restored/S09E007_Puss N Booty.mp4",
+        "video_id": "archive:puss-n-booty-1943-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/puss-n-booty-1943-restored/S09E007_Puss N Booty.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46283",
+    "title": "Rumors",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Rumors",
+        "url": "https://archive.org/download/private-snafu-collection/Rumors (1943).ia.mp4",
+        "video_id": "archive:private-snafu-collection/Rumors (1943).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/Rumors (1943).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46284",
+    "title": "Scrap Happy Daffy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Scrap Happy Daffy",
+        "url": "https://archive.org/download/scraphappydaffy/scraphappydaffy.mp4",
+        "video_id": "archive:scraphappydaffy",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/scraphappydaffy/scraphappydaffy.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46285",
+    "title": "Spies",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Spies",
+        "url": "https://archive.org/download/private-snafu-collection/Spies (1943).ia.mp4",
+        "video_id": "archive:private-snafu-collection/Spies (1943).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/Spies (1943).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46286",
+    "title": "The Fifth-Column Mouse",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Fifth-Column Mouse",
+        "url": "https://archive.org/download/TheFifthColumnMouse1943WW2Cartoon/The Fifth Column Mouse (1943) WW2 Cartoon.mp4",
+        "video_id": "archive:TheFifthColumnMouse1943WW2Cartoon",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/TheFifthColumnMouse1943WW2Cartoon/The Fifth Column Mouse (1943) WW2 Cartoon.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46287",
+    "title": "The Goldbrick",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Goldbrick",
+        "url": "https://archive.org/download/private-snafu-collection/The Goldbrick (1943).ia.mp4",
+        "video_id": "archive:private-snafu-collection/The Goldbrick (1943).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/The Goldbrick (1943).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46288",
+    "title": "The Home Front",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Home Front",
+        "url": "https://archive.org/download/home_front/home_front_512kb.mp4",
+        "video_id": "archive:home_front",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/home_front/home_front_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46289",
+    "title": "The Infantry Blues",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Infantry Blues",
+        "url": "https://archive.org/download/the-infantry-blues-1943/The Infantry Blues (1943).mp4",
+        "video_id": "archive:the-infantry-blues-1943",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-infantry-blues-1943/The Infantry Blues (1943).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46290",
+    "title": "To Duck or Not to Duck",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "To Duck or Not to Duck",
+        "url": "https://archive.org/download/ToDuckOrNotToDuck19431/To Duck or not To Duck (1943)-1.mp4",
+        "video_id": "archive:ToDuckOrNotToDuck19431",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ToDuckOrNotToDuck19431/To Duck or not To Duck (1943)-1.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46291",
+    "title": "Wackiki Wabbit",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Wackiki Wabbit",
+        "url": "https://archive.org/download/wackiki-wabbit-1943-restored/S09E004_Wackiki Wabbit.mp4",
+        "video_id": "archive:wackiki-wabbit-1943-restored",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/wackiki-wabbit-1943-restored/S09E004_Wackiki Wabbit.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46292",
+    "title": "Yankee Doodle Daffy",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Yankee Doodle Daffy",
+        "url": "https://archive.org/download/yankee-doodle-daffy-1943_202304/Yankee Doodle Daffy (1943).mp4",
+        "video_id": "archive:yankee-doodle-daffy-1943_202304",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/yankee-doodle-daffy-1943_202304/Yankee Doodle Daffy (1943).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1943) from archive.org's Warner collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46293",
+    "title": "A Lecture on Camouflage",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Lecture on Camouflage",
+        "url": "https://archive.org/download/a-lecture-on-camouflage-1944/A Lecture on Camouflage (1944).mp4",
+        "video_id": "archive:a-lecture-on-camouflage-1944",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/a-lecture-on-camouflage-1944/A Lecture on Camouflage (1944).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46294",
+    "title": "Booby Traps",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Booby Traps",
+        "url": "https://archive.org/download/snafu_booby_traps/booby_traps_512kb.mp4",
+        "video_id": "archive:snafu_booby_traps",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/snafu_booby_traps/booby_traps_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46295",
+    "title": "Going Home",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Going Home",
+        "url": "https://archive.org/download/private-snafu-collection/Going Home (1944).mp4",
+        "video_id": "archive:private-snafu-collection/Going Home (1944).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/Going Home (1944).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46296",
+    "title": "Payday",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Payday",
+        "url": "https://archive.org/download/private-snafu-collection/Pay Day (1944).ia.mp4",
+        "video_id": "archive:private-snafu-collection/Pay Day (1944).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/Pay Day (1944).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46297",
+    "title": "Private Snafu vs. Malaria Mike",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Private Snafu vs. Malaria Mike",
+        "url": "https://archive.org/download/PrivateSnafuvsMalariaMike-wellcome/0055-0000-4352-0000-0-0000-0000-0.mp4",
+        "video_id": "archive:PrivateSnafuvsMalariaMike-wellcome",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/PrivateSnafuvsMalariaMike-wellcome/0055-0000-4352-0000-0-0000-0000-0.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46298",
+    "title": "Snafuperman",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Snafuperman",
+        "url": "https://archive.org/download/private-snafu-collection/Snafuperman (1944).mp4",
+        "video_id": "archive:private-snafu-collection/Snafuperman (1944).mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/Snafuperman (1944).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46299",
+    "title": "Target Snafu",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Target Snafu",
+        "url": "https://archive.org/download/target-snafu-1944/Target Snafu (1944).mp4",
+        "video_id": "archive:target-snafu-1944",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/target-snafu-1944/Target Snafu (1944).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46300",
+    "title": "The Chow Hound",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Chow Hound",
+        "url": "https://archive.org/download/the-chow-hound-1944/The Chow Hound (1944).mp4",
+        "video_id": "archive:the-chow-hound-1944",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/the-chow-hound-1944/The Chow Hound (1944).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46301",
+    "title": "Three Brothers",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Three Brothers",
+        "url": "https://archive.org/download/three-brothers-1944/Three Brothers (1944).mp4",
+        "video_id": "archive:three-brothers-1944",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/three-brothers-1944/Three Brothers (1944).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1944) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46302",
+    "title": "Censored",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Censored",
+        "url": "https://archive.org/download/private-snafu-collection/Censored (1944).ia.mp4",
+        "video_id": "archive:private-snafu-collection/Censored (1944).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/Censored (1944).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46303",
+    "title": "Gas",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Gas",
+        "url": "https://archive.org/download/ALectureOnCamouflage1944/Gas (1944).mp4",
+        "video_id": "archive:ALectureOnCamouflage1944",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/ALectureOnCamouflage1944/Gas (1944).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46304",
+    "title": "Hot Spot",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hot Spot",
+        "url": "https://archive.org/download/private-snafu-collection/Hot Spot (1945).ia.mp4",
+        "video_id": "archive:private-snafu-collection/Hot Spot (1945).ia.mp4",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/private-snafu-collection/Hot Spot (1945).ia.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 6 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46305",
+    "title": "It's Murder She Says",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "It's Murder She Says",
+        "url": "https://archive.org/download/its-murder-she-says-1945/It's Murder She Says (1945).mp4",
+        "video_id": "archive:its-murder-she-says-1945",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/its-murder-she-says-1945/It's Murder She Says (1945).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46306",
+    "title": "No Buddy Atoll",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "No Buddy Atoll",
+        "url": "https://archive.org/download/no-buddy-atoll-1945/No Buddy Atoll (1945).mp4",
+        "video_id": "archive:no-buddy-atoll-1945",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/no-buddy-atoll-1945/No Buddy Atoll (1945).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46307",
+    "title": "Operation Snafu",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Operation Snafu",
+        "url": "https://archive.org/download/operation-snafu-1945/Operation Snafu (1945).mp4",
+        "video_id": "archive:operation-snafu-1945",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/operation-snafu-1945/Operation Snafu (1945).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 5 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46308",
+    "title": "The Good Egg",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Good Egg",
+        "url": "https://archive.org/download/TheGoodEgg/TheGoodEgg_512kb.mp4",
+        "video_id": "archive:TheGoodEgg",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/TheGoodEgg/TheGoodEgg_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 3 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46309",
+    "title": "The Return of Mr. Hook",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Return of Mr. Hook",
+        "url": "https://archive.org/download/TheReturnOfMr.Hook/TheReturnOfMr.Hook_512kb.mp4",
+        "video_id": "archive:TheReturnOfMr.Hook",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/TheReturnOfMr.Hook/TheReturnOfMr.Hook_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46310",
+    "title": "Tokyo Woes",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Tokyo Woes",
+        "url": "https://archive.org/download/TokyoWoes/Mr.Hook-03TokyoWoes1945_512kb.mp4",
+        "video_id": "archive:TokyoWoes",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/TokyoWoes/Mr.Hook-03TokyoWoes1945_512kb.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1945) from archive.org's Warner collection, 4 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46311",
+    "title": "So Much for So Little",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "So Much for So Little",
+        "url": "https://archive.org/download/so-much-for-so-little-1949/So Much for So Little (1949).mp4",
+        "video_id": "archive:so-much-for-so-little-1949",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/so-much-for-so-little-1949/So Much for So Little (1949).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1949) from archive.org's Warner collection, 10 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46312",
+    "title": "A Hitch in Time",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Hitch in Time",
+        "url": "https://archive.org/download/a-hitch-in-time-1955/A Hitch in Time (1955).mp4",
+        "video_id": "archive:a-hitch-in-time-1955",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/a-hitch-in-time-1955/A Hitch in Time (1955).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1955) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46313",
+    "title": "90 Day Wondering",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "90 Day Wondering",
+        "url": "https://archive.org/download/90DayWandering/90DayWandering.mp4",
+        "video_id": "archive:90DayWandering",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/90DayWandering/90DayWandering.mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1956) from archive.org's Warner collection, 8 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46314",
+    "title": "Drafty, Isn't It?",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Drafty, Isn't It?",
+        "url": "https://archive.org/download/drafty-isnt-it-1957/Drafty, Isn't It (1957).mp4",
+        "video_id": "archive:drafty-isnt-it-1957",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/drafty-isnt-it-1957/Drafty, Isn't It (1957).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1957) from archive.org's Warner collection, 11 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Warner",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46315",
+    "title": "Pantry Panic",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Pantry Panic",
+        "url": "https://archive.org/download/pantry-panic/Pantry Panic (1941).mp4",
+        "video_id": "archive:pantry-panic",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/pantry-panic/Pantry Panic (1941).mp4",
+    "eps": "1 ep",
+    "desc": "Animated classic (1941) from archive.org's Woody collection, 7 min.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Woody",
+    "award_verified": false
+  },
+  {
+    "id": "stv-46316",
+    "title": "Superman",
+    "genre": "Animation",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Mad Scientist",
+        "url": "https://archive.org/download/superman_the_mad_scientist/Superman-01-The_Mad_Scientist.mp4",
+        "video_id": "archive:superman_the_mad_scientist",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "The Mechanical Monsters",
+        "url": "https://archive.org/download/superman_mechanical_monsters/superman_mechanical_monsters.mp4",
+        "video_id": "archive:superman_mechanical_monsters",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "Billion Dollar Limited",
+        "url": "https://archive.org/download/superman_billion_dollar_limited/billion_dollar_limited.mp4",
+        "video_id": "archive:superman_billion_dollar_limited",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "The Arctic Giant",
+        "url": "https://archive.org/download/the-arctic-giant-1942/The Arctic Giant (1942).mp4",
+        "video_id": "archive:the-arctic-giant-1942",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "The Bulleteers",
+        "url": "https://archive.org/download/superman_bulleteers/bulleteers.mp4",
+        "video_id": "archive:superman_bulleteers",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "The Magnetic Telescope",
+        "url": "https://archive.org/download/the-magnetic-telescope-1942/The Magnetic Telescope (1942).mp4",
+        "video_id": "archive:the-magnetic-telescope-1942",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "Electric Earthquake",
+        "url": "https://archive.org/download/electric-earthquake-1942/Electric Earthquake (1942).mp4",
+        "video_id": "archive:electric-earthquake-1942",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 8,
+        "title": "Volcano",
+        "url": "https://archive.org/download/superman_the_volcano/volcano.mp4",
+        "video_id": "archive:superman_the_volcano",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 9,
+        "title": "Terror on the Midway",
+        "url": "https://archive.org/download/superman-terror-on-the-midway/terror_on_the_midway.mp4",
+        "video_id": "archive:superman-terror-on-the-midway",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 10,
+        "title": "Showdown",
+        "url": "https://archive.org/download/showdown-1942_202406/Showdown (1942).mp4",
+        "video_id": "archive:showdown-1942_202406",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 11,
+        "title": "Destruction Inc.",
+        "url": "https://archive.org/download/superman_destruction_inc/Superman-13-Destruction_Inc.mp4",
+        "video_id": "archive:superman_destruction_inc",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 12,
+        "title": "The Mummy Strikes",
+        "url": "https://archive.org/download/the-mummy-strikes-1943/The Mummy Strikes (1943).mp4",
+        "video_id": "archive:the-mummy-strikes-1943",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 13,
+        "title": "The Underground World",
+        "url": "https://archive.org/download/superman_underground_world/Superman-16-The_Underground_World.mp4",
+        "video_id": "archive:superman_underground_world",
+        "platform": "archive",
+        "verified": true
+      },
+      {
+        "n": 14,
+        "title": "Secret Agent",
+        "url": "https://archive.org/download/secret-agent-1943/Secret Agent (1943).mp4",
+        "video_id": "archive:secret-agent-1943",
+        "platform": "archive",
+        "verified": true
+      }
+    ],
+    "url": "https://archive.org/download/superman_the_mad_scientist/Superman-01-The_Mad_Scientist.mp4",
+    "eps": "14 eps",
+    "desc": "The Fleischer/Famous Studios Superman cartoons (1941-43) — public-domain classics in release order.",
+    "rights_basis": "Public domain (archive.org)",
+    "source_channel": "Superman",
+    "award_verified": false
   }
 ]
