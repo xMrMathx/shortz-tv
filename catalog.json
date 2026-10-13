@@ -355575,5 +355575,80 @@
     "award": "Winner — Aspen Shortsfest Best Drama (2016) · Aspen Shortsfest Audience Award (2016)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8159",
+    "title": "Lost Rambos",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~22 min",
+    "desc": "An Australian documentary short, commissioned by The Guardian and Screen Australia. In the Papua New Guinea highlands, tribal fights that once ended with bows and arrows turned deadly after automatic weapons arrived in the 1990s — and Hollywood's Rambo became an unlikely icon. Elders and fighters describe a conflict that has claimed scores of lives and burned homes. A heavy real-world subject, told by the men living it.",
+    "source_channel": "YouTube (The Guardian)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/xywK_sBm948",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Lost Rambos",
+        "video_id": "xywK_sBm948",
+        "url": "https://www.youtube.com/embed/xywK_sBm948",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Melbourne International Film Festival RMIT University Award for Best Documentary Short Film (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8160",
+    "title": "Freebird",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~5 min",
+    "desc": "A Canadian animated short set to a single song. A boy with Down syndrome grows through 45 years of life in five minutes — a loving mother, an absent father, a classroom bully, a lifelong crush. Gentle and warm throughout.",
+    "source_channel": "YouTube (L'Arche Canada)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/Mf_4dsQJAXE",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Freebird",
+        "video_id": "Mf_4dsQJAXE",
+        "url": "https://www.youtube.com/embed/Mf_4dsQJAXE",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Chicago International Children's Film Festival Professional Jury Prize, Best Animated Short (2021)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8161",
+    "title": "Save Ralph",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~4 min",
+    "desc": "A stop-motion mockumentary from Humane Society International. Ralph, a rabbit voiced by Taika Waititi, cheerfully walks through his job as a cosmetics-test animal — the damaged eye, the irritated skin, the frightened lab-mates. Animal cruelty is the subject and the puppetry is made to disturb, but no real animals appear.",
+    "source_channel": "YouTube (Humane World for Animals)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/G393z8s8nFY",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Save Ralph",
+        "video_id": "G393z8s8nFY",
+        "url": "https://www.youtube.com/embed/G393z8s8nFY",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Flickerfest Yoram Gross Award for Best International Animated Short Film (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
