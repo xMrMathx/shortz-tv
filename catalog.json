@@ -354375,5 +354375,55 @@
     "award": "Winner — SXSW Jury Award, Animated Shorts (2021)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8111",
+    "title": "In a Nutshell",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~6 min",
+    "desc": "The whole world in a nutshell: Fabio Friedli's whirlwind animated tour races from a single seed through nature, cities, war, technology, and space in five breathless minutes. One fleeting image in the rapid-fire montage may be NSFW.",
+    "source_channel": "Vimeo (YK Animation)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/307578337",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "In a Nutshell",
+        "video_id": "307578337",
+        "url": "https://player.vimeo.com/video/307578337",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aspen Shortsfest Best Animation (2017)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8112",
+    "title": "Coyote",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "Adults only — graphic animated violence: a coyote watches a wolf pack kill his family on screen and, possessed by a demon, takes bloody revenge in Lorenz Wunderle's wordless fable of grief and rage. Not for kids.",
+    "source_channel": "Vimeo (YK Animation)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/414036312",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Coyote",
+        "video_id": "414036312",
+        "url": "https://player.vimeo.com/video/414036312",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aspen Shortsfest Best Animated Film (2018)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
