@@ -356169,5 +356169,323 @@
     "award": "Winner — Jury Award, Documentary, Aspen Shortsfest 2025",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8211",
+    "title": "Raak",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "A teenager just released from juvenile detention tries to find his footing back home, alongside his mother and younger brother — in Hanro Smitsman's raw, naturalistic Dutch drama, winner of the Berlinale's Golden Bear for Best Short Film.",
+    "source_channel": "YouTube (KORT!)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/hf_Wux1kLvE",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Raak",
+        "video_id": "hf_Wux1kLvE",
+        "url": "https://www.youtube.com/embed/hf_Wux1kLvE",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Golden Bear, Best Short Film, Berlinale 2007",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8212",
+    "title": "I Do Air",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~7 min",
+    "desc": "A little girl, humiliated by her fear of jumping into a swimming pool, escapes underwater inside her own head — holding her breath into a magical world where two unexpected creatures swim beautifully and without fear. By Martina Amati.",
+    "source_channel": "YouTube (Kurzfilm Agentur Hamburg)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/mFZV3WQ_cOU",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "I Do Air",
+        "video_id": "mFZV3WQ_cOU",
+        "url": "https://www.youtube.com/embed/mFZV3WQ_cOU",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Best Short Film, British Academy Film Awards (BAFTA) 2010",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8213",
+    "title": "The Debutante",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "A bored young debutante swaps places with a hyena from the zoo so she can skip her own coming-out ball — Elizabeth Hobbs' darkly comic animated take on Leonora Carrington's surreal short story.",
+    "source_channel": "Vimeo (Karrot)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/940848616",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Debutante",
+        "video_id": "940848616",
+        "url": "https://player.vimeo.com/video/940848616",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Animated Short Jury Award, SXSW 2023",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8214",
+    "title": "Green",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~12 min",
+    "desc": "Green, a Turkish immigrant driving a car service in New York, picks up a fare that turns into the worst night of his life — and puts an undocumented man's fragile foothold in America suddenly at risk. By Suzanne Andrews Correa.",
+    "source_channel": "Vimeo (Mynette Louie)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/349561480",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Green",
+        "video_id": "349561480",
+        "url": "https://player.vimeo.com/video/349561480",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, U.S. Fiction, Sundance Film Festival 2019",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8215",
+    "title": "The Game",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~17 min",
+    "desc": "From inside a World Cup qualifier, referee Fedayi San feels every one of the 90 minutes — the roar of the crowd, the abuse from the stands, the calls he cannot take back — in Roman Hodel's documentary short.",
+    "source_channel": "Vimeo (The New Yorker)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1007718657",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Game",
+        "video_id": "1007718657",
+        "url": "https://player.vimeo.com/video/1007718657",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Best Documentary Short, Hamptons International Film Festival 2020",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8216",
+    "title": "Lanawaru",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "In the flooded plains of Colombia, conservationists race to protect the endangered Orinoco crocodile and the vanishing wetland world of Lanawaru — one of the last wild refuges of the great river giants.",
+    "source_channel": "YouTube (Conservation International)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/FHuxpmNJwsM",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Lanawaru",
+        "video_id": "FHuxpmNJwsM",
+        "url": "https://www.youtube.com/embed/FHuxpmNJwsM",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Gold Hugo, Best Documentary Short, Chicago International Film Festival 2025",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8217",
+    "title": "Caper",
+    "genre": "Action",
+    "eps": "9 eps",
+    "runtime": "7–14 min",
+    "desc": "Nine strangers — each a specialist with a score to settle — team up for impossible heists in this Geek & Sundry action-comedy web series.",
+    "source_channel": "YouTube (Geek & Sundry)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/N_seu4JeBfc",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Chapter 1: City of Angles",
+        "video_id": "N_seu4JeBfc",
+        "url": "https://www.youtube.com/embed/N_seu4JeBfc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Chapter 2: The Kilt Brahs",
+        "video_id": "TY8ohgNA-ZE",
+        "url": "https://www.youtube.com/embed/TY8ohgNA-ZE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Chapter 3: Psycho Path",
+        "video_id": "GBYWiei6FDU",
+        "url": "https://www.youtube.com/embed/GBYWiei6FDU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Chapter 4: The British Guy",
+        "video_id": "uptzFXlfMUw",
+        "url": "https://www.youtube.com/embed/uptzFXlfMUw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Chapter 5: Lasers and Feelings",
+        "video_id": "Bw1i8Bnq06Y",
+        "url": "https://www.youtube.com/embed/Bw1i8Bnq06Y",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Chapter 6: Southpaw's Always Right",
+        "video_id": "SGMu0P1m1FQ",
+        "url": "https://www.youtube.com/embed/SGMu0P1m1FQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Chapter 7: Historectomy",
+        "video_id": "U-6uiRL_ric",
+        "url": "https://www.youtube.com/embed/U-6uiRL_ric",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Chapter 8: All Hands on Peltas",
+        "video_id": "j57NVDNywnU",
+        "url": "https://www.youtube.com/embed/j57NVDNywnU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Chapter 9: Worst Bad Guys Ever",
+        "video_id": "4eMkVUOBJjE",
+        "url": "https://www.youtube.com/embed/4eMkVUOBJjE",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Best Action/Adventure Series, Vancouver Web Fest 2015",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8218",
+    "title": "Gay Mean Girls",
+    "genre": "Comedy",
+    "eps": "8 eps",
+    "runtime": "9–14 min",
+    "desc": "Prom is power at this high school, and Lucy — president of the Queer Student Union — rules its social order with an iron fist, until a new girl and a fight over the prom crown threaten her reign. Season 1 of the KindaTV comedy series by Heyishi Zhang.",
+    "source_channel": "YouTube (KindaTV)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/qZ_fjqyoJ30",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "EP 1: The Queer Monarchy",
+        "video_id": "qZ_fjqyoJ30",
+        "url": "https://www.youtube.com/embed/qZ_fjqyoJ30",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "EP 2: Liang Liang",
+        "video_id": "cjL3A0qm_eA",
+        "url": "https://www.youtube.com/embed/cjL3A0qm_eA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "EP 3: The Questioning Lesbian",
+        "video_id": "7YkFDplL3xM",
+        "url": "https://www.youtube.com/embed/7YkFDplL3xM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "EP 4: The Party",
+        "video_id": "WiWAPyroaM4",
+        "url": "https://www.youtube.com/embed/WiWAPyroaM4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "EP 5: Spicy Discourse",
+        "video_id": "RJoo4c2DWGI",
+        "url": "https://www.youtube.com/embed/RJoo4c2DWGI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "EP 6: The Campaign",
+        "video_id": "EysVI-Pn6Vs",
+        "url": "https://www.youtube.com/embed/EysVI-Pn6Vs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "EP 7: White Fragility",
+        "video_id": "UkBQDPhxSFQ",
+        "url": "https://www.youtube.com/embed/UkBQDPhxSFQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "EP 8: Your Best Canadian Girl",
+        "video_id": "ezOjLrLLUMU",
+        "url": "https://www.youtube.com/embed/ezOjLrLLUMU",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Nominee — Canadian Screen Awards (2024)",
+    "award_verified": false,
+    "dateAdded": "2026-10-13"
   }
 ]
