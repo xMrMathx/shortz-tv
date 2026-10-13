@@ -9,7 +9,7 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<link rel="canonical" href="https://shortz-tv.pages.dev/">
+<link rel="canonical" href="https://xmrmathx.github.io/shortz-tv/">
 <title>Shortz VS — Free Short Dramas</title>
 <meta property="og:title" content="Shortz VS — Free Short Dramas">
 <meta property="og:description" content="Watch free short dramas, films & highlights. 100% free, no sign-up.">
@@ -2142,7 +2142,7 @@ function shareWholeApp(){
   })();
 }
 document.addEventListener("click",e=>{ if(e.target.closest("#topShareApp")) shareWholeApp(); });
-const SHARE_BASE = "https://shortz-tv.pages.dev/";
+const SHARE_BASE = "https://xmrmathx.github.io/shortz-tv/";
 function shareUrl(id, epIdx){
   // pretty share pages with OG cover art (redirect to ?watch= on open)
   let u = SHARE_BASE + "watch/" + encodeURIComponent(id) + "/";
@@ -4354,7 +4354,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013214834";
+const BUILD="20261013215423";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8718,7 +8718,7 @@ function sstreamEmbed(s,muted){
   const ch=encodeURIComponent(sstreamChannel(s)), m=muted?"1":"0";
   if(s.platform==="twitch"){
     const host=(window.location&&window.location.hostname)||"";
-    const parents=["xmrmathx.github.io","shortz-tv.pages.dev"];
+    const parents=["xmrmathx.github.io"];
     if(host&&parents.indexOf(host)<0)parents.push(host);
     const pstr=parents.map(p=>"&parent="+encodeURIComponent(p)).join("");
     return "https://player.twitch.tv/?channel="+ch+pstr+"&autoplay=true&muted="+(muted?"true":"false");
@@ -8750,7 +8750,7 @@ function streamShareId(s){
 function shareStream(s){
   if(!s)return;
   const id=streamShareId(s);
-  const url="https://shortz-tv.pages.dev/?stream="+encodeURIComponent(id);
+  const url="https://xmrmathx.github.io/shortz-tv/?stream="+encodeURIComponent(id);
   const title="@"+(s.name||"streamer")+" on Shortz VS";
   const text=(s.live?"\uD83D\uDD34 LIVE now: ":"\u25B6 Watch ")+"@"+(s.name||"")+" streaming on Shortz VS \u2014 free, no account needed";
   const done=()=>{ try{ toast("Link copied"); }catch(e){} };
