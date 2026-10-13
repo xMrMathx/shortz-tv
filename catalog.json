@@ -355099,5 +355099,133 @@
     "award": "Winner — BAFTA, Best British Short Film (2024)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8070",
+    "title": "Bit Playas",
+    "genre": "Comedy",
+    "eps": "8 eps",
+    "runtime": "10–16 min",
+    "desc": "Lifelong friends Leon and Ahmed, two aspiring actors of colour, keep getting relegated to bit parts — every episode is a new 'level' of the industry game.",
+    "url": "https://www.youtube.com/embed/M5dFj5zlpy0",
+    "source_channel": "YouTube (BIT PLAYAS)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Level 1: Auditions",
+        "video_id": "M5dFj5zlpy0",
+        "url": "https://www.youtube.com/embed/M5dFj5zlpy0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Level 2: Shopping Day",
+        "video_id": "Bl37-uzi0So",
+        "url": "https://www.youtube.com/embed/Bl37-uzi0So",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Level 3: Privilege Theatre",
+        "video_id": "BPI23IwHtrA",
+        "url": "https://www.youtube.com/embed/BPI23IwHtrA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Level 4: Dads",
+        "video_id": "7iKln0kfpWU",
+        "url": "https://www.youtube.com/embed/7iKln0kfpWU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Level 5: Beckys",
+        "video_id": "oHGJ_RyQdOw",
+        "url": "https://www.youtube.com/embed/oHGJ_RyQdOw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Level 6: Comic Con",
+        "video_id": "fk73NXRmmQU",
+        "url": "https://www.youtube.com/embed/fk73NXRmmQU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Level 7: D&D",
+        "video_id": "0a0kLP5Zjuo",
+        "url": "https://www.youtube.com/embed/0a0kLP5Zjuo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Level 8: Final Fight",
+        "video_id": "VbDc07yVX8c",
+        "url": "https://www.youtube.com/embed/VbDc07yVX8c",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Canadian Screen Award (2021), Best Web Program or Series, Fiction; also Best Writing in a Web Program or Series",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8071",
+    "title": "The Drop",
+    "genre": "Comedy",
+    "eps": "4 eps",
+    "runtime": "15–17 min",
+    "desc": "Two broke Toronto women, Polly and Zara, launch a business as professional line-waiters for wealthy clients who want every hot product drop without standing in line themselves.",
+    "url": "https://www.youtube.com/embed/IebN__lqvek",
+    "source_channel": "YouTube (Narcity)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Preemo",
+        "video_id": "IebN__lqvek",
+        "url": "https://www.youtube.com/embed/IebN__lqvek",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Monolith",
+        "video_id": "ebzJM4Cwjnw",
+        "url": "https://www.youtube.com/embed/ebzJM4Cwjnw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Bottled Air, Trademark",
+        "video_id": "nwhD37I9j4g",
+        "url": "https://www.youtube.com/embed/nwhD37I9j4g",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Geezers",
+        "video_id": "3AibtunM1No",
+        "url": "https://www.youtube.com/embed/3AibtunM1No",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — T.O. WebFest (2023), Best Toronto Web Series. Nominee — Canadian Screen Award (2024), Best Original Program or Series, Fiction",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
