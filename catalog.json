@@ -355227,5 +355227,80 @@
     "award": "Winner — T.O. WebFest (2023), Best Toronto Web Series. Nominee — Canadian Screen Award (2024), Best Original Program or Series, Fiction",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8072",
+    "title": "Bestia",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "A stop-motion portrait of a Pinochet-era secret-police agent whose only bond is with her dog, as her mind frays.",
+    "source_channel": "Vimeo (Miyu Distribution)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/863083640",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Bestia",
+        "video_id": "863083640",
+        "url": "https://player.vimeo.com/video/863083640",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Annie Award (2022), Best Animated Short Subject",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8073",
+    "title": "Snow Bear",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~12 min",
+    "desc": "A lonely polar bear, in a wordless hand-drawn short, builds himself a friend out of snow.",
+    "source_channel": "YouTube (The Art of Aaron Blaise)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/xOXolSQcEb4",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Snow Bear",
+        "video_id": "xOXolSQcEb4",
+        "url": "https://www.youtube.com/embed/xOXolSQcEb4",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Annie Award (2026), Best Animated Short Subject",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8074",
+    "title": "Souvenir Souvenir",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "A young filmmaker tries to break his grandfather's silence about his Algerian War service. (In French, subtitled.)",
+    "source_channel": "YouTube (BANG BANG - A shot of shorts)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/C67BJoVLU9w",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Souvenir Souvenir",
+        "video_id": "C67BJoVLU9w",
+        "url": "https://www.youtube.com/embed/C67BJoVLU9w",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Annie Award (2021), Best Animated Short Subject; Sundance Short Film Jury Award: Animation",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
