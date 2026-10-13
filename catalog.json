@@ -355417,5 +355417,205 @@
     "award": "Winner — SXSW Grand Jury Award, Narrative Short (2021) · SXSW Audience Award (2021)",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8185",
+    "title": "Giants",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "A farming family in rural Australia endures a severe, grinding drought. Filmed on their own farm over 18 months, a quiet documentary about holding on — to the land and to each other — while the rain refuses to come.",
+    "source_channel": "YouTube (Filmsupply Films)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/n95c_zWNnJU",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Giants",
+        "video_id": "n95c_zWNnJU",
+        "url": "https://www.youtube.com/embed/n95c_zWNnJU",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Panasonic LUMIX Award for Best Australian Short Film, Flickerfest 2022",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8186",
+    "title": "Suzie in the Garden",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "Suzie, a curious little girl, keeps slipping into the walled garden next door, where a gruff old gardener tends his plants alone. A lush, hand-painted animated fable about curiosity, patience, and an unlikely friendship.",
+    "source_channel": "YouTube (KIS KIS – keep it short)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/95v3tnT9mYo",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Suzie in the Garden",
+        "video_id": "95v3tnT9mYo",
+        "url": "https://www.youtube.com/embed/95v3tnT9mYo",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Golden Slipper for Best Short Animation for Children, Zlín Film Festival 2022",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8187",
+    "title": "Pond",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "A little herring is swept out of her shoal and stranded in a tide pool full of strange new residents. To find her way back home she has to be braver than she feels. A gentle animated short made for the youngest viewers.",
+    "source_channel": "YouTube (MAGNETFILM)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/TcDdx5YwEho",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Pond",
+        "video_id": "TcDdx5YwEho",
+        "url": "https://www.youtube.com/embed/TcDdx5YwEho",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Hermína Týrlová Award for Best Short Animation for Children up to 6 Years of Age, Zlín Film Festival 2023",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8188",
+    "title": "Sounds Between the Crowns",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "In a kingdom where music has been banished, a travelling musician with nothing left reaches a forest alive with birdsong. A hand-crafted animated fable about difference — and what a world without music loses.",
+    "source_channel": "YouTube (BANG BANG – A shot of shorts)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/7YR2RUpvcXY",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sounds Between the Crowns",
+        "video_id": "7YR2RUpvcXY",
+        "url": "https://www.youtube.com/embed/7YR2RUpvcXY",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Golden Slipper for Best Short Animation for Children, Zlín Film Festival 2021",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8189",
+    "title": "Eid Mubarak",
+    "genre": "Family",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "A young Pakistani girl falls for the goat her family has bought for Eid al-Adha — and schemes to save him from sacrifice. A warm live-action short about love, family, and what sacrifice really means.",
+    "source_channel": "YouTube (KIS KIS – keep it short)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/e5m2zLCGFpw",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Eid Mubarak",
+        "video_id": "e5m2zLCGFpw",
+        "url": "https://www.youtube.com/embed/e5m2zLCGFpw",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, Live Action Short, New York International Children's Film Festival 2023",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8190",
+    "title": "Burros",
+    "genre": "Family",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "Near the US–Mexico border, a young Tohono O'odham girl finds a lost migrant girl her own age, separated from her father while crossing. She leads her across her desert community to her grandmother — the one person who speaks all their languages.",
+    "source_channel": "YouTube (Jefferson Stein)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/ydDRT7paNUk",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Burros",
+        "video_id": "ydDRT7paNUk",
+        "url": "https://www.youtube.com/embed/ydDRT7paNUk",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, Live Action Short, New York International Children's Film Festival 2022",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8191",
+    "title": "The Ocean Duck",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~7 min",
+    "desc": "A young woman visits her grandmother in hospital as a flood rises, and the world tips into fantastical visions drawn from Rumi's poetry and illuminated manuscripts. An animated short about grief, memory, and love.",
+    "source_channel": "YouTube (Huda Razzak)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/6BBw1MDVS5M",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Ocean Duck",
+        "video_id": "6BBw1MDVS5M",
+        "url": "https://www.youtube.com/embed/6BBw1MDVS5M",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, Animated Short, New York International Children's Film Festival 2022",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8192",
+    "title": "Matilda and the Spare Head",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "Matilda loves learning so much her head is fit to burst — so her mother orders her a spare one. But two heads prove worse than one in this stop-motion comedy about a girl, her mother, and knowing when enough is enough.",
+    "source_channel": "YouTube (KIS KIS – keep it short)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/dqh-xGnXuP4",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Matilda and the Spare Head",
+        "video_id": "dqh-xGnXuP4",
+        "url": "https://www.youtube.com/embed/dqh-xGnXuP4",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, Best Animated Short, New York International Children's Film Festival 2021",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
