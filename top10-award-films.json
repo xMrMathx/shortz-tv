@@ -28,6 +28,13 @@
   "thumb": "https://i.ytimg.com/vi/e9dZQelULDk/mqdefault.jpg"
  },
  {
+  "id": "stv-8087",
+  "title": "La Bruxa",
+  "genre": "Animation",
+  "views": 26892432,
+  "thumb": "https://i.ytimg.com/vi/jFxaNN7JMag/mqdefault.jpg"
+ },
+ {
   "id": "stv-4490",
   "title": "The Neighbors' Window",
   "genre": "Short Films",
@@ -61,12 +68,5 @@
   "genre": "Animation",
   "views": 10075658,
   "thumb": "https://i.ytimg.com/vi/UUlaseGrkLc/mqdefault.jpg"
- },
- {
-  "id": "stv-8040",
-  "title": "The Crush",
-  "genre": "Short Films",
-  "views": 8888528,
-  "thumb": "https://i.ytimg.com/vi/bTN3q_NjuWs/mqdefault.jpg"
  }
 ]
