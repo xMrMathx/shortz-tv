@@ -356177,5 +356177,30 @@
     "award": "Winner — Flickerfest Best Documentary Short (2025)",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8184",
+    "title": "Play It Safe",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "In a London drama-school class, a Black student is singled out by his teacher and pressured to perform a racial stereotype — assigned the monkey in an animal exercise — in front of his classmates. A tense, quietly devastating short about racism, humiliation, and deciding whether to play along.",
+    "source_channel": "Vimeo (Mitch Kalisa)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/833455285",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Play It Safe",
+        "video_id": "833455285",
+        "url": "https://player.vimeo.com/video/833455285",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Grand Jury Award, Narrative Short (2021) · SXSW Audience Award (2021)",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
