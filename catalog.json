@@ -356077,5 +356077,80 @@
     "award": "Winner — Edmonton International Film Festival Grand Jury Award, Best Animated Short (2022)",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8180",
+    "title": "The Medallion",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~19 min",
+    "desc": "A documentary short built around one family's keepsake: a medallion. Through it, a mother recounts surviving Ethiopia's Red Terror — seized as a schoolgirl, she spent years in a prison camp and endured torture during a period when tens of thousands were executed. Told in her own testimony with archival footage — heavy history, carried by memory rather than spectacle.",
+    "source_channel": "YouTube (The New Yorker)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/9Ou16WmaK1c",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Medallion",
+        "video_id": "9Ou16WmaK1c",
+        "url": "https://www.youtube.com/embed/9Ou16WmaK1c",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SFFILM Golden Gate Award, Documentary Short (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8181",
+    "title": "Hello Stranger",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~17 min",
+    "desc": "A documentary short told entirely in one woman's own words. A trans woman looks back over her life — childhood, gender dysphoria, her medical transition, and the person she became — and tells the story warmly, honestly, and with real humor.",
+    "source_channel": "YouTube (them)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/J8tNQ21seIo",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hello Stranger",
+        "video_id": "J8tNQ21seIo",
+        "url": "https://www.youtube.com/embed/J8tNQ21seIo",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Calgary International Film Festival Documentary Short Grand Jury Prize (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8182",
+    "title": "Sil-tteu-gi",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~5 min",
+    "desc": "A short documentary by a Korean-American filmmaker reflecting on her grandparents growing old an ocean away — the distance between them, the small useful things that carry love across it, and what it means to watch the people who raised your family age from far away.",
+    "source_channel": "YouTube (Yezy Suh)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/FnxE4hSYgpo",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sil-tteu-gi",
+        "video_id": "FnxE4hSYgpo",
+        "url": "https://www.youtube.com/embed/FnxE4hSYgpo",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SFFILM Golden Gate Award, Youth Works (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
