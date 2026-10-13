@@ -356052,5 +356052,30 @@
     "award": "Winner — Edmonton International Film Festival Grand Jury Award, Best Animated Short (2024)",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8179",
+    "title": "The Originals",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "A claymation documentary. Five elderly Italian-American friends — the originals of their South Brooklyn block — sit together and trade memories of growing up there: the neighborhood, the youthful fights, the lives they built. Warm, funny, and nostalgic.",
+    "source_channel": "YouTube (The New Yorker)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/nmvKNpEJJ-c",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Originals",
+        "video_id": "nmvKNpEJJ-c",
+        "url": "https://www.youtube.com/embed/nmvKNpEJJ-c",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Edmonton International Film Festival Grand Jury Award, Best Animated Short (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
