@@ -4353,7 +4353,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013141933";
+const BUILD="20261013142830";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6906,7 +6906,9 @@ async function syncProfileWithAccount(){
       const ref=Live.db.ref("users/"+uid+"/profile");
       let remote=null;
       try{ const snap=await ref.once("value"); remote=snap.val(); }catch(e){}
-      const hasFields=r=>!!(r&&(r.name||r.photo||(Array.isArray(r.favGenres)&&r.favGenres.length)));
+      // "Viewer" is the app's placeholder, never a real profile name:
+      // a node/directory/local profile carrying only it has NO fields.
+      const hasFields=r=>!!(r&&((r.name&&r.name!=="Viewer")||r.photo||(Array.isArray(r.favGenres)&&r.favGenres.length)));
       const local=getProfile();
       if(!hasFields(remote)){
         // DIRECTORY FALLBACK: the account profile node can exist with
@@ -6930,7 +6932,7 @@ async function syncProfileWithAccount(){
       }
       if(hasFields(remote)){
         const merged={
-          name:remote.name||(local&&local.name)||"",
+          name:(remote.name&&remote.name!=="Viewer")?remote.name:((local&&local.name&&local.name!=="Viewer")?local.name:""),
           photo:remote.photo||(local&&local.photo)||"",
           favGenres:Array.isArray(remote.favGenres)?remote.favGenres:((local&&local.favGenres)||[]),
           createdAt:remote.createdAt||(local&&local.createdAt)||Date.now()
@@ -6944,11 +6946,12 @@ async function syncProfileWithAccount(){
         try{ const du={photo:merged.photo||"",ts:Date.now()}; if(merged.name)du.name=merged.name; await Live.db.ref("directory/"+uid).update(du); }catch(e){}
         return merged;
       }
-      if(local){
-        try{ await ref.update({name:local.name||"",photo:local.photo||"",favGenres:local.favGenres||[],createdAt:local.createdAt||Date.now()}); }catch(e){}
-        try{ const du={photo:local.photo||"",ts:Date.now()}; if(local.name)du.name=local.name; await Live.db.ref("directory/"+uid).update(du); }catch(e){}
+      if(hasFields(local)){
+        try{ await ref.update({name:(local.name&&local.name!=="Viewer")?local.name:"",photo:local.photo||"",favGenres:local.favGenres||[],createdAt:local.createdAt||Date.now()}); }catch(e){}
+        try{ const du={photo:local.photo||"",ts:Date.now()}; if(local.name&&local.name!=="Viewer")du.name=local.name; await Live.db.ref("directory/"+uid).update(du); }catch(e){}
+        return local;
       }
-      return local||null;
+      return null;
     })();
     _profSyncFlight={uid:uid,p:run};
     try{ return await run; }
