@@ -355450,5 +355450,55 @@
     "award": "Winner — Nashville Film Festival Best Animated Short (2023) · Annecy Alexeïeff–Parker Award (2023)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8154",
+    "title": "Red Ears",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~30 min",
+    "desc": "An animated documentary (original German title: Das Rotohr). A young German volunteer goes abroad hoping to help — and comes back disillusioned. A clear-eyed critique of colonialism, racism, and voluntourism; no graphic content.",
+    "source_channel": "YouTube (New York Times Opinion)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/hkEZ2OiFVl4",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Red Ears",
+        "video_id": "hkEZ2OiFVl4",
+        "url": "https://www.youtube.com/embed/hkEZ2OiFVl4",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Tampere Film Festival Grand Prix, International Competition (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8155",
+    "title": "Punta Salinas",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "A Puerto Rican drama in Spanish. Sixteen-year-old Alba waits anxiously for her period after having sex for the first time — a quiet, restrained story about pregnancy anxiety and bodily autonomy. The sex is backstory, never shown.",
+    "source_channel": "Vimeo (Maria del Mar Rosario)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1156990898",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Punta Salinas",
+        "video_id": "1156990898",
+        "url": "https://player.vimeo.com/video/1156990898",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — New Orleans Film Festival Narrative Short Jury Award (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
