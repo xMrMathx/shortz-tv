@@ -261098,8 +261098,9 @@
       }
     ],
     "verified": true,
-    "award": "Winner - Tribeca Film Festival Best Documentary Short (2014)",
-    "dateAdded": "2026-10-08"
+    "award": "Winner — Tribeca Film Festival Best Documentary Short (2014)",
+    "dateAdded": "2026-10-08",
+    "award_verified": true
   },
   {
     "id": "stv-4729",
@@ -262871,7 +262872,7 @@
     "id": "stv-4814",
     "title": "Heart Valley",
     "genre": "Documentary",
-    "award": "Winner, Best Documentary Short — Tribeca Film Festival 2022 (also BAFTA Cymru Award for Short Film)",
+    "award": "Winner, Best Documentary Short — Tribeca Film Festival (2022); Best Short Film — BAFTA Cymru (2023)",
     "verified": true,
     "dateAdded": "2026-10-09",
     "episodes": [
@@ -262886,7 +262887,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=qNl7qmKIEAs",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4815",
