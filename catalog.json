@@ -355825,5 +355825,104 @@
     "award": "Winner — Berlinale Crystal Bear for Best Short Film, Generation 14plus (2015) · Aesthetica Short Film Festival Festival Winner (2015) · Aesthetica Short Film Festival Best Thriller (2015)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8169",
+    "title": "The Moths Will Eat Them Up",
+    "genre": "Thriller",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "A psychological horror-thriller directed by Tanya Modini and Luisa Martiri. A woman riding a night train alone is stalked and intimidated by a stranger while the male passengers around her look away — a study of gendered menace and bystander complicity, built on sustained dread rather than graphic violence, with a supernatural twist at the end.",
+    "source_channel": "YouTube (ALTER)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/ntlFB_blHBo",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Moths Will Eat Them Up",
+        "video_id": "ntlFB_blHBo",
+        "url": "https://www.youtube.com/embed/ntlFB_blHBo",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sydney Film Festival Dendy Award for Best Live Action Short (2022) · Rouben Mamoulian Award for Best Director (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8170",
+    "title": "Fry Day",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "Set in Starke, Florida on the night of Ted Bundy's execution in 1989, amid the carnival atmosphere outside the prison. A 16-year-old girl selling Polaroids accepts a ride from a stranger — a dread-soaked coming-of-age thriller where the menace is implied and never turns graphic.",
+    "source_channel": "Vimeo (Topic)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/263043936",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Fry Day",
+        "video_id": "263043936",
+        "url": "https://player.vimeo.com/video/263043936",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Melbourne International Film Festival City of Melbourne Grand Prix for Best Short Film (2017) · Tribeca Film Festival Student Visionary Award (2017)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8171",
+    "title": "The Last Days of Peter Bergmann",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~19 min",
+    "desc": "A true-story documentary mystery. In 2009 an unidentified man arrived in Sligo, Ireland, spent three days methodically erasing every trace of his identity, and was found dead on a beach — his final days reconstructed from CCTV footage and interviews.",
+    "source_channel": "Vimeo (Aeon Video)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/166977498",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Last Days of Peter Bergmann",
+        "video_id": "166977498",
+        "url": "https://player.vimeo.com/video/166977498",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Melbourne International Film Festival Best Documentary Short Film (2014) · IFTA Best Short Film · Nashville Film Festival Grand Jury Prize",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8172",
+    "title": "Drum Wave",
+    "genre": "Horror",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "A horror short by Natalie Erika James. A young pianist, deep in grief, is haunted through sound — the music she plays becomes a channel for a presence that will not let her go.",
+    "url": "https://www.youtube.com/embed/HS3RTURt1lE",
+    "source_channel": "YouTube (ALTER)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Drum Wave",
+        "video_id": "HS3RTURt1lE",
+        "url": "https://www.youtube.com/embed/HS3RTURt1lE",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Nominee — Sydney Film Festival Dendy Awards Finalist (2019)",
+    "award_verified": false,
+    "dateAdded": "2026-10-12"
   }
 ]
