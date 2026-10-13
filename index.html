@@ -488,6 +488,79 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 #avatarView .av-x{position:absolute;top:18px;right:18px;width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;font-size:20px;cursor:pointer}
 .avatar.lg{width:84px;height:84px;font-size:34px}
 .avatar.sm{width:40px;height:40px;font-size:16px;box-shadow:none}
+/* ---------- VIDEO FOLDERS (Profile redesign, his design, crowned 2026-10-13) ----------
+   The Profile's shelves live in drawn folders: tab on top, folder body in a
+   modest landscape, a glass video screen set into the front playing through
+   that folder's own titles (the app's cf preview machinery; the in-view
+   folder plays WITH SOUND per his PROFILE AUTOPLAY LAW), the
+   folder's name on a plate on the front. Tap a folder -> its icon shoots to
+   the top-left beside the two-bar button and the contents take the whole
+   screen; tap the top-left cluster again -> it closes and settles back.
+   Premium finish is his law: gloss, depth, glass — never flat. */
+#view-profile #scoutShelf{display:none} /* the picks live in the Scouts' Picks folder now */
+.vf-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 16px;margin:16px 0 8px}
+@media(min-width:1024px){.vf-grid{grid-template-columns:repeat(4,1fr)}}
+.vf-folder{position:relative;display:block;width:100%;background:none;border:none;padding:0;cursor:pointer;text-align:left;font-family:inherit;-webkit-tap-highlight-color:transparent;transition:transform .18s var(--ease)}
+.vf-folder:active{transform:scale(.975)}
+.vf-folder .vf-tab{position:absolute;top:0;left:12px;width:46%;height:17px;border-radius:9px 14px 0 0;z-index:0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -6px 8px rgba(0,0,0,.18)}
+.vf-folder .vf-body{position:relative;z-index:1;display:block;margin-top:13px;padding:11px 11px 10px;border-radius:5px 14px 14px 14px;box-sizing:border-box}
+  box-shadow:0 18px 34px rgba(0,0,0,.5),0 4px 10px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.45),inset 0 -14px 24px rgba(0,0,0,.16)}
+.vf-folder .vf-body::before{content:"";position:absolute;left:0;right:0;top:0;height:46%;border-radius:5px 14px 0 0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.04) 70%,transparent)}
+.vf-gold .vf-tab{background:linear-gradient(180deg,#a87e2c,#8a6420)}
+.vf-gold .vf-body{background:linear-gradient(165deg,#eec25e 0%,#d9a83f 46%,#b4832a 78%,#96691d 100%)}
+.vf-blue .vf-tab{background:linear-gradient(180deg,#33567f,#274564)}
+.vf-blue .vf-body{background:linear-gradient(165deg,#6ea3dd 0%,#4a7dbb 46%,#35608f 78%,#2a4d75 100%)}
+.vf-violet .vf-tab{background:linear-gradient(180deg,#584384,#463266)}
+.vf-violet .vf-body{background:linear-gradient(165deg,#a58ad6 0%,#7d63b8 46%,#5f4694 78%,#4c3878 100%)}
+.vf-teal .vf-tab{background:linear-gradient(180deg,#2a6a61,#1f5952)}
+.vf-teal .vf-body{background:linear-gradient(165deg,#5fbdae 0%,#3f9d92 46%,#2c7568 78%,#235e54 100%)}
+.vf-screen{position:relative;display:block;border-radius:9px;background:#0b0b10;padding:5px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 3px 12px rgba(0,0,0,.95),0 5px 16px rgba(0,0,0,.45)}
+.vf-media{display:block;border-radius:5px}
+.vf-media .vf-fade{position:absolute;inset:0;z-index:5;background:#000;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.vf-media.swap .vf-fade{opacity:1}
+.vf-glass{position:absolute;inset:5px;border-radius:5px;z-index:4;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 34%,transparent 56%),
+             linear-gradient(0deg,rgba(0,0,0,.22),transparent 34%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.07),inset 0 -10px 18px rgba(0,0,0,.35)}
+.vf-now{position:absolute;left:9px;bottom:7px;z-index:6;max-width:86%;font-size:9.5px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;color:rgba(255,255,255,.92);
+  text-shadow:0 1px 4px rgba(0,0,0,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;pointer-events:none}
+.vf-plate{position:relative;display:flex;align-items:baseline;gap:8px;margin-top:9px;padding:0 2px}
+.vf-name{font-size:15.5px;font-weight:800;letter-spacing:.2px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.45),0 0 1px rgba(0,0,0,.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vf-count{margin-left:auto;font-size:11px;font-weight:700;letter-spacing:.4px;color:rgba(255,255,255,.82);text-shadow:0 1px 2px rgba(0,0,0,.4);white-space:nowrap}
+.vf-add{position:relative;display:flex;align-items:center;justify-content:center;width:100%;background:none;border:none;padding:0;cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent}
+.vf-add .vf-tab{position:absolute;top:0;left:12px;width:46%;height:17px;border:1.5px dashed rgba(255,255,255,.28);border-bottom:none;border-radius:9px 14px 0 0}
+.vf-add .vf-body{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;width:100%;margin-top:13px;min-height:118px;border:1.5px dashed rgba(255,255,255,.28);border-radius:5px 14px 14px 14px;color:var(--mut)}
+.vf-add .vf-plus{font-size:24px;font-weight:300;line-height:1}
+.vf-add .vf-addtxt{font-size:12.5px;font-weight:700;letter-spacing:.3px}
+@keyframes vfSettle{0%{transform:scale(1.045)}55%{transform:scale(.985)}100%{transform:scale(1)}}
+.vf-folder.settle{animation:vfSettle .38s var(--ease)}
+/* the open folder: contents take the ENTIRE screen */
+#vfOpen{position:fixed;inset:0;z-index:9700;background:var(--bg);display:none;flex-direction:column;opacity:0;transform:translateY(16px) scale(.995);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+#vfOpen.open{display:flex}
+#vfOpen.shown{opacity:1;transform:none}
+.vf-top{display:flex;align-items:center;gap:11px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;background:linear-gradient(180deg,rgba(255,255,255,.05),transparent);border-bottom:1px solid var(--line)}
+.vf-bars{width:42px;height:42px;flex:none;border-radius:50%;border:1px solid var(--line);background:#17171f;color:var(--txt);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4.5px;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.vf-bars span{display:block;width:17px;height:2.5px;border-radius:2px;background:currentColor}
+.vf-bars:active{transform:scale(.94)}
+.vf-chip{position:relative;width:52px;height:40px;flex:none;cursor:pointer}
+.vf-chip .vf-tab{position:absolute;top:0;left:4px;width:46%;height:9px;border-radius:5px 8px 0 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.35)}
+.vf-chip .vf-cbody{position:absolute;left:0;right:0;top:7px;bottom:0;border-radius:3px 8px 8px 8px;box-shadow:0 6px 14px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center}
+.vf-chip .vf-cscr{width:24px;height:15px;border-radius:2.5px;background:#050508;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),inset 0 2px 5px rgba(0,0,0,.9)}
+.vf-chip.vf-gold .vf-tab{background:#8a6420}.vf-chip.vf-gold .vf-cbody{background:linear-gradient(160deg,#eec25e,#96691d)}
+.vf-chip.vf-blue .vf-tab{background:#274564}.vf-chip.vf-blue .vf-cbody{background:linear-gradient(160deg,#6ea3dd,#2a4d75)}
+.vf-chip.vf-violet .vf-tab{background:#463266}.vf-chip.vf-violet .vf-cbody{background:linear-gradient(160deg,#a58ad6,#4c3878)}
+.vf-chip.vf-teal .vf-tab{background:#1f5952}.vf-chip.vf-teal .vf-cbody{background:linear-gradient(160deg,#5fbdae,#235e54)}
+.vf-otitle{font-size:17px;font-weight:800;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vf-ocount{font-size:12px;color:var(--mut);font-weight:700;margin-top:1px}
+.vf-scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:4px 16px calc(24px + env(safe-area-inset-bottom))}
+.vf-scroll .grid{padding-top:12px}
+.vf-pick{display:flex;flex-direction:column;gap:6px}
+.vf-pick .vcard{width:100%}
+.vf-reason{font-size:12px;color:var(--mut);line-height:1.45;padding:0 2px}
+#vfFly{position:fixed;z-index:9750;pointer-events:none;filter:drop-shadow(0 14px 24px rgba(0,0,0,.55))}
 /* LIVE indicator: pulsing red ring + badge on avatars of users hosting a watch party */
 .avwrap{position:relative;display:inline-block;flex-shrink:0}
 .avwrap .livebadge{display:none;position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);background:#e00;color:#fff;font-size:8px;font-weight:900;padding:2px 6px;border-radius:7px;letter-spacing:.6px;white-space:nowrap;z-index:2}
@@ -2515,6 +2588,7 @@ function go(v){
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
   if(curView==="manga"&&v!=="manga")likesDetach(); // same for manga likes
   if(curView==="profile"&&v!=="profile"&&typeof tgPause==="function")tgPause(); // stop the TV Guide preview
+  if(curView==="profile"&&v!=="profile"){try{vfStopPreviews();vfCloseFolder(true);}catch(e){}} // Video Folders: previews + an open folder stay on Profile
   if(curView==="browse"&&v!=="browse"&&typeof featStop==="function")featStop(); // stop featured carousel
   if(v==="browse"&&typeof featBegin==="function")featBegin(); // (re)start featured carousel on entering Browse
   if(curView==="manga"&&v!=="manga"&&typeof mangaExit==="function")mangaExit();
@@ -2528,6 +2602,7 @@ function go(v){
   setTimeout(()=>cur.classList.remove("leaving"),550);
   nxt.classList.add("active");
   curView=v;
+  if(v==="profile"){try{vfStartPreviews();}catch(e){}} // Video Folders: renderView paints before go() flips curView — previews start here, once Profile is active
   try{ const _sa=document.getElementById("topShareApp"); if(_sa) _sa.style.display=(v==="profile")?"":"none"; }catch(e){}
   document.body.classList.toggle("feedfull",v==="home"||v==="streaming");
   try{if(window.Android&&window.Android.onWatching)window.Android.onWatching(v==="home")}catch(e){}
@@ -4354,7 +4429,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013215423";
+const BUILD="20261013221504";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7001,7 +7076,18 @@ function bioLine(p){
 }
 
 /* shared: My List + Recently Watched + saved manga — shown with or without a profile */
-function renderProfMyList(){
+function renderProfMyList(mangaOnly){
+  const box0=$("#profMyList");
+  if(mangaOnly){
+    // Video Folders layout: My List + Recently Watched live in their folders;
+    // this shelf keeps only the liked-manga row (renderProfManga owns it).
+    if(!box0)return;
+    box0.innerHTML=`
+    <div class="sect">📚 Manga <span id="profMangaN"></span></div>
+    <div class="hrow" id="profMangaRow"></div>`;
+    renderProfManga();
+    return;
+  }
   const idx=new Map();
   for(const t of C) idx.set(t.id,t);
   const saved=[...mylist].map(id=>idx.get(id)).filter(Boolean);
@@ -7053,8 +7139,9 @@ function renderProfile(){
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
     </div>
     <div id="profAuth" style="margin-top:12px"></div>
-    <div id="scoutSec"></div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
+    <div id="vfSection"></div>
+    <div id="scoutSec"></div>
     <div id="profMyList"></div>
     <div class="secttl">\u25B6\uFE0F YouTube</div>
     <div id="ytSignRow"></div>
@@ -7080,11 +7167,12 @@ function renderProfile(){
   renderTvGuide();
   paintYtSignInRows();
   paintLiveVisitors();
-  // My List + Recently Watched live inside the profile now (same cards as before)
-  // SPEED: one id->series Map — byId is a full C.find() scan per lookup
-  renderProfMyList();
+  // My List + Recently Watched live in the Video Folders now (renderVideoFolders
+  // below); #profMyList keeps only the Manga shelf in this layout.
+  renderProfMyList(true);
   renderAuthSection();
   try{ if(window.Scout) Scout.profile(); }catch(e){}
+  renderVideoFolders();
   const ib=$("#installAppBtn");
   if(ib){ib.onclick=onInstallClick;refreshInstallBtn();}
   initFriendsUI();
@@ -7175,6 +7263,373 @@ async function mgBackfillTitles(ids){
     });
     if(changed){store.set("mgLiked",mg);renderProfManga();}
   }catch(e){}
+}
+
+/* ---------- VIDEO FOLDERS (Profile) ----------
+   Data wiring (real sources only — no invented contents):
+   - Scouts' Picks <- the Scout inbox (window.Scout.getInbox — the same picks
+     the Browse landing and the old inline shelf render; the shelf is hidden
+     by CSS now because the folder is the picks' home on this screen).
+   - My Picks <- HIS picks: the local ♥ store ("likes", the feed rail's set)
+     unioned with this session's social-like cache where the entry is his —
+     the exact backfill pattern mgLikedIds() already uses for the manga shelf.
+   - My List <- the "mylist" set. Watch History <- the "history" ledger.
+   Previews follow his PROFILE AUTOPLAY LAW (2026-10-13 ~17:14): landing on
+   Profile, a video is ALREADY playing INLINE inside the Profile WITH SOUND —
+   no tap, no Watch button, no routing away. The machinery is the app's own
+   sound-preview pattern (cfPreviewSrc + a cfArmSound-style player arm:
+   audible load in the APK shell where soundOn is true from boot, muted start
+   + API unMute on web). Scrolling keeps the in-view folder's screen playing
+   with ONE audible screen at a time: the most-in-view folder is the audible
+   one, the rest cycle muted. Previews run only while Profile is on screen;
+   go() stops them when he leaves the tab. */
+const VF_DEFS=[
+  {key:"scouts", name:"Scouts' Picks", cls:"vf-gold",  unit:"picks",
+   empty:"Your Scout is still hunting — picks land here."},
+  {key:"mine",   name:"My Picks",      cls:"vf-blue",  unit:"picks",
+   empty:"Nothing liked yet.<br>Hold any cover to like it — your picks live here."},
+  {key:"list",   name:"My List",       cls:"vf-violet",unit:"saved",
+   empty:"Nothing saved yet.<br>Tap ＋ Save on any short to keep it here."},
+  {key:"history",name:"Watch History",cls:"vf-teal",  unit:"watched",
+   empty:"No watch history yet."}
+];
+let vfState={}, vfObs=null, vfOpenKey=null;
+function vfInbox(){ try{ if(window.Scout&&Scout.getInbox) return Scout.getInbox()||[]; }catch(e){} return []; }
+function vfMsgLine(m){ try{ if(window.Scout&&Scout.msgLine) return Scout.msgLine(m)||""; }catch(e){} return (m&&m.reason)||""; }
+function vfFolderItems(key){
+  if(key==="scouts"){
+    const out=[], used=new Set();
+    for(const m of vfInbox()){
+      if(!m||!m.titleId||used.has(m.titleId))continue;
+      let t=null; try{ t=byId(m.titleId); }catch(e){}
+      if(!t)continue;
+      used.add(m.titleId);
+      out.push({t,reason:vfMsgLine(m)});
+      if(out.length>=30)break;
+    }
+    return out;
+  }
+  if(key==="mine"){
+    const ids=[];
+    const push=id=>{ if(id&&ids.indexOf(id)<0)ids.push(id); };
+    try{ Object.keys(likes||{}).forEach(push); }catch(e){}
+    try{
+      if(window.Likes&&Likes.cache&&Likes.uid){
+        for(const id of Object.keys(Likes.cache)){
+          const v=Likes.cache[id];
+          if(v&&v[Likes.uid])push(id);
+        }
+      }
+    }catch(e){}
+    return ids.map(id=>{ try{ return byId(id); }catch(e){ return null; } })
+      .filter(Boolean).map(t=>({t,reason:""}));
+  }
+  if(key==="list"){
+    return [...mylist].map(id=>{ try{ return byId(id); }catch(e){ return null; } })
+      .filter(Boolean).map(t=>({t,reason:""}));
+  }
+  if(key==="history"){
+    return (history||[]).map(h=>{ try{ return byId(h&&h.id); }catch(e){ return null; } })
+      .filter(Boolean).map(t=>({t,reason:""}));
+  }
+  return [];
+}
+function renderVideoFolders(){
+  const sec=$("#vfSection"); if(!sec)return;
+  vfStopPreviews();
+  vfState={};
+  const cells=VF_DEFS.map(d=>{
+    const items=vfFolderItems(d.key);
+    vfState[d.key]={items, i:0, timer:null, media:null, now:null, folder:null,
+      ratio:0, audible:false, _audibleMounted:null, player:null};
+    const first=items[0]&&items[0].t;
+    const poster=first?thumb(first,"hq"):"";
+    const count=items.length?items.length+" "+d.unit:"Empty";
+    return `<button class="vf-folder ${d.cls}" data-vf="${d.key}" aria-label="${esc(d.name)}">
+      <span class="vf-tab"></span>
+      <span class="vf-body">
+        <span class="vf-screen">
+          <span class="vf-media cfmedia" data-vf-media>${poster?`<img class="cfart" src="${poster}" alt="" onerror="this.style.display='none'">`:""}<span class="vf-fade"></span></span>
+          <span class="vf-glass"></span>
+          <span class="vf-now" data-vf-now></span>
+        </span>
+        <span class="vf-plate"><span class="vf-name">${esc(d.name)}</span><span class="vf-count">${count}</span></span>
+      </span>
+    </button>`;
+  }).join("");
+  sec.innerHTML=`<div class="sect" style="margin-top:20px">Video Folders</div>
+    <div class="vf-grid">${cells}
+      <button class="vf-add" id="vfAdd" aria-label="New Video Folder">
+        <span class="vf-tab"></span>
+        <span class="vf-body"><span class="vf-plus">+</span><span class="vf-addtxt">New Video Folder</span></span>
+      </button>
+    </div>`;
+  sec.querySelectorAll(".vf-folder").forEach(f=>{
+    const key=f.dataset.vf, s=vfState[key];
+    s.folder=f;
+    s.media=f.querySelector("[data-vf-media]");
+    s.now=f.querySelector("[data-vf-now]");
+    f.onclick=()=>vfOpenFolder(key);
+  });
+  const add=$("#vfAdd");
+  if(add)add.onclick=()=>toast("Custom Video Folders are coming soon");
+  vfStartPreviews();
+}
+/* ----- folder-front previews: cycling through the folder's titles, WITH
+   SOUND on the most-in-view folder (PROFILE AUTOPLAY LAW) — the app's own
+   cf pattern: cfPreviewSrc for the src (mute follows soundOn) + a
+   cfArmSound-style arm for the audible folder; every other in-view folder
+   cycles muted; exactly one audible screen at a time. ----- */
+let vfActiveKey=null;
+function vfStartPreviews(){
+  vfStopPreviews();
+  if(curView!=="profile")return;
+  if(!("IntersectionObserver" in window)){
+    Object.values(vfState).forEach(s=>{ s.ratio=1; });
+    vfSyncPreviews();
+    return;
+  }
+  vfObs=new IntersectionObserver(es=>{
+    es.forEach(en=>{
+      const key=en.target.dataset&&en.target.dataset.vf;
+      const s=key&&vfState[key];
+      if(s)s.ratio=en.intersectionRatio;
+    });
+    vfSyncPreviews();
+  },{threshold:[0,0.2,0.35,0.5,0.7,0.9]});
+  Object.values(vfState).forEach(s=>{ if(s.folder)vfObs.observe(s.folder); });
+}
+function vfSyncPreviews(){
+  /* the audible folder = the most-in-view one (first folder wins ties) */
+  let best=null, bestR=0.349;
+  for(const d of VF_DEFS){
+    const s=vfState[d.key]; if(!s)continue;
+    if(s.ratio>=0.35&&s.ratio>bestR+0.001){ best=d.key; bestR=s.ratio; }
+  }
+  vfActiveKey=best;
+  for(const d of VF_DEFS){
+    const s=vfState[d.key]; if(!s)continue;
+    s.audible=(d.key===best);
+    const shouldPlay=s.ratio>=0.35&&s.items.length>0;
+    if(shouldPlay&&!s.timer)vfPlay(d.key);
+    else if(!shouldPlay&&s.timer)vfPause(d.key);
+    else if(shouldPlay&&s.timer&&s._audibleMounted!==s.audible)vfMount(d.key); // sound handoff
+  }
+}
+function vfStopPreviews(){
+  if(vfObs){ try{ vfObs.disconnect(); }catch(e){} vfObs=null; }
+  vfActiveKey=null;
+  Object.keys(vfState||{}).forEach(k=>vfPause(k));
+}
+function vfPlay(key){
+  const s=vfState[key]; if(!s||s.timer||!s.items.length)return;
+  vfShowTitle(key);
+  vfMount(key);
+  s.timer=setInterval(()=>vfAdvance(key),8000);
+}
+function vfPause(key){
+  const s=vfState[key]; if(!s)return;
+  if(s.timer){ clearInterval(s.timer); s.timer=null; }
+  if(s.player){ try{ if(s.player.destroy)s.player.destroy(); else if(s.player.pauseVideo)s.player.pauseVideo(); }catch(e){} s.player=null; }
+  s._audibleMounted=null;
+  if(s.media)s.media.querySelectorAll("iframe,video").forEach(el=>{
+    try{ if(el.tagName==="VIDEO")el.pause(); }catch(e){}
+    el.remove();
+  });
+}
+function vfShowTitle(key){
+  const s=vfState[key]; if(!s||!s.now)return;
+  const it=s.items[s.i%s.items.length];
+  s.now.textContent=it&&it.t?("▶ "+(it.t.title||"")):"";
+}
+function vfAdvance(key){
+  const s=vfState[key]; if(!s||!s.items.length||!s.media)return;
+  s.i=(s.i+1)%s.items.length;
+  const m=s.media;
+  m.classList.add("swap");
+  setTimeout(()=>{ if(!s.timer)return; vfMount(key); vfShowTitle(key); m.classList.remove("swap"); },460);
+}
+function vfMutedSrc(t){
+  /* the muted twin of cfPreviewSrc — same URL machinery, sound off */
+  const u=(t&&(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"")))||"";
+  if(!u)return "";
+  const id=ytId(u);
+  if(id)return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1&controls=0&disablekb=1&fs=0&loop=1&playlist="+id;
+  if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted=1&loop=1";
+  return embedSrc(u,false)+"&autoplay=1&mute=1";
+}
+function vfMount(key){
+  const s=vfState[key]; if(!s||!s.media)return;
+  const it=s.items[s.i%s.items.length]; if(!it)return;
+  const t=it.t, m=s.media;
+  if(s.player){ try{ if(s.player.destroy)s.player.destroy(); }catch(e){} s.player=null; }
+  m.querySelectorAll("iframe,video").forEach(el=>el.remove());
+  s._audibleMounted=!!s.audible;
+  const u=(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||""))||"";
+  if(!u)return;
+  if(isArchiveUrl(u)){
+    /* archive.org: a real <video> on the direct MP4 — the cfActivate contract;
+       sound follows the same rule (audible folder + soundOn), muted fallback
+       if the platform refuses an audible start */
+    const v=document.createElement("video");
+    v.className="cfprev"; v.loop=true;
+    v.muted=!(s.audible&&soundOn);
+    v.setAttribute("playsinline",""); v.setAttribute("preload","metadata");
+    v.src=u; m.appendChild(v);
+    try{
+      const p=v.play();
+      if(p&&p.catch)p.catch(()=>{ if(v.isConnected){ try{ v.muted=true; const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} } });
+    }catch(e){}
+    return;
+  }
+  const src=s.audible?cfPreviewSrc(t):vfMutedSrc(t);
+  if(!src)return;
+  const fr=document.createElement("iframe");
+  fr.className="cfprev";
+  fr.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
+  fr.setAttribute("allow","autoplay; encrypted-media; picture-in-picture");
+  fr.setAttribute("title","Video Folder preview");
+  fr.src=src; m.appendChild(fr);
+  if(s.audible)vfArmSound(key,t,fr);
+}
+/* drive the audible folder's sound — a cfArmSound mirror scoped to the
+   folder (the cf globals belong to the Home feed and are never touched) */
+function vfArmSound(key,t,fr){
+  const s=vfState[key]; if(!s)return;
+  const u=(t&&(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"")))||"";
+  const stillMine=()=>vfState[key]===s&&s.audible&&fr.isConnected;
+  if(u.indexOf("vimeo.com")>=0){
+    const ready=(window.Vimeo&&window.Vimeo.Player)
+      ? Promise.resolve()
+      : new Promise((res,rej)=>{ const sc=document.createElement("script"); sc.src="https://player.vimeo.com/api/player.js"; sc.onload=res; sc.onerror=rej; document.head.appendChild(sc); });
+    ready.then(()=>{ try{
+      if(!stillMine())return;
+      s.player=new Vimeo.Player(fr);
+      try{ s.player.setVolume(1); const p=s.player.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){}
+    }catch(e){} }).catch(()=>{});
+  }else if(ytId(u)){
+    const mk=()=>{ try{
+      if(!stillMine())return;
+      s.player=new YT.Player(fr,{events:{onReady:e=>{
+        if(!stillMine())return;
+        try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(err){}
+        /* survival check, cf-style: if an audible start was refused and the
+           player sits idle, fall back to a muted play so the screen MOVES */
+        setTimeout(()=>{ if(!stillMine())return;
+          try{ const st=e.target.getPlayerState();
+            if(st!==1&&st!==3){ e.target.mute(); e.target.playVideo(); }
+          }catch(err){}
+        },1800);
+      }}});
+    }catch(e){} };
+    if(window.YT&&window.YT.Player)mk(); else ensureYT(mk);
+  }
+}
+/* ----- open / close: the icon shoots to the top-left; contents take the screen ----- */
+function vfEnsureOverlay(){
+  let ov=$("#vfOpen");
+  if(ov)return ov;
+  ov=document.createElement("div");
+  ov.id="vfOpen";
+  ov.innerHTML=`<div class="vf-top">
+      <button class="vf-bars" id="vfBars" aria-label="Close folder"><span></span><span></span></button>
+      <div class="vf-chip" id="vfChip"><span class="vf-tab"></span><span class="vf-cbody"><span class="vf-cscr"></span></span></div>
+      <div style="flex:1;min-width:0"><div class="vf-otitle" id="vfOTitle"></div><div class="vf-ocount" id="vfOCount"></div></div>
+    </div>
+    <div class="vf-scroll" id="vfScroll"></div>`;
+  document.body.appendChild(ov);
+  ov.querySelector("#vfBars").onclick=()=>vfCloseFolder(false);
+  ov.querySelector("#vfChip").onclick=()=>vfCloseFolder(false);
+  /* a card tap navigates (detail) — the folder steps aside first, instantly */
+  ov.querySelector("#vfScroll").addEventListener("click",e=>{
+    if(e.target.closest&&e.target.closest(".vcard"))vfCloseFolder(true);
+  },true);
+  return ov;
+}
+function vfChipHTML(cls){
+  return `<span class="vf-tab"></span><span class="vf-cbody"><span class="vf-cscr"></span></span>`;
+}
+function vfFly(fromRect,toRect,cls,reverse,done){
+  if(!fromRect||!toRect||!fromRect.width||!toRect.width){ if(done)done(); return; }
+  const fly=document.createElement("div");
+  fly.id="vfFly"; fly.className="vf-chip "+cls;
+  fly.innerHTML=vfChipHTML(cls);
+  fly.style.left=fromRect.left+"px"; fly.style.top=fromRect.top+"px";
+  fly.style.width=fromRect.width+"px"; fly.style.height=fromRect.height+"px";
+  fly.style.transformOrigin="0 0";
+  document.body.appendChild(fly);
+  const tx=toRect.left-fromRect.left, ty=toRect.top-fromRect.top;
+  const sx=toRect.width/fromRect.width, sy=toRect.height/fromRect.height;
+  const anim=fly.animate([
+    {transform:"translate(0,0) scale(1,1)",opacity:1},
+    {transform:`translate(${tx}px,${ty}px) scale(${sx},${sy})`,opacity:1}
+  ],{duration:reverse?340:400,easing:"cubic-bezier(.25,.8,.3,1)"});
+  let fin=false;
+  const end=()=>{ if(fin)return; fin=true; fly.remove(); if(done)done(); };
+  anim.onfinish=end;
+  setTimeout(end,reverse?460:520); // safety: never strand the flyer
+}
+function vfOpenFolder(key){
+  const def=VF_DEFS.find(d=>d.key===key); if(!def)return;
+  const s=vfState[key];
+  const items=s?s.items:vfFolderItems(key);
+  vfStopPreviews();
+  const ov=vfEnsureOverlay();
+  const chip=ov.querySelector("#vfChip");
+  chip.className="vf-chip "+def.cls;
+  ov.querySelector("#vfOTitle").textContent=def.name;
+  ov.querySelector("#vfOCount").textContent=items.length?items.length+" "+def.unit:"Empty";
+  const sc=ov.querySelector("#vfScroll");
+  if(!items.length){
+    sc.innerHTML=`<div class="empty" style="padding-top:70px">${def.empty}</div>`;
+  }else if(key==="scouts"){
+    sc.innerHTML=`<div class="grid">${items.map(it=>`<div class="vf-pick">${cardHTML(it.t)}${it.reason?`<div class="vf-reason">🤖 Scout: ${esc(it.reason)}</div>`:""}</div>`).join("")}</div>`;
+    bindCards(sc);
+  }else{
+    sc.innerHTML=`<div class="grid">${items.map(it=>cardHTML(it.t)).join("")}</div>`;
+    bindCards(sc);
+  }
+  sc.scrollTop=0;
+  vfOpenKey=key;
+  ov.classList.add("open");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add("shown")));
+  /* the folder's icon shoots up to the top-left, beside the two-bar button */
+  const folder=s&&s.folder;
+  let fr=null;
+  try{ if(folder)fr=folder.getBoundingClientRect(); }catch(e){}
+  if(fr&&fr.width){
+    chip.style.visibility="hidden";
+    const from={left:fr.left+12,top:fr.top+4,width:96,height:72};
+    const to=chip.getBoundingClientRect();
+    vfFly(from,to,def.cls,false,()=>{ chip.style.visibility=""; });
+  }
+}
+function vfCloseFolder(instant){
+  const ov=$("#vfOpen");
+  if(!ov||!ov.classList.contains("open"))return;
+  const key=vfOpenKey; vfOpenKey=null;
+  const chip=ov.querySelector("#vfChip");
+  let finished=false;
+  const finish=()=>{
+    if(finished)return; finished=true;
+    ov.classList.remove("open","shown");
+    if(key&&vfState[key]&&vfState[key].folder){
+      const f=vfState[key].folder;
+      f.classList.remove("settle"); void f.offsetWidth; f.classList.add("settle");
+    }
+    if(curView==="profile")vfStartPreviews();
+  };
+  if(instant||!key||!chip){ finish(); return; }
+  const def=VF_DEFS.find(d=>d.key===key);
+  const folder=vfState[key]&&vfState[key].folder;
+  ov.classList.remove("shown");
+  let fr=null;
+  try{ if(folder)fr=folder.getBoundingClientRect(); }catch(e){}
+  if(!fr||!fr.width){ setTimeout(finish,140); return; }
+  chip.style.visibility="hidden";
+  const from=chip.getBoundingClientRect();
+  const to={left:fr.left+12,top:fr.top+4,width:96,height:72};
+  vfFly(from,to,def?def.cls:"",true,()=>{ chip.style.visibility=""; finish(); });
 }
 
 /* ---------- TV Guide (Profile): classic guide — preview player + full channel list ----------
