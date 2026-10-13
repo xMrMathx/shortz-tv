@@ -354875,5 +354875,105 @@
     "award": "Winner — Edmonton International Film Festival Grand Jury Award for Best Short Film, Animation (2019)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8131",
+    "title": "Between Times",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~14 min",
+    "desc": "A cuckoo clock narrates a whimsical stop-motion fairy tale: one day in a small village where time flows at a different speed for everyone — the young, the old, and everyone in between. Gentle and family-safe.",
+    "source_channel": "Vimeo (Tiny Inventions)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/91184345",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Between Times",
+        "video_id": "91184345",
+        "url": "https://player.vimeo.com/video/91184345",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Austin Film Festival Jury Award, Animated Short (2014)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8132",
+    "title": "Egg",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~12 min",
+    "desc": "An animated documentary drawn from director Martina Scarpelli's own experience with anorexia: a young woman's daily struggle with food, hunger and control, drawn as a stylized nude female figure throughout. Abstract and poetic, with no graphic imagery — an eating disorder is the entire subject.",
+    "source_channel": "Vimeo (martina)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/373368812",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Egg",
+        "video_id": "373368812",
+        "url": "https://player.vimeo.com/video/373368812",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Annecy Jean-Luc Xiberras Award for a First Film (2018) · DOK Leipzig Golden Dove (2018) · Seattle International Film Festival Special Jury Mention, Animation (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8133",
+    "title": "Everything You Wanted to Know About Sudden Birth* (*but were afraid to ask)",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "A comic documentary about a bizarre 1960s police training film on emergency childbirth — including brief footage of an ACTUAL live childbirth from that vintage educational film. The footage is real: clinical and historical, presented as part of the story.",
+    "source_channel": "Vimeo (AD&D Productions)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/559767034",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Everything You Wanted to Know About Sudden Birth* (*but were afraid to ask)",
+        "video_id": "559767034",
+        "url": "https://player.vimeo.com/video/559767034",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Seattle International Film Festival Special Jury Mention, Documentary Shorts (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8134",
+    "title": "The Miracle",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "A dark animated comedy about infertility and pregnancy envy: a childless 40-year-old woman holidays at an all-inclusive resort surrounded by pregnant women, and drifts into a surreal fantasy. Nothing graphic — the ache is emotional, played bittersweet.",
+    "source_channel": "YouTube (BANG BANG - A shot of shorts)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/Q-uvi9HVIZ0",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Miracle",
+        "video_id": "Q-uvi9HVIZ0",
+        "url": "https://www.youtube.com/embed/Q-uvi9HVIZ0",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Chicago International Film Festival Gold Hugo, Best Animated Short Film (2023) · Animafest Zagreb Grand Prix (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
