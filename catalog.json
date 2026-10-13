@@ -356069,5 +356069,105 @@
     "award": "Winner — Jury Award, Non-Fiction, Sundance Film Festival 2023",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8207",
+    "title": "Bogotá Story",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "1992, Bogotá: a young mother who earns a living selling contraband cigarettes on city buses is offered a one-way ticket to a new life in New York — and must decide what leaving would cost her young daughter.",
+    "source_channel": "Vimeo (The New Yorker)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1036181851",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Bogotá Story",
+        "video_id": "1036181851",
+        "url": "https://player.vimeo.com/video/1036181851",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Best of Fest, Palm Springs International ShortFest 2024",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8208",
+    "title": "Irregulars",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "In a factory storeroom full of mannequins, refugees recount their journeys across the Mediterranean toward Europe — the crossings, and the drownings that shadow them — in Fabio Palmieri's haunting documentary short.",
+    "source_channel": "Vimeo (FABIO PALMIERI)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/245145154",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Irregulars",
+        "video_id": "245145154",
+        "url": "https://player.vimeo.com/video/245145154",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Best Documentary, Aspen Shortsfest 2016",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8209",
+    "title": "Deer Flower",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~8 min",
+    "desc": "A young boy travels with his family to a deer farm in search of a cure for his chronic illness, in Kangmin Kim's surreal animated short — part childhood memory, part body-horror dream.",
+    "source_channel": "Vimeo (Kangmin Kim)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/219692884",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Deer Flower",
+        "video_id": "219692884",
+        "url": "https://player.vimeo.com/video/219692884",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Best Animated Short, Aspen Shortsfest 2016",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8210",
+    "title": "Classroom 4",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~39 min",
+    "desc": "Inside a Los Angeles county jail, a sociology professor teaches a class of incarcerated students — and the classroom becomes a rare place where men examine the system that holds them, and the lives waiting outside.",
+    "source_channel": "Vimeo (Impact Partners)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1187148359",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Classroom 4",
+        "video_id": "1187148359",
+        "url": "https://player.vimeo.com/video/1187148359",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, Documentary, Aspen Shortsfest 2025",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
