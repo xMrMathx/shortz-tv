@@ -35,6 +35,13 @@
   "thumb": "https://i.ytimg.com/vi/jFxaNN7JMag/mqdefault.jpg"
  },
  {
+  "id": "stv-8147",
+  "title": "The Brave Locomotive",
+  "genre": "Animation",
+  "views": 22286485,
+  "thumb": "https://i.ytimg.com/vi/l8mScKWj3kQ/mqdefault.jpg"
+ },
+ {
   "id": "stv-4490",
   "title": "The Neighbors' Window",
   "genre": "Short Films",
@@ -61,12 +68,5 @@
   "genre": "Short Films",
   "views": 10154192,
   "thumb": "https://i.ytimg.com/vi/2GbxFIVQv8c/mqdefault.jpg"
- },
- {
-  "id": "stv-4742",
-  "title": "Soar",
-  "genre": "Animation",
-  "views": 10075658,
-  "thumb": "https://i.ytimg.com/vi/UUlaseGrkLc/mqdefault.jpg"
  }
 ]
