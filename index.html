@@ -4353,7 +4353,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013140631";
+const BUILD="20261013141933";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6920,8 +6920,8 @@ async function syncProfileWithAccount(){
         try{
           const dsnap=await Live.db.ref("directory/"+uid).once("value");
           const dv=dsnap.val();
-          if(dv&&(dv.name||dv.photo)){
-            remote={name:dv.name||"",photo:dv.photo||"",
+          if(dv&&((dv.name&&dv.name!=="Viewer")||dv.photo)){
+            remote={name:(dv.name&&dv.name!=="Viewer")?dv.name:"",photo:dv.photo||"",
               favGenres:(local&&local.favGenres)||[],
               createdAt:(local&&local.createdAt)||Date.now(),
               _fromDirectory:true};
@@ -6941,12 +6941,12 @@ async function syncProfileWithAccount(){
         // the primary path serves every future sign-in (update(), never
         // set() — the node also carries the saved/recent lists).
         if(remote._fromDirectory){ try{ await ref.update({name:merged.name||"",photo:merged.photo||"",favGenres:merged.favGenres||[],createdAt:merged.createdAt||Date.now()}); }catch(e){} }
-        try{ await Live.db.ref("directory/"+uid).update({name:merged.name||"Viewer",photo:merged.photo||"",ts:Date.now()}); }catch(e){}
+        try{ const du={photo:merged.photo||"",ts:Date.now()}; if(merged.name)du.name=merged.name; await Live.db.ref("directory/"+uid).update(du); }catch(e){}
         return merged;
       }
       if(local){
         try{ await ref.update({name:local.name||"",photo:local.photo||"",favGenres:local.favGenres||[],createdAt:local.createdAt||Date.now()}); }catch(e){}
-        try{ await Live.db.ref("directory/"+uid).update({name:local.name||"Viewer",photo:local.photo||"",ts:Date.now()}); }catch(e){}
+        try{ const du={photo:local.photo||"",ts:Date.now()}; if(local.name)du.name=local.name; await Live.db.ref("directory/"+uid).update(du); }catch(e){}
       }
       return local||null;
     })();
@@ -7881,7 +7881,16 @@ const Friends={uid:null,db:null,_settled:false,_watching:false,_waiters:[],_list
         // be findable at the uid friends actually use (directory code)
         try{
           const p=getProfile()||{};
-          (this.db||Live.db).ref("directory/"+uid).update({name:p.name||(user&&user.displayName)||"Viewer",photo:p.photo||"",ts:Date.now()});
+          // never stamp the "Viewer" placeholder over an existing
+          // directory entry: with no local profile and no auth display
+          // name there is nothing true to say yet, and the entry may
+          // still hold the user's real profile name (the profile sync
+          // restores FROM it) — omit the name key so update() preserves
+          // what's already there.
+          const du={photo:p.photo||"",ts:Date.now()};
+          const dn=p.name||(user&&user.displayName)||"";
+          if(dn)du.name=dn;
+          (this.db||Live.db).ref("directory/"+uid).update(du);
         }catch(e){}
         try{ checkAcceptedFriends(); }catch(e){}
       }
