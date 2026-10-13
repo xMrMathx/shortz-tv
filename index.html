@@ -1922,6 +1922,22 @@ async function authEnsureUser(auth,opts){
   let u=await authCurrentUser(auth);
   if(u)return u;
   if(!opts||!opts.anon)return null;
+  // NEVER mint while a real sign-in exists or is in flight. A deferred
+  // boot consumer whose no-session decision straddles the user's own
+  // sign-in used to mint AFTER it: signInAnonymously() replaces the
+  // session, so the account stayed stamped in the store while the live
+  // session became a throwaway guest — the profile sync early-returned,
+  // account-keyed writes were permission_denied, and the user landed on
+  // the blank create-profile form (reproduced live 2026-10-13). Guards:
+  // account already stamped on this device; the auth gate is open (the
+  // user is signing in right now — guest minting resumes when it
+  // closes); a Google redirect sign-in is still being handed back.
+  try{
+    if(store.get("auth_done")&&store.get("auth_uid")) return null;
+    const gateEl=document.getElementById("authGate");
+    if(gateEl&&gateEl.classList&&gateEl.classList.contains("open")) return null;
+    if(sessionStorage.getItem("svGooglePending")) return null;
+  }catch(e){}
   // last resort for a TRUE guest only: state settled with no session at
   // all. Re-check once more in case a sign-in landed during the wait.
   try{ u=auth.currentUser; }catch(e){}
@@ -1930,7 +1946,13 @@ async function authEnsureUser(auth,opts){
   // of each minting a fresh throwaway identity
   if(!_anonSignInFlight){
     _anonSignInFlight=(async()=>{
-      try{ const cred=await auth.signInAnonymously(); return (cred&&cred.user)||null; }
+      try{
+        // final check in the same tick as the call: a real sign-in that
+        // landed while this flight was being created always wins.
+        let cu=null; try{ cu=auth.currentUser; }catch(e){}
+        if(cu) return cu;
+        const cred=await auth.signInAnonymously(); return (cred&&cred.user)||null;
+      }
       catch(e){ return null; }
       finally{ _anonSignInFlight=null; }
     })();
@@ -4331,7 +4353,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013135939";
+const BUILD="20261013140631";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6886,6 +6908,26 @@ async function syncProfileWithAccount(){
       try{ const snap=await ref.once("value"); remote=snap.val(); }catch(e){}
       const hasFields=r=>!!(r&&(r.name||r.photo||(Array.isArray(r.favGenres)&&r.favGenres.length)));
       const local=getProfile();
+      if(!hasFields(remote)){
+        // DIRECTORY FALLBACK: the account profile node can exist with
+        // lists only (authSyncLists creates users/{uid}/profile holding
+        // saved/recent and no profile fields — e.g. when the profile was
+        // originally saved before the account session settled), while
+        // directory/{uid} still carries the display name/photo
+        // (saveProfile and Friends._adopt both upsert it under the real
+        // uid). Restore from the directory rather than stranding a
+        // signed-in user on the blank create-profile form.
+        try{
+          const dsnap=await Live.db.ref("directory/"+uid).once("value");
+          const dv=dsnap.val();
+          if(dv&&(dv.name||dv.photo)){
+            remote={name:dv.name||"",photo:dv.photo||"",
+              favGenres:(local&&local.favGenres)||[],
+              createdAt:(local&&local.createdAt)||Date.now(),
+              _fromDirectory:true};
+          }
+        }catch(e){}
+      }
       if(hasFields(remote)){
         const merged={
           name:remote.name||(local&&local.name)||"",
@@ -6895,6 +6937,10 @@ async function syncProfileWithAccount(){
         };
         store.set("profile",merged);
         try{ Live.name=merged.name||Live.name; }catch(e){}
+        // healed from the directory: backfill the real profile node so
+        // the primary path serves every future sign-in (update(), never
+        // set() — the node also carries the saved/recent lists).
+        if(remote._fromDirectory){ try{ await ref.update({name:merged.name||"",photo:merged.photo||"",favGenres:merged.favGenres||[],createdAt:merged.createdAt||Date.now()}); }catch(e){} }
         try{ await Live.db.ref("directory/"+uid).update({name:merged.name||"Viewer",photo:merged.photo||"",ts:Date.now()}); }catch(e){}
         return merged;
       }
