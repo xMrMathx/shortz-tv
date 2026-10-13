@@ -355302,5 +355302,341 @@
     "award": "Winner — Annie Award (2021), Best Animated Short Subject; Sundance Short Film Jury Award: Animation",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8075",
+    "title": "peopleWatching",
+    "genre": "Animation",
+    "eps": "28 eps",
+    "runtime": "6–16 min",
+    "desc": "Winston Rowntree's animated series: a group of Toronto twenty- and thirty-somethings talk through dating, depression, friendship, and modern life in dialogue-driven short stories.",
+    "url": "https://www.youtube.com/embed/-PsJx9XcFQ0",
+    "source_channel": "YouTube (Part-Time Cult)",
+    "rights_basis": "Public YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Non-Religious Confessional",
+        "video_id": "-PsJx9XcFQ0",
+        "url": "https://www.youtube.com/embed/-PsJx9XcFQ0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Dating Doesn't Work",
+        "video_id": "Tata2HhdXTo",
+        "url": "https://www.youtube.com/embed/Tata2HhdXTo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Want To Believe",
+        "video_id": "NhGBxU1jTu4",
+        "url": "https://www.youtube.com/embed/NhGBxU1jTu4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Death is Bullshit",
+        "video_id": "CiJM09Nr-Bg",
+        "url": "https://www.youtube.com/embed/CiJM09Nr-Bg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Your Favorite Artist",
+        "video_id": "EgezJ_kQ6S0",
+        "url": "https://www.youtube.com/embed/EgezJ_kQ6S0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Friendzone",
+        "video_id": "7Komo1QpiKA",
+        "url": "https://www.youtube.com/embed/7Komo1QpiKA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Secret Losers Anonymous",
+        "video_id": "LrD0cVPMrgo",
+        "url": "https://www.youtube.com/embed/LrD0cVPMrgo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Writing to an Old Teacher",
+        "video_id": "tJLnBAt1o1o",
+        "url": "https://www.youtube.com/embed/tJLnBAt1o1o",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "In Defense of Talking During the Movie",
+        "video_id": "pqQnqtxYe18",
+        "url": "https://www.youtube.com/embed/pqQnqtxYe18",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Nostalgia",
+        "video_id": "7Hs5lboFxvQ",
+        "url": "https://www.youtube.com/embed/7Hs5lboFxvQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "2017. We're All Someone Else’s Past",
+        "video_id": "r0m0Uo8pzJs",
+        "url": "https://www.youtube.com/embed/r0m0Uo8pzJs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "Prejudice. A Book Club Where No One Read the Book",
+        "video_id": "4sOUDMREEws",
+        "url": "https://www.youtube.com/embed/4sOUDMREEws",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "Hanging Out With My Brother. Life Is Other People",
+        "video_id": "ahmVFVUta98",
+        "url": "https://www.youtube.com/embed/ahmVFVUta98",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "37. The Person You Could Have Been",
+        "video_id": "vCMcgWEfx1g",
+        "url": "https://www.youtube.com/embed/vCMcgWEfx1g",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "The Museum of Alternate Realities. The Person You Could Have Been",
+        "video_id": "u3VjrPtEyjY",
+        "url": "https://www.youtube.com/embed/u3VjrPtEyjY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "The Women Men Don't See. The Other Half of the Story",
+        "video_id": "SJj_OLgFn6Q",
+        "url": "https://www.youtube.com/embed/SJj_OLgFn6Q",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "20s. When You're Young, Unsure, and Kinda Lost",
+        "video_id": "1o6j7DdWqbE",
+        "url": "https://www.youtube.com/embed/1o6j7DdWqbE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "Homeless People Bother Me. The Most Awkward Conversation of My Life.",
+        "video_id": "4bbNBs2PwcM",
+        "url": "https://www.youtube.com/embed/4bbNBs2PwcM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "Love. The Most Brutal Loneliness Test… And I Passed",
+        "video_id": "VTzt175P1No",
+        "url": "https://www.youtube.com/embed/VTzt175P1No",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "Hope In Every Box. Why Tomorrow Changes Everything",
+        "video_id": "k-n4sqNxmZY",
+        "url": "https://www.youtube.com/embed/k-n4sqNxmZY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 21,
+        "title": "Almost. Why Online Friends Feel More Real Than People in Real Life",
+        "video_id": "_ZcVG2CSC0U",
+        "url": "https://www.youtube.com/embed/_ZcVG2CSC0U",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 22,
+        "title": "Turbodate. This Dating Experiment Shouldn't Have Worked",
+        "video_id": "Qc-3FWnHZr0",
+        "url": "https://www.youtube.com/embed/Qc-3FWnHZr0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 23,
+        "title": "Ask For Janis. The Most Honest First Date Ever",
+        "video_id": "oq-tlCJF6Ks",
+        "url": "https://www.youtube.com/embed/oq-tlCJF6Ks",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 24,
+        "title": "I Hate You. I Found the Perfect Friend… and It Was Someone I Hated",
+        "video_id": "KtHZlucgZDg",
+        "url": "https://www.youtube.com/embed/KtHZlucgZDg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 25,
+        "title": "Us and Them. Can You Love Someone Who Sees the World Differently?",
+        "video_id": "ccBvif8ScRk",
+        "url": "https://www.youtube.com/embed/ccBvif8ScRk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 26,
+        "title": "Performance. The One Thing No Utopia Can Have",
+        "video_id": "1ncnUBbVCqE",
+        "url": "https://www.youtube.com/embed/1ncnUBbVCqE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 27,
+        "title": "Dirt. What If No One Knows You’re Great?",
+        "video_id": "-7kqPcuJuss",
+        "url": "https://www.youtube.com/embed/-7kqPcuJuss",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 28,
+        "title": "Together. What Are We Supposed to Call This?",
+        "video_id": "8m_BQm9V8fI",
+        "url": "https://www.youtube.com/embed/8m_BQm9V8fI",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Winner — Canadian Screen Award, Best Web Program or Series, Fiction; also Best Digital Fiction Series, Banff World Media Festival",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8076",
+    "title": "Cancelled",
+    "genre": "Drama",
+    "eps": "10 eps",
+    "runtime": "8–14 min",
+    "desc": "Filmmaker Luke Eve and his partner María Albiñana, stranded in lockdown Spain after their wedding is cancelled, film their plans — and their relationship — unraveling in real time.",
+    "url": "https://www.youtube.com/embed/k_44cxBA4o4",
+    "source_channel": "YouTube (More Sauce)",
+    "rights_basis": "Unlisted YouTube embed",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Episode 1",
+        "video_id": "k_44cxBA4o4",
+        "url": "https://www.youtube.com/embed/k_44cxBA4o4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Luke Loses His Shit",
+        "video_id": "RgYP5M8HPIE",
+        "url": "https://www.youtube.com/embed/RgYP5M8HPIE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "The Wedding Day",
+        "video_id": "od_mpbcETUs",
+        "url": "https://www.youtube.com/embed/od_mpbcETUs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Brave Faces",
+        "video_id": "kJMHEPk9eKA",
+        "url": "https://www.youtube.com/embed/kJMHEPk9eKA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Fun and Games",
+        "video_id": "xWrUHxYI1YA",
+        "url": "https://www.youtube.com/embed/xWrUHxYI1YA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Tourists",
+        "video_id": "OgN3SSIaJrY",
+        "url": "https://www.youtube.com/embed/OgN3SSIaJrY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "The Female Monkey of Easter",
+        "video_id": "0Wy6owf-2qc",
+        "url": "https://www.youtube.com/embed/0Wy6owf-2qc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Fracture",
+        "video_id": "H5Al5tuZMR8",
+        "url": "https://www.youtube.com/embed/H5Al5tuZMR8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Departure",
+        "video_id": "Y4GYYMK5cuk",
+        "url": "https://www.youtube.com/embed/Y4GYYMK5cuk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Home",
+        "video_id": "-7FBJ_irelU",
+        "url": "https://www.youtube.com/embed/-7FBJ_irelU",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award": "Nominee — IAWTV Award (2022), Best Drama Series",
+    "award_verified": false,
+    "dateAdded": "2026-10-12"
   }
 ]
