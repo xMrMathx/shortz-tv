@@ -4325,7 +4325,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013083220";
+const BUILD="20261013084220";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -4357,6 +4357,23 @@ function _videoPlaying(){
     // TV Guide preview / highlights player.
     const pv=document.getElementById("tgPreviewBox");
     if(pv&&pv._tid)return true;
+    // Card-feed preview (Home in card mode): playback lives in the active
+    // card's own player (cfPlayer), NOT in a stage slide — the curSlide()
+    // checks above are blind to it, and a freshness reload yanked a card
+    // preview mid-watch (Mr. Moore, 2026-10-13). Isolated try: a failure
+    // here must never skip the surface checks below.
+    try{
+      if(typeof cfActive!=="undefined"&&cfActive){
+        const cp=(typeof cfPlayer!=="undefined")?cfPlayer:null;
+        if(cp&&typeof cp.getPlayerState==="function"){
+          const cst=cp.getPlayerState();
+          if(cst===1||cst===3||cst===-1||cst===5)return true; // playing/buffering/loading
+          // paused or ended: a natural break — fall through.
+        }else{
+          return true; // Vimeo or not-yet-wrapped iframe: active card plays by design
+        }
+      }
+    }catch(e){}
     // Live / Streaming: Twitch/Kick/YouTube embeds autoplay and their state is
     // not queryable cross-origin — an open player view counts as playing.
     // Leaving the view is the natural break that lets a held update apply.
@@ -4375,7 +4392,11 @@ function _armFreshWatcher(){
   if(_freshWatch)return;
   _freshWatch=setInterval(()=>{
     if(!_fresh.pending){clearInterval(_freshWatch);_freshWatch=null;return;}
-    if(document.hidden||!_videoPlaying()){
+    // Backgrounding is a natural break — EXCEPT PiP, where the video is
+    // still on screen in the floating window while the page reads hidden.
+    let pip=false;
+    try{ pip=!!(document.body&&document.body.classList&&document.body.classList.contains("pip")); }catch(e){}
+    if((document.hidden&&!pip)||!_videoPlaying()){
       _fresh.pending=false;
       clearInterval(_freshWatch);_freshWatch=null;
       forceFreshReload();
@@ -4387,10 +4408,9 @@ function _armFreshWatcher(){
    reload via the ?fresh= URL (intro skipped) when clear. Never a bare reload. */
 window.__requestFreshReload=function(){
   if(_videoPlaying()){
-    if(!_fresh.pending){
-      _fresh.pending=true;
-      try{toast("Update ready — applying when the video pauses");}catch(e){}
-    }
+    // Hold SILENTLY — no toast, no badge: the watcher applies the update
+    // at the first natural break and the user never hears about it.
+    _fresh.pending=true;
     _armFreshWatcher();
     return false;
   }
@@ -4528,10 +4548,7 @@ function _runFreshCheck(reason){
         // let the watcher apply it at the first natural break (pause/end,
         // view switch, background return). No expiry — it waits as long as
         // playback lasts.
-        if(!_fresh.pending){
-          _fresh.pending=true;
-          try{toast("Update ready — applying when the video pauses");}catch(e){}
-        }
+        _fresh.pending=true; // silent hold — no toast, no badge, no nag
         _armFreshWatcher();
       }else{
         _fresh.pending=false;
