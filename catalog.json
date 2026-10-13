@@ -9154,29 +9154,6 @@
     "episodes_note": "No official playlist; Season 2 EP1-EP5 on Emerald Strike Film Company uploads (3 teasers excluded); catalog reference video kept as verified series compilation."
   },
   {
-    "id": "stv-1050",
-    "title": "You'll never guess what he did in this home",
-    "genre": "Mr. Ballin",
-    "eps": "1 ep",
-    "runtime": "~14:09",
-    "desc": "You'll never guess what he did in this home — Mr. Ballin storytelling.",
-    "url": "https://www.youtube.com/embed/5EobUTGG1ng",
-    "url_status": "ok",
-    "source_channel": "MrBallen",
-    "rights_basis": "Public embed",
-    "ai_made": false,
-    "episodes": [
-      {
-        "n": 1,
-        "title": "You'll never guess what he did in this home",
-        "video_id": "5EobUTGG1ng",
-        "url": "https://www.youtube.com/embed/5EobUTGG1ng",
-        "verified": true,
-        "kind": "episode"
-      }
-    ]
-  },
-  {
     "id": "stv-1051",
     "title": "Even Skeptics Can't Explain This Shocking Ending",
     "genre": "Mr. Ballin",
@@ -44888,118 +44865,6 @@
         "url": "https://www.youtube.com/embed/fzQ6gRAEoy0",
         "video_id": "fzQ6gRAEoy0",
         "n": 1,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "onlyShortz": true,
-    "rights_basis": "Public YouTube embed"
-  },
-  {
-    "id": "stv-1577",
-    "title": "Milky☆Subway: The Galactic Limited Express",
-    "genre": "Space",
-    "eps": "12 eps",
-    "runtime": "~1-3 min each",
-    "desc": "12 short episodes (3–5 min each) by solo creator Yohei Kameyama, sequel to his viral graduation short Milky☆Highway. Arrested for reckless space driving, Chiharu and Makina must clean an interplanetar",
-    "url": "https://www.youtube.com/embed/iHd7eWUXuLU",
-    "video_id": "iHd7eWUXuLU",
-    "source_channel": "",
-    "ai_made": false,
-    "episodes": [
-      {
-        "title": "Episode 01 \"All Aboard!\"  │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "iHd7eWUXuLU",
-        "url": "https://www.youtube.com/embed/iHd7eWUXuLU",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 02 \"False Departure\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "FGtvnG98mQs",
-        "url": "https://www.youtube.com/embed/FGtvnG98mQs",
-        "n": 2,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 03 \"Chiharu and Makina\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "QbfPKfEuqCY",
-        "url": "https://www.youtube.com/embed/QbfPKfEuqCY",
-        "n": 3,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 04 \"Eat, Fight, Repeat\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "8F7aVVep4e8",
-        "url": "https://www.youtube.com/embed/8F7aVVep4e8",
-        "n": 4,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 05 \"HAIJO-KUN\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "UqEgW4dUHuc",
-        "url": "https://www.youtube.com/embed/UqEgW4dUHuc",
-        "n": 5,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 06 \"Kurt and Max\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "ZzdzjkKl2zE",
-        "url": "https://www.youtube.com/embed/ZzdzjkKl2zE",
-        "n": 6,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 07 \"Labor and Reward\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "uMGK0gZgJn8",
-        "url": "https://www.youtube.com/embed/uMGK0gZgJn8",
-        "n": 7,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 08 \"Tempura Shrimp Tail\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "E9vs6E2mN3c",
-        "url": "https://www.youtube.com/embed/E9vs6E2mN3c",
-        "n": 8,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 09 \"Delusion and Panic\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "jFQ7Oc0wdHk",
-        "url": "https://www.youtube.com/embed/jFQ7Oc0wdHk",
-        "n": 9,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 10 \"Akane and Kanata\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "brFT20igb5w",
-        "url": "https://www.youtube.com/embed/brFT20igb5w",
-        "n": 10,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 11 \"The Mastermind\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "89s0ZihQeS8",
-        "url": "https://www.youtube.com/embed/89s0ZihQeS8",
-        "n": 11,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Episode 12 \"Death of Makina\" │MILKY☆SUBWAY THE GALACTIC LIMITED EXPRESS",
-        "video_id": "sRljciHWdVY",
-        "url": "https://www.youtube.com/embed/sRljciHWdVY",
-        "n": 12,
         "verified": true,
         "kind": "episode"
       }
@@ -90836,29 +90701,6 @@
     "rights_basis": "Public YouTube embed"
   },
   {
-    "id": "stv-1796",
-    "title": "Merry Merry Football | Week 17 Top 10 Plays | CHRISTMAS EDITION | NFLZoneutube",
-    "genre": "Sports",
-    "eps": "1 ep",
-    "runtime": "~1-3 min each",
-    "desc": "Celebrate the holidays with Merry Merry Football as we break down the Top 10 Plays from Week 17 Sunday NFL games in this special Christmas Edition! From clutch performances to explosive touchdowns, th",
-    "url": "https://www.youtube.com/embed/5LRrzn479aQ",
-    "video_id": "5LRrzn479aQ",
-    "source_channel": "",
-    "ai_made": false,
-    "episodes": [
-      {
-        "title": "Merry Merry Football | Week 17 Top 10 Plays | CHRISTMAS EDITION | NFLZoneutube",
-        "url": "https://www.youtube.com/embed/5LRrzn479aQ",
-        "video_id": "5LRrzn479aQ",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "rights_basis": "Public YouTube embed"
-  },
-  {
     "id": "stv-1797",
     "title": "Hole in Ones at The Open Championship | 10 of the Best",
     "genre": "Sports",
@@ -90992,52 +90834,6 @@
         "title": "Oscar Valdez with the Knockout of the Year Over Miguel Berchelt, Wins Belt",
         "url": "https://www.youtube.com/embed/AkUCINYpVkM",
         "video_id": "AkUCINYpVkM",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "rights_basis": "Public YouTube embed"
-  },
-  {
-    "id": "stv-1802",
-    "title": "UNFORGETTABLE Goals | Quarter-Finals | FIFA World Cup 2026™",
-    "genre": "Sports",
-    "eps": "1 ep",
-    "runtime": "~1-3 min each",
-    "desc": "Relive the best of the 12 goals that were scored at the quarter-finals of the 2026 FIFA World Cup, including goals by Kylian Mbappe for France, Jude Bellingham for England, Julian Alvarez for Argentin",
-    "url": "https://www.youtube.com/embed/YYgiZFCBxm4",
-    "video_id": "YYgiZFCBxm4",
-    "source_channel": "",
-    "ai_made": false,
-    "episodes": [
-      {
-        "title": "UNFORGETTABLE Goals | Quarter-Finals | FIFA World Cup 2026™",
-        "url": "https://www.youtube.com/embed/YYgiZFCBxm4",
-        "video_id": "YYgiZFCBxm4",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "rights_basis": "Public YouTube embed"
-  },
-  {
-    "id": "stv-1803",
-    "title": "FIFA World Cup™ Best Moments [OFFICIAL]",
-    "genre": "Sports",
-    "eps": "1 ep",
-    "runtime": "~1-3 min each",
-    "desc": "Memorable and exciting moments in the history of the FIFA World Cup™ - exclusively on FIFA on YouTube. SUBSCRIBE to FIFA on YouTube to stay updated on daily releases: 100 Best Brazil goals in World Cu",
-    "url": "https://www.youtube.com/embed/KFtAEcZzLkQ",
-    "video_id": "KFtAEcZzLkQ",
-    "source_channel": "",
-    "ai_made": false,
-    "episodes": [
-      {
-        "title": "FIFA World Cup™ Best Moments [OFFICIAL]",
-        "url": "https://www.youtube.com/embed/KFtAEcZzLkQ",
-        "video_id": "KFtAEcZzLkQ",
         "n": 1,
         "verified": true,
         "kind": "episode"
@@ -96437,29 +96233,6 @@
         "video_id": "Ci0R3HIPVso",
         "url": "https://www.youtube.com/embed/Ci0R3HIPVso",
         "n": 29,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "rights_basis": "Public YouTube embed"
-  },
-  {
-    "id": "stv-1875",
-    "title": "The Birch: The Protector",
-    "genre": "Horror",
-    "eps": "1 ep",
-    "runtime": "~1-3 min each",
-    "desc": "A bullied teen summons an ancient birch-tree guardian for protection - at a terrible price. Crypt TV's viral monster short.",
-    "url": "https://www.youtube.com/embed/SxQj0DumF8Y",
-    "video_id": "SxQj0DumF8Y",
-    "source_channel": "Crypt TV",
-    "ai_made": false,
-    "episodes": [
-      {
-        "title": "The Birch: The Protector",
-        "url": "https://www.youtube.com/embed/SxQj0DumF8Y",
-        "video_id": "SxQj0DumF8Y",
-        "n": 1,
         "verified": true,
         "kind": "episode"
       }
@@ -103175,117 +102948,6 @@
       }
     ],
     "rights_basis": "Public YouTube embed"
-  },
-  {
-    "id": "stv-1966",
-    "title": "GOALITOS — Lead the Team Like Mikel Oyarzabal! (El Clásico episode)",
-    "genre": "Animation",
-    "eps": "12 eps",
-    "runtime": "~1-3 min each",
-    "desc": "LaLiga's first original children's series, built with WSC Sports' AI-powered WSC Studios: Rafa, Luna and Max dream of going pro. Produced in Spanish, English and Arabic; 5-min episodes every Friday si",
-    "url": "https://www.youtube.com/embed/AoCe0Z61gLM",
-    "video_id": "AoCe0Z61gLM",
-    "source_channel": "LALIGA EA SPORTS",
-    "ai_made": true,
-    "episodes": [
-      {
-        "title": "GOALITOS: el nuevo equipo de LALIGA",
-        "video_id": "1OTbnSKaMJc",
-        "url": "https://www.youtube.com/embed/1OTbnSKaMJc",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Ready to Smash Goals with Julián Alvarez? ⚽💥 | GOALITOS Kids Show",
-        "video_id": "p-IDuf3WNi8",
-        "url": "https://www.youtube.com/embed/p-IDuf3WNi8",
-        "n": 2,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Ready to keep up with Julián Álvarez? 💥 | Goalitos EP1",
-        "video_id": "wQ75a-SjFjk",
-        "url": "https://www.youtube.com/embed/wQ75a-SjFjk",
-        "n": 3,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Lead the Team Like Mikel Oyarzabal! 💙 ⚽ | GOALITOS Kids Show",
-        "video_id": "_SLilI-QUdg",
-        "url": "https://www.youtube.com/embed/_SLilI-QUdg",
-        "n": 4,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Score like Kylian Mbappé ⚽️👑 | Goalitos EP3",
-        "video_id": "nnbFh0J9BCY",
-        "url": "https://www.youtube.com/embed/nnbFh0J9BCY",
-        "n": 5,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Score like Kylian Mbappé ⚽ 👑 | GOALITOS Kids Show",
-        "video_id": "k2FCn-2AVjM",
-        "url": "https://www.youtube.com/embed/k2FCn-2AVjM",
-        "n": 6,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Fly on the Pitch With Nico Williams 🥅 ⚡ | GOALITOS Kids Show",
-        "video_id": "DEDDyZyxKFM",
-        "url": "https://www.youtube.com/embed/DEDDyZyxKFM",
-        "n": 7,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Learn Football Magic With Pedri 🪄 ⚽ | GOALITOS Kids Show",
-        "video_id": "nmfMb9eR-3k",
-        "url": "https://www.youtube.com/embed/nmfMb9eR-3k",
-        "n": 8,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Score Like a Pirate with Vedat Muriqi 🏴‍☠️ ⚽ | GOALITOS Kids Show",
-        "video_id": "ZGw9tJSVUqQ",
-        "url": "https://www.youtube.com/embed/ZGw9tJSVUqQ",
-        "n": 9,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Lead like Isi Palazón ❤⚽ | GOALITOS Kids Show",
-        "video_id": "wmy28-Nubho",
-        "url": "https://www.youtube.com/embed/wmy28-Nubho",
-        "n": 10,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Spark the Team like Nicolás Pépé ✨ ⚽ | GOALITOS Kids Show",
-        "video_id": "TPFTSpAEekw",
-        "url": "https://www.youtube.com/embed/TPFTSpAEekw",
-        "n": 11,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Play with Passion like Nicolás Pépé ⚽| GOALITOS",
-        "video_id": "AoCe0Z61gLM",
-        "url": "https://www.youtube.com/embed/AoCe0Z61gLM",
-        "n": 12,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "rights_basis": "AI-made by original creator (third-party production method)"
   },
   {
     "id": "stv-1967",
@@ -154166,11 +153828,11 @@
     "id": "stv-2333",
     "title": "100 People Tell Us How Much Money They Make",
     "genre": "Reality",
-    "eps": "197 eps",
+    "eps": "192 eps",
     "runtime": "~1-3 min each",
     "desc": "100 people answer the awkward question: how much money do you make?",
-    "url": "https://www.youtube.com/embed/U75qyZCdSQg",
-    "video_id": "U75qyZCdSQg",
+    "url": "https://www.youtube.com/embed/Se96Gkkh4es",
+    "video_id": "Se96Gkkh4es",
     "source_channel": "Cut",
     "ai_made": false,
     "episodes": [
@@ -155031,18 +154693,10 @@
         "kind": "episode"
       },
       {
-        "title": "100 People Tell Us Their Most Painful Experience | Keep it 100 | Cut",
-        "video_id": "dQPSt6exV_8",
-        "url": "https://www.youtube.com/embed/dQPSt6exV_8",
-        "n": 108,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
         "title": "100 People Tell Us If They've Ever Seen A Ghost | Keep it 100 | Cut",
         "video_id": "7yoL1-sVnOw",
         "url": "https://www.youtube.com/embed/7yoL1-sVnOw",
-        "n": 109,
+        "n": 108,
         "verified": true,
         "kind": "episode"
       },
@@ -155050,7 +154704,7 @@
         "title": "Have you been bullied? | Keep it 100 | Cut",
         "video_id": "Ej9rUiY2flU",
         "url": "https://www.youtube.com/embed/Ej9rUiY2flU",
-        "n": 110,
+        "n": 109,
         "verified": true,
         "kind": "episode"
       },
@@ -155058,7 +154712,7 @@
         "title": "What Advice Would You Give Your Younger Self?  | Keep it 100 | Cut",
         "video_id": "dI98I-_COig",
         "url": "https://www.youtube.com/embed/dI98I-_COig",
-        "n": 111,
+        "n": 110,
         "verified": true,
         "kind": "episode"
       },
@@ -155066,7 +154720,7 @@
         "title": "100 People Reveal How Much Money They Have Saved | Keep it 100 | Cut",
         "video_id": "Fqyxp-4TMZA",
         "url": "https://www.youtube.com/embed/Fqyxp-4TMZA",
-        "n": 112,
+        "n": 111,
         "verified": true,
         "kind": "episode"
       },
@@ -155074,7 +154728,7 @@
         "title": "What Would You Write Your Future Self? | 100 Teens | Cut",
         "video_id": "ij4vmNyh5qc",
         "url": "https://www.youtube.com/embed/ij4vmNyh5qc",
-        "n": 113,
+        "n": 112,
         "verified": true,
         "kind": "episode"
       },
@@ -155082,15 +154736,7 @@
         "title": "When Did You Learn About Sex? | 100 Teens | Cut",
         "video_id": "Egs5RvdOxfM",
         "url": "https://www.youtube.com/embed/Egs5RvdOxfM",
-        "n": 114,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Are You Depressed? | 100 Teens | Cut",
-        "video_id": "zLbcHBnQEd4",
-        "url": "https://www.youtube.com/embed/zLbcHBnQEd4",
-        "n": 115,
+        "n": 113,
         "verified": true,
         "kind": "episode"
       },
@@ -155098,7 +154744,7 @@
         "title": "Who is Your Crush? | 100 Teens | Cut",
         "video_id": "nBLjYmPrwEo",
         "url": "https://www.youtube.com/embed/nBLjYmPrwEo",
-        "n": 116,
+        "n": 114,
         "verified": true,
         "kind": "episode"
       },
@@ -155106,7 +154752,7 @@
         "title": "How Gay Are You? | 100 Teens | Cut",
         "video_id": "k53GjPSzmME",
         "url": "https://www.youtube.com/embed/k53GjPSzmME",
-        "n": 117,
+        "n": 115,
         "verified": true,
         "kind": "episode"
       },
@@ -155114,7 +154760,7 @@
         "title": "What High School Clique Are You In? | 100 Teens | Cut",
         "video_id": "81Qnau7tOWw",
         "url": "https://www.youtube.com/embed/81Qnau7tOWw",
-        "n": 118,
+        "n": 116,
         "verified": true,
         "kind": "episode"
       },
@@ -155122,7 +154768,7 @@
         "title": "Have You Ever Been Kissed? | 100 Teens | Cut",
         "video_id": "lguVNKiZvfY",
         "url": "https://www.youtube.com/embed/lguVNKiZvfY",
-        "n": 119,
+        "n": 117,
         "verified": true,
         "kind": "episode"
       },
@@ -155130,7 +154776,7 @@
         "title": "Have You Ever Felt Pressured? | 100 Teens | Cut",
         "video_id": "IU7UlYu08Qc",
         "url": "https://www.youtube.com/embed/IU7UlYu08Qc",
-        "n": 120,
+        "n": 118,
         "verified": true,
         "kind": "episode"
       },
@@ -155138,7 +154784,7 @@
         "title": "What's the Most Trouble You've Ever Been In? | 100 Teens | Cut",
         "video_id": "mWsZAy5ZPfM",
         "url": "https://www.youtube.com/embed/mWsZAy5ZPfM",
-        "n": 121,
+        "n": 119,
         "verified": true,
         "kind": "episode"
       },
@@ -155146,7 +154792,7 @@
         "title": "Have You Ever Had Your Heart Broken? | 100 Teens | Cut",
         "video_id": "QXxjoOZ-2SQ",
         "url": "https://www.youtube.com/embed/QXxjoOZ-2SQ",
-        "n": 122,
+        "n": 120,
         "verified": true,
         "kind": "episode"
       },
@@ -155154,7 +154800,7 @@
         "title": "100 People Answer: Circumcised or Not? | Keep it 100 | Cut",
         "video_id": "K3rwXYat18E",
         "url": "https://www.youtube.com/embed/K3rwXYat18E",
-        "n": 123,
+        "n": 121,
         "verified": true,
         "kind": "episode"
       },
@@ -155162,7 +154808,7 @@
         "title": "Have You Ever Struggled With Addiction? | Keep it 100 | Cut",
         "video_id": "MLd0p2gdFr4",
         "url": "https://www.youtube.com/embed/MLd0p2gdFr4",
-        "n": 124,
+        "n": 122,
         "verified": true,
         "kind": "episode"
       },
@@ -155170,7 +154816,7 @@
         "title": "When Did You Lose Your Virginity? | Keep it 100 | Cut",
         "video_id": "BmfhWxzi9LU",
         "url": "https://www.youtube.com/embed/BmfhWxzi9LU",
-        "n": 125,
+        "n": 123,
         "verified": true,
         "kind": "episode"
       },
@@ -155178,7 +154824,7 @@
         "title": "Have You Ever Had An Abortion? | Keep it 100 | Cut",
         "video_id": "4EEKPrYzGxk",
         "url": "https://www.youtube.com/embed/4EEKPrYzGxk",
-        "n": 126,
+        "n": 124,
         "verified": true,
         "kind": "episode"
       },
@@ -155186,7 +154832,7 @@
         "title": "What's Your Favorite Foreplay? | Keep It 100 | Cut",
         "video_id": "80pBw5D7oCk",
         "url": "https://www.youtube.com/embed/80pBw5D7oCk",
-        "n": 127,
+        "n": 125,
         "verified": true,
         "kind": "episode"
       },
@@ -155194,7 +154840,7 @@
         "title": "100 People Chug a Beer | Keep it 100 | Cut",
         "video_id": "FrigP-7uTrA",
         "url": "https://www.youtube.com/embed/FrigP-7uTrA",
-        "n": 128,
+        "n": 126,
         "verified": true,
         "kind": "episode"
       },
@@ -155202,7 +154848,7 @@
         "title": "Have You Ever Pooped Your Pants? | Keep it 100 | Cut",
         "video_id": "k-LQ17BS1UM",
         "url": "https://www.youtube.com/embed/k-LQ17BS1UM",
-        "n": 129,
+        "n": 127,
         "verified": true,
         "kind": "episode"
       },
@@ -155210,7 +154856,7 @@
         "title": "Are You a Top or Bottom in the Bedroom? | Keep it 100 | Cut",
         "video_id": "8FRoUrdOp6Y",
         "url": "https://www.youtube.com/embed/8FRoUrdOp6Y",
-        "n": 130,
+        "n": 128,
         "verified": true,
         "kind": "episode"
       },
@@ -155218,7 +154864,7 @@
         "title": "What's the First Drug You've Ever Tried? | Keep it 100 | Cut",
         "video_id": "Tj5l_d_oOiY",
         "url": "https://www.youtube.com/embed/Tj5l_d_oOiY",
-        "n": 131,
+        "n": 129,
         "verified": true,
         "kind": "episode"
       },
@@ -155226,7 +154872,7 @@
         "title": "Are You a B*tch? | Keep it 100 | Cut",
         "video_id": "I7mgquKMvfg",
         "url": "https://www.youtube.com/embed/I7mgquKMvfg",
-        "n": 132,
+        "n": 130,
         "verified": true,
         "kind": "episode"
       },
@@ -155234,7 +154880,7 @@
         "title": "100 Women Give Men Brutally Honest Sex Advice | Cut",
         "video_id": "PaZ0NiZ5M_o",
         "url": "https://www.youtube.com/embed/PaZ0NiZ5M_o",
-        "n": 133,
+        "n": 131,
         "verified": true,
         "kind": "episode"
       },
@@ -155242,7 +154888,7 @@
         "title": "100 Women: Do You Like Being Catcalled? | Keep it 100 | Cut",
         "video_id": "U1hYMtbYxM8",
         "url": "https://www.youtube.com/embed/U1hYMtbYxM8",
-        "n": 134,
+        "n": 132,
         "verified": true,
         "kind": "episode"
       },
@@ -155250,7 +154896,7 @@
         "title": "Have You Ever Had Period Sex? | 100 Women | Cut",
         "video_id": "Sw_NuL-P2ws",
         "url": "https://www.youtube.com/embed/Sw_NuL-P2ws",
-        "n": 135,
+        "n": 133,
         "verified": true,
         "kind": "episode"
       },
@@ -155258,7 +154904,7 @@
         "title": "100 Women Describe Their First Orgasm | Keep it 100 | Cut",
         "video_id": "rLKSf-_EjeI",
         "url": "https://www.youtube.com/embed/rLKSf-_EjeI",
-        "n": 136,
+        "n": 134,
         "verified": true,
         "kind": "episode"
       },
@@ -155266,7 +154912,7 @@
         "title": "Asking 100 Women \"How Much Do You Weigh?\" | Keep it 100 | Cut",
         "video_id": "SoyRl2PWkLQ",
         "url": "https://www.youtube.com/embed/SoyRl2PWkLQ",
-        "n": 137,
+        "n": 135,
         "verified": true,
         "kind": "episode"
       },
@@ -155274,7 +154920,7 @@
         "title": "Have You Been Scammed? | Keep it 100 | Cut",
         "video_id": "ig-_RRZF3H8",
         "url": "https://www.youtube.com/embed/ig-_RRZF3H8",
-        "n": 138,
+        "n": 136,
         "verified": true,
         "kind": "episode"
       },
@@ -155282,7 +154928,7 @@
         "title": "Do You Have a Gay Crush? | Keep it 100 | Cut",
         "video_id": "tz7_r79m0FA",
         "url": "https://www.youtube.com/embed/tz7_r79m0FA",
-        "n": 139,
+        "n": 137,
         "verified": true,
         "kind": "episode"
       },
@@ -155290,7 +154936,7 @@
         "title": "100 Fans on Grey's Anatomy | Keep it 100 | Cut",
         "video_id": "gyR1083hjNk",
         "url": "https://www.youtube.com/embed/gyR1083hjNk",
-        "n": 140,
+        "n": 138,
         "verified": true,
         "kind": "episode"
       },
@@ -155298,7 +154944,7 @@
         "title": "100 Women: Are You Okay? | Keep it 100 | Cut",
         "video_id": "PHigKldeXTw",
         "url": "https://www.youtube.com/embed/PHigKldeXTw",
-        "n": 141,
+        "n": 139,
         "verified": true,
         "kind": "episode"
       },
@@ -155306,7 +154952,7 @@
         "title": "100 People Give Their Ex Advice | Keep it 100 | Cut",
         "video_id": "8aWDAihoFMg",
         "url": "https://www.youtube.com/embed/8aWDAihoFMg",
-        "n": 142,
+        "n": 140,
         "verified": true,
         "kind": "episode"
       },
@@ -155314,7 +154960,7 @@
         "title": "What Are Your Red Flags? | Keep it 100 | Cut",
         "video_id": "xqcvVM4me6I",
         "url": "https://www.youtube.com/embed/xqcvVM4me6I",
-        "n": 143,
+        "n": 141,
         "verified": true,
         "kind": "episode"
       },
@@ -155322,7 +154968,7 @@
         "title": "Do You Have A Racial Preference? | Keep it 100 | Cut",
         "video_id": "rDLHH4oKIck",
         "url": "https://www.youtube.com/embed/rDLHH4oKIck",
-        "n": 144,
+        "n": 142,
         "verified": true,
         "kind": "episode"
       },
@@ -155330,7 +154976,7 @@
         "title": "What's the Worst Sex You've Ever Had? | Keep it 100 | Cut",
         "video_id": "yfXF5sA2aE4",
         "url": "https://www.youtube.com/embed/yfXF5sA2aE4",
-        "n": 145,
+        "n": 143,
         "verified": true,
         "kind": "episode"
       },
@@ -155338,7 +154984,7 @@
         "title": "100 People Tell Us Who Their Crush Is | Keep it 100 | Cut",
         "video_id": "48FefyH780E",
         "url": "https://www.youtube.com/embed/48FefyH780E",
-        "n": 146,
+        "n": 144,
         "verified": true,
         "kind": "episode"
       },
@@ -155346,15 +154992,7 @@
         "title": "What Makes You Horny? | Keep it 100 | Cut",
         "video_id": "ra5X2rJ9r_k",
         "url": "https://www.youtube.com/embed/ra5X2rJ9r_k",
-        "n": 147,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Who Hurt You The Most? | Keep it 100 | Cut",
-        "video_id": "_gfsg8l61Ww",
-        "url": "https://www.youtube.com/embed/_gfsg8l61Ww",
-        "n": 148,
+        "n": 145,
         "verified": true,
         "kind": "episode"
       },
@@ -155362,7 +155000,7 @@
         "title": "Do 100 Women See Consent the Same Way? | Keep it 100 | Cut",
         "video_id": "fM7nPtQ2W4g",
         "url": "https://www.youtube.com/embed/fM7nPtQ2W4g",
-        "n": 149,
+        "n": 146,
         "verified": true,
         "kind": "episode"
       },
@@ -155370,7 +155008,7 @@
         "title": "Worst Job You've Ever Had? | Keep it 100 | Cut",
         "video_id": "RucXf3BGM-c",
         "url": "https://www.youtube.com/embed/RucXf3BGM-c",
-        "n": 150,
+        "n": 147,
         "verified": true,
         "kind": "episode"
       },
@@ -155378,7 +155016,7 @@
         "title": "What Was Your Rock Bottom? | Keep it 100 | Cut",
         "video_id": "6ffX-di1zkk",
         "url": "https://www.youtube.com/embed/6ffX-di1zkk",
-        "n": 151,
+        "n": 148,
         "verified": true,
         "kind": "episode"
       },
@@ -155386,7 +155024,7 @@
         "title": "Have You Ever Been Ghosted? | Keep it 100 | Cut",
         "video_id": "j9BNJdBcCOE",
         "url": "https://www.youtube.com/embed/j9BNJdBcCOE",
-        "n": 152,
+        "n": 149,
         "verified": true,
         "kind": "episode"
       },
@@ -155394,7 +155032,7 @@
         "title": "Who Is the Most Famous Person You Know? | Keep it 100 | Cut",
         "video_id": "CqgGqB7tTz4",
         "url": "https://www.youtube.com/embed/CqgGqB7tTz4",
-        "n": 153,
+        "n": 150,
         "verified": true,
         "kind": "episode"
       },
@@ -155402,7 +155040,7 @@
         "title": "Do You Hate Your In-Laws? | Keep it 100 | Cut",
         "video_id": "VcaUhrGhMkM",
         "url": "https://www.youtube.com/embed/VcaUhrGhMkM",
-        "n": 154,
+        "n": 151,
         "verified": true,
         "kind": "episode"
       },
@@ -155410,7 +155048,7 @@
         "title": "100 Women Rate Their Sex Life | Keep it 100 | Cut",
         "video_id": "XpVrYGXxU-k",
         "url": "https://www.youtube.com/embed/XpVrYGXxU-k",
-        "n": 155,
+        "n": 152,
         "verified": true,
         "kind": "episode"
       },
@@ -155418,7 +155056,7 @@
         "title": "Which Parent Do You Like More? | Keep it 100 | Cut",
         "video_id": "l6khoM8uKE0",
         "url": "https://www.youtube.com/embed/l6khoM8uKE0",
-        "n": 156,
+        "n": 153,
         "verified": true,
         "kind": "episode"
       },
@@ -155426,7 +155064,7 @@
         "title": "What's the Kinkiest Thing You've Ever Done? | Keep it 100 | Cut",
         "video_id": "GbBM2wY7QHg",
         "url": "https://www.youtube.com/embed/GbBM2wY7QHg",
-        "n": 157,
+        "n": 154,
         "verified": true,
         "kind": "episode"
       },
@@ -155434,7 +155072,7 @@
         "title": "Have You Called the Cops on Someone? | Keep it 100 | Cut",
         "video_id": "gf1Qe1dZhWM",
         "url": "https://www.youtube.com/embed/gf1Qe1dZhWM",
-        "n": 158,
+        "n": 155,
         "verified": true,
         "kind": "episode"
       },
@@ -155442,7 +155080,7 @@
         "title": "Do You Support the Death Penalty? | Keep it 100 | Cut",
         "video_id": "Kh2Ubr7MUL8",
         "url": "https://www.youtube.com/embed/Kh2Ubr7MUL8",
-        "n": 159,
+        "n": 156,
         "verified": true,
         "kind": "episode"
       },
@@ -155450,7 +155088,7 @@
         "title": "What's Your Passion? | Keep it 100 | Cut",
         "video_id": "ThTnJ-l8iPU",
         "url": "https://www.youtube.com/embed/ThTnJ-l8iPU",
-        "n": 160,
+        "n": 157,
         "verified": true,
         "kind": "episode"
       },
@@ -155458,7 +155096,7 @@
         "title": "What's your zodiac sign? | Keep it 100 | Cut",
         "video_id": "CVw4Ih2DBf4",
         "url": "https://www.youtube.com/embed/CVw4Ih2DBf4",
-        "n": 161,
+        "n": 158,
         "verified": true,
         "kind": "episode"
       },
@@ -155466,7 +155104,7 @@
         "title": "Does Race Matter When it Comes to Dating? | Keep it 100 | Cut",
         "video_id": "IKDcLMf-PkI",
         "url": "https://www.youtube.com/embed/IKDcLMf-PkI",
-        "n": 162,
+        "n": 159,
         "verified": true,
         "kind": "episode"
       },
@@ -155474,7 +155112,7 @@
         "title": "From 1-10 How Racist Are You? | Keep it 100 | Cut",
         "video_id": "tiDtc91dmTI",
         "url": "https://www.youtube.com/embed/tiDtc91dmTI",
-        "n": 163,
+        "n": 160,
         "verified": true,
         "kind": "episode"
       },
@@ -155482,7 +155120,7 @@
         "title": "Are You Lonely? | Keep it 100 | Cut",
         "video_id": "wuRL4YrIceU",
         "url": "https://www.youtube.com/embed/wuRL4YrIceU",
-        "n": 164,
+        "n": 161,
         "verified": true,
         "kind": "episode"
       },
@@ -155490,7 +155128,7 @@
         "title": "100 People Show Us How to Flirt | Keep it 100 | Cut",
         "video_id": "Nemkn_9dlK0",
         "url": "https://www.youtube.com/embed/Nemkn_9dlK0",
-        "n": 165,
+        "n": 162,
         "verified": true,
         "kind": "episode"
       },
@@ -155498,7 +155136,7 @@
         "title": "100 Moms: How Far Would You Go To Protect Your Child? | Keep it 100 | Cut",
         "video_id": "MZ55gEBcPgM",
         "url": "https://www.youtube.com/embed/MZ55gEBcPgM",
-        "n": 166,
+        "n": 163,
         "verified": true,
         "kind": "episode"
       },
@@ -155506,7 +155144,7 @@
         "title": "Who Broke Your Heart | Keep it 100 | Cut",
         "video_id": "vRz1BxdwRsI",
         "url": "https://www.youtube.com/embed/vRz1BxdwRsI",
-        "n": 167,
+        "n": 164,
         "verified": true,
         "kind": "episode"
       },
@@ -155514,7 +155152,7 @@
         "title": "Do You Eat Booty? | Keep it 100 | Cut",
         "video_id": "_nNTxwvte8s",
         "url": "https://www.youtube.com/embed/_nNTxwvte8s",
-        "n": 168,
+        "n": 165,
         "verified": true,
         "kind": "episode"
       },
@@ -155522,7 +155160,7 @@
         "title": "Have You Ever Driven Drunk? | Keep it 100 | Cut",
         "video_id": "OAcX0txC6Hc",
         "url": "https://www.youtube.com/embed/OAcX0txC6Hc",
-        "n": 169,
+        "n": 166,
         "verified": true,
         "kind": "episode"
       },
@@ -155530,7 +155168,7 @@
         "title": "100 Parents: Do You Spy On Your Kids? | Keep it 100 | Cut",
         "video_id": "p10CASDz1rA",
         "url": "https://www.youtube.com/embed/p10CASDz1rA",
-        "n": 170,
+        "n": 167,
         "verified": true,
         "kind": "episode"
       },
@@ -155538,7 +155176,7 @@
         "title": "100 Moms: Describe Pregnant Sex | Keep it 100 | Cut",
         "video_id": "R2J_9hLaxXI",
         "url": "https://www.youtube.com/embed/R2J_9hLaxXI",
-        "n": 171,
+        "n": 168,
         "verified": true,
         "kind": "episode"
       },
@@ -155546,7 +155184,7 @@
         "title": "Have You Lost Someone to Cancer? | Keep it 100 | Cut",
         "video_id": "7IxmpZFn74M",
         "url": "https://www.youtube.com/embed/7IxmpZFn74M",
-        "n": 172,
+        "n": 169,
         "verified": true,
         "kind": "episode"
       },
@@ -155554,7 +155192,7 @@
         "title": "We Asked 100 People to Scream as Loud as They Can | Keep it 100 | Cut",
         "video_id": "9iR84HE2XEU",
         "url": "https://www.youtube.com/embed/9iR84HE2XEU",
-        "n": 173,
+        "n": 170,
         "verified": true,
         "kind": "episode"
       },
@@ -155562,7 +155200,7 @@
         "title": "100 Moms Give Sex Advice | Keep it 100 | Cut",
         "video_id": "bgE7rrlv-dY",
         "url": "https://www.youtube.com/embed/bgE7rrlv-dY",
-        "n": 174,
+        "n": 171,
         "verified": true,
         "kind": "episode"
       },
@@ -155570,7 +155208,7 @@
         "title": "What’s Your Biggest Anxiety? | Keep it 100 | Cut",
         "video_id": "XXfyWrD7SlQ",
         "url": "https://www.youtube.com/embed/XXfyWrD7SlQ",
-        "n": 175,
+        "n": 172,
         "verified": true,
         "kind": "episode"
       },
@@ -155578,7 +155216,7 @@
         "title": "100 Moms: Was Your Kid an Accident? | Keep it 100 | Cut",
         "video_id": "JrFEW3Lu_IA",
         "url": "https://www.youtube.com/embed/JrFEW3Lu_IA",
-        "n": 176,
+        "n": 173,
         "verified": true,
         "kind": "episode"
       },
@@ -155586,7 +155224,7 @@
         "title": "What's Your Hot Take? | Keep it 100 | Cut",
         "video_id": "k47BSXOD0Iw",
         "url": "https://www.youtube.com/embed/k47BSXOD0Iw",
-        "n": 177,
+        "n": 174,
         "verified": true,
         "kind": "episode"
       },
@@ -155594,15 +155232,7 @@
         "title": "Have You Sent a Nude? | Keep it 100 | Cut",
         "video_id": "GEYXN0wjxBE",
         "url": "https://www.youtube.com/embed/GEYXN0wjxBE",
-        "n": 178,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Have You Had Suicidal Thoughts? | Keep it 100 | Cut",
-        "video_id": "pIIn-XeLLog",
-        "url": "https://www.youtube.com/embed/pIIn-XeLLog",
-        "n": 179,
+        "n": 175,
         "verified": true,
         "kind": "episode"
       },
@@ -155610,7 +155240,7 @@
         "title": "What's Your Favorite Sex Position? | Keep it 100 | Cut",
         "video_id": "ZyGfA0mWf3E",
         "url": "https://www.youtube.com/embed/ZyGfA0mWf3E",
-        "n": 180,
+        "n": 176,
         "verified": true,
         "kind": "episode"
       },
@@ -155618,7 +155248,7 @@
         "title": "Your Most Frightening Experience? | Keep it 100 | Cut",
         "video_id": "6g09VWXvPj8",
         "url": "https://www.youtube.com/embed/6g09VWXvPj8",
-        "n": 181,
+        "n": 177,
         "verified": true,
         "kind": "episode"
       },
@@ -155626,7 +155256,7 @@
         "title": "What’s the Most Offensive Word? | Keep it 100 | Cut",
         "video_id": "8EeYl1wt5YI",
         "url": "https://www.youtube.com/embed/8EeYl1wt5YI",
-        "n": 182,
+        "n": 178,
         "verified": true,
         "kind": "episode"
       },
@@ -155634,7 +155264,7 @@
         "title": "How 100 People Kiss | Keep it 100 | Cut",
         "video_id": "bvZBylThxUQ",
         "url": "https://www.youtube.com/embed/bvZBylThxUQ",
-        "n": 183,
+        "n": 179,
         "verified": true,
         "kind": "episode"
       },
@@ -155642,7 +155272,7 @@
         "title": "100 People: Do You Miss Your Ex? | Keep it 100 | Cut",
         "video_id": "fdmkffMX-dc",
         "url": "https://www.youtube.com/embed/fdmkffMX-dc",
-        "n": 184,
+        "n": 180,
         "verified": true,
         "kind": "episode"
       },
@@ -155650,7 +155280,7 @@
         "title": "What Would You Do for a Sh*t Ton of Money? | Keep it 100 | Cut",
         "video_id": "ZVcMUmuatuA",
         "url": "https://www.youtube.com/embed/ZVcMUmuatuA",
-        "n": 185,
+        "n": 181,
         "verified": true,
         "kind": "episode"
       },
@@ -155658,7 +155288,7 @@
         "title": "What's Your Partner's Least Attractive Feature? | Keep it 100 | Cut",
         "video_id": "WO16XrIHstA",
         "url": "https://www.youtube.com/embed/WO16XrIHstA",
-        "n": 186,
+        "n": 182,
         "verified": true,
         "kind": "episode"
       },
@@ -155666,7 +155296,7 @@
         "title": "Are You Healthy? | Keep it 100 | Cut",
         "video_id": "sM_QcBG8o8Y",
         "url": "https://www.youtube.com/embed/sM_QcBG8o8Y",
-        "n": 187,
+        "n": 183,
         "verified": true,
         "kind": "episode"
       },
@@ -155674,7 +155304,7 @@
         "title": "Have You Thought of Cheating On Your Girlfriend? | Keep it 100 | Cut",
         "video_id": "jjEH1rdiu2w",
         "url": "https://www.youtube.com/embed/jjEH1rdiu2w",
-        "n": 188,
+        "n": 184,
         "verified": true,
         "kind": "episode"
       },
@@ -155682,7 +155312,7 @@
         "title": "Couples Give Each Other Sex Advice | Keep it 100 | Cut",
         "video_id": "JuRexjKCZsk",
         "url": "https://www.youtube.com/embed/JuRexjKCZsk",
-        "n": 189,
+        "n": 185,
         "verified": true,
         "kind": "episode"
       },
@@ -155690,7 +155320,7 @@
         "title": "100 People Tell Us Their Body Count | Keep it 100 | Cut",
         "video_id": "08j18Acaaww",
         "url": "https://www.youtube.com/embed/08j18Acaaww",
-        "n": 190,
+        "n": 186,
         "verified": true,
         "kind": "episode"
       },
@@ -155698,7 +155328,7 @@
         "title": "Would You Bring Someone Else to the Bedroom? | Keep it 100 | Cut",
         "video_id": "7SGo7IwkL-o",
         "url": "https://www.youtube.com/embed/7SGo7IwkL-o",
-        "n": 191,
+        "n": 187,
         "verified": true,
         "kind": "episode"
       },
@@ -155706,7 +155336,7 @@
         "title": "Have You Ever Wanted to Break Up? | Keep it 100 | Cut",
         "video_id": "Ye-a8Zsj_Mo",
         "url": "https://www.youtube.com/embed/Ye-a8Zsj_Mo",
-        "n": 192,
+        "n": 188,
         "verified": true,
         "kind": "episode"
       },
@@ -155714,7 +155344,7 @@
         "title": "Are You Old School or New School? | Keep it 100 | Cut",
         "video_id": "uO9ZfKtGC5c",
         "url": "https://www.youtube.com/embed/uO9ZfKtGC5c",
-        "n": 193,
+        "n": 189,
         "verified": true,
         "kind": "episode"
       },
@@ -155722,7 +155352,7 @@
         "title": "100 Men Tell Us How Big Their Junk Is | Keep it 100 | Cut",
         "video_id": "F52sNq56q3o",
         "url": "https://www.youtube.com/embed/F52sNq56q3o",
-        "n": 194,
+        "n": 190,
         "verified": true,
         "kind": "episode"
       },
@@ -155730,7 +155360,7 @@
         "title": "100 Women: Do You Like Your Boobs? | Keep it 100 | Cut",
         "video_id": "SCfOLDcBHhk",
         "url": "https://www.youtube.com/embed/SCfOLDcBHhk",
-        "n": 195,
+        "n": 191,
         "verified": true,
         "kind": "episode"
       },
@@ -155738,15 +155368,7 @@
         "title": "100 Men Give Women Sex Advice | Keep it 100 | Cut",
         "video_id": "kTQWcLbjR0Q",
         "url": "https://www.youtube.com/embed/kTQWcLbjR0Q",
-        "n": 196,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "If Men Opened Up About Mental Health | Cut",
-        "video_id": "U75qyZCdSQg",
-        "url": "https://www.youtube.com/embed/U75qyZCdSQg",
-        "n": 197,
+        "n": 192,
         "verified": true,
         "kind": "episode"
       }
@@ -163396,101 +163018,6 @@
         "url": "https://www.youtube.com/embed/8_DHrN9f5FI",
         "video_id": "8_DHrN9f5FI",
         "n": 1,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "rights_basis": "AI-made by original creator (third-party production method)"
-  },
-  {
-    "id": "stv-2532",
-    "title": "GOALITOS — Learn Football Magic With Pedri",
-    "genre": "Animation",
-    "eps": "10 eps",
-    "runtime": "~1-3 min each",
-    "desc": "LaLiga's AI-powered kids series (WSC Studios): Rafa, Luna and Max learn football magic from Pedri. 5-min episodes per LALIGA press release; AI-made animation. Dedicated GOALITOS channel upload.",
-    "url": "https://www.youtube.com/embed/ovzMMXGWfzQ",
-    "video_id": "ovzMMXGWfzQ",
-    "source_channel": "Goalitos",
-    "ai_made": true,
-    "episodes": [
-      {
-        "title": "Ready to Smash Goals with Julián Alvarez? ⚽💥 | GOALITOS Kids Show - Episode 6",
-        "video_id": "v_bhWqUO9VQ",
-        "url": "https://www.youtube.com/embed/v_bhWqUO9VQ",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Lead the Team Like Mikel Oyarzabal! 💙 ⚽ | GOALITOS  Kids Show - Episode 5",
-        "video_id": "O1417HLLpSk",
-        "url": "https://www.youtube.com/embed/O1417HLLpSk",
-        "n": 2,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Score like Kylian Mbappé ⚽ 👑 | GOALITOS  Kids Show - Episode 3",
-        "video_id": "oyVDbEjmzK0",
-        "url": "https://www.youtube.com/embed/oyVDbEjmzK0",
-        "n": 3,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Fly on the Pitch With Nico Williams 🥅 ⚡ | GOALITOS  Kids Show - Episode 1",
-        "video_id": "ovzMMXGWfzQ",
-        "url": "https://www.youtube.com/embed/ovzMMXGWfzQ",
-        "n": 4,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Learn Football Magic With Pedri 🪄 ⚽ | GOALITOS  Kids Show - Episode 2",
-        "video_id": "38CjWb8mGNc",
-        "url": "https://www.youtube.com/embed/38CjWb8mGNc",
-        "n": 5,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Score Like a Pirate with Vedat Muriqi 🏴‍☠️ ⚽ | GOALITOS  Kids Show - Episode 4",
-        "video_id": "-sO4nUIqfAc",
-        "url": "https://www.youtube.com/embed/-sO4nUIqfAc",
-        "n": 6,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Lead like Isi Palazón ❤️ ⚽ | GOALITOS  Kids Show - Episode 7",
-        "video_id": "poqx4zmhghw",
-        "url": "https://www.youtube.com/embed/poqx4zmhghw",
-        "n": 7,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Spark the Team like Nicolás Pépé ✨ ⚽ | GOALITOS  Kids Show - Episode 8",
-        "video_id": "MYPCF3kNhyM",
-        "url": "https://www.youtube.com/embed/MYPCF3kNhyM",
-        "n": 8,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "The Ultimate Showdown ⚽ 🏆 | GOALITOS Season 2 Episode 1",
-        "video_id": "Ccs7MSnYq6g",
-        "url": "https://www.youtube.com/embed/Ccs7MSnYq6g",
-        "n": 9,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "⚽😳 The Player Punisher | GOALITOS Season 2 Episode 2",
-        "video_id": "6Jw5hu3RdZI",
-        "url": "https://www.youtube.com/embed/6Jw5hu3RdZI",
-        "n": 10,
         "verified": true,
         "kind": "episode"
       }
@@ -193849,7 +193376,7 @@
     "id": "stv-2755",
     "title": "Meet Lumi & Friends! Welcome to Lumora World! | Kids Cartoon",
     "genre": "Family",
-    "eps": "21 eps",
+    "eps": "20 eps",
     "runtime": "~1-3 min each",
     "desc": "Meet Lumi, a brave and curious little adventurer, and her magical friends Twinkle, Miko, Pip, Nori, Zephy, and Bramble. They explore magical forests, solve little mysteries, and discover amazing new p",
     "url": "https://www.youtube.com/embed/oskqcEm3VGQ",
@@ -193858,18 +193385,10 @@
     "ai_made": false,
     "episodes": [
       {
-        "title": "Imran Khan Live Jalsa At Minar-E-Pakistan Lahore",
-        "video_id": "C2KuxVbT28g",
-        "url": "https://www.youtube.com/embed/C2KuxVbT28g",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
         "title": "Welcome to Lumora ✨ | A Magical 3D Animated World Begins",
         "video_id": "eEJ9GOnKY9o",
         "url": "https://www.youtube.com/embed/eEJ9GOnKY9o",
-        "n": 2,
+        "n": 1,
         "verified": true,
         "kind": "episode"
       },
@@ -193877,7 +193396,7 @@
         "title": "✨ Meet Lumi & Friends! 🌟 Welcome to Lumora World! | Kids Cartoon #shorts  #3danimation #cat  #cute",
         "video_id": "G-6YkT14ztA",
         "url": "https://www.youtube.com/embed/G-6YkT14ztA",
-        "n": 3,
+        "n": 2,
         "verified": true,
         "kind": "episode"
       },
@@ -193885,7 +193404,7 @@
         "title": "This Puddle Is Hiding a Whole Universe… ✨🌙 | Lumora World #kidscartoon #shorts   #cat #3danimation",
         "video_id": "GXD29_Y3WjQ",
         "url": "https://www.youtube.com/embed/GXD29_Y3WjQ",
-        "n": 4,
+        "n": 3,
         "verified": true,
         "kind": "episode"
       },
@@ -193893,7 +193412,7 @@
         "title": "POV: It’s Raining Outside & You’re Cozy in Lumora 🌧️☕✨ #shorts  #cat #angel #cute #bedtimestories",
         "video_id": "lAEqVkTNmk4",
         "url": "https://www.youtube.com/embed/lAEqVkTNmk4",
-        "n": 5,
+        "n": 4,
         "verified": true,
         "kind": "episode"
       },
@@ -193901,7 +193420,7 @@
         "title": "What’s Hiding Beyond the Fog? 🌫️✨ | Lumora World Ep. 3 #shorts",
         "video_id": "vvTnYDePYt0",
         "url": "https://www.youtube.com/embed/vvTnYDePYt0",
-        "n": 6,
+        "n": 5,
         "verified": true,
         "kind": "episode"
       },
@@ -193909,7 +193428,7 @@
         "title": "What’s Hiding Beyond the Fog? ✨🌫️ | The Lantern Beyond the Fog | Lumora World Ep. 3",
         "video_id": "PfyKnq9HXmk",
         "url": "https://www.youtube.com/embed/PfyKnq9HXmk",
-        "n": 7,
+        "n": 6,
         "verified": true,
         "kind": "episode"
       },
@@ -193917,7 +193436,7 @@
         "title": "Pip Is NOT Looking… 👀🦊✨ | Lumora World #shorts",
         "video_id": "bSTzd5jpYTY",
         "url": "https://www.youtube.com/embed/bSTzd5jpYTY",
-        "n": 8,
+        "n": 7,
         "verified": true,
         "kind": "episode"
       },
@@ -193925,7 +193444,7 @@
         "title": "A Light Was Glowing Inside the Hollow Tree… ✨🌳 | Lumora World #shorts",
         "video_id": "9mCo8qloPwc",
         "url": "https://www.youtube.com/embed/9mCo8qloPwc",
-        "n": 9,
+        "n": 8,
         "verified": true,
         "kind": "episode"
       },
@@ -193933,7 +193452,7 @@
         "title": "✨ A Warm Little Evening… Until the Magic Appeared 🌙 | Lumora World #shorts",
         "video_id": "_FF_JeWfXq0",
         "url": "https://www.youtube.com/embed/_FF_JeWfXq0",
-        "n": 10,
+        "n": 9,
         "verified": true,
         "kind": "episode"
       },
@@ -193941,7 +193460,7 @@
         "title": "✨ Twinkle Sneezed… and THIS Happened! 🤧⭐ | Lumora World #shorts",
         "video_id": "ctHZQqe4J3M",
         "url": "https://www.youtube.com/embed/ctHZQqe4J3M",
-        "n": 11,
+        "n": 10,
         "verified": true,
         "kind": "episode"
       },
@@ -193949,7 +193468,7 @@
         "title": "🍄 Lumi Found a Tiny Door Under a Mushroom… ✨ | Lumora World #shorts",
         "video_id": "4mPfFawsT8I",
         "url": "https://www.youtube.com/embed/4mPfFawsT8I",
-        "n": 12,
+        "n": 11,
         "verified": true,
         "kind": "episode"
       },
@@ -193957,7 +193476,7 @@
         "title": "🌊 The Day the River Stopped | A Mysterious Forest Adventure ✨ | Lumora World Episode 2",
         "video_id": "ZI8Ru0rjG-s",
         "url": "https://www.youtube.com/embed/ZI8Ru0rjG-s",
-        "n": 13,
+        "n": 12,
         "verified": true,
         "kind": "episode"
       },
@@ -193965,7 +193484,7 @@
         "title": "💎 They Hummed at the Crystal… Then It Answered ✨ | Lumora World #shorts",
         "video_id": "B6Flil8LLQI",
         "url": "https://www.youtube.com/embed/B6Flil8LLQI",
-        "n": 14,
+        "n": 13,
         "verified": true,
         "kind": "episode"
       },
@@ -193973,7 +193492,7 @@
         "title": "🌙 Someone Stole the Moonberries… 👀 | The Moonberry Heist #shorts",
         "video_id": "ypJ29oXGysM",
         "url": "https://www.youtube.com/embed/ypJ29oXGysM",
-        "n": 15,
+        "n": 14,
         "verified": true,
         "kind": "episode"
       },
@@ -193981,7 +193500,7 @@
         "title": "🥞 This Pancake Went VERY Wrong… 😂🫐 | Lumora World #shorts",
         "video_id": "jK6-5J0I3WI",
         "url": "https://www.youtube.com/embed/jK6-5J0I3WI",
-        "n": 16,
+        "n": 15,
         "verified": true,
         "kind": "episode"
       },
@@ -193989,7 +193508,7 @@
         "title": "A Ghost Was Watching From the Window… 👻 | #shorts",
         "video_id": "4LcktCXxgBE",
         "url": "https://www.youtube.com/embed/4LcktCXxgBE",
-        "n": 17,
+        "n": 16,
         "verified": true,
         "kind": "episode"
       },
@@ -193997,7 +193516,7 @@
         "title": "🍬 Wait… Who Swapped the Candy?! 😂👀 | Lumora World #shorts",
         "video_id": "xExewxacFOw",
         "url": "https://www.youtube.com/embed/xExewxacFOw",
-        "n": 18,
+        "n": 17,
         "verified": true,
         "kind": "episode"
       },
@@ -194005,7 +193524,7 @@
         "title": "Lumi’s First Adventure Begins… But She’s Not Alone! 🌟🌲 | Lumora World Ep. 1 Teaser #shorts  #kids",
         "video_id": "E8uVKY4sBbk",
         "url": "https://www.youtube.com/embed/E8uVKY4sBbk",
-        "n": 19,
+        "n": 18,
         "verified": true,
         "kind": "episode"
       },
@@ -194013,7 +193532,7 @@
         "title": "🌊 The River Just… Stopped. | The Day the River Stopped ✨ Lumora World Trailer",
         "video_id": "xQtiS6nKuHk",
         "url": "https://www.youtube.com/embed/xQtiS6nKuHk",
-        "n": 20,
+        "n": 19,
         "verified": true,
         "kind": "episode"
       },
@@ -194021,7 +193540,7 @@
         "title": "🎃 The Pumpkins Started Moving on Their Own! 👀 | Lumora World Ep 4 Trailer",
         "video_id": "oskqcEm3VGQ",
         "url": "https://www.youtube.com/embed/oskqcEm3VGQ",
-        "n": 21,
+        "n": 20,
         "verified": true,
         "kind": "episode"
       }
@@ -216238,29 +215757,6 @@
     "rights_basis": "Public YouTube embed"
   },
   {
-    "id": "stv-3125",
-    "title": "Mira el top 10 de goles del primer semestre en la Liga BetPlay",
-    "genre": "Sports",
-    "eps": "1 ep",
-    "runtime": "~1-3 min each",
-    "desc": "Colombia Liga BetPlay: the top 10 goals of the first half of the season.",
-    "url": "https://www.youtube.com/embed/MU1qZB9olVs",
-    "video_id": "MU1qZB9olVs",
-    "source_channel": "Win Sports",
-    "ai_made": false,
-    "episodes": [
-      {
-        "title": "Mira el top 10 de goles del primer semestre en la Liga BetPlay",
-        "url": "https://www.youtube.com/embed/MU1qZB9olVs",
-        "video_id": "MU1qZB9olVs",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "rights_basis": "Public YouTube embed"
-  },
-  {
     "id": "stv-3126",
     "title": "MEJORES GOLES FECHA 4 | CAMPEONATO NACIONAL 2025",
     "genre": "Sports",
@@ -220452,29 +219948,6 @@
     "rights_basis": "Public YouTube embed"
   },
   {
-    "id": "stv-3294",
-    "title": "Metal Gear Awesome",
-    "genre": "Animation",
-    "eps": "1 ep",
-    "runtime": "~1-3 min each",
-    "desc": "Arin Hanson's Newgrounds classic: the original Metal Gear Awesome parody short, from Egoraptor's official channel.",
-    "url": "https://www.youtube.com/embed/DwrPuCnNbv8",
-    "video_id": "DwrPuCnNbv8",
-    "source_channel": "Egoraptor",
-    "ai_made": false,
-    "episodes": [
-      {
-        "title": "Metal Gear Awesome",
-        "url": "https://www.youtube.com/embed/DwrPuCnNbv8",
-        "video_id": "DwrPuCnNbv8",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      }
-    ],
-    "rights_basis": "Public YouTube embed"
-  },
-  {
     "id": "stv-3295",
     "title": "CliffSide — Cartoon Series Pilot",
     "genre": "Animation",
@@ -221511,7 +220984,7 @@
     "id": "stv-3333",
     "title": "Cracked After Hours",
     "genre": "Comedy",
-    "eps": "81 eps",
+    "eps": "73 eps",
     "runtime": "~1-3 min each",
     "desc": "Cracked's long-running comedy panel show (86 episodes, 7 seasons): the gang dissects pop culture — why you wouldn't survive a superhero movie, the truth about movie musicals, and more.",
     "url": "https://www.youtube.com/embed/IiGhALxbtK4",
@@ -221520,26 +220993,10 @@
     "ai_made": false,
     "episodes": [
       {
-        "title": "5 Classic Movie High Schools That Would Suck to Attend | After Hours",
-        "video_id": "EwmVAFRpT6w",
-        "url": "https://www.youtube.com/embed/EwmVAFRpT6w",
-        "n": 1,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Why 'Back to the Future' Is Secretly Horrifying | After Hours",
-        "video_id": "z-NEZC2uH-Q",
-        "url": "https://www.youtube.com/embed/z-NEZC2uH-Q",
-        "n": 2,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
         "title": "Which Apocalypse Would Be the Most Fun? | After Hours",
         "video_id": "0WeT2wwVwSY",
         "url": "https://www.youtube.com/embed/0WeT2wwVwSY",
-        "n": 3,
+        "n": 1,
         "verified": true,
         "kind": "episode"
       },
@@ -221547,7 +221004,7 @@
         "title": "Why The Harry Potter Universe is Secretly Terrifying | After Hours",
         "video_id": "qDgk8RAckCE",
         "url": "https://www.youtube.com/embed/qDgk8RAckCE",
-        "n": 4,
+        "n": 2,
         "verified": true,
         "kind": "episode"
       },
@@ -221555,7 +221012,7 @@
         "title": "How Breakfast Cereal Mascots Brainwashed You | After Hours",
         "video_id": "LO2bHcbyKyY",
         "url": "https://www.youtube.com/embed/LO2bHcbyKyY",
-        "n": 5,
+        "n": 3,
         "verified": true,
         "kind": "episode"
       },
@@ -221563,15 +221020,7 @@
         "title": "Which Ninja Turtle Are You? Life's Most Important Question | After Hours",
         "video_id": "dtsmluPK7Ug",
         "url": "https://www.youtube.com/embed/dtsmluPK7Ug",
-        "n": 6,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Why Star Wars is Secretly Terrifying For Women | After Hours",
-        "video_id": "V2uNKqcsAeg",
-        "url": "https://www.youtube.com/embed/V2uNKqcsAeg",
-        "n": 7,
+        "n": 4,
         "verified": true,
         "kind": "episode"
       },
@@ -221579,7 +221028,7 @@
         "title": "Why Everyone Wants To Have Sex With Vampires | After Hours",
         "video_id": "qkdbfC_2BCI",
         "url": "https://www.youtube.com/embed/qkdbfC_2BCI",
-        "n": 8,
+        "n": 5,
         "verified": true,
         "kind": "episode"
       },
@@ -221587,7 +221036,7 @@
         "title": "Why Batman is Secretly Terrible for Gotham | After Hours",
         "video_id": "Cd1sIwCLtIc",
         "url": "https://www.youtube.com/embed/Cd1sIwCLtIc",
-        "n": 9,
+        "n": 6,
         "verified": true,
         "kind": "episode"
       },
@@ -221595,7 +221044,7 @@
         "title": "The Best Super Power (Is Not What You Think) | After Hours",
         "video_id": "dNbeyRwT8Uo",
         "url": "https://www.youtube.com/embed/dNbeyRwT8Uo",
-        "n": 10,
+        "n": 7,
         "verified": true,
         "kind": "episode"
       },
@@ -221603,7 +221052,7 @@
         "title": "4 TV Ads That Depict Terrifying Alternate Universes | After Hours",
         "video_id": "asDjcgiwIiY",
         "url": "https://www.youtube.com/embed/asDjcgiwIiY",
-        "n": 11,
+        "n": 8,
         "verified": true,
         "kind": "episode"
       },
@@ -221611,39 +221060,7 @@
         "title": "4 Terrifying Psychology Lessons Behind Famous Movie Monsters | After Hours",
         "video_id": "pWq8j0yXkMI",
         "url": "https://www.youtube.com/embed/pWq8j0yXkMI",
-        "n": 12,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "If You Could Have Dinner (And Sex) With Any Famous Figure | After Hours",
-        "video_id": "185xezCPk4I",
-        "url": "https://www.youtube.com/embed/185xezCPk4I",
-        "n": 13,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Why Mario is Secretly a Dick With a Mustache | After Hours",
-        "video_id": "HBGhWYGVp8Q",
-        "url": "https://www.youtube.com/embed/HBGhWYGVp8Q",
-        "n": 14,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Why The Scariest Sci-Fi Robot Uprising Has Already Begun | After Hours",
-        "video_id": "mLWHE_hFi-s",
-        "url": "https://www.youtube.com/embed/mLWHE_hFi-s",
-        "n": 15,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Why The Star Trek Universe is Secretly Horrifying | After Hours",
-        "video_id": "r1Kju_-1sYM",
-        "url": "https://www.youtube.com/embed/r1Kju_-1sYM",
-        "n": 16,
+        "n": 9,
         "verified": true,
         "kind": "episode"
       },
@@ -221651,7 +221068,7 @@
         "title": "The 6 Most Unintentionally Creepy Sitcom Characters | After Hours",
         "video_id": "dudN6GqhaYw",
         "url": "https://www.youtube.com/embed/dudN6GqhaYw",
-        "n": 17,
+        "n": 10,
         "verified": true,
         "kind": "episode"
       },
@@ -221659,15 +221076,7 @@
         "title": "3 Popular Children's Characters Who Secretly Hate Animals | After Hours",
         "video_id": "w7z_WeCjHw0",
         "url": "https://www.youtube.com/embed/w7z_WeCjHw0",
-        "n": 18,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Four Creepy Hidden Truths Behind Popular Scary Stories | After Hours",
-        "video_id": "uAR1fp1tbds",
-        "url": "https://www.youtube.com/embed/uAR1fp1tbds",
-        "n": 19,
+        "n": 11,
         "verified": true,
         "kind": "episode"
       },
@@ -221675,7 +221084,7 @@
         "title": "Why Pixar Movies Are All Secretly About the Apocalypse | After Hours",
         "video_id": "3ajRI8h1bxs",
         "url": "https://www.youtube.com/embed/3ajRI8h1bxs",
-        "n": 20,
+        "n": 12,
         "verified": true,
         "kind": "episode"
       },
@@ -221683,7 +221092,7 @@
         "title": "Why Indiana Jones Secretly Sucks at His Job | After Hours",
         "video_id": "jIZdz_99QyM",
         "url": "https://www.youtube.com/embed/jIZdz_99QyM",
-        "n": 21,
+        "n": 13,
         "verified": true,
         "kind": "episode"
       },
@@ -221691,7 +221100,7 @@
         "title": "The Only 8 Types of TV Shows That Get Made | After Hours",
         "video_id": "UHWM2r-UWzs",
         "url": "https://www.youtube.com/embed/UHWM2r-UWzs",
-        "n": 22,
+        "n": 14,
         "verified": true,
         "kind": "episode"
       },
@@ -221699,7 +221108,7 @@
         "title": "Five Reasons James Bond Might Be the Worst Spy Ever | After Hours",
         "video_id": "8kVYZseEraU",
         "url": "https://www.youtube.com/embed/8kVYZseEraU",
-        "n": 23,
+        "n": 15,
         "verified": true,
         "kind": "episode"
       },
@@ -221707,7 +221116,7 @@
         "title": "Four Reasons Spider-Man is Secretly Bad at His Job | After Hours",
         "video_id": "G1dO462ufLc",
         "url": "https://www.youtube.com/embed/G1dO462ufLc",
-        "n": 24,
+        "n": 16,
         "verified": true,
         "kind": "episode"
       },
@@ -221715,7 +221124,7 @@
         "title": "Why Romantic Comedies Are Secretly Bad for You | After Hours",
         "video_id": "eMsp9O0E_jE",
         "url": "https://www.youtube.com/embed/eMsp9O0E_jE",
-        "n": 25,
+        "n": 17,
         "verified": true,
         "kind": "episode"
       },
@@ -221723,7 +221132,7 @@
         "title": "The Four Best Movie Universes to Die In | After Hours",
         "video_id": "D97eeIrnsmc",
         "url": "https://www.youtube.com/embed/D97eeIrnsmc",
-        "n": 26,
+        "n": 18,
         "verified": true,
         "kind": "episode"
       },
@@ -221731,7 +221140,7 @@
         "title": "Five Horrifying Secret Rules of Life in a Movie Universe | After Hours",
         "video_id": "gKWN-JeRxwM",
         "url": "https://www.youtube.com/embed/gKWN-JeRxwM",
-        "n": 27,
+        "n": 19,
         "verified": true,
         "kind": "episode"
       },
@@ -221739,7 +221148,7 @@
         "title": "The Horrifying Truth About Life Inside of Movie Musicals - After Hours",
         "video_id": "5m8SdMf_hH0",
         "url": "https://www.youtube.com/embed/5m8SdMf_hH0",
-        "n": 28,
+        "n": 20,
         "verified": true,
         "kind": "episode"
       },
@@ -221747,7 +221156,7 @@
         "title": "The 3 Worst Lessons Taught by 80s Sports Movies | After Hours",
         "video_id": "OBUxIu7IGCA",
         "url": "https://www.youtube.com/embed/OBUxIu7IGCA",
-        "n": 29,
+        "n": 21,
         "verified": true,
         "kind": "episode"
       },
@@ -221755,7 +221164,7 @@
         "title": "Why Tarantino Films Take Place in the Same (Insane) Universe | After Hours",
         "video_id": "o345bqNmq_w",
         "url": "https://www.youtube.com/embed/o345bqNmq_w",
-        "n": 30,
+        "n": 22,
         "verified": true,
         "kind": "episode"
       },
@@ -221763,7 +221172,7 @@
         "title": "4 Movie Apocalypses That Would Be More Fun Than Reality | After Hours",
         "video_id": "oUCrGEw3KOE",
         "url": "https://www.youtube.com/embed/oUCrGEw3KOE",
-        "n": 31,
+        "n": 23,
         "verified": true,
         "kind": "episode"
       },
@@ -221771,7 +221180,7 @@
         "title": "4 Disney Movie Villains Who Were Right All Along | After Hours",
         "video_id": "IiGhALxbtK4",
         "url": "https://www.youtube.com/embed/IiGhALxbtK4",
-        "n": 32,
+        "n": 24,
         "verified": true,
         "kind": "episode"
       },
@@ -221779,7 +221188,7 @@
         "title": "The Horrifying Secret 'The Matrix' Reveals About Humanity | After Hours",
         "video_id": "lrbKuOaVF3k",
         "url": "https://www.youtube.com/embed/lrbKuOaVF3k",
-        "n": 33,
+        "n": 25,
         "verified": true,
         "kind": "episode"
       },
@@ -221787,7 +221196,7 @@
         "title": "The 10 Most Secretly Ridiculous Moments in Classic Movies | After Hours",
         "video_id": "vpZ7C0jU8n8",
         "url": "https://www.youtube.com/embed/vpZ7C0jU8n8",
-        "n": 34,
+        "n": 26,
         "verified": true,
         "kind": "episode"
       },
@@ -221795,7 +221204,7 @@
         "title": "6 Beloved Christmas Movies With Horrible Secret Meanings | After Hours",
         "video_id": "OdRJc1KSj1A",
         "url": "https://www.youtube.com/embed/OdRJc1KSj1A",
-        "n": 35,
+        "n": 27,
         "verified": true,
         "kind": "episode"
       },
@@ -221803,7 +221212,7 @@
         "title": "4 Weirdly Specific Things Famous People Do in Every Movie | After Hours",
         "video_id": "-yAiKPeAiHc",
         "url": "https://www.youtube.com/embed/-yAiKPeAiHc",
-        "n": 36,
+        "n": 28,
         "verified": true,
         "kind": "episode"
       },
@@ -221811,7 +221220,7 @@
         "title": "8 Mind-Blowing Connections Between the Works of Joss Whedon - After Hours",
         "video_id": "GzGTOizEkW8",
         "url": "https://www.youtube.com/embed/GzGTOizEkW8",
-        "n": 37,
+        "n": 29,
         "verified": true,
         "kind": "episode"
       },
@@ -221819,7 +221228,7 @@
         "title": "7 Horrifying Lessons Hidden in Famous Movies About Childhood - After Hours",
         "video_id": "jRSTCP0Gvis",
         "url": "https://www.youtube.com/embed/jRSTCP0Gvis",
-        "n": 38,
+        "n": 30,
         "verified": true,
         "kind": "episode"
       },
@@ -221827,7 +221236,7 @@
         "title": "6 Insane Stereotypes That You Still See in Every Movie - After Hours",
         "video_id": "ftm5r_bFIU8",
         "url": "https://www.youtube.com/embed/ftm5r_bFIU8",
-        "n": 39,
+        "n": 31,
         "verified": true,
         "kind": "episode"
       },
@@ -221835,7 +221244,7 @@
         "title": "5 'Jurassic Park' Plot Holes With Horrifying Implications - After Hours",
         "video_id": "aFtkw4KJAF4",
         "url": "https://www.youtube.com/embed/aFtkw4KJAF4",
-        "n": 40,
+        "n": 32,
         "verified": true,
         "kind": "episode"
       },
@@ -221843,7 +221252,7 @@
         "title": "11 Movie Alternate Dimensions With Horrifying Downsides - After Hours",
         "video_id": "1ucwCD9xmGI",
         "url": "https://www.youtube.com/embed/1ucwCD9xmGI",
-        "n": 41,
+        "n": 33,
         "verified": true,
         "kind": "episode"
       },
@@ -221851,7 +221260,7 @@
         "title": "Why Disney's 'Aladdin' Is Secretly Horrifying - After Hours",
         "video_id": "ZX_SMzhbDqc",
         "url": "https://www.youtube.com/embed/ZX_SMzhbDqc",
-        "n": 42,
+        "n": 34,
         "verified": true,
         "kind": "episode"
       },
@@ -221859,7 +221268,7 @@
         "title": "Cracked needs your help to present AFTER HOURS LIVE at SXSW!",
         "video_id": "2fDSaFXz6JQ",
         "url": "https://www.youtube.com/embed/2fDSaFXz6JQ",
-        "n": 43,
+        "n": 35,
         "verified": true,
         "kind": "episode"
       },
@@ -221867,7 +221276,7 @@
         "title": "Why 'Peter Pan' Is Propaganda for Perverts - After Hours",
         "video_id": "-fAZqlDw20I",
         "url": "https://www.youtube.com/embed/-fAZqlDw20I",
-        "n": 44,
+        "n": 36,
         "verified": true,
         "kind": "episode"
       },
@@ -221875,7 +221284,7 @@
         "title": "The Horrifying Hidden Subplot You Missed in STAR WARS - After Hours",
         "video_id": "Jgz1_AdSRz8",
         "url": "https://www.youtube.com/embed/Jgz1_AdSRz8",
-        "n": 45,
+        "n": 37,
         "verified": true,
         "kind": "episode"
       },
@@ -221883,7 +221292,7 @@
         "title": "6 Weirdly Conservative Messages Hidden in 'Ghostbusters' - After Hours",
         "video_id": "IyFB1f0ScSQ",
         "url": "https://www.youtube.com/embed/IyFB1f0ScSQ",
-        "n": 46,
+        "n": 38,
         "verified": true,
         "kind": "episode"
       },
@@ -221891,7 +221300,7 @@
         "title": "5 Movie Epilogues That Should Have Been Sequels - After Hours",
         "video_id": "aNQFF_foGe4",
         "url": "https://www.youtube.com/embed/aNQFF_foGe4",
-        "n": 47,
+        "n": 39,
         "verified": true,
         "kind": "episode"
       },
@@ -221899,7 +221308,7 @@
         "title": "The 9 Creepiest Things Movies Portray as Romantic - After Hours",
         "video_id": "qcls41KaMEs",
         "url": "https://www.youtube.com/embed/qcls41KaMEs",
-        "n": 48,
+        "n": 40,
         "verified": true,
         "kind": "episode"
       },
@@ -221907,7 +221316,7 @@
         "title": "5 Racist and Sexist Messages Hidden in Forrest Gump - After Hours",
         "video_id": "lzws1c0bFtI",
         "url": "https://www.youtube.com/embed/lzws1c0bFtI",
-        "n": 49,
+        "n": 41,
         "verified": true,
         "kind": "episode"
       },
@@ -221915,7 +221324,7 @@
         "title": "14 Super Powers That Every Movie Character Apparently Has - After Hours",
         "video_id": "1pMvzYZx2h0",
         "url": "https://www.youtube.com/embed/1pMvzYZx2h0",
-        "n": 50,
+        "n": 42,
         "verified": true,
         "kind": "episode"
       },
@@ -221923,7 +221332,7 @@
         "title": "5 Evil Organizations We Wouldn't Mind Joining (in Movies) - After Hours",
         "video_id": "EqFqUJ3yJ08",
         "url": "https://www.youtube.com/embed/EqFqUJ3yJ08",
-        "n": 51,
+        "n": 43,
         "verified": true,
         "kind": "episode"
       },
@@ -221931,7 +221340,7 @@
         "title": "Why The Friends From Friends Are Terrible People - After Hours",
         "video_id": "n1BQ3bbJO_k",
         "url": "https://www.youtube.com/embed/n1BQ3bbJO_k",
-        "n": 52,
+        "n": 44,
         "verified": true,
         "kind": "episode"
       },
@@ -221939,7 +221348,7 @@
         "title": "Movies Secretly Told From The Perspective Of One Character - After Hours",
         "video_id": "Urk1Eib9_Rs",
         "url": "https://www.youtube.com/embed/Urk1Eib9_Rs",
-        "n": 53,
+        "n": 45,
         "verified": true,
         "kind": "episode"
       },
@@ -221947,7 +221356,7 @@
         "title": "Why Movie Cops Are Terrible At Their Jobs - After Hours",
         "video_id": "evhUXhzlslE",
         "url": "https://www.youtube.com/embed/evhUXhzlslE",
-        "n": 54,
+        "n": 46,
         "verified": true,
         "kind": "episode"
       },
@@ -221955,7 +221364,7 @@
         "title": "The 3 Worst Lessons Hiding In Children's Movies - After Hours",
         "video_id": "BWLw3hxDaPE",
         "url": "https://www.youtube.com/embed/BWLw3hxDaPE",
-        "n": 55,
+        "n": 47,
         "verified": true,
         "kind": "episode"
       },
@@ -221963,7 +221372,7 @@
         "title": "The Terrifying Truth About Doc Brown - After Hours",
         "video_id": "dpUZWIwdp_E",
         "url": "https://www.youtube.com/embed/dpUZWIwdp_E",
-        "n": 56,
+        "n": 48,
         "verified": true,
         "kind": "episode"
       },
@@ -221971,7 +221380,7 @@
         "title": "\"Stupid\" Movies That Are Surprisingly Progressive - After Hours",
         "video_id": "dszVJI-IX9I",
         "url": "https://www.youtube.com/embed/dszVJI-IX9I",
-        "n": 57,
+        "n": 49,
         "verified": true,
         "kind": "episode"
       },
@@ -221979,7 +221388,7 @@
         "title": "Why The Jedi Are The Galaxy's Biggest Idiots - After Hours",
         "video_id": "wbtcM6g9OL8",
         "url": "https://www.youtube.com/embed/wbtcM6g9OL8",
-        "n": 58,
+        "n": 50,
         "verified": true,
         "kind": "episode"
       },
@@ -221987,7 +221396,7 @@
         "title": "Why Sauron Is Secretly The Good Guy In 'Lord Of The Rings' - After Hours",
         "video_id": "0kmUgRXzn_o",
         "url": "https://www.youtube.com/embed/0kmUgRXzn_o",
-        "n": 59,
+        "n": 51,
         "verified": true,
         "kind": "episode"
       },
@@ -221995,7 +221404,7 @@
         "title": "Why 'Big' Is More Terrifying Than You Remember - After Hours",
         "video_id": "3-ZU-ls2C-g",
         "url": "https://www.youtube.com/embed/3-ZU-ls2C-g",
-        "n": 60,
+        "n": 52,
         "verified": true,
         "kind": "episode"
       },
@@ -222003,7 +221412,7 @@
         "title": "Why the Most Terrifying Movie Alien Isn't Who You Think - After Hours",
         "video_id": "7faGZJZzZ4k",
         "url": "https://www.youtube.com/embed/7faGZJZzZ4k",
-        "n": 61,
+        "n": 53,
         "verified": true,
         "kind": "episode"
       },
@@ -222011,7 +221420,7 @@
         "title": "Why Professor X Is Really The Villain of The X-Men Universe - After Hours",
         "video_id": "Q6mOm_CNAog",
         "url": "https://www.youtube.com/embed/Q6mOm_CNAog",
-        "n": 62,
+        "n": 54,
         "verified": true,
         "kind": "episode"
       },
@@ -222019,7 +221428,7 @@
         "title": "What Your Favorite Video Game Says About You - After Hours",
         "video_id": "8AStS_5dS2Q",
         "url": "https://www.youtube.com/embed/8AStS_5dS2Q",
-        "n": 63,
+        "n": 55,
         "verified": true,
         "kind": "episode"
       },
@@ -222027,7 +221436,7 @@
         "title": "The Horrifying Truth About Living Inside A TV Show - After Hours",
         "video_id": "Uwk-wvVlvEE",
         "url": "https://www.youtube.com/embed/Uwk-wvVlvEE",
-        "n": 64,
+        "n": 56,
         "verified": true,
         "kind": "episode"
       },
@@ -222035,7 +221444,7 @@
         "title": "Why Captain America Is The Worst Avenger - After Hours",
         "video_id": "9YX2XCyVVkE",
         "url": "https://www.youtube.com/embed/9YX2XCyVVkE",
-        "n": 65,
+        "n": 57,
         "verified": true,
         "kind": "episode"
       },
@@ -222043,7 +221452,7 @@
         "title": "7 Movies That Don't Realize They're Horror Movies - After Hours",
         "video_id": "S3nSjF9W8I0",
         "url": "https://www.youtube.com/embed/S3nSjF9W8I0",
-        "n": 66,
+        "n": 58,
         "verified": true,
         "kind": "episode"
       },
@@ -222051,7 +221460,7 @@
         "title": "Why Every 80's Sitcom Decided To Kill Off The Mom - After Hours",
         "video_id": "a9m_Vy9kIf0",
         "url": "https://www.youtube.com/embed/a9m_Vy9kIf0",
-        "n": 67,
+        "n": 59,
         "verified": true,
         "kind": "episode"
       },
@@ -222059,7 +221468,7 @@
         "title": "The Best And Worst Disney Kingdoms To Live In - After Hours",
         "video_id": "R_lr8sQ0n7U",
         "url": "https://www.youtube.com/embed/R_lr8sQ0n7U",
-        "n": 68,
+        "n": 60,
         "verified": true,
         "kind": "episode"
       },
@@ -222067,7 +221476,7 @@
         "title": "4 Movie Curses With Unexpected Upsides - After Hours",
         "video_id": "rzYgPNaaY6U",
         "url": "https://www.youtube.com/embed/rzYgPNaaY6U",
-        "n": 69,
+        "n": 61,
         "verified": true,
         "kind": "episode"
       },
@@ -222075,7 +221484,7 @@
         "title": "The Inevitable Future Of Each Superhero Universe - After Hours",
         "video_id": "5rMJHXtngrQ",
         "url": "https://www.youtube.com/embed/5rMJHXtngrQ",
-        "n": 70,
+        "n": 62,
         "verified": true,
         "kind": "episode"
       },
@@ -222083,7 +221492,7 @@
         "title": "After Hours - Why Movies Want Us To Torture Adults",
         "video_id": "F0jruPzh5jQ",
         "url": "https://www.youtube.com/embed/F0jruPzh5jQ",
-        "n": 71,
+        "n": 63,
         "verified": true,
         "kind": "episode"
       },
@@ -222091,7 +221500,7 @@
         "title": "After Hours - All Arnold Schwarzenegger Movies Are In The Same Terminator Universe",
         "video_id": "CdU_Vm3gOO4",
         "url": "https://www.youtube.com/embed/CdU_Vm3gOO4",
-        "n": 72,
+        "n": 64,
         "verified": true,
         "kind": "episode"
       },
@@ -222099,7 +221508,7 @@
         "title": "After Hours - How 9/11 Changed 90s Sitcoms Forever (Friends, Seinfeld)",
         "video_id": "JbMEzlDnsE0",
         "url": "https://www.youtube.com/embed/JbMEzlDnsE0",
-        "n": 73,
+        "n": 65,
         "verified": true,
         "kind": "episode"
       },
@@ -222107,7 +221516,7 @@
         "title": "5 Movie Villains That Would Make Great Leaders (Game of Thrones, The Dark Knight)",
         "video_id": "32nDFvTeRFQ",
         "url": "https://www.youtube.com/embed/32nDFvTeRFQ",
-        "n": 74,
+        "n": 66,
         "verified": true,
         "kind": "episode"
       },
@@ -222115,7 +221524,7 @@
         "title": "After Hours - Awkward Scenes That Must Have Happened In Marvel Movies (Captain America, The Hulk)",
         "video_id": "2jZ9g9_gdYc",
         "url": "https://www.youtube.com/embed/2jZ9g9_gdYc",
-        "n": 75,
+        "n": 67,
         "verified": true,
         "kind": "episode"
       },
@@ -222123,7 +221532,7 @@
         "title": "After Hours - Why Time Travel Wouldn’t Work For Everyone",
         "video_id": "H-WHAISI02w",
         "url": "https://www.youtube.com/embed/H-WHAISI02w",
-        "n": 76,
+        "n": 68,
         "verified": true,
         "kind": "episode"
       },
@@ -222131,7 +221540,7 @@
         "title": "After Hours - Why Disney Princes Are Bad Role Models For Boys (Aladdin, Beauty and the Beast)",
         "video_id": "vYBeG7PxEiE",
         "url": "https://www.youtube.com/embed/vYBeG7PxEiE",
-        "n": 77,
+        "n": 69,
         "verified": true,
         "kind": "episode"
       },
@@ -222139,7 +221548,7 @@
         "title": "After Hours: 6 Movies Whose Timelines Don't Add Up",
         "video_id": "LTnl36-0-zU",
         "url": "https://www.youtube.com/embed/LTnl36-0-zU",
-        "n": 78,
+        "n": 70,
         "verified": true,
         "kind": "episode"
       },
@@ -222147,7 +221556,7 @@
         "title": "What Movie Ghost Would You Rather Be Haunted By - After Hours (The Sixth Sense,  The Ring)",
         "video_id": "XYnJX6bdm-0",
         "url": "https://www.youtube.com/embed/XYnJX6bdm-0",
-        "n": 79,
+        "n": 71,
         "verified": true,
         "kind": "episode"
       },
@@ -222155,7 +221564,7 @@
         "title": "Which Ghost Movie Was The Best (For The Ghosts)? (Casper, Ghostbusters, RIPD)",
         "video_id": "jsyljqTrZ4Y",
         "url": "https://www.youtube.com/embed/jsyljqTrZ4Y",
-        "n": 80,
+        "n": 72,
         "verified": true,
         "kind": "episode"
       },
@@ -222163,7 +221572,7 @@
         "title": "The Best Movie Hell to End Up In - After Hours",
         "video_id": "-El8z4uy5Ac",
         "url": "https://www.youtube.com/embed/-El8z4uy5Ac",
-        "n": 81,
+        "n": 73,
         "verified": true,
         "kind": "episode"
       }
@@ -259078,32 +258487,6 @@
     "dateAdded": "2026-10-08"
   },
   {
-    "id": "stv-463",
-    "title": "Class of &#39;09: The Anime Pilot",
-    "genre": "Anime",
-    "eps": "1 ep",
-    "runtime": "~12 min",
-    "desc": "The Class of 09 Anime Pilot was made possible by the fans on Kickstarter! Thank you! Play the games on Steam: ...",
-    "url": "https://www.youtube.com/embed/Rb1z6URgA1w",
-    "url_status": "ok",
-    "source_channel": "Wrath Club",
-    "rights_basis": "Original indie anime (creator's own upload, anime shorts hunt 2026-10-07)",
-    "ai_made": false,
-    "episodes": [
-      {
-        "n": 1,
-        "title": "Class of &#39;09: The Anime Pilot",
-        "video_id": "Rb1z6URgA1w",
-        "url": "https://www.youtube.com/embed/Rb1z6URgA1w",
-        "verified": true,
-        "kind": "episode",
-        "vertical": false,
-        "vertical_source": "orientation unverified (API hunt 2026-10-07)"
-      }
-    ],
-    "onlyShortz": true
-  },
-  {
     "id": "stv-4630",
     "title": "Post-it Love",
     "genre": "Romance",
@@ -269084,7 +268467,7 @@
     "id": "stv-5040",
     "title": "Star Trek — Official Clips",
     "genre": "Space",
-    "eps": "40 eps",
+    "eps": "31 eps",
     "runtime": "~1–5 min",
     "desc": "Top official Star Trek YouTube clips: iconic series moments, trailers, and behind-the-scenes featurettes from the official Star Trek channel.",
     "url": "https://www.youtube.com/embed/4dxe_ugmIVM",
@@ -269095,78 +268478,6 @@
     "episodes": [
       {
         "n": 1,
-        "title": "Kirk's Deadly Showdown With Gary Mitchell | Star Trek: The Original Series",
-        "url": "https://www.youtube.com/embed/a9RC6NKPsqQ",
-        "video_id": "a9RC6NKPsqQ",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 2,
-        "title": "Kirk Faces the Gorn In a Battle to The Death | Star Trek: The Original Series",
-        "url": "https://www.youtube.com/embed/4SK0cUNMnMM",
-        "video_id": "4SK0cUNMnMM",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 3,
-        "title": "Kirk Shows Mercy To The Gorn Captain | Star Trek: The Original Series",
-        "url": "https://www.youtube.com/embed/HxQqJbW-ohw",
-        "video_id": "HxQqJbW-ohw",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 4,
-        "title": "Star Trek - 20th Century Human Aboard the Enterprise",
-        "url": "https://www.youtube.com/embed/oL8O2Cfc2P4",
-        "video_id": "oL8O2Cfc2P4",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 5,
-        "title": "Kirk and Khan Fight for the Enterprise | Star Trek: The Original Series",
-        "url": "https://www.youtube.com/embed/B_c1Odol9xw",
-        "video_id": "B_c1Odol9xw",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 6,
-        "title": "The Spores Turn Kirk Against Spock | Star Trek: The Original Series",
-        "url": "https://www.youtube.com/embed/wY9NkYGUEyE",
-        "video_id": "wY9NkYGUEyE",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 7,
-        "title": "Captain Kirk’s Tension with Spock’s Parents | Star Trek: The Original Series",
-        "url": "https://www.youtube.com/embed/eA12wOtr-0k",
-        "video_id": "eA12wOtr-0k",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 8,
-        "title": "The Mysterious Tribble Infestation | Star Trek: The Original Series",
-        "url": "https://www.youtube.com/embed/Bprgl_4z6gY",
-        "video_id": "Bprgl_4z6gY",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 9,
-        "title": "Abraham Lincoln Meets Captain Kirk | Star Trek: The Original Series",
-        "url": "https://www.youtube.com/embed/7JWe3hCes1o",
-        "video_id": "7JWe3hCes1o",
-        "platform": "youtube",
-        "verified": true
-      },
-      {
-        "n": 10,
         "title": "A Shapeshifting Intruder Infiltrates the Enterprise | Star Trek: The Animated Series",
         "url": "https://www.youtube.com/embed/T-EoyUtdLdc",
         "video_id": "T-EoyUtdLdc",
@@ -269174,7 +268485,7 @@
         "verified": true
       },
       {
-        "n": 11,
+        "n": 2,
         "title": "Kirk Initiates the Enterprise's Destruct Sequence | Star Trek: The Original Series",
         "url": "https://www.youtube.com/embed/STQNi7ArRl8",
         "video_id": "STQNi7ArRl8",
@@ -269182,7 +268493,7 @@
         "verified": true
       },
       {
-        "n": 12,
+        "n": 3,
         "title": "The Fate of Earth Hinges on Kirk's Intuition | Star Trek: The Original Series",
         "url": "https://www.youtube.com/embed/WfAP6fJZ1is",
         "video_id": "WfAP6fJZ1is",
@@ -269190,7 +268501,7 @@
         "verified": true
       },
       {
-        "n": 13,
+        "n": 4,
         "title": "Spock's Heartbreaking Goodbye to Zarabeth | Star Trek: The Original Series",
         "url": "https://www.youtube.com/embed/_Fc0irneMHU",
         "video_id": "_Fc0irneMHU",
@@ -269198,7 +268509,7 @@
         "verified": true
       },
       {
-        "n": 14,
+        "n": 5,
         "title": "When the Crew Met a Greek God | Star Trek: The Original Series",
         "url": "https://www.youtube.com/embed/Rz508DAx68U",
         "video_id": "Rz508DAx68U",
@@ -269206,7 +268517,7 @@
         "verified": true
       },
       {
-        "n": 15,
+        "n": 6,
         "title": "Kirk & Spock Go Undercover as Nazi Officers | Star Trek: The Original Series",
         "url": "https://www.youtube.com/embed/HVy7cvMQ59g",
         "video_id": "HVy7cvMQ59g",
@@ -269214,7 +268525,7 @@
         "verified": true
       },
       {
-        "n": 16,
+        "n": 7,
         "title": "Kirk Ends Khan's Reign | Star Trek: The Original Series",
         "url": "https://www.youtube.com/embed/tdOyp_TOClQ",
         "video_id": "tdOyp_TOClQ",
@@ -269222,7 +268533,7 @@
         "verified": true
       },
       {
-        "n": 17,
+        "n": 8,
         "title": "Kirk Escapes the Romulans with Their Own Tech | Star Trek: The Original Series",
         "url": "https://www.youtube.com/embed/AusAGjwlql8",
         "video_id": "AusAGjwlql8",
@@ -269230,7 +268541,7 @@
         "verified": true
       },
       {
-        "n": 18,
+        "n": 9,
         "title": "Spock & Sulu Rescue Captain Kirk from the 1960s | Star Trek: The Original Series",
         "url": "https://www.youtube.com/embed/ta_cFhCbXdw",
         "video_id": "ta_cFhCbXdw",
@@ -269238,7 +268549,7 @@
         "verified": true
       },
       {
-        "n": 19,
+        "n": 10,
         "title": "How Far Can You Push an Android? | Star Trek: The Next Generation",
         "url": "https://www.youtube.com/embed/jPW2GPe_uIQ",
         "video_id": "jPW2GPe_uIQ",
@@ -269246,7 +268557,7 @@
         "verified": true
       },
       {
-        "n": 20,
+        "n": 11,
         "title": "Picard’s Ultimate Romulan Checkmate | Star Trek: The Next Generation",
         "url": "https://www.youtube.com/embed/WAGGEw4TcFY",
         "video_id": "WAGGEw4TcFY",
@@ -269254,7 +268565,7 @@
         "verified": true
       },
       {
-        "n": 21,
+        "n": 12,
         "title": "First Look - Test Flight of Star Trek's U.S.S. Discovery",
         "url": "https://www.youtube.com/embed/bqm9HSYbf0o",
         "video_id": "bqm9HSYbf0o",
@@ -269262,7 +268573,7 @@
         "verified": true
       },
       {
-        "n": 22,
+        "n": 13,
         "title": "Star Trek: Discovery In Production",
         "url": "https://www.youtube.com/embed/j9QHrNdgX4U",
         "video_id": "j9QHrNdgX4U",
@@ -269270,7 +268581,7 @@
         "verified": true
       },
       {
-        "n": 23,
+        "n": 14,
         "title": "Star Trek: Discovery - First Look Trailer",
         "url": "https://www.youtube.com/embed/4dxe_ugmIVM",
         "video_id": "4dxe_ugmIVM",
@@ -269278,7 +268589,7 @@
         "verified": true
       },
       {
-        "n": 24,
+        "n": 15,
         "title": "Official Trailer | Star Trek: Discovery - Season 1 | StarTrek.com",
         "url": "https://www.youtube.com/embed/hC7IMj7WFyE",
         "video_id": "hC7IMj7WFyE",
@@ -269286,7 +268597,7 @@
         "verified": true
       },
       {
-        "n": 25,
+        "n": 16,
         "title": "Star Trek: Discovery - Main Title Sequence",
         "url": "https://www.youtube.com/embed/ZcTvrxwP6Is",
         "video_id": "ZcTvrxwP6Is",
@@ -269294,7 +268605,7 @@
         "verified": true
       },
       {
-        "n": 26,
+        "n": 17,
         "title": "Sir Patrick Stewart Announces His Return As Jean-Luc Picard | Paramount+",
         "url": "https://www.youtube.com/embed/9jPFtLRgjVc",
         "video_id": "9jPFtLRgjVc",
@@ -269302,7 +268613,7 @@
         "verified": true
       },
       {
-        "n": 27,
+        "n": 18,
         "title": "First Contact: Michael Dorn AKA Lieutenant Commander Worf | Star Trek",
         "url": "https://www.youtube.com/embed/dOG2TQyjT_s",
         "video_id": "dOG2TQyjT_s",
@@ -269310,7 +268621,7 @@
         "verified": true
       },
       {
-        "n": 28,
+        "n": 19,
         "title": "Every Star Trek Character Played By Jeffrey Combs, Ranked",
         "url": "https://www.youtube.com/embed/tNOeWrLxcOM",
         "video_id": "tNOeWrLxcOM",
@@ -269318,7 +268629,7 @@
         "verified": true
       },
       {
-        "n": 29,
+        "n": 20,
         "title": "First Contact: John de Lancie AKA Q | Star Trek",
         "url": "https://www.youtube.com/embed/mU4zka4YFe4",
         "video_id": "mU4zka4YFe4",
@@ -269326,7 +268637,7 @@
         "verified": true
       },
       {
-        "n": 30,
+        "n": 21,
         "title": "Are We In the Holodeck Right Now? | Star Trek: very Short Treks",
         "url": "https://www.youtube.com/embed/LPCGkHjsK9M",
         "video_id": "LPCGkHjsK9M",
@@ -269334,7 +268645,7 @@
         "verified": true
       },
       {
-        "n": 31,
+        "n": 22,
         "title": "First Look | Star Trek: Strange New Worlds - Season 3 | StarTrek.com",
         "url": "https://www.youtube.com/embed/QYLXhIb506w",
         "video_id": "QYLXhIb506w",
@@ -269342,7 +268653,7 @@
         "verified": true
       },
       {
-        "n": 32,
+        "n": 23,
         "title": "Official Teaser Trailer | Star Trek: Lower Decks - Season 5 | StarTrek.com",
         "url": "https://www.youtube.com/embed/3e6QaZxyVDg",
         "video_id": "3e6QaZxyVDg",
@@ -269350,7 +268661,7 @@
         "verified": true
       },
       {
-        "n": 33,
+        "n": 24,
         "title": "Official Teaser Trailer | Star Trek: Section 31 | StarTrek.com",
         "url": "https://www.youtube.com/embed/P2vCCGri8EY",
         "video_id": "P2vCCGri8EY",
@@ -269358,7 +268669,7 @@
         "verified": true
       },
       {
-        "n": 34,
+        "n": 25,
         "title": "Official Trailer | Star Trek: Lower Decks - Season 5 | StarTrek.com",
         "url": "https://www.youtube.com/embed/G8WRgPfjB4E",
         "video_id": "G8WRgPfjB4E",
@@ -269366,7 +268677,7 @@
         "verified": true
       },
       {
-        "n": 35,
+        "n": 26,
         "title": "NYCC Exclusive Clip | Star Trek: Strange New Worlds - Season 3",
         "url": "https://www.youtube.com/embed/llvMv5-ydyQ",
         "video_id": "llvMv5-ydyQ",
@@ -269374,7 +268685,7 @@
         "verified": true
       },
       {
-        "n": 36,
+        "n": 27,
         "title": "Official Season 3 Trailer | Star Trek: Strange New Worlds",
         "url": "https://www.youtube.com/embed/KBix8DzPcaE",
         "video_id": "KBix8DzPcaE",
@@ -269382,7 +268693,7 @@
         "verified": true
       },
       {
-        "n": 37,
+        "n": 28,
         "title": "Official Trailer | Star Trek: Khan",
         "url": "https://www.youtube.com/embed/D71evfU4E1M",
         "video_id": "D71evfU4E1M",
@@ -269390,7 +268701,7 @@
         "verified": true
       },
       {
-        "n": 38,
+        "n": 29,
         "title": "First Look Teaser | Star Trek: Starfleet Academy",
         "url": "https://www.youtube.com/embed/JrGvZoJNoOs",
         "video_id": "JrGvZoJNoOs",
@@ -269398,7 +268709,7 @@
         "verified": true
       },
       {
-        "n": 39,
+        "n": 30,
         "title": "Celebrating 60 Years of Star Trek at SDCC 2026",
         "url": "https://www.youtube.com/embed/P_AUMZYb6IQ",
         "video_id": "P_AUMZYb6IQ",
@@ -269406,7 +268717,7 @@
         "verified": true
       },
       {
-        "n": 40,
+        "n": 31,
         "title": "What Is This, The Dark Ages? 💀 #StarTrekVI",
         "url": "https://www.youtube.com/embed/9-2ajFMNHxo",
         "video_id": "9-2ajFMNHxo",
@@ -282927,29 +282238,6 @@
     "episodes_note": "Merged from 2 duplicate entries (stv-851, stv-859)."
   },
   {
-    "id": "stv-852",
-    "title": "This trail is a death trap",
-    "genre": "Mr. Ballin",
-    "eps": "1 ep",
-    "runtime": "~39:33",
-    "desc": "This trail is a death trap — Mr. Ballin storytelling.",
-    "url": "https://www.youtube.com/embed/_PXwLa6mTEA",
-    "url_status": "ok",
-    "source_channel": "MrBallen",
-    "rights_basis": "Public embed",
-    "ai_made": false,
-    "episodes": [
-      {
-        "n": 1,
-        "title": "This trail is a death trap",
-        "video_id": "_PXwLa6mTEA",
-        "url": "https://www.youtube.com/embed/_PXwLa6mTEA",
-        "verified": true,
-        "kind": "episode"
-      }
-    ]
-  },
-  {
     "id": "stv-853",
     "title": "Most F*CKED UP interrogation ever caught on tape (*MATURE AUDIENCES ONLY*)",
     "genre": "Mr. Ballin",
@@ -284757,29 +284045,6 @@
         "title": "The Bell Witch HAUNTING",
         "video_id": "OdHe0m4OtKw",
         "url": "https://www.youtube.com/embed/OdHe0m4OtKw",
-        "verified": true,
-        "kind": "episode"
-      }
-    ]
-  },
-  {
-    "id": "stv-956",
-    "title": "The most INSANE man on TV",
-    "genre": "Mr. Ballin",
-    "eps": "1 ep",
-    "runtime": "~36:17",
-    "desc": "The most INSANE man on TV — Mr. Ballin storytelling.",
-    "url": "https://www.youtube.com/embed/sj1nh-qnv0E",
-    "url_status": "ok",
-    "source_channel": "MrBallen",
-    "rights_basis": "Public embed",
-    "ai_made": false,
-    "episodes": [
-      {
-        "n": 1,
-        "title": "The most INSANE man on TV",
-        "video_id": "sj1nh-qnv0E",
-        "url": "https://www.youtube.com/embed/sj1nh-qnv0E",
         "verified": true,
         "kind": "episode"
       }
@@ -306383,28 +305648,6 @@
     "source_channel": "Omeleto"
   },
   {
-    "id": "stv-6002",
-    "title": "HAPPENSTANCE",
-    "genre": "Short Films",
-    "verified": true,
-    "dateAdded": "2026-10-11",
-    "episodes": [
-      {
-        "n": 1,
-        "title": "HAPPENSTANCE",
-        "url": "https://www.youtube.com/embed/FEEYH1O2Too",
-        "video_id": "FEEYH1O2Too",
-        "platform": "youtube",
-        "verified": true
-      }
-    ],
-    "url": "https://www.youtube.com/embed/FEEYH1O2Too",
-    "eps": "1 ep",
-    "desc": "Short film from Omeleto (7 min).",
-    "rights_basis": "Public YouTube embed",
-    "source_channel": "Omeleto"
-  },
-  {
     "id": "stv-6003",
     "title": "HALO",
     "genre": "Short Films",
@@ -307391,28 +306634,6 @@
     "url": "https://www.youtube.com/embed/6eYOZNjUqp4",
     "eps": "1 ep",
     "desc": "Short film from Omeleto (14 min).",
-    "rights_basis": "Public YouTube embed",
-    "source_channel": "Omeleto"
-  },
-  {
-    "id": "stv-6048",
-    "title": "CALL CONNECT",
-    "genre": "Short Films",
-    "verified": true,
-    "dateAdded": "2026-10-11",
-    "episodes": [
-      {
-        "n": 1,
-        "title": "CALL CONNECT",
-        "url": "https://www.youtube.com/embed/TFLs2O0CMyM",
-        "video_id": "TFLs2O0CMyM",
-        "platform": "youtube",
-        "verified": true
-      }
-    ],
-    "url": "https://www.youtube.com/embed/TFLs2O0CMyM",
-    "eps": "1 ep",
-    "desc": "Short film from Omeleto (16 min).",
     "rights_basis": "Public YouTube embed",
     "source_channel": "Omeleto"
   },
@@ -350758,7 +349979,7 @@
     "id": "stv-8050",
     "title": "BlackBoxTV Presents",
     "genre": "Horror",
-    "eps": "29 eps",
+    "eps": "21 eps",
     "runtime": "3–18 min",
     "desc": "Tony E. Valenzuela's horror anthology — a new self-contained scare every episode.",
     "url": "https://www.youtube.com/embed/B7QNm9A3Rr4",
@@ -350783,14 +350004,6 @@
       },
       {
         "n": 3,
-        "title": "Final Exit: The Horror Short Film You Can't Unsee",
-        "video_id": "FxoEVw5prcE",
-        "url": "https://www.youtube.com/embed/FxoEVw5prcE",
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "n": 4,
         "title": "I Helped the Wrong Man",
         "video_id": "lKmLvXajI1I",
         "url": "https://www.youtube.com/embed/lKmLvXajI1I",
@@ -350798,7 +350011,7 @@
         "kind": "episode"
       },
       {
-        "n": 5,
+        "n": 4,
         "title": "My Boyfriend Won't Leave Me Alone",
         "video_id": "O4D-xQGlwRc",
         "url": "https://www.youtube.com/embed/O4D-xQGlwRc",
@@ -350806,7 +350019,7 @@
         "kind": "episode"
       },
       {
-        "n": 6,
+        "n": 5,
         "title": "Three Girls Pick Up a Serial Killer",
         "video_id": "h-42HK8gUUM",
         "url": "https://www.youtube.com/embed/h-42HK8gUUM",
@@ -350814,7 +350027,7 @@
         "kind": "episode"
       },
       {
-        "n": 7,
+        "n": 6,
         "title": "My Dad Told Me to Kill My Sister",
         "video_id": "MX2tPugpcM0",
         "url": "https://www.youtube.com/embed/MX2tPugpcM0",
@@ -350822,7 +350035,7 @@
         "kind": "episode"
       },
       {
-        "n": 8,
+        "n": 7,
         "title": "Something Stopped My Car",
         "video_id": "XuvnQA_iRJQ",
         "url": "https://www.youtube.com/embed/XuvnQA_iRJQ",
@@ -350830,7 +350043,7 @@
         "kind": "episode"
       },
       {
-        "n": 9,
+        "n": 8,
         "title": "I Should Have Watched the Video",
         "video_id": "hSYqUNt9b_E",
         "url": "https://www.youtube.com/embed/hSYqUNt9b_E",
@@ -350838,7 +350051,7 @@
         "kind": "episode"
       },
       {
-        "n": 10,
+        "n": 9,
         "title": "More Than You Can Chew",
         "video_id": "j-3ociOu4aI",
         "url": "https://www.youtube.com/embed/j-3ociOu4aI",
@@ -350846,7 +350059,7 @@
         "kind": "episode"
       },
       {
-        "n": 11,
+        "n": 10,
         "title": "My Dad Is a Killer Clown",
         "video_id": "fIa5W37KFbI",
         "url": "https://www.youtube.com/embed/fIa5W37KFbI",
@@ -350854,7 +350067,7 @@
         "kind": "episode"
       },
       {
-        "n": 12,
+        "n": 11,
         "title": "\"Unforgivable\"",
         "video_id": "zYkmlANzlpk",
         "url": "https://www.youtube.com/embed/zYkmlANzlpk",
@@ -350862,7 +350075,7 @@
         "kind": "episode"
       },
       {
-        "n": 13,
+        "n": 12,
         "title": "They Took My Sister",
         "video_id": "RiD1Iy0RH20",
         "url": "https://www.youtube.com/embed/RiD1Iy0RH20",
@@ -350870,7 +350083,7 @@
         "kind": "episode"
       },
       {
-        "n": 14,
+        "n": 13,
         "title": "The Girl With the Perfect Life",
         "video_id": "6Az4l0nVlwM",
         "url": "https://www.youtube.com/embed/6Az4l0nVlwM",
@@ -350878,15 +350091,7 @@
         "kind": "episode"
       },
       {
-        "n": 15,
-        "title": "Girls On Ice",
-        "video_id": "GjFbRDsKrtA",
-        "url": "https://www.youtube.com/embed/GjFbRDsKrtA",
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "n": 16,
+        "n": 14,
         "title": "The Doctor Doesn't Know Who I Am",
         "video_id": "tIuHwK0OwO0",
         "url": "https://www.youtube.com/embed/tIuHwK0OwO0",
@@ -350894,7 +350099,7 @@
         "kind": "episode"
       },
       {
-        "n": 17,
+        "n": 15,
         "title": "We Got Locked in a Haunted Prison",
         "video_id": "B7QNm9A3Rr4",
         "url": "https://www.youtube.com/embed/B7QNm9A3Rr4",
@@ -350902,23 +350107,7 @@
         "kind": "episode"
       },
       {
-        "n": 18,
-        "title": "I Watched Her Through the Screen",
-        "video_id": "AReTTdjP6FQ",
-        "url": "https://www.youtube.com/embed/AReTTdjP6FQ",
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "n": 19,
-        "title": "We Summoned a Dead Man",
-        "video_id": "8SvUIAd92YQ",
-        "url": "https://www.youtube.com/embed/8SvUIAd92YQ",
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "n": 20,
+        "n": 16,
         "title": "The Shadow Man",
         "video_id": "qNaNF-LhwHE",
         "url": "https://www.youtube.com/embed/qNaNF-LhwHE",
@@ -350926,15 +350115,7 @@
         "kind": "episode"
       },
       {
-        "n": 21,
-        "title": "The Shadow Man Tape 2",
-        "video_id": "oLPuslnM-YQ",
-        "url": "https://www.youtube.com/embed/oLPuslnM-YQ",
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "n": 22,
+        "n": 17,
         "title": "\"Quitting YouTube\"",
         "video_id": "5VZY64VgHSo",
         "url": "https://www.youtube.com/embed/5VZY64VgHSo",
@@ -350942,7 +350123,7 @@
         "kind": "episode"
       },
       {
-        "n": 23,
+        "n": 18,
         "title": "\"Our Lady of Lourdes\"",
         "video_id": "5-FztXGroQA",
         "url": "https://www.youtube.com/embed/5-FztXGroQA",
@@ -350950,7 +350131,7 @@
         "kind": "episode"
       },
       {
-        "n": 24,
+        "n": 19,
         "title": "He Told Us He Had No Name",
         "video_id": "-GTRlFDpcZ8",
         "url": "https://www.youtube.com/embed/-GTRlFDpcZ8",
@@ -350958,7 +350139,7 @@
         "kind": "episode"
       },
       {
-        "n": 25,
+        "n": 20,
         "title": "My Dead Dad Came Back",
         "video_id": "JwL-QwJmBUc",
         "url": "https://www.youtube.com/embed/JwL-QwJmBUc",
@@ -350966,31 +350147,7 @@
         "kind": "episode"
       },
       {
-        "n": 26,
-        "title": "\"Beginner's Luck\"",
-        "video_id": "koyqAlVMRss",
-        "url": "https://www.youtube.com/embed/koyqAlVMRss",
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "n": 27,
-        "title": "\"Tiny Dancer\"",
-        "video_id": "hACYkT5jc4w",
-        "url": "https://www.youtube.com/embed/hACYkT5jc4w",
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "n": 28,
-        "title": "A Possessed Girl",
-        "video_id": "Xlra1LFEDlI",
-        "url": "https://www.youtube.com/embed/Xlra1LFEDlI",
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "n": 29,
+        "n": 21,
         "title": "A Zombie Apocalypse Musical",
         "video_id": "K68tEbLgTSw",
         "url": "https://www.youtube.com/embed/K68tEbLgTSw",
