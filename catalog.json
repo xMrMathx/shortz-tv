@@ -354275,5 +354275,105 @@
     "award": "Winner — SXSW Narrative Shorts Jury Award (2018); Sundance Short Film Special Jury Award (2018)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8107",
+    "title": "Exit 12",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~24 min",
+    "desc": "A US Marine veteran of two tours in Fallujah finds healing through ballet and builds a dance company for veterans — a clear-eyed portrait of war trauma and recovery. PTSD and the veteran suicide epidemic are discussed as subjects; nothing graphic is shown.",
+    "source_channel": "Vimeo (Square)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/312834658",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Exit 12",
+        "video_id": "312834658",
+        "url": "https://player.vimeo.com/video/312834658",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Grand Jury Award, Documentary Short (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8108",
+    "title": "Long Line of Ladies",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~22 min",
+    "desc": "A 13-year-old Karuk girl and her community prepare for her Ihuk — the Flower Dance coming-of-age ceremony revived after a century — in this New York Times Op-Doc portrait of tradition, family, and becoming, treated throughout with reverence.",
+    "source_channel": "Vimeo (The New York Times)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/777015125",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Long Line of Ladies",
+        "video_id": "777015125",
+        "url": "https://player.vimeo.com/video/777015125",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Grand Jury Award, Documentary Short (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8109",
+    "title": "The Flute",
+    "genre": "Comedy",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "A young man fleeing a relationship crashes with his best friends and discovers their 'strange instruments' — an adults-only gross-out comedy-horror short; crude sexual humor is the premise, played entirely for laughs and squirms.",
+    "source_channel": "Vimeo (Nick Roney)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/824959826",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Flute",
+        "video_id": "824959826",
+        "url": "https://player.vimeo.com/video/824959826",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Grand Jury Award, Midnight Shorts (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8110",
+    "title": "Nuevo Rico",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "In a dystopian future Puerto Rico, a brother-sister reggaeton duo strikes a celestial bargain for stardom and learns fame's price — a vibrant Latinx-futurist animated fable about greed, family, and selling out.",
+    "source_channel": "Vimeo (Kristian Mercado Figueroa)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/650929940",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Nuevo Rico",
+        "video_id": "650929940",
+        "url": "https://player.vimeo.com/video/650929940",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Jury Award, Animated Shorts (2021)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
