@@ -354525,5 +354525,80 @@
     "award": "Winner — Aspen Shortsfest Jury Award for Comedy (2025)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8117",
+    "title": "Airhostess-737",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "A flight attendant suffers an on-duty emotional breakdown aboard a plane whose cargo hold carries her estranged mother's body home to its burial. A tense, single-take drama about grief and a fractured mother-daughter bond — the body is never shown.",
+    "source_channel": "Vimeo (The New Yorker)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/885704484",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Airhostess-737",
+        "video_id": "885704484",
+        "url": "https://player.vimeo.com/video/885704484",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Seattle International Film Festival Live Action Short Grand Jury Prize (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8118",
+    "title": "The Christmas Gift",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~23 min",
+    "desc": "Original title: Cadoul de Crăciun. Romania, December 1989, days after the bloody Timișoara repression: a small boy's letter to Santa wishes death on the dictator Ceaușescu, and his father spends one panicked night terrified the secret police will come for the family. The violence is historical backdrop, referenced and never shown. Romanian with English subtitles. Also won the European Film Award for Best European Short Film (2019).",
+    "source_channel": "YouTube (CINEPUB)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/AwuovHkwmiU",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Christmas Gift",
+        "video_id": "AwuovHkwmiU",
+        "url": "https://www.youtube.com/embed/AwuovHkwmiU",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Palm Springs ShortFest Best of the Festival Award (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8119",
+    "title": "The Waiting",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "Original title: Das Warten. An animated documentary about ecological collapse: a frog researcher returns to her Costa Rica rainforest field site to find every frog gone, and investigates their mass deaths like a crime case. Dead and suffocating amphibians are discussed and drawn; a somber environmental mystery with no human violence. Also won the Seattle International Film Festival Documentary Short Grand Jury Prize (2024).",
+    "source_channel": "Vimeo (Drushba Pankow)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1036802517",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Waiting",
+        "video_id": "1036802517",
+        "url": "https://player.vimeo.com/video/1036802517",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Hamptons International Film Festival Best Documentary Short Film (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
