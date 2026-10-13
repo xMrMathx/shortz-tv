@@ -257419,8 +257419,9 @@
       }
     ],
     "verified": true,
-    "award": "Sundance 2024 Short Film Jury Award: Nonfiction (winner); Woodstock Film Festival 2024 Best Documentary Short",
-    "dateAdded": "2026-10-08"
+    "award": "Short Film Jury Award: Nonfiction — Sundance Film Festival (2024)",
+    "dateAdded": "2026-10-08",
+    "award_verified": true
   },
   {
     "id": "stv-4593",
@@ -260704,8 +260705,9 @@
       }
     ],
     "verified": true,
-    "award": "Winner - Sundance Film Festival Short Film Jury Award: Non-Fiction (2022)",
-    "dateAdded": "2026-10-08"
+    "award": "Winner — Sundance Film Festival Short Film Jury Award: Non-Fiction (2022)",
+    "dateAdded": "2026-10-08",
+    "award_verified": true
   },
   {
     "id": "stv-4713",
@@ -266287,7 +266289,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=Y4RI8LnMZdY",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4971",
