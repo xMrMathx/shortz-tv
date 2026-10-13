@@ -259914,8 +259914,9 @@
       }
     ],
     "verified": true,
-    "award": "Winner - News & Documentary Emmy Award (2023)",
-    "dateAdded": "2026-10-08"
+    "award": "Winner — News & Documentary Emmy Award (2023)",
+    "dateAdded": "2026-10-08",
+    "award_verified": true
   },
   {
     "id": "stv-4684",
@@ -260866,8 +260867,9 @@
       }
     ],
     "verified": true,
-    "award": "Winner - News & Documentary Emmy, Outstanding Short Documentary (2026)",
-    "dateAdded": "2026-10-08"
+    "award": "Winner — News & Documentary Emmy, Outstanding Short Documentary (2026)",
+    "dateAdded": "2026-10-08",
+    "award_verified": true
   },
   {
     "id": "stv-4720",
