@@ -355150,5 +355150,80 @@
     "award": "Winner — St. Louis International Film Festival Best Animated Short (2025) · Academy Award Nominee, Best Animated Short (98th Academy Awards)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8142",
+    "title": "Sandstorm",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~20 min",
+    "desc": "Originally titled 'Mulaqat' (an official selection at Sundance 2022). In Karachi, a 16-year-old schoolgirl is blackmailed over a video of her dancing when a cousin threatens to expose it to her family — a tense drama about control and bodily autonomy. Nothing explicit is shown.",
+    "source_channel": "Vimeo (The New Yorker)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1007717548",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sandstorm",
+        "video_id": "1007717548",
+        "url": "https://player.vimeo.com/video/1007717548",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Rhode Island International Film Festival Grand Prize, Best Live Action Short (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8143",
+    "title": "The Invisible Monster",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~34 min",
+    "desc": "Originally 'El Monstruo Invisible.' In post-siege Marawi, young cousins Aminodin and Aliman scavenge to survive — Aminodin has not smiled since the war — in a story about child hunger and malnutrition, played by the city's own residents. About this upload: it is unlisted (it plays for anyone with the link; it simply isn't listed on the channel) and runs 33:36 — the complete film presented inside co-producer Action Against Hunger Philippines' brief fundraising intro and outro.",
+    "source_channel": "YouTube (Action Against Hunger Philippines)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/xy0mohAZ3qc",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Invisible Monster",
+        "video_id": "xy0mohAZ3qc",
+        "url": "https://www.youtube.com/embed/xy0mohAZ3qc",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Rhode Island International Film Festival Grand Prize, Best Short Documentary (2021)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8144",
+    "title": "A La Deriva",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~14 min",
+    "desc": "English title: 'Adrift.' A Spanish-language documentary (no English subtitles) in which teenage girls — including a pregnant 14-year-old — speak frankly about teen pregnancy, abortion, and partner violence. All interviews; nothing graphic.",
+    "source_channel": "YouTube (Cristal Cine)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/6HXEbqlfL7Q",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A La Deriva",
+        "video_id": "6HXEbqlfL7Q",
+        "url": "https://www.youtube.com/embed/6HXEbqlfL7Q",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Rhode Island International Film Festival Grand Prize, Best Documentary Short (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
