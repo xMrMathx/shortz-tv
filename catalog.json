@@ -355075,5 +355075,80 @@
     "award": "Winner — New Orleans Film Festival Helen Hill Award for Animated Short (2023) · Calgary International Film Festival Grand Jury Prize, Animated Short (2023)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8139",
+    "title": "Eternal Father",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~30 min",
+    "desc": "A father of four young children, afraid he won't live to see them grow up, arranges to be cryonically frozen after he dies. On camera, his wife and kids wrestle with his coming death — the whole film is about mortality, and nothing graphic is shown.",
+    "source_channel": "YouTube (The New Yorker)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/v7OyFdCxo7o",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Eternal Father",
+        "video_id": "v7OyFdCxo7o",
+        "url": "https://www.youtube.com/embed/v7OyFdCxo7o",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Rhode Island International Film Festival Best Short Documentary (2024) · Academy Award Shortlist, Documentary Short (2025)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8140",
+    "title": "Marguerite",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~19 min",
+    "desc": "An elderly woman cared for at home learns that her much younger nurse has a girlfriend, and is forced to confront the lesbian longing she repressed her entire life. Tender and gentle; no sexual content is shown. In French with English subtitles.",
+    "source_channel": "Vimeo (H264)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/341649588",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Marguerite",
+        "video_id": "341649588",
+        "url": "https://player.vimeo.com/video/341649588",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Rhode Island International Film Festival Live Action Short Grand Prize (2018) · Academy Award Nominee, Best Live Action Short (91st Academy Awards)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8141",
+    "title": "Papillon",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "Hand-painted animation (English title: Butterfly) telling the true story of Alfred Nakache, the Jewish Olympic swimmer who raced at the 1936 Berlin Games, was deported to Auschwitz — where his wife and daughter were killed — and swam again at the 1948 Olympics. A Holocaust story in painterly, impressionistic images; nothing graphic is shown.",
+    "source_channel": "YouTube (Courts Toujours)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/qtsrMcuyfjY",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Papillon",
+        "video_id": "qtsrMcuyfjY",
+        "url": "https://www.youtube.com/embed/qtsrMcuyfjY",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — St. Louis International Film Festival Best Animated Short (2025) · Academy Award Nominee, Best Animated Short (98th Academy Awards)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
