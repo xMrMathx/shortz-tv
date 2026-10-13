@@ -353743,5 +353743,105 @@
     "award": "Winner — SIGGRAPH Best in Show, Computer Animation Festival (2023); Silver Medal — Student Academy Award, Animation (2023)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8093",
+    "title": "Starling",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "The spirit of a little girl who has died returns to visit her grieving parents on her birthday — a tender animated fable about grief, love, and letting go.",
+    "source_channel": "YouTube (MAGNETFILM)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/0WtuqZK58eo",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Starling",
+        "video_id": "0WtuqZK58eo",
+        "url": "https://www.youtube.com/embed/0WtuqZK58eo",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Tribeca Festival Best Animated Short (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8094",
+    "title": "Dead Cat",
+    "genre": "Comedy",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "When the family cat is run over, a little girl hauls it inside and refuses to accept it's gone — so her parents have it taxidermied and keep up the pretence. A dark Québécois comedy about denial, in French with English subtitles.",
+    "source_channel": "Vimeo (La Boîte à Fanny – The FLM Box)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1097519458",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Dead Cat",
+        "video_id": "1097519458",
+        "url": "https://player.vimeo.com/video/1097519458",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Tribeca Festival Best Narrative Short (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8095",
+    "title": "Deeper Than Yesterday",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~20 min",
+    "desc": "Three months into a submerged patrol, a Russian submarine crew unravels into menace and savagery — and a dead woman is discovered aboard. A bleak psychological pressure-cooker, in Russian with English subtitles.",
+    "source_channel": "Vimeo (Ariel Kleiman)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/99493823",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Deeper Than Yesterday",
+        "video_id": "99493823",
+        "url": "https://player.vimeo.com/video/99493823",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Jury Prize in International Short Filmmaking (2011)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8096",
+    "title": "Lies",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~14 min",
+    "desc": "An animated documentary built from true interviews: a con man stealing from his employer, a student stealing from his mother, and a woman consumed by addiction — three confessions about the lies people live by. In Swedish with English subtitles.",
+    "source_channel": "Vimeo (Jonas Odell)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/32735700",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Lies",
+        "video_id": "32735700",
+        "url": "https://player.vimeo.com/video/32735700",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Jury Prize in International Short Filmmaking (2009)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
