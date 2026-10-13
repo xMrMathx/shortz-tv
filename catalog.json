@@ -354425,5 +354425,105 @@
     "award": "Winner — Aspen Shortsfest Best Animated Film (2018)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8113",
+    "title": "Mining Poems or Odes",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "On Glasgow's Clyde, former shipyard welder Callum has spent decades at heavy industrial work — and writing poetry about it. A gentle documentary portrait of a working man whose verses made him an unlikely literary voice.",
+    "source_channel": "Vimeo (Scottish Documentary Institute)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/131406587",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Mining Poems or Odes",
+        "video_id": "131406587",
+        "url": "https://player.vimeo.com/video/131406587",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aspen Shortsfest Best Short Short (2016)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8114",
+    "title": "Three Red Sweaters",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "Director Martha Gregory weaves her family's archive footage and her own memories into a tender personal documentary about family, time, and loss.",
+    "source_channel": "Vimeo (Martha Gregory)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/257555221",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Three Red Sweaters",
+        "video_id": "257555221",
+        "url": "https://player.vimeo.com/video/257555221",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aspen Shortsfest Best Documentary (2017)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8115",
+    "title": "A Bear Remembers",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~20 min",
+    "desc": "A quiet folktale about memory and cultural erosion: a boy crosses paths with an elderly woman and an ancient bear spirit (voiced by Ciarán Hinds) in a village that is slowly forgetting itself.",
+    "source_channel": "Vimeo (Zhang + Knight)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1138248349",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Bear Remembers",
+        "video_id": "1138248349",
+        "url": "https://player.vimeo.com/video/1138248349",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aspen Shortsfest Jury Award: Best Drama (2025)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8116",
+    "title": "Jane Austen's Period Drama",
+    "genre": "Comedy",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "A Regency comedy of manners: mid–marriage proposal, the heroine gets her period, and her suitor mistakes the blood for a mortal wound. Frank, detailed comedic discussion of menstruation and visible period blood are the premise — no nudity, no sexual content.",
+    "source_channel": "YouTube (JULIA AKS)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/dxpjzOLVRR0",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Jane Austen's Period Drama",
+        "video_id": "dxpjzOLVRR0",
+        "url": "https://www.youtube.com/embed/dxpjzOLVRR0",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aspen Shortsfest Jury Award for Comedy (2025)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
