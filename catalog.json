@@ -355617,5 +355617,80 @@
     "award": "Winner — Jury Award, Best Animated Short, New York International Children's Film Festival 2021",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8193",
+    "title": "Gugu naGogo",
+    "genre": "Family",
+    "eps": "1 ep",
+    "runtime": "~19 min",
+    "desc": "A 12-year-old astronomer in Australia keeps a magical letter exchange with her grandmother in Zimbabwe — until a lunar eclipse breaks the spell. A gentle live-action story about family, distance, and holding on to the people you love.",
+    "source_channel": "YouTube (Taku Mbudzi)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/Zpifg5EWJEI",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Gugu naGogo",
+        "video_id": "Zpifg5EWJEI",
+        "url": "https://www.youtube.com/embed/Zpifg5EWJEI",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Audience Award (Ages 5-10), New York International Children's Film Festival 2023",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8194",
+    "title": "Tulip",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "A tiny girl born from a flower sneaks out one night to explore the garden — then has to find her way back home. A needle-felted stop-motion Thumbelina, small in size and big in heart.",
+    "source_channel": "YouTube (Andrea Love)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/ktvMuSpGmZ8",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Tulip",
+        "video_id": "ktvMuSpGmZ8",
+        "url": "https://www.youtube.com/embed/ktvMuSpGmZ8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Audience Award (Ages 5+), New York International Children's Film Festival 2021",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8195",
+    "title": "Ink",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~2 min",
+    "desc": "A neat-freak octopus wages war on the one smudge in his aquarium that he just can’t reach. A wordless slapstick cartoon — two minutes long and all the funnier for it.",
+    "source_channel": "YouTube (KIS KIS – keep it short)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/qYkK5JXmtkU",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ink",
+        "video_id": "qYkK5JXmtkU",
+        "url": "https://www.youtube.com/embed/qYkK5JXmtkU",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Audience Award (Ages 3+), New York International Children's Film Festival 2021",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
