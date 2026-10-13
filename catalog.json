@@ -356152,5 +356152,30 @@
     "award": "Winner — SFFILM Golden Gate Award, Youth Works (2024)",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8183",
+    "title": "Recomposing Earth",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~28 min",
+    "desc": "A composer buries his concerto tape in the earth of Orkney for a full year, then digs it up to hear what the soil did to the music. A quiet documentary about decay, patience, and listening — what a year underground takes from a piece of music, and what it gives back.",
+    "source_channel": "YouTube (Omeleto Documentary)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/c1t0zcc4OU0",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Recomposing Earth",
+        "video_id": "c1t0zcc4OU0",
+        "url": "https://www.youtube.com/embed/c1t0zcc4OU0",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Flickerfest Best Documentary Short (2025)",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
