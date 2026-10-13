@@ -354175,5 +354175,105 @@
     "award": "Winner — SXSW Jury Award, Best Documentary Short (2013); Winner — IDA Award, Best Short Documentary (2013)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8103",
+    "title": "Glove",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~6 min",
+    "desc": "A whimsical true story: when astronaut Ed White lost his glove during the first American spacewalk in 1965, the glove set off on a journey of its own — told from the glove's point of view.",
+    "source_channel": "Vimeo (Alexa Lim Haas)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/749678162",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Glove",
+        "video_id": "749678162",
+        "url": "https://player.vimeo.com/video/749678162",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Animated Shorts Jury Award (2016)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8104",
+    "title": "Agua Viva",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~7 min",
+    "desc": "A Chinese manicurist in Miami narrates the feelings she can't find the words for — a gentle, dreamlike portrait of loneliness, the body, and a life lived between languages.",
+    "source_channel": "Vimeo (Alexa Lim Haas)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/304046701",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Agua Viva",
+        "video_id": "304046701",
+        "url": "https://player.vimeo.com/video/304046701",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Animated Shorts Jury Prize (2018)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8105",
+    "title": "Lucia, Before and After",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~14 min",
+    "desc": "A young Texas woman drives hours to a clinic, then waits out the state-mandated 24-hour waiting period before her abortion — sleeping in her car, short on money, in Anu Valia's quiet, clear-eyed drama. The procedure is never shown; the wait is the story.",
+    "source_channel": "Vimeo (Anu Valia)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/250315078",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Lucia, Before and After",
+        "video_id": "250315078",
+        "url": "https://player.vimeo.com/video/250315078",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Jury Award: U.S. Fiction (2017)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8106",
+    "title": "Emergency",
+    "genre": "Comedy-drama",
+    "eps": "1 ep",
+    "runtime": "~12 min",
+    "desc": "Three college roommates of color find an unconscious white girl in their apartment and are terrified to call the police, afraid of being blamed — a sharp, funny, frightening satire about race and who gets believed.",
+    "source_channel": "Vimeo (CDUB)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/551979139",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Emergency",
+        "video_id": "551979139",
+        "url": "https://player.vimeo.com/video/551979139",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Narrative Shorts Jury Award (2018); Sundance Short Film Special Jury Award (2018)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
