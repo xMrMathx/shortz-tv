@@ -353643,5 +353643,105 @@
     "award": "Winner — Sundance Short Film Grand Jury Prize (2017)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8089",
+    "title": "Grandma Nai Who Played Favorites",
+    "genre": "Comedy-drama",
+    "eps": "1 ep",
+    "runtime": "~19 min",
+    "desc": "A gentle comedy-drama from Cambodia: a young queer man is pressured by his family to marry a woman — until the ghost of his late grandmother, who always played favorites, returns to intervene.",
+    "source_channel": "Vimeo (Chheangkea)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1204143719",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Grandma Nai Who Played Favorites",
+        "video_id": "1204143719",
+        "url": "https://player.vimeo.com/video/1204143719",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Jury Award: International Fiction (2025)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8090",
+    "title": "GLUCOSE",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "A surreal CG fever-dream: knocked out cold, a video-game boxer tumbles through a glitch world built from the history of sugar, slavery, and mass incarceration.",
+    "source_channel": "Vimeo (Jeron Braxton)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/226500452",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "GLUCOSE",
+        "video_id": "226500452",
+        "url": "https://player.vimeo.com/video/226500452",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Jury Award: Animation (2018)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8091",
+    "title": "Bug Diner",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~7 min",
+    "desc": "Adults-only stop-motion: at a roadside diner, the insect regulars act out their secret desires — seduction, role-play, and an S&M fantasy — in Phoebe Jane Hart's deadpan fever dream.",
+    "source_channel": "Vimeo (Phoebe Jane Hart)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1123194869",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Bug Diner",
+        "video_id": "1123194869",
+        "url": "https://player.vimeo.com/video/1123194869",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Jury Award: Animation (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8092",
+    "title": "La Diplomatie de l'Éclipse",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~8 min",
+    "desc": "The Diplomacy of the Eclipse: a poetic, dialogue-light fable in which a negotiator is sent to plead with the Sun and the Moon before an eclipse ends the world. From the student filmmakers of École MoPA.",
+    "source_channel": "YouTube (Ecole MoPA)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/p3pUAE5Bsao",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "La Diplomatie de l'Éclipse",
+        "video_id": "p3pUAE5Bsao",
+        "url": "https://www.youtube.com/embed/p3pUAE5Bsao",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SIGGRAPH Best in Show, Computer Animation Festival (2023); Silver Medal — Student Academy Award, Animation (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
