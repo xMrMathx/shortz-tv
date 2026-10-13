@@ -354999,5 +354999,105 @@
     "award": "Nominee — Canadian Screen Award (2019), Best Web Program or Series, Fiction",
     "award_verified": false,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8066",
+    "title": "Dog Altogether",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~17 min",
+    "desc": "A rage-filled man spirals through violence and self-destruction until one chance encounter offers him a shot at redemption — the short that grew into Tyrannosaur.",
+    "source_channel": "YouTube (Film4)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/2jIR8il-Dsg",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Dog Altogether",
+        "video_id": "2jIR8il-Dsg",
+        "url": "https://www.youtube.com/embed/2jIR8il-Dsg",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, Best Short Film (2008)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8067",
+    "title": "Antonio's Breakfast",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "A teenage boy caring for his disabled father, whose friends rally to rearrange the tiny flat — and their lives — around the old man's needs.",
+    "source_channel": "YouTube (AntoniosBreakfast)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/Kk2PJQAvI_8",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Antonio's Breakfast",
+        "video_id": "Kk2PJQAvI_8",
+        "url": "https://www.youtube.com/embed/Kk2PJQAvI_8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, Best Short Film (2006)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8068",
+    "title": "Never Like the First Time!",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~14.5 min",
+    "desc": "Four people of different generations tell the true stories of their first sexual experiences, animated from real documentary interviews.",
+    "source_channel": "YouTube (Jonas Odell)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/1M18IlzP8PI",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Never Like the First Time!",
+        "video_id": "1M18IlzP8PI",
+        "url": "https://www.youtube.com/embed/1M18IlzP8PI",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Berlinale Golden Bear, Best Short Film (2006)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8069",
+    "title": "Jellyfish and Lobster",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~20 min",
+    "desc": "Two elderly care-home residents form an unlikely bond over a shared wish to end things on their own terms — until an enchanted discovery intervenes.",
+    "source_channel": "YouTube (Jellyfish & Lobster)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/5T6Q8jdW8w8",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Jellyfish and Lobster",
+        "video_id": "5T6Q8jdW8w8",
+        "url": "https://www.youtube.com/embed/5T6Q8jdW8w8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — BAFTA, Best British Short Film (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
