@@ -354700,5 +354700,80 @@
     "award": "Winner — Nashville Film Festival Best Animated Short (2022)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8124",
+    "title": "Urs",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "Wordless animated short: a son carries his aging mother up a mountain to a new home she does not want. A gentle, melancholic story about aging, loss, and letting go.",
+    "source_channel": "YouTube (Filmakademie Baden-Württemberg)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/b0HzLYJla1M",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Urs",
+        "video_id": "b0HzLYJla1M",
+        "url": "https://www.youtube.com/embed/b0HzLYJla1M",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Santa Barbara International Film Festival Bruce Corwin Award for Best Animation Short Film (2010)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8125",
+    "title": "Like the Ones I Used to Know",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~18 min",
+    "desc": "Christmas Eve, 1983: a recently divorced father picks up his kids from his ex-in-laws for the holiday, in a warm, bittersweet family dramedy (French title: Les Grandes Claques). French with English subtitles.",
+    "source_channel": "YouTube (The New Yorker)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/0izuBpIEJl8",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Like the Ones I Used to Know",
+        "video_id": "0izuBpIEJl8",
+        "url": "https://www.youtube.com/embed/0izuBpIEJl8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Nashville Film Festival Best Narrative Short (2021)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8126",
+    "title": "Tank Fairy",
+    "genre": "Comedy",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "A flamboyant drag queen becomes a lonely 10-year-old boy's fairy godmother, teaching him drag, dance, and self-expression. A joyful musical — rated PG, no sexual content or nudity. Mandarin/Taiwanese with English subtitles.",
+    "source_channel": "YouTube (KIS KIS - keep it short)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/pBWJ6sHbcyQ",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Tank Fairy",
+        "video_id": "pBWJ6sHbcyQ",
+        "url": "https://www.youtube.com/embed/pBWJ6sHbcyQ",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Frameline Best Narrative Short (2022); Seattle International Film Festival Special Jury Prize, Live Action Short (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
