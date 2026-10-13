@@ -355225,5 +355225,105 @@
     "award": "Winner — Rhode Island International Film Festival Grand Prize, Best Documentary Short (2019)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8145",
+    "title": "Fall of the Ibis King",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "A dark hand-painted opera fable: a villainous ibis king, a frog orchestra and a prima ballerina in a tale of ambition and revenge. Festival program notes list dark themes, including self-harm and abuse — adult in tone.",
+    "source_channel": "Vimeo (REDHAND PICTURES)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/883219795",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Fall of the Ibis King",
+        "video_id": "883219795",
+        "url": "https://player.vimeo.com/video/883219795",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Rhode Island International Film Festival Animation Grand Prize (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8146",
+    "title": "Search for the Human",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~7 min",
+    "desc": "French title: 'La Quête de l'Humain.' In a fantasy world, a griffin embraces his fate and goes on an epic journey to find a legendary creature: the Human. A gentle, clean fable from GOBELINS Paris.",
+    "source_channel": "YouTube (GOBELINS Paris)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/d5MZnsaAejA",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Search for the Human",
+        "video_id": "d5MZnsaAejA",
+        "url": "https://www.youtube.com/embed/d5MZnsaAejA",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Rhode Island International Film Festival Best Short Animation (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8147",
+    "title": "The Brave Locomotive",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~7 min",
+    "desc": "An all-ages hand-drawn musical fable: Linus, an aging locomotive, races to save his train and its passengers when a reckless new high-speed engine takes over his line. Clean family fare.",
+    "source_channel": "YouTube (Andrew Chesworth)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/l8mScKWj3kQ",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Brave Locomotive",
+        "video_id": "l8mScKWj3kQ",
+        "url": "https://www.youtube.com/embed/l8mScKWj3kQ",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — LA Shorts International Film Festival Best Animation (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8148",
+    "title": "Note of Defiance",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "In Kharkiv, just 40 km from the Russian border, artists hold secret underground concerts and lessons in a bomb-shelter bunker during the Russian invasion — creativity as cultural survival. Heavy themes; no combat footage.",
+    "source_channel": "YouTube (Mercury Studios)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/NZ990izUj_Q",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Note of Defiance",
+        "video_id": "NZ990izUj_Q",
+        "url": "https://www.youtube.com/embed/NZ990izUj_Q",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Rhode Island International Film Festival Grand Prize, Best Short Documentary (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
