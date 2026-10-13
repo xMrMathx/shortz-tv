@@ -355969,5 +355969,105 @@
     "award": "Winner — Jury Award, Short Film Narrative, Bentonville Film Festival 2020",
     "award_verified": true,
     "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8203",
+    "title": "When You Left Me on That Boulevard",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "On the last day of school in 1995 Austin, teenager Lyssa drifts through the hours before a big family party with her cousins — a sun-drenched snapshot of girlhood, family and first freedoms. By Kayla Abuda Galang.",
+    "source_channel": "Vimeo (Kayla Galang)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/887931553",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "When You Left Me on That Boulevard",
+        "video_id": "887931553",
+        "url": "https://player.vimeo.com/video/887931553",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Grand Jury Prize, Short Film, Sundance Film Festival 2023",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8204",
+    "title": "The Touch of the Master's Hand",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~12 min",
+    "desc": "A young Mormon missionary, troubled by a pornography habit he cannot shake, finally confesses to his companion — and faces what honesty costs inside a strict faith. Discussed, never shown. By Gregory Barnes.",
+    "source_channel": "Vimeo (Mitch Kalisa)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/662065137",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Touch of the Master's Hand",
+        "video_id": "662065137",
+        "url": "https://player.vimeo.com/video/662065137",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, U.S. Fiction, Sundance Film Festival 2021",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8205",
+    "title": "-Ship: A Visual Poem",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "A young boy whose home has been destroyed builds an imaginary ship from its remains, guided by the memory of his grandfather's hands — a visual poem about grief and holding on. By Terrance Daye.",
+    "source_channel": "Vimeo (Terrance Daye)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/436144408",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "-Ship: A Visual Poem",
+        "video_id": "436144408",
+        "url": "https://player.vimeo.com/video/436144408",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, U.S. Fiction, Sundance Film Festival 2020",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8206",
+    "title": "Will You Look At Me",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~20 min",
+    "desc": "Filmmaker Shuli Huang returns home to Wenzhou and, over one long conversation with his mother, asks to be truly seen — as a gay son, and as himself — in this intimate documentary short.",
+    "source_channel": "Vimeo (Film Independent)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1006042481",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Will You Look At Me",
+        "video_id": "1006042481",
+        "url": "https://player.vimeo.com/video/1006042481",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Jury Award, Non-Fiction, Sundance Film Festival 2023",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
