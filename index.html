@@ -4325,7 +4325,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013082121";
+const BUILD="20261013082819";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -11606,6 +11606,11 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
    for every channel. Lineup, live state and scores re-fetch no-store on
    EVERY open, so a change in what's live shows on that open. */
 let LS_CHANS=[], LS_STATE={}, LS_ACTIVE=null, LS_ORDER=null, LS_SINGLE=false, LS_ADV_AT=0;
+/* dead-source handling (his standing rule: a walled video is skipped, never
+   stared at): LS_FAIL_LVL = how far down a channel's fallback chain the
+   stage has been pushed by failures; LS_DEADCH = channels whose whole chain
+   failed this visit; LS_OKPLAY = the current source reached playing. */
+let LS_FAIL_LVL={}, LS_DEADCH=new Set(), LS_OKPLAY=false;
 function lsEnsureStyle(){
   if(document.getElementById("lsStyle"))return;
   const st=document.createElement("style"); st.id="lsStyle";
@@ -11648,12 +11653,26 @@ function lsEnsureStyle(){
 }
 function lsState(ch){ return LS_STATE[ch.channelId]||{}; }
 function lsIsLive(ch){ const s=lsState(ch); return !!(s.live&&s.videoId); }
+function lsSources(ch){
+  // every source a channel row can put on the stage, in the guide's designed
+  // fallback order: live broadcast → latest replay → the channel's uploads
+  // playlist (always exists). Failures walk DOWN this list (see lsFail).
+  const s=lsState(ch), out=[];
+  if(s.live&&s.videoId)out.push({k:"live",id:s.videoId});
+  if(s.latestVideoId)out.push({k:"replay",id:s.latestVideoId});
+  out.push({k:"playlist"});
+  return out;
+}
+function lsSrcFor(ch){
+  const srcs=lsSources(ch);
+  return srcs[Math.min(LS_FAIL_LVL[ch.channelId]||0,srcs.length-1)];
+}
 function lsEmbed(ch,muted){
   // sound-on by spec (mute=0); muted is only the platform-refusal fallback
-  const s=lsState(ch), q="autoplay=1&mute="+(muted?1:0)+"&rel=0&playsinline=1&controls=0&disablekb=1&fs=0&enablejsapi=1";
-  if(s.live&&s.videoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.videoId)+"?"+q;
-  if(s.latestVideoId)return "https://www.youtube.com/embed/"+encodeURIComponent(s.latestVideoId)+"?"+q;
-  return "https://www.youtube.com/embed?listType=playlist&list="+encodeURIComponent("UU"+String(ch.channelId).slice(2))+"&"+q;
+  const q="autoplay=1&mute="+(muted?1:0)+"&rel=0&playsinline=1&controls=0&disablekb=1&fs=0&enablejsapi=1";
+  const src=lsSrcFor(ch);
+  if(src.k==="playlist")return "https://www.youtube.com/embed?listType=playlist&list="+encodeURIComponent("UU"+String(ch.channelId).slice(2))+"&"+q;
+  return "https://www.youtube.com/embed/"+encodeURIComponent(src.id)+"?"+q;
 }
 function lsHeadHTML(){
   return '<div class="ls-head">📺 Free Live Sports</div><div class="ls-sub">Official live channels — free to watch, right here. When a channel is between events, its latest replay plays instead.</div>';
@@ -11703,21 +11722,44 @@ function lsPlay(cid,keep){
   const ch=LS_CHANS.find(c=>c.channelId===cid); if(!ch)return;
   LS_ACTIVE=cid; LS_TOKEN++;
   const stage=$("#lsStage"); if(!stage)return;
-  const live=lsIsLive(ch), s=lsState(ch);
+  const s=lsState(ch), src=lsSrcFor(ch), live=src.k==="live";
   // a single-video embed (live broadcast or latest replay) ENDS and must
   // auto-advance; the uploads-playlist fallback already rolls to the next
   // video inside YouTube, so it is excluded from channel advance
-  LS_SINGLE=!!((live&&s.videoId)||s.latestVideoId);
+  LS_SINGLE=src.k!=="playlist";
   const chip=live
     ? '<div class="ls-chip"><span class="dot"></span>LIVE · '+esc(ch.name)+'</div>'
-    : '<div class="ls-chip">↻ REPLAY'+(s.latestTitle?" · "+esc(s.latestTitle):"")+' — live events return soon</div>';
+    : '<div class="ls-chip">↻ REPLAY'+(src.k==="replay"&&s.latestTitle?" · "+esc(s.latestTitle):"")+' — live events return soon</div>';
   stage.innerHTML='<iframe id="lsFrame" src="'+lsEmbed(ch)+'" frameborder="0" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>'+chip
     +'<button class="ls-unmute" id="lsUnmute" style="display:none">🔊 Unmute</button>';
   const ub=$("#lsUnmute");
   if(ub)ub.onclick=(e)=>{ e.stopPropagation(); lsUnmute(); };
   document.querySelectorAll("[data-ls]").forEach(b=>b.classList.toggle("on",b.dataset.ls===cid));
   if(!keep){ try{ stage.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e){} }
+  LS_OKPLAY=false;
   lsArmSound(LS_TOKEN);
+  // playability watchdog: some walls never fire the player's onError (the
+  // generic "An error occurred" screen is one) — if this source has not
+  // reached playing in 9s it is treated as failed and skipped (lsFail)
+  const tk=LS_TOKEN;
+  setTimeout(()=>{ if(tk===LS_TOKEN&&LS_ACTIVE===cid&&!LS_OKPLAY)lsFail(); },9000);
+}
+/* NO DEAD SCREENS (his standing rule, app-wide): a stage source that
+   errors or never reaches playing is skipped instantly — first down this
+   channel's own fallback chain (live → replay → uploads playlist), then
+   to the next channel. A channel whose playlist also fails is dead for
+   the rest of the visit; if every channel dies the stage returns to the
+   idle picker rather than parking on a YouTube error screen. */
+function lsFail(){
+  const cid=LS_ACTIVE; if(!cid)return;
+  const ch=LS_CHANS.find(c=>c.channelId===cid); if(!ch)return;
+  const lvl=(LS_FAIL_LVL[cid]||0)+1;
+  if(lvl<lsSources(ch).length){ LS_FAIL_LVL[cid]=lvl; lsPlay(cid,true); return; }
+  LS_DEADCH.add(cid);
+  const chans=lsSorted().filter(c=>!LS_DEADCH.has(c.channelId));
+  if(!chans.length){ LS_ACTIVE=null; lsRender(); return; }
+  const i=chans.findIndex(c=>c.channelId===cid);
+  lsPlay(chans[(i+1)%chans.length].channelId,true);
 }
 /* Auto-advance (his order): a finished video goes to the NEXT channel in
    this visit's fresh order and plays it — no tap, no sitting on an ended
@@ -11727,10 +11769,10 @@ function lsAdvance(){
   const now=Date.now();
   if(now-LS_ADV_AT<5000)return; // same dedup discipline as the TV Guide
   LS_ADV_AT=now;
-  const chans=lsSorted(); if(chans.length<2)return;
+  const chans=lsSorted().filter(c=>!LS_DEADCH.has(c.channelId)); if(chans.length<1)return;
   const i=chans.findIndex(c=>c.channelId===LS_ACTIVE);
   const nxt=chans[(i+1)%chans.length];
-  if(nxt)lsPlay(nxt.channelId,true); // keep=true: never yank his scroll
+  if(nxt&&nxt.channelId!==LS_ACTIVE)lsPlay(nxt.channelId,true); // keep=true: never yank his scroll
 }
 /* SOUND-FIRST autoplay (his order: "No mute — have the video playing with
    sound"). The stage player is created inside the Live-tab tap's activation
@@ -11759,7 +11801,11 @@ function lsArmSound(token){
         },1800);
       },onStateChange:(e)=>{
         if(token!==LS_TOKEN)return;
+        if(e.data===1)LS_OKPLAY=true; // reached playing — the playability watchdog stands down
         if(e.data===0)lsAdvance(); // ENDED → next channel plays, no tap
+      },onError:(e)=>{
+        if(token!==LS_TOKEN)return;
+        lsFail(); // walled / unavailable / embed-blocked → skip it, never park on the error screen
       }}});
     }catch(_){}
   });
@@ -11896,6 +11942,7 @@ async function liveSports(){
     return;
   }
   LS_ACTIVE=null;
+  LS_FAIL_LVL={}; LS_DEADCH=new Set(); // failure memory is per-visit, same as the order
   LS_ORDER=svShuffle(LS_CHANS.map(c=>c.channelId)); // fresh order on EVERY entry (his order)
   lsRender();
   // his order: the #1 channel (live-first sort) starts playing — with sound —
