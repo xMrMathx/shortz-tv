@@ -1421139,5 +1421139,29 @@
         "kind": "episode"
       }
     ]
+  },
+  {
+    "id": "stv-52396",
+    "title": "Ivan's Childhood | WAR MOVIE | with Spanish subtitles",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ivan's Childhood | WAR MOVIE | with Spanish subtitles",
+        "url": "https://www.youtube.com/embed/_TAvXRF5ZHc",
+        "video_id": "_TAvXRF5ZHc",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/_TAvXRF5ZHc",
+    "eps": "1 ep",
+    "desc": "Based on the story by V. Bogomolov \"Ivan\". The childhood of 12-year-old Ivan ends with the onset of the war. Left without parents, he goes to a military unit and becomes a scout, risking his life,",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "Mosfilm",
+    "award_verified": true,
+    "award": "Golden Lion — Venice Film Festival (1962)"
   }
 ]
