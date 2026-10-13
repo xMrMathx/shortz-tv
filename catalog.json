@@ -355400,5 +355400,55 @@
     "award": "Winner — Internationale Kurzfilmtage Winterthur Grand Prize, Best International Short (2021)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8152",
+    "title": "Ebb & Flow",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~19 min",
+    "desc": "In war-era Beirut, a teenage girl tries to steal a first kiss while the city shakes around her — a coming-of-age story about wanting an ordinary first love in a place at war. Content note, stated plainly: one festival's content warnings for this film included \"sexual assault\" (whether it is depicted or only referenced is unverified), and a bomb explosion interrupts the story. Heavy subject matter.",
+    "source_channel": "YouTube (KIS KIS – keep it short)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/ZgA9Qi-uEXQ",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ebb & Flow",
+        "video_id": "ZgA9Qi-uEXQ",
+        "url": "https://www.youtube.com/embed/ZgA9Qi-uEXQ",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Flickerfest Special Jury Award, International Competition (2025)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8153",
+    "title": "Eeva",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "A dark, surreal, dialogue-free animated short: on the day of her husband's funeral, a widow drinks, grieves and escapes into strange dream images — including a woodpecker killed on the coffin. Adult in tone and psychologically unsettling; no dialogue.",
+    "source_channel": "YouTube (BANG BANG – A shot of shorts)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/s0Yi1VdIZys",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Eeva",
+        "video_id": "s0Yi1VdIZys",
+        "url": "https://www.youtube.com/embed/s0Yi1VdIZys",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Nashville Film Festival Best Animated Short (2023) · Annecy Alexeïeff–Parker Award (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
