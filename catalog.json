@@ -356187,5 +356187,105 @@
     "award": "Nominee — Canadian Screen Award (2021), Best Web Program or Series, Fiction. Winner — Best Lead Performance, Web Program or Series (Jayne Eastwood); Winner — Best Direction, Web Program or Series",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8085",
+    "title": "The Procedure",
+    "genre": "Comedy",
+    "eps": "1 ep",
+    "runtime": "~4 min",
+    "desc": "A man wakes up kidnapped and strapped to a table, bracing for a sinister procedure — the payoff is a single deadpan gross-out gag.",
+    "source_channel": "Vimeo (Calvin Lee Reeder)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/193729267",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Procedure",
+        "video_id": "193729267",
+        "url": "https://player.vimeo.com/video/193729267",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Jury Award: U.S. Fiction (2016)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8086",
+    "title": "Hair Wolf",
+    "genre": "Horror",
+    "eps": "1 ep",
+    "runtime": "~12 min",
+    "desc": "The staff of a Black hair salon in gentrifying Brooklyn fend off a vampiric monster: the white women who suck the lifeblood out of Black culture.",
+    "source_channel": "Vimeo (Mariama Diallo)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/672204032",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hair Wolf",
+        "video_id": "672204032",
+        "url": "https://player.vimeo.com/video/672204032",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Jury Award: U.S. Fiction (2018)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8087",
+    "title": "La Bruxa",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "A lonely old witch catches spring fever and pulls out every trick she knows to finally win her Prince Charming.",
+    "source_channel": "YouTube (Cuerdas Cortometraje Oficial)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/jFxaNN7JMag",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "La Bruxa",
+        "video_id": "jFxaNN7JMag",
+        "url": "https://www.youtube.com/embed/jFxaNN7JMag",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Goya Award (2011), Best Animated Short Film",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8088",
+    "title": "And So We Put Goldfish in the Pool",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~28 min",
+    "desc": "The true story of four junior-high girls who released 400 goldfish into their school swimming pool — a hyper-stylized dive into why they did it.",
+    "source_channel": "Vimeo (Koto Production)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/170127382",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "And So We Put Goldfish in the Pool",
+        "video_id": "170127382",
+        "url": "https://player.vimeo.com/video/170127382",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Grand Jury Prize (2017)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
