@@ -505,9 +505,10 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 /* ---------- VIDEO FOLDERS (Profile redesign, his design, crowned 2026-10-13) ----------
    The Profile's shelves live in drawn folders: tab on top, folder body in a
    modest landscape, a glass video screen set into the front playing through
-   that folder's own titles (the app's cf preview machinery; the in-view
-   folder plays WITH SOUND per his PROFILE AUTOPLAY LAW), the
-   folder's name on a plate on the front. Tap a folder -> its icon shoots to
+   that folder's own titles (the app's cf preview machinery; fronts start
+   MUTED, cycling in place — tap once for sound on that folder, tap the
+   same folder again to open it; his tap mechanic, 2026-10-13), the
+   folder's name on a plate on the front. Open a folder -> its icon shoots to
    the top-left beside the two-bar button and the contents take the whole
    screen; tap the top-left cluster again -> it closes and settles back.
    Premium finish is his law: gloss, depth, glass — never flat. */
@@ -535,6 +536,7 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .vf-media{display:block;border-radius:5px}
 .vf-media .vf-fade{position:absolute;inset:0;z-index:5;background:#000;opacity:0;pointer-events:none;transition:opacity .45s ease}
 .vf-media.swap .vf-fade{opacity:1}
+.vf-media .cfprev{transition:transform .45s cubic-bezier(.25,.8,.3,1)} /* title changes SLIDE sideways (10s dwell — his order 2026-10-13 ~17:39) */
 .vf-glass{position:absolute;inset:5px;border-radius:5px;z-index:4;pointer-events:none;
   background:linear-gradient(115deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.06) 34%,transparent 56%),
              linear-gradient(0deg,rgba(0,0,0,.22),transparent 34%);
@@ -4443,7 +4445,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013223846";
+const BUILD="20261013224632";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7330,14 +7332,18 @@ async function mgBackfillTitles(ids){
      unioned with this session's social-like cache where the entry is his —
      the exact backfill pattern mgLikedIds() already uses for the manga shelf.
    - My List <- the "mylist" set. Watch History <- the "history" ledger.
-   Previews follow his PROFILE AUTOPLAY LAW (2026-10-13 ~17:14): landing on
-   Profile, a video is ALREADY playing INLINE inside the Profile WITH SOUND —
-   no tap, no Watch button, no routing away. The machinery is the app's own
-   sound-preview pattern (cfPreviewSrc + a cfArmSound-style player arm:
-   audible load in the APK shell where soundOn is true from boot, muted start
-   + API unMute on web). Scrolling keeps the in-view folder's screen playing
-   with ONE audible screen at a time: the most-in-view folder is the audible
-   one, the rest cycle muted. Previews run only while Profile is on screen;
+   Previews play INLINE inside the Profile — no Watch button, no routing
+   away (his standing complaint from 2026-10-13 ~17:14). Sound follows his
+   TAP MECHANIC (2026-10-13 ~17:36, superseding the 17:14 sound-on-landing
+   law for folder fronts): every front starts MUTED, cycling its folder's
+   titles 10 seconds at a time, sliding to the next — never a whole episode
+   (dwell law ~17:39). First tap on a folder = its screen plays WITH SOUND,
+   in place on the grid; tapping a different folder moves the sound to it;
+   second tap on the folder that has the sound = it opens. Exactly one
+   audible screen at a time, and scrolling never starts or moves sound.
+   The audible mount is the app's own cf pattern (cfPreviewSrc + a
+   cfArmSound-style arm) — the tap is a user gesture, so the arm works on
+   web and in the APK alike. Previews run only while Profile is on screen;
    go() stops them when he leaves the tab. */
 const VF_DEFS=[
   {key:"scouts", name:"Scouts' Picks", cls:"vf-gold",  unit:"picks",
@@ -7425,18 +7431,24 @@ function renderVideoFolders(){
     s.folder=f;
     s.media=f.querySelector("[data-vf-media]");
     s.now=f.querySelector("[data-vf-now]");
-    f.onclick=()=>vfOpenFolder(key);
+    f.onclick=()=>vfFolderTap(key);
   });
   const add=$("#vfAdd");
   if(add)add.onclick=()=>toast("Custom Video Folders are coming soon");
   vfStartPreviews();
 }
-/* ----- folder-front previews: cycling through the folder's titles, WITH
-   SOUND on the most-in-view folder (PROFILE AUTOPLAY LAW) — the app's own
-   cf pattern: cfPreviewSrc for the src (mute follows soundOn) + a
-   cfArmSound-style arm for the audible folder; every other in-view folder
-   cycles muted; exactly one audible screen at a time. ----- */
+/* ----- folder-front previews: every front cycles through its folder's
+   titles MUTED, 10 seconds apiece, sliding to the next (never a whole
+   episode). Sound is BY TAP ONLY (his mechanic, 2026-10-13 ~17:36): the
+   grid starts silent, the first tap on a folder makes ITS screen audible
+   in place, a tap on another folder moves the sound, and a second tap on
+   the folder holding the sound opens it. Scrolling never starts or moves
+   sound. The audible mount reuses the app's own cf pattern (cfPreviewSrc
+   + a cfArmSound-style arm). Exactly one audible screen at a time. ----- */
 let vfActiveKey=null;
+/* the one folder he tapped for sound; null = every folder muted. Cleared
+   whenever previews stop, so the grid always starts silent. */
+let vfSoundKey=null;
 function vfStartPreviews(){
   vfStopPreviews();
   if(curView!=="profile")return;
@@ -7456,32 +7468,41 @@ function vfStartPreviews(){
   Object.values(vfState).forEach(s=>{ if(s.folder)vfObs.observe(s.folder); });
 }
 function vfSyncPreviews(){
-  /* the audible folder = the most-in-view one (first folder wins ties) */
-  let best=null, bestR=0.349;
+  /* visibility decides play/pause ONLY — it never picks the audible folder.
+     Sound belongs to vfSoundKey (his tap) and scrolling cannot move it. */
+  vfActiveKey=vfSoundKey;
   for(const d of VF_DEFS){
     const s=vfState[d.key]; if(!s)continue;
-    if(s.ratio>=0.35&&s.ratio>bestR+0.001){ best=d.key; bestR=s.ratio; }
-  }
-  vfActiveKey=best;
-  for(const d of VF_DEFS){
-    const s=vfState[d.key]; if(!s)continue;
-    s.audible=(d.key===best);
+    s.audible=(d.key===vfSoundKey);
     const shouldPlay=s.ratio>=0.35&&s.items.length>0;
     if(shouldPlay&&!s.timer)vfPlay(d.key);
     else if(!shouldPlay&&s.timer)vfPause(d.key);
-    else if(shouldPlay&&s.timer&&s._audibleMounted!==s.audible)vfMount(d.key); // sound handoff
+    else if(shouldPlay&&s.timer&&s._audibleMounted!==s.audible)vfMount(d.key); // sound moved by tap: remount
   }
 }
 function vfStopPreviews(){
   if(vfObs){ try{ vfObs.disconnect(); }catch(e){} vfObs=null; }
   vfActiveKey=null;
+  vfSoundKey=null;
   Object.keys(vfState||{}).forEach(k=>vfPause(k));
+}
+/* his tap mechanic: FIRST tap on a folder = its screen plays WITH SOUND,
+   right there on the grid (no open). Tapping a different folder moves the
+   sound to it. SECOND tap on the folder that already has the sound = it
+   opens. A folder with nothing in it has no screen to make audible, so it
+   opens on the first tap. */
+function vfFolderTap(key){
+  const s=vfState[key]; if(!s)return;
+  if(!s.items.length||vfSoundKey===key){ vfOpenFolder(key); return; }
+  vfSoundKey=key;
+  vfSyncPreviews(); /* hands the sound over: old folder remounts muted, this one audible */
+  if(!s.timer)vfPlay(key); /* tapped while only partly in view: start it (audible) */
 }
 function vfPlay(key){
   const s=vfState[key]; if(!s||s.timer||!s.items.length)return;
   vfShowTitle(key);
   vfMount(key);
-  s.timer=setInterval(()=>vfAdvance(key),8000);
+  s.timer=setInterval(()=>vfAdvance(key),10000); /* 10s dwell — a preview never plays the whole thing (his order) */
 }
 function vfPause(key){
   const s=vfState[key]; if(!s)return;
@@ -7501,9 +7522,8 @@ function vfShowTitle(key){
 function vfAdvance(key){
   const s=vfState[key]; if(!s||!s.items.length||!s.media)return;
   s.i=(s.i+1)%s.items.length;
-  const m=s.media;
-  m.classList.add("swap");
-  setTimeout(()=>{ if(!s.timer)return; vfMount(key); vfShowTitle(key); m.classList.remove("swap"); },460);
+  vfMount(key,true); /* SLIDE to the next title (his order — no fade) */
+  vfShowTitle(key);
 }
 function vfMutedSrc(t){
   /* the muted twin of cfPreviewSrc — same URL machinery, sound off */
@@ -7514,15 +7534,20 @@ function vfMutedSrc(t){
   if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted=1&loop=1";
   return embedSrc(u,false)+"&autoplay=1&mute=1";
 }
-function vfMount(key){
+function vfMount(key,slide){
   const s=vfState[key]; if(!s||!s.media)return;
   const it=s.items[s.i%s.items.length]; if(!it)return;
   const t=it.t, m=s.media;
-  if(s.player){ try{ if(s.player.destroy)s.player.destroy(); }catch(e){} s.player=null; }
-  m.querySelectorAll("iframe,video").forEach(el=>el.remove());
+  const olds=[...m.querySelectorAll("iframe,video")];
+  const oldPlayer=s.player; s.player=null;
+  const dropOlds=()=>{
+    olds.forEach(el=>{ try{ if(el.tagName==="VIDEO")el.pause(); }catch(e){} el.remove(); });
+    if(oldPlayer){ try{ if(oldPlayer.destroy)oldPlayer.destroy(); else if(oldPlayer.pauseVideo)oldPlayer.pauseVideo(); }catch(e){} }
+  };
   s._audibleMounted=!!s.audible;
   const u=(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||""))||"";
-  if(!u)return;
+  if(!u){ dropOlds(); return; }
+  let el=null, arm=false;
   if(isArchiveUrl(u)){
     /* archive.org: a real <video> on the direct MP4 — the cfActivate contract;
        sound follows the same rule (audible folder + soundOn), muted fallback
@@ -7531,22 +7556,41 @@ function vfMount(key){
     v.className="cfprev"; v.loop=true;
     v.muted=!(s.audible&&soundOn);
     v.setAttribute("playsinline",""); v.setAttribute("preload","metadata");
-    v.src=u; m.appendChild(v);
-    try{
-      const p=v.play();
-      if(p&&p.catch)p.catch(()=>{ if(v.isConnected){ try{ v.muted=true; const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} } });
-    }catch(e){}
-    return;
+    v.src=u;
+    el=v;
+  }else{
+    const src=s.audible?cfPreviewSrc(t):vfMutedSrc(t);
+    if(!src){ dropOlds(); return; }
+    const fr=document.createElement("iframe");
+    fr.className="cfprev";
+    fr.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
+    fr.setAttribute("allow","autoplay; encrypted-media; picture-in-picture");
+    fr.setAttribute("title","Video Folder preview");
+    fr.src=src;
+    el=fr; arm=!!s.audible;
   }
-  const src=s.audible?cfPreviewSrc(t):vfMutedSrc(t);
-  if(!src)return;
-  const fr=document.createElement("iframe");
-  fr.className="cfprev";
-  fr.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
-  fr.setAttribute("allow","autoplay; encrypted-media; picture-in-picture");
-  fr.setAttribute("title","Video Folder preview");
-  fr.src=src; m.appendChild(fr);
-  if(s.audible)vfArmSound(key,t,fr);
+  /* place the new screen: on an advance it SLIDES in from the right while
+     the old screen slides out to the left (his order); any other mount is
+     an instant swap. The outgoing player is torn down once it has slid
+     off (or right away on a swap) — same teardown vfPause performs. */
+  if(slide&&olds.length){
+    el.style.transform="translateX(100%)";
+    m.appendChild(el);
+    void el.offsetWidth; /* settle at the start position, then slide */
+    el.style.transform="translateX(0)";
+    olds.forEach(o=>{ o.style.transform="translateX(-100%)"; });
+    setTimeout(dropOlds,490);
+  }else{
+    m.appendChild(el);
+    dropOlds();
+  }
+  if(el.tagName==="VIDEO"){
+    try{
+      const p=el.play();
+      if(p&&p.catch)p.catch(()=>{ if(el.isConnected){ try{ el.muted=true; const p2=el.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} } });
+    }catch(e){}
+  }
+  if(arm)vfArmSound(key,t,el);
 }
 /* drive the audible folder's sound — a cfArmSound mirror scoped to the
    folder (the cf globals belong to the Home feed and are never touched) */
