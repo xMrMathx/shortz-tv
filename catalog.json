@@ -354775,5 +354775,105 @@
     "award": "Winner — Frameline Best Narrative Short (2022); Seattle International Film Festival Special Jury Prize, Live Action Short (2022)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8127",
+    "title": "All on a Mardi Gras Day",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~22 min",
+    "desc": "A year in the life of Demond Melancon, a Black Masking ('Mardi Gras Indian') Big Chief in New Orleans, sewing his suit stitch by stitch after post-Katrina displacement — a portrait of craft, pride, and a culture holding on in a gentrifying city.",
+    "source_channel": "YouTube (The New Yorker)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/-b7Gg_A3_XQ",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "All on a Mardi Gras Day",
+        "video_id": "-b7Gg_A3_XQ",
+        "url": "https://www.youtube.com/embed/-b7Gg_A3_XQ",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Seattle International Film Festival Grand Jury Prize, Documentary (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8128",
+    "title": "Fast Horse",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "Blackfoot Indian Relay — bareback riders race and swap horses at full speed in one of the most extreme Indigenous sports. A rider falls during the Calgary Stampede race; no graphic injury is shown.",
+    "source_channel": "YouTube (CBC Docs)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/3gssNjmEz5M",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Fast Horse",
+        "video_id": "3gssNjmEz5M",
+        "url": "https://www.youtube.com/embed/3gssNjmEz5M",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Film Festival Short Film Special Jury Award for Directing (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8129",
+    "title": "The Seahorse Trainer",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "A lonely old man devotes himself to training seahorses for an impossible trick in this surreal, wistful fable about devotion and dreams.",
+    "source_channel": "YouTube (TheCGBros)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/l_hcJl4fKXk",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Seahorse Trainer",
+        "video_id": "l_hcJl4fKXk",
+        "url": "https://www.youtube.com/embed/l_hcJl4fKXk",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Seattle International Film Festival Grand Jury Prize, Animation (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8130",
+    "title": "Girl in the Hallway",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "An animated spoken-word retelling of the real abduction and murder of 7-year-old Xiana Fairchild, narrated by a neighbor who used to see the girl alone in their apartment hallway and did nothing. The crime is narrated in fairy-tale language, never depicted — charcoal animation, no graphic imagery.",
+    "source_channel": "Vimeo (valerie barnhart)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/363023845",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Girl in the Hallway",
+        "video_id": "363023845",
+        "url": "https://player.vimeo.com/video/363023845",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Edmonton International Film Festival Grand Jury Award for Best Short Film, Animation (2019)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
