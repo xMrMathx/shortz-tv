@@ -105,6 +105,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cfmedia{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden}
 .cfmedia .cfart{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .cfmedia .cfprev{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000;z-index:2;pointer-events:none}
+.cfmedia video.cfprev{object-fit:cover} /* archive.org previews are real <video> elements, not iframes */
 .cfmedia .cfshield{position:absolute;inset:0;z-index:4}
 .cfmedia .cfbadge{position:absolute;left:10px;top:10px;z-index:3;background:var(--red);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:1px;padding:4px 9px;border-radius:6px;text-transform:uppercase;max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cfmedia .cfdur{position:absolute;right:10px;top:10px;z-index:3;background:rgba(0,0,0,.62);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
@@ -1862,7 +1863,7 @@ function thumb(t,sz){
   if(vm) return "https://vumbnail.com/"+vm[1]+".jpg";
   const dm=u.match(/dailymotion\.com\/(?:embed\/video\/|player\.html\?video=)([A-Za-z0-9]+)/);
   if(dm) return "https://www.dailymotion.com/thumbnail/video/"+dm[1];
-  const ar=u.match(/archive\.org\/embed\/([^/?#]+)/);
+  const ar=u.match(/archive\.org\/(?:embed|download)\/([^/?#]+)/); // embed-page AND direct-file (Prelinger) URL forms
   if(ar) return "https://archive.org/download/"+ar[1]+"/__ia_thumb.jpg";
   const id=ytId(u); if(!id) return "";
   return "https://i.ytimg.com/vi/"+id+"/"+sz+"default.jpg";
@@ -4353,7 +4354,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013173429";
+const BUILD="20261013175933";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -4885,6 +4886,8 @@ function vidOf(u){
   if(m)return m[1];
   m=s.match(/vimeo\.com\/video\/(\d+)/);
   if(m)return "vimeo:"+m[1];
+  m=s.match(/archive\.org\/download\/([^/]+)\//);
+  if(m)return "archive:"+m[1];
   return null;
 }
 function isVimeoUrl(u){return String(u||"").indexOf("vimeo.com")>=0}
@@ -5380,6 +5383,24 @@ function cfActivate(card){
   if(!card)return;
   const t=byId(card.dataset.id); if(!t)return;
   const media=card.querySelector("[data-cf-media]"); if(!media)return;
+  const au=(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||""));
+  if(isArchiveUrl(au)){
+    /* archive.org has no embed iframe — the preview is a real <video> on
+       the direct MP4, same contract as the iframe path: fills .cfmedia
+       (cfprev CSS), loops, sound follows soundOn (audible in the shell,
+       muted on web until first touch), and the YT-shim player lands in
+       cfPlayer so cfStopPreview tears it down like any other preview. */
+    const v=document.createElement("video");
+    v.className="cfprev";
+    v.setAttribute("playsinline",""); v.setAttribute("preload","metadata");
+    v.loop=true; v.muted=!soundOn; v.src=au;
+    media.appendChild(v);
+    card.classList.add("playing");
+    cfActive=card;
+    cfPlayerKind="archive"; cfPlayer=makeArchivePlayer(v);
+    try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{ if(cfActive===card){ try{ v.muted=true; const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} } }); }catch(e){}
+    return;
+  }
   const src=cfPreviewSrc(t); if(!src)return;
   const fr=document.createElement("iframe");
   fr.className="cfprev";
@@ -5472,9 +5493,10 @@ function cfStopPreview(){
   try{
     if(cfPlayerKind==="yt"&&cfPlayer){ try{cfPlayer.mute();}catch(e){} try{cfPlayer.stopVideo();}catch(e){} try{cfPlayer.destroy();}catch(e){} }
     else if(cfPlayerKind==="vm"&&cfPlayer){ try{cfPlayer.setVolume(0);}catch(e){} try{cfPlayer.pause();}catch(e){} try{cfPlayer.unload();}catch(e){} }
+    else if(cfPlayerKind==="archive"&&cfPlayer){ try{cfPlayer.destroy();}catch(e){} } // shim destroy pauses + removes the <video>
   }catch(e){}
   cfPlayer=null; cfPlayerKind=null;
-  try{ cfActive.querySelectorAll("iframe").forEach(f=>f.remove()); }catch(e){}
+  try{ cfActive.querySelectorAll("iframe,video.cfprev").forEach(f=>f.remove()); }catch(e){}
   try{ cfActive.classList.remove("playing"); }catch(e){}
   cfActive=null;
 }
