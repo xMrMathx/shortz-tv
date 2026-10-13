@@ -3435,6 +3435,12 @@ let soundOn=true, feedMounted=false; // app shell: sound ON by default — no ta
 // is why the app plays sound immediately). On web we start muted with the "tap for
 // sound" pill, and the very first tap anywhere unmutes (see handleTap).
 try{ if(typeof window.Android==="undefined"||!window.Android||!window.Android.onWatching) soundOn=false; }catch(e){ soundOn=false; }
+/* WEBCTX: true in a plain browser (no native shell). Browser autoplay law:
+   an unmuted start is refused before the user's first gesture, so on web the
+   card previews start MUTED (the start the platform allows) and upgrade to
+   sound via cfSoundArm + the first-touch sound arm. The APK path (its shell
+   permits audible autoplay) never takes a WEBCTX branch. */
+let WEBCTX=true; try{ WEBCTX=!(window.Android&&window.Android.onWatching); }catch(e){ WEBCTX=true; }
 let lastTapT=0, tapTimer=null; // single/double-tap disambiguation
 let feedStack=[], feedPos=-1;          // ordered visit history; feedPos = current index
 let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,next]
@@ -4325,7 +4331,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013084220";
+const BUILD="20261013085004";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5336,9 +5342,15 @@ function cfPreviewSrc(t){
   const u=(t&&(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"")))||"";
   if(!u)return "";
   const id=ytId(u);
-  if(id)return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute=0&playsinline=1&rel=0&modestbranding=1&controls=0&disablekb=1&fs=0&loop=1&playlist="+id+"&enablejsapi=1";
-  if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted=0&loop=1";
-  return embedSrc(u,false)+"&autoplay=1&mute=0";
+  /* Start volume follows soundOn: in the app shell soundOn is true from boot
+     (audible load, unchanged). On web soundOn starts false — an audible
+     (mute=0) embed is refused by the browser before any user gesture and the
+     card sits frozen — so web starts MUTED (autoplay the platform allows)
+     and upgrades to sound after the first interaction flips soundOn. */
+  const m0=soundOn?"0":"1";
+  if(id)return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute="+m0+"&playsinline=1&rel=0&modestbranding=1&controls=0&disablekb=1&fs=0&loop=1&playlist="+id+"&enablejsapi=1";
+  if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted="+m0+"&loop=1";
+  return embedSrc(u,false)+"&autoplay=1&mute="+m0;
 }
 function cfActivate(card){
   if(cfActive===card)return;
@@ -5401,6 +5413,34 @@ function cfSoundArm(kind,player,card){
       }
     }catch(e){}
   },1800);
+  /* WEB-ONLY rescue watchdog: the single check above can be consumed while
+     the player is still BUFFERING (state 3) — when buffering then settles
+     into the browser's refused-audible state, nothing ever retries and the
+     card never moves (Mr. Moore, 2026-10-13: "videos don't play when you
+     first get on the website"). On web, keep rescuing for a few seconds:
+     not playing -> muted play (the start the platform allows); playing ->
+     stop (sound is the first-touch arm's job). APK never runs this. */
+  if(WEBCTX){
+    let cfTries=0;
+    const cfTick=()=>{
+      if(!stillMine()||cfTries>=8)return;
+      cfTries++;
+      let done=false;
+      try{
+        if(kind==="yt"){
+          const st=player.getPlayerState();
+          if(st===1)done=true;
+          else if(st!==3){ try{ player.mute(); player.playVideo(); }catch(e){} }
+        }else if(kind==="vm"){
+          player.getPaused().then(paused=>{
+            if(paused&&stillMine()){ try{ player.setVolume(0); const p3=player.play(); if(p3&&p3.catch)p3.catch(()=>{}); }catch(e){} }
+          }).catch(()=>{});
+        }
+      }catch(e){}
+      if(!done)setTimeout(cfTick,900);
+    };
+    setTimeout(cfTick,900);
+  }
 }
 function cfStopPreview(){
   if(!cfActive)return;
@@ -5462,6 +5502,45 @@ function showCardFeed(fresh){
   if(fresh||!cfBuilt)buildCardFeed();
   else requestAnimationFrame(()=>cfRecompute());
 }
+/* FIRST-TOUCH SOUND ARM (web only): the browser allows sound after the
+   user's first interaction with the page — so that interaction, anywhere,
+   upgrades whatever is playing to full sound and flips soundOn so every
+   later video loads audible, exactly like the app. No button to hunt for.
+   Taps that land on a gate (sign-in / tutorial) don't count — the arm
+   stays armed until the first tap on actual content. APK never installs
+   this: its shell plays sound from the start. */
+if(WEBCTX){
+  const cfFirstSound=()=>{
+    let gateUp=false;
+    try{
+      ["authGate","tutGate"].forEach(id=>{
+        const el=document.getElementById(id);
+        if(el&&getComputedStyle(el).display!=="none"&&el.getBoundingClientRect().height>0)gateUp=true;
+      });
+    }catch(e){}
+    if(gateUp)return; // stay armed; a gate tap is not a content interaction
+    window.removeEventListener("pointerdown",cfFirstSound,true);
+    window.removeEventListener("touchend",cfFirstSound,true);
+    try{
+      if(cfPlayer&&cfActive){
+        if(cfPlayerKind==="yt"){ try{ cfPlayer.unMute(); cfPlayer.setVolume(100); if(cfPlayer.getPlayerState&&cfPlayer.getPlayerState()!==1)cfPlayer.playVideo(); }catch(e){} }
+        else if(cfPlayerKind==="vm"){ try{ cfPlayer.setVolume(1); const p=cfPlayer.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){} }
+      }
+    }catch(e){}
+    try{
+      const s=curSlide();
+      if(s&&s._player&&s._player.unMute){ s._player.unMute(); if(s._player.setVolume)s._player.setVolume(100); }
+      else unmuteFrame();
+    }catch(e){}
+    try{
+      soundOn=true;
+      const s2=curSlide(); const sp=s2&&s2.querySelector("[data-sound]"); if(sp)sp.style.display="none";
+    }catch(e){}
+  };
+  window.addEventListener("pointerdown",cfFirstSound,true);
+  window.addEventListener("touchend",cfFirstSound,true);
+}
+
 /* --- card actions: the app's existing like / comment / share systems --- */
 function cfPaintLike(card){
   const on=!!likes[card.dataset.id];
