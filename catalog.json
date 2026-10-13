@@ -355325,5 +355325,80 @@
     "award": "Winner — Rhode Island International Film Festival Grand Prize, Best Short Documentary (2023)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8149",
+    "title": "A Move",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~27 min",
+    "desc": "Documentary: filmmaker Elahe Esmaili returns to her family home in Mashhad, Iran, to help her parents move house — and appears on camera without hijab. With the Woman-Life-Freedom protests as the backdrop, the move sparks family arguments over hijab, politics, and freedom. Persian with English subtitles; nothing graphic.",
+    "source_channel": "Vimeo (Jumping Ibex)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1118791466",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Move",
+        "video_id": "1118791466",
+        "url": "https://player.vimeo.com/video/1118791466",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Uppsala International Short Film Festival Grand Prix (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8150",
+    "title": "Noir-Soleil",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~20 min",
+    "desc": "Hand-painted animation: after an earthquake stirs up the past, a young woman takes a DNA test and confronts her father about the man whose body was found in the Bay of Naples 40 years earlier — believed to have taken his own life. The suspected suicide is the subject, but nothing graphic is shown. French with English subtitles.",
+    "source_channel": "Vimeo (Eddy Productions)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1122149267",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Noir-Soleil",
+        "video_id": "1122149267",
+        "url": "https://player.vimeo.com/video/1122149267",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Uppsala International Short Film Festival Grand Prix (2021)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8151",
+    "title": "Rehearsal",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~15 min",
+    "desc": "In Nigeria, a church community rehearses staging a miracle: casting a wheelchair user and rehearsing a fake faith healing. A gentle meta-drama about belief versus performance. Dialogue in Nigerian Pidgin English.",
+    "source_channel": "Vimeo (Gbagi Michael)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/733182707",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Rehearsal",
+        "video_id": "733182707",
+        "url": "https://player.vimeo.com/video/733182707",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Internationale Kurzfilmtage Winterthur Grand Prize, Best International Short (2021)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
