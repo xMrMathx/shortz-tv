@@ -102901,7 +102901,9 @@
         "kind": "episode"
       }
     ],
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award": "Bronze Medal, Animation — Student Academy Awards (2026)",
+    "award_verified": true
   },
   {
     "id": "stv-1964",
@@ -102924,7 +102926,9 @@
         "kind": "episode"
       }
     ],
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award": "Gold Medal, Animation — Student Academy Awards (2026)",
+    "award_verified": true
   },
   {
     "id": "stv-1965",
@@ -256915,8 +256919,9 @@
       }
     ],
     "verified": true,
-    "award": "Grand Prix Annecy 1979; Outstanding Achievement London FF 1979; Silver Hugo Chicago 1979",
-    "dateAdded": "2026-10-08"
+    "award": "Grand Prix — Annecy International Animation Film Festival (1979)",
+    "dateAdded": "2026-10-08",
+    "award_verified": true
   },
   {
     "id": "stv-4575",
@@ -261589,7 +261594,7 @@
     "id": "stv-4752",
     "title": "Subconscious Password",
     "genre": "Animation",
-    "award": "Annecy International Animated Film Festival — Grand Prix for Best Short Film (2013)",
+    "award": "Cristal for a Short Film — Annecy International Animation Film Festival (2013)",
     "verified": true,
     "dateAdded": "2026-10-09",
     "episodes": [
@@ -261604,7 +261609,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=8OCGTu_bkbg",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4754",
@@ -262008,7 +262014,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=4KQKYzgusFI",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4773",
@@ -262073,7 +262080,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=eenzK-QQoIk",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4776",
@@ -265642,7 +265650,7 @@
     "id": "stv-4943",
     "title": "Two",
     "genre": "Sci-Fi",
-    "award": "Bronze Medal in Animation — 46th Student Academy Awards",
+    "award": "Bronze Medal in Animation — 46th Student Academy Awards (2019)",
     "verified": true,
     "dateAdded": "2026-10-09",
     "episodes": [
@@ -265657,7 +265665,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=0_OT2mJPUUs",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4944",
@@ -266680,7 +266689,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=fSthHAUjHx0",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4991",
@@ -266708,7 +266718,7 @@
     "id": "stv-4992",
     "title": "The Car That Came Back From the Sea",
     "genre": "Short Films",
-    "award": "Jury Award — Annecy International Animation Film Festival; Best Animated Short — Palm Springs International Shortfest (2025 Oscars-qualifying wins)",
+    "award": "Jury Award — Annecy International Animation Film Festival (2024); Best Animated Short — Palm Springs International ShortFest (2024)",
     "verified": true,
     "dateAdded": "2026-10-09",
     "episodes": [
@@ -266723,7 +266733,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=ignduNIEpEM",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4993",
@@ -371206,7 +371217,8 @@
     "desc": "The story of two sisters who spent their entire lives together looking back at their cherished memories. This short film won following awards: - Oscar for the Best Short Film - Academy Awards",
     "rights_basis": "Public YouTube embed",
     "source_channel": "KIS KIS - keep it short",
-    "award_verified": false
+    "award_verified": true,
+    "award": "Academy Award winner — Best Animated Short Film (1985)"
   },
   {
     "id": "stv-8859",
@@ -930382,7 +930394,8 @@
     "desc": "Alexandre Singh and Natalie Musteata’s film is set in a dystopian version of Paris where kissing is forbidden and purchases are made through small acts of violence.",
     "rights_basis": "Public YouTube embed",
     "source_channel": "The New Yorker",
-    "award_verified": false
+    "award_verified": true,
+    "award": "Academy Award winner — Best Live Action Short Film (2026)"
   },
   {
     "id": "stv-33171",
