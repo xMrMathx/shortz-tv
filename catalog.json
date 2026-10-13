@@ -354975,5 +354975,105 @@
     "award": "Winner — Chicago International Film Festival Gold Hugo, Best Animated Short Film (2023) · Animafest Zagreb Grand Prix (2023)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8135",
+    "title": "Ethan Lim: Cambodian Futures",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~17 min",
+    "desc": "Chicago chef Ethan Lim builds dishes from his family's Cambodian culinary legacy, cooking his way into the recipes and history they carried with them. The Khmer Rouge era is discussed as family history; nothing graphic is shown.",
+    "source_channel": "YouTube (PBS)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/TD2foE5IrAA",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ethan Lim: Cambodian Futures",
+        "video_id": "TD2foE5IrAA",
+        "url": "https://www.youtube.com/embed/TD2foE5IrAA",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Chicago International Film Festival Gold Hugo, Best Short Documentary (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8136",
+    "title": "Ricky",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~20 min",
+    "desc": "An ex-offender out on parole tries to hold his life together under constant pressure — until one bad night: driving without permission, he hits a bystander and flees, and his brother is arrested for it. A gritty reentry drama; profanity likely, no sexual content.",
+    "source_channel": "Vimeo (Rashad Frett)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1182792431",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ricky",
+        "video_id": "1182792431",
+        "url": "https://player.vimeo.com/video/1182792431",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Woodstock Film Festival Mark Braunstein Award for Best Short Narrative (2023) · Montclair Film Festival Fiction Short Jury Award (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8137",
+    "title": "Deciding Vote",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~20 min",
+    "desc": "The story of New York Assemblyman George Michaels, whose 1970 tie-breaking vote legalized abortion in New York — and ended his political career. This film is about abortion-rights history: a historical, political documentary; nothing graphic is shown.",
+    "source_channel": "YouTube (The New Yorker)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/sE0Hp5E6ojc",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Deciding Vote",
+        "video_id": "sE0Hp5E6ojc",
+        "url": "https://www.youtube.com/embed/sE0Hp5E6ojc",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Woodstock Film Festival Best Short Documentary (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8138",
+    "title": "Boat People",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "An animated documentary of a Vietnamese refugee family's escape by boat after the war, told through the mother's childhood story of rescuing ants. War and loss in storybook style; nothing graphic, nothing sexual.",
+    "source_channel": "Vimeo (National Film Board of Canada)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1030020459",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Boat People",
+        "video_id": "1030020459",
+        "url": "https://player.vimeo.com/video/1030020459",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — New Orleans Film Festival Helen Hill Award for Animated Short (2023) · Calgary International Film Festival Grand Jury Prize, Animated Short (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
