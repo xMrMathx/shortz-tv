@@ -355902,5 +355902,105 @@
     "award": "Nominee — Sydney Film Festival Dendy Awards Finalist (2019)",
     "award_verified": false,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8173",
+    "title": "The Mass of Men",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~17 min",
+    "desc": "A benefits-office drama by Gabriel Gauchet. A desperate claimant, worn down by the system, turns on the advisor across the desk — the film erupts in a sudden burst of violence with a nail gun, and a killing happens on screen. One shocking scene in an otherwise dialogue-driven film.",
+    "source_channel": "Vimeo (Gabriel Gauchet)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/45800557",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Mass of Men",
+        "video_id": "45800557",
+        "url": "https://player.vimeo.com/video/45800557",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — REGARD – Saguenay International Short Film Festival Grand Prize (2014) · Locarno Pardi di Domani Golden Leopard, Best International Short (2012)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8174",
+    "title": "And Granny Would Dance",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "A 2D animated short by Maryam Mohajer. Seen through a six-year-old's eyes in Tehran, her grandmother's friends gather over an illicit card game and swap stories of love, loss, and grief — all dialogue and memory, nothing graphic.",
+    "source_channel": "YouTube (Premium Films)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/enhWmxpLhdA",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "And Granny Would Dance",
+        "video_id": "enhWmxpLhdA",
+        "url": "https://www.youtube.com/embed/enhWmxpLhdA",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aesthetica Short Film Festival Best of Festival + Best Animation (2024) · Rhode Island International Film Festival Grand Prize, Best Short Animation (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8175",
+    "title": "Hanging On",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "A documentary by Alfie Barker. A Leeds ex-mining community fights the demolition of their homes — a gentle, playful film about home and community, with eviction stress and grief at its heart.",
+    "source_channel": "Vimeo (Cosmosquare Films)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/537369045",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hanging On",
+        "video_id": "537369045",
+        "url": "https://player.vimeo.com/video/537369045",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aesthetica Short Film Festival Best of Festival + Best Documentary (2021) · Encounters Best Live Action (British) Award (2021)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8176",
+    "title": "The Hold",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~10 min",
+    "desc": "A documentary by JD Donnelly, built in real time around freediver Alice Hickson's 7½-minute record breath hold. Grief for the father she lost as a child, and her mental-health recovery, run through it — nothing graphic.",
+    "source_channel": "YouTube (Short Frame)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/eJ-7qgYuL4M",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Hold",
+        "video_id": "eJ-7qgYuL4M",
+        "url": "https://www.youtube.com/embed/eJ-7qgYuL4M",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aesthetica Short Film Festival Best of Festival + Best Documentary (2025)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
