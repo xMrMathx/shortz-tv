@@ -355500,5 +355500,80 @@
     "award": "Winner — New Orleans Film Festival Narrative Short Jury Award (2024)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8156",
+    "title": "Retirement Plan",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~7 min",
+    "desc": "An animated short narrated by Domhnall Gleeson. Waiting at a bus stop, a man cheerfully reels off everything he plans to do when he retires — learn languages, see the world, live a bigger life. A gentle comedy about mortality: he imagines the life he'll live and even his own death, all of it played lightly.",
+    "source_channel": "YouTube (The New Yorker)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/2Mqa4zfJdx4",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Retirement Plan",
+        "video_id": "2Mqa4zfJdx4",
+        "url": "https://www.youtube.com/embed/2Mqa4zfJdx4",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — SXSW Grand Jury Award, Animated Shorts (2025) · Palm Springs Best of the Festival · Academy Award Nominee, Best Animated Short (2025)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8157",
+    "title": "Goodbye, My World",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~5 min",
+    "desc": "A French student animated short (original title: Au Revoir Mon Monde). As the end of the world arrives, a man decides to spend it doing what he loves — fishing — while catastrophe erupts around him. An apocalypse played purely for comedy: mass destruction, cartoon peril, nobody really hurt.",
+    "source_channel": "YouTube (Ecole MoPA)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/uUScyWlkJg8",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Goodbye, My World",
+        "video_id": "uUScyWlkJg8",
+        "url": "https://www.youtube.com/embed/uUScyWlkJg8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Student Academy Awards Gold Medal, Animation (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8158",
+    "title": "Thanks for Dancing",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~18 min",
+    "desc": "A Norwegian drama (original title: Takk for turen; English subtitles). Two elderly men who have shared a whole life together face the end of it: one of them is terminally ill. A tender story about a lifelong gay partnership and an approaching death — nothing explicit, all in the performances.",
+    "source_channel": "YouTube (KIS KIS – keep it short)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/KlDwnQdNOz8",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Thanks for Dancing",
+        "video_id": "KlDwnQdNOz8",
+        "url": "https://www.youtube.com/embed/KlDwnQdNOz8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Aspen Shortsfest Best Drama (2016) · Aspen Shortsfest Audience Award (2016)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
