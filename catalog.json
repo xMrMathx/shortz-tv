@@ -354600,5 +354600,105 @@
     "award": "Winner — Hamptons International Film Festival Best Documentary Short Film (2023)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8120",
+    "title": "Green Screen Gringo",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "An experimental documentary: filmmaker Douwe Dijkstra carries a portable green screen through São Paulo, Brazil, compositing himself into street scenes, beaches, and political protests. The adult themes are political only — nothing graphic.",
+    "source_channel": "Vimeo (Douwe Dijkstra)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/263962728",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Green Screen Gringo",
+        "video_id": "263962728",
+        "url": "https://player.vimeo.com/video/263962728",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Nashville Film Festival Grand Jury Prize, Best Experimental Short (2018)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8121",
+    "title": "Love, Dad",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~13 min",
+    "desc": "An animated documentary in which Diana Cam Van Nguyen answers the letters her father wrote her from prison fifteen years ago — he had left the family because her mother didn't give him a son. Heavy family themes, nothing graphic. Czech with English subtitles. Also won Best Short Film at BFI London and the AFI Fest Grand Jury Award.",
+    "source_channel": "Vimeo (Diana Cam Van Nguyen)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1048490007",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Love, Dad",
+        "video_id": "1048490007",
+        "url": "https://player.vimeo.com/video/1048490007",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Nashville Film Festival Best Documentary Short (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8122",
+    "title": "Liturgy of Anti-Tank Obstacles",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~12 min",
+    "desc": "Ukrainian sculptors who once made religious statues now weld anti-tank obstacles during the Russian invasion. Only workshops and statues are shown — no combat footage and no injuries. Ukrainian with English subtitles.",
+    "source_channel": "YouTube (The New Yorker)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/v0GvsVxOC_8",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Liturgy of Anti-Tank Obstacles",
+        "video_id": "v0GvsVxOC_8",
+        "url": "https://www.youtube.com/embed/v0GvsVxOC_8",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Nashville Film Festival Best Documentary Short (2023)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8123",
+    "title": "Night of the Living Dread",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "A felt stop-motion comedy about insomnia: a woman is haunted by puppets of her embarrassing past selves. One puppet is briefly nude — non-sexual, played for awkward comedy (PG-13).",
+    "source_channel": "Vimeo (The New Yorker)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/848842782",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Night of the Living Dread",
+        "video_id": "848842782",
+        "url": "https://player.vimeo.com/video/848842782",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Nashville Film Festival Best Animated Short (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
