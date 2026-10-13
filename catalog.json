@@ -355650,5 +355650,105 @@
     "award": "Winner — Flickerfest Yoram Gross Award for Best International Animated Short Film (2022)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8162",
+    "title": "La Reina",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~18 min",
+    "desc": "A documentary (original title: La Reina). In rural Argentina, 11-year-old Memi is being prepared for carnival-queen pageants under her mother's relentless drive to win — an oversized headdress causes the girl visible pain during prep. A quiet critique of child pageants: a real child in real distress is what the camera shows.",
+    "source_channel": "Vimeo (Manuel Abramovich)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/138867962",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "La Reina",
+        "video_id": "138867962",
+        "url": "https://player.vimeo.com/video/138867962",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Melbourne International Film Festival City of Melbourne Grand Prix for Best Short Film (2014)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8163",
+    "title": "Pandy",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "An adult animated comedy (also known as Pandas). A young panda chafes at pampered zoo life and dreams of freedom — told as an explosion of cartoon panda sex, drug references, and grotesque violence played for shock comedy. All animated animals, no people; deliberately crude throughout.",
+    "source_channel": "Vimeo (BFILM)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/282137449",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Pandy",
+        "video_id": "282137449",
+        "url": "https://player.vimeo.com/video/282137449",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Melbourne International Film Festival Grand Prix for Best Short Film (2013)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8164",
+    "title": "Blood Pulls a Gun",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~18 min",
+    "desc": "A coming-of-age story crossed with a crime thriller. Alice, a 14-year-old working at her father's remote motel, becomes fascinated with a dangerous drifter who checks in — and hides in the back of his car. Sexual tension and gun violence build toward a brutal climax; the adults' sex is overheard, never shown.",
+    "source_channel": "Vimeo (Ben Briand)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/137781541",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Blood Pulls a Gun",
+        "video_id": "137781541",
+        "url": "https://player.vimeo.com/video/137781541",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Melbourne International Film Festival Swinburne Award for Emerging Australian Filmmaker, awarded for this film (2014)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8165",
+    "title": "Mrs. Metro",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~4 min",
+    "desc": "A black-comedy animation. A homeless man leaves a bag on a crowded city train — inside is a live baby, whose crying slowly frays the passengers and the station announcer. Deliberately disturbing: it makes you laugh one second and freeze the next.",
+    "source_channel": "Vimeo (Aggelos Papantoniou)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/148054828",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Mrs. Metro",
+        "video_id": "148054828",
+        "url": "https://player.vimeo.com/video/148054828",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Melbourne International Film Festival City of Melbourne Grand Prix for Best Short Film (2016)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
