@@ -356002,5 +356002,55 @@
     "award": "Winner — Aesthetica Short Film Festival Best of Festival + Best Documentary (2025)",
     "award_verified": true,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8177",
+    "title": "Goodridge: The Price of Glory",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "A documentary portrait of MMA pioneer Gary ‘Big Daddy’ Goodridge, now living with diagnosed CTE from his fighting years. His failing memory and the brain damage are the subject, told alongside archival footage of his real fights across the UFC, K-1 and PRIDE.",
+    "source_channel": "YouTube (KC Productions)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/Tibpgn3Ksj4",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Goodridge: The Price of Glory",
+        "video_id": "Tibpgn3Ksj4",
+        "url": "https://www.youtube.com/embed/Tibpgn3Ksj4",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Edmonton International Film Festival Grand Jury Award, Best Documentary Short (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
+  },
+  {
+    "id": "stv-8178",
+    "title": "An Angel on Oxford Street",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "A gentle animated short set on London's Oxford Street, where an unlikely guardian watches over a homeless man sleeping rough. Homelessness and mental illness are the themes; the tone is warm and nothing is graphic.",
+    "source_channel": "YouTube (Geoff Thompson Official)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/EO7cCymmEuY",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "An Angel on Oxford Street",
+        "video_id": "EO7cCymmEuY",
+        "url": "https://www.youtube.com/embed/EO7cCymmEuY",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Edmonton International Film Festival Grand Jury Award, Best Animated Short (2024)",
+    "award_verified": true,
+    "dateAdded": "2026-10-13"
   }
 ]
