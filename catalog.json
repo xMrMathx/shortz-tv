@@ -1211418,5 +1211418,97 @@
     "rights_basis": "Public YouTube embed",
     "source_channel": "Troma Entertainment",
     "award_verified": false
+  },
+  {
+    "id": "stv-43952",
+    "title": "Shade Grown Coffee | Documentary about sustainable coffee grown in the shade",
+    "genre": "Documentary",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Shade Grown Coffee | Documentary about sustainable coffee grown in the shade",
+        "url": "https://www.youtube.com/embed/poyMr9uOje0",
+        "video_id": "poyMr9uOje0",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/poyMr9uOje0",
+    "eps": "1 ep",
+    "desc": "SHADE GROWN COFFEE is the inspiring story about how growing coffee in the shade of native trees in the tropics can have a truly positive impact on local communities, halt deforestation and protect",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "MAGNETFILM",
+    "award_verified": false
+  },
+  {
+    "id": "stv-43953",
+    "title": "A Postcard from Pyongyang - Traveling through North Korea secretly filming (Documentary, 2019)",
+    "genre": "Documentary",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "A Postcard from Pyongyang - Traveling through North Korea secretly filming (Documentary, 2019)",
+        "url": "https://www.youtube.com/embed/2H2ROCrk9mE",
+        "video_id": "2H2ROCrk9mE",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/2H2ROCrk9mE",
+    "eps": "1 ep",
+    "desc": "Filmmakers Gregor Möllers and Anne Lewald visit North Korea in 2013 for the 60th anniversary of the end of the Korean War and again in 2017 for the Pyongyang Marathon as foreign tourists. Using",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "MAGNETFILM",
+    "award_verified": false
+  },
+  {
+    "id": "stv-43954",
+    "title": "You Only Live Once - Die Toten Hosen | On tour with the German punk band",
+    "genre": "Documentary",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "You Only Live Once - Die Toten Hosen | On tour with the German punk band",
+        "url": "https://www.youtube.com/embed/q9UGWVcHuf0",
+        "video_id": "q9UGWVcHuf0",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/q9UGWVcHuf0",
+    "eps": "1 ep",
+    "desc": "The Düsseldorf punk rock group Die Toten Hosen is a phenomenon of superlatives. This music documentary accompanies the legendary and most successful German-speaking rock band on one of their biggest",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "MAGNETFILM",
+    "award_verified": false
+  },
+  {
+    "id": "stv-43955",
+    "title": "Sometimes I Dream I'm Flying | A young ballerina's life between exhaustion and excitement",
+    "genre": "Documentary",
+    "verified": true,
+    "dateAdded": "2026-10-13",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sometimes I Dream I'm Flying | A young ballerina's life between exhaustion and excitement",
+        "url": "https://www.youtube.com/embed/nuOtBdghrjY",
+        "video_id": "nuOtBdghrjY",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/nuOtBdghrjY",
+    "eps": "1 ep",
+    "desc": "Weronika is a dedicated and talented young ballet dancer in Poland. Over the period of six years, the documentary follows her journey from the renowned Warsaw Ballet School to the greatest stages of",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "MAGNETFILM",
+    "award_verified": false
   }
 ]
