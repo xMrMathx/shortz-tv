@@ -237639,7 +237639,9 @@
         "kind": "episode"
       }
     ],
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award": "Winner, Best Short Film — BAFTA Awards (2014)",
+    "award_verified": true
   },
   {
     "id": "stv-3689",
@@ -266328,7 +266330,8 @@
     ],
     "url": "https://www.youtube.com/watch?v=ZR20weqhXNs",
     "eps": "1 ep",
-    "rights_basis": "Public YouTube embed"
+    "rights_basis": "Public YouTube embed",
+    "award_verified": true
   },
   {
     "id": "stv-4973",
