@@ -121,6 +121,20 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cfact.liked{color:#ff3355;border-color:rgba(229,9,20,.45)}
 .cfact.saved{color:#2ee06f;border-color:rgba(46,224,111,.45)}
 .cfact.share{margin-left:auto}
+/* ---------- EPISODES FOLD (his order 2026-10-13): an Episodes button sits
+   between the ✓ and Share on every multi-episode card, and in the detail
+   sheet's play row; press it and the fold drops down with every episode in
+   catalog order (trailers last is already encoded in that order). Rows are
+   the ONE shared markup (epRowsHTML). Action rows wrap so the extra pill
+   can never overflow a narrow phone. */
+.cfactions{flex-wrap:wrap}
+.playrow{flex-wrap:wrap}
+.epschev{display:inline-block;transition:transform .25s ease}
+.epsopen .epschev{transform:rotate(180deg)}
+.cffold{padding:0 10px 12px}
+.cffold[hidden]{display:none}
+.cffold .eplist{max-height:44vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#dEps[hidden]{display:none}
 #cfBack{position:absolute;top:calc(60px + env(safe-area-inset-top));left:12px;z-index:60;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.6);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center}
 #cfBack.on{display:flex}
 @media(min-width:1024px){
@@ -4429,7 +4443,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013221504";
+const BUILD="20261013223846";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5376,8 +5390,10 @@ function cfCardHTML(t){
       <button class="cfact${liked?" liked":""}" data-cf-like><span data-cf-heart>${liked?"♥":"♡"}</span><span data-cf-likenum>${lc}</span></button>
       <button class="cfact" data-cf-com><span>💬</span><span data-cf-comnum>${cc}</span></button>
       <button class="cfact${inList?" saved":""}" data-cf-save><span data-cf-saveicon>${inList?"✓":"+"}</span></button>
+      ${((t.episodes||[]).length>1)?`<button class="cfact" data-cf-eps aria-expanded="false"><span>▤</span><span>Episodes ${(t.episodes||[]).length}</span><span class="epschev">▾</span></button>`:""}
       <button class="cfact share" data-cf-share><span>⤴</span><span>Share</span></button>
     </div>
+    ${((t.episodes||[]).length>1)?`<div class="cffold" data-cf-fold hidden><div class="eplist">${epRowsHTML(t)}</div></div>`:""}
   </article>`;
 }
 function cfPickBatch(n,avoidId){
@@ -5721,6 +5737,9 @@ function cfSyncCounts(){
     if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
     if(e.target.closest("[data-cf-save]")){ cfSaveTap(card,t); return; }
     if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
+    if(e.target.closest("[data-cf-eps]")){ cfToggleFold(card); return; }
+    const fr=e.target.closest("[data-cf-fold] .erow");
+    if(fr){ if(fr.tagName==="BUTTON")playEpFromFold(t,parseInt(fr.dataset.idx,10)); return; }
     if(e.target.closest("[data-cf-media],[data-cf-body]")){ playSeries(t); }
   });
   document.addEventListener("visibilitychange",()=>{ if(document.hidden)cfStopPreview(); else cfRecompute(); });
@@ -5739,6 +5758,9 @@ function bindCfCards(root){
     if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
     if(e.target.closest("[data-cf-save]")){ cfSaveTap(card,t); return; }
     if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
+    if(e.target.closest("[data-cf-eps]")){ cfToggleFold(card); return; }
+    const fr=e.target.closest("[data-cf-fold] .erow");
+    if(fr){ if(fr.tagName==="BUTTON")playEpFromFold(t,parseInt(fr.dataset.idx,10)); return; }
     if(e.target.closest("[data-cf-media],[data-cf-body]")){ openDetail(t.id); }
   });
 }
@@ -5761,6 +5783,41 @@ function epRowTitle(e,partIdx){
   if(k==="special")return "Special: "+(e.title||"");
   if(k==="compilation")return e.title||"Compilation";
   return e.title||("Episode "+(e.n||""));
+}
+/* THE episode rows: one markup for the player drawer, the detail fold and
+   the card fold. Catalog order IS the order (true order; trailers last). */
+function epRowsHTML(t){
+  const rt=t.runtime||"";
+  return (t.episodes||[]).map((e,idx)=>{
+    const k=e.kind||"episode", pi=partIdxOf(t,e);
+    const num=epNumLabel(e,pi), title=epRowTitle(e,pi);
+    const badge=!e.verified?`<span class="unbadge">Unavailable</span>`:k==="special"?`<span class="spbadge">SPECIAL</span>`:k==="compilation"?`<span class="cpbadge">COMPILATION</span>`:"";
+    const cls="erow"+(!e.verified?" unav":"");
+    const inner=`<span class="en">${esc(num)}</span><span class="em"><div class="et">${esc(title)}</div><div class="es">${esc(rt)}</div></span>${badge}`;
+    return e.verified?`<button class="${cls}" data-idx="${idx}">${inner}</button>`:`<div class="${cls}">${inner}</div>`;
+  }).join("");
+}
+/* fold row tap -> the normal play path (resume keying, error-skip,
+   reload-guard all live downstream of playSeries/playEpisode) */
+function playEpFromFold(t,idx){
+  const e=(t.episodes||[])[idx]; if(!e||!e.verified)return;
+  go("home"); playSeries(t); playEpisode(e);
+}
+/* card fold: press Episodes -> the fold drops; press again -> it closes.
+   Opening one card's fold collapses any other open fold. */
+function cfToggleFold(card){
+  const fold=card.querySelector("[data-cf-fold]"); if(!fold)return;
+  const btn=card.querySelector("[data-cf-eps]");
+  const opening=fold.hidden;
+  document.querySelectorAll(".cffold:not([hidden])").forEach(f=>{
+    if(f===fold)return;
+    f.hidden=true;
+    const c=f.closest(".cfcard"), b=c?c.querySelector("[data-cf-eps]"):null;
+    if(b){ b.classList.remove("epsopen"); b.setAttribute("aria-expanded","false"); }
+  });
+  fold.hidden=!opening;
+  if(btn){ btn.classList.toggle("epsopen",opening); btn.setAttribute("aria-expanded",opening?"true":"false"); }
+  try{ buzz(10); }catch(e){}
 }
 /* ---------- autoplay: when a video ends, play the next verified episode ---------- */
 /* true only if the video actually played to (near) the end.
@@ -6033,25 +6090,24 @@ function openDetail(id){
       <div class="playrow">
         <button class="btn-play" id="dPlay" style="flex:0.72;justify-content:center">▶ Play</button>
         <button class="btn-ghost" id="dSave">${inList?"♥ Saved":"＋ My List"}</button>
+        ${((t.episodes||[]).length>1)?`<button class="btn-ghost" id="dEpsBtn" aria-expanded="false">▤ Episodes ${t.episodes.length} <span class="epschev">▾</span></button>`:""}
         <button class="btn-ghost" id="dShare">⤴ Share</button>
       </div>
-      ${((t.episodes||[]).length>1)?`<div class="sect" style="margin-top:16px">Episodes (${t.episodes.length})</div><div class="eplist" id="dEps">${
-        t.episodes.map((e,idx)=>{
-          const k=e.kind||"episode", pi=partIdxOf(t,e);
-          const num=epNumLabel(e,pi), title=epRowTitle(e,pi);
-          const badge=!e.verified?`<span class="unbadge">Unavailable</span>`:k==="special"?`<span class="spbadge">SPECIAL</span>`:k==="compilation"?`<span class="cpbadge">COMPILATION</span>`:"";
-          const cls="erow"+(!e.verified?" unav":"");
-          const inner=`<span class="en">${esc(num)}</span><span class="em"><div class="et">${esc(title)}</div><div class="es">${esc(t.runtime||"")}</div></span>${badge}`;
-          return e.verified?`<button class="${cls}" data-idx="${idx}">${inner}</button>`:`<div class="${cls}">${inner}</div>`;
-        }).join("")
-      }</div>`:""}
+      ${((t.episodes||[]).length>1)?`<div class="eplist" id="dEps" hidden style="margin-top:12px">${epRowsHTML(t)}</div>`:""}
     </div></div>`;
   $("#dBack").onclick=()=>go(returnView);
   $("#dPlay").onclick=()=>{go("home");loadFeed(t)};
   const dl=$("#dEps");
   if(dl)dl.querySelectorAll("button.erow").forEach(r=>{
-    r.onclick=()=>{ const e=(t.episodes||[])[parseInt(r.dataset.idx,10)]; if(!e||!e.verified)return; go("home"); playSeries(t); playEpisode(e); };
+    r.onclick=()=>playEpFromFold(t,parseInt(r.dataset.idx,10));
   });
+  const eb=$("#dEpsBtn");
+  if(eb)eb.onclick=()=>{
+    if(!dl)return;
+    const opening=dl.hidden; dl.hidden=!opening;
+    eb.classList.toggle("epsopen",opening); eb.setAttribute("aria-expanded",opening?"true":"false");
+    try{ buzz(10); }catch(e){}
+  };
   $("#dSave").onclick=()=>{
     if(mylist.has(id)){mylist.delete(id);toast("Removed from My List")}else{mylist.add(id);toast("Saved to My List")}
     saveList();$("#dSave").textContent=mylist.has(id)?"♥ Saved":"＋ My List";
