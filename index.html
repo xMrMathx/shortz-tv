@@ -4325,7 +4325,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013053513";
+const BUILD="20261013081437";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6752,16 +6752,66 @@ function getProfile(){
 async function loadProfile(){
   let p=getProfile();
   if(p) return p;
-  // try remote
+  // no local copy: the ACCOUNT is the source of truth (see below)
+  return syncProfileWithAccount();
+}
+/* ---------- account-backed profile sync ----------
+   ONE account, every context (app, web, any device): the profile lives
+   on the account at users/{uid}/profile, and signing in restores it.
+   The old flow only ever WROTE there (saveProfile) — nothing read it
+   back: loadProfile() had zero callers and renderProfile() consulted
+   localStorage alone, so any fresh context (the web, a new phone)
+   showed the blank "Create your profile" form to a user whose account
+   already had a profile. This sync is the missing read half:
+   - identity is the SETTLED real account via authCurrentUser() — never
+     an anonymous fallback (an anon uid is a throwaway, not the
+     account) and never a manufactured sign-in (shared AuthId discipline);
+   - remote has profile fields -> they win: restored into local storage;
+   - remote has none but THIS device holds a profile -> backfill the
+     account with update() (never set(): the same node also carries the
+     account's saved/recent lists, which a set() would wipe);
+   - no account / no profile anywhere -> null, and ONLY then may the
+     create form appear. */
+let _profSyncFlight=null;
+async function syncProfileWithAccount(){
   try{
-    const ok=await liveEnsure();
-    if(ok&&Live.db){
-      const snap=await Live.db.ref("users/"+Live.uid+"/profile").once("value");
-      const rp=snap.val();
-      if(rp){ store.set("profile",rp); return rp; }
-    }
-  }catch(e){}
-  return null;
+    if(!FIREBASE_READY||!window.firebase) return getProfile();
+    if(!Live.app){ try{ Live.app=firebase.initializeApp(FIREBASE_CONFIG); }catch(e){ try{ Live.app=firebase.app(); }catch(_){} } }
+    if(!Live.auth){ try{ Live.auth=firebase.auth(); }catch(e){} }
+    if(!Live.db){ try{ Live.db=firebase.database(); }catch(e){} }
+    if(!Live.auth||!Live.db) return getProfile();
+    const user=await authCurrentUser(Live.auth);
+    if(!user||user.isAnonymous) return getProfile();
+    const uid=user.uid;
+    if(_profSyncFlight&&_profSyncFlight.uid===uid) return _profSyncFlight.p;
+    const run=(async()=>{
+      const ref=Live.db.ref("users/"+uid+"/profile");
+      let remote=null;
+      try{ const snap=await ref.once("value"); remote=snap.val(); }catch(e){}
+      const hasFields=r=>!!(r&&(r.name||r.photo||(Array.isArray(r.favGenres)&&r.favGenres.length)));
+      const local=getProfile();
+      if(hasFields(remote)){
+        const merged={
+          name:remote.name||(local&&local.name)||"",
+          photo:remote.photo||(local&&local.photo)||"",
+          favGenres:Array.isArray(remote.favGenres)?remote.favGenres:((local&&local.favGenres)||[]),
+          createdAt:remote.createdAt||(local&&local.createdAt)||Date.now()
+        };
+        store.set("profile",merged);
+        try{ Live.name=merged.name||Live.name; }catch(e){}
+        try{ await Live.db.ref("directory/"+uid).update({name:merged.name||"Viewer",photo:merged.photo||"",ts:Date.now()}); }catch(e){}
+        return merged;
+      }
+      if(local){
+        try{ await ref.update({name:local.name||"",photo:local.photo||"",favGenres:local.favGenres||[],createdAt:local.createdAt||Date.now()}); }catch(e){}
+        try{ await Live.db.ref("directory/"+uid).update({name:local.name||"Viewer",photo:local.photo||"",ts:Date.now()}); }catch(e){}
+      }
+      return local||null;
+    })();
+    _profSyncFlight={uid:uid,p:run};
+    try{ return await run; }
+    finally{ if(_profSyncFlight&&_profSyncFlight.p===run)_profSyncFlight=null; }
+  }catch(e){ return getProfile(); }
 }
 async function saveProfile(p){
   p.createdAt=p.createdAt||Date.now();
@@ -6769,7 +6819,9 @@ async function saveProfile(p){
   try{
     const ok=await liveEnsure();
     if(ok&&Live.db){
-      await Live.db.ref("users/"+Live.uid+"/profile").set(p);
+      // update(), never set(): this node also carries the account's
+      // saved/recent lists (authSyncLists) — a set() would wipe them.
+      await Live.db.ref("users/"+Live.uid+"/profile").update({name:p.name||"",photo:p.photo||"",favGenres:p.favGenres||[],createdAt:p.createdAt||Date.now()});
       await Live.db.ref("directory/"+Live.uid).update({name:p.name||"Viewer",photo:p.photo||"",ts:Date.now()});
       Live.name=p.name||Live.name;
       syncHistoryRemote(); syncMyListRemote(); // backfill recents/saved
@@ -6809,7 +6861,22 @@ function renderProfile(){
   // Live.uid existed on a cold open and silently no-opped in its catch.)
   friendsEnsure();
   const p=getProfile();
-  if(!p){ renderProfileSetup(); return; }
+  if(!p){
+    /* No local profile is NOT proof the account has none: on a fresh
+       context (web, new device) the profile lives on the account.
+       Restore from the account first — the blank create form may only
+       appear when the account truly has no profile on record. */
+    if(!renderProfile._restoreTried){
+      renderProfile._restoreTried=true;
+      $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px"><div style="color:var(--mut);font-size:13px">Loading your profile…</div></div>`;
+      syncProfileWithAccount().then(found=>{
+        renderProfile._restoreTried=false;
+        if(found)renderProfile(); else renderProfileSetup();
+      },()=>{ renderProfile._restoreTried=false; renderProfileSetup(); });
+      return;
+    }
+    renderProfileSetup(); return;
+  }
   const friendsN=(Live.friendsSnap&&Object.keys(Live.friendsSnap).length)||0;
   $("#view-profile").innerHTML=`<div class="wrap">
     <div class="profhead">
@@ -9989,6 +10056,10 @@ async function finishAuth(user,method){
   hideAuthGate();
   try{toast("Signed in ✓");}catch(e){}
   try{ await authSyncLists(); }catch(e){}
+  /* One account everywhere: restore the account's profile (or backfill
+     it from this device) so a signed-in user lands on HIS profile —
+     never the blank create form — on web exactly as in the app. */
+  try{ await syncProfileWithAccount(); }catch(e){}
   maybeTutorial();
 }
 function doSkip(){
@@ -10023,6 +10094,7 @@ function continueAsAccount(){
       Live.name=store.get("auth_name")||Live.name||"Viewer";
     }
   }catch(e){}
+  try{ syncProfileWithAccount(); }catch(e){}
   hideAuthGate();
   maybeTutorial();
 }
@@ -10422,6 +10494,11 @@ function bootGates(){
               if(user.email)store.set("auth_email",user.email);
             }catch(e){}
             try{ await authPullLists(); }catch(e){}
+            /* Session restore owns the profile too: pull the account's
+               profile into this context (or backfill the account from
+               this device's local profile) — a restored session must
+               come back as himself, not as a blank new user. */
+            try{ await syncProfileWithAccount(); }catch(e){}
             /* The app behind the gate may already have rendered as guest
                (Profile header, Scout) before the session landed — repaint
                the account surfaces so a restored session = signed-in app
@@ -10475,6 +10552,10 @@ function bootGates(){
           Live.uid=store.get("auth_uid"); Live.authed=true;
           Live.name=store.get("auth_name")||Live.name||"Viewer";
         }catch(e){}
+        /* Graduated boot: reconcile the profile with the account in the
+           background — restores it if this context lost it, backfills
+           the account if this device is the one holding it. */
+        try{ syncProfileWithAccount(); }catch(e){}
         try{ if(!store.get("tutorial_done"))showTutorial(false); }catch(e){}
         return;
       }
