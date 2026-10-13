@@ -355638,5 +355638,105 @@
     "award": "Nominee — IAWTV Award (2022), Best Drama Series",
     "award_verified": false,
     "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8077",
+    "title": "Cuerdas",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~11 min",
+    "desc": "At her orphanage school, a girl befriends a new classmate who has cerebral palsy and pulls him into her world of rope games and make-believe.",
+    "source_channel": "YouTube (Cuerdas Cortometraje Oficial)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/4INwx_tmTKw",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Cuerdas",
+        "video_id": "4INwx_tmTKw",
+        "url": "https://www.youtube.com/embed/4INwx_tmTKw",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Goya Award (2014), Best Animated Short Film",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8078",
+    "title": "Warsha",
+    "genre": "Drama",
+    "eps": "1 ep",
+    "runtime": "~16 min",
+    "desc": "A Syrian migrant working as a crane operator in Beirut volunteers for the tallest, most dangerous crane — where, alone above the city, he can finally live out his secret passion.",
+    "source_channel": "Vimeo (dania bdeir)",
+    "rights_basis": "Public Vimeo embed",
+    "url": "https://player.vimeo.com/video/1155088868",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Warsha",
+        "video_id": "1155088868",
+        "url": "https://player.vimeo.com/video/1155088868",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Jury Award: International Fiction (2022)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8079",
+    "title": "Bacon & God's Wrath",
+    "genre": "Documentary",
+    "eps": "1 ep",
+    "runtime": "~9 min",
+    "desc": "A 90-year-old Jewish woman looks back on her life and her faith as she prepares to taste bacon for the first time.",
+    "source_channel": "YouTube (KIS KIS - keep it short)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/n5eD9NVn8gg",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Bacon & God's Wrath",
+        "video_id": "n5eD9NVn8gg",
+        "url": "https://www.youtube.com/embed/n5eD9NVn8gg",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — Sundance Short Film Jury Award: Non-Fiction (2016); Canadian Screen Award, Best Short Documentary (2016)",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
+  },
+  {
+    "id": "stv-8080",
+    "title": "Summer 96",
+    "genre": "Animation",
+    "eps": "1 ep",
+    "runtime": "~12 min",
+    "desc": "A family's annual picnic on Callot Island turns tense when the tide traps them there — and young Paul, caught between the kids and the adults, has to face his fear of the water.",
+    "source_channel": "YouTube (BANG BANG - A shot of shorts)",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/-u-pg3lJLzQ",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Summer 96",
+        "video_id": "-u-pg3lJLzQ",
+        "url": "https://www.youtube.com/embed/-u-pg3lJLzQ",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "onlyShortz": true,
+    "award": "Winner — César Award (2024), Best Animated Short Film",
+    "award_verified": true,
+    "dateAdded": "2026-10-12"
   }
 ]
