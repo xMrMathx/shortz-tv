@@ -4669,7 +4669,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014123955";
+const BUILD="20261014174633";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5755,6 +5755,7 @@ function cfActivate(card){
     card.classList.add("playing");
     cfActive=card;
     cfBarWake(card);
+    cfArmWatchCredit(card,t);
     cfPlayerKind="archive"; cfPlayer=makeArchivePlayer(v);
     try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{ if(cfActive===card){ try{ v.muted=true; const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} } }); }catch(e){}
     return;
@@ -5770,6 +5771,7 @@ function cfActivate(card){
   card.classList.add("playing");
   cfActive=card;
   cfBarWake(card);
+  cfArmWatchCredit(card,t);
   cfArmSound(card,t,fr);
 }
 /* wrap the preview iframe in a player object and drive its sound,
@@ -5845,6 +5847,17 @@ function cfSoundArm(kind,player,card){
     setTimeout(cfTick,900);
   }
 }
+let cfWatchTimer=0;
+/* WATCH CREDIT (his order 2026-10-14): watching happens in CARDS
+   now, but history only recorded player/feed plays — titles he
+   watched in the feed never reached Watch History. A card that
+   stays active (actually being watched, not scrolled past) for 8s
+   earns its history entry; pushHistory dedupes + puts it on top. */
+function cfArmWatchCredit(card,t){
+  clearTimeout(cfWatchTimer);
+  if(!card||!t)return;
+  cfWatchTimer=setTimeout(()=>{ cfWatchTimer=0; try{ if(cfActive===card)pushHistory(t); }catch(e){} },8000);
+}
 function cfBarWake(card){
   if(!card)return;
   card.classList.add("bar-on");
@@ -5854,6 +5867,7 @@ function cfBarWake(card){
 function cfStopPreview(){
   if(!cfActive)return;
   clearTimeout(cfActive._barT); cfActive.classList.remove("bar-on");
+  clearTimeout(cfWatchTimer); cfWatchTimer=0;
   // silence + release the player object first (guide: tgWatchEnd).
   // YT.Player.destroy() removes its iframe; the explicit sweep below
   // covers the not-yet-wrapped and non-API cases.
@@ -6277,6 +6291,7 @@ function cfPresentTitle(t,epIdx){
 function cfPlayEpInCard(card,t,idx){
   const e=(t.episodes||[])[idx]; if(!e||!e.verified)return;
   t._cfEp=e;
+  try{ pushHistory(t); }catch(err){}
   card.querySelectorAll("[data-cf-fold] .erow").forEach(r=>r.classList.toggle("now",parseInt(r.dataset.idx,10)===idx));
   cfStopPreview();
   cfActivate(card);
