@@ -2416,11 +2416,128 @@ function bindHoldToLike(el,id){
 /* ---------- SOCIAL LIKES: long-press any browse cover ----------
    likes/{seriesId}/{uid} = {name, ts}. Social only — never touches
    My List or Profile. Badges update in realtime for rendered cards.
-   Needs the "likes" rule in database.rules.json published to Firebase. */
-const Likes={auth:null,db:null,uid:null,name:"",_ensuring:null,listeners:{},cache:{}};
+   Needs the "likes" rule in database.rules.json published to Firebase.
+   REGISTRATION MODEL (2026-10-13 fix): a tap registers the like LOCALLY
+   first (Likes.intent, persisted) and paint reads intent as an overlay
+   on the server map, so heart + count reflect the tap even with the
+   backend down or no session. Firebase reconciles from intent in the
+   background (likesFlushIntents) whenever a session exists. A locally
+   registered like never produces a failure toast. */
+const Likes={auth:null,db:null,uid:null,name:"",_ensuring:null,listeners:{},cache:{},
+  /* MY social-like intent, persisted on this device: {id:{on,ts,ack}}.
+     Recorded the instant a like is tapped — before any network leg —
+     and authoritative for paint on this device. ack = the uid the entry
+     was last reconciled under; the background flush retries the rest. */
+  intent:store.get("likes_intent",{})};
+function likesIntentSet(id,on){
+  try{
+    const prev=Likes.intent[id]||{};
+    // a state CHANGE invalidates the previous reconciliation — the entry
+    // must be re-flushed under the current uid even if an older state was
+    Likes.intent[id]={on:on?1:0,ts:Date.now(),ack:(prev.on===(on?1:0))?(prev.ack||""):""};
+    store.set("likes_intent",Likes.intent);
+  }catch(e){}
+}
+function likesMyName(){
+  const prof=store.get("profile",null);
+  return (((prof&&prof.name)||store.get("live_name","")||"Someone")+"").slice(0,40);
+}
+function likesServerMine(id){ return !!(Likes.uid&&Likes.cache[id]&&Likes.cache[id][Likes.uid]); }
+function likesMine(id){
+  const it=Likes.intent&&Likes.intent[id];
+  if(it)return !!it.on;
+  return likesServerMine(id);
+}
+/* The view every painter uses: the server map overlaid with my intent —
+   count and "mine" reflect a like registered on this device whether or
+   not a session/backend exists right now. */
+function likesView(id,v){
+  v=v||{};
+  let count=Object.keys(v).length, mine=likesServerMine(id);
+  const it=Likes.intent&&Likes.intent[id];
+  if(it){
+    if(it.on&&!mine){count++;mine=true;}
+    else if(!it.on&&mine){count--;mine=false;}
+  }
+  return {count:count,mine:mine};
+}
+function likesCount(id){ return likesView(id,Likes.cache[id]||{}).count; }
+function likesRepaint(id){
+  const v=Likes.cache[id]||{};
+  try{
+    document.querySelectorAll('.vcard[data-id="'+id+'"]').forEach(x=>likePaint(x,v,x.dataset.id));
+    document.querySelectorAll('.award-item[data-aid="'+id+'"]').forEach(x=>likePaint(x,v,id));
+    document.querySelectorAll('.top10-item[data-tid="'+id+'"]').forEach(x=>likePaint(x,v,id));
+    document.querySelectorAll('.feat-slide[data-id="'+id+'"]').forEach(x=>likePaint(x,v,id));
+    document.querySelectorAll('.cfcard[data-id="'+id+'"]').forEach(x=>cfLikePaint(x,v));
+    document.querySelectorAll('.mg-card[data-mid="'+id+'"]').forEach(x=>mgLikePaint(x,v));
+  }catch(e){}
+}
+/* Reconcile queued intents to Firebase under the CURRENT uid — silent
+   background sync, run whenever a session is (re)established. Entries
+   whose write fails stay queued and retry on the next ensure. */
+async function likesFlushIntents(){
+  if(!Likes.uid||!Likes.db)return;
+  const ids=Object.keys(Likes.intent||{});
+  for(const id of ids){
+    const it=Likes.intent[id];
+    if(!it||it.ack===Likes.uid)continue;
+    const want=!!it.on;
+    try{
+      const ref=Likes.db.ref("likes/"+id+"/"+Likes.uid);
+      const snap=await ref.once("value");
+      const has=!!(snap&&snap.val());
+      if(want&&!has)await ref.set({name:Likes.name||likesMyName(),ts:Date.now()});
+      else if(!want&&has)await ref.remove();
+      it.ack=Likes.uid;
+      try{store.set("likes_intent",Likes.intent);}catch(e){}
+    }catch(e){/* still queued — silent */}
+  }
+}
+/* The stamped-but-sessionless dead end: the shared resolver refuses the
+   anonymous last resort whenever an account stamp exists on the device —
+   by design, so a guest mint can never evict or pre-empt a real sign-in.
+   But when the auth state has SETTLED with no session at all (restore
+   finished, nobody home), the stamp is all that remains: there is no
+   session to evict, yet likes died on the spot ("Couldn't connect")
+   even though the heart had already flipped locally. Heal HERE, scoped
+   to likes, under the resolver's own in-flight guards (no sign-in gate
+   open, no Google handoff pending, settled signed-out state): take the
+   same settled anonymous last resort a true guest gets. The moment a
+   real sign-in lands, authEnsureUser returns it, likesEnsure rebinds,
+   and the intent flush re-keys my likes under the real uid — the guest
+   context never overrides the account. */
+let _likesHealFlight=null;
+async function likesHealSession(auth){
+  try{
+    if(!auth)return null;
+    if(!(store.get("auth_done")&&store.get("auth_uid")))return null; // only the dead end
+    const settled=await authCurrentUser(auth); // waits out any restore
+    if(settled)return settled;
+    const gateEl=document.getElementById("authGate");
+    if(gateEl&&gateEl.classList&&gateEl.classList.contains("open"))return null;
+    try{ if(sessionStorage.getItem("svGooglePending"))return null; }catch(e){}
+    let cu=null; try{ cu=auth.currentUser; }catch(e){}
+    if(cu)return cu;
+    if(!_likesHealFlight){
+      _likesHealFlight=(async()=>{
+        try{ const cred=await auth.signInAnonymously(); return (cred&&cred.user)||null; }
+        catch(e){ return null; }
+        finally{ _likesHealFlight=null; }
+      })();
+    }
+    return _likesHealFlight;
+  }catch(e){ return null; }
+}
 async function likesEnsure(){
   if(!FIREBASE_READY||!window.firebase)return false;
-  if(Likes.uid&&Likes.db)return true;
+  if(Likes.uid&&Likes.db){
+    // rebind if the identity changed under us (a real sign-in replacing
+    // the guest context): my likes re-key under the real uid via flush
+    let cu=null; try{ cu=(Likes.auth||Live.auth)&&((Likes.auth||Live.auth).currentUser); }catch(e){}
+    if(!cu||cu.uid===Likes.uid)return true;
+    Likes.uid=null;
+  }
   if(Likes._ensuring)return Likes._ensuring;
   Likes._ensuring=(async()=>{
     try{
@@ -2436,48 +2553,59 @@ async function likesEnsure(){
       // shared identity discipline: signed-in users like under their REAL
       // uid, so their likes stay attached to their account; anonymous only
       // as the settled last resort for a true guest.
-      const user=await authEnsureUser(Likes.auth,{anon:true});
+      let user=await authEnsureUser(Likes.auth,{anon:true});
+      if(!user)user=await likesHealSession(Likes.auth); // stamped-but-sessionless dead end
       if(!user)return false;
       Likes.uid=user.uid;
-      const prof=store.get("profile",null);
-      Likes.name=(((prof&&prof.name)||store.get("live_name","")||"Someone")+"").slice(0,40);
+      Likes.name=likesMyName();
+      likesFlushIntents(); // background: reconcile queued likes under this uid
       return true;
     }catch(e){return false;}
   })();
   const r=await Likes._ensuring;Likes._ensuring=null;return r;
 }
 async function likeToggle(id){
-  const ok=await likesEnsure();
-  if(!ok){toast("Couldn't connect — try again");return;}
-  const mine=Likes.cache[id]&&Likes.cache[id][Likes.uid];
+  /* Register FIRST, locally — the tap IS the like. Intent is persisted
+     before any network leg and paint flips from it immediately, so the
+     heart AND the count reflect the tap even with the backend down or
+     no session. A locally registered like NEVER shows a failure toast;
+     the social leg reconciles silently in the background. */
+  const was=likesMine(id);
+  const on=!was;
+  likesIntentSet(id,on);
+  likesRepaint(id);
+  toast(on?"♥ Liked":"Unliked");
+  /* mirror MY manga likes locally for the profile shelf (manga ids aren't stv-) */
   try{
-    const ref=Likes.db.ref("likes/"+id+"/"+Likes.uid);
-    if(mine){await ref.remove();toast("Unliked");}
-    else{await ref.set({name:Likes.name,ts:Date.now()});toast("♥ Liked");}
-    /* mirror MY manga likes locally for the profile shelf (manga ids aren't stv-) */
-    try{
-      if(!String(id).startsWith("stv-")){
-        const mg=store.get("mgLiked",{});
-        if(mine)delete mg[id];
-        else{
-          const meta=(window._mgMeta&&window._mgMeta[id])||{};
-          mg[id]={t:meta.t||"",c:meta.c||"",ts:Date.now()};
-        }
-        store.set("mgLiked",mg);
+    if(!String(id).startsWith("stv-")){
+      const mg=store.get("mgLiked",{});
+      if(was)delete mg[id];
+      else{
+        const meta=(window._mgMeta&&window._mgMeta[id])||{};
+        mg[id]={t:meta.t||"",c:meta.c||"",ts:Date.now()};
       }
-    }catch(e){}
-  }catch(e){toast("Couldn't save — check connection");}
-  /* badge flips via the realtime listener */
+      store.set("mgLiked",mg);
+    }
+  }catch(e){}
+  /* social leg: best-effort now; on any failure the intent stays queued
+     and the next successful ensure flushes it — silently. */
+  try{ const ok=await likesEnsure(); if(ok)likesFlushIntents(); }catch(e){}
 }
 function likePaint(card,v,id){
   card.querySelectorAll(".likebadge").forEach(b=>b.remove());
-  const uids=Object.keys(v||{});
-  if(!uids.length)return;
-  const names=uids.map(u=>(v[u]&&v[u].name)||"").filter(Boolean);
+  v=v||{};
+  const lid0=id||card.dataset.id;
+  const names=Object.keys(v).map(u=>(v[u]&&v[u].name)||"").filter(Boolean);
+  /* overlay my intent on the name list so the badge reflects a like
+     registered on this device even before/without a server copy */
+  const sMine=likesServerMine(lid0);
+  const it=Likes.intent&&Likes.intent[lid0];
+  if(it&&it.on&&!sMine){ const nm=Likes.name||likesMyName(); if(nm&&names.indexOf(nm)<0)names.push(nm); }
+  if(it&&!it.on&&sMine){ const nm=(v[Likes.uid]&&v[Likes.uid].name)||Likes.name||""; const ix=names.indexOf(nm); if(ix>=0)names.splice(ix,1); }
   if(!names.length)return;
   const label=names.slice(0,2).join(", ")+(names.length>2?" +"+(names.length-2):"");
   const b=document.createElement("div");
-  b.className="likebadge"+(Likes.uid&&v[Likes.uid]?" mine":"");
+  b.className="likebadge"+(likesView(lid0,v).mine?" mine":"");
   b.innerHTML='<span class="h">♥</span>'+esc(label);
   b.title=names.join(", ");
   const lid=id||card.dataset.id;
@@ -2508,7 +2636,15 @@ function likesWatch(root){
     return;
   }
   likesEnsure().then(ok=>{
-    if(!ok)return;
+    if(!ok){
+      // no session/backend right now: still paint every card from cache +
+      // my intent, so counts and hearts reflect likes registered locally
+      cards.forEach(c=>{
+        if(c.el.classList&&c.el.classList.contains("cfcard"))cfLikePaint(c.el,Likes.cache[c.id]||{});
+        else likePaint(c.el,Likes.cache[c.id]||{},c.id);
+      });
+      return;
+    }
     cards.forEach(c=>{
       const id=c.id;
       const paintAll=v=>{document.querySelectorAll('.vcard[data-id="'+id+'"]').forEach(x=>likePaint(x,v,x.dataset.id));
@@ -2532,13 +2668,17 @@ function likesWatch(root){
    likes/{mangaId}/{uid} = {name, ts}. Reuses the Likes Firebase infra. */
 function mgLikePaint(card,v){
   card.querySelectorAll(".likebadge").forEach(b=>b.remove());
-  const uids=Object.keys(v||{});
-  if(!uids.length)return;
-  const names=uids.map(u=>(v[u]&&v[u].name)||"").filter(Boolean);
+  v=v||{};
+  const mid=card.dataset.mid;
+  const names=Object.keys(v).map(u=>(v[u]&&v[u].name)||"").filter(Boolean);
+  const sMine=!!(Likes.uid&&v[Likes.uid]);
+  const it=Likes.intent&&Likes.intent[mid];
+  if(it&&it.on&&!sMine){ const nm=Likes.name||likesMyName(); if(nm&&names.indexOf(nm)<0)names.push(nm); }
+  if(it&&!it.on&&sMine){ const nm=(v[Likes.uid]&&v[Likes.uid].name)||Likes.name||""; const ix=names.indexOf(nm); if(ix>=0)names.splice(ix,1); }
   if(!names.length)return;
   const label=names.slice(0,2).join(", ")+(names.length>2?" +"+(names.length-2):"");
   const b=document.createElement("div");
-  b.className="likebadge"+(Likes.uid&&v[Likes.uid]?" mine":"");
+  b.className="likebadge"+(likesView(mid,v).mine?" mine":"");
   b.innerHTML='<span class="h">♥</span>'+esc(label);
   b.title=names.join(", ");
   b.onclick=e=>{e.stopPropagation();likeToggle(card.dataset.mid);};
@@ -2558,7 +2698,7 @@ function mgLikesWatch(root){
     return;
   }
   likesEnsure().then(ok=>{
-    if(!ok)return;
+    if(!ok){ cards.forEach(c=>mgLikePaint(c,Likes.cache[c.dataset.mid]||{})); return; }
     cards.forEach(c=>{
       const id=c.dataset.mid;
       if(Likes.listeners[id]){if(Likes.cache[id])mgLikePaint(c,Likes.cache[id]);return;}
@@ -4445,7 +4585,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261013224632";
+const BUILD="20261014000637";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5374,7 +5514,7 @@ function cfCardHTML(t){
   const liked=!!likes[t.id];
   const inList=mylist.has(t.id);
   const cc=(comments[t.id]||[]).length;
-  const lc=(window.Likes&&Likes.cache&&Likes.cache[t.id])?Object.keys(Likes.cache[t.id]).length:0;
+  const lc=(window.Likes&&Likes.cache)?likesCount(t.id):0;
   return `<article class="cfcard" data-id="${t.id}">
     <div class="cfmedia" data-cf-media style="background:${artBg(t.title)}">
       ${art?`<img class="cfart" src="${art}" alt="" loading="lazy" onerror="this.style.display='none'">`:""}
@@ -5686,10 +5826,13 @@ function cfPaintLike(card){
   const h=card.querySelector("[data-cf-heart]"); if(h)h.textContent=on?"♥":"♡";
 }
 function cfLikePaint(card,v){
-  // called by likesWatch's paintAll with the live social-like map for this id
+  // called by likesWatch's paintAll with the live social-like map for this id;
+  // the count and the heart read the map through my intent overlay, so a
+  // like registered on this device shows even with no session/backend
+  const view=likesView(card.dataset.id,v||{});
   const num=card.querySelector("[data-cf-likenum]");
-  if(num)num.textContent=Object.keys(v||{}).length;
-  const mine=(window.Likes&&Likes.uid&&v&&v[Likes.uid])||likes[card.dataset.id];
+  if(num)num.textContent=view.count;
+  const mine=view.mine||likes[card.dataset.id];
   const b=card.querySelector("[data-cf-like]"); if(b)b.classList.toggle("liked",!!mine);
   const h=card.querySelector("[data-cf-heart]"); if(h)h.textContent=mine?"♥":"♡";
 }
