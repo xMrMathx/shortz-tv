@@ -12,7 +12,14 @@
    on mobile (top-page redirect with tracking params — his phone,
    2026-10-14). The game files are the network's own host either way;
    the wrapper is only an ad/loader shell around them. */
-/* HIS LAW (2026-10-14): only games that verifiably play INSIDE the
+/* HIS LAW (2026-10-14, sharpened same evening): the Games shelf is
+   FPS ONLY, and every shooter must be MULTIPLAYER with an ACTIVE
+   PLAYER BASE — a multiplayer game with empty lobbies is out
+   (EpicShooter3D: his phone found nobody playing, removed), and a
+   solo shooter is out no matter how good (Hellgate 1993, removed at
+   his order). Only games that verifiably play INSIDE the app — no
+   exceptions.
+   HIS LAW (2026-10-14): only games that verifiably play INSIDE the
    app — no exceptions. GameDistribution is OUT as a network: their
    game FILES serve a "not available here" block screen to domains
    that aren't registered with them (proven on his phone for Penalty
@@ -25,14 +32,14 @@
    blocks unregistered domains by design ("block-and-redirect"). It
    fails his on-screen-controls law on both counts. */
 const GAMES=[
-  { title:"Hellgate 1993", cat:"First-Person Shooter", orient:"landscape",
-    embed:"https://html5.gamemonetize.co/zz8qd7c8fhk3drl98iy3ulzokk2pigzs/",
-    thumb:"https://img.gamemonetize.com/zz8qd7c8fhk3drl98iy3ulzokk2pigzs/512x384.jpg",
-    sub:"First-person shooter built for touch — left stick to move, drag to aim, 8 worlds of missions." },
-  { title:"EpicShooter3D", cat:"First-Person Shooter", orient:"landscape",
-    embed:"https://html5.gamemonetize.co/n4h4snqc89f5a7r0bsqn1g8y4f2ob311/",
-    thumb:"https://img.gamemonetize.com/n4h4snqc89f5a7r0bsqn1g8y4f2ob311/512x384.jpg",
-    sub:"ONLINE multiplayer FPS — real players, live matches, leaderboard. Touch controls switch on automatically." },
+  { title:"Hazmob FPS", cat:"First-Person Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/hazmob-fps-online-shooter",
+    thumb:"https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/big_preview/df01c609f8c44052b837b336d0e63617?width=1200",
+    sub:"ONLINE multiplayer — Team Deathmatch, Search & Destroy, Domination, Capture the Flag. Live lobbies shared with the phone game's players." },
+  { title:"Deadshot.io", cat:"First-Person Shooter", orient:"landscape",
+    embed:"https://www.crazygames.com/embed/deadshot-io",
+    thumb:"https://images.crazygames.com/games/deadshot-io/cover_16x9-1694770506842.png",
+    sub:"ONLINE multiplayer — Free-for-All, Team Deathmatch, Hardpoint, Kill Confirmed. Live lobbies, players around the world." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
