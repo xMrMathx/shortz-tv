@@ -683,6 +683,18 @@ body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
    element, painted once — never inside the sliding layers. */
 #evRing{position:fixed;inset:0;border:2px solid #e50914;pointer-events:none;z-index:900;display:none}
 body.ev-mode #evRing{display:block}
+/* NATIVE HUB (2026-10-14, his verdict on the video he sent: side
+   scrolling must feel EXACTLY like the Home feed's own scrolling —
+   so the hub no longer drags screens with script. In ev-mode the
+   sections become panes of one horizontal scroller and the
+   browser's own compositor does all the motion: drag, fling,
+   multi-page carry, catch — the same machinery as the feed.) */
+#views.evtrack{position:fixed;inset:0;display:flex;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;background:var(--bg);z-index:30}
+#views.evtrack::-webkit-scrollbar{display:none}
+#views.evtrack .view.evpane{position:relative!important;flex:0 0 100%;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;opacity:1!important;transform:none!important;pointer-events:auto}
+#views.evtrack .view:not(.evpane){display:none}
+#views.evtrack .view.evpane, #views.evtrack #cfeed{touch-action:pan-x pan-y}
+#views.evtrack #cfeed{overflow:visible;height:auto;max-height:none} /* the feed is its OWN vertical scroller, and a nested scroller swallows sideways gestures whole — in the hub the pane must be the one scroller for both axes, exactly like the Browse pane */ /* panes (and the Home feed inside its pane) start life touch-action:pan-y, which hands horizontal drags to script and native side-scrolling never engages — in the hub both axes belong to the browser */
 /* while the strip moves, the glass chrome stops re-sampling the
    sliding backdrop every frame and the live-pulse stops repainting
    (brain audit round 2 #4/#7) */
@@ -3652,6 +3664,56 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     go(v);
     updateHeader();
   }
+  window.__evNative=true; // the script strip (js/swipe.js) stands down: the hub scrolls natively now
+  let evScrollT=0, evScrollBound=false;
+  function evPanes(){ return SECTIONS.map(n=>document.getElementById("view-"+n)); }
+  function evRenderPanes(){
+    for(const n of SECTIONS){
+      const el=document.getElementById("view-"+n); if(!el)continue;
+      if(n==="live"||n==="streaming"){
+        // a live system never starts inside a pane it wasn't settled
+        // on — an unbuilt Live/Streaming pane shows its title card
+        // until the scroll rests on it and the real entry builds it
+        if(!el.innerHTML.trim())el.innerHTML='<div class="swipe-stub"><div class="swipe-stub-logo">SHORTZ <span>VS</span></div><div class="swipe-stub-name">'+TITLES[n]+'</div></div>';
+      } else if(!el.innerHTML.trim()){ try{ renderView(n); }catch(e){} }
+    }
+  }
+  let evFeedTick=false;
+  function evFeedScroll(pane){
+    if(evFeedTick)return; evFeedTick=true;
+    requestAnimationFrame(()=>{
+      evFeedTick=false;
+      try{ if(typeof homeMode!=="undefined"&&homeMode==="cards"&&typeof cfRecompute==="function")cfRecompute(); }catch(e){}
+      try{
+        if(pane.scrollTop+pane.clientHeight>pane.scrollHeight-900&&typeof cfPickBatch==="function"&&typeof cfAppendCards==="function"&&typeof cfLineup!=="undefined"){
+          const batch=cfPickBatch(8,cfLineup.length?cfLineup[cfLineup.length-1].id:null);
+          if(batch.length)cfAppendCards(batch);
+        }
+      }catch(e){}
+    });
+  }
+  function evRest(){
+    const vs=$("views"); if(!vs||!evMode)return;
+    const W=window.innerWidth||1;
+    const idx=Math.max(0,Math.min(SECTIONS.length-1,Math.round(vs.scrollLeft/W)));
+    if(idx===evIdx)return;
+    evIdx=idx;
+    const v=SECTIONS[evIdx];
+    try{ renderView(v); }catch(e){}
+    go(v);
+    updateHeader();
+  }
+  function evBindScroll(){
+    if(evScrollBound)return; evScrollBound=true;
+    const vs=$("views"); if(!vs)return;
+    vs.addEventListener("scroll",e=>{
+      if(!evMode)return;
+      if(e.target===vs){ clearTimeout(evScrollT); evScrollT=setTimeout(evRest,130); }
+      else if(e.target&&e.target.id==="view-browse"){ try{ window.dispatchEvent(new Event("scroll")); }catch(err){} } // browse's wall hook listens on window (viewport math — works from the pane too once events reach it)
+      else if(e.target&&e.target.id==="view-home"){ evFeedScroll(e.target); } // in the hub the pane scrolls the feed, so the feed's own scroll jobs (activate the centered card, append the next batch) run off the pane
+    },{passive:true,capture:true});
+    if("onscrollend" in window)vs.addEventListener("scrollend",()=>{ if(evMode){ clearTimeout(evScrollT); evRest(); } },{passive:true});
+  }
   function open(){
     if(evMode)return;
     evMode=true;
@@ -3659,6 +3721,14 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     try{document.body.classList.remove("hud-hidden");}catch(e){} // keep HUD visible in ev-mode
     evIdx=SECTIONS.indexOf((typeof curView!=="undefined")?curView:"home");
     if(evIdx<0)evIdx=0;
+    evRenderPanes();
+    const vs=$("views");
+    if(vs){
+      vs.classList.add("evtrack");
+      evPanes().forEach(el=>{ if(el)el.classList.add("evpane"); });
+      evBindScroll();
+      requestAnimationFrame(()=>{ try{ vs.scrollLeft=evIdx*(window.innerWidth||1); }catch(e){} });
+    }
     updateHeader();
     try{
       const h=$("evHint");
@@ -3669,6 +3739,9 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(!evMode)return;
     evMode=false;
     document.body.classList.remove("ev-mode");
+    const vs=$("views");
+    if(vs){ vs.classList.remove("evtrack"); try{ vs.scrollLeft=0; }catch(e){} }
+    evPanes().forEach(el=>{ if(el)el.classList.remove("evpane"); });
     try{ if(window.__swParkClear)window.__swParkClear(); if(window.__swSessionClear)window.__swSessionClear(); }catch(e){} // leaving the hub parks nothing: the strip clears with the toggle, and the session layer promotions release
   }
   // swipe detection: capture phase, only in ev-mode, horizontal-dominant only
@@ -4669,7 +4742,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014130916";
+const BUILD="20261014133548";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5887,11 +5960,17 @@ function cfRecompute(){
   if(homeMode!=="cards"||curView!=="home"||document.hidden||piaActive){ cfStopPreview(); return; }
   const sc=$("#cfeed"); if(!sc)return;
   const sr=sc.getBoundingClientRect();
-  const cx=sr.left+sr.width/2, cy=sr.top+sr.height/2;
+  // in the Everything hub the feed is flattened into its pane (the
+  // pane scrolls, not the feed), so the feed's own rect spans the
+  // whole lineup — the zone is the VIEWPORT there, exactly like it
+  // is the feed's box in normal mode
+  const inHub=!!(sc.closest&&sc.closest("#views.evtrack"));
+  const cx=inHub?window.innerWidth/2:sr.left+sr.width/2, cy=inHub?window.innerHeight/2:sr.top+sr.height/2;
   let best=null,bestD=1e18;
   sc.querySelectorAll(".cfcard").forEach(c=>{
     const r=c.getBoundingClientRect();
-    if(r.bottom<sr.top||r.top>sr.bottom)return;
+    if(inHub){ if(r.bottom<0||r.top>window.innerHeight)return; }
+    else if(r.bottom<sr.top||r.top>sr.bottom)return;
     const d=Math.abs((r.top+r.height/2)-cy)+Math.abs((r.left+r.width/2)-cx)*0.5;
     if(d<bestD){bestD=d;best=c;}
   });

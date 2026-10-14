@@ -207,6 +207,7 @@ function swPrebuild(idx){
   },500);
 }
 document.addEventListener("touchstart",e=>{
+  if(window.__evNative)return; // RETIRED in the hub (2026-10-14): the Everything hub scrolls NATIVELY now — this engine stands down for good
   // THE EVERYTHING GATE (his order 2026-10-14): swiping exists ONLY
   // inside the Everything hub — grid toggle ON. Toggle off, the
   // screens are locked in place and the strip does not exist.
@@ -242,6 +243,7 @@ document.addEventListener("touchstart",e=>{
   // scheduled from locks and settles instead of raw touches (#4).
 },{capture:true,passive:true});
 document.addEventListener("touchmove",e=>{
+  if(window.__evNative)return;
   const s=_sw; if(!s)return;
   const tt=e.touches[0]; if(!tt)return;
   const W=window.innerWidth||1;
