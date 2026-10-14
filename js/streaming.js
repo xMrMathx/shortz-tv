@@ -246,10 +246,14 @@ function streamShareId(s){
   const slug=String(s.url||"").split("/").filter(Boolean).pop()||s.name||"";
   return(s.platform||"kick")+":"+slug.toLowerCase();
 }
+function streamShareUrl(s){
+  const id=streamShareId(s);
+  const plat=id.split(":")[0], part=id.split(":").slice(1).join(":");
+  return "https://xmrmathx.github.io/shortz-tv/watch/stream-"+plat+"-"+encodeURIComponent(part)+"/";
+}
 function shareStream(s){
   if(!s)return;
-  const id=streamShareId(s);
-  const url="https://xmrmathx.github.io/shortz-tv/?stream="+encodeURIComponent(id);
+  const url=streamShareUrl(s); // the streamer's own share page — its preview IS his cover art (his order 2026-10-14), not the site's default card
   const title="@"+(s.name||"streamer")+" on Shortz VS";
   const text=(s.live?"\uD83D\uDD34 LIVE now: ":"\u25B6 Watch ")+"@"+(s.name||"")+" streaming on Shortz VS \u2014 free, no account needed";
   const done=()=>{ try{ toast("Link copied"); }catch(e){} };
