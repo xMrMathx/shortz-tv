@@ -118,7 +118,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cfmedia .cfdur{position:absolute;right:10px;top:10px;z-index:3;background:rgba(0,0,0,.62);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
 .cfmedia .cfplay{position:absolute;right:12px;bottom:12px;z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.55);border:1.5px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;padding-left:3px;pointer-events:none}
 .cfbar{position:absolute;left:0;right:0;bottom:0;z-index:6;padding:12px 12px 8px;background:linear-gradient(transparent,rgba(0,0,0,.55));opacity:0;pointer-events:none;transition:opacity .18s}
-.cfcard.playing .cfbar{opacity:1;pointer-events:auto}
+.cfcard.playing.bar-on .cfbar,.cfcard .cfbar.big{opacity:1;pointer-events:auto}
 .cfbar-track{position:relative;height:4px;border-radius:2px;background:rgba(255,255,255,.32)}
 .cfbar.big .cfbar-track{height:7px}
 .cfbar-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--red);border-radius:2px}
@@ -4658,7 +4658,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014110110";
+const BUILD="20261014110748";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5718,8 +5718,8 @@ function cfPreviewSrc(t){
      card sits frozen — so web starts MUTED (autoplay the platform allows)
      and upgrades to sound after the first interaction flips soundOn. */
   const m0=soundOn?"0":"1";
-  if(id)return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute="+m0+"&playsinline=1&rel=0&modestbranding=1&controls=0&disablekb=1&fs=0&loop=1&playlist="+id+"&enablejsapi=1";
-  if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted="+m0+"&loop=1";
+  if(id)return "https://www.youtube.com/embed/"+id+"?autoplay=1&mute="+m0+"&playsinline=1&rel=0&modestbranding=1&controls=0&disablekb=1&fs=0&enablejsapi=1";
+  if(u.indexOf("vimeo.com")>=0)return embedSrc(u,false)+"&autoplay=1&muted="+m0;
   return embedSrc(u,false)+"&autoplay=1&mute="+m0;
 }
 function cfActivate(card){
@@ -5738,10 +5738,12 @@ function cfActivate(card){
     const v=document.createElement("video");
     v.className="cfprev";
     v.setAttribute("playsinline",""); v.setAttribute("preload","metadata");
-    v.loop=true; v.muted=!soundOn; v.src=au;
+    v.loop=false; v.muted=!soundOn; v.src=au;
+    v.addEventListener("ended",()=>{ try{ cfAdvanceEp(card); }catch(e){} });
     media.appendChild(v);
     card.classList.add("playing");
     cfActive=card;
+    cfBarWake(card);
     cfPlayerKind="archive"; cfPlayer=makeArchivePlayer(v);
     try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{ if(cfActive===card){ try{ v.muted=true; const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} } }); }catch(e){}
     return;
@@ -5756,6 +5758,7 @@ function cfActivate(card){
   media.appendChild(fr);
   card.classList.add("playing");
   cfActive=card;
+  cfBarWake(card);
   cfArmSound(card,t,fr);
 }
 /* wrap the preview iframe in a player object and drive its sound,
@@ -5770,13 +5773,14 @@ function cfArmSound(card,t,fr){
     ready.then(()=>{try{
       if(!stillMine())return;
       cfPlayerKind="vm"; cfPlayer=new Vimeo.Player(fr);
+      try{ cfPlayer.on("ended",()=>{ try{ cfAdvanceEp(card); }catch(e){} }); }catch(e){}
       cfSoundArm("vm",cfPlayer,card);
     }catch(e){}}).catch(()=>{});
   }else if(ytId(u)){
     const mk=()=>{try{
       if(!stillMine())return;
       cfPlayerKind="yt";
-      cfPlayer=new YT.Player(fr,{events:{onReady:(e)=>{ cfSoundArm("yt",e.target,card); }}});
+      cfPlayer=new YT.Player(fr,{events:{onReady:(e)=>{ cfSoundArm("yt",e.target,card); },onStateChange:(e)=>{ if(e.data===0){ try{ const d=e.target.getDuration(),c=e.target.getCurrentTime(); if(d>10&&c<d-5)return; }catch(err){} try{ cfAdvanceEp(card); }catch(err){} } }}});
     }catch(e){}};
     if(window.YT&&window.YT.Player)mk(); else ensureYT(mk);
   }
@@ -5830,8 +5834,15 @@ function cfSoundArm(kind,player,card){
     setTimeout(cfTick,900);
   }
 }
+function cfBarWake(card){
+  if(!card)return;
+  card.classList.add("bar-on");
+  clearTimeout(card._barT);
+  card._barT=setTimeout(()=>{ try{ card.classList.remove("bar-on"); }catch(e){} },2600);
+}
 function cfStopPreview(){
   if(!cfActive)return;
+  clearTimeout(cfActive._barT); cfActive.classList.remove("bar-on");
   // silence + release the player object first (guide: tgWatchEnd).
   // YT.Player.destroy() removes its iframe; the explicit sweep below
   // covers the not-yet-wrapped and non-API cases.
@@ -6143,9 +6154,12 @@ function cfSyncCounts(){
     const fr=e.target.closest("[data-cf-fold] .erow");
     if(fr){ if(fr.tagName==="BUTTON")cfPlayEpInCard(card,t,parseInt(fr.dataset.idx,10)); return; }
     if(e.target.closest("[data-cf-media],[data-cf-body]")){
-      /* THE DOOR (card-first law): the one road to the player — a
-         deliberate tap on the Home card itself. Opens on the card's
-         chosen episode when one was picked in its fold. */
+      /* THE DOOR (card-first law + his two-tap spec 2026-10-14): the
+         bar auto-hides while a card plays; the FIRST tap on a playing
+         card only wakes the bar, the SECOND tap — bar showing — is
+         the deliberate door into the player, on the card's chosen
+         episode when one was picked in its fold. */
+      if(card.classList.contains("playing")&&!card.classList.contains("bar-on")){ cfBarWake(card); return; }
       const pe=t._cfEp;
       if(pe&&pe.verified&&pe.url){ playSeries(t); playEpisode(pe); }
       else playSeries(t);
@@ -6256,6 +6270,24 @@ function cfPlayEpInCard(card,t,idx){
   cfStopPreview();
   cfActivate(card);
   try{ buzz(10); }catch(err){}
+}
+/* EPISODE ADVANCE LAW (his order 2026-10-14): when the episode playing
+   in a Home card ENDS, the card moves to the NEXT episode of the same
+   series on its own — nobody picks episodes by hand. After the finale
+   it wraps to episode 1; a single-episode title replays itself (the
+   ambient card never sits dead). Was: the card embed looped the SAME
+   episode forever (loop=1) and no ENDED handler existed on cards. */
+function cfAdvanceEp(card){
+  if(!card||cfActive!==card)return;
+  const t=byId(card.dataset.id); if(!t)return;
+  const raw=t.episodes||[];
+  const eps=raw.filter(e=>e&&e.verified&&e.url);
+  if(!eps.length)return;
+  const now=Date.now(); if(now-(card._cfAdvT||0)<4000)return; card._cfAdvT=now;
+  let idx=eps.indexOf(t._cfEp);
+  if(idx<0){ const u=cfEpUrl(t); idx=eps.findIndex(e=>e.url===u); }
+  const nxt=eps[(idx+1)%eps.length];
+  cfPlayEpInCard(card,t,raw.indexOf(nxt));
 }
 /* card fold: press Episodes -> the fold drops; press again -> it closes.
    Opening one card's fold collapses any other open fold. */
