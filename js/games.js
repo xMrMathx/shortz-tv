@@ -12,7 +12,14 @@
    on mobile (top-page redirect with tracking params — his phone,
    2026-10-14). The game files are the network's own host either way;
    the wrapper is only an ad/loader shell around them. */
-/* MASKED FORCES IS OUT (2026-10-14): its web build has NO touch controls
+/* HIS LAW (2026-10-14): only games that verifiably play INSIDE the
+   app — no exceptions. GameDistribution is OUT as a network: their
+   game FILES serve a "not available here" block screen to domains
+   that aren't registered with them (proven on his phone for Penalty
+   Shooters 2 and Tile Master Deluxe, even via the direct file URL).
+   GD games return only if the site is registered with GD. Working
+   model: GameMonetize — direct embeds, no domain block.
+   MASKED FORCES IS OUT (2026-10-14): its web build has NO touch controls
    (keyboard/mouse only — his own gameplay screenshot shows a live match
    with no joystick or fire buttons), and GameDistribution's wrapper
    blocks unregistered domains by design ("block-and-redirect"). It
@@ -22,14 +29,6 @@ const GAMES=[
     embed:"https://html5.gamemonetize.co/zz8qd7c8fhk3drl98iy3ulzokk2pigzs/",
     thumb:"https://img.gamemonetize.com/zz8qd7c8fhk3drl98iy3ulzokk2pigzs/512x384.jpg",
     sub:"First-person shooter built for touch — left stick to move, drag to aim, 8 worlds of missions." },
-  { title:"Penalty Shooters 2", cat:"Sports", orient:"landscape",
-    embed:"https://html5.gamedistribution.com/rvvASMiM/571b9df027e449f78e3869ba19658754/index.html",
-    thumb:"https://img.gamedistribution.com/571b9df027e449f78e3869ba19658754-512x384.jpeg",
-    sub:"Pick your team, take the penalties, then guard the goal. Touch to aim and dive." },
-  { title:"Tile Master Deluxe", cat:"Puzzle", orient:"portrait",
-    embed:"https://html5.gamedistribution.com/rvvASMiM/9e669ebc80ff472d9dca79362b75325f/index.html",
-    thumb:"https://img.gamedistribution.com/9e669ebc80ff472d9dca79362b75325f-512x384.jpeg",
-    sub:"Match the tiles, clear the board. One hand, tap to play." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
