@@ -1935,7 +1935,7 @@ function alphaSortCached(key, arr){
   }
   return s;
 }
-const GENRES = ["Action","Animation","Anime","Body Cam","Comedy","Faith","Family","Fantasy","Hood","Horror","Mr. Ballin","Mystery","Reality","Rebirth","Revenge","Romance","Sci-Fi","Short Films","Space","Sports","Thriller","Western"];
+const GENRES = ["Action","Animation","Anime","Body Cam","Comedy","Faith","Family","Fantasy","Hood","Horror","Mr. Ballin","Mystery","Ray WJ","Reality","Rebirth","Revenge","Romance","Sci-Fi","Short Films","Space","Sports","Thriller","Western"];
 const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️",};
 
 /* ---------- utils ---------- */
@@ -2818,7 +2818,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   const GENRE_ALIASES={
     "action":"Action","animation":"Animation","anime":"Anime","body cam":"Body Cam","bodycam":"Body Cam",
     "comedy":"Comedy","faith":"Faith","family":"Family","fantasy":"Fantasy","hood":"Hood","horror":"Horror",
-    "mr ballin":"Mr. Ballin","ballin":"Mr. Ballin","mystery":"Mystery","reality":"Reality",
+    "mr ballin":"Mr. Ballin","ballin":"Mr. Ballin","mystery":"Mystery","ray wj":"Ray WJ","wj":"Ray WJ","reality":"Reality",
     "reborn":"Rebirth","rebirth":"Rebirth","revenge":"Revenge","romance":"Romance",
     "sci fi":"Sci-Fi","sci-fi":"Sci-Fi","scifi":"Sci-Fi","science fiction":"Sci-Fi",
     "short film":"Short Films","short films":"Short Films","space":"Space","sports":"Sports",
@@ -4585,7 +4585,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014003113";
+const BUILD="20261014003356";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
