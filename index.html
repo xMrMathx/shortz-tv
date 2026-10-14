@@ -2379,7 +2379,11 @@ function bindCards(root){
     c.onclick=()=>{
       if(c._lpFired){c._lpFired=false;return;} // long-press fired: swallow the click
       if(tapTimer){clearTimeout(tapTimer);tapTimer=null;dblSave(c.dataset.id);return;}
-      tapTimer=setTimeout(()=>{tapTimer=null;openDetail(c.dataset.id);},300);
+      tapTimer=setTimeout(()=>{tapTimer=null;
+        // BROWSE FUNNEL (his order 2026-10-14): a title tap inside Browse or
+        // its genre pages lands on Home as a playing card — never detail/player.
+        if(c.closest("#view-browse,#view-genre")){ const bt=byId(c.dataset.id); if(bt){ cfPresentTitle(bt); return; } }
+        openDetail(c.dataset.id);},300);
     };
     bindHoldToLike(c,c.dataset.id); // hold-to-like on every cover, everywhere
   });
@@ -4593,7 +4597,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014115029";
+const BUILD="20261014115748";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6077,6 +6081,7 @@ function cfSyncCounts(){
    stay Home-only, so no preview iframe is ever created outside the feed. */
 function bindCfCards(root){
   if(!root||root._cfBound)return; root._cfBound=true;
+  if(root.id==="view-browse"||root.id==="view-genre")root._cfFunnel=true; // Browse funnel (his order 2026-10-14)
   bindCfHold(root);
   root.addEventListener("click",e=>{
     const card=e.target.closest(".cfcard"); if(!card)return;
@@ -6089,8 +6094,8 @@ function bindCfCards(root){
     if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
     if(e.target.closest("[data-cf-eps]")){ cfToggleFold(card); return; }
     const fr=e.target.closest("[data-cf-fold] .erow");
-    if(fr){ if(fr.tagName==="BUTTON")playEpFromFold(t,parseInt(fr.dataset.idx,10)); return; }
-    if(e.target.closest("[data-cf-media],[data-cf-body]")){ openDetail(t.id); }
+    if(fr){ if(fr.tagName==="BUTTON"){ if(root._cfFunnel)cfPresentTitle(t,parseInt(fr.dataset.idx,10)); else playEpFromFold(t,parseInt(fr.dataset.idx,10)); } return; }
+    if(e.target.closest("[data-cf-media],[data-cf-body]")){ if(root._cfFunnel)cfPresentTitle(t); else openDetail(t.id); }
   });
 }
 
@@ -6131,6 +6136,37 @@ function epRowsHTML(t){
 function playEpFromFold(t,idx){
   const e=(t.episodes||[])[idx]; if(!e||!e.verified)return;
   go("home"); playSeries(t); playEpisode(e);
+}
+/* BROWSE FUNNEL (his order 2026-10-14): every title tap in Browse — the
+   wall, search results, shelves, Top 10, featured hero, genre pages and
+   the Browse cards themselves — lands on HOME with that title's card
+   dealt in at the top of the feed, centered and playing inside the card.
+   Never the detail sheet, never the player. epIdx, when given (a Browse
+   card's fold row), starts the card on that episode (via t._cfEp). */
+function cfPresentTitle(t,epIdx){
+  if(!t)return;
+  const eps=t.episodes||[];
+  if(typeof epIdx==="number"&&eps[epIdx]&&eps[epIdx].verified&&eps[epIdx].url)t._cfEp=eps[epIdx];
+  try{ go("home"); }catch(e){}
+  try{ showCardFeed(false); }catch(e){}
+  const inner=$("#cfeedInner"); if(!inner)return;
+  let card=null;
+  inner.querySelectorAll(".cfcard").forEach(c=>{ if(!card&&c.dataset.id===t.id)card=c; });
+  if(!card){
+    const frag=document.createElement("div");
+    frag.innerHTML=cfCardHTML(t);
+    card=frag.firstElementChild;
+    if(card){ inner.insertBefore(card,inner.firstChild); cfLineup.unshift(t); try{ likesWatch($("#view-home")); }catch(e){} }
+  }
+  if(!card)return;
+  if(t._cfEp){ const ix=eps.indexOf(t._cfEp); if(ix>=0)card.querySelectorAll("[data-cf-fold] .erow").forEach(r=>r.classList.toggle("now",parseInt(r.dataset.idx,10)===ix)); }
+  try{ pushHistory(t); }catch(e){}
+  try{ card.scrollIntoView({block:"center"}); }catch(e){}
+  const force=(typeof epIdx==="number");
+  let first=true;
+  const act=()=>{ const f=first; first=false; if(piaActive||document.hidden)return; if((f&&force)||cfActive!==card){ cfStopPreview(); cfActivate(card); } };
+  setTimeout(act,80);
+  setTimeout(act,500);
 }
 /* HOME card fold tap (his law 2026-10-13, ordered again 2026-10-14):
    switch the episode INSIDE the card — never route to the player. The
@@ -6572,7 +6608,7 @@ function loadAwardCarousels(){
       </div>`;
     }).join("");
     row.querySelectorAll("[data-aid]").forEach(el=>{
-      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} openDetail(el.dataset.aid); };
+      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.aid); if(t)cfPresentTitle(t); };
       bindHoldToLike(el,el.dataset.aid);
     });
     sec.style.display="";
@@ -6607,7 +6643,7 @@ async function loadTop10File(secId,rowId,file,cacheKey){
         <div class="top10-v">${fmtViews(t.views||0)}</div>
       </div>`;}).join("");
     row.querySelectorAll("[data-tid]").forEach(el=>{
-      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.tid); if(t) openDetail(t.id); };
+      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.tid); if(t) cfPresentTitle(t); };
       bindHoldToLike(el,el.dataset.tid);
     });
     sec.style.display="";
@@ -6703,7 +6739,7 @@ function featBindDrag(){
     if(Math.abs(dx)<10){
       const cur=track.children[1];
       if(cur&&cur._lpFired){cur._lpFired=false;} // hold-to-like fired: swallow the tap
-      else{ const t=byId(FEAT_IDS[featIdx]); if(t)openDetail(t.id); }
+      else{ const t=byId(FEAT_IDS[featIdx]); if(t)cfPresentTitle(t); }
     }
     dx=0;
     featAuto(); // resume the 3s rotation
