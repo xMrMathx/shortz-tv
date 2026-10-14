@@ -214,7 +214,7 @@ function sstreamVodHTML(s,muted){
   const m=muted?"muted":"";
   return `<video src="${s.vod_hls}" ${m} autoplay playsinline controls style="width:100%;height:100%;object-fit:contain;background:#000"></video>`;
 }
-let sstreamStack=[], sstreamPos=-1, sstreamSlots=[], sstreamMounted=false;
+let sstreamStack=[], sstreamPos=-1, sstreamMounted=false;
 let sdragging=false, sdragDy=0, sdragX0=0, sdragY0=0, sdragT0=0, smovedPx=0, sdragYielded=false, sdragCommitted=false;
 let svelSamples=[], ssnapAnim=false, ssuppressClick=false, sskipMouseUntil=0;
 let streamMuted=false, streamPollTimer=null; // streams start WITH SOUND (his law, 2026-10-12) — the APK shell permits audible autoplay; the tap toggle now mutes instead of unmuting
@@ -242,28 +242,25 @@ function shareStream(s){
     document.body.removeChild(ta);
   }
 }
-/* jump the stream feed to a shared streamer id (platform:slug) */
+/* jump the card feed to a shared streamer id (platform:slug):
+   scroll his card to the center and make it the playing one */
 function sstreamJumpTo(id){
   if(!id||!sstreamStack.length)return false;
   const idx=sstreamStack.findIndex(x=>streamShareId(x)===id);
   if(idx<0)return false;
-  sstreamPos=idx;
-  sstreamFill(sstreamSlots[1],sstreamStack[sstreamPos],"current");
-  sstreamFill(sstreamSlots[0],sstreamStack[sstreamPos-1]||null,sstreamStack[sstreamPos-1]?"unload":"blank");
-  sstreamFill(sstreamSlots[2],sstreamStack[sstreamPos+1]||null,sstreamStack[sstreamPos+1]?"unload":"blank");
-  sstreamLayout();
+  const card=ssCards[idx];
+  if(card)card.scrollIntoView({block:"center"});
+  ssActivate(idx);
   return true;
 }
-function sstreamSlideHTML(){
-  return `<div class="sstream-frame" data-sframe></div>
-  <div class="sstream-ov" data-sov>
-    <div class="sstream-top"><span data-s-live></span><span class="sstream-plat" data-s-plat></span><button class="sstream-sharebtn" data-s-share title="Share this stream">↗ Share</button></div>
-    <div class="sstream-bot">
-      <div class="sstream-name" data-s-name></div>
-      <div class="sstream-title" data-s-title></div>
-      <div class="sstream-meta" data-s-meta></div>
-      <div><span class="sstream-sound" data-s-sound>🔇 Tap for sound</span></div>
-    </div>
+function ssCardHTML(){
+  return `<div class="sscard-frame" data-sframe></div>
+  <div class="sscard-ov" data-sov>
+    <div class="sscard-top"><span data-s-live></span><span class="sstream-plat" data-s-plat></span><button class="sstream-sharebtn" data-s-share title="Share this stream">↗ Share</button></div>
+    <div class="sscard-name" data-s-name></div>
+    <div class="sscard-title" data-s-title></div>
+    <div class="sscard-meta" data-s-meta></div>
+    <span data-s-sound style="display:none"></span>
   </div>`;
 }
 function sstreamFill(node,s,mode){
@@ -392,20 +389,69 @@ function ssVodWire(node,s){
   });
   prefetch(1%q.length);
 }
-function sstreamLayout(){ sstreamSlots.forEach((n,i)=>{ n.style.transform=`translateY(${(i-1)*100}%)`; }); }
-function sstreamCur(){ return sstreamSlots[1]; }
-/* re-sort the feed after live-status changes; keep the user on the same streamer when possible */
+/* ---------- CARDS (his order 2026-10-14): the Streaming tab is
+   a card feed like Home — one card per streamer, scroll up and
+   down freely. The card nearest the reading line plays, with
+   sound; every other card shows its info over a still frame.
+   sstreamFill does all the mounting, as it did for the stage. */
+let ssCards=[], ssActiveIdx=-1, ssScrollBound=false, ssScrollRaf=0;
+function ssUnloadFrame(node){
+  if(!node)return;
+  if(node._ssPlayer){ try{ node._ssPlayer.destroy(); }catch(e){} node._ssPlayer=null; }
+  const f=node.querySelector("[data-sframe]");
+  if(f)f.querySelectorAll("video").forEach(v=>{ try{ v.pause(); v.removeAttribute("src"); v.load(); }catch(e){} });
+}
+function ssActivate(idx){
+  if(idx===ssActiveIdx||idx<0||!ssCards.length)return;
+  const old=ssCards[ssActiveIdx];
+  if(old&&sstreamStack[ssActiveIdx]){ ssUnloadFrame(old); sstreamFill(old,sstreamStack[ssActiveIdx],"unload"); }
+  ssActiveIdx=idx; sstreamPos=idx;
+  const card=ssCards[idx];
+  if(card&&sstreamStack[idx])sstreamFill(card,sstreamStack[idx],"current");
+}
+function ssPickActive(){
+  ssScrollRaf=0;
+  if(!ssCards.length)return;
+  // the reading line lives in the VIEWPORT — in normal mode the
+  // window scrolls this view, in the hub the pane does; card rects
+  // are viewport-relative either way, so the math is one and the same
+  const vh=window.innerHeight||0, line=vh*0.38;
+  let best=-1, bd=1e9;
+  ssCards.forEach((c,i)=>{ const r=c.getBoundingClientRect(); if(r.bottom<0||r.top>vh)return; const d=Math.abs((r.top+r.bottom)/2-line); if(d<bd){ bd=d; best=i; } });
+  if(best<0)best=0;
+  ssActivate(best);
+}
+function ssBindScroll(){
+  if(ssScrollBound)return; ssScrollBound=true;
+  const v=$("#view-streaming"); if(!v)return;
+  v.addEventListener("scroll",()=>{ if(!ssScrollRaf)ssScrollRaf=requestAnimationFrame(ssPickActive); },{passive:true});
+  window.addEventListener("scroll",()=>{ if(curView==="streaming"&&!ssScrollRaf)ssScrollRaf=requestAnimationFrame(ssPickActive); },{passive:true});
+}
+function ssBuildCards(){
+  const v=$("#view-streaming"); if(!v)return;
+  const prevTop=v.scrollTop, prevWin=window.scrollY||0, hadCards=ssCards.length>0;
+  ssCards.forEach(ssUnloadFrame);
+  v.innerHTML=`<div class="sscards" id="ssCards"></div>`;
+  const box=v.querySelector("#ssCards");
+  ssCards=sstreamStack.map(st=>{
+    const d=document.createElement("article");
+    d.className="sscard"; d.innerHTML=ssCardHTML();
+    box.appendChild(d);
+    return d;
+  });
+  ssActiveIdx=-1;
+  ssCards.forEach((c,i)=>sstreamFill(c,sstreamStack[i],"unload"));
+  v.scrollTop=hadCards?prevTop:0;
+  if(hadCards&&prevWin)window.scrollTo(0,prevWin);
+  ssBindScroll();
+  ssPickActive();
+}
+/* re-sort the feed after live-status changes; the card list
+   rebuilds around the same scroll position */
 function restackStreams(){
-  if(!sstreamMounted||!sstreamStack.length)return;
-  const curUrl=sstreamStack[sstreamPos]?sstreamStack[sstreamPos].url:null;
+  if(!sstreamMounted)return;
   sstreamStack=sstreamList();
-  if(curUrl){
-    const ni=sstreamStack.findIndex(s=>s.url===curUrl);
-    sstreamPos=ni>=0?ni:Math.min(sstreamPos,sstreamStack.length-1);
-  }else sstreamPos=0;
-  sstreamFill(sstreamSlots[1],sstreamStack[sstreamPos],"current");
-  sstreamFill(sstreamSlots[0],sstreamStack[sstreamPos-1]||null,sstreamStack[sstreamPos-1]?"unload":"blank");
-  sstreamFill(sstreamSlots[2],sstreamStack[sstreamPos+1]||null,sstreamStack[sstreamPos+1]?"unload":"blank");
+  if(sstreamStack.length)ssBuildCards();
 }
 /* poll Kick live status every 60s while the Streaming tab is open */
 async function pollYtLive(){
@@ -444,149 +490,30 @@ function stopStreamPoll(){
   if(streamPollTimer){clearInterval(streamPollTimer);streamPollTimer=null;}
   if(ytPollTimer){clearInterval(ytPollTimer);ytPollTimer=null;}
 }
-function sstreamAdvance(dir){
-  const stage=$("#sstreamStage"), track=$("#sstreamTrack");
-  if(!stage||!track||ssnapAnim)return;
-  const H=stage.clientHeight;
-  if(dir>0){
-    if(sstreamPos>=sstreamStack.length-1){
-      track.classList.add("anim");track.style.transform="";
-      setTimeout(()=>track.classList.remove("anim"),330);return;
-    }
-    sstreamPos++;
-    ssnapAnim=true;track.classList.add("anim");
-    track.style.transform=`translateY(${-H}px)`;
-    setTimeout(()=>sstreamCommit(1),330);
-  }else{
-    if(sstreamPos<=0){
-      track.classList.add("anim");track.style.transform="";
-      setTimeout(()=>track.classList.remove("anim"),330);return;
-    }
-    sstreamPos--;
-    ssnapAnim=true;track.classList.add("anim");
-    track.style.transform=`translateY(${H}px)`;
-    setTimeout(()=>sstreamCommit(-1),330);
-  }
-}
-function sstreamCommit(dir){
-  const track=$("#sstreamTrack");
-  track.classList.remove("anim");track.style.transform="";
-  const [nP,nC,nN]=sstreamSlots;
-  if(dir>0){ sstreamSlots=[nC,nN,nP]; }else{ sstreamSlots=[nN,nP,nC]; }
-  sstreamFill(sstreamSlots[1],sstreamStack[sstreamPos],"current");
-  sstreamFill(sstreamSlots[0],sstreamStack[sstreamPos-1]||null,sstreamStack[sstreamPos-1]?"unload":"blank");
-  sstreamFill(sstreamSlots[2],sstreamStack[sstreamPos+1]||null,sstreamStack[sstreamPos+1]?"unload":"blank");
-  sstreamLayout();
-  ssnapAnim=false;
-}
 function sstreamToggleSound(){
   // RETIRED (his order 2026-10-14): no tap-to-mute/unmute in the
   // Streaming tab — streams play with sound automatically, always.
 }
 function stopStreamFeed(){
   stopStreamPoll();
-  sstreamSlots.forEach(n=>{ if(n._ssPlayer){ try{ n._ssPlayer.destroy(); }catch(e){} n._ssPlayer=null; } const f=n.querySelector("[data-sframe]"); if(f){
-    // explicitly pause + unload every <video> BEFORE removing — innerHTML="" alone lets audio leak in WebView
-    f.querySelectorAll("video").forEach(v=>{ try{ v.pause(); v.removeAttribute("src"); v.load(); }catch(e){} });
-    f.innerHTML="";
-  }});
+  ssCards.forEach(n=>{ ssUnloadFrame(n); const f=n.querySelector("[data-sframe]"); if(f)f.innerHTML=""; });
 }
 async function mountStreamFeed(){
-  document.body.classList.add("feedfull");
+  document.body.classList.remove("feedfull"); // a scrolling card feed now, not the fullscreen stage
   const v=$("#view-streaming");
-  // 1. Build the 3-slot stage IMMEDIATELY — never await network for DOM.
-  if(!sstreamMounted){
-    sstreamMounted=true;
-    v.innerHTML=`<div class="feedstage" id="sstreamStage"><div id="sstreamTrack"></div></div>`;
-    const track=$("#sstreamTrack"), stage=$("#sstreamStage");
-    for(let i=0;i<3;i++){
-      const d=document.createElement("div");
-      d.className="slide";d.innerHTML=sstreamSlideHTML();
-      track.appendChild(d);sstreamSlots.push(d);
-    }
-    sstreamLayout();
-    const onStart=(x,y)=>{
-      if(ssnapAnim||sdragging)return false;
-      sdragging=true;sdragDy=0;smovedPx=0;sdragX0=x;sdragY0=y;sdragT0=Date.now();sdragYielded=false;sdragCommitted=false;
-      svelSamples=[{y,t:Date.now()}];track.classList.remove("anim");return true;
-    };
-    const onMove=(x,y)=>{
-      if(!sdragging)return;
-      sdragDy=y-sdragY0;smovedPx=Math.max(smovedPx,Math.abs(sdragDy),Math.abs(x-sdragX0));
-      svelSamples.push({y,t:Date.now()});if(svelSamples.length>6)svelSamples.shift();
-      track.style.transform=`translateY(${sdragDy}px)`;
-    };
-    const onEnd=()=>{
-      if(!sdragging)return;sdragging=false;
-      const dt=Date.now()-sdragT0,H=stage.clientHeight;
-      let vel=0;
-      if(svelSamples.length>=2){
-        const a=svelSamples[0],b=svelSamples[svelSamples.length-1];
-        vel=(b.y-a.y)/Math.max(1,b.t-a.t);
-      }
-      if(smovedPx<10&&dt<300){
-        track.style.transform="";
-        ssuppressClick=true;setTimeout(()=>ssuppressClick=false,500);
-        return; // taps never mute/unmute here (his order 2026-10-14): the stream plays with sound on its own
-      }
-      ssuppressClick=true;setTimeout(()=>ssuppressClick=false,500);
-      if(sdragDy<-H*0.25||vel<-0.45)sstreamAdvance(1);
-      else if(sdragDy>H*0.25||vel>0.45)sstreamAdvance(-1);
-      else{track.classList.add("anim");track.style.transform="";
-        setTimeout(()=>track.classList.remove("anim"),340);}
-    };
-    stage.addEventListener("touchstart",e=>{onStart(e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
-    stage.addEventListener("touchmove",e=>{
-      if(!sdragging)return;
-      if(window.__evNative&&document.body.classList.contains("ev-mode")){
-        // EVERYTHING HUB: sideways belongs to the hub's native track.
-        // A real thumb flicks diagonally and in big jumps, so the
-        // pager stays HANDS OFF (no transform, no preventDefault)
-        // until the gesture proves itself: horizontal at least
-        // tying vertical past 14px = the hub's, permanently;
-        // vertical strictly winning past 24px = this pager's.
-        // Anything sooner in either claim froze real swipes dead.
-        const dx=e.touches[0].clientX-sdragX0, dyy=e.touches[0].clientY-sdragY0;
-        if(sdragYielded)return;
-        if(!sdragCommitted){
-          if(Math.abs(dx)>=14&&Math.abs(dx)>=Math.abs(dyy)){ sdragYielded=true; sdragging=false; track.style.transform=""; return; }
-          if(Math.abs(dyy)>=24&&Math.abs(dyy)>Math.abs(dx)){ sdragCommitted=true; }
-          else return;
-        }
-      }
-      onMove(e.touches[0].clientX,e.touches[0].clientY);
-      if(e.cancelable)e.preventDefault();
-    },{passive:false});
-    stage.addEventListener("touchend",()=>{sskipMouseUntil=Date.now()+600;onEnd()});
-    stage.addEventListener("touchcancel",()=>{sskipMouseUntil=Date.now()+600;sdragging=false;track.classList.add("anim");track.style.transform="";setTimeout(()=>track.classList.remove("anim"),340)});
-    stage.addEventListener("mousedown",e=>{if(e.button!==0||Date.now()<sskipMouseUntil)return;onStart(e.clientX,e.clientY)});
-    window.addEventListener("mousemove",e=>{if(sdragging)onMove(e.clientX,e.clientY)});
-    window.addEventListener("mouseup",()=>{if(sdragging)onEnd()});
-    document.addEventListener("keydown",e=>{
-      if(curView!=="streaming")return;
-      if(e.key==="ArrowUp")sstreamAdvance(1);
-      if(e.key==="ArrowDown")sstreamAdvance(-1);
-    });
-  }
-  // 2. Fill from cache instantly if present; otherwise skeleton while it loads.
+  sstreamMounted=true;
   const sfill=()=>{
     const list=sstreamList();
     if(!list.length)return false;
     sstreamStack=list;
-    sstreamPos=0;
-    sstreamFill(sstreamSlots[1],sstreamStack[0],"current");
-    sstreamFill(sstreamSlots[0],null,"blank");
-    sstreamFill(sstreamSlots[2],sstreamStack[1]||null,sstreamStack[1]?"unload":"blank");
-    sstreamLayout();
+    ssBuildCards();
     return true;
   };
   if(!sfill()){
-    sstreamFill(sstreamSlots[1],null,"blank");
-    const nm=sstreamSlots[1].querySelector("[data-s-name]");
-    if(nm)nm.textContent="Loading streams…";
+    v.innerHTML=`<div class="sscards"><div class="sscard"><div class="sscard-ov"><div class="sscard-name">Loading streams…</div></div></div></div>`;
   }
   startStreamPoll();
-  // 3. Data loads in background; fill + live-refresh when it arrives.
+  // Data loads in background; rebuild + live-refresh when it arrives.
   loadStreamers().then(()=>{
     refreshStreamersLive(); // fire-and-forget: live badges + replays refresh in background
     // the mount-time poll can fire before the directory loads (empty
@@ -596,9 +523,8 @@ async function mountStreamFeed(){
     try{ pollYtLive(); }catch(e){}
     if(curView!=="streaming")return;
     if(!sfill()){
-      document.body.classList.remove("feedfull");
       v.innerHTML=`<div class="wrap"><div class="sempty" style="grid-column:1/-1">No streamers yet — check back soon.</div></div>`;
-      sstreamMounted=false; sstreamSlots.length=0;
+      sstreamMounted=false; ssCards=[];
     }
   });
 }
