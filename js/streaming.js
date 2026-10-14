@@ -165,7 +165,21 @@ async function refreshStreamersLive(){
         ["kick","twitch"].forEach(p=>{
           (d[p]||[]).forEach(s=>{
             const u=String((s&&s.url)||"").toLowerCase();
-            if(u&&!seen.has(u)){ seen.add(u); (STREAMERS[p]=STREAMERS[p]||[]).push(s); addedNew=true; }
+            if(u&&seen.has(u))return;
+            /* stub rows (name-only, from the Stakes-era adds) have no
+               url for `seen` to match — heal them BY NAME from the
+               directory instead of pushing a duplicate card: the
+               baked url/avatar/thumb/vod fields fill the stub in
+               place, so a phone carrying the old cache converges
+               on the full directory with art, no cache-clear needed */
+            const stub=(STREAMERS[p]||[]).find(x=>!x.url&&String(x.name||"").toLowerCase()===String(s.name||"").toLowerCase());
+            if(stub){
+              ["url","avatar","thumb","vod_id","vod_title","vod_hls","category","followers"].forEach(f=>{ if(s[f]&&!stub[f])stub[f]=s[f]; });
+              if(u)seen.add(u);
+              addedNew=true;
+              return;
+            }
+            if(u){ seen.add(u); (STREAMERS[p]=STREAMERS[p]||[]).push(s); addedNew=true; }
           });
         });
       }
