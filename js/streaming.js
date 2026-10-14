@@ -486,6 +486,7 @@ function ssActivate(idx){
   const card=ssCards[idx];
   if(card&&sstreamStack[idx])sstreamFill(card,sstreamStack[idx],"current");
 }
+let ssSettleT=null, ssPendingIdx=-1;
 function ssPickActive(){
   ssScrollRaf=0;
   if(!ssCards.length)return;
@@ -496,7 +497,16 @@ function ssPickActive(){
   let best=-1, bd=1e9;
   ssCards.forEach((c,i)=>{ const r=c.getBoundingClientRect(); if(r.bottom<0||r.top>vh)return; const d=Math.abs((r.top+r.bottom)/2-line); if(d<bd){ bd=d; best=i; } });
   if(best<0)best=0;
-  ssActivate(best);
+  // NEVER swap players mid-scroll (root fix, 2026-10-14): mounting
+  // and unmounting iframes under his finger kills the scroll/fling
+  // on a real phone — the gesture dies at every card boundary and
+  // the list feels nailed down. While the list is moving, NOTHING
+  // in the DOM changes; the swap happens once, when the scroll
+  // has been settled for a beat — the same discipline the hub
+  // learned. Posters carry the eye during the flight.
+  ssPendingIdx=best;
+  if(ssSettleT)clearTimeout(ssSettleT);
+  ssSettleT=setTimeout(()=>{ ssSettleT=null; if(ssPendingIdx>=0)ssActivate(ssPendingIdx); },240);
 }
 function ssBindScroll(){
   if(ssScrollBound)return; ssScrollBound=true;
@@ -525,10 +535,16 @@ function ssBuildCards(){
 }
 /* re-sort the feed after live-status changes; the card list
    rebuilds around the same scroll position */
+let ssLastSig="";
+function ssStackSig(){ return sstreamStack.map(x=>(x.url||"")+"|"+(x.live?1:0)+"|"+(x.vod_id||"")+"|"+(x.ytLatestId||"")).join(";;"); }
 function restackStreams(){
   if(!sstreamMounted)return;
   sstreamStack=sstreamList();
-  if(sstreamStack.length)ssBuildCards();
+  if(!sstreamStack.length)return;
+  const sig=ssStackSig();
+  if(sig===ssLastSig&&ssCards.length)return; // nothing real changed — a rebuild here only murders scrolls
+  ssLastSig=sig;
+  ssBuildCards();
 }
 /* poll Kick live status every 60s while the Streaming tab is open */
 async function pollYtLive(){
@@ -583,6 +599,7 @@ async function mountStreamFeed(){
     const list=sstreamList();
     if(!list.length)return false;
     sstreamStack=list;
+    ssLastSig=ssStackSig();
     ssBuildCards();
     return true;
   };
