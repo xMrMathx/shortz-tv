@@ -3692,16 +3692,37 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }catch(e){}
     });
   }
+  let evSection=null;
+  function evPanesInOrder(){ const vs=$("views"); return vs?[...vs.querySelectorAll(".view.evpane")]:[]; }
   function evRest(){
     const vs=$("views"); if(!vs||!evMode)return;
     const W=window.innerWidth||1;
-    const idx=Math.max(0,Math.min(SECTIONS.length-1,Math.round(vs.scrollLeft/W)));
-    if(idx===evIdx)return;
-    evIdx=idx;
-    const v=SECTIONS[evIdx];
-    try{ renderView(v); }catch(e){}
-    go(v);
-    updateHeader();
+    const panes=evPanesInOrder(); if(!panes.length)return;
+    let pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
+    const pane=panes[pos]; if(!pane)return;
+    const v=pane.id.replace("view-","");
+    if(v!==evSection){
+      evSection=v;
+      evIdx=SECTIONS.indexOf(v); if(evIdx<0)evIdx=0;
+      try{ renderView(v); }catch(e){}
+      go(v);
+      updateHeader();
+    }
+    // WRAPAROUND (his word 2026-10-14: "it shouldn't end — continuous
+    // scrolling until I stop it"): at rest, rotate the pane ring so
+    // the resting pane sits mid-track again, shifting scrollLeft by
+    // the exact same amount — the picture does not move a pixel, but
+    // there are always panes left to scroll to in BOTH directions.
+    // The ring is a rotation of the section cycle, so neighbors are
+    // always the true prev/next sections.
+    while(pos<2){ const last=panes[panes.length-1]; vs.insertBefore(last,panes[0]); panes.unshift(panes.pop()); vs.scrollLeft+=W; pos++; }
+    while(pos>3){ const first=panes[0]; vs.appendChild(first); panes.push(panes.shift()); vs.scrollLeft-=W; pos--; }
+  }
+  function evRotateTo(v){
+    const vs=$("views"); if(!vs)return;
+    const k=SECTIONS.indexOf(v); if(k<0)return;
+    [SECTIONS[(k+4)%6],SECTIONS[(k+5)%6],SECTIONS[k],SECTIONS[(k+1)%6],SECTIONS[(k+2)%6],SECTIONS[(k+3)%6]]
+      .forEach(n=>{ const el=document.getElementById("view-"+n); if(el)vs.appendChild(el); });
   }
   function evBindScroll(){
     if(evScrollBound)return; evScrollBound=true;
@@ -3727,7 +3748,9 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       vs.classList.add("evtrack");
       evPanes().forEach(el=>{ if(el)el.classList.add("evpane"); });
       evBindScroll();
-      requestAnimationFrame(()=>{ try{ vs.scrollLeft=evIdx*(window.innerWidth||1); }catch(e){} });
+      evSection=SECTIONS[evIdx];
+      evRotateTo(evSection); // the current section starts mid-ring: wraparound runway both ways
+      requestAnimationFrame(()=>{ try{ vs.scrollLeft=2*(window.innerWidth||1); }catch(e){} });
     }
     updateHeader();
     try{
@@ -4742,7 +4765,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014133548";
+const BUILD="20261014134531";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
