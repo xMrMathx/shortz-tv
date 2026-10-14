@@ -26,13 +26,19 @@ function swFlushPlace(s){
   if(_swRaf){ cancelAnimationFrame(_swRaf); _swRaf=0; }
   if(s&&_swPendingX!=null){ const x=_swPendingX; _swPendingX=null; swStripPlace(s,x); }
 }
+let _swBodyH=0;
+function swBodyLock(){
+  if(!_swBodyH){ try{ _swBodyH=document.documentElement.scrollHeight||0; }catch(e){} }
+  if(_swBodyH){ try{ document.body.style.minHeight=_swBodyH+"px"; }catch(e){} }
+}
+try{ addEventListener("resize",()=>{ _swBodyH=0; },{passive:true}); }catch(e){}
 function swipeBlocked(){
   try{
     if(typeof Manga!=="undefined"&&Manga.readerOpen)return true; // an open book turns its own pages
     if(document.querySelector("#vfOpen.open,#edraw.open,#escrim.open,#sportsReel.open,.scrim.open"))return true;
     for(const id of ["authGate","tutGate"]){
       const el=document.getElementById(id);
-      if(el&&getComputedStyle(el).display!=="none"&&el.getBoundingClientRect().height>0)return true;
+      if(el&&getComputedStyle(el).display!=="none")return true; // display only: a rect read here force-laid-out the page on every touch (brain audit #5)
     }
   }catch(e){}
   return false;
@@ -81,17 +87,20 @@ function swStubFlush(s){
 function swFinalize(s){
   if(s.stubT){ clearTimeout(s.stubT); s.stubT=0; }
   const target=s.target;
-  _sw=null; _swPark=null; window.__swiping=false;
+  _sw=null; _swPark=null; window.__swiping=false; _swBodyH=0;
   swStripUndress(s);
   if(target){
-    // a settle is an entry: if the screen still holds the peek stub (or
-    // was never built), build it for real — the same renderView a tab
-    // tap runs. Screens the peek already built are left alone.
-    try{
-      const tv=document.querySelector("#view-"+target);
-      if(tv&&(!tv.innerHTML.trim()||tv.querySelector("[data-swstub]")))renderView(target);
-    }catch(e){}
     try{ go(target); }catch(e){}
+    // a settle is an entry: if the screen still holds the peek stub
+    // (or was never built), build it for real — but one frame AFTER
+    // arrival, with the recompute. A heavy synchronous build on the
+    // arrival frame froze the exact moment the motion stopped
+    // (brain audit #6); one frame of stub beats a stuck landing.
+    const tg=target;
+    requestAnimationFrame(()=>{ try{
+      const tv=document.querySelector("#view-"+tg);
+      if(tv&&(!tv.innerHTML.trim()||tv.querySelector("[data-swstub]")))renderView(tg);
+    }catch(e){} swSettleRecompute(); });
   }
   // keep the EVERYTHING hub header honest after a strip settle
   try{
@@ -102,13 +111,14 @@ function swFinalize(s){
       if(dd){ const i2=SWIPE_TABS.indexOf(target); dd.querySelectorAll("i").forEach((el,j)=>el.classList.toggle("on",j===i2)); }
     }
   }catch(e){}
-  swSettleRecompute();
+  if(target)swPrebuild(SWIPE_TABS.indexOf(target));
 }
 function swUnpark(s){
-  _sw=null; _swPark=null; window.__swiping=false;
+  _sw=null; _swPark=null; window.__swiping=false; _swBodyH=0;
   swResetStrip(s);
   swFeedResume();
   swSettleRecompute();
+  swPrebuild(SWIPE_TABS.indexOf(s.curName));
 }
 function __swParkClear(){
   if(_swPark){ const s=_swPark; _swPark=null; swResetStrip(s); }
@@ -117,7 +127,33 @@ function __swParkClear(){
 }
 window.__swParkClear=__swParkClear;
 window.__stripOwnsSwipe=true; // the EVERYTHING hub's swipe-snap stands down (see its touchend)
+/* neighbor pre-build + poster decode, scheduled from locks and
+   settles only (brain audit #3/#4): screens build half a second
+   after a real swipe moment, and their images decode on idle time —
+   never mid-drag on the compositor's first tile, never detonating
+   inside an unrelated vertical scroll. */
+function swPrebuild(idx){
+  setTimeout(()=>{
+    if(window.__swiping)return; // never build into a moving strip
+    try{
+      for(const nb of [SWIPE_TABS[(idx+SWIPE_TABS.length-1)%SWIPE_TABS.length],SWIPE_TABS[(idx+1)%SWIPE_TABS.length]]){ // wrapped neighbors too
+        if(!nb||nb==="live"||nb==="streaming")continue;
+        const el=document.querySelector("#view-"+nb);
+        if(el&&!el.innerHTML.trim())renderView(nb);
+        if(el){
+          const imgs=el.querySelectorAll("img"); let n=0;
+          const dec=()=>{ imgs.forEach(im=>{ if(n++<48&&im.decode)im.decode().catch(()=>{}); }); };
+          if(window.requestIdleCallback)requestIdleCallback(dec,{timeout:900}); else setTimeout(dec,60);
+        }
+      }
+    }catch(e){}
+  },500);
+}
 document.addEventListener("touchstart",e=>{
+  // THE EVERYTHING GATE (his order 2026-10-14): swiping exists ONLY
+  // inside the Everything hub — grid toggle ON. Toggle off, the
+  // screens are locked in place and the strip does not exist.
+  if(!document.body.classList.contains("ev-mode"))return;
   // mid-glide touch: the glide's position becomes a park, and the
   // normal resume path below picks the strip up under the finger —
   // complete control, the glide never fights the hand
@@ -142,22 +178,10 @@ document.addEventListener("touchstart",e=>{
   const idx=SWIPE_TABS.indexOf(curView);
   if(idx<0)return;
   _sw={resume:false,locked:false,x0:tt.clientX,y0:tt.clientY,base:0,dx:0,dir:0,target:null,peekEl:null,curEl:$("#view-"+curView),curName:curView,idx:idx,sy:0,moved:false};
-  // PRE-ARM (his order: "as soon as I turn it on it should be locked
-  // and ready"): the document-height measure the lock needs happens
-  // NOW, while nothing is moving — and the static neighbor screens
-  // quietly build half a second later, so the next drags find real
-  // screens waiting. Live/Streaming are never pre-built.
-  try{ document.body.style.minHeight=(document.documentElement.scrollHeight||0)+"px"; }catch(e){}
-  setTimeout(()=>{
-    if(window.__swiping)return; // never build into a moving strip
-    try{
-      for(const nb of [SWIPE_TABS[(idx+SWIPE_TABS.length-1)%SWIPE_TABS.length],SWIPE_TABS[(idx+1)%SWIPE_TABS.length]]){ // wrapped neighbors pre-build too
-        if(!nb||nb==="live"||nb==="streaming")continue;
-        const el=document.querySelector("#view-"+nb);
-        if(el&&!el.innerHTML.trim())renderView(nb);
-      }
-    }catch(e){}
-  },500);
+  // PRE-ARM is state only now: the document-height measure moved
+  // INTO the lock (paid once per real swipe, not on every tap or
+  // scroll start — brain audit #2), and neighbor pre-builds are
+  // scheduled from locks and settles instead of raw touches (#4).
 },{capture:true,passive:true});
 document.addEventListener("touchmove",e=>{
   const s=_sw; if(!s)return;
@@ -194,9 +218,11 @@ document.addEventListener("touchmove",e=>{
         }
       }
       s.sy=window.scrollY||0;
+      swBodyLock();
       if(s.curEl){ s.curEl.classList.add("swipe-cur"); s.curEl.style.transition="none"; s.curEl.style.willChange="transform"; }
       if(pk){ pk.classList.add("swipe-peek"); pk.style.transition="none"; pk.style.willChange="transform"; s.peekEl=pk; }
       s.locked=true; window.__swiping=true; swFeedPause();
+      swPrebuild(nIdx); // a demonstrable swipe moment: queue the neighbors
     } else return;
   }
   e.preventDefault(); // strip engaged: the page must not scroll under the drag
@@ -210,14 +236,29 @@ document.addEventListener("touchmove",e=>{
   (s.hist||(s.hist=[])).push({dx:ndx,t:performance.now()});
   if(s.hist.length>12)s.hist.shift();
 },{capture:true,passive:false});
-/* release velocity in travel px/ms over the finger's last ~120ms */
+/* release velocity in travel px/ms. A real flick decelerates as
+   the thumb rolls off, so the plain last-120ms average under-reads
+   it and the strip parked mid-screen (his "still stopping"). The
+   release speed is the average OR 0.8x the fastest 45ms segment in
+   in the gesture, whichever is higher — a positioning drag never
+   makes a fast segment, so slow drags still park exactly. */
 function swVel(s){
   const h=s.hist||[]; if(h.length<2)return 0;
   const now=performance.now(), last=h[h.length-1];
   let old=h[0];
   for(let i=h.length-1;i>=0;i--){ if(now-h[i].t<=120)old=h[i]; else break; }
-  const dt=now-old.t; if(dt<16)return 0;
-  return (last.dx-old.dx)/dt;
+  const dt=now-old.t;
+  let avg=0; if(dt>=16)avg=(last.dx-old.dx)/dt;
+  let peak=0;
+  for(let i=0;i<h.length;i++){
+    for(let j=i+1;j<h.length;j++){
+      const d=h[j].t-h[i].t; if(d>110)break;
+      if(d>=18){ const v=(h[j].dx-h[i].dx)/d; if(Math.abs(v)>Math.abs(peak))peak=v; }
+    }
+  }
+  const lastSeg=h.length>1?Math.sign(last.dx-h[h.length-2].dx):0;
+  if(Math.sign(peak)===Math.sign(avg)||avg===0||Math.sign(peak)===lastSeg)return Math.abs(peak*0.8)>Math.abs(avg)?peak*0.8:avg;
+  return avg;
 }
 let _swGlide=null;
 /* exponential-decay glide: starts at the finger's own speed
@@ -228,15 +269,16 @@ function swGlide(s,toDx,done){
   const from=s.dx;
   const remaining=Math.abs(toDx-from); if(remaining<2){ done(); return; }
   const v=Math.max(0.5,Math.abs(swVel(s)));
-  const tau=Math.max(55,Math.min(300,remaining/v));
+  const tau=Math.max(55,Math.min(190,remaining/v)); // cap 190: the 300ms tail crawled sub-pixel for ~1.4s on medium flicks (brain audit #1)
   const t0=performance.now();
   const step=()=>{
     if(_sw!==s){ _swGlide=null; return; } // a touch took over
     const t=performance.now()-t0;
     const left=remaining*Math.exp(-t/tau);
-    s.dx=toDx+(from-toDx)*Math.exp(-t/tau);
-    swQueuePlace(s,s.dx);
-    if(left>1.5){ _swGlide={s:s,raf:requestAnimationFrame(step)}; }
+    // write the frame directly: routing the glide through
+    // swQueuePlace chains a second rAF and paces unevenly on a phone
+    swStripPlace(s,toDx+(from-toDx)*Math.exp(-t/tau));
+    if(left>Math.max(2,remaining*0.06)&&t<550){ _swGlide={s:s,raf:requestAnimationFrame(step)}; }
     else{ _swGlide=null; s.dx=toDx; swFlushPlace(s); done(); }
   };
   _swGlide={s:s,raf:requestAnimationFrame(step)};

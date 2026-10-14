@@ -72,7 +72,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .swipe-stub-logo span{color:#e50914}
 .swipe-stub-name{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
 .view.swipe-cur{position:fixed!important;top:0;bottom:0;left:0;width:100%;opacity:1;z-index:41;overflow:hidden;background:var(--bg);box-shadow:inset 0 0 0 2px #e50914}
-#cfeed,#view-home,#view-browse,#view-live,#view-streaming,#view-profile{touch-action:pan-y}
+.view,#cfeed{touch-action:pan-y}
 .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
 /* ---------- FEED (home landing): fullscreen vertical player ---------- */
@@ -2826,7 +2826,7 @@ function go(v){
   setTimeout(()=>cur.classList.remove("leaving"),550);
   nxt.classList.add("active");
   curView=v;
-  if(v==="profile"){try{vfStartPreviews();}catch(e){}} // Video Folders: renderView paints before go() flips curView — previews start here, once Profile is active
+  if(v==="profile"){try{vfStartPreviews();}catch(e){} try{if(window.__tgStartGuide)__tgStartGuide();}catch(e){}} // Video Folders + TV Guide: renderView paints before go() flips curView — previews start here, once Profile is active
   try{ const _sa=document.getElementById("topShareApp"); if(_sa) _sa.style.display=(v==="profile")?"":"none"; }catch(e){}
   document.body.classList.toggle("feedfull",v==="home"||v==="streaming");
   try{if(window.Android&&window.Android.onWatching)window.Android.onWatching(v==="home")}catch(e){}
@@ -3658,6 +3658,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(!evMode)return;
     evMode=false;
     document.body.classList.remove("ev-mode");
+    try{ if(window.__swParkClear)window.__swParkClear(); }catch(e){} // leaving the hub parks nothing: the strip clears with the toggle
   }
   // swipe detection: capture phase, only in ev-mode, horizontal-dominant only
   document.addEventListener("touchstart",e=>{
@@ -4657,7 +4658,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014095606";
+const BUILD="20261014103024";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();

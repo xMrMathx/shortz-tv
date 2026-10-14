@@ -104,6 +104,10 @@ function tgPreview(id,_skip){
   }
   const wb2=$("#tgWatch"); if(wb2)wb2.style.display="";
 }
+/* entry hook for go(): tab entry renders BEFORE curView flips, so
+   the render above correctly stays silent; go() calls this once
+   Profile is actually current and starts the preview then. */
+window.__tgStartGuide=function(){ try{ const fr=$("#tgFrame"); if(fr&&!fr.querySelector("iframe,video")&&typeof tgList!=="undefined"&&tgList&&tgList.length)tgPreview(tgList[0].id); }catch(e){} };
 function tgPause(){
   const fr=$("#tgFrame");
   if(fr){fr.innerHTML="";fr._tid=null;}
@@ -247,8 +251,12 @@ function renderTvGuide(){
     <div id="tgList"></div>
     <div id="tgEmpty" class="empty" style="display:none">No shows found.</div>`;
   tgMore();
-  // preview the first show so the box isn't empty
-  if(tgList.length)tgPreview(tgList[0].id);
+  // preview the first show so the box isn't empty — ONLY when
+  // Profile is truly the current screen. A build that happens
+  // off-screen (swipe peek / neighbor pre-build) must stay silent:
+  // an autoplaying guide under another tab had no exit hook, and
+  // its audio never stopped (his report, 2026-10-14).
+  if(tgList.length&&curView==="profile")tgPreview(tgList[0].id);
   renderTgHighlights(true);
   renderTgScoreboard(true);
   tgRefreshGuideData(); // guide opens on live data, same as Home — see below
