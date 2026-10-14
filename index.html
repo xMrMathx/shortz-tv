@@ -487,6 +487,7 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .grid.fading{opacity:0;transform:translateY(12px)}
 .grid .vcard{width:100%}
 .grid .vthumb{width:100%;height:auto;aspect-ratio:9/16}
+#bgrid .vthumb{box-shadow:0 4px 14px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.07)}
 
 /* ---------- my list / profile ---------- */
 .sect{font-size:17px;font-weight:800;margin:22px 0 12px}
@@ -2284,7 +2285,15 @@ function genreLabel(g){
   const base=g===ALL?"All":g===ONLYSHORTZ?"Shortz Picks":g===EARLY?"Early Release":g===AI?"AI Shorts":g===AWARD?"🏆 Award-Winning":g===TREK?"🚀 Star Trek Fan":g;
   return "🌐 Genre: "+base;
 }
-function alphaSort(a){return [...a].sort((x,y)=>String(x.title||"").localeCompare(String(y.title||""),"en",{sensitivity:"base"}))}
+/* ALL-WALL ENGINE (2026-10-14): ONE shared collator for every sort.
+   The old comparator called String.localeCompare WITH OPTIONS on every
+   one of ~810k comparisons — re-parsing the options and rebuilding the
+   collator each time — a ~3-7s freeze sorting the 51,629-title All wall
+   (and every cold genre or search). A single shared Intl.Collator with
+   the same tailoring produces the IDENTICAL order (verified hash-equal
+   against the old sort over the full catalog) in ~0.1s. */
+const _alphaCollator=new Intl.Collator("en",{sensitivity:"base"});
+function alphaSort(a){return [...a].sort((x,y)=>_alphaCollator.compare(String(x.title||""),String(y.title||"")))}
 function browseList(){
   const qf=browseListFiltered();
   if(qf)return alphaSortCached("q:"+browseQuery,qf);
@@ -2373,20 +2382,21 @@ function cardHTML(t){
       ${t.ai_made?'<span class="aibadge">✦ AI</span>':""}
     </div></div>`;
 }
+function bindOneCard(c){
+  let tapTimer=null;
+  c.onclick=()=>{
+    if(c._lpFired){c._lpFired=false;return;} // long-press fired: swallow the click
+    if(tapTimer){clearTimeout(tapTimer);tapTimer=null;dblSave(c.dataset.id);return;}
+    tapTimer=setTimeout(()=>{tapTimer=null;
+      // BROWSE FUNNEL (his order 2026-10-14): a title tap inside Browse or
+      // its genre pages lands on Home as a playing card — never detail/player.
+      if(c.closest("#view-browse,#view-genre")){ const bt=byId(c.dataset.id); if(bt){ cfPresentTitle(bt); return; } }
+      openDetail(c.dataset.id);},300);
+  };
+  bindHoldToLike(c,c.dataset.id); // hold-to-like on every cover, everywhere
+}
 function bindCards(root){
-  root.querySelectorAll(".vcard").forEach(c=>{
-    let tapTimer=null;
-    c.onclick=()=>{
-      if(c._lpFired){c._lpFired=false;return;} // long-press fired: swallow the click
-      if(tapTimer){clearTimeout(tapTimer);tapTimer=null;dblSave(c.dataset.id);return;}
-      tapTimer=setTimeout(()=>{tapTimer=null;
-        // BROWSE FUNNEL (his order 2026-10-14): a title tap inside Browse or
-        // its genre pages lands on Home as a playing card — never detail/player.
-        if(c.closest("#view-browse,#view-genre")){ const bt=byId(c.dataset.id); if(bt){ cfPresentTitle(bt); return; } }
-        openDetail(c.dataset.id);},300);
-    };
-    bindHoldToLike(c,c.dataset.id); // hold-to-like on every cover, everywhere
-  });
+  root.querySelectorAll(".vcard").forEach(bindOneCard);
   likesWatch(root);
 }
 /* double-tap a card = save to My List */
@@ -2630,6 +2640,20 @@ function likesDetach(ids){
     if(r){try{r.off();}catch(e){}delete Likes.listeners[id];}
   });
 }
+/* paint EVERY copy of a title (live like snapshots land here, so a like
+   still updates the same title everywhere it appears) */
+function likesPaintAll(id,v){
+  document.querySelectorAll('.vcard[data-id="'+id+'"]').forEach(x=>likePaint(x,v,x.dataset.id));
+  document.querySelectorAll('.award-item[data-aid="'+id+'"]').forEach(x=>likePaint(x,v,id));
+  document.querySelectorAll('.top10-item[data-tid="'+id+'"]').forEach(x=>likePaint(x,v,id));
+  document.querySelectorAll('.feat-slide[data-id="'+id+'"]').forEach(x=>likePaint(x,v,id));
+  document.querySelectorAll('.cfcard[data-id="'+id+'"]').forEach(x=>cfLikePaint(x,v));
+}
+/* paint ONE swept card element (cache repaints on a watch sweep) */
+function likesPaintOne(c,v){
+  if(c.el.classList&&c.el.classList.contains("cfcard"))cfLikePaint(c.el,v);
+  else likePaint(c.el,v,c.id);
+}
 function likesWatch(root){
   if(!FIREBASE_READY)return;
   const cards=[];
@@ -2650,27 +2674,49 @@ function likesWatch(root){
     if(!ok){
       // no session/backend right now: still paint every card from cache +
       // my intent, so counts and hearts reflect likes registered locally
-      cards.forEach(c=>{
-        if(c.el.classList&&c.el.classList.contains("cfcard"))cfLikePaint(c.el,Likes.cache[c.id]||{});
-        else likePaint(c.el,Likes.cache[c.id]||{},c.id);
-      });
+      cards.forEach(c=>{ likesPaintOne(c,Likes.cache[c.id]||{}); });
       return;
     }
     cards.forEach(c=>{
       const id=c.id;
-      const paintAll=v=>{document.querySelectorAll('.vcard[data-id="'+id+'"]').forEach(x=>likePaint(x,v,x.dataset.id));
-        document.querySelectorAll('.award-item[data-aid="'+id+'"]').forEach(x=>likePaint(x,v,id));
-        document.querySelectorAll('.top10-item[data-tid="'+id+'"]').forEach(x=>likePaint(x,v,id));
-        document.querySelectorAll('.feat-slide[data-id="'+id+'"]').forEach(x=>likePaint(x,v,id));
-        document.querySelectorAll('.cfcard[data-id="'+id+'"]').forEach(x=>cfLikePaint(x,v));};
-      if(Likes.listeners[id]){if(Likes.cache[id])paintAll(Likes.cache[id]);return;}
+      // ALL-WALL ENGINE (2026-10-14): an already-listened id repaints ONLY
+      // this swept element from cache. The old code ran paintAll here —
+      // 5 document-wide queries PER ID PER SWEEP — which stalled the
+      // Browse wall for seconds once thousands of cards were rendered.
+      // Live snapshots still paint every copy (likesPaintAll below).
+      if(Likes.listeners[id]){ if(Likes.cache[id])likesPaintOne(c,Likes.cache[id]); return; }
       const ref=Likes.db.ref("likes/"+id);
       Likes.listeners[id]=ref;
       ref.on("value",snap=>{
         const v=snap.val()||{};
         Likes.cache[id]=v;
-        paintAll(v);
+        likesPaintAll(id,v);
       },()=>{/* permission-denied until rules publish: stay silent */});
+    });
+  });
+}
+
+/* ALL-WALL ENGINE (2026-10-14): incremental likes for wall chunks —
+   attach listeners for just these cards and paint just these elements.
+   Never detaches other cards' listeners, never re-sweeps the document. */
+function likesWatchAdd(els){
+  if(!FIREBASE_READY||!els||!els.length)return;
+  const cards=[];
+  els.forEach(el=>{ const id=el.dataset&&el.dataset.id; if(id)cards.push({el:el,id:id}); });
+  if(!cards.length)return;
+  if(!window.firebase){ cards.forEach(c=>likesPaintOne(c,Likes.cache[c.id]||{})); return; }
+  likesEnsure().then(ok=>{
+    if(!ok){ cards.forEach(c=>likesPaintOne(c,Likes.cache[c.id]||{})); return; }
+    cards.forEach(c=>{
+      const id=c.id;
+      if(Likes.listeners[id]){ if(Likes.cache[id])likesPaintOne(c,Likes.cache[id]); return; }
+      const ref=Likes.db.ref("likes/"+id);
+      Likes.listeners[id]=ref;
+      ref.on("value",snap=>{
+        const v=snap.val()||{};
+        Likes.cache[id]=v;
+        likesPaintAll(id,v);
+      },()=>{});
     });
   });
 }
@@ -4597,7 +4643,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014115748";
+const BUILD="20261014121124";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6666,9 +6712,14 @@ function browseMore(grid){
   if(next<=browseChunks.shown)return;
   const frag=document.createElement("div");
   frag.innerHTML=list.slice(browseChunks.shown,next).map(cardHTML).join("");
-  while(frag.firstChild)grid.appendChild(frag.firstChild);
+  const fresh=[...frag.children];
+  fresh.forEach(n=>grid.appendChild(n));
   browseChunks.shown=next;
-  bindCards(grid);
+  // ALL-WALL ENGINE (2026-10-14): bind + likes-watch ONLY the new chunk.
+  // The old way re-bound and re-swept every card on the wall per chunk —
+  // work grew with the whole wall and stalled swiping for seconds.
+  fresh.forEach(bindOneCard);
+  try{ likesWatchAdd(fresh); }catch(e){}
 }
 const FEAT_IDS=["stv-678", "stv-690", "stv-4401", "stv-4443", "stv-4472", "stv-4473", "stv-4474", "stv-4475", "stv-4476", "stv-4477", "stv-4478", "stv-4479", "stv-4480", "stv-4481", "stv-4482", "stv-4483", "stv-4484", "stv-4485", "stv-4486", "stv-4487", "stv-4488", "stv-4489", "stv-4490", "stv-4491", "stv-4492", "stv-4493", "stv-4494", "stv-4495", "stv-4496", "stv-4497", "stv-4498", "stv-4499", "stv-4500", "stv-4501", "stv-4502", "stv-4503", "stv-4504", "stv-4505", "stv-4506", "stv-4507", "stv-4508", "stv-4509", "stv-4510", "stv-4511", "stv-4512", "stv-401", "stv-2959", "stv-2376", "stv-2382", "stv-1971", "stv-3688", "stv-483", "stv-500", "stv-2110", "stv-2338", "stv-2957", "stv-3039", "stv-3426", "stv-685", "stv-705", "stv-3010", "stv-686", "stv-2214", "stv-3427", "stv-1822", "stv-3555", "stv-2430", "stv-1745", "stv-3490", "stv-3976", "stv-4258", "stv-2372", "stv-1823", "stv-2650", "stv-3034", "stv-2217", "stv-1571", "stv-3253", "stv-2111", "stv-693", "stv-2958", "stv-3020", "stv-2112", "stv-3927", "stv-683", "stv-3004", "stv-698", "stv-2969", "stv-4000", "stv-2464", "stv-688", "stv-3019", "stv-692", "stv-3031", "stv-3916", "stv-2113", "stv-3032", "stv-3209", "stv-1775", "stv-689", "stv-684", "stv-1744", "stv-681", "stv-699", "stv-4009", "stv-691", "stv-1738", "stv-1842", "stv-682", "stv-680", "stv-694", "stv-4245", "stv-2354", "stv-749", "stv-013", "stv-054", "stv-3648", "stv-2739", "stv-1834", "stv-3422", "stv-3774", "stv-2353", "stv-687", "stv-1778", "stv-2355", "stv-3021", "stv-2352", "stv-706", "stv-1593", "stv-3038", "stv-2973", "stv-011", "stv-624", "stv-711", "stv-714", "stv-718", "stv-724", "stv-765", "stv-2941", "stv-2946", "stv-4381", "stv-4383", "stv-4384", "stv-4412", "stv-4413", "stv-4418", "stv-4431", "stv-4440", "stv-4446", "stv-4449", "stv-4458", "stv-4461", "stv-4463", "stv-4464", "stv-4469"];
 /* Featured hero carousel: drag it with your finger — the card follows, next one
@@ -7007,12 +7058,25 @@ function renderBrowse(g){
     // moves), so the chunk loader must listen on window with viewport-relative math.
     if(!window._browseHook){
       window._browseHook=true;
+      let _bwTick=false;
       window.addEventListener("scroll",()=>{
-        if(curView!=="browse"||!browseChunks)return;
-        const g=$("#bgrid");if(!g)return;
-        try{
-          if(g.getBoundingClientRect().bottom < window.innerHeight+900)browseMore(g);
-        }catch(e){}
+        if(_bwTick)return; _bwTick=true;
+        requestAnimationFrame(()=>{ _bwTick=false;
+          if(curView!=="browse"||!browseChunks)return;
+          const g=$("#bgrid");if(!g)return;
+          try{
+            // ALL-WALL ENGINE (2026-10-14): prefetch far ahead and
+            // chain-append (max 3 chunks per frame) so the next chunk is
+            // already on the wall before a swipe can reach the bottom.
+            let n=0;
+            while(n<3&&g.getBoundingClientRect().bottom < window.innerHeight+1600){
+              const before=browseChunks.shown;
+              browseMore(g);
+              if(browseChunks.shown<=before)break;
+              n++;
+            }
+          }catch(e){}
+        });
       },{passive:true});
     }
   }
