@@ -1562,7 +1562,7 @@ try{
 <button id="rotexit" aria-label="Exit rotate" onclick="toggleRotate()">✕</button>
 <div id="app">
   <header id="topbar">
-    <div class="logo">SHORTZ <b>VS</b></div>
+    <div class="logo">SHORTZ <b>VS</b><sup style="font-size:.42em;font-weight:700;color:#c9c9d2;margin-left:2px;letter-spacing:0">TM</sup></div>
     <nav id="deskNav">
       <button data-nav="home" class="on">Home</button>
       <button data-nav="browse">Browse</button>
@@ -1580,7 +1580,7 @@ try{
   <!-- DESKTOP: fixed left sidebar (TikTok-web blueprint, Shortz VS branding).
        Hidden below 1024px — mobile keeps its own chrome. -->
   <nav id="sideBar" aria-label="Main navigation">
-    <div class="slogo">SHORTZ <b>VS</b></div>
+    <div class="slogo">SHORTZ <b>VS</b><sup style="font-size:.42em;font-weight:700;color:#c9c9d2;margin-left:2px;letter-spacing:0">TM</sup></div>
     <div class="snav">
       <button data-nav="home" class="on"><span class="sico">🏠</span><span class="slab">Home</span></button>
       <button data-nav="browse"><span class="sico">🎬</span><span class="slab">Browse</span></button>
@@ -4585,7 +4585,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014000637";
+const BUILD="20261014003113";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
