@@ -124,14 +124,21 @@ function swFinalize(s){
   _sw=null; _swPark=null; window.__swiping=false;
   swStripUndress(s);
   if(target){
+    // A SETTLE IS AN ENTRY — render like one (his return-black bug,
+    // 2026-10-14): go() alone never renders; tab taps call
+    // renderView() THEN go(). The strip used to build only when the
+    // view was EMPTY or still stubbed — so after leaving Streaming
+    // (exit hook empties the slot frames, shell stays) or Live
+    // (lsStop kills the stage, shell stays), swiping back skipped
+    // the build and landed on a black shell, every time. Same
+    // order as the tabs: render first (renders read the OLD
+    // curView), then go.
+    try{ renderView(target); }catch(e){}
     try{ go(target); }catch(e){}
-    // a settle is an entry: if the screen still holds the peek stub
-    // (or was never built), build it for real — but one frame AFTER
-    // arrival, with the recompute. A heavy synchronous build on the
-    // arrival frame froze the exact moment the motion stopped
-    // (brain audit #6); one frame of stub beats a stuck landing.
     const tg=target;
     requestAnimationFrame(()=>{ try{
+      // fallback only: if the render above was somehow skipped and
+      // the view is still a shell/stub, build it now
       const tv=document.querySelector("#view-"+tg);
       if(tv&&(!tv.innerHTML.trim()||tv.querySelector("[data-swstub]")))renderView(tg);
     }catch(e){} swSettleRecompute(); });
