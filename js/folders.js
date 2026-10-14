@@ -150,10 +150,27 @@ function vfSyncPreviews(){
     const s=vfState[d.key]; if(!s)continue;
     s.audible=(d.key===vfSoundKey);
     const shouldPlay=s.ratio>=0.35&&s.items.length>0;
-    if(shouldPlay&&!s.timer)vfPlay(d.key);
+    if(shouldPlay&&!s.timer){ vfPlay(d.key); if(s.audible){ try{ tgPause(); }catch(e){} } } // the sound folder back in view takes the room back from the guide
     else if(!shouldPlay&&s.timer)vfPause(d.key);
     else if(shouldPlay&&s.timer&&s._audibleMounted!==s.audible)vfMount(d.key); // sound moved by tap: remount
   }
+  // his rule (2026-10-14): once the folders scroll off and the
+  // folder audio stops, the guide video he was watching continues
+  vfGuideResume();
+}
+/* resume the TV Guide's remembered show when no folder holds the
+   room — the guide's box remembers its title (pv._tid) through a
+   tgPause; an open folder overlay still owns the screen, so the
+   resume waits for it to close (its own close path resumes too). */
+function vfGuideResume(){
+  try{
+    if(curView!=="profile")return;
+    if(document.querySelector("#vfOpen.open"))return;
+    const sk=vfSoundKey&&vfState[vfSoundKey];
+    if(sk&&(sk.timer||(sk.ratio||0)>=0.35))return; // the sound folder owns the room while it plays OR is on screen (a tap starts it a tick after the sync — never resume over a folder he is looking at)
+    const pv=$("#tgPreviewBox"), fr=$("#tgFrame");
+    if(pv&&pv._tid&&fr&&!fr.querySelector("iframe,video"))tgPreview(pv._tid);
+  }catch(e){}
 }
 function vfStopPreviews(){
   if(vfObs){ try{ vfObs.disconnect(); }catch(e){} vfObs=null; }

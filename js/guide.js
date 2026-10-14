@@ -201,6 +201,8 @@ function tgArmEnd(t){
   const fire=()=>{
     const pv=$("#tgPreviewBox");
     if(!pv||pv._tid!==token)return;
+    const fr2=$("#tgFrame");
+    if(!fr2||!fr2.querySelector("iframe,video"))return; // a paused guide is REMEMBERED, not alive: a stale ENDED from its orphaned player must not resurrect it over whatever silenced it
     const now=Date.now();
     if(now-tgAdvanceAt<5000)return; // same dedup as the main feed
     tgAdvanceAt=now;
