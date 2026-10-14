@@ -4658,7 +4658,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014105714";
+const BUILD="20261014110110";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6595,7 +6595,25 @@ function searchMatch(hay,q,qf){
 function browseListFiltered(){
   if(!browseQuery.trim())return null;
   const q=searchNorm(browseQuery), qf=q.replace(/ /g,"");
-  return C.filter(t=>searchMatch((t.title||"")+" "+(t.genre||"")+" "+(t.desc||""),q,qf));
+  const hits=C.filter(t=>searchMatch((t.title||"")+" "+(t.genre||"")+" "+(t.desc||""),q,qf));
+  // RANK the hits (his order 2026-10-14: he typed "Taken" and the
+  // movie Taken was buried under 277 description matches in raw
+  // catalog order — search returned C.filter() UNSORTED). An exact
+  // title is ALWAYS #1; then title-prefix, whole-word, title-
+  // substring, spaceless-title; genre and description matches trail.
+  const scored=hits.map(t=>{
+    const nt=searchNorm(t.title||"");
+    let sc=10; // description-only match
+    if(nt===q)sc=100;
+    else if(nt.startsWith(q))sc=80;
+    else if((" "+nt+" ").indexOf(" "+q+" ")>=0)sc=70;
+    else if(nt.indexOf(q)>=0)sc=60;
+    else if(nt.replace(/ /g,"").indexOf(qf)>=0)sc=50;
+    else if(searchNorm(t.genre||"").indexOf(q)>=0)sc=20;
+    return {t,sc};
+  });
+  scored.sort((a,b)=>b.sc-a.sc);
+  return scored.map(x=>x.t);
 }
 /* ---------- Top 10 rows: most-watched + award-winning films/series ---------- */
 function fmtViews(v){
