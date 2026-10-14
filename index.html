@@ -3713,57 +3713,54 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }catch(e){}
     });
   }
-  // MOTION TRUTH (root fix, 2026-10-14): "rest" used to mean "no
-  // scroll event for 130ms" — but under load a flying scroll emits
-  // sparse events, so entry fired MID-FLING and the heavy build of
-  // the screen being crossed froze the fling solid, over and over:
-  // the stutter. Rest now means the POSITION has stopped changing,
-  // sampled — entry can only fire on a truly stopped scroll.
-  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evDeltas=[];
+  // THE RING NEVER ENDS — IN FLIGHT EITHER (brain audit, 2026-10-14):
+  // the flick died because the ring only recentered at REST, so
+  // every flight launched down a 2-3 screen corridor ending in a
+  // hard wall — remaining velocity discarded at the boundary, no
+  // natural decay (the feed's corridor has no end). Now a WALL
+  // GUARD rides the scroll: as the flight nears either end of the
+  // track, the far pane rotates to the near edge and scrollLeft
+  // shifts by exactly one pane in the same task — the picture does
+  // not move a pixel, but the corridor extends by a screen, as
+  // often as the flight needs. The guard only fires within 0.6 of
+  // a screen from a wall the flight was about to slam anyway.
+  // And rest is plain again — position pixel-still for 280ms —
+  // because the rest path no longer writes scrollLeft at all (the
+  // write was the momentum-killer, not the entry), so a false rest
+  // costs nothing.
+  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0;
+  function evPanesInOrder(){ const vs=$("views"); return vs ? [...vs.querySelectorAll(".view.evpane")] : []; }
+  function evGuard(){
+    const vs=$("views"); if(!vs)return;
+    const W=window.innerWidth||1;
+    let sl=vs.scrollLeft;
+    const panes=evPanesInOrder(); if(panes.length<2)return;
+    while(sl<W*1.0){
+      const last=panes[panes.length-1]; vs.insertBefore(last,panes[0]);
+      sl+=W;
+    }
+    while(sl>W*4.0){
+      const first=panes[0]; vs.appendChild(first);
+      sl-=W;
+    }
+    if(sl!==vs.scrollLeft)vs.scrollLeft=sl;
+  }
   function evNoteScroll(){
     const vs=$("views"); if(!vs)return;
     if(evLastSl===null){ evLastSl=vs.scrollLeft; evStableSince=Date.now(); }
     if(!evMoving){ evMoving=true; document.body.classList.add("ev-moving"); }
     if(evSampleT)return;
-    // REST = the fling is actually DEAD, not just quiet (root fix,
-    // 2026-10-14): a decaying flick's tail crawls and can sit still
-    // for a beat mid-flight — declaring rest there ran the entry
-    // build AND wrote scrollLeft for the recenter, which cancels
-    // the native momentum outright: flick, stutter, catch-up, stop.
-    // So rest needs BOTH: the position still for 280ms, AND it was
-    // already crawling (every recent step <= 12px) when it stopped.
-    // A scroll that halts abruptly from speed gets watched longer
-    // (900ms cap) instead of believed. A touch cancels the watch —
-    // the finger owns the scroll again — and the release restarts it.
     evSampleT=setInterval(()=>{
       const sl=vs.scrollLeft, now=Date.now();
-      // REST, defined physically (both failure shapes are real):
-      // a decaying tail crawls at a few px per sample for a second
-      // or more — still MOVING, so pixel-stillness is required, no
-      // crawl allowance. And a fling can freeze mid-flight and
-      // resume, so stillness right after SPEED is distrusted: it
-      // must either have crawled to its stop (last steps <= 2px)
-      // or stayed still a full 900ms before it counts as dead.
-      if(sl!==evLastSl){ evDeltas.push({t:now,d:Math.abs(sl-evLastSl)}); evLastSl=sl; evStableSince=now; return; }
-      while(evDeltas.length&&evDeltas[0].t<evStableSince-500)evDeltas.shift(); // timestamps vs timestamps — the duration-vs-timestamp mix here emptied the history and let speed through
-      const stillMs=now-evStableSince;
-      if(stillMs>=900)evFinishMotion();
-      else if(stillMs>=280){
-        const preMax=evDeltas.reduce((m,x)=>Math.max(m,x.d),0);
-        if(preMax<=2)evFinishMotion();
-      }
+      if(sl!==evLastSl){ evLastSl=sl; evStableSince=now; return; }
+      if(now-evStableSince>=280)evFinishMotion();
     },90);
-  }
-  function evCancelWatch(){
-    if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
-    evDeltas=[]; evLastSl=null;
   }
   function evFinishMotion(){
     if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
     if(evMoving){ evMoving=false; document.body.classList.remove("ev-moving"); }
     evRest();
   }
-  function evPanesInOrder(){ const vs=$("views"); return vs?[...vs.querySelectorAll(".view.evpane")]:[]; }
   function evRest(){
     const vs=$("views"); if(!vs||!evMode)return;
     const W=window.innerWidth||1;
@@ -3784,15 +3781,6 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       go(v);
       updateHeader();
     }
-    // WRAPAROUND (his word 2026-10-14: "it shouldn't end — continuous
-    // scrolling until I stop it"): at rest, rotate the pane ring so
-    // the resting pane sits mid-track again, shifting scrollLeft by
-    // the exact same amount — the picture does not move a pixel, but
-    // there are always panes left to scroll to in BOTH directions.
-    // The ring is a rotation of the section cycle, so neighbors are
-    // always the true prev/next sections.
-    while(pos<2){ const last=panes[panes.length-1]; vs.insertBefore(last,panes[0]); panes.unshift(panes.pop()); vs.scrollLeft+=W; pos++; }
-    while(pos>3){ const first=panes[0]; vs.appendChild(first); panes.push(panes.shift()); vs.scrollLeft-=W; pos--; }
     evLazyBuild();
   }
   function evRotateTo(v){
@@ -3806,12 +3794,10 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const vs=$("views"); if(!vs)return;
     vs.addEventListener("scroll",e=>{
       if(!evMode)return;
-      if(e.target===vs){ evNoteScroll(); }
+      if(e.target===vs){ evGuard(); evNoteScroll(); }
       else if(e.target&&e.target.id==="view-browse"){ try{ window.dispatchEvent(new Event("scroll")); }catch(err){} } // browse's wall hook listens on window (viewport math — works from the pane too once events reach it)
       else if(e.target&&e.target.id==="view-home"){ evFeedScroll(e.target); } // in the hub the pane scrolls the feed, so the feed's own scroll jobs (activate the centered card, append the next batch) run off the pane
     },{passive:true,capture:true});
-    vs.addEventListener("touchstart",()=>{ if(evMode)evCancelWatch(); },{passive:true});
-    vs.addEventListener("touchend",()=>{ if(evMode)evNoteScroll(); },{passive:true});
     // NOTE: no scrollend fast-path — implementations disagree on
     // when it fires (some fire it per programmatic jump, some
     // mid-gesture), and a second rest trigger is how entry leaked
@@ -4864,7 +4850,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014143546";
+const BUILD="20261014145227";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
