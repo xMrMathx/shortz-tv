@@ -67,6 +67,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .view.active{position:relative;opacity:1;transform:none;pointer-events:auto}
 .view.leaving{position:absolute;inset:0;opacity:0;transform:translateY(-10px) scale(1.005);pointer-events:none}
 .view.swipe-peek{position:fixed;top:0;bottom:0;left:0;width:100%;opacity:1;pointer-events:none;z-index:40;overflow:hidden;background:var(--bg)}
+.view.swipe-cur{position:fixed!important;top:0;bottom:0;left:0;width:100%;opacity:1;z-index:41;overflow:hidden;background:var(--bg)}
 .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
 /* ---------- FEED (home landing): fullscreen vertical player ---------- */
@@ -1789,8 +1790,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=8f68919"></script>
-<script defer src="manga-catalog.js?v=359db3b"></script>
+<script src="catalog.js?v=dfe55fc"></script>
+<script defer src="manga-catalog.js?v=dfe55fc"></script>
 <script defer src="manga-chapters.js?v=b8aa517"></script>
 <script>
 "use strict";
@@ -2796,6 +2797,7 @@ function mgBindLikes(root){
 /* ---------- seamless view switching ---------- */
 let curView="home", returnView="home";
 function go(v){
+  if(window.__swParkClear)__swParkClear(); // a parked mid-slide strip settles before any navigation
   if(v===curView&&v!=="detail")return;
   if(curView==="home"&&v!=="home"&&!piaActive)pauseFeedVideo(); // PIA: keep playing while browsing
   if(curView==="home"&&v!=="home"){try{cfStopPreview();}catch(e){}} // card previews never play off-Home
@@ -2830,19 +2832,25 @@ function go(v){
 const TAB_BTNS=[...document.querySelectorAll(".tab")];
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dataset.v)}catch(err){console.error("renderView",err)}go(t.dataset.v)});
 
-/* ================= SWIPE ENGINE (his order, 2026-10-14) =================
-   Drag left/right between the main screens like a carousel: the current
-   screen and its neighbor are BOTH on screen, following the finger in
-   real time — no swipe-and-wait. Release past ~1/4 screen (or a fast
-   flick) lands on the neighbor through the normal go(); otherwise the
-   screens snap back. The engine locks on ONLY when a drag is clearly
-   horizontal — vertical scrolling is never intercepted. In-view
-   carousels/rows, the card progress bar, inputs, the chrome bars and
-   open overlays keep their own gestures. Manga is skipped in the chain:
-   its reader turns its own pages. */
+/* ================= SWIPE ENGINE v2 (his order 2026-10-14, refined
+   07:53 same day) =================
+   The main screens form a sliding strip, like a slideshow. A clear
+   horizontal drag slides the current screen and its neighbor
+   TOGETHER under the finger. Wherever the finger stops, the screens
+   stop and STAY — lift the thumb, put it back down, and the same
+   strip keeps sliding from exactly that spot. Nothing snaps,
+   nothing cuts. Sliding a screen fully across settles onto it
+   (through the normal go()); sliding back to zero restores the
+   current screen. Both screens ride as viewport-fixed slides while
+   engaged, so the motion stays smooth — no repaint storms, no
+   stutter. The engine locks ONLY on clearly horizontal drags;
+   vertical scrolling is never intercepted. In-view carousels/rows,
+   the card progress bar, inputs, the chrome bars and open overlays
+   keep their own gestures. Manga is skipped: its reader turns its
+   own pages. Chain follows the tab bar. */
 const SWIPE_TABS=["home","browse","live","streaming","profile"];
 const SWIPE_EXCLUDE="input,textarea,select,[contenteditable],#featHero,.hrow,.award-row,.top10-row,.cs-row,.cfbar,.gmenu,#recentSrch,#tabbar,#topbar,#sideBar";
-let _sw=null;
+let _sw=null, _swPark=null;
 function swipeBlocked(){
   try{
     if(document.querySelector("#vfOpen.open,#edraw.open,#escrim.open,#sportsReel.open,.scrim.open"))return true;
@@ -2853,76 +2861,108 @@ function swipeBlocked(){
   }catch(e){}
   return false;
 }
-function swCleanup(commit){
-  const s=_sw; if(!s)return; _sw=null;
-  if(commit&&s.target){ try{ go(s.target); }catch(e){} }
-  else if(s.target==="live"){ try{ if(typeof lsStop==="function")lsStop(); }catch(e){} } // a peeked-but-not-entered Live paints its guide; stop anything it started
-  const pk=s.peekEl, cu=s.curEl;
-  if(pk){ pk.classList.remove("swipe-peek"); pk.style.transform=""; pk.style.transition=""; }
-  if(cu){ cu.style.transform=""; cu.style.transition=""; }
+function swStripPlace(s,dx){
+  const W=window.innerWidth||1;
+  s.dx=dx;
+  const cx=s.dir>0?-dx:dx;
+  if(s.curEl)s.curEl.style.transform="translate("+cx+"px,"+(-(s.sy||0))+"px)";
+  if(s.peekEl)s.peekEl.style.transform="translate("+((s.dir>0?(W-dx):(-W+dx)))+"px,0px)";
 }
-function swAnimate(commit){
-  const s=_sw; if(!s)return;
-  const W=window.innerWidth, dir=s.dir;
-  const ease="transform .27s cubic-bezier(.22,.9,.24,1)";
-  if(s.curEl){ s.curEl.style.transition=ease; s.curEl.style.transform="translateX("+(commit?-dir*W:0)+"px)"; }
-  if(s.peekEl){ s.peekEl.style.transition=ease; s.peekEl.style.transform="translateX("+(commit?0:dir*W)+"px)"; }
-  // a drag must not also fire the tap under the finger on release
-  const swallow=e=>{ e.stopPropagation(); e.preventDefault(); document.removeEventListener("click",swallow,true); };
-  document.addEventListener("click",swallow,true);
-  setTimeout(()=>{ document.removeEventListener("click",swallow,true); swCleanup(commit); },290);
+function swStripUndress(s){
+  for(const el of [s?s.curEl:null,s?s.peekEl:null]){
+    if(!el)continue;
+    el.classList.remove("swipe-peek"); el.classList.remove("swipe-cur");
+    el.style.transform=""; el.style.transition=""; el.style.willChange="";
+  }
+  try{ document.body.style.minHeight=""; }catch(e){}
 }
+function swResetStrip(s){
+  if(!s)return;
+  swStripUndress(s);
+  if(s.target==="live"&&curView!=="live"){ try{ if(typeof lsStop==="function")lsStop(); }catch(e){} } // an abandoned Live peek must not keep playing
+  if(s.sy!=null){ try{ window.scrollTo(0,s.sy); }catch(e){} }
+}
+function swSettleRecompute(){ try{ if(typeof cfRecompute==="function")cfRecompute(); }catch(e){} }
+function swFinalize(s){
+  const target=s.target;
+  _sw=null; _swPark=null; window.__swiping=false;
+  swStripUndress(s);
+  if(target){ try{ go(target); }catch(e){} }
+  swSettleRecompute();
+}
+function swUnpark(s){
+  _sw=null; _swPark=null; window.__swiping=false;
+  swResetStrip(s);
+  swSettleRecompute();
+}
+function __swParkClear(){
+  if(_swPark){ const s=_swPark; _swPark=null; swResetStrip(s); }
+  if(_sw&&_sw.locked){ const s=_sw; _sw=null; swResetStrip(s); }
+  window.__swiping=false;
+}
+window.__swParkClear=__swParkClear;
 document.addEventListener("touchstart",e=>{
   if(_sw||e.touches.length!==1)return;
-  const idx=SWIPE_TABS.indexOf(curView);
-  if(idx<0)return;
   if(swipeBlocked())return;
   const t0=e.target;
   if(t0&&t0.closest&&t0.closest(SWIPE_EXCLUDE))return;
   const tt=e.touches[0];
-  _sw={x0:tt.clientX,y0:tt.clientY,dx:0,dir:0,locked:false,target:null,peekEl:null,curEl:$("#view-"+curView),idx:idx,samples:[{x:tt.clientX,t:Date.now()}]};
-},{passive:true});
+  if(_swPark){
+    // resume the parked strip exactly where it stopped
+    const p=_swPark;
+    _sw={resume:true,locked:true,x0:tt.clientX,y0:tt.clientY,base:p.dx,dx:p.dx,dir:p.dir,target:p.target,peekEl:p.peekEl,curEl:p.curEl,curName:p.curName,sy:p.sy,moved:false};
+    window.__swiping=true;
+    return;
+  }
+  const idx=SWIPE_TABS.indexOf(curView);
+  if(idx<0)return;
+  _sw={resume:false,locked:false,x0:tt.clientX,y0:tt.clientY,base:0,dx:0,dir:0,target:null,peekEl:null,curEl:$("#view-"+curView),curName:curView,idx:idx,sy:0,moved:false};
+},{capture:true,passive:true});
 document.addEventListener("touchmove",e=>{
   const s=_sw; if(!s)return;
   const tt=e.touches[0]; if(!tt)return;
-  const dx=tt.clientX-s.x0, dy=tt.clientY-s.y0;
-  s.samples.push({x:tt.clientX,t:Date.now()}); if(s.samples.length>6)s.samples.shift();
+  const W=window.innerWidth||1;
   if(!s.locked){
+    const dx=tt.clientX-s.x0, dy=tt.clientY-s.y0;
     if(Math.abs(dy)>10&&Math.abs(dy)>=Math.abs(dx)){ _sw=null; return; } // vertical: native scroll owns this gesture
     if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*1.3){
-      s.locked=true;
       s.dir=dx<0?1:-1; // 1 = next screen (finger moving left), -1 = previous
       const nIdx=s.idx+s.dir;
       s.target=(nIdx>=0&&nIdx<SWIPE_TABS.length)?SWIPE_TABS[nIdx]:null;
-      if(s.target){
-        const pk=$("#view-"+s.target);
-        if(pk&&!pk.innerHTML.trim()){ try{ renderView(s.target); }catch(err){} } // first visit only: paint it; an already-built screen peeks exactly as it was left
-        if(pk){ pk.classList.add("swipe-peek"); pk.style.transition="none"; pk.style.transform="translateX("+(s.dir*window.innerWidth)+"px)"; s.peekEl=pk; }
-      }
-      if(s.curEl)s.curEl.style.transition="none";
+      if(!s.target){ _sw=null; return; } // chain end: no rubber strip — leave the gesture alone
+      const pk=$("#view-"+s.target);
+      if(pk&&!pk.innerHTML.trim()){ try{ renderView(s.target); }catch(err){} } // first visit only: paint it; a built screen peeks as it was left
+      s.sy=window.scrollY||0;
+      try{ document.body.style.minHeight=(document.documentElement.scrollHeight||0)+"px"; }catch(err){}
+      if(s.curEl){ s.curEl.classList.add("swipe-cur"); s.curEl.style.transition="none"; s.curEl.style.willChange="transform"; }
+      if(pk){ pk.classList.add("swipe-peek"); pk.style.transition="none"; pk.style.willChange="transform"; s.peekEl=pk; }
+      s.locked=true; window.__swiping=true;
     } else return;
   }
-  e.preventDefault(); // horizontal lock: the page must not scroll under the drag
-  s.dx=dx;
-  const W=window.innerWidth;
-  const eff=s.target?dx:dx*0.32; // rubber band past the first/last screen
-  if(s.curEl)s.curEl.style.transform="translateX("+eff+"px)";
-  if(s.peekEl)s.peekEl.style.transform="translateX("+(eff+s.dir*W)+"px)";
-},{passive:false});
-function swEnd(){
+  e.preventDefault(); // strip engaged: the page must not scroll under the drag
+  const travel=s.dir>0?(s.x0-tt.clientX):(tt.clientX-s.x0);
+  let ndx=s.base+travel;
+  if(ndx<0)ndx=0; if(ndx>W)ndx=W;
+  if(Math.abs(ndx-(s.dx||0))>=0.5)s.moved=true;
+  swStripPlace(s,ndx);
+},{capture:true,passive:false});
+function swEndV2(){
   const s=_sw; if(!s)return;
   if(!s.locked){ _sw=null; return; }
-  const smp=s.samples;
-  let vel=0;
-  if(smp.length>1){ const a=smp[0], b=smp[smp.length-1]; if(b.t>a.t)vel=(b.x-a.x)/(b.t-a.t); }
-  const toward=s.dx!==0&&Math.sign(s.dx)===-s.dir;
-  // commit: past ~1/4 screen — or a true flick (real distance AND speed,
-  // so a small nudge never throws him onto another screen)
-  const commit=!!s.target&&toward&&(Math.abs(s.dx)>window.innerWidth*0.26||(Math.abs(s.dx)>=70&&Math.abs(vel)>0.45));
-  swAnimate(commit);
+  const W=window.innerWidth||1;
+  // a drag that moved the strip must not fire the tap under the finger
+  if(s.moved){
+    const swallow=e=>{ e.stopPropagation(); e.preventDefault(); document.removeEventListener("click",swallow,true); };
+    document.addEventListener("click",swallow,true);
+    setTimeout(()=>{ document.removeEventListener("click",swallow,true); },400);
+  }
+  if(s.dx>=W-8){ swFinalize(s); return; }
+  if(s.dx<=8){ swUnpark(s); return; }
+  _swPark={dx:s.dx,dir:s.dir,target:s.target,peekEl:s.peekEl,curEl:s.curEl,curName:s.curName,sy:s.sy};
+  _sw=null; // parked: transforms stay exactly where the finger left them
 }
-document.addEventListener("touchend",swEnd);
-document.addEventListener("touchcancel",()=>{ if(_sw&&_sw.locked)swAnimate(false); else _sw=null; });
+document.addEventListener("touchend",swEndV2,{capture:true});
+document.addEventListener("touchcancel",swEndV2,{capture:true});
 // Desktop top nav: same as mobile tabs
 document.querySelectorAll("#deskNav button").forEach(b=>b.onclick=()=>{
   const v=b.dataset.nav;
@@ -4741,7 +4781,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014122812";
+const BUILD="20261014080005";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5929,6 +5969,7 @@ function cfStopPreview(){
 }
 /* the card nearest the scroll container's center is the one that plays */
 function cfRecompute(){
+  if(window.__swiping)return; // mid-slide: previews must not cycle under the finger
   if(homeMode!=="cards"||curView!=="home"||document.hidden||piaActive){ cfStopPreview(); return; }
   const sc=$("#cfeed"); if(!sc)return;
   const sr=sc.getBoundingClientRect();
@@ -8340,7 +8381,7 @@ function tgMore(){
     r.onclick=()=>tgPreview(r.dataset.id);
   });
 }
-function tgPreview(id){
+function tgPreview(id,_skip){
   const t=byId(id); if(!t)return;
   tgHideUnmute();
   document.querySelectorAll("#tgList .tg-row").forEach(r=>r.classList.toggle("sel",r.dataset.id===id));
@@ -8361,6 +8402,32 @@ function tgPreview(id){
   fr._tid=t.id;
   const pv=$("#tgPreviewBox"); if(pv)pv._tid=t.id;
   if(url){fr.innerHTML=`<iframe src="${url}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;tgArmEnd(t);}
+  else if(isArchiveUrl(t.url)){
+    // archive.org titles (11,144 in the catalog) have no embed iframe —
+    // tgEmbed returns "" and the preview box sat BLACK (his report,
+    // 2026-10-14). Play the direct MP4 in a <video>, the Home cards'
+    // pattern: sound on, muted retry + Unmute if refused, next on end.
+    tgWatchEnd();
+    fr.innerHTML="";
+    const v=document.createElement("video");
+    v.setAttribute("playsinline",""); v.setAttribute("preload","auto");
+    v.style.cssText="width:100%;height:100%;object-fit:contain;background:#000;display:block";
+    v.src=t.url;
+    fr.appendChild(v);
+    tgPlayerKind="archive"; tgPlayer=makeArchivePlayer(v);
+    const tok=t.id;
+    v.addEventListener("ended",()=>{
+      const pv2=$("#tgPreviewBox"); if(!pv2||pv2._tid!==tok)return;
+      const now=Date.now(); if(now-tgAdvanceAt<5000)return; tgAdvanceAt=now; tgNext();
+    });
+    try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{ try{ v.muted=true; const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{}); tgShowUnmute(); }catch(e){} }); }catch(e){}
+  }
+  else if((_skip||0)<8&&tgList&&tgList.length>1){
+    // no playable source at all — never leave a dead black box:
+    // step to the next title in the guide (bounded)
+    const i=tgList.findIndex(x=>x.id===t.id);
+    if(i>=0){ tgPreview(tgList[(i+1)%tgList.length].id,(_skip||0)+1); return; }
+  }
   const wb2=$("#tgWatch"); if(wb2)wb2.style.display="";
 }
 function tgPause(){
@@ -8381,6 +8448,7 @@ function tgUnmuteNow(){
   try{
     if(tgPlayerKind==="yt"&&tgPlayer){ tgPlayer.unMute(); tgPlayer.setVolume(100); tgPlayer.playVideo(); return; }
     if(tgPlayerKind==="vm"&&tgPlayer){ tgPlayer.setVolume(1); tgPlayer.play(); return; }
+    if(tgPlayerKind==="archive"&&tgPlayer){ tgPlayer.unMute(); tgPlayer.setVolume(100); tgPlayer.playVideo(); return; }
   }catch(e){}
   const fr=document.querySelector("#tgFrame iframe");
   if(fr&&fr.contentWindow){
