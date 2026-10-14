@@ -259,7 +259,7 @@ function sstreamJumpTo(id){
   return true;
 }
 function ssCardHTML(){
-  return `<div class="sscard-frame" data-sframe></div>
+  return `<div class="sscard-stage"><div class="sscard-frame" data-sframe></div><div class="ssbar" data-sbar><div class="ssbar-rail"><div class="ssbar-fill" data-sbarfill></div></div><span class="ssbar-time" data-sbartime></span></div></div>
   <div class="sscard-ov" data-sov>
     <div class="sscard-top"><span data-s-live></span><span class="sstream-plat" data-s-plat></span><button class="sstream-sharebtn" data-s-share title="Share this stream">↗ Share</button></div>
     <div class="sscard-name" data-s-name></div>
@@ -291,8 +291,53 @@ function ssPosterHTML(s){
   const plat=s&&s.platform?s.platform:"stream";
   return `<div class="ssposter ssposter-ph ssposter-${plat}"><span>${initial}</span></div>`;
 }
+/* ---------- the replay play bar (his order 2026-10-14) ----------
+   A replay gets a scrub bar at the bottom of its card: drag to
+   skip forward or rewind. Live gets none — you can't skip live.
+   One ticker per playing card drives it, whichever engine is
+   underneath (YouTube API player or a native VOD <video>). */
+function ssBarReset(node){
+  if(node._ssBarT){ clearInterval(node._ssBarT); node._ssBarT=null; }
+  const bar=node.querySelector("[data-sbar]"); if(bar)bar.classList.remove("on");
+}
+function ssBarArm(node,s){
+  ssBarReset(node);
+  if(!s||s.live)return; // live: no bar, ever
+  const bar=node.querySelector("[data-sbar]"), fill=node.querySelector("[data-sbarfill]"), tlab=node.querySelector("[data-sbartime]");
+  if(!bar)return;
+  const engine=()=>{
+    if(node._ssPlayer&&node._ssPlayer.getCurrentTime)return {get:()=>({t:node._ssPlayer.getCurrentTime()||0,d:node._ssPlayer.getDuration()||0}),seek:f=>{ try{ node._ssPlayer.seekTo(f*(node._ssPlayer.getDuration()||0),true); }catch(e){} }};
+    const vid=node.querySelector("[data-sframe] video");
+    if(vid)return {get:()=>({t:vid.currentTime||0,d:vid.duration||0}),seek:f=>{ if(vid.duration)vid.currentTime=f*vid.duration; }};
+    return null;
+  };
+  const fmt=x=>{ x=Math.max(0,Math.floor(x||0)); const h=Math.floor(x/3600), m=Math.floor((x%3600)/60), ss=x%60; return (h?h+":":"")+(h&&m<10?"0":"")+m+":"+(ss<10?"0":"")+ss; };
+  let shown=false;
+  node._ssBarT=setInterval(()=>{
+    if(!node.isConnected){ ssBarReset(node); return; }
+    const e=engine(); if(!e)return;
+    const g=e.get();
+    if(g.d>0){
+      if(!shown){ shown=true; bar.classList.add("on"); }
+      fill.style.width=Math.min(100,(g.t/g.d)*100)+"%";
+      tlab.textContent=fmt(g.t)+" / "+fmt(g.d);
+    }
+  },500);
+  if(!bar._ssWired){
+    bar._ssWired=true;
+    let drag=false;
+    const frac=ev=>{ const r=bar.getBoundingClientRect(); const x=(ev.touches?ev.touches[0].clientX:ev.clientX); return Math.min(1,Math.max(0,(x-r.left)/r.width)); };
+    bar.addEventListener("pointerdown",ev=>{ drag=true; try{ bar.setPointerCapture&&bar.setPointerCapture(ev.pointerId); }catch(e){} const card=bar.closest(".sscard"); const eng=card&&card._ssBarLiveEngine; const e2=eng?eng():null; if(e2)e2.seek(frac(ev)); ev.preventDefault(); ev.stopPropagation(); },{passive:false});
+    bar.addEventListener("pointermove",ev=>{ if(!drag)return; const card=bar.closest(".sscard"); const eng=card&&card._ssBarLiveEngine; const e2=eng?eng():null; if(e2)e2.seek(frac(ev)); });
+    const up=()=>{ drag=false; };
+    bar.addEventListener("pointerup",up); bar.addEventListener("pointercancel",up);
+  }
+  // the ticker's engine, exposed for the bar's own drag handlers
+  node._ssBarLiveEngine=engine;
+}
 function sstreamFill(node,s,mode){
   const fr=node.querySelector("[data-sframe]"), ov=node.querySelector("[data-sov]");
+  ssBarReset(node);
   if(node._ssPlayer){ try{ node._ssPlayer.destroy(); }catch(e){} node._ssPlayer=null; }
   node._s=s||null;
   if(!s||mode==="blank"){ fr.innerHTML=""; ov.style.display="none"; return; }
@@ -345,6 +390,7 @@ function sstreamFill(node,s,mode){
   }else{
     fr.innerHTML=`<iframe src="${sstreamEmbed(s,false)}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
   }
+  if(mode==="current")ssBarArm(node,s);
 }
 /* ---------- the never-still rotation (his order 2026-10-14) ----------
    A slide NEVER sits on an end screen: a YouTube streamer plays his

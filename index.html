@@ -1216,6 +1216,12 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .sstream-frame iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
 /* STREAMING CARDS (his order 2026-10-14: the tab scrolls as cards, like Home) */
 .sscards{max-width:720px;margin:0 auto;padding:14px 12px 96px;display:flex;flex-direction:column;gap:16px}
+.sscard-stage{position:relative}
+.ssbar{position:absolute;left:0;right:0;bottom:0;height:26px;display:none;align-items:flex-end;z-index:6;touch-action:none;cursor:pointer}
+.ssbar.on{display:flex}
+.ssbar-rail{position:relative;width:100%;height:4px;background:rgba(255,255,255,.28)}
+.ssbar-fill{height:100%;width:0;background:#e8112d;border-radius:0 2px 2px 0}
+.ssbar-time{position:absolute;right:8px;bottom:9px;font-size:11px;font-weight:700;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.9);pointer-events:none}
 .sscard{background:#101014;border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden}
 .sscard-frame{position:relative;width:100%;aspect-ratio:16/9;background:radial-gradient(120% 120% at 50% 0%,#17171f 0%,#000 70%)}
 .sscard-frame iframe,.sscard-frame video{width:100%;height:100%;border:0;display:block;pointer-events:none}
@@ -4867,7 +4873,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014152806";
+const BUILD="20261014153212";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
