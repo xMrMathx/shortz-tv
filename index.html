@@ -693,7 +693,7 @@ body.ev-mode #evRing{display:block}
 #views.evtrack::-webkit-scrollbar{display:none}
 #views.evtrack .view.evpane{position:relative!important;flex:0 0 100%;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;opacity:1!important;transform:none!important;pointer-events:auto}
 #views.evtrack .view:not(.evpane){display:none}
-body.ev-moving #views.evtrack iframe, body.ev-moving #views.evtrack video{visibility:hidden}
+body.ev-moving #views.evtrack iframe, body.ev-moving #views.evtrack video{visibility:visible}
 body.ev-moving #topbar, body.ev-moving #tabbar, body.ev-moving #evHeader, body.ev-moving #views.evtrack *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important} /* blurred layers over flying content repaint every frame — the feed scroll has none of these over it, the hub did */
 body.ev-moving #views.evtrack *{animation-play-state:paused!important} /* infinite in-pane animations (Ken Burns artwork, live pulses) repaint forever; frozen while the track moves, resumed at rest */ /* while the track is flying, panes show their static faces — painting several live video layers per frame is what chokes the compositor mid-fling; everything comes back the moment the scroll truly stops */
 #views.evtrack .view.evpane, #views.evtrack #cfeed{touch-action:pan-x pan-y}
@@ -3737,11 +3737,21 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     // the finger owns the scroll again — and the release restarts it.
     evSampleT=setInterval(()=>{
       const sl=vs.scrollLeft, now=Date.now();
-      if(sl!==evLastSl){ evDeltas.push({t:now,d:Math.abs(sl-evLastSl)}); evLastSl=sl; evStableSince=now; }
-      while(evDeltas.length&&now-evDeltas[0].t>720)evDeltas.shift();
-      if(now-evStableSince<280)return;
-      const fastRecent=evDeltas.some(x=>x.d>12);
-      if(!fastRecent||now-evStableSince>=900)evFinishMotion();
+      // REST, defined physically (both failure shapes are real):
+      // a decaying tail crawls at a few px per sample for a second
+      // or more — still MOVING, so pixel-stillness is required, no
+      // crawl allowance. And a fling can freeze mid-flight and
+      // resume, so stillness right after SPEED is distrusted: it
+      // must either have crawled to its stop (last steps <= 2px)
+      // or stayed still a full 900ms before it counts as dead.
+      if(sl!==evLastSl){ evDeltas.push({t:now,d:Math.abs(sl-evLastSl)}); evLastSl=sl; evStableSince=now; return; }
+      while(evDeltas.length&&evDeltas[0].t<evStableSince-500)evDeltas.shift(); // timestamps vs timestamps — the duration-vs-timestamp mix here emptied the history and let speed through
+      const stillMs=now-evStableSince;
+      if(stillMs>=900)evFinishMotion();
+      else if(stillMs>=280){
+        const preMax=evDeltas.reduce((m,x)=>Math.max(m,x.d),0);
+        if(preMax<=2)evFinishMotion();
+      }
     },90);
   }
   function evCancelWatch(){
@@ -3764,7 +3774,13 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(v!==evSection){
       evSection=v;
       evIdx=SECTIONS.indexOf(v); if(evIdx<0)evIdx=0;
-      try{ renderView(v); }catch(e){}
+      // a static pane that already holds real content is NOT
+      // rebuilt on entry — nothing emptied it while it sat in the
+      // ring, and rebuilding a whole wall/folder set on landing
+      // was its own hitch. Stubs and the live systems (whose exit
+      // hooks DO empty them) still build on entry, as always.
+      const needsBuild=(v==="live"||v==="streaming"||!pane.innerHTML.trim()||!!pane.querySelector(".swipe-stub"));
+      if(needsBuild){ try{ renderView(v); }catch(e){} }
       go(v);
       updateHeader();
     }
@@ -4848,7 +4864,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014142026";
+const BUILD="20261014143546";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
