@@ -9,7 +9,7 @@ function kickFetchTimeout(ms){
 function kickRefreshOne(s){
   const ch=String(s.url||"").split("/").filter(Boolean).pop();
   if(!ch)return Promise.resolve(false);
-  const before=!!s.live;
+  const before=!!s.live, beforeThumb=s.thumb||"";
   return Promise.race([
     fetch("https://kick.com/api/v1/channels/"+encodeURIComponent(ch),{cache:"no-store"}),
     kickFetchTimeout(4000)
@@ -17,13 +17,14 @@ function kickRefreshOne(s){
     .then(r=>r.ok?r.json():null)
     .then(d=>{
       if(!d)return false;
+      const pic=d.user&&d.user.profile_pic; if(pic&&!s.avatar)s.avatar=pic;
       const ls=d.livestream||null;
       s.live=!!ls;
       if(ls){ s.title=ls.session_title||s.title; s.viewers=ls.viewer_count!=null?String(ls.viewer_count):s.viewers;
         const lt=ssPickThumb(ls.thumbnail)||ssPickThumb(ls.thumbnail_url); if(lt)s.thumb=lt;
-        return (!!s.live)!==before; }
+        return ((!!s.live)!==before)||((s.thumb||"")!==beforeThumb); }
       if(!s.vod_id||!s.thumb)return kickFetchVod(s).then(changed=>changed||((!!s.live)!==before));
-      return (!!s.live)!==before;
+      return ((!!s.live)!==before)||((s.thumb||"")!==beforeThumb);
     }).catch(()=>false);
 }
 /* most recent offline VOD for a Kick channel */
@@ -53,7 +54,7 @@ function kickFetchVod(s){
 function twitchFetchVod(s){
   const ch=String(s.url||"").split("/").filter(Boolean).pop();
   if(!ch)return Promise.resolve(false);
-  const before=s.vod_id||null;
+  const before=s.vod_id||null, beforeThumb=s.thumb||"";
   return Promise.race([
     fetch("https://gql.twitch.tv/gql",{
       method:"POST",
@@ -65,7 +66,7 @@ function twitchFetchVod(s){
     .then(r=>r.ok?r.json():null)
     .then(d=>{
       const edges=(d&&d.data&&d.data.user&&d.data.user.videos&&d.data.user.videos.edges)||[];
-      if(!edges.length)return false;
+      if(!edges.length){ if(d&&d.data&&d.data.user&&d.data.user.profileImageURL&&!s.thumb)s.thumb=d.data.user.profileImageURL; return (s.thumb||"")!==beforeThumb; }
       // his rotation (2026-10-14): the 5 most recent VODs, back to
       // back, then loop — HLS resolves lazily per VOD (see ssVodWire)
       s.vodQueue=edges.slice(0,5).map(e=>({id:String(e.node.id),vid:"v"+e.node.id,title:e.node.title||"",hls:""}));
@@ -74,7 +75,7 @@ function twitchFetchVod(s){
       else if(d&&d.data&&d.data.user&&d.data.user.profileImageURL)s.thumb=d.data.user.profileImageURL;
       const edge=edges[0];
       const nid="v"+edge.node.id; // Twitch VOD IDs need "v" prefix
-      const changed=(nid!==before)||((edge.node.title||"")!==(s.vod_title||""));
+      const changed=(nid!==before)||((edge.node.title||"")!==(s.vod_title||""))||((s.thumb||"")!==beforeThumb);
       s.vod_id=nid;
       s.vod_title=edge.node.title||"";
       // Also fetch the direct HLS stream URL (bypasses Twitch's embed player)
@@ -283,7 +284,7 @@ function ssThumb(s){
     const id=s.live&&s.ytVideoId?s.ytVideoId:(s.ytLatestId||(s.ytRecent&&s.ytRecent[0])||null);
     if(id)return "https://i.ytimg.com/vi/"+encodeURIComponent(id)+"/hqdefault.jpg";
   }
-  return s.thumb||"";
+  return s.thumb||s.avatar||"";
 }
 function ssPosterHTML(s){
   const initial=esc(((s&&s.name)||"?").charAt(0).toUpperCase()||"?");
@@ -313,13 +314,13 @@ function ssBarArm(node,s){
     if(vid)return {get:()=>({t:vid.currentTime||0,d:vid.duration||0}),seek:f=>{ if(vid.duration)vid.currentTime=f*vid.duration; }};
     return null;
   };
-  const fmt=x=>{ x=Math.max(0,Math.floor(x||0)); const h=Math.floor(x/3600), m=Math.floor((x%3600)/60), ss=x%60; return (h?h+":":"")+(h&&m<10?"0":"")+m+":"+(ss<10?"0":"")+ss; };
+  const fmt=x=>{ if(!isFinite(x))return "--:--"; x=Math.max(0,Math.floor(x||0)); const h=Math.floor(x/3600), m=Math.floor((x%3600)/60), ss=x%60; return (h?h+":":"")+(h&&m<10?"0":"")+m+":"+(ss<10?"0":"")+ss; };
   let shown=false;
   node._ssBarT=setInterval(()=>{
     if(!node.isConnected){ ssBarReset(node); return; }
     const e=engine(); if(!e)return;
     const g=e.get();
-    if(g.d>0){
+    if(g.d>0&&isFinite(g.d)){
       if(!shown){ shown=true; bar.classList.add("on"); }
       fill.style.width=Math.min(100,(g.t/g.d)*100)+"%";
       tlab.textContent=fmt(g.t)+" / "+fmt(g.d);
@@ -366,7 +367,7 @@ function sstreamFill(node,s,mode){
   fr.innerHTML=ssPosterHTML(s); // poster first — the mount below paints over it, never a black wait
   // nothing playable (offline + no genuine replay): honest card, never a broken "video unavailable" embed
   if(!live&&!replay){
-    fr.innerHTML=`<div class="sstream-novid"><div style="font-size:44px">📡</div><div style="font-weight:800;font-size:16px;margin-top:10px">@${esc(s.name||"unknown")} is offline</div><div style="color:var(--mut);font-size:13px;margin-top:6px">No recent replay available — check back soon.</div></div>`;
+    fr.innerHTML=ssPosterHTML(s)+`<div class="sstream-offline"><div style="font-size:38px">📡</div><div style="font-weight:800;font-size:16px;margin-top:8px">@${esc(s.name||"unknown")} is offline</div><div style="color:#c9c9d2;font-size:13px;margin-top:6px">No recent replay available — check back soon.</div></div>`;
     return;
   }
   // offline with VODs: native <video> on direct HLS (bypasses the
