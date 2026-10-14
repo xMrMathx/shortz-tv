@@ -134,7 +134,10 @@ function swFinalize(s){
     // order as the tabs: render first (renders read the OLD
     // curView), then go.
     try{ renderView(target); }catch(e){}
+    const chKeep=_swChain; // go() calls __swParkClear, which clears
+    // the chain — a momentum chain must survive its own page landings
     try{ go(target); }catch(e){}
+    if(chKeep&&!_swChain)_swChain=chKeep;
     const tg=target;
     requestAnimationFrame(()=>{ try{
       // fallback only: if the render above was somehow skipped and
@@ -153,6 +156,10 @@ function swFinalize(s){
     }
   }catch(e){}
   if(target)swPrebuild(SWIPE_TABS.indexOf(target));
+  if(_swChain){
+    if(_swChain.left>0&&_swChain.v>=0.85){ const ch=_swChain; requestAnimationFrame(()=>{ if(_swChain===ch)swChainStep(); }); }
+    else _swChain=null;
+  }
 }
 function swUnpark(s){
   _sw=null; _swPark=null; window.__swiping=false;
@@ -163,6 +170,7 @@ function swUnpark(s){
   swPrebuild(SWIPE_TABS.indexOf(s.curName));
 }
 function __swParkClear(){
+  _swChain=null;
   if(_swPark){ const s=_swPark; _swPark=null; swResetStrip(s); }
   if(_sw&&_sw.locked){ const s=_sw; _sw=null; swResetStrip(s); }
   window.__swiping=false;
@@ -206,6 +214,7 @@ document.addEventListener("touchstart",e=>{
   // mid-glide touch: the glide's position becomes a park, and the
   // normal resume path below picks the strip up under the finger —
   // complete control, the glide never fights the hand
+  _swChain=null; // any new touch ends a momentum chain — the strip is his
   if(_swGlide&&_sw&&e.touches.length===1){
     cancelAnimationFrame(_swGlide.raf); _swGlide=null;
     const gs=_sw; swFlushPlace(gs);
@@ -312,6 +321,32 @@ function swVel(s){
   return avg;
 }
 let _swGlide=null;
+/* MULTI-PAGE MOMENTUM (his order 2026-10-14): the vertical feed's
+   fling doesn't stop after one screen — a hard flick keeps flying
+   until friction or his thumb stops it. The strip now chains: a
+   strong release carries across page after page (velocity decaying
+   per page) until it settles. A touch anywhere kills the chain and
+   hands him the strip (existing mid-glide catch). */
+let _swChain=null;
+function swChainStep(){
+  const ch=_swChain; if(!ch)return;
+  const idx=SWIPE_TABS.indexOf(curView);
+  const W=window.innerWidth||1;
+  if(idx<0){ _swChain=null; return; }
+  const target=SWIPE_TABS[(idx+ch.dir+SWIPE_TABS.length)%SWIPE_TABS.length];
+  const curEl=$("#view-"+curView), pk=$("#view-"+target);
+  if(!curEl||!pk){ _swChain=null; return; }
+  if(!pk.innerHTML.trim()||pk.querySelector("[data-swstub]")){ try{ renderView(target); }catch(e){} }
+  const s={resume:false,locked:true,x0:0,y0:0,base:0,dx:0,dir:ch.dir,target:target,peekEl:pk,curEl:curEl,curName:curView,idx:idx,sy:window.scrollY||0,moved:true,
+    hist:[{dx:0,t:performance.now()},{dx:Math.max(8,ch.v*16),t:performance.now()+16}]};
+  _sw=s; window.__swiping=true;
+  try{ document.body.classList.add("swiping"); }catch(e){}
+  curEl.classList.add("swipe-cur"); curEl.style.transition="none"; curEl.style.willChange="transform";
+  pk.classList.add("swipe-peek"); pk.style.transition="none"; pk.style.willChange="transform";
+  swBodyLock(); swSilenceCurrent(); swFeedPause();
+  ch.v*=0.78; ch.left--;
+  swGlide(s,W,()=>swFinalize(s));
+}
 /* exponential-decay glide: starts at the finger's own speed
    (tau = remaining / release velocity) and settles — no dead stop,
    no overshoot, no sticking. _sw stays set, so a landing touch
@@ -351,7 +386,13 @@ function swEndV2(){
   // MOMENTUM (his order 2026-10-14): a flick keeps its speed after
   // the finger lifts — fast swipe flies across, slow swipe parks.
   const vEnd=swVel(s);
-  if(vEnd>0.5&&s.dx>50){ swGlide(s,W,()=>swFinalize(s)); return; }
+  if(vEnd>0.5&&s.dx>50){
+    // pages earned by release speed: a firm flick crosses two
+    // screens, a hard one three — like the feed's fling
+    const pages=vEnd>2.4?3:(vEnd>1.25?2:1);
+    _swChain={dir:s.dir,v:Math.abs(vEnd),left:pages-1};
+    swGlide(s,W,()=>swFinalize(s)); return;
+  }
   if(vEnd<-0.5){ swGlide(s,0,()=>swUnpark(s)); return; }
   swStubFlush(s); // parked: the peeked screen builds now, while nothing moves
   _swPark={dx:s.dx,dir:s.dir,target:s.target,peekEl:s.peekEl,curEl:s.curEl,curName:s.curName,sy:s.sy};
