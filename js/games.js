@@ -26,6 +26,12 @@
    Shooters 2 and Tile Master Deluxe, even via the direct file URL).
    GD games return only if the site is registered with GD. Working
    model: GameMonetize — direct embeds, no domain block.
+   DEADSHOT.IO IS OUT (2026-10-14, his phone): the CrazyGames embed
+   document loads, but the game itself serves "DEADSHOT.io is no
+   longer available" at runtime — a channel 200 is not a playable
+   game. HAZMOB FPS IS THE CROWNED FLAGSHIP — phone-verified by him
+   same evening: "works perfectly fine, it is so cold, it's so
+   perfect." Touch, lobbies, in-app: all proven on his device.
    MASKED FORCES IS OUT (2026-10-14): its web build has NO touch controls
    (keyboard/mouse only — his own gameplay screenshot shows a live match
    with no joystick or fire buttons), and GameDistribution's wrapper
@@ -36,10 +42,6 @@ const GAMES=[
     embed:"https://playgama.com/export/game/hazmob-fps-online-shooter",
     thumb:"https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/big_preview/df01c609f8c44052b837b336d0e63617?width=1200",
     sub:"ONLINE multiplayer — Team Deathmatch, Search & Destroy, Domination, Capture the Flag. Live lobbies shared with the phone game's players." },
-  { title:"Deadshot.io", cat:"First-Person Shooter", orient:"landscape",
-    embed:"https://www.crazygames.com/embed/deadshot-io",
-    thumb:"https://images.crazygames.com/games/deadshot-io/cover_16x9-1694770506842.png",
-    sub:"ONLINE multiplayer — Free-for-All, Team Deathmatch, Hardpoint, Kill Confirmed. Live lobbies, players around the world." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
