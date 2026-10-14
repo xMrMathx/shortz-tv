@@ -66,12 +66,12 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .view.active{position:relative;opacity:1;transform:none;pointer-events:auto}
 .view.leaving{position:absolute;inset:0;opacity:0;transform:translateY(-10px) scale(1.005);pointer-events:none}
-.view.swipe-peek{position:fixed;top:0;bottom:0;left:0;width:100%;opacity:1;pointer-events:none;z-index:40;overflow:hidden;background:var(--bg);box-shadow:inset 0 0 0 2px #e50914}
+.view.swipe-peek{position:fixed;top:0;bottom:0;left:0;width:100%;opacity:1;pointer-events:none;z-index:40;overflow:hidden;background:var(--bg)}
 .swipe-stub{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
 .swipe-stub-logo{font-weight:900;font-size:27px;letter-spacing:1px;color:#fff}
 .swipe-stub-logo span{color:#e50914}
 .swipe-stub-name{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
-.view.swipe-cur{position:fixed!important;top:0;bottom:0;left:0;width:100%;opacity:1;z-index:41;overflow:hidden;background:var(--bg);box-shadow:inset 0 0 0 2px #e50914}
+.view.swipe-cur{position:fixed!important;top:0;bottom:0;left:0;width:100%;opacity:1;z-index:41;overflow:hidden;background:var(--bg)}
 .view,#cfeed{touch-action:pan-y}
 .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
@@ -677,6 +677,17 @@ body.ev-mode #evHint{display:block;animation:evHintFade 4s forwards}
 body.ev-mode .view{transition:opacity .28s ease,transform .28s ease}
 body.ev-mode .view.ev-slide-l{transform:translateX(-24px)!important}
 body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
+/* THE ALL-MODE RING (his spec 2026-10-14): while the Everything hub
+   is ON, a red frame rings the whole screen on every screen — you
+   KNOW All mode is on. Toggle off, the ring is gone. One overlay
+   element, painted once — never inside the sliding layers. */
+#evRing{position:fixed;inset:0;border:2px solid #e50914;pointer-events:none;z-index:900;display:none}
+body.ev-mode #evRing{display:block}
+/* while the strip moves, the glass chrome stops re-sampling the
+   sliding backdrop every frame and the live-pulse stops repainting
+   (brain audit round 2 #4/#7) */
+body.swiping #topbar,body.swiping #tabbar{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+body.swiping .avwrap.live .avatar{animation:none!important}
 /* EVERYTHING TOGGLE: persistent floating button — ALWAYS on screen, even when the HUD
    is hidden. Tap to enter ev-mode (swipe between sections); tap again to exit and stay
    on the current section. Glows red while ev-mode is active.
@@ -3658,7 +3669,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(!evMode)return;
     evMode=false;
     document.body.classList.remove("ev-mode");
-    try{ if(window.__swParkClear)window.__swParkClear(); }catch(e){} // leaving the hub parks nothing: the strip clears with the toggle
+    try{ if(window.__swParkClear)window.__swParkClear(); if(window.__swSessionClear)window.__swSessionClear(); }catch(e){} // leaving the hub parks nothing: the strip clears with the toggle, and the session layer promotions release
   }
   // swipe detection: capture phase, only in ev-mode, horizontal-dominant only
   document.addEventListener("touchstart",e=>{
@@ -4658,7 +4669,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014110748";
+const BUILD="20261014123955";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -11395,5 +11406,6 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
 })();
 </script>
 <script src="js/live-sports.js"></script>
+<div id="evRing" aria-hidden="true"></div>
 </body>
 </html>

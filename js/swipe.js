@@ -51,12 +51,26 @@ function swStripPlace(s,dx){
   if(s.peekEl)s.peekEl.style.transform="translate("+((s.dir>0?(W-dx):(-W+dx)))+"px,0px)";
 }
 function swStripUndress(s){
-  for(const el of [s?s.curEl:null,s?s.peekEl:null]){
+  const els=[s?s.curEl:null,s?s.peekEl:null];
+  // LANDING (brain audit round 2 #5): the ev-mode stylesheet gives
+  // .view a .28s transform transition — clearing the inline
+  // transition:"none" in the same recalc as the transform made the
+  // restored screen ANIMATE home while go()/scrollTo ran. Kill the
+  // transition first, pay one reflow, then clear, restore after.
+  for(const el of els){ if(el)el.style.transition="none"; }
+  try{ void document.body.offsetWidth; }catch(e){}
+  for(const el of els){
     if(!el)continue;
     el.classList.remove("swipe-peek"); el.classList.remove("swipe-cur");
-    el.style.transform=""; el.style.transition=""; el.style.willChange="";
+    el.style.transform="";
+    // willChange STAYS for the whole hub session (#2): stripping it
+    // at every settle re-promoted and re-rastered both dense layers
+    // at the next lock — the burst right after the drag starts.
+    // __swParkClear (hub exit) clears it.
   }
   try{ document.body.style.minHeight=""; }catch(e){}
+  try{ document.body.classList.remove("swiping"); }catch(e){}
+  requestAnimationFrame(()=>{ for(const el of els){ if(el)el.style.transition=""; } });
 }
 function swResetStrip(s){
   if(!s)return;
@@ -70,15 +84,35 @@ function swSettleRecompute(){ try{ if(typeof cfRecompute==="function")cfRecomput
    video fights the slide for the main thread on a phone (the burst/
    stutter he reported). It resumes when the strip restores Home. */
 function swFeedPause(){ try{ if(typeof cfPlayer!=="undefined"&&cfPlayer){ if(cfPlayer.pauseVideo)cfPlayer.pauseVideo(); else if(cfPlayer.pause)cfPlayer.pause(); } }catch(e){} }
-function swFeedResume(){ try{ if(typeof cfPlayer!=="undefined"&&cfPlayer&&cfPlayer.playVideo)cfPlayer.playVideo(); }catch(e){} }
+function swFeedResume(){ try{ if(typeof cfPlayer!=="undefined"&&cfPlayer){ if(cfPlayer.playVideo)cfPlayer.playVideo(); else if(cfPlayer.play){ const p=cfPlayer.play(); if(p&&p.catch)p.catch(()=>{}); } } }catch(e){} }
+/* MEDIA SILENCE AT LOCK (brain audit round 2 #1 — the big one):
+   swFeedPause only ever paused Home's card. From Profile, the guide
+   player (with sound) plus up to five folder-front videos kept
+   DECODING inside the moving layers for the whole drag — five-plus
+   video pipelines fighting the slide on the phone's main thread.
+   At lock, mirror what go() does on exit; on unpark, entry restarts
+   them (the guide resumes its remembered show via vfGuideResume). */
+function swSilenceCurrent(){
+  try{
+    if(curView==="profile"){
+      if(typeof tgPause==="function")tgPause();
+      if(typeof vfStopPreviews==="function")vfStopPreviews();
+    }
+  }catch(e){}
+}
+function swWakeCurrent(name){
+  try{ if(name==="profile"&&typeof vfStartPreviews==="function")vfStartPreviews(); }catch(e){}
+}
 function swStubHTML(name){
   const T={home:"Home",browse:"Browse",live:"Live",streaming:"Streaming",manga:"Manga",profile:"Profile"};
   return '<div class="swipe-stub" data-swstub="1"><div class="swipe-stub-logo">SHORTZ <span>VS</span></div><div class="swipe-stub-name">'+(T[name]||"")+'</div></div>';
 }
 function swStubFlush(s){
-  // finger is up (park): build the peeked screen now, if it is still a stub
-  if(!s||!s.stubT)return;
-  clearTimeout(s.stubT); s.stubT=0;
+  // finger is up (park): build the peeked screen now, if it is
+  // still a stub. (Was gated on s.stubT — the deleted lull timer's
+  // handle — which silently disabled every park build with it.)
+  if(!s)return;
+  if(s.stubT){ clearTimeout(s.stubT); s.stubT=0; }
   try{
     const pk=s.peekEl;
     if(pk&&pk.querySelector("[data-swstub]")&&s.target!=="live"&&s.target!=="streaming")renderView(s.target);
@@ -87,7 +121,7 @@ function swStubFlush(s){
 function swFinalize(s){
   if(s.stubT){ clearTimeout(s.stubT); s.stubT=0; }
   const target=s.target;
-  _sw=null; _swPark=null; window.__swiping=false; _swBodyH=0;
+  _sw=null; _swPark=null; window.__swiping=false;
   swStripUndress(s);
   if(target){
     try{ go(target); }catch(e){}
@@ -114,9 +148,10 @@ function swFinalize(s){
   if(target)swPrebuild(SWIPE_TABS.indexOf(target));
 }
 function swUnpark(s){
-  _sw=null; _swPark=null; window.__swiping=false; _swBodyH=0;
+  _sw=null; _swPark=null; window.__swiping=false;
   swResetStrip(s);
   swFeedResume();
+  swWakeCurrent(s.curName);
   swSettleRecompute();
   swPrebuild(SWIPE_TABS.indexOf(s.curName));
 }
@@ -124,7 +159,14 @@ function __swParkClear(){
   if(_swPark){ const s=_swPark; _swPark=null; swResetStrip(s); }
   if(_sw&&_sw.locked){ const s=_sw; _sw=null; swResetStrip(s); }
   window.__swiping=false;
+  try{ document.body.classList.remove("swiping"); }catch(e){}
 }
+/* hub EXIT only: release the session's layer promotions. (Not in
+   __swParkClear — go() calls that on every navigation, which wiped
+   the promotions at every settle.) */
+window.__swSessionClear=function(){
+  try{ document.querySelectorAll(".view").forEach(v=>{ v.style.willChange=""; }); }catch(e){}
+};
 window.__swParkClear=__swParkClear;
 window.__stripOwnsSwipe=true; // the EVERYTHING hub's swipe-snap stands down (see its touchend)
 /* neighbor pre-build + poster decode, scheduled from locks and
@@ -203,25 +245,21 @@ document.addEventListener("touchmove",e=>{
         // render into the peek a breath after the slide starts moving,
         // so the first swipe never pays their build cost mid-drag.
         pk.innerHTML=swStubHTML(s.target);
-        if(s.target!=="live"&&s.target!=="streaming"){
-          // LULL-GATED: the real screen builds only when the thumb has
-          // been still ~200ms (or at park, via swStubFlush) — never
-          // while moves are flowing. A build mid-drag was the stutter.
-          const pkT=pk, pkName=s.target;
-          let tries=0;
-          const arm=()=>{ s.stubT=setTimeout(()=>{ s.stubT=0;
-            if(!pkT.querySelector("[data-swstub]"))return;
-            if(Date.now()-(s.lastMoveT||0)>=200){ try{ renderView(pkName); }catch(err){} }
-            else if(++tries<=14)arm();
-          },120); };
-          arm();
-        }
+        // NO MID-GESTURE BUILDS (brain audit round 2 #3): the old
+        // lull-gate built the real screen whenever the thumb rested
+        // ~200ms — but a slow drag is full of 200ms micro-pauses
+        // WITH THE FINGER DOWN, so a full Browse/Profile build plus
+        // a poster-decode storm detonated mid-gesture. Builds now
+        // happen finger-up only: at park (swStubFlush) and one frame
+        // after a settle (swFinalize).
       }
       s.sy=window.scrollY||0;
       swBodyLock();
       if(s.curEl){ s.curEl.classList.add("swipe-cur"); s.curEl.style.transition="none"; s.curEl.style.willChange="transform"; }
       if(pk){ pk.classList.add("swipe-peek"); pk.style.transition="none"; pk.style.willChange="transform"; s.peekEl=pk; }
       s.locked=true; window.__swiping=true; swFeedPause();
+      try{ document.body.classList.add("swiping"); }catch(e){}
+      swSilenceCurrent();
       swPrebuild(nIdx); // a demonstrable swipe moment: queue the neighbors
     } else return;
   }
@@ -243,7 +281,13 @@ document.addEventListener("touchmove",e=>{
    in the gesture, whichever is higher — a positioning drag never
    makes a fast segment, so slow drags still park exactly. */
 function swVel(s){
-  const h=s.hist||[]; if(h.length<2)return 0;
+  let h=s.hist||[]; if(h.length<2)return 0;
+  // stillness split: samples from before the thumb's last >150ms
+  // rest are history, not intent — a drag-hold-release is a park
+  let cut=0;
+  for(let i=1;i<h.length;i++){ if(h[i].t-h[i-1].t>150)cut=i; }
+  if(cut>0)h=h.slice(cut);
+  if(h.length<2)return 0;
   const now=performance.now(), last=h[h.length-1];
   let old=h[0];
   for(let i=h.length-1;i>=0;i--){ if(now-h[i].t<=120)old=h[i]; else break; }
