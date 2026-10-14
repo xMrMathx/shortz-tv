@@ -4902,7 +4902,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014172311";
+const BUILD="20261014175150";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -4957,6 +4957,11 @@ function _videoPlaying(){
     if(typeof curView!=="undefined"&&(curView==="live"||curView==="streaming"))return true;
     // System PiP: the video lives in the floating window.
     if(document.body&&document.body.classList&&document.body.classList.contains("pip"))return true;
+    // Games: a game open in the fullscreen player is playing — without
+    // this the guard read the Games view as "nothing playing" and
+    // restarted the app mid-game (his phone, 2026-10-14).
+    const gp=document.getElementById("gamePlayer");
+    if(gp&&gp.classList&&gp.classList.contains("open")&&gp.querySelector("iframe"))return true;
   }catch(e){}
   return false;
 }
@@ -5005,20 +5010,22 @@ window.__requestFreshReload=function(){
 };
 // Force a truly fresh load — bypasses browser cache completely. No hard-refresh needed.
 function forceFreshReload(){
-  // Reload-loop guard: >3 freshness reloads in 5 min means the CDN is serving
-  // mixed versions — stop looping and tell the user instead of spinning forever.
-  // NOTE: the counter lives in sessionStorage because location.replace() wipes
-  // all JS state on every reload — an in-memory counter can never fire.
+  // Reload floor (backstop for every reload path, incl. the legacy
+  // version.json guard): at most 4 freshness reloads in any 10 minutes.
+  // The counter lives in localStorage because it must survive the very
+  // thing it guards against — sessionStorage died whenever the WebView
+  // process was reclaimed, and "reopen the app" (the old toast's own
+  // advice) reset it, re-arming the storm it was meant to stop.
   const now=Date.now();
   let rl={n:0,win:now};
   try{
-    const raw=sessionStorage.getItem("svFreshRL");
+    const raw=localStorage.getItem("svFreshFloor");
     if(raw){rl=JSON.parse(raw);if(typeof rl.n!=="number"||typeof rl.win!=="number")rl={n:0,win:now};}
   }catch(e){rl={n:0,win:now};}
-  if(now-rl.win>5*60*1000){rl={n:0,win:now};}
+  if(now-rl.win>10*60*1000){rl={n:0,win:now};}
   rl.n++;
-  try{sessionStorage.setItem("svFreshRL",JSON.stringify(rl));}catch(e){}
-  if(rl.n>3){try{toast("Update available — please reopen the app to apply it");}catch(e){}return;}
+  try{localStorage.setItem("svFreshFloor",JSON.stringify(rl));}catch(e){}
+  if(rl.n>4){try{toast("Update available — please reopen the app to apply it");}catch(e){}return;}
   // Preserve share-link params (?watch=, ?stream=, ?ep=); drop cache-busters.
   let q="";
   try{
@@ -5128,7 +5135,27 @@ function _runFreshCheck(reason){
       return false;
     }
     _fresh.fails=0;
-    if(v!==BUILD){
+    if(v===BUILD){
+      // Converged: clear the target latch so the NEXT build re-arms clean.
+      try{localStorage.removeItem("svFreshTarget");}catch(e){}
+      try{sessionStorage.removeItem("svFreshRL");}catch(e){}
+      return false;
+    }
+    if(v<BUILD)return false; // a lagging edge copy OLDER than this page — never "update" backwards
+    // TARGET LATCH (2026-10-14 — the restart-storm root fix): deploys are
+    // NOT atomic (version.txt flips before index.html reaches every edge),
+    // so a reload can land on the same old build it fled. Without a durable
+    // memory of "I already chased THIS build", every landing re-decided
+    // from zero and restarted again — four builds in 30 minutes meant an
+    // afternoon of restarts. A build gets at most TWO reload attempts,
+    // recorded in localStorage; only a NEWER build re-arms it.
+    let latch=null;
+    try{ latch=JSON.parse(localStorage.getItem("svFreshTarget")||"null"); }catch(e){}
+    if(!latch||latch.t!==v)latch={t:v,n:0};
+    if(latch.n>=2)return false; // chased twice already — run what we have until a newer build ships
+    latch.n++;
+    try{ localStorage.setItem("svFreshTarget",JSON.stringify(latch)); }catch(e){}
+    {
       if(_videoPlaying()){
         // NEVER yank a playing video mid-watch. Hold the update silently and
         // let the watcher apply it at the first natural break (pause/end,
@@ -5143,9 +5170,6 @@ function _runFreshCheck(reason){
       }
       return true;
     }
-    // Build matches — clear any stale reload-loop counter from sessionStorage.
-    try{sessionStorage.removeItem("svFreshRL");}catch(e){}
-    return false;
   });
 }
 // Manual trigger (debugging / future UI): window.checkForUpdates()
@@ -8110,10 +8134,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js"></script>
+<script src="js/folders.js?v=20261014175150"></script>
 <script>
 </script>
-<script src="js/guide.js"></script>
+<script src="js/guide.js?v=20261014175150"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -8921,8 +8945,8 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js"></script>
-<script src="js/games.js"></script>
+<script src="js/streaming.js?v=20261014175150"></script>
+<script src="js/games.js?v=20261014175150"></script>
 <script>
 
 
@@ -9440,7 +9464,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js"></script>
+<script src="js/swipe.js?v=20261014175150"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11660,7 +11684,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js"></script>
+<script src="js/live-sports.js?v=20261014175150"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>

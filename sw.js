@@ -1,5 +1,5 @@
 /* Shortz TV service worker — app shell: network-first for the page (always fresh when online), cache-first for the rest */
-const CACHE = "shortztv-v5"; // bumped 2026-10-11: forces every client onto the self-healing updater
+const CACHE = "shortztv-v6"; // bumped 2026-10-14: js modules go network-first (stale-module fix)
 const THUMBS = "shortztv-thumbs-v1";
 const SHELL = ["catalog.js", "manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
@@ -15,6 +15,11 @@ function isPage(url) {
   const p = url.pathname;
   if (p.endsWith("/shortz-tv/") || p.endsWith("/shortz-tv")) return true; // start_url
   return PAGE.some(f => p.endsWith("/" + f));
+}
+
+function isJs(url) {
+  if (url.origin !== location.origin) return false;
+  return url.pathname.includes("/js/") && url.pathname.endsWith(".js");
 }
 
 function isShell(url) {
@@ -67,6 +72,20 @@ self.addEventListener("fetch", e => {
         caches.open(CACHE).then(c => c.put(e.request, copy));
         return res;
       }).catch(() => caches.match(e.request, { ignoreSearch: true }))
+    );
+    return;
+  }
+  if (isJs(url)) {
+    // App modules: network-first, like the catalog — a fresh page must
+    // never pair with a stale module out of the HTTP cache (Pages serves
+    // js with max-age=600; the ?fresh= reload only busts the document).
+    // The script tags also carry ?v=<build>; this is the second lock.
+    e.respondWith(
+      fetch(e.request).then(res => {
+        const copy = res.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copy));
+        return res;
+      }).catch(() => caches.match(e.request))
     );
     return;
   }
