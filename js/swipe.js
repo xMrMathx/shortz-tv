@@ -118,6 +118,15 @@ function __swParkClear(){
 window.__swParkClear=__swParkClear;
 window.__stripOwnsSwipe=true; // the EVERYTHING hub's swipe-snap stands down (see its touchend)
 document.addEventListener("touchstart",e=>{
+  // mid-glide touch: the glide's position becomes a park, and the
+  // normal resume path below picks the strip up under the finger —
+  // complete control, the glide never fights the hand
+  if(_swGlide&&_sw&&e.touches.length===1){
+    cancelAnimationFrame(_swGlide.raf); _swGlide=null;
+    const gs=_sw; swFlushPlace(gs);
+    _swPark={dx:gs.dx,dir:gs.dir,target:gs.target,peekEl:gs.peekEl,curEl:gs.curEl,curName:gs.curName,sy:gs.sy};
+    _sw=null;
+  }
   if(_sw||e.touches.length!==1)return;
   if(swipeBlocked())return;
   const t0=e.target;
@@ -197,7 +206,41 @@ document.addEventListener("touchmove",e=>{
   if(Math.abs(ndx-(s.dx||0))>=0.5)s.moved=true;
   s.lastMoveT=Date.now();
   swQueuePlace(s,ndx);
+  // release-velocity samples for the momentum glide
+  (s.hist||(s.hist=[])).push({dx:ndx,t:performance.now()});
+  if(s.hist.length>12)s.hist.shift();
 },{capture:true,passive:false});
+/* release velocity in travel px/ms over the finger's last ~120ms */
+function swVel(s){
+  const h=s.hist||[]; if(h.length<2)return 0;
+  const now=performance.now(), last=h[h.length-1];
+  let old=h[0];
+  for(let i=h.length-1;i>=0;i--){ if(now-h[i].t<=120)old=h[i]; else break; }
+  const dt=now-old.t; if(dt<16)return 0;
+  return (last.dx-old.dx)/dt;
+}
+let _swGlide=null;
+/* exponential-decay glide: starts at the finger's own speed
+   (tau = remaining / release velocity) and settles — no dead stop,
+   no overshoot, no sticking. _sw stays set, so a landing touch
+   converts it through the touchstart handler below. */
+function swGlide(s,toDx,done){
+  const from=s.dx;
+  const remaining=Math.abs(toDx-from); if(remaining<2){ done(); return; }
+  const v=Math.max(0.5,Math.abs(swVel(s)));
+  const tau=Math.max(55,Math.min(300,remaining/v));
+  const t0=performance.now();
+  const step=()=>{
+    if(_sw!==s){ _swGlide=null; return; } // a touch took over
+    const t=performance.now()-t0;
+    const left=remaining*Math.exp(-t/tau);
+    s.dx=toDx+(from-toDx)*Math.exp(-t/tau);
+    swQueuePlace(s,s.dx);
+    if(left>1.5){ _swGlide={s:s,raf:requestAnimationFrame(step)}; }
+    else{ _swGlide=null; s.dx=toDx; swFlushPlace(s); done(); }
+  };
+  _swGlide={s:s,raf:requestAnimationFrame(step)};
+}
 function swEndV2(){
   const s=_sw; if(!s)return;
   if(!s.locked){ _sw=null; if(!_swPark){ try{ document.body.style.minHeight=""; }catch(e){} } return; }
@@ -212,6 +255,11 @@ function swEndV2(){
   }
   if(s.dx>=W-8){ swFinalize(s); return; }
   if(s.dx<=8){ swUnpark(s); return; }
+  // MOMENTUM (his order 2026-10-14): a flick keeps its speed after
+  // the finger lifts — fast swipe flies across, slow swipe parks.
+  const vEnd=swVel(s);
+  if(vEnd>0.5&&s.dx>50){ swGlide(s,W,()=>swFinalize(s)); return; }
+  if(vEnd<-0.5){ swGlide(s,0,()=>swUnpark(s)); return; }
   swStubFlush(s); // parked: the peeked screen builds now, while nothing moves
   _swPark={dx:s.dx,dir:s.dir,target:s.target,peekEl:s.peekEl,curEl:s.curEl,curName:s.curName,sy:s.sy};
   _sw=null; // parked: transforms stay exactly where the finger left them
