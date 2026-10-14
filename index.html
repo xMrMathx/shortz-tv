@@ -110,6 +110,13 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cfmedia .cfbadge{position:absolute;left:10px;top:10px;z-index:3;background:var(--red);color:#fff;font-size:10.5px;font-weight:800;letter-spacing:1px;padding:4px 9px;border-radius:6px;text-transform:uppercase;max-width:75%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cfmedia .cfdur{position:absolute;right:10px;top:10px;z-index:3;background:rgba(0,0,0,.62);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px}
 .cfmedia .cfplay{position:absolute;right:12px;bottom:12px;z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.55);border:1.5px solid rgba(255,255,255,.85);display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;padding-left:3px;pointer-events:none}
+.cfbar{position:absolute;left:0;right:0;bottom:0;z-index:6;padding:12px 12px 8px;background:linear-gradient(transparent,rgba(0,0,0,.55));opacity:0;pointer-events:none;transition:opacity .18s}
+.cfcard.playing .cfbar{opacity:1;pointer-events:auto}
+.cfbar-track{position:relative;height:4px;border-radius:2px;background:rgba(255,255,255,.32)}
+.cfbar.big .cfbar-track{height:7px}
+.cfbar-fill{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--red);border-radius:2px}
+.cfbar-knob{position:absolute;top:50%;left:0;width:12px;height:12px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);box-shadow:0 1px 4px rgba(0,0,0,.6)}
+.cfbar-times{display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 5px rgba(0,0,0,.9);margin-top:5px;pointer-events:none}
 .cfcard.playing .cfplay{display:none}
 .cfbody{padding:12px 14px 4px;cursor:pointer}
 .cftitle{font-size:17px;font-weight:700;line-height:1.25;color:var(--txt)}
@@ -209,7 +216,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .scrub-track{position:absolute;left:10px;right:10px;top:50%;height:3px;transform:translateY(-50%);background:rgba(255,255,255,.28);border-radius:2px}
 .scrub-fill{position:absolute;left:0;top:0;bottom:0;width:0%;background:#e50914;border-radius:2px}
 .scrub-knob{position:absolute;top:50%;left:0;width:13px;height:13px;border-radius:50%;background:#fff;transform:translate(-50%,-50%) scale(0);transition:transform .18s;box-shadow:0 1px 8px rgba(0,0,0,.6)}
-.scrub-times{position:absolute;left:12px;right:12px;bottom:22px;display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 5px rgba(0,0,0,.9);opacity:0;transition:opacity .18s;pointer-events:none}
+.scrub-times{position:absolute;left:12px;right:12px;bottom:22px;display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 5px rgba(0,0,0,.9);opacity:1;transition:opacity .18s;pointer-events:none}
 .scrub.big .scrub-track{height:5px}
 .scrub.big .scrub-knob{transform:translate(-50%,-50%) scale(1)}
 .scrub.big .scrub-times{opacity:1}
@@ -2386,7 +2393,7 @@ function dblSave(id){
 }
 
 /* hold-to-like: works on ANY cover art (browse cards, award rows, top 10).
-   500ms press → buzz + heart burst + like. Caller must swallow the click
+   450ms press → buzz + heart burst + like. Caller must swallow the click
    when el._lpFired is set. */
 function bindHoldToLike(el,id){
   if(!el||el._lpBound||!id)return;
@@ -2399,8 +2406,8 @@ function bindHoldToLike(el,id){
         const r=el.getBoundingClientRect();
         heartBurst(r.left+r.width/2, r.top+r.height/2, document.body);
       }catch(e){}
-      likeToggle(id);
-    },500);
+      flipLike(id);
+    },450);
   };
   const dis=()=>{if(lpT){clearTimeout(lpT);lpT=null;}};
   el.addEventListener("touchstart",arm,{passive:true});
@@ -3838,6 +3845,7 @@ function hudWake(){
   _hudT=setTimeout(()=>{
     // don't hide while a drawer/menu/sheet is open or while rotated-full
     if(document.querySelector("#cdraw.open,#edraw.open,.gdrop.open,.ric-more.open")){hudWake();return;}
+    const _cs=curSlide(); if(_cs&&_cs._scrubDrag){hudWake();return;} // never fade mid-scrub-drag
     // HUD LAW: only auto-hide on a full-screen watch surface (home feed,
     // streaming, sports reel) - never on browse/profile/detail
     const reel=document.getElementById("sportsReel");
@@ -4585,7 +4593,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014003356";
+const BUILD="20261014004748";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5027,61 +5035,77 @@ function scrubSeekTo(slide,t){
   }catch(e){}
   paintScrub(slide);
 }
+function paintScrubAt(slide,ratio){
+  // drag preview: bar + knob + times track the finger 1:1 WITHOUT seeking —
+  // the seek itself commits only on release (his hold-and-drag law).
+  const sc=slide.querySelector("[data-scrub]");if(!sc)return;
+  const dur=scrubState(slide).dur||0,pct=Math.min(1,Math.max(0,ratio))*100;
+  const fill=sc.querySelector("[data-fill]");if(fill)fill.style.width=pct+"%";
+  const knob=sc.querySelector("[data-knob]");if(knob)knob.style.left=pct+"%";
+  const cur=sc.querySelector("[data-cur]");if(cur)cur.textContent=fmtTime(ratio*dur);
+  const du=sc.querySelector("[data-dur]");if(du)du.textContent=fmtTime(dur);
+}
 function bindScrub(slide){
   const sc=slide.querySelector("[data-scrub]");if(!sc||sc._bound)return;sc._bound=true;
   const trackEl=sc.querySelector(".scrub-track");
-  let sx=0,sy=0,active=false,claimed=false;
+  let sx=0,sy=0,active=false,claimed=false,preview=0;
   const ratioAt=cx=>{const r=trackEl.getBoundingClientRect();return r.width>0?Math.min(1,Math.max(0,(cx-r.left)/r.width)):0;};
   const durOf=()=>scrubState(slide).dur||0;
   const cancelPager=()=>{dragging=false;};
+  const claim=()=>{
+    claimed=true;sc._drag=true;slide._scrubDrag=true;cancelPager();
+    suppressClick=true;sc.classList.add("big");hudWake();
+  };
+  const release=commit=>{
+    active=false;
+    if(!claimed)return;
+    claimed=false;sc._drag=false;slide._scrubDrag=false;sc.classList.remove("big");
+    if(commit&&durOf()>0)scrubSeekTo(slide,preview*durOf());
+    else paintScrub(slide);
+    setTimeout(()=>{suppressClick=false;},350);
+    hudWake();
+  };
   sc.addEventListener("touchstart",e=>{
     const t=e.touches[0];sx=t.clientX;sy=t.clientY;active=true;claimed=false;sc._drag=false;
   },{capture:true,passive:true});
   sc.addEventListener("touchmove",e=>{
-    if(!active||claimed)return;
+    if(!active)return;
     const t=e.touches[0],dx=t.clientX-sx,dy=t.clientY-sy;
-    if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*1.2){
-      claimed=true;sc._drag=true;slide._scrubDrag=true;cancelPager();
-      suppressClick=true;sc.classList.add("big");
+    if(!claimed){
+      if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*1.2){
+        claim();
+        if(e.cancelable)e.preventDefault();
+        e.stopPropagation();
+        preview=ratioAt(t.clientX);paintScrubAt(slide,preview);
+      }else if(Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){
+        active=false; // vertical swipe: hand it to the pager
+      }
+    }else{
       if(e.cancelable)e.preventDefault();
       e.stopPropagation();
-      if(durOf()>0)scrubSeekTo(slide,ratioAt(t.clientX)*durOf());
-    }else if(Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){
-      active=false; // vertical swipe: hand it to the pager
+      preview=ratioAt(t.clientX);paintScrubAt(slide,preview);
     }
   },{capture:true,passive:false});
-  const touchEnd=e=>{
-    if(!active)return;active=false;
-    if(claimed){
-      claimed=false;sc._drag=false;slide._scrubDrag=false;
-      sc.classList.remove("big");paintScrub(slide);
-      setTimeout(()=>{suppressClick=false;},350);
-    }else{
-      const t=e.changedTouches&&e.changedTouches[0];
-      if(t&&t.clientX!=null&&durOf()>0){
-        suppressClick=true;setTimeout(()=>{suppressClick=false;},350);
-        scrubSeekTo(slide,ratioAt(t.clientX)*durOf());
-      }
-    }
-  };
-  sc.addEventListener("touchend",touchEnd,{capture:true});
-  sc.addEventListener("touchcancel",()=>{active=false;claimed=false;sc._drag=false;slide._scrubDrag=false;sc.classList.remove("big");},{capture:true});
-  // mouse (desktop QA): drag or click to seek
-  let mDown=false,mMoved=false;
-  sc.addEventListener("mousedown",e=>{mDown=true;mMoved=false;sx=e.clientX;sc._drag=true;sc.classList.add("big");});
+  sc.addEventListener("touchend",()=>{release(true);},{capture:true});
+  sc.addEventListener("touchcancel",()=>{release(false);},{capture:true});
+  // mouse (desktop): same law — press + drag previews, release commits; a plain click never jumps
+  let mDown=false,mClaimed=false;
+  sc.addEventListener("mousedown",e=>{mDown=true;mClaimed=false;sx=e.clientX;});
   window.addEventListener("mousemove",e=>{
     if(!mDown)return;
-    if(Math.abs(e.clientX-sx)>4)mMoved=true;
-    if(mMoved&&durOf()>0)scrubSeekTo(slide,ratioAt(e.clientX)*durOf());
+    if(!mClaimed){
+      if(Math.abs(e.clientX-sx)>4){mClaimed=true;claim();preview=ratioAt(e.clientX);paintScrubAt(slide,preview);}
+    }else{preview=ratioAt(e.clientX);paintScrubAt(slide,preview);}
   });
-  window.addEventListener("mouseup",e=>{
-    if(!mDown)return;mDown=false;sc._drag=false;sc.classList.remove("big");paintScrub(slide);
-    if(!mMoved&&durOf()>0)scrubSeekTo(slide,ratioAt(e.clientX)*durOf());
+  window.addEventListener("mouseup",()=>{
+    if(!mDown)return;mDown=false;
+    if(mClaimed){mClaimed=false;release(true);}
   });
 }
 setInterval(()=>{try{
   const s=curSlide();
   if(s&&s._t&&!s._scrubDrag)paintScrub(s);
+  cfPaintBar();
   // keep Vimeo duration fresh
   if(s&&s._t&&curIsVimeo()&&!s._dur&&(!s._durReq||Date.now()-s._durReq>4000)){
     s._durReq=Date.now();
@@ -5366,6 +5390,10 @@ window.addEventListener("message",e=>{
 });
 function playSeries(t){
   if(!t)return;
+  // FIT DEFAULT (his law, 2026-10-13): a video opens in the player already
+  // Fit to screen — except native-vertical titles, which start natural.
+  // Starting default only: the Fit toggle + sticky behavior run as today.
+  try{ fitSticky=!((t.orientation==="vertical")||isVertMain(t)); }catch(e){}
   try{cfEnterStage();}catch(e){} // NEW HOME: playing a title opens the stage over the card feed
   try{if(feedMounted&&slotNodes[1])saveProg(slotNodes[1])}catch(e){}
   const nx=pickRandom(t.id);
@@ -5522,6 +5550,7 @@ function cfCardHTML(t){
       ${dur?`<span class="cfdur">${dur}</span>`:""}
       <span class="cfplay">▶</span>
       <div class="cfshield"></div>
+      <div class="cfbar" data-cfbar><div class="cfbar-track"><div class="cfbar-fill" data-cf-fill></div><div class="cfbar-knob" data-cf-knob></div></div><div class="cfbar-times"><span data-cf-cur>0:00</span><span data-cf-dur>0:00</span></div></div>
     </div>
     <div class="cfbody" data-cf-body>
       <div class="cftitle">${t.award_verified?"🏆 ":""}${esc(t.title)}</div>
@@ -5836,14 +5865,154 @@ function cfLikePaint(card,v){
   const b=card.querySelector("[data-cf-like]"); if(b)b.classList.toggle("liked",!!mine);
   const h=card.querySelector("[data-cf-heart]"); if(h)h.textContent=mine?"♥":"♡";
 }
+function flipLike(id){
+  // THE like flip — the feed-rail ♥ store (local "likes", the store the
+  // player rail reads) + the social like, kept in sync. cfLikeTap uses it
+  // for like-button taps; bindHoldToLike uses it for hold-to-like, so a
+  // like lands in the same state no matter which gesture made it.
+  if(likes[id]){ delete likes[id]; } else { likes[id]=1; }
+  try{ store.set("likes",likes); }catch(e){}
+  try{ likeToggle(id); }catch(e){}
+  document.querySelectorAll('.cfcard[data-id="'+id+'"]').forEach(c=>{ try{cfPaintLike(c);}catch(e){} });
+}
 function cfLikeTap(card,t){
   // feed like (the store the player rail reads) + social like (the system
   // every other card in the app uses) — one tap flips both, kept in sync.
-  if(likes[t.id]){ delete likes[t.id]; } else { likes[t.id]=1; }
-  try{ store.set("likes",likes); }catch(e){}
+  flipLike(t.id);
   cfPaintLike(card);
   try{ buzz(15); }catch(e){}
-  try{ likeToggle(t.id); }catch(e){}
+}
+function bindCfHold(root){
+  // hold-to-like for cfcard surfaces (Home card feed, Browse, genre pages):
+  // those use delegated click handlers with no per-card binding, so the hold
+  // is detected at the container. Arms only on the card's play/open zones
+  // (media/body) — the action buttons keep their own taps. On fire it sets
+  // card._lpFired; the delegated click handlers swallow that tap.
+  if(!root||root._cfHoldBound)return; root._cfHoldBound=true;
+  let lpT=null;
+  const arm=e=>{
+    if(e.target&&e.target.closest&&e.target.closest("[data-cfbar]"))return; // cfbar touches never arm a like
+    const z=e.target&&e.target.closest?e.target.closest("[data-cf-media],[data-cf-body]"):null;
+    if(!z)return;
+    const c=z.closest(".cfcard"); if(!c||!c.dataset.id)return;
+    if(lpT)clearTimeout(lpT);
+    lpT=setTimeout(()=>{
+      lpT=null; c._lpFired=true; buzz(25);
+      try{ const r=c.getBoundingClientRect(); heartBurst(r.left+r.width/2, r.top+r.height/2, document.body); }catch(err){}
+      flipLike(c.dataset.id);
+    },450);
+  };
+  const dis=()=>{ if(lpT){clearTimeout(lpT);lpT=null;} };
+  root.addEventListener("touchstart",arm,{passive:true});
+  root.addEventListener("touchmove",dis,{passive:true});
+  root.addEventListener("touchend",dis,{passive:true});
+  root.addEventListener("touchcancel",dis,{passive:true});
+  root.addEventListener("mousedown",arm);
+  root.addEventListener("mouseup",dis);
+  root.addEventListener("mouseleave",dis);
+  root.addEventListener("contextmenu",e=>{ if(e.target.closest&&e.target.closest(".cfcard"))e.preventDefault(); });
+}
+/* CFBAR — the slim hold-and-drag scrubber on the playing Home card (his
+   UX law, 2026-10-13): overlaid on the bottom of .cfmedia, live only on
+   the card that is actually previewing (cfActive + .playing). Press and
+   drag PREVIEWS 1:1 — fill, knob and times track the finger WITHOUT
+   seeking — and the seek COMMITS on release. A plain tap on the bar
+   never jumps (no tap-to-jump) and never opens the stage: any bar touch
+   sets card._barUsed, which the card click delegates swallow. Bar
+   touches never arm hold-to-like (bindCfHold's arm skips [data-cfbar]).
+   The existing 500ms painter interval keeps the bar painted from the
+   one global preview player (cfPlayer / cfPlayerKind). */
+function cfBarDur(bar){
+  if(cfPlayerKind==="vm")return bar._vmDur||0;
+  try{ return (cfPlayer&&cfPlayer.getDuration&&cfPlayer.getDuration())||0; }catch(e){ return 0; }
+}
+function cfBarCur(bar){
+  if(cfPlayerKind==="vm")return bar._vmCur||0;
+  try{ return (cfPlayer&&cfPlayer.getCurrentTime&&cfPlayer.getCurrentTime())||0; }catch(e){ return 0; }
+}
+function cfBarPaintAt(bar,ratio,cur,dur){
+  const pct=Math.min(1,Math.max(0,ratio||0))*100;
+  const f=bar.querySelector("[data-cf-fill]"); if(f)f.style.width=pct+"%";
+  const k=bar.querySelector("[data-cf-knob]"); if(k)k.style.left=pct+"%";
+  const c=bar.querySelector("[data-cf-cur]"); if(c)c.textContent=fmtTime(cur||0);
+  const d=bar.querySelector("[data-cf-dur]"); if(d)d.textContent=dur>0?fmtTime(dur):"--:--";
+}
+function cfBarVmRefresh(card,bar){
+  if(!cfPlayer||cfPlayerKind!=="vm")return;
+  try{ cfPlayer.getDuration().then(v=>{ if(typeof v==="number"&&v>0)bar._vmDur=v; }).catch(()=>{}); }catch(e){}
+  try{ cfPlayer.getCurrentTime().then(v=>{ if(typeof v==="number")bar._vmCur=v;
+    if(cfActive===card&&!bar._drag)cfBarPaintAt(bar,(bar._vmDur||0)>0?(bar._vmCur||0)/(bar._vmDur||1):0,bar._vmCur||0,bar._vmDur||0);
+  }).catch(()=>{}); }catch(e){}
+}
+function cfPaintBar(){
+  const card=cfActive; if(!card)return;
+  const bar=card.querySelector("[data-cfbar]"); if(!bar||bar._drag)return; // drag preview owns the paint
+  if(cfPlayerKind==="vm"){ cfBarVmRefresh(card,bar); return; }
+  const dur=cfBarDur(bar), cur=cfBarCur(bar);
+  cfBarPaintAt(bar,dur>0?cur/dur:0,cur,dur);
+}
+function cfBarSeek(card,sec){
+  if(cfActive!==card||!cfPlayer)return;
+  try{
+    if(cfPlayerKind==="vm"){ const p=cfPlayer.setCurrentTime(sec); if(p&&p.catch)p.catch(()=>{}); }
+    else if(cfPlayer.seekTo)cfPlayer.seekTo(sec,true);
+  }catch(e){}
+}
+function cfBindBar(root){
+  if(!root||root._cfBarBound)return; root._cfBarBound=true;
+  let drag=null;
+  const barOf=e=>e.target&&e.target.closest?e.target.closest("[data-cfbar]"):null;
+  const ratioAt=(bar,cx)=>{ const tr=bar.querySelector(".cfbar-track"); if(!tr)return 0; const r=tr.getBoundingClientRect(); return r.width>0?Math.min(1,Math.max(0,(cx-r.left)/r.width)):0; };
+  const start=(bar,x,y)=>{
+    const card=bar.closest(".cfcard"); if(!card)return null;
+    card._barUsed=true; // any bar touch swallows the click that follows it
+    if(cfActive!==card)return null; // only the playing card's bar is live
+    if(cfPlayerKind==="vm")cfBarVmRefresh(card,bar);
+    return {card:card,bar:bar,sx:x,sy:y,claimed:false,preview:0};
+  };
+  const move=(x,y,ev)=>{
+    if(!drag)return;
+    const dx=x-drag.sx, dy=y-drag.sy;
+    if(!drag.claimed){
+      if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dy)*1.2){
+        drag.claimed=true; drag.bar._drag=true; drag.bar.classList.add("big");
+        drag.preview=ratioAt(drag.bar,x);
+        const dur=cfBarDur(drag.bar); cfBarPaintAt(drag.bar,drag.preview,drag.preview*dur,dur);
+        if(ev){ if(ev.cancelable)ev.preventDefault(); ev.stopPropagation(); }
+      }else if(Math.abs(dy)>12&&Math.abs(dy)>Math.abs(dx)){
+        drag=null; // vertical gesture: hand it back to the feed scroll
+      }
+    }else{
+      if(ev){ if(ev.cancelable)ev.preventDefault(); ev.stopPropagation(); }
+      drag.preview=ratioAt(drag.bar,x);
+      const dur=cfBarDur(drag.bar); cfBarPaintAt(drag.bar,drag.preview,drag.preview*dur,dur);
+    }
+  };
+  const end=commit=>{
+    if(!drag)return;
+    const d=drag; drag=null;
+    if(!d.claimed)return;
+    d.bar._drag=false; d.bar.classList.remove("big");
+    const dur=cfBarDur(d.bar);
+    if(commit&&dur>0)cfBarSeek(d.card,d.preview*dur);
+    cfPaintBar();
+  };
+  root.addEventListener("touchstart",e=>{
+    const bar=barOf(e); if(!bar)return;
+    const t=e.touches[0]; drag=start(bar,t.clientX,t.clientY);
+  },{passive:true});
+  root.addEventListener("touchmove",e=>{
+    if(!drag)return;
+    const t=e.touches[0]; move(t.clientX,t.clientY,e);
+  },{passive:false});
+  root.addEventListener("touchend",()=>end(true));
+  root.addEventListener("touchcancel",()=>end(false));
+  root.addEventListener("mousedown",e=>{
+    const bar=barOf(e); if(!bar)return;
+    drag=start(bar,e.clientX,e.clientY);
+  });
+  window.addEventListener("mousemove",e=>{ if(drag)move(e.clientX,e.clientY,null); });
+  window.addEventListener("mouseup",()=>{ if(drag)end(true); });
 }
 function cfPaintSave(card){
   const on=mylist.has(card.dataset.id);
@@ -5875,9 +6044,13 @@ function cfSyncCounts(){
 }
 (function(){
   const vh=$("#view-home"); if(!vh)return;
+  bindCfHold(vh);
+  cfBindBar(vh);
   vh.addEventListener("click",e=>{
     const card=e.target.closest(".cfcard"); if(!card)return;
     const t=byId(card.dataset.id); if(!t)return;
+    if(card._lpFired){card._lpFired=false;return;} // hold-to-like fired: swallow the tap
+    if(card._barUsed){card._barUsed=false;return;} // cfbar touch/drag: swallow the tap (no stage door)
     if(e.target.closest("[data-cf-like]")){ cfLikeTap(card,t); return; }
     if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
     if(e.target.closest("[data-cf-save]")){ cfSaveTap(card,t); return; }
@@ -5896,9 +6069,12 @@ function cfSyncCounts(){
    stay Home-only, so no preview iframe is ever created outside the feed. */
 function bindCfCards(root){
   if(!root||root._cfBound)return; root._cfBound=true;
+  bindCfHold(root);
   root.addEventListener("click",e=>{
     const card=e.target.closest(".cfcard"); if(!card)return;
     const t=byId(card.dataset.id); if(!t)return;
+    if(card._lpFired){card._lpFired=false;return;} // hold-to-like fired: swallow the tap
+    if(card._barUsed){card._barUsed=false;return;} // cfbar touch/drag: swallow the tap
     if(e.target.closest("[data-cf-like]")){ cfLikeTap(card,t); return; }
     if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
     if(e.target.closest("[data-cf-save]")){ cfSaveTap(card,t); return; }
