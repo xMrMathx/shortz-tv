@@ -42,31 +42,47 @@ function renderGames(){
     gameMount(card,GAMES[+card.dataset.gcard]);
   }));
 }
-function gameMount(card,g){
-  if(!card||!g)return;
-  gameStop();
-  gamesActiveCard=card;
-  const fr=card.querySelector("[data-gframe]"), stage=card.querySelector(".gcard-stage");
-  fr.innerHTML=`<iframe src="${esc(g.embed)}" allow="autoplay; fullscreen; gamepad; keyboard-mouse" allowfullscreen title="${esc(g.title)}"></iframe>`
-    +`<button class="gstop" data-gstop>✕ Close</button>`;
-  fr.querySelector("[data-gstop]").addEventListener("click",()=>gameStop());
-  // landscape games belong sideways: try fullscreen + lock —
-  // where the platform refuses (iPhone web), the card still plays in place
-  if(g.orient!=="portrait"&&stage&&stage.requestFullscreen){
-    try{
-      const p=stage.requestFullscreen({navigationUI:"hide"});
-      if(p&&p.then)p.then(()=>{ try{ if(screen.orientation&&screen.orientation.lock)screen.orientation.lock("landscape").catch(()=>{}); }catch(e){} }).catch(()=>{});
-    }catch(e){}
+function gamePlayerEl(){
+  let p = document.getElementById("gamePlayer");
+  if(!p){
+    p = document.createElement("div");
+    p.id = "gamePlayer";
+    p.innerHTML = `<button class="gclose" data-gclose>✕ Close</button>`;
+    p.querySelector("[data-gclose]").addEventListener("click", () => gameStop());
+    document.body.appendChild(p);
   }
-  try{ card.scrollIntoView({block:"center",behavior:"smooth"}); }catch(e){}
+  return p;
+}
+/* HIS ORDER (2026-10-14): the tap takes the game FULL SCREEN in its
+   own shape — vertical games tall, horizontal games wide — and it
+   plays inside our app, never out on the network's site. */
+function gameMount(card, g){
+  if(!g) return;
+  gameStop();
+  gamesActiveCard = card || null;
+  const p = gamePlayerEl();
+  p.querySelectorAll("iframe").forEach(f => f.remove());
+  const ifr = document.createElement("iframe");
+  ifr.src = g.embed;
+  ifr.setAttribute("allow", "autoplay; fullscreen; gamepad; keyboard-mouse; pointer-lock");
+  ifr.setAttribute("allowfullscreen", "");
+  ifr.title = g.title;
+  p.insertBefore(ifr, p.firstChild);
+  p.classList.add("open");
+  // take the whole screen; landscape games swing sideways, portrait
+  // games stay tall. Where the platform refuses (iPhone web), the
+  // layer already fills the screen, so the game still plays big.
+  try{
+    const fp = p.requestFullscreen ? p.requestFullscreen({ navigationUI: "hide" }) : null;
+    const lockIt = () => { try{ if(screen.orientation && screen.orientation.lock) screen.orientation.lock(g.orient === "portrait" ? "portrait" : "landscape").catch(() => {}); }catch(e){} };
+    if(fp && fp.then) fp.then(lockIt).catch(() => {});
+    else lockIt();
+  }catch(e){}
 }
 function gameStop(){
-  if(document.fullscreenElement){ try{ document.exitFullscreen().catch(()=>{}); }catch(e){} }
-  if(!gamesActiveCard)return;
-  const i=+gamesActiveCard.dataset.gcard, fr=gamesActiveCard.querySelector("[data-gframe]");
-  if(fr&&GAMES[i])fr.innerHTML=gamePosterHTML(GAMES[i]);
-  const b=fr?fr.querySelector("[data-gplay]"):null;
-  if(b)b.addEventListener("click",()=>gameMount(gamesActiveCard,GAMES[i]));
-  gamesActiveCard=null;
+  if(document.fullscreenElement){ try{ document.exitFullscreen().catch(() => {}); }catch(e){} }
+  const p = document.getElementById("gamePlayer");
+  if(p){ p.classList.remove("open"); p.querySelectorAll("iframe").forEach(f => f.remove()); }
+  gamesActiveCard = null;
 }
 window.Games={stop:gameStop};
