@@ -7,17 +7,22 @@
    hold the phone sideways); portrait games stay one-handed.
    Test shelf: one FPS, one sports, one puzzle.
    ============================================================ */
+/* EMBED URLS point at the GAME ITSELF (rvvASMiM/<id>/index.html), never
+   the network's wrapper page: the wrapper's SDK breaks out of the app
+   on mobile (top-page redirect with tracking params — his phone,
+   2026-10-14). The game files are the network's own host either way;
+   the wrapper is only an ad/loader shell around them. */
 const GAMES=[
   { title:"Masked Forces", cat:"First-Person Shooter", orient:"landscape",
-    embed:"https://html5.gamedistribution.com/b9470c6050344e3da132533e877ebf8c/",
+    embed:"https://html5.gamedistribution.com/rvvASMiM/b9470c6050344e3da132533e877ebf8c/index.html",
     thumb:"https://img.gamedistribution.com/b9470c6050344e3da132533e877ebf8c-512x384.jpeg",
     sub:"Online FPS — campaign and multiplayer battles. Gun in hand, like the big apps." },
   { title:"Penalty Shooters 2", cat:"Sports", orient:"landscape",
-    embed:"https://html5.gamedistribution.com/571b9df027e449f78e3869ba19658754/",
+    embed:"https://html5.gamedistribution.com/rvvASMiM/571b9df027e449f78e3869ba19658754/index.html",
     thumb:"https://img.gamedistribution.com/571b9df027e449f78e3869ba19658754-512x384.jpeg",
     sub:"Pick your team, take the penalties, then guard the goal. Touch to aim and dive." },
   { title:"Tile Master Deluxe", cat:"Puzzle", orient:"portrait",
-    embed:"https://html5.gamedistribution.com/9e669ebc80ff472d9dca79362b75325f/",
+    embed:"https://html5.gamedistribution.com/rvvASMiM/9e669ebc80ff472d9dca79362b75325f/index.html",
     thumb:"https://img.gamedistribution.com/9e669ebc80ff472d9dca79362b75325f-512x384.jpeg",
     sub:"Match the tiles, clear the board. One hand, tap to play." },
 ];
