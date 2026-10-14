@@ -19,7 +19,9 @@ function kickRefreshOne(s){
       if(!d)return false;
       const ls=d.livestream||null;
       s.live=!!ls;
-      if(ls){ s.title=ls.session_title||s.title; s.viewers=ls.viewer_count!=null?String(ls.viewer_count):s.viewers; return (!!s.live)!==before; }
+      if(ls){ s.title=ls.session_title||s.title; s.viewers=ls.viewer_count!=null?String(ls.viewer_count):s.viewers;
+        const lt=ssPickThumb(ls.thumbnail)||ssPickThumb(ls.thumbnail_url); if(lt)s.thumb=lt;
+        return (!!s.live)!==before; }
       if(!s.vod_id)return kickFetchVod(s).then(()=>((!!s.live)!==before));
       return (!!s.live)!==before;
     }).catch(()=>false);
@@ -37,6 +39,7 @@ function kickFetchVod(s){
       if(!vids||!vids.length)return;
       // his rotation (2026-10-14): the 5 most recent VODs play back
       // to back, then loop — a slide is never still
+      const vt=ssPickThumb((vids[0]||{}).thumbnail); if(vt&&!s.thumb)s.thumb=vt;
       const q=vids.filter(v=>!v.is_live).slice(0,5).map(v=>({id:v.id,title:v.session_title||"",hls:v.source||""}));
       if(!q.length){ const v0=vids[0]; q.push({id:v0.id,title:v0.session_title||"",hls:v0.source||""}); }
       s.vodQueue=q;
@@ -55,7 +58,7 @@ function twitchFetchVod(s){
     fetch("https://gql.twitch.tv/gql",{
       method:"POST",
       headers:{"Client-ID":"kimne78kx3ncx6brgo4mv6wki5h1ko","Content-Type":"application/json"},
-      body:JSON.stringify({query:"query($login:String!){user(login:$login){videos(first:5){edges{node{id title}}}}}","variables":{login:ch.toLowerCase()}})
+      body:JSON.stringify({query:"query($login:String!){user(login:$login){videos(first:5){edges{node{id title previewThumbnailURL}}}}}","variables":{login:ch.toLowerCase()}})
     }),
     kickFetchTimeout(4000)
   ])
@@ -66,6 +69,8 @@ function twitchFetchVod(s){
       // his rotation (2026-10-14): the 5 most recent VODs, back to
       // back, then loop — HLS resolves lazily per VOD (see ssVodWire)
       s.vodQueue=edges.slice(0,5).map(e=>({id:String(e.node.id),vid:"v"+e.node.id,title:e.node.title||"",hls:""}));
+      const pt=(edges[0].node.previewThumbnailURL||"").replace(/%{width}/g,"640").replace(/%{height}/g,"360").replace("{width}","640").replace("{height}","360");
+      if(pt)s.thumb=pt;
       const edge=edges[0];
       const nid="v"+edge.node.id; // Twitch VOD IDs need "v" prefix
       const changed=(nid!==before)||((edge.node.title||"")!==(s.vod_title||""));
@@ -263,6 +268,29 @@ function ssCardHTML(){
     <span data-s-sound style="display:none"></span>
   </div>`;
 }
+/* card posters (his order 2026-10-14): a card is NEVER blank —
+   every streamer shows a thumbnail until his card scrolls into
+   play, and the poster stays up while the player loads */
+function ssPickThumb(t){
+  if(!t)return "";
+  if(typeof t==="string")return t;
+  return t.src||t.url||"";
+}
+function ssThumb(s){
+  if(!s)return "";
+  if(s.platform==="youtube"){
+    const id=s.live&&s.ytVideoId?s.ytVideoId:(s.ytLatestId||(s.ytRecent&&s.ytRecent[0])||null);
+    if(id)return "https://i.ytimg.com/vi/"+encodeURIComponent(id)+"/hqdefault.jpg";
+  }
+  return s.thumb||"";
+}
+function ssPosterHTML(s){
+  const t=ssThumb(s);
+  if(t)return `<img class="ssposter" src="${esc(t)}" alt="" loading="lazy" onerror="this.remove()">`;
+  const initial=esc(((s&&s.name)||"?").charAt(0).toUpperCase()||"?");
+  const plat=s&&s.platform?s.platform:"stream";
+  return `<div class="ssposter ssposter-ph ssposter-${plat}"><span>${initial}</span></div>`;
+}
 function sstreamFill(node,s,mode){
   const fr=node.querySelector("[data-sframe]"), ov=node.querySelector("[data-sov]");
   if(node._ssPlayer){ try{ node._ssPlayer.destroy(); }catch(e){} node._ssPlayer=null; }
@@ -287,7 +315,8 @@ function sstreamFill(node,s,mode){
     shb.ontouchstart=(e)=>{ try{e.stopPropagation();}catch(_){} };
     shb.onmousedown=(e)=>{ try{e.stopPropagation();}catch(_){} };
   }
-  if(mode==="unload"){ fr.innerHTML=""; return; }
+  if(mode==="unload"){ fr.innerHTML=ssPosterHTML(s); return; }
+  fr.innerHTML=ssPosterHTML(s); // poster first — the mount below paints over it, never a black wait
   // nothing playable (offline + no genuine replay): honest card, never a broken "video unavailable" embed
   if(!live&&!replay){
     fr.innerHTML=`<div class="sstream-novid"><div style="font-size:44px">📡</div><div style="font-weight:800;font-size:16px;margin-top:10px">@${esc(s.name||"unknown")} is offline</div><div style="color:var(--mut);font-size:13px;margin-top:6px">No recent replay available — check back soon.</div></div>`;
@@ -338,8 +367,9 @@ function ssYtMount(node,s){
   }
   let qi=Math.max(0,queue.indexOf(startId));
   const box=document.createElement("div");
-  box.style.cssText="width:100%;height:100%";
-  fr.innerHTML=""; fr.appendChild(box);
+  box.style.cssText="width:100%;height:100%;position:relative";
+  const poster=fr.querySelector(".ssposter"); // keep the thumbnail up while the player loads
+  fr.innerHTML=""; if(poster)fr.appendChild(poster); fr.appendChild(box);
   let dead=false, player=null;
   const fallback=()=>{ if(dead)return; dead=true;
     const ids=queue.length?queue:[startId];
@@ -352,7 +382,7 @@ function ssYtMount(node,s){
         width:"100%",height:"100%",videoId:startId,
         playerVars:{autoplay:1,controls:0,rel:0,playsinline:1,disablekb:1,fs:0,modestbranding:1},
         events:{
-          onReady:e=>{ node._ssPlayer=player; try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(_){ } },
+          onReady:e=>{ node._ssPlayer=player; if(poster)poster.remove(); try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(_){ } },
           onStateChange:e=>{
             if(e.data===0){ // ENDED -> next of the 5, looping to the first
               if(queue.length){ qi=(qi+1)%queue.length;
@@ -372,6 +402,7 @@ function ssYtMount(node,s){
 }
 function ssVodWire(node,s){
   const vid=node.querySelector("video"); if(!vid)return;
+  const th=ssThumb(s); if(th&&!vid.getAttribute("poster"))vid.setAttribute("poster",th);
   node._svid=vid;
   vid.muted=false;
   const q=(s.vodQueue&&s.vodQueue.length)?s.vodQueue:[{hls:s.vod_hls,title:s.vod_title||"",id:s.vod_id}];
