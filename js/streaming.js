@@ -22,32 +22,32 @@ function kickRefreshOne(s){
       if(ls){ s.title=ls.session_title||s.title; s.viewers=ls.viewer_count!=null?String(ls.viewer_count):s.viewers;
         const lt=ssPickThumb(ls.thumbnail)||ssPickThumb(ls.thumbnail_url); if(lt)s.thumb=lt;
         return (!!s.live)!==before; }
-      if(!s.vod_id)return kickFetchVod(s).then(()=>((!!s.live)!==before));
+      if(!s.vod_id||!s.thumb)return kickFetchVod(s).then(changed=>changed||((!!s.live)!==before));
       return (!!s.live)!==before;
     }).catch(()=>false);
 }
 /* most recent offline VOD for a Kick channel */
 function kickFetchVod(s){
   const ch=String(s.url||"").split("/").filter(Boolean).pop();
-  if(!ch)return Promise.resolve();
+  if(!ch)return Promise.resolve(false);
+  const beforeId=s.vod_id||null, beforeThumb=s.thumb||"";
   return Promise.race([
     fetch("https://kick.com/api/v2/channels/"+encodeURIComponent(ch)+"/videos",{cache:"no-store"}),
     kickFetchTimeout(4000)
   ])
     .then(r=>r.ok?r.json():null)
     .then(vids=>{
-      if(!vids||!vids.length)return;
-      // his rotation (2026-10-14): the 5 most recent VODs play back
-      // to back, then loop — a slide is never still
-      const vt=ssPickThumb((vids[0]||{}).thumbnail); if(vt&&!s.thumb)s.thumb=vt;
-      const q=vids.filter(v=>!v.is_live).slice(0,5).map(v=>({id:v.id,title:v.session_title||"",hls:v.source||""}));
-      if(!q.length){ const v0=vids[0]; q.push({id:v0.id,title:v0.session_title||"",hls:v0.source||""}); }
+      if(!vids||!vids.length)return false;
+      const q=vids.filter(v=>!v.is_live).slice(0,5).map(v=>({id:v.id,title:v.session_title||"",hls:v.source||"",thumb:ssPickThumb(v.thumbnail)}));
+      if(!q.length){ const v0=vids[0]; q.push({id:v0.id,title:v0.session_title||"",hls:v0.source||"",thumb:ssPickThumb(v0.thumbnail)}); }
       s.vodQueue=q;
       const vod=q[0];
       s.vod_id=vod.id;
       s.vod_title=vod.title;
       s.vod_hls=vod.hls; // direct HLS URL — play in <video> tag, bypasses Kick player
-    }).catch(()=>{});
+      if(vod.thumb)s.thumb=vod.thumb; // the card's cover art = the thumbnail of the video it will play
+      return (s.vod_id!==beforeId)||((s.thumb||"")!==beforeThumb);
+    }).catch(()=>false);
 }
 // Twitch VOD via public GraphQL (no auth needed) — resolves true when VOD data changed
 function twitchFetchVod(s){
@@ -58,7 +58,7 @@ function twitchFetchVod(s){
     fetch("https://gql.twitch.tv/gql",{
       method:"POST",
       headers:{"Client-ID":"kimne78kx3ncx6brgo4mv6wki5h1ko","Content-Type":"application/json"},
-      body:JSON.stringify({query:"query($login:String!){user(login:$login){videos(first:5){edges{node{id title previewThumbnailURL}}}}}","variables":{login:ch.toLowerCase()}})
+      body:JSON.stringify({query:"query($login:String!){user(login:$login){profileImageURL(width:300) videos(first:5){edges{node{id title previewThumbnailURL}}}}}","variables":{login:ch.toLowerCase()}})
     }),
     kickFetchTimeout(4000)
   ])
@@ -71,6 +71,7 @@ function twitchFetchVod(s){
       s.vodQueue=edges.slice(0,5).map(e=>({id:String(e.node.id),vid:"v"+e.node.id,title:e.node.title||"",hls:""}));
       const pt=(edges[0].node.previewThumbnailURL||"").replace(/%{width}/g,"640").replace(/%{height}/g,"360").replace("{width}","640").replace("{height}","360");
       if(pt)s.thumb=pt;
+      else if(d&&d.data&&d.data.user&&d.data.user.profileImageURL)s.thumb=d.data.user.profileImageURL;
       const edge=edges[0];
       const nid="v"+edge.node.id; // Twitch VOD IDs need "v" prefix
       const changed=(nid!==before)||((edge.node.title||"")!==(s.vod_title||""));
@@ -285,11 +286,12 @@ function ssThumb(s){
   return s.thumb||"";
 }
 function ssPosterHTML(s){
-  const t=ssThumb(s);
-  if(t)return `<img class="ssposter" src="${esc(t)}" alt="" loading="lazy" onerror="this.remove()">`;
   const initial=esc(((s&&s.name)||"?").charAt(0).toUpperCase()||"?");
   const plat=s&&s.platform?s.platform:"stream";
-  return `<div class="ssposter ssposter-ph ssposter-${plat}"><span>${initial}</span></div>`;
+  const ph=`<div class="ssposter ssposter-ph ssposter-${plat}"><span>${initial}</span></div>`;
+  const t=ssThumb(s);
+  if(!t)return ph;
+  return ph+`<img class="ssposter" src="${esc(t)}" alt="" loading="lazy" onerror="this.remove()">`;
 }
 /* ---------- the replay play bar (his order 2026-10-14) ----------
    A replay gets a scrub bar at the bottom of its card: drag to
@@ -536,7 +538,7 @@ function ssBuildCards(){
 /* re-sort the feed after live-status changes; the card list
    rebuilds around the same scroll position */
 let ssLastSig="";
-function ssStackSig(){ return sstreamStack.map(x=>(x.url||"")+"|"+(x.live?1:0)+"|"+(x.vod_id||"")+"|"+(x.ytLatestId||"")).join(";;"); }
+function ssStackSig(){ return sstreamStack.map(x=>(x.url||"")+"|"+(x.live?1:0)+"|"+(x.vod_id||"")+"|"+(x.ytLatestId||"")+"|"+(x.thumb||"")).join(";;"); }
 function restackStreams(){
   if(!sstreamMounted)return;
   sstreamStack=sstreamList();
