@@ -2388,9 +2388,12 @@ function bindOneCard(c){
     if(c._lpFired){c._lpFired=false;return;} // long-press fired: swallow the click
     if(tapTimer){clearTimeout(tapTimer);tapTimer=null;dblSave(c.dataset.id);return;}
     tapTimer=setTimeout(()=>{tapTimer=null;
-      // BROWSE FUNNEL (his order 2026-10-14): a title tap inside Browse or
-      // its genre pages lands on Home as a playing card — never detail/player.
-      if(c.closest("#view-browse,#view-genre")){ const bt=byId(c.dataset.id); if(bt){ cfPresentTitle(bt); return; } }
+      // CARD-FIRST LAW — FULL SCOPE (his order 2026-10-14): a title tap
+      // ANYWHERE (Browse, Home shelves, Profile, Video Folders, detail
+      // rows — everywhere) lands on Home as a playing card. Only the
+      // TV Guide + Sports guide keep their own players (they live in
+      // the Live view), and manga is not video: taps there keep theirs.
+      if(!c.closest("#view-live,#view-manga")){ const bt=byId(c.dataset.id); if(bt){ cfPresentTitle(bt); return; } }
       openDetail(c.dataset.id);},300);
   };
   bindHoldToLike(c,c.dataset.id); // hold-to-like on every cover, everywhere
@@ -3001,7 +3004,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(target==="again"||target==="it again"){
       if(voiceCtx.lastSeries){
         const t=byId(voiceCtx.lastSeries.id);
-        if(t){go("home");playSeries(t);return true;}
+        if(t){cfPresentTitle(t);return true;}
       }
     }
 
@@ -3146,7 +3149,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
             const ep=(best.episodes||[]).find(e=>e.n===epNum);
             if(ep&&ep.verified){
               voiceCtx.lastEpisode=epNum;
-              go("home");playSeries(best);setTimeout(()=>playEpisode(ep),600);
+              cfPresentTitle(best,(best.episodes||[]).indexOf(ep));
               toast("▶ "+best.title+" — Ep "+epNum);
               return true;
             }else{
@@ -3156,7 +3159,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
           }
           // "play X" with episodes -> start playing; "open X" -> detail page
           if(verb.includes("play")||verb.includes("watch")||verb.includes("put on")||verb.includes("start")){
-            go("home");playSeries(best);toast("▶ "+best.title);
+            cfPresentTitle(best);toast("▶ "+best.title);
           }else{
             openDetail(best.id);
           }
@@ -3175,7 +3178,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       if(bare==="again"||bare==="replay"||bare==="play it again"){
         if(voiceCtx.lastSeries){
           const t=byId(voiceCtx.lastSeries.id);
-          if(t){go("home");playSeries(t);toast("▶ "+t.title);return true;}
+          if(t){cfPresentTitle(t);toast("▶ "+t.title);return true;}
         }
         return false;
       }
@@ -4643,7 +4646,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014121124";
+const BUILD="20261014121855";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -4714,8 +4717,16 @@ function _armFreshWatcher(){
     // still on screen in the floating window while the page reads hidden.
     let pip=false;
     try{ pip=!!(document.body&&document.body.classList&&document.body.classList.contains("pip")); }catch(e){}
-    if((document.hidden&&!pip)||!_videoPlaying()){
-      _fresh.pending=false;
+    // Bounded hold (2026-10-14): an update may wait for a natural
+    // break, but never indefinitely — after 120s it applies even over a
+    // card preview (the intent stash restores his place). It still
+    // never yanks the main stage player mid-movie. His complaint:
+    // updates took so long to reach the app that fixes looked broken.
+    let _stage=false;
+    try{ const _s=(typeof curSlide==="function")?curSlide():null; if(_s&&_s._vid&&!_s._paused)_stage=true; }catch(e){}
+    const heldLong=_fresh.pendingAt&&(Date.now()-_fresh.pendingAt>120000)&&!_stage;
+    if((document.hidden&&!pip)||!_videoPlaying()||heldLong){
+      _fresh.pending=false; _fresh.pendingAt=0;
       clearInterval(_freshWatch);_freshWatch=null;
       forceFreshReload();
     }
@@ -4729,6 +4740,7 @@ window.__requestFreshReload=function(){
     // Hold SILENTLY — no toast, no badge: the watcher applies the update
     // at the first natural break and the user never hears about it.
     _fresh.pending=true;
+    if(!_fresh.pendingAt)_fresh.pendingAt=Date.now();
     _armFreshWatcher();
     return false;
   }
@@ -6116,7 +6128,14 @@ function cfSyncCounts(){
     if(e.target.closest("[data-cf-eps]")){ cfToggleFold(card); return; }
     const fr=e.target.closest("[data-cf-fold] .erow");
     if(fr){ if(fr.tagName==="BUTTON")cfPlayEpInCard(card,t,parseInt(fr.dataset.idx,10)); return; }
-    if(e.target.closest("[data-cf-media],[data-cf-body]")){ playSeries(t); }
+    if(e.target.closest("[data-cf-media],[data-cf-body]")){
+      /* THE DOOR (card-first law): the one road to the player — a
+         deliberate tap on the Home card itself. Opens on the card's
+         chosen episode when one was picked in its fold. */
+      const pe=t._cfEp;
+      if(pe&&pe.verified&&pe.url){ playSeries(t); playEpisode(pe); }
+      else playSeries(t);
+    }
   });
   document.addEventListener("visibilitychange",()=>{ if(document.hidden)cfStopPreview(); else cfRecompute(); });
   window.addEventListener("resize",()=>{ if(homeMode==="cards")cfRecompute(); });
@@ -6140,8 +6159,8 @@ function bindCfCards(root){
     if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
     if(e.target.closest("[data-cf-eps]")){ cfToggleFold(card); return; }
     const fr=e.target.closest("[data-cf-fold] .erow");
-    if(fr){ if(fr.tagName==="BUTTON"){ if(root._cfFunnel)cfPresentTitle(t,parseInt(fr.dataset.idx,10)); else playEpFromFold(t,parseInt(fr.dataset.idx,10)); } return; }
-    if(e.target.closest("[data-cf-media],[data-cf-body]")){ if(root._cfFunnel)cfPresentTitle(t); else openDetail(t.id); }
+    if(fr){ if(fr.tagName==="BUTTON")cfPresentTitle(t,parseInt(fr.dataset.idx,10)); return; }
+    if(e.target.closest("[data-cf-media],[data-cf-body]")){ cfPresentTitle(t); }
   });
 }
 
@@ -6177,12 +6196,10 @@ function epRowsHTML(t){
     return e.verified?`<button class="${cls}" data-idx="${idx}">${inner}</button>`:`<div class="${cls}">${inner}</div>`;
   }).join("");
 }
-/* fold row tap -> the normal play path (resume keying, error-skip,
-   reload-guard all live downstream of playSeries/playEpisode) */
-function playEpFromFold(t,idx){
-  const e=(t.episodes||[])[idx]; if(!e||!e.verified)return;
-  go("home"); playSeries(t); playEpisode(e);
-}
+/* fold row tap outside the Home card (the detail sheet) -> the funnel
+   (card-first law, full scope 2026-10-14): Home, as a card, on that
+   episode. Name kept for its callers. */
+function playEpFromFold(t,idx){ cfPresentTitle(t,idx); }
 /* BROWSE FUNNEL (his order 2026-10-14): every title tap in Browse — the
    wall, search results, shelves, Top 10, featured hero, genre pages and
    the Browse cards themselves — lands on HOME with that title's card
@@ -6519,7 +6536,7 @@ function openDetail(id){
       ${((t.episodes||[]).length>1)?`<div class="eplist" id="dEps" hidden style="margin-top:12px">${epRowsHTML(t)}</div>`:""}
     </div></div>`;
   $("#dBack").onclick=()=>go(returnView);
-  $("#dPlay").onclick=()=>{go("home");loadFeed(t)};
+  $("#dPlay").onclick=()=>{cfPresentTitle(t)};
   const dl=$("#dEps");
   if(dl)dl.querySelectorAll("button.erow").forEach(r=>{
     r.onclick=()=>playEpFromFold(t,parseInt(r.dataset.idx,10));
@@ -10506,16 +10523,15 @@ if("serviceWorker" in navigator){
       }
       const wid=q.get("watch");
       const wep=q.get("ep");
-      if(wid && typeof openDetail==="function"){
-        // wait for catalog to be ready, then open the shared series + exact episode
+      if(wid && typeof cfPresentTitle==="function"){
+        // shared-link inbound (card-first law, full scope): wait for the
+        // catalog, then land on Home with the title as a playing CARD —
+        // on the shared episode when one is given. Never detail/player.
         const tryOpen=()=>{
           const t=byId(wid);
           if(t){
-            openDetail(wid);
             const ei=parseInt(wep||"-1",10);
-            if(ei>=0 && t.episodes && t.episodes[ei] && typeof playEpisode==="function"){
-              setTimeout(()=>{ feed.cur=t; playEpisode(t.episodes[ei]); },1200);
-            }
+            cfPresentTitle(t,(ei>=0&&t.episodes&&t.episodes[ei])?ei:undefined);
           } else setTimeout(tryOpen,300);
         };
         setTimeout(tryOpen,800);
