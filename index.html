@@ -4798,7 +4798,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014082436";
+const BUILD="20261014083027";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5031,6 +5031,7 @@ function _runFreshCheck(reason){
         // view switch, background return). No expiry — it waits as long as
         // playback lasts.
         _fresh.pending=true; // silent hold — no toast, no badge, no nag
+        if(!_fresh.pendingAt)_fresh.pendingAt=Date.now(); // THE CAP'S CLOCK: without this the bounded hold never starts on the poll/boot path and updates wait behind the always-playing Home preview indefinitely (root cause, found 2026-10-14)
         _armFreshWatcher();
       }else{
         _fresh.pending=false;
