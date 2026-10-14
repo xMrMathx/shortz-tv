@@ -2879,7 +2879,7 @@ function go(v){
   curView=v;
   if(v==="profile"){try{vfStartPreviews();}catch(e){} try{if(window.__tgStartGuide)__tgStartGuide();}catch(e){}} // Video Folders + TV Guide: renderView paints before go() flips curView — previews start here, once Profile is active
   try{ const _sa=document.getElementById("topShareApp"); if(_sa) _sa.style.display=(v==="profile")?"":"none"; }catch(e){}
-  document.body.classList.toggle("feedfull",v==="home"||v==="streaming");
+  document.body.classList.toggle("feedfull",v==="home"); // streaming left the stage era: its card feed scrolls the document, and feedfull's overflow:hidden nailed that scroll shut (his report 2026-10-14 — hub mode scrolled because the pane scrolls itself; tab mode could not scroll at all)
   try{if(window.Android&&window.Android.onWatching)window.Android.onWatching(v==="home")}catch(e){}
   // SPEED: single cheap scroll reset — scrollIntoView+scrollTo pair forced sync layout
   const _vs=$("#views"); if(_vs)_vs.scrollTop=0; window.scrollTo(0,0);
@@ -4873,7 +4873,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014154057";
+const BUILD="20261014155329";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
