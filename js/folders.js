@@ -170,6 +170,7 @@ function vfFolderTap(key){
   const s=vfState[key]; if(!s)return;
   if(!s.items.length||vfSoundKey===key){ vfOpenFolder(key); return; }
   vfSoundKey=key;
+  try{ tgPause(); }catch(e){} // folder sound wins the room: the TV Guide cuts the moment a folder takes sound, not just on open (his order 2026-10-14)
   vfSyncPreviews(); /* hands the sound over: old folder remounts muted, this one audible */
   if(!s.timer)vfPlay(key); /* tapped while only partly in view: start it (audible) */
 }
