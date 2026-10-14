@@ -68,7 +68,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .view.leaving{position:absolute;inset:0;opacity:0;transform:translateY(-10px) scale(1.005);pointer-events:none}
 .view.swipe-peek{position:fixed;top:0;bottom:0;left:0;width:100%;opacity:1;pointer-events:none;z-index:40;overflow:hidden;background:var(--bg)}
 .view.swipe-cur{position:fixed!important;top:0;bottom:0;left:0;width:100%;opacity:1;z-index:41;overflow:hidden;background:var(--bg)}
-#cfeed,#view-browse,#view-live,#view-streaming,#view-profile{touch-action:pan-y}
+#cfeed,#view-home,#view-browse,#view-live,#view-streaming,#view-profile{touch-action:pan-y}
 .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
 /* ---------- FEED (home landing): fullscreen vertical player ---------- */
@@ -4782,7 +4782,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014081104";
+const BUILD="20261014081747";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7813,6 +7813,7 @@ function renderProfile(){
     <div class="secttl">📺 Shortz VS Guide</div>
     <div id="tvGuide"></div>
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
+    <div style="text-align:center;color:rgba(255,255,255,.35);font-size:11px;margin:18px 0 6px">Shortz VS · build ${BUILD}</div>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
   renderTvGuide();
