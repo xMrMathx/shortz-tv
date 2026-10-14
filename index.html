@@ -693,7 +693,9 @@ body.ev-mode #evRing{display:block}
 #views.evtrack::-webkit-scrollbar{display:none}
 #views.evtrack .view.evpane{position:relative!important;flex:0 0 100%;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;opacity:1!important;transform:none!important;pointer-events:auto}
 #views.evtrack .view:not(.evpane){display:none}
-body.ev-moving #views.evtrack iframe, body.ev-moving #views.evtrack video{visibility:hidden} /* while the track is flying, panes show their static faces — painting several live video layers per frame is what chokes the compositor mid-fling; everything comes back the moment the scroll truly stops */
+body.ev-moving #views.evtrack iframe, body.ev-moving #views.evtrack video{visibility:hidden}
+body.ev-moving #topbar, body.ev-moving #tabbar, body.ev-moving #evHeader, body.ev-moving #views.evtrack *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important} /* blurred layers over flying content repaint every frame — the feed scroll has none of these over it, the hub did */
+body.ev-moving #views.evtrack *{animation-play-state:paused!important} /* infinite in-pane animations (Ken Burns artwork, live pulses) repaint forever; frozen while the track moves, resumed at rest */ /* while the track is flying, panes show their static faces — painting several live video layers per frame is what chokes the compositor mid-fling; everything comes back the moment the scroll truly stops */
 #views.evtrack .view.evpane, #views.evtrack #cfeed{touch-action:pan-x pan-y}
 #views.evtrack #cfeed{overflow:visible;height:auto;max-height:none}
 #views.evtrack .feedstage{touch-action:pan-x} /* stages claim EVERY touch for their own script pager (touch-action:none) — inside the hub that froze sideways scrolling dead on Live/Streaming (his report 2026-10-14: opened the hub on Streaming and could not swipe at all). pan-x hands sideways to the browser/track and leaves vertical moves to the stage pager untouched */
@@ -3717,22 +3719,34 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // the screen being crossed froze the fling solid, over and over:
   // the stutter. Rest now means the POSITION has stopped changing,
   // sampled — entry can only fire on a truly stopped scroll.
-  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0;
+  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evDeltas=[];
   function evNoteScroll(){
     const vs=$("views"); if(!vs)return;
-    evLastSl=vs.scrollLeft;
-    evStableSince=Date.now();
+    if(evLastSl===null){ evLastSl=vs.scrollLeft; evStableSince=Date.now(); }
     if(!evMoving){ evMoving=true; document.body.classList.add("ev-moving"); }
     if(evSampleT)return;
-    // the position must hold still for a full 280ms before it counts
-    // as rest: a struggling fling emits frames 125-165ms apart, and
-    // anything shorter mistakes those plateaus for a stop — the
-    // mid-fling build freeze all over again
+    // REST = the fling is actually DEAD, not just quiet (root fix,
+    // 2026-10-14): a decaying flick's tail crawls and can sit still
+    // for a beat mid-flight — declaring rest there ran the entry
+    // build AND wrote scrollLeft for the recenter, which cancels
+    // the native momentum outright: flick, stutter, catch-up, stop.
+    // So rest needs BOTH: the position still for 280ms, AND it was
+    // already crawling (every recent step <= 12px) when it stopped.
+    // A scroll that halts abruptly from speed gets watched longer
+    // (900ms cap) instead of believed. A touch cancels the watch —
+    // the finger owns the scroll again — and the release restarts it.
     evSampleT=setInterval(()=>{
-      const sl=vs.scrollLeft;
-      if(sl!==evLastSl){ evLastSl=sl; evStableSince=Date.now(); return; }
-      if(Date.now()-evStableSince>=280)evFinishMotion();
+      const sl=vs.scrollLeft, now=Date.now();
+      if(sl!==evLastSl){ evDeltas.push({t:now,d:Math.abs(sl-evLastSl)}); evLastSl=sl; evStableSince=now; }
+      while(evDeltas.length&&now-evDeltas[0].t>720)evDeltas.shift();
+      if(now-evStableSince<280)return;
+      const fastRecent=evDeltas.some(x=>x.d>12);
+      if(!fastRecent||now-evStableSince>=900)evFinishMotion();
     },90);
+  }
+  function evCancelWatch(){
+    if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
+    evDeltas=[]; evLastSl=null;
   }
   function evFinishMotion(){
     if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
@@ -3780,6 +3794,8 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       else if(e.target&&e.target.id==="view-browse"){ try{ window.dispatchEvent(new Event("scroll")); }catch(err){} } // browse's wall hook listens on window (viewport math — works from the pane too once events reach it)
       else if(e.target&&e.target.id==="view-home"){ evFeedScroll(e.target); } // in the hub the pane scrolls the feed, so the feed's own scroll jobs (activate the centered card, append the next batch) run off the pane
     },{passive:true,capture:true});
+    vs.addEventListener("touchstart",()=>{ if(evMode)evCancelWatch(); },{passive:true});
+    vs.addEventListener("touchend",()=>{ if(evMode)evNoteScroll(); },{passive:true});
     // NOTE: no scrollend fast-path — implementations disagree on
     // when it fires (some fire it per programmatic jump, some
     // mid-gesture), and a second rest trigger is how entry leaked
@@ -4832,7 +4848,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014140954";
+const BUILD="20261014142026";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
