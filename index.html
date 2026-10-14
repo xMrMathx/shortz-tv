@@ -4593,7 +4593,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014004748";
+const BUILD="20261014115029";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5625,8 +5625,16 @@ function buildCardFeed(){
    scrolling over it is untouched. Sound never needed the tap: it is
    driven out-of-band through the player API. --- */
 var cfPlayer=null, cfPlayerKind=null;
+/* the URL the card preview plays: the episode picked in the card's fold
+   (cfPlayEpInCard) when one is set, else the title's own first video. */
+function cfEpUrl(t){
+  if(!t)return "";
+  const pick=t._cfEp;
+  if(pick&&pick.url)return pick.url;
+  return t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"");
+}
 function cfPreviewSrc(t){
-  const u=(t&&(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"")))||"";
+  const u=cfEpUrl(t);
   if(!u)return "";
   const id=ytId(u);
   /* Start volume follows soundOn: in the app shell soundOn is true from boot
@@ -5645,7 +5653,7 @@ function cfActivate(card){
   if(!card)return;
   const t=byId(card.dataset.id); if(!t)return;
   const media=card.querySelector("[data-cf-media]"); if(!media)return;
-  const au=(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||""));
+  const au=cfEpUrl(t);
   if(isArchiveUrl(au)){
     /* archive.org has no embed iframe — the preview is a real <video> on
        the direct MP4, same contract as the iframe path: fills .cfmedia
@@ -5678,7 +5686,7 @@ function cfActivate(card){
 /* wrap the preview iframe in a player object and drive its sound,
    exactly like tgArmEnd does for the guide preview */
 function cfArmSound(card,t,fr){
-  const u=(t&&(t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"")))||"";
+  const u=cfEpUrl(t);
   const stillMine=()=>cfActive===card&&fr.isConnected;
   if(u.indexOf("vimeo.com")>=0){
     const ready=(window.Vimeo&&window.Vimeo.Player)
@@ -6057,7 +6065,7 @@ function cfSyncCounts(){
     if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
     if(e.target.closest("[data-cf-eps]")){ cfToggleFold(card); return; }
     const fr=e.target.closest("[data-cf-fold] .erow");
-    if(fr){ if(fr.tagName==="BUTTON")playEpFromFold(t,parseInt(fr.dataset.idx,10)); return; }
+    if(fr){ if(fr.tagName==="BUTTON")cfPlayEpInCard(card,t,parseInt(fr.dataset.idx,10)); return; }
     if(e.target.closest("[data-cf-media],[data-cf-body]")){ playSeries(t); }
   });
   document.addEventListener("visibilitychange",()=>{ if(document.hidden)cfStopPreview(); else cfRecompute(); });
@@ -6123,6 +6131,18 @@ function epRowsHTML(t){
 function playEpFromFold(t,idx){
   const e=(t.episodes||[])[idx]; if(!e||!e.verified)return;
   go("home"); playSeries(t); playEpisode(e);
+}
+/* HOME card fold tap (his law 2026-10-13, ordered again 2026-10-14):
+   switch the episode INSIDE the card — never route to the player. The
+   pick sticks on the title (cfEpUrl), so the card keeps playing this
+   episode whenever it is the active card. */
+function cfPlayEpInCard(card,t,idx){
+  const e=(t.episodes||[])[idx]; if(!e||!e.verified)return;
+  t._cfEp=e;
+  card.querySelectorAll("[data-cf-fold] .erow").forEach(r=>r.classList.toggle("now",parseInt(r.dataset.idx,10)===idx));
+  cfStopPreview();
+  cfActivate(card);
+  try{ buzz(10); }catch(err){}
 }
 /* card fold: press Episodes -> the fold drops; press again -> it closes.
    Opening one card's fold collapses any other open fold. */
