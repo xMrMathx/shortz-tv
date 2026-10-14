@@ -66,8 +66,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .view.active{position:relative;opacity:1;transform:none;pointer-events:auto}
 .view.leaving{position:absolute;inset:0;opacity:0;transform:translateY(-10px) scale(1.005);pointer-events:none}
-.view.swipe-peek{position:fixed;top:0;bottom:0;left:0;width:100%;opacity:1;pointer-events:none;z-index:40;overflow:hidden;background:var(--bg)}
-.view.swipe-cur{position:fixed!important;top:0;bottom:0;left:0;width:100%;opacity:1;z-index:41;overflow:hidden;background:var(--bg)}
+.view.swipe-peek{position:fixed;top:0;bottom:0;left:0;width:100%;opacity:1;pointer-events:none;z-index:40;overflow:hidden;background:var(--bg);box-shadow:inset 0 0 0 2px #e50914}
+.view.swipe-cur{position:fixed!important;top:0;bottom:0;left:0;width:100%;opacity:1;z-index:41;overflow:hidden;background:var(--bg);box-shadow:inset 0 0 0 2px #e50914}
 #cfeed,#view-home,#view-browse,#view-live,#view-streaming,#view-profile{touch-action:pan-y}
 .wrap{max-width:1200px;margin:0 auto;padding:0 16px}
 
@@ -2851,7 +2851,16 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
    own pages. Chain follows the tab bar. */
 const SWIPE_TABS=["home","browse","live","streaming","profile"];
 const SWIPE_EXCLUDE="input,textarea,select,[contenteditable],#featHero,.hrow,.award-row,.top10-row,.cs-row,.cfbar,.gmenu,#recentSrch,#tabbar,#topbar,#sideBar";
-let _sw=null, _swPark=null;
+let _sw=null, _swPark=null, _swRaf=0, _swPendingX=null;
+function swQueuePlace(s,ndx){
+  _swPendingX=ndx;
+  if(_swRaf)return;
+  _swRaf=requestAnimationFrame(()=>{ _swRaf=0; if(_sw&&_swPendingX!=null){ const x=_swPendingX; _swPendingX=null; swStripPlace(_sw,x); } });
+}
+function swFlushPlace(s){
+  if(_swRaf){ cancelAnimationFrame(_swRaf); _swRaf=0; }
+  if(s&&_swPendingX!=null){ const x=_swPendingX; _swPendingX=null; swStripPlace(s,x); }
+}
 function swipeBlocked(){
   try{
     if(document.querySelector("#vfOpen.open,#edraw.open,#escrim.open,#sportsReel.open,.scrim.open"))return true;
@@ -2884,6 +2893,11 @@ function swResetStrip(s){
   if(s.sy!=null){ try{ window.scrollTo(0,s.sy); }catch(e){} }
 }
 function swSettleRecompute(){ try{ if(typeof cfRecompute==="function")cfRecompute(); }catch(e){} }
+/* while the strip is engaged, the Home card preview pauses — a decoding
+   video fights the slide for the main thread on a phone (the burst/
+   stutter he reported). It resumes when the strip restores Home. */
+function swFeedPause(){ try{ if(typeof cfPlayer!=="undefined"&&cfPlayer){ if(cfPlayer.pauseVideo)cfPlayer.pauseVideo(); else if(cfPlayer.pause)cfPlayer.pause(); } }catch(e){} }
+function swFeedResume(){ try{ if(typeof cfPlayer!=="undefined"&&cfPlayer&&cfPlayer.playVideo)cfPlayer.playVideo(); }catch(e){} }
 function swFinalize(s){
   const target=s.target;
   _sw=null; _swPark=null; window.__swiping=false;
@@ -2894,6 +2908,7 @@ function swFinalize(s){
 function swUnpark(s){
   _sw=null; _swPark=null; window.__swiping=false;
   swResetStrip(s);
+  swFeedResume();
   swSettleRecompute();
 }
 function __swParkClear(){
@@ -2937,7 +2952,7 @@ document.addEventListener("touchmove",e=>{
       try{ document.body.style.minHeight=(document.documentElement.scrollHeight||0)+"px"; }catch(err){}
       if(s.curEl){ s.curEl.classList.add("swipe-cur"); s.curEl.style.transition="none"; s.curEl.style.willChange="transform"; }
       if(pk){ pk.classList.add("swipe-peek"); pk.style.transition="none"; pk.style.willChange="transform"; s.peekEl=pk; }
-      s.locked=true; window.__swiping=true;
+      s.locked=true; window.__swiping=true; swFeedPause();
     } else return;
   }
   e.preventDefault(); // strip engaged: the page must not scroll under the drag
@@ -2945,11 +2960,12 @@ document.addEventListener("touchmove",e=>{
   let ndx=s.base+travel;
   if(ndx<0)ndx=0; if(ndx>W)ndx=W;
   if(Math.abs(ndx-(s.dx||0))>=0.5)s.moved=true;
-  swStripPlace(s,ndx);
+  swQueuePlace(s,ndx);
 },{capture:true,passive:false});
 function swEndV2(){
   const s=_sw; if(!s)return;
   if(!s.locked){ _sw=null; return; }
+  swFlushPlace(s); // land the strip exactly where the finger stopped
   const W=window.innerWidth||1;
   // a drag that moved the strip must not fire the tap under the finger
   if(s.moved){
@@ -4782,7 +4798,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014081747";
+const BUILD="20261014082436";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7783,6 +7799,7 @@ function renderProfile(){
   }
   const friendsN=(Live.friendsSnap&&Object.keys(Live.friendsSnap).length)||0;
   $("#view-profile").innerHTML=`<div class="wrap">
+    <div style="text-align:center;color:rgba(255,255,255,.35);font-size:11px;margin:2px 0 10px">Shortz VS · build ${BUILD}</div>
     <div class="profhead">
       ${avatarHTML(p,"lg")}
       <div style="flex:1"><div style="font-size:19px;font-weight:800">${esc(p.name||"Viewer")}</div>
@@ -7813,7 +7830,6 @@ function renderProfile(){
     <div class="secttl">📺 Shortz VS Guide</div>
     <div id="tvGuide"></div>
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
-    <div style="text-align:center;color:rgba(255,255,255,.35);font-size:11px;margin:18px 0 6px">Shortz VS · build ${BUILD}</div>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
   renderTvGuide();
