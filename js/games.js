@@ -29,6 +29,10 @@ const GAMES=[
     embed:"https://html5.gamemonetize.co/zz8qd7c8fhk3drl98iy3ulzokk2pigzs/",
     thumb:"https://img.gamemonetize.com/zz8qd7c8fhk3drl98iy3ulzokk2pigzs/512x384.jpg",
     sub:"First-person shooter built for touch — left stick to move, drag to aim, 8 worlds of missions." },
+  { title:"EpicShooter3D", cat:"First-Person Shooter", orient:"landscape",
+    embed:"https://html5.gamemonetize.co/n4h4snqc89f5a7r0bsqn1g8y4f2ob311/",
+    thumb:"https://img.gamemonetize.com/n4h4snqc89f5a7r0bsqn1g8y4f2ob311/512x384.jpg",
+    sub:"ONLINE multiplayer FPS — real players, live matches, leaderboard. Touch controls switch on automatically." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
