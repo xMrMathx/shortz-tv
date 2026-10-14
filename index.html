@@ -1215,6 +1215,24 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .sstream-frame{position:absolute;inset:0;background:#000}
 .sstream-frame iframe{width:100%;height:100%;border:0;display:block;pointer-events:none}
 /* STREAMING CARDS (his order 2026-10-14: the tab scrolls as cards, like Home) */
+/* GAMES (his order 2026-10-14): a card feed like Home/Streaming,
+   section between Manga and Profile in the ring */
+.gcards{max-width:720px;margin:0 auto;padding:14px 12px 90px;display:flex;flex-direction:column;gap:18px}
+.gcard{background:#101013;border:1px solid #232328;border-radius:16px;overflow:hidden}
+.gcard-stage{position:relative;background:#000}
+.gstage-land{aspect-ratio:16/9}
+.gstage-port{aspect-ratio:9/16;max-width:430px;margin:0 auto}
+.gcard-frame{position:absolute;inset:0}
+.gcard-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.gposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gplay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55));cursor:pointer;border:0;width:100%}
+.gplay i{font-style:normal;width:74px;height:74px;border-radius:50%;background:var(--red);color:#fff;font-size:30px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 28px rgba(0,0,0,.55)}
+.gcard-stage:fullscreen{aspect-ratio:auto;max-width:none}
+.gcard-ov{padding:12px 14px 14px}
+.gcard-name{font-size:17px;font-weight:800;color:#fff}
+.gcard-cat{display:inline-block;margin-left:8px;font-size:11px;font-weight:700;color:#c9c9d2;background:#1d1d29;border-radius:6px;padding:3px 8px;vertical-align:2px}
+.gcard-sub{font-size:13px;color:#9a9aa5;margin-top:3px}
+.gstop{position:absolute;top:10px;right:10px;z-index:5;background:rgba(10,10,16,.8);color:#fff;border:1px solid #2c2c38;border-radius:8px;padding:7px 12px;font-weight:700;cursor:pointer}
 .sscards{max-width:720px;margin:0 auto;padding:14px 12px 96px;display:flex;flex-direction:column;gap:16px}
 .sscard-stage{position:relative}
 .ssbar{position:absolute;left:0;right:0;bottom:0;height:26px;display:none;align-items:flex-end;z-index:6;touch-action:none;cursor:pointer}
@@ -1680,6 +1698,7 @@ try{
     <section class="view" id="view-live"></section>
     <section class="view" id="view-streaming"></section>
     <section class="view" id="view-manga"></section>
+    <section class="view" id="view-games"></section>
     <section class="view" id="view-profile"></section>
     <section class="view" id="view-detail"></section>
     <section class="view" id="view-genre"></section>
@@ -2859,6 +2878,7 @@ function go(v){
   if(curView==="home"&&v!=="home"&&!piaActive)pauseFeedVideo(); // PIA: keep playing while browsing
   if(curView==="home"&&v!=="home"){try{cfStopPreview();}catch(e){}} // card previews never play off-Home
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
+  if(curView==="games"&&v!=="games"&&window.Games)Games.stop(); // leaving Games unmounts the playing game
   if(curView==="live"&&v!=="live"&&typeof lsStop==="function")lsStop(); // stop Free Live Sports stage
   if(curView==="live"&&v!=="live"){try{liveRoomPause();}catch(e){}} // silence a watch-party room left open — its audio never follows him to another tab
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
@@ -3672,7 +3692,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
    through Home → Browse → Live → Streaming → Manga → Profile. Up/down works normally inside
    each section. Close button or tapping the grid button again exits. */
 (function(){
-  const SECTIONS=["home","browse","live","streaming","manga","profile"];
+  const SECTIONS=["home","browse","live","streaming","manga","games","profile"];
   const TITLES={home:"Home",browse:"Browse",live:"Live",streaming:"Streaming",manga:"Manga",profile:"Profile"};
   let evMode=false, evIdx=0, tx0=0, ty0=0, swiped=false;
   const $=id=>document.getElementById(id);
@@ -3763,7 +3783,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       const last=panes[panes.length-1]; vs.insertBefore(last,panes[0]);
       sl+=W;
     }
-    while(sl>W*4.0){
+    while(sl>W*(panes.length-2)){
       const first=panes[0]; vs.appendChild(first);
       sl-=W;
     }
@@ -3810,8 +3830,9 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   function evRotateTo(v){
     const vs=$("views"); if(!vs)return;
     const k=SECTIONS.indexOf(v); if(k<0)return;
-    [SECTIONS[(k+4)%6],SECTIONS[(k+5)%6],SECTIONS[k],SECTIONS[(k+1)%6],SECTIONS[(k+2)%6],SECTIONS[(k+3)%6]]
-      .forEach(n=>{ const el=document.getElementById("view-"+n); if(el)vs.appendChild(el); });
+    const N=SECTIONS.length, half=Math.floor((N-1)/2), order=[];
+    for(let d=-half;d<N-half;d++)order.push(SECTIONS[(k+d+N)%N]);
+    order.forEach(n=>{ const el=document.getElementById("view-"+n); if(el)vs.appendChild(el); });
   }
   function evBindScroll(){
     if(evScrollBound)return; evScrollBound=true;
@@ -3842,7 +3863,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       evBindScroll();
       evSection=SECTIONS[evIdx];
       evRotateTo(evSection); // the current section starts mid-ring: wraparound runway both ways
-      requestAnimationFrame(()=>{ try{ vs.scrollLeft=2*(window.innerWidth||1); }catch(e){} });
+      requestAnimationFrame(()=>{ try{ vs.scrollLeft=Math.floor((SECTIONS.length-1)/2)*(window.innerWidth||1); }catch(e){} });
     }
     updateHeader();
     try{
@@ -3947,6 +3968,7 @@ function renderView(v){
   if(v==="live"){ if(curView!=="live")Live.tab="sports"; renderLive(); } // every fresh entry lands on Sports (his order)
   if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
   if(v==="manga")renderManga();
+  if(v==="games")renderGames();
   if(v==="profile")renderProfile();
 }
 
@@ -4874,7 +4896,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014164134";
+const BUILD="20261014171044";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8894,6 +8916,7 @@ function liveShellHTML(){
 }
 </script>
 <script src="js/streaming.js"></script>
+<script src="js/games.js"></script>
 <script>
 
 
