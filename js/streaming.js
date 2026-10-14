@@ -215,7 +215,7 @@ function sstreamVodHTML(s,muted){
   return `<video src="${s.vod_hls}" ${m} autoplay playsinline controls style="width:100%;height:100%;object-fit:contain;background:#000"></video>`;
 }
 let sstreamStack=[], sstreamPos=-1, sstreamSlots=[], sstreamMounted=false;
-let sdragging=false, sdragDy=0, sdragX0=0, sdragY0=0, sdragT0=0, smovedPx=0;
+let sdragging=false, sdragDy=0, sdragX0=0, sdragY0=0, sdragT0=0, smovedPx=0, sdragYielded=false, sdragCommitted=false;
 let svelSamples=[], ssnapAnim=false, ssuppressClick=false, sskipMouseUntil=0;
 let streamMuted=false, streamPollTimer=null; // streams start WITH SOUND (his law, 2026-10-12) — the APK shell permits audible autoplay; the tap toggle now mutes instead of unmuting
 /* ---------- stream sharing: deep link opens inside Shortz VS, never the platform ---------- */
@@ -507,7 +507,7 @@ async function mountStreamFeed(){
     sstreamLayout();
     const onStart=(x,y)=>{
       if(ssnapAnim||sdragging)return false;
-      sdragging=true;sdragDy=0;smovedPx=0;sdragX0=x;sdragY0=y;sdragT0=Date.now();
+      sdragging=true;sdragDy=0;smovedPx=0;sdragX0=x;sdragY0=y;sdragT0=Date.now();sdragYielded=false;sdragCommitted=false;
       svelSamples=[{y,t:Date.now()}];track.classList.remove("anim");return true;
     };
     const onMove=(x,y)=>{
@@ -540,12 +540,19 @@ async function mountStreamFeed(){
       if(!sdragging)return;
       if(window.__evNative&&document.body.classList.contains("ev-mode")){
         // EVERYTHING HUB: sideways belongs to the hub's native track.
-        // Yield WITHOUT preventDefault (a canceled move kills the
-        // browser's scroll before it starts — that froze the hub
-        // dead on this stage). Vertical stays this pager's own.
+        // A real thumb flicks diagonally and in big jumps, so the
+        // pager stays HANDS OFF (no transform, no preventDefault)
+        // until the gesture proves itself: horizontal at least
+        // tying vertical past 14px = the hub's, permanently;
+        // vertical strictly winning past 24px = this pager's.
+        // Anything sooner in either claim froze real swipes dead.
         const dx=e.touches[0].clientX-sdragX0, dyy=e.touches[0].clientY-sdragY0;
-        if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dyy)*1.2){ sdragging=false; track.style.transform=""; return; }
-        if(Math.abs(dx)<12&&Math.abs(dyy)<12)return;
+        if(sdragYielded)return;
+        if(!sdragCommitted){
+          if(Math.abs(dx)>=14&&Math.abs(dx)>=Math.abs(dyy)){ sdragYielded=true; sdragging=false; track.style.transform=""; return; }
+          if(Math.abs(dyy)>=24&&Math.abs(dyy)>Math.abs(dx)){ sdragCommitted=true; }
+          else return;
+        }
       }
       onMove(e.touches[0].clientX,e.touches[0].clientY);
       if(e.cancelable)e.preventDefault();

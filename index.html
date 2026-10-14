@@ -3879,7 +3879,7 @@ let WEBCTX=true; try{ WEBCTX=!(window.Android&&window.Android.onWatching); }catc
 let lastTapT=0, tapTimer=null; // single/double-tap disambiguation
 let feedStack=[], feedPos=-1;          // ordered visit history; feedPos = current index
 let slotNodes=[];                      // 3 persistent slide nodes: [prev,cur,next]
-let dragging=false, dragDy=0, dragX0=0, dragY0=0, dragT0=0, movedPx=0;
+let dragging=false, dragDy=0, dragX0=0, dragY0=0, dragT0=0, movedPx=0, dragYielded=false, dragCommitted=false;
 let velSamples=[];
 let snapAnim=false, suppressClick=false, skipMouseUntil=0;
 function isVertMain(t){
@@ -4693,7 +4693,7 @@ function mountFeed(){
   const onStart=(x,y,onAction)=>{
     startOnPill=false; pillSlide=null; tapHudHidden=false;
     if(snapAnim||dragging)return false;
-    dragging=true;dragDy=0;movedPx=0;dragX0=x;dragY0=y;dragT0=Date.now();
+    dragging=true;dragDy=0;movedPx=0;dragX0=x;dragY0=y;dragT0=Date.now();dragYielded=false;dragCommitted=false;
     startOnAction=!!onAction;
     startOnPill=!!(onAction&&onAction.hasAttribute&&onAction.hasAttribute("data-fitsuggest"));
     pillSlide=startOnPill?onAction.closest(".slide"):null;
@@ -4752,8 +4752,12 @@ function mountFeed(){
       // browser's scroll before it starts). Vertical stays this
       // pager's own. Same fix as the Streaming stage.
       const dx=e.touches[0].clientX-dragX0, dyy=e.touches[0].clientY-dragY0;
-      if(Math.abs(dx)>12&&Math.abs(dx)>Math.abs(dyy)*1.2){ dragging=false; track.style.transform=""; return; }
-      if(Math.abs(dx)<12&&Math.abs(dyy)<12)return;
+      if(dragYielded)return;
+      if(!dragCommitted){
+        if(Math.abs(dx)>=14&&Math.abs(dx)>=Math.abs(dyy)){ dragYielded=true; dragging=false; track.style.transform=""; return; }
+        if(Math.abs(dyy)>=24&&Math.abs(dyy)>Math.abs(dx)){ dragCommitted=true; }
+        else return;
+      }
     }
     onMove(e.touches[0].clientX,e.touches[0].clientY);
     if(e.cancelable)e.preventDefault();
@@ -4780,7 +4784,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014135218";
+const BUILD="20261014135842";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
