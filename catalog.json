@@ -53158,7 +53158,7 @@
     "id": "stv-1679",
     "title": "The Backrooms (Kane Pixels)",
     "genre": "Horror",
-    "eps": "15 eps",
+    "eps": "24 eps",
     "runtime": "~1-3 min each",
     "desc": "Kane Parsons' viral liminal horror: a cameraman falls into the endless yellow backrooms, and ASYNC's experiments keep opening doors that shouldn't open. Found-footage dread built in Blender by a teena",
     "url": "https://www.youtube.com/embed/wek9dIw2uVM",
@@ -53175,10 +53175,18 @@
         "kind": "episode"
       },
       {
+        "title": "Mar11_90_ARCHIVE.tar",
+        "video_id": "k0L8SM32ENI",
+        "url": "https://www.youtube.com/embed/k0L8SM32ENI",
+        "n": 2,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
         "title": "Backrooms - The Third Test",
         "video_id": "tvmEc7JhR0E",
         "url": "https://www.youtube.com/embed/tvmEc7JhR0E",
-        "n": 2,
+        "n": 3,
         "verified": true,
         "kind": "episode"
       },
@@ -53186,7 +53194,7 @@
         "title": "Backrooms - First Contact",
         "video_id": "eXdIDjzy6KY",
         "url": "https://www.youtube.com/embed/eXdIDjzy6KY",
-        "n": 3,
+        "n": 4,
         "verified": true,
         "kind": "episode"
       },
@@ -53194,14 +53202,6 @@
         "title": "Backrooms - Missing Persons",
         "video_id": "py6c5NaHeB8",
         "url": "https://www.youtube.com/embed/py6c5NaHeB8",
-        "n": 4,
-        "verified": true,
-        "kind": "episode"
-      },
-      {
-        "title": "Backrooms - Informational Video",
-        "video_id": "ZIFhglHn3W0",
-        "url": "https://www.youtube.com/embed/ZIFhglHn3W0",
         "n": 5,
         "verified": true,
         "kind": "episode"
@@ -53215,10 +53215,18 @@
         "kind": "episode"
       },
       {
+        "title": "Backrooms - Informational Video",
+        "video_id": "ZIFhglHn3W0",
+        "url": "https://www.youtube.com/embed/ZIFhglHn3W0",
+        "n": 7,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
         "title": "Backrooms - Motion Detected",
         "video_id": "4FDotUHfpWk",
         "url": "https://www.youtube.com/embed/4FDotUHfpWk",
-        "n": 7,
+        "n": 8,
         "verified": true,
         "kind": "episode"
       },
@@ -53226,7 +53234,15 @@
         "title": "Backrooms - Prototype",
         "video_id": "9_UN1dsZ9Vg",
         "url": "https://www.youtube.com/embed/9_UN1dsZ9Vg",
-        "n": 8,
+        "n": 9,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Backrooms - Pitfalls",
+        "video_id": "0XwlWXtpaCM",
+        "url": "https://www.youtube.com/embed/0XwlWXtpaCM",
+        "n": 10,
         "verified": true,
         "kind": "episode"
       },
@@ -53234,7 +53250,15 @@
         "title": "Backrooms - Report",
         "video_id": "ywVxpZ4XUBM",
         "url": "https://www.youtube.com/embed/ywVxpZ4XUBM",
-        "n": 9,
+        "n": 11,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "9780415263573",
+        "video_id": "a7ckzgIgx_o",
+        "url": "https://www.youtube.com/embed/a7ckzgIgx_o",
+        "n": 12,
         "verified": true,
         "kind": "episode"
       },
@@ -53242,7 +53266,39 @@
         "title": "Backrooms - Presentation",
         "video_id": "ITuGdHxHi0A",
         "url": "https://www.youtube.com/embed/ITuGdHxHi0A",
-        "n": 10,
+        "n": 13,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "_recording014",
+        "video_id": "cjUqCsDmx-I",
+        "url": "https://www.youtube.com/embed/cjUqCsDmx-I",
+        "n": 14,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Backrooms - Found Footage #2",
+        "video_id": "sA5PxGHqpTo",
+        "url": "https://www.youtube.com/embed/sA5PxGHqpTo",
+        "n": 15,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Backrooms - Reunion",
+        "video_id": "ye6YpxFE9jk",
+        "url": "https://www.youtube.com/embed/ye6YpxFE9jk",
+        "n": 16,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Backrooms - Damage Control",
+        "video_id": "j6klSI8GlXI",
+        "url": "https://www.youtube.com/embed/j6klSI8GlXI",
+        "n": 17,
         "verified": true,
         "kind": "episode"
       },
@@ -53250,7 +53306,7 @@
         "title": "Backrooms - Overflow",
         "video_id": "8TYopkSmKyA",
         "url": "https://www.youtube.com/embed/8TYopkSmKyA",
-        "n": 11,
+        "n": 18,
         "verified": true,
         "kind": "episode"
       },
@@ -53258,7 +53314,15 @@
         "title": "Backrooms - Lighting and Tile Survey",
         "video_id": "DSWUEmJDglw",
         "url": "https://www.youtube.com/embed/DSWUEmJDglw",
-        "n": 12,
+        "n": 19,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Backrooms - Found Footage #3",
+        "video_id": "acdYs9tPLko",
+        "url": "https://www.youtube.com/embed/acdYs9tPLko",
+        "n": 20,
         "verified": true,
         "kind": "episode"
       },
@@ -53266,7 +53330,15 @@
         "title": "Backrooms - Static Dead End",
         "video_id": "ZbPaWvqAEq4",
         "url": "https://www.youtube.com/embed/ZbPaWvqAEq4",
-        "n": 13,
+        "n": 21,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Backrooms - Everything Must Go",
+        "video_id": "ewZx0bnBb30",
+        "url": "https://www.youtube.com/embed/ewZx0bnBb30",
+        "n": 22,
         "verified": true,
         "kind": "episode"
       },
@@ -53274,7 +53346,7 @@
         "title": "Backrooms | Official Teaser HD | A24",
         "video_id": "BjRndcTYqJo",
         "url": "https://www.youtube.com/embed/BjRndcTYqJo",
-        "n": 14,
+        "n": 23,
         "verified": true,
         "kind": "episode"
       },
@@ -53282,7 +53354,7 @@
         "title": "Backrooms | Official Trailer HD",
         "video_id": "wek9dIw2uVM",
         "url": "https://www.youtube.com/embed/wek9dIw2uVM",
-        "n": 15,
+        "n": 24,
         "verified": true,
         "kind": "episode"
       }
