@@ -693,6 +693,7 @@ body.ev-mode #evRing{display:block}
 #views.evtrack::-webkit-scrollbar{display:none}
 #views.evtrack .view.evpane{position:relative!important;flex:0 0 100%;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;opacity:1!important;transform:none!important;pointer-events:auto}
 #views.evtrack .view:not(.evpane){display:none}
+body.ev-moving #views.evtrack iframe, body.ev-moving #views.evtrack video{visibility:hidden} /* while the track is flying, panes show their static faces — painting several live video layers per frame is what chokes the compositor mid-fling; everything comes back the moment the scroll truly stops */
 #views.evtrack .view.evpane, #views.evtrack #cfeed{touch-action:pan-x pan-y}
 #views.evtrack #cfeed{overflow:visible;height:auto;max-height:none}
 #views.evtrack .feedstage{touch-action:pan-x} /* stages claim EVERY touch for their own script pager (touch-action:none) — inside the hub that froze sideways scrolling dead on Live/Streaming (his report 2026-10-14: opened the hub on Streaming and could not swipe at all). pan-x hands sideways to the browser/track and leaves vertical moves to the stage pager untouched */
@@ -3670,15 +3671,31 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   let evScrollT=0, evScrollBound=false;
   function evPanes(){ return SECTIONS.map(n=>document.getElementById("view-"+n)); }
   function evRenderPanes(){
+    // INSTANT OPEN (root fix, 2026-10-14): the tap used to pay for
+    // building EVERY section up front — seconds of frozen screen
+    // before the hub appeared. Opening now builds NOTHING: an
+    // unbuilt pane shows its title card, neighbors build lazily on
+    // idle (evLazyBuild), and a pane always builds for real the
+    // moment the scroll rests on it (evRest).
     for(const n of SECTIONS){
       const el=document.getElementById("view-"+n); if(!el)continue;
-      if(n==="live"||n==="streaming"){
-        // a live system never starts inside a pane it wasn't settled
-        // on — an unbuilt Live/Streaming pane shows its title card
-        // until the scroll rests on it and the real entry builds it
-        if(!el.innerHTML.trim())el.innerHTML='<div class="swipe-stub"><div class="swipe-stub-logo">SHORTZ <span>VS</span></div><div class="swipe-stub-name">'+TITLES[n]+'</div></div>';
-      } else if(!el.innerHTML.trim()){ try{ renderView(n); }catch(e){} }
+      if(!el.innerHTML.trim())el.innerHTML='<div class="swipe-stub"><div class="swipe-stub-logo">SHORTZ <span>VS</span></div><div class="swipe-stub-name">'+TITLES[n]+'</div></div>';
     }
+    evLazyBuild();
+  }
+  let evLazyT=0;
+  function evLazyBuild(){
+    clearTimeout(evLazyT);
+    evLazyT=setTimeout(()=>{
+      if(!evMode||evMoving)return;
+      const order=[...SECTIONS].sort((a,b)=>Math.abs(SECTIONS.indexOf(a)-evIdx)-Math.abs(SECTIONS.indexOf(b)-evIdx));
+      for(const n of order){
+        if(n==="live"||n==="streaming")continue; // live systems build only on entry, never on idle
+        const el=document.getElementById("view-"+n);
+        if(el&&el.querySelector(".swipe-stub")){ try{ renderView(n); }catch(e){} break; } // one pane per idle pass
+      }
+      if(SECTIONS.some(n=>{ if(n==="live"||n==="streaming")return false; const el=document.getElementById("view-"+n); return el&&el.querySelector(".swipe-stub"); }))evLazyBuild();
+    },350);
   }
   let evFeedTick=false;
   function evFeedScroll(pane){
@@ -3694,7 +3711,34 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }catch(e){}
     });
   }
-  let evSection=null;
+  // MOTION TRUTH (root fix, 2026-10-14): "rest" used to mean "no
+  // scroll event for 130ms" — but under load a flying scroll emits
+  // sparse events, so entry fired MID-FLING and the heavy build of
+  // the screen being crossed froze the fling solid, over and over:
+  // the stutter. Rest now means the POSITION has stopped changing,
+  // sampled — entry can only fire on a truly stopped scroll.
+  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0;
+  function evNoteScroll(){
+    const vs=$("views"); if(!vs)return;
+    evLastSl=vs.scrollLeft;
+    evStableSince=Date.now();
+    if(!evMoving){ evMoving=true; document.body.classList.add("ev-moving"); }
+    if(evSampleT)return;
+    // the position must hold still for a full 280ms before it counts
+    // as rest: a struggling fling emits frames 125-165ms apart, and
+    // anything shorter mistakes those plateaus for a stop — the
+    // mid-fling build freeze all over again
+    evSampleT=setInterval(()=>{
+      const sl=vs.scrollLeft;
+      if(sl!==evLastSl){ evLastSl=sl; evStableSince=Date.now(); return; }
+      if(Date.now()-evStableSince>=280)evFinishMotion();
+    },90);
+  }
+  function evFinishMotion(){
+    if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
+    if(evMoving){ evMoving=false; document.body.classList.remove("ev-moving"); }
+    evRest();
+  }
   function evPanesInOrder(){ const vs=$("views"); return vs?[...vs.querySelectorAll(".view.evpane")]:[]; }
   function evRest(){
     const vs=$("views"); if(!vs||!evMode)return;
@@ -3719,6 +3763,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     // always the true prev/next sections.
     while(pos<2){ const last=panes[panes.length-1]; vs.insertBefore(last,panes[0]); panes.unshift(panes.pop()); vs.scrollLeft+=W; pos++; }
     while(pos>3){ const first=panes[0]; vs.appendChild(first); panes.push(panes.shift()); vs.scrollLeft-=W; pos--; }
+    evLazyBuild();
   }
   function evRotateTo(v){
     const vs=$("views"); if(!vs)return;
@@ -3731,11 +3776,14 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const vs=$("views"); if(!vs)return;
     vs.addEventListener("scroll",e=>{
       if(!evMode)return;
-      if(e.target===vs){ clearTimeout(evScrollT); evScrollT=setTimeout(evRest,130); }
+      if(e.target===vs){ evNoteScroll(); }
       else if(e.target&&e.target.id==="view-browse"){ try{ window.dispatchEvent(new Event("scroll")); }catch(err){} } // browse's wall hook listens on window (viewport math — works from the pane too once events reach it)
       else if(e.target&&e.target.id==="view-home"){ evFeedScroll(e.target); } // in the hub the pane scrolls the feed, so the feed's own scroll jobs (activate the centered card, append the next batch) run off the pane
     },{passive:true,capture:true});
-    if("onscrollend" in window)vs.addEventListener("scrollend",()=>{ if(evMode){ clearTimeout(evScrollT); evRest(); } },{passive:true});
+    // NOTE: no scrollend fast-path — implementations disagree on
+    // when it fires (some fire it per programmatic jump, some
+    // mid-gesture), and a second rest trigger is how entry leaked
+    // into mid-fling before. The position sampler is the one truth.
   }
   function open(){
     if(evMode)return;
@@ -4784,7 +4832,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014135842";
+const BUILD="20261014140954";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
