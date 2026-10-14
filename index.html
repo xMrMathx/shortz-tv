@@ -4842,7 +4842,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014085237";
+const BUILD="20261014085931";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7368,7 +7368,7 @@ function renderBrowse(g){
   (function(){
     const ml=$("#browseMyList"); if(!ml)return;
     const idx=new Map(); for(const t of C)idx.set(t.id,t);
-    const saved=[...mylist].map(id=>idx.get(id)).filter(Boolean).slice(0,20);
+    const saved=[...mylist].reverse().map(id=>idx.get(id)).filter(Boolean).slice(0,20); // newest first (his order)
     ml.innerHTML=saved.map(cardHTML).join("");
     bindCards(ml);
   })();
@@ -7802,7 +7802,7 @@ function renderProfMyList(mangaOnly){
   }
   const idx=new Map();
   for(const t of C) idx.set(t.id,t);
-  const saved=[...mylist].map(id=>idx.get(id)).filter(Boolean);
+  const saved=[...mylist].reverse().map(id=>idx.get(id)).filter(Boolean); // newest save first (his order)
   const hist=history.map(h=>idx.get(h.id)).filter(Boolean);
   const row=list=>`<div class="hrow">${list.map(cardHTML).join("")}</div>`;
   const box=$("#profMyList");
@@ -8038,11 +8038,11 @@ function vfFolderItems(key){
         }
       }
     }catch(e){}
-    return ids.map(id=>{ try{ return byId(id); }catch(e){ return null; } })
+    return ids.reverse().map(id=>{ try{ return byId(id); }catch(e){ return null; } })
       .filter(Boolean).map(t=>({t,reason:""}));
   }
   if(key==="list"){
-    return [...mylist].map(id=>{ try{ return byId(id); }catch(e){ return null; } })
+    return [...mylist].reverse().map(id=>{ try{ return byId(id); }catch(e){ return null; } })
       .filter(Boolean).map(t=>({t,reason:""}));
   }
   if(key==="history"){
@@ -8566,8 +8566,16 @@ function tgNext(){
   i=(i+1)%tgList.length; // loop back to the top at the end
   tgPreview(tgList[i].id);
   try{
-    const row=document.querySelector('#tgList .tg-row[data-id="'+tgList[i].id+'"]');
-    if(row)row.scrollIntoView({block:"nearest",behavior:"smooth"});
+    // keep the playing row in view ONLY while he is actually at the
+    // guide — an auto-advance must never yank the page away from his
+    // folders, his lists, or an open folder (his order).
+    const pv=$("#tgPreviewBox");
+    const r=pv&&pv.getBoundingClientRect();
+    const atGuide=r&&r.bottom>0&&r.top<(window.innerHeight||0)&&!document.querySelector("#vfOpen.open");
+    if(atGuide){
+      const row=document.querySelector('#tgList .tg-row[data-id="'+tgList[i].id+'"]');
+      if(row)row.scrollIntoView({block:"nearest",behavior:"smooth"});
+    }
   }catch(e){}
 }
 function tgArmEnd(t){
