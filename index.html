@@ -2849,7 +2849,7 @@ document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dat
    the card progress bar, inputs, the chrome bars and open overlays
    keep their own gestures. Manga is skipped: its reader turns its
    own pages. Chain follows the tab bar. */
-const SWIPE_TABS=["home","browse","live","streaming","profile"];
+const SWIPE_TABS=["home","browse","live","streaming","manga","profile"];
 const SWIPE_EXCLUDE="input,textarea,select,[contenteditable],#featHero,.hrow,.award-row,.top10-row,.cs-row,.cfbar,.gmenu,#recentSrch,#tabbar,#topbar,#sideBar";
 let _sw=null, _swPark=null, _swRaf=0, _swPendingX=null;
 function swQueuePlace(s,ndx){
@@ -2863,6 +2863,7 @@ function swFlushPlace(s){
 }
 function swipeBlocked(){
   try{
+    if(typeof Manga!=="undefined"&&Manga.readerOpen)return true; // an open book turns its own pages
     if(document.querySelector("#vfOpen.open,#edraw.open,#escrim.open,#sportsReel.open,.scrim.open"))return true;
     for(const id of ["authGate","tutGate"]){
       const el=document.getElementById(id);
@@ -2903,6 +2904,15 @@ function swFinalize(s){
   _sw=null; _swPark=null; window.__swiping=false;
   swStripUndress(s);
   if(target){ try{ go(target); }catch(e){} }
+  // keep the EVERYTHING hub header honest after a strip settle
+  try{
+    if(document.body.classList.contains("ev-mode")){
+      const T={home:"Home",browse:"Browse",live:"Live",streaming:"Streaming",manga:"Manga",profile:"Profile"};
+      const tt=document.getElementById("evTitle"); if(tt)tt.textContent=T[target]||"";
+      const dd=document.getElementById("evDots");
+      if(dd){ const i2=SWIPE_TABS.indexOf(target); dd.querySelectorAll("i").forEach((el,j)=>el.classList.toggle("on",j===i2)); }
+    }
+  }catch(e){}
   swSettleRecompute();
 }
 function swUnpark(s){
@@ -2917,6 +2927,7 @@ function __swParkClear(){
   window.__swiping=false;
 }
 window.__swParkClear=__swParkClear;
+window.__stripOwnsSwipe=true; // the EVERYTHING hub's swipe-snap stands down (see its touchend)
 document.addEventListener("touchstart",e=>{
   if(_sw||e.touches.length!==1)return;
   if(swipeBlocked())return;
@@ -3807,6 +3818,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     tx0=e.touches[0].clientX;ty0=e.touches[0].clientY;swiped=false;
   },{passive:true,capture:true});
   document.addEventListener("touchend",e=>{
+    if(window.__stripOwnsSwipe)return; // the slide strip owns horizontal drags — the snap is dead
     if(!evMode||!e.changedTouches||!e.changedTouches[0])return;
     const dx=e.changedTouches[0].clientX-tx0, dy=e.changedTouches[0].clientY-ty0;
     if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.4){
@@ -4798,7 +4810,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014083027";
+const BUILD="20261014083725";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
