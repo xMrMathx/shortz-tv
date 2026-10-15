@@ -1422316,5 +1422316,1137 @@
       }
     ],
     "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52427",
+    "title": "I, Detective",
+    "genre": "Reality",
+    "eps": "35 eps",
+    "runtime": "~22 min",
+    "desc": "Real homicide detectives walk through the cases that defined their careers — the evidence, the interrogations, and the moment each case finally broke. truTV's true-crime series, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/pSCMD9F_YmM",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Hitman.com",
+        "video_id": "pSCMD9F_YmM",
+        "url": "https://www.youtube.com/embed/pSCMD9F_YmM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Shattered Dreams",
+        "video_id": "2Qqdt_VgQWE",
+        "url": "https://www.youtube.com/embed/2Qqdt_VgQWE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Cycle Of Intrigue",
+        "video_id": "D2spf5BrcRI",
+        "url": "https://www.youtube.com/embed/D2spf5BrcRI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "The Ties That Bind",
+        "video_id": "S5ljxFYPP1M",
+        "url": "https://www.youtube.com/embed/S5ljxFYPP1M",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Family Ties",
+        "video_id": "9FybUtTXsao",
+        "url": "https://www.youtube.com/embed/9FybUtTXsao",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Speeding Into Danger",
+        "video_id": "vdvDUWx1Cv8",
+        "url": "https://www.youtube.com/embed/vdvDUWx1Cv8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Uninvited Guest",
+        "video_id": "WKkjVa53nmE",
+        "url": "https://www.youtube.com/embed/WKkjVa53nmE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Deadly Pledge",
+        "video_id": "Mkm977LxbYM",
+        "url": "https://www.youtube.com/embed/Mkm977LxbYM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Blood Brothers",
+        "video_id": "oc0x1ds4Vnk",
+        "url": "https://www.youtube.com/embed/oc0x1ds4Vnk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Secret Games",
+        "video_id": "rzcSffypYeQ",
+        "url": "https://www.youtube.com/embed/rzcSffypYeQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "A Family Affair",
+        "video_id": "X1V3wiLoOOc",
+        "url": "https://www.youtube.com/embed/X1V3wiLoOOc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "Driven",
+        "video_id": "UIVOM5HMMXI",
+        "url": "https://www.youtube.com/embed/UIVOM5HMMXI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "Behind Mansion Walls",
+        "video_id": "cIMHEMMYV1I",
+        "url": "https://www.youtube.com/embed/cIMHEMMYV1I",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "Cradle Will Rock",
+        "video_id": "e8525UBg2p8",
+        "url": "https://www.youtube.com/embed/e8525UBg2p8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "A Double Life",
+        "video_id": "wA9UyH2xm6Q",
+        "url": "https://www.youtube.com/embed/wA9UyH2xm6Q",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "All That Glitters",
+        "video_id": "lFJFmfpHvWY",
+        "url": "https://www.youtube.com/embed/lFJFmfpHvWY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "The Wrong Path",
+        "video_id": "XRJ-8mFE-n0",
+        "url": "https://www.youtube.com/embed/XRJ-8mFE-n0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "Appointment with Death",
+        "video_id": "zoRdaMXriL4",
+        "url": "https://www.youtube.com/embed/zoRdaMXriL4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "Ashes to Ashes",
+        "video_id": "x7LW5Iz1-kw",
+        "url": "https://www.youtube.com/embed/x7LW5Iz1-kw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "Desperate Measures",
+        "video_id": "Ne9H_t8uZnY",
+        "url": "https://www.youtube.com/embed/Ne9H_t8uZnY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 21,
+        "title": "Bad Mix",
+        "video_id": "B6bfw9XCB2U",
+        "url": "https://www.youtube.com/embed/B6bfw9XCB2U",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 22,
+        "title": "A Few Good Men",
+        "video_id": "cAvb4Qsw9bY",
+        "url": "https://www.youtube.com/embed/cAvb4Qsw9bY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 23,
+        "title": "Kidnapped",
+        "video_id": "M_hHwdq-cAA",
+        "url": "https://www.youtube.com/embed/M_hHwdq-cAA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 24,
+        "title": "Last Exit",
+        "video_id": "jLhHN4NUu-4",
+        "url": "https://www.youtube.com/embed/jLhHN4NUu-4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 25,
+        "title": "Tools of the Trade",
+        "video_id": "u7s3uSFyW7k",
+        "url": "https://www.youtube.com/embed/u7s3uSFyW7k",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 26,
+        "title": "Night Shift",
+        "video_id": "2ou5tj_69IU",
+        "url": "https://www.youtube.com/embed/2ou5tj_69IU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 27,
+        "title": "While He Was Sleeping",
+        "video_id": "D6buFxzeOGY",
+        "url": "https://www.youtube.com/embed/D6buFxzeOGY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 28,
+        "title": "Family Secrets",
+        "video_id": "EQ2PT-D9NZ8",
+        "url": "https://www.youtube.com/embed/EQ2PT-D9NZ8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 29,
+        "title": "Fatal Fortune",
+        "video_id": "ixAs8O8Bhz4",
+        "url": "https://www.youtube.com/embed/ixAs8O8Bhz4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 30,
+        "title": "Target Unknown",
+        "video_id": "xwxp7GOLhaM",
+        "url": "https://www.youtube.com/embed/xwxp7GOLhaM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 31,
+        "title": "Customer Service",
+        "video_id": "QEfkKwEZOr8",
+        "url": "https://www.youtube.com/embed/QEfkKwEZOr8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 32,
+        "title": "Key Evidence",
+        "video_id": "UEjoVJQxDyE",
+        "url": "https://www.youtube.com/embed/UEjoVJQxDyE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 33,
+        "title": "Covered Tracks",
+        "video_id": "QmURXk6v4yg",
+        "url": "https://www.youtube.com/embed/QmURXk6v4yg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 34,
+        "title": "Only Witness",
+        "video_id": "On6CaV9Yybc",
+        "url": "https://www.youtube.com/embed/On6CaV9Yybc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 35,
+        "title": "Stranger On Campus",
+        "video_id": "yVKpF55Lh3w",
+        "url": "https://www.youtube.com/embed/yVKpF55Lh3w",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52428",
+    "title": "World's Dumbest",
+    "genre": "Reality",
+    "eps": "5 eps",
+    "runtime": "~40 min",
+    "desc": "Comedians and commentators count down the world's dumbest criminals, drivers, partiers and performers ever caught on camera. truTV's long-running countdown comedy, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/j0vRWbRJSJc",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "World's Dumbest Motorheads 6",
+        "video_id": "j0vRWbRJSJc",
+        "url": "https://www.youtube.com/embed/j0vRWbRJSJc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "World's Dumbest Outlaws 6",
+        "video_id": "pDJQngiw4xM",
+        "url": "https://www.youtube.com/embed/pDJQngiw4xM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "World's Dumbest Outlaws 7",
+        "video_id": "SiaVhd6QftI",
+        "url": "https://www.youtube.com/embed/SiaVhd6QftI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "World's Smartest Inventions 7",
+        "video_id": "CUa9R7UpCqE",
+        "url": "https://www.youtube.com/embed/CUa9R7UpCqE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "World's Dumbest Performers 12",
+        "video_id": "805WVYieJrQ",
+        "url": "https://www.youtube.com/embed/805WVYieJrQ",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52429",
+    "title": "Southern Fried Stings",
+    "genre": "Reality",
+    "eps": "13 eps",
+    "runtime": "~22 min",
+    "desc": "Ex-cop Jake Guinn and his team run sting operations across the South — busting scammers, thieves and cheats on camera. truTV reality, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/0f3XZ-mGc3U",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Season 1, Episode 1",
+        "video_id": "0f3XZ-mGc3U",
+        "url": "https://www.youtube.com/embed/0f3XZ-mGc3U",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Season 1, Episode 2",
+        "video_id": "xpzTLh7EYmE",
+        "url": "https://www.youtube.com/embed/xpzTLh7EYmE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Season 1, Episode 3",
+        "video_id": "BXVhNcoD17A",
+        "url": "https://www.youtube.com/embed/BXVhNcoD17A",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Season 1, Episode 4",
+        "video_id": "YUlnHUWXgUg",
+        "url": "https://www.youtube.com/embed/YUlnHUWXgUg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Season 1, Episode 5",
+        "video_id": "7dt67HDhDUw",
+        "url": "https://www.youtube.com/embed/7dt67HDhDUw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Season 1, Episode 6",
+        "video_id": "uhiivNLux7A",
+        "url": "https://www.youtube.com/embed/uhiivNLux7A",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Season 1, Episode 7",
+        "video_id": "Ao8V4RJTEgE",
+        "url": "https://www.youtube.com/embed/Ao8V4RJTEgE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Season 1, Episode 8",
+        "video_id": "NoF5bvWto7A",
+        "url": "https://www.youtube.com/embed/NoF5bvWto7A",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Season 2, Episode 1",
+        "video_id": "zkkQ1ffoyfY",
+        "url": "https://www.youtube.com/embed/zkkQ1ffoyfY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Season 2, Episode 2",
+        "video_id": "WrEOJwg2AHk",
+        "url": "https://www.youtube.com/embed/WrEOJwg2AHk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "Season 2, Episode 4",
+        "video_id": "OrnOIWJURTw",
+        "url": "https://www.youtube.com/embed/OrnOIWJURTw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "Season 2, Episode 5",
+        "video_id": "8NzHna-AQpo",
+        "url": "https://www.youtube.com/embed/8NzHna-AQpo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "Season 2, Episode 7",
+        "video_id": "uBWrUrA5gjQ",
+        "url": "https://www.youtube.com/embed/uBWrUrA5gjQ",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52430",
+    "title": "South Beach Tow",
+    "genre": "Reality",
+    "eps": "81 eps",
+    "runtime": "~22 min",
+    "desc": "The Tremont Towing crew battles Miami's wildest drivers over tows, repos and boot removals — every shift turns into a fight. truTV's hit reality series, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/Wg-2VJb_Kug",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Chaos in the Yard",
+        "video_id": "Wg-2VJb_Kug",
+        "url": "https://www.youtube.com/embed/Wg-2VJb_Kug",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "A Family Business",
+        "video_id": "DUPa8GHKdKY",
+        "url": "https://www.youtube.com/embed/DUPa8GHKdKY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Tow Wars",
+        "video_id": "fNItp6HMvSw",
+        "url": "https://www.youtube.com/embed/fNItp6HMvSw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Broken Truce",
+        "video_id": "1vpv9KnrYNA",
+        "url": "https://www.youtube.com/embed/1vpv9KnrYNA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Training Day",
+        "video_id": "iSAA1JBr7NY",
+        "url": "https://www.youtube.com/embed/iSAA1JBr7NY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Anger Management",
+        "video_id": "-y8Md32H7hk",
+        "url": "https://www.youtube.com/embed/-y8Md32H7hk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Memorial Day Mayhem",
+        "video_id": "_LSDwITeHBQ",
+        "url": "https://www.youtube.com/embed/_LSDwITeHBQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Growing Pains",
+        "video_id": "6FJLPU10x9Y",
+        "url": "https://www.youtube.com/embed/6FJLPU10x9Y",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Taking Out the Trash",
+        "video_id": "w7pDGPxNwNk",
+        "url": "https://www.youtube.com/embed/w7pDGPxNwNk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Assault on Tremont Towing",
+        "video_id": "TSkMzmoi-EA",
+        "url": "https://www.youtube.com/embed/TSkMzmoi-EA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "Sand in the Face",
+        "video_id": "MURQ6Yotq4M",
+        "url": "https://www.youtube.com/embed/MURQ6Yotq4M",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "The Hurricane",
+        "video_id": "Zrd6j11rt3E",
+        "url": "https://www.youtube.com/embed/Zrd6j11rt3E",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "Unlicensed to Drive",
+        "video_id": "5RFrF9WybMA",
+        "url": "https://www.youtube.com/embed/5RFrF9WybMA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "Stranded",
+        "video_id": "kImckcCmiig",
+        "url": "https://www.youtube.com/embed/kImckcCmiig",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "Search and Rescue",
+        "video_id": "nSMaauym59w",
+        "url": "https://www.youtube.com/embed/nSMaauym59w",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "The Dog House",
+        "video_id": "xlVu1y9If5M",
+        "url": "https://www.youtube.com/embed/xlVu1y9If5M",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "Money All Day",
+        "video_id": "NWiAhAT3Vw0",
+        "url": "https://www.youtube.com/embed/NWiAhAT3Vw0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "Trouble at Tremont",
+        "video_id": "6EXIOmZvhWo",
+        "url": "https://www.youtube.com/embed/6EXIOmZvhWo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "A Very Tremont Christmas",
+        "video_id": "AMW2BmnCG34",
+        "url": "https://www.youtube.com/embed/AMW2BmnCG34",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "Bernice Pops Off",
+        "video_id": "vW6aZ4c6ZMs",
+        "url": "https://www.youtube.com/embed/vW6aZ4c6ZMs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 21,
+        "title": "The Heat Is On",
+        "video_id": "6zrWEf0jR5Q",
+        "url": "https://www.youtube.com/embed/6zrWEf0jR5Q",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 22,
+        "title": "Lights Out",
+        "video_id": "fLIH3GgIigM",
+        "url": "https://www.youtube.com/embed/fLIH3GgIigM",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 23,
+        "title": "No Country for Perez",
+        "video_id": "HG08AEt2Joo",
+        "url": "https://www.youtube.com/embed/HG08AEt2Joo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 24,
+        "title": "Ruthless",
+        "video_id": "SD7JxSywer8",
+        "url": "https://www.youtube.com/embed/SD7JxSywer8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 25,
+        "title": "What's Up with Christie?",
+        "video_id": "C7vFJK4_3oE",
+        "url": "https://www.youtube.com/embed/C7vFJK4_3oE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 26,
+        "title": "The Last to Know",
+        "video_id": "TBr5J13iOx8",
+        "url": "https://www.youtube.com/embed/TBr5J13iOx8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 27,
+        "title": "Black Dahlia",
+        "video_id": "Io35drfe0Rs",
+        "url": "https://www.youtube.com/embed/Io35drfe0Rs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 28,
+        "title": "The Inspection",
+        "video_id": "-ZK_gDChdj4",
+        "url": "https://www.youtube.com/embed/-ZK_gDChdj4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 29,
+        "title": "Hit It and Quit It",
+        "video_id": "NHlJ2-cGh2c",
+        "url": "https://www.youtube.com/embed/NHlJ2-cGh2c",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 30,
+        "title": "Storm Clouds",
+        "video_id": "9RSGKDVtrIQ",
+        "url": "https://www.youtube.com/embed/9RSGKDVtrIQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 31,
+        "title": "Go Down Towing",
+        "video_id": "TvpYITcDm04",
+        "url": "https://www.youtube.com/embed/TvpYITcDm04",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 32,
+        "title": "Snakes in the Yard",
+        "video_id": "5X1pWhlxpls",
+        "url": "https://www.youtube.com/embed/5X1pWhlxpls",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 33,
+        "title": "Who's the Boss?",
+        "video_id": "VwqT0RGLjR8",
+        "url": "https://www.youtube.com/embed/VwqT0RGLjR8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 34,
+        "title": "Run These Streets",
+        "video_id": "mvzyGWgyTwU",
+        "url": "https://www.youtube.com/embed/mvzyGWgyTwU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 35,
+        "title": "Wide Load",
+        "video_id": "TG-Q4oUZSXU",
+        "url": "https://www.youtube.com/embed/TG-Q4oUZSXU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 36,
+        "title": "Compromising Positions",
+        "video_id": "OsjCyrB8euQ",
+        "url": "https://www.youtube.com/embed/OsjCyrB8euQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 37,
+        "title": "For Love or J-Money",
+        "video_id": "1YXO5q4USIw",
+        "url": "https://www.youtube.com/embed/1YXO5q4USIw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 38,
+        "title": "The In-Laws",
+        "video_id": "HYivUomQDCk",
+        "url": "https://www.youtube.com/embed/HYivUomQDCk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 39,
+        "title": "Everybody Hates Tremont",
+        "video_id": "bUJnNYyAZJI",
+        "url": "https://www.youtube.com/embed/bUJnNYyAZJI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 40,
+        "title": "Big and Beautiful",
+        "video_id": "9l9mub4MATY",
+        "url": "https://www.youtube.com/embed/9l9mub4MATY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 41,
+        "title": "Bumps in the Night",
+        "video_id": "h292jjJ5OPY",
+        "url": "https://www.youtube.com/embed/h292jjJ5OPY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 42,
+        "title": "Tremont on Wheels",
+        "video_id": "APPfIqgje_g",
+        "url": "https://www.youtube.com/embed/APPfIqgje_g",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 43,
+        "title": "Kosgrove Gets Krunk",
+        "video_id": "ZtFeIvk-mCA",
+        "url": "https://www.youtube.com/embed/ZtFeIvk-mCA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 44,
+        "title": "A Tremont Wedding",
+        "video_id": "b4uHP1JuPPw",
+        "url": "https://www.youtube.com/embed/b4uHP1JuPPw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 45,
+        "title": "Tremont Got Served",
+        "video_id": "-YSoPGqIXP4",
+        "url": "https://www.youtube.com/embed/-YSoPGqIXP4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 46,
+        "title": "Caged Heat",
+        "video_id": "zEL93qJNzXU",
+        "url": "https://www.youtube.com/embed/zEL93qJNzXU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 47,
+        "title": "Here Kitty",
+        "video_id": "ant_5LEHLQs",
+        "url": "https://www.youtube.com/embed/ant_5LEHLQs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 48,
+        "title": "Dave's Dance-Battle",
+        "video_id": "SoVC4a_Crbk",
+        "url": "https://www.youtube.com/embed/SoVC4a_Crbk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 49,
+        "title": "Bernice's Revenge",
+        "video_id": "gxZDqxTOgkg",
+        "url": "https://www.youtube.com/embed/gxZDqxTOgkg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 50,
+        "title": "The Incredible Journey",
+        "video_id": "8ZaCd-Yw-t4",
+        "url": "https://www.youtube.com/embed/8ZaCd-Yw-t4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 51,
+        "title": "Roommates",
+        "video_id": "hO6FGPK5S1c",
+        "url": "https://www.youtube.com/embed/hO6FGPK5S1c",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 52,
+        "title": "Bernice Unleashed",
+        "video_id": "PTFteX6tXRc",
+        "url": "https://www.youtube.com/embed/PTFteX6tXRc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 53,
+        "title": "Casanova Kosgrove",
+        "video_id": "S16kJ3DTxGo",
+        "url": "https://www.youtube.com/embed/S16kJ3DTxGo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 54,
+        "title": "Touchy-Feely",
+        "video_id": "WZ_k1a9iHuE",
+        "url": "https://www.youtube.com/embed/WZ_k1a9iHuE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 55,
+        "title": "A Fashion Disaster",
+        "video_id": "p08rgX_joK4",
+        "url": "https://www.youtube.com/embed/p08rgX_joK4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 56,
+        "title": "The Struggle Is Real",
+        "video_id": "L00hI0b5hcs",
+        "url": "https://www.youtube.com/embed/L00hI0b5hcs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 57,
+        "title": "Face Plant",
+        "video_id": "vv1KZoSPEAw",
+        "url": "https://www.youtube.com/embed/vv1KZoSPEAw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 58,
+        "title": "Game Changer",
+        "video_id": "YN8dh3jvTNg",
+        "url": "https://www.youtube.com/embed/YN8dh3jvTNg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 59,
+        "title": "Little Man, Big Donk",
+        "video_id": "fbT18Jw4JoU",
+        "url": "https://www.youtube.com/embed/fbT18Jw4JoU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 60,
+        "title": "Take the Money",
+        "video_id": "aIksmB08a_o",
+        "url": "https://www.youtube.com/embed/aIksmB08a_o",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 61,
+        "title": "Spanglish",
+        "video_id": "iD5Q12UV6Es",
+        "url": "https://www.youtube.com/embed/iD5Q12UV6Es",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 62,
+        "title": "Sink or Swim",
+        "video_id": "Yq8HRusYLbk",
+        "url": "https://www.youtube.com/embed/Yq8HRusYLbk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 63,
+        "title": "Adios Kosgrove",
+        "video_id": "AA0R27o9uiw",
+        "url": "https://www.youtube.com/embed/AA0R27o9uiw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 64,
+        "title": "Mystery Date",
+        "video_id": "j5INuCLij1M",
+        "url": "https://www.youtube.com/embed/j5INuCLij1M",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 65,
+        "title": "50 Shades of Bernice",
+        "video_id": "_oW3esBG7aE",
+        "url": "https://www.youtube.com/embed/_oW3esBG7aE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 66,
+        "title": "Perez Strikes Back",
+        "video_id": "J1ABtJwK1Q8",
+        "url": "https://www.youtube.com/embed/J1ABtJwK1Q8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 67,
+        "title": "On the Floor",
+        "video_id": "ZinEnOUeKWI",
+        "url": "https://www.youtube.com/embed/ZinEnOUeKWI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 68,
+        "title": "Deuces, Tremont",
+        "video_id": "cJd1F-XDfeU",
+        "url": "https://www.youtube.com/embed/cJd1F-XDfeU",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 69,
+        "title": "Apocalypse Tow",
+        "video_id": "cBcfcNuU0tk",
+        "url": "https://www.youtube.com/embed/cBcfcNuU0tk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 70,
+        "title": "Flipping Out",
+        "video_id": "VXxEwBpTVuI",
+        "url": "https://www.youtube.com/embed/VXxEwBpTVuI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 71,
+        "title": "Legend of the Swamp Ape",
+        "video_id": "P_g_hzP8eAc",
+        "url": "https://www.youtube.com/embed/P_g_hzP8eAc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 72,
+        "title": "Pulling the Plug",
+        "video_id": "ncquiFYpJ2U",
+        "url": "https://www.youtube.com/embed/ncquiFYpJ2U",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 73,
+        "title": "A Taste of Bernice",
+        "video_id": "qzYvgKkA_zk",
+        "url": "https://www.youtube.com/embed/qzYvgKkA_zk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 74,
+        "title": "Maximum Power",
+        "video_id": "beEZVXzvIL0",
+        "url": "https://www.youtube.com/embed/beEZVXzvIL0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 75,
+        "title": "Family Therapy",
+        "video_id": "fLv1z8WHnj8",
+        "url": "https://www.youtube.com/embed/fLv1z8WHnj8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 76,
+        "title": "Towyard of Terror",
+        "video_id": "T9SuNNjS-FQ",
+        "url": "https://www.youtube.com/embed/T9SuNNjS-FQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 77,
+        "title": "The Customer Is Always Wrong",
+        "video_id": "le6lZllaKqs",
+        "url": "https://www.youtube.com/embed/le6lZllaKqs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 78,
+        "title": "Crazy in Love",
+        "video_id": "ngzreR_J7cQ",
+        "url": "https://www.youtube.com/embed/ngzreR_J7cQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 79,
+        "title": "South Beach Glo",
+        "video_id": "FtyAZ_wcQ-I",
+        "url": "https://www.youtube.com/embed/FtyAZ_wcQ-I",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 80,
+        "title": "Pain and Gain",
+        "video_id": "aN9pepKEkv4",
+        "url": "https://www.youtube.com/embed/aN9pepKEkv4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 81,
+        "title": "Checkmate",
+        "video_id": "fSPyYaOmkdo",
+        "url": "https://www.youtube.com/embed/fSPyYaOmkdo",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
   }
 ]
