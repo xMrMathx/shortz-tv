@@ -19,37 +19,40 @@ function szFindStreamer(def){
     return list.find(s=>String(s.url||"").toLowerCase().includes(def.match)||String(s.name||"").toLowerCase().replace(/\s+/g,"").includes(def.match))||null;
   }catch(e){ return null; }
 }
-function szState(s){
+function szState(s,def){
+  if(def&&typeof szIsCutCh==="function"&&szIsCutCh(def.ch))return "cut";
   if(!s)return "dark";
   if(s.live)return "live";
   try{ if(typeof sstreamPlayable==="function"&&sstreamPlayable(s))return "replay"; }catch(e){}
   return "off";
 }
-function szMeta(s){
+function szMeta(s,def){
+  if(def&&typeof szIsCutCh==="function"&&szIsCutCh(def.ch))return "Cut by the owner — off the air until he restores it";
+  if(def&&typeof szLineup==="function"){ const lu=szLineup()[def.ch]; if(lu&&(lu.show||lu.slot)){ const base=(lu.show||"")+(lu.slot?" · "+lu.slot:""); const st=szState(s,def); return base+(st==="live"?" · live now":st==="replay"?" · replays when he's off":""); } }
   if(!s)return "Channel not assigned in the feed yet";
   const plat=s.platform==="kick"?"Kick":s.platform==="twitch"?"Twitch":s.platform==="youtube"?"YouTube":"";
   const cat=s.category?String(s.category):"";
-  const st=szState(s);
+  const st=szState(s,def);
   if(st==="live")return (cat?cat+" · ":"")+"live now on Shortz VS";
   if(st==="replay")return (cat?cat+" · ":"")+"last stream replaying — the channel never sits black";
   return (cat?cat+" · ":"")+"off air — back soon"+(plat?" · via "+plat:"");
 }
 function szHeroHTML(def,s){
-  const st=szState(s);
+  const st=szState(s,def);
   const thumb=s&&typeof ssThumb==="function"?ssThumb(s):"";
-  const pill=st==="live"?'<span class="szlive-pill">● LIVE</span>':st==="replay"?'<span class="szlive-pill szrep">▶ REPLAY</span>':'<span class="szlive-pill szoff">OFFLINE</span>';
+  const pill=st==="live"?'<span class="szlive-pill">● LIVE</span>':st==="replay"?'<span class="szlive-pill szrep">▶ REPLAY</span>':st==="cut"?'<span class="szlive-pill szoff">✂ CUT</span>':'<span class="szlive-pill szoff">OFFLINE</span>';
   return `<div class="szhero" data-sz-tap="${def.ch}">
     ${thumb?`<img class="szhero-art" src="${esc(thumb)}" alt="" loading="lazy" onerror="this.remove()">`:""}
     <div class="szhero-shade"></div>${pill}<span class="szbug">${def.ch}</span>
-    <div class="szhero-who"><div class="szhero-name">${esc(def.name)}</div><div class="szhero-sub">${esc(szMeta(s))}</div></div>
+    <div class="szhero-who"><div class="szhero-name">${esc(def.name)}</div><div class="szhero-sub">${esc(szMeta(s,def))}</div></div>
   </div>`;
 }
 function szRowHTML(def,s){
-  const st=szState(s);
-  const tag=st==="live"?'<span class="sztag szon">ON AIR</span>':st==="replay"?'<span class="sztag szrp">REPLAY</span>':'<span class="sztag szdf">DARK</span>';
+  const st=szState(s,def);
+  const tag=st==="live"?'<span class="sztag szon">ON AIR</span>':st==="replay"?'<span class="sztag szrp">REPLAY</span>':st==="cut"?'<span class="sztag szdf">CUT</span>':'<span class="sztag szdf">DARK</span>';
   return `<div class="szrow" data-sz-tap="${def.ch}">
-    <div class="szchn"><div class="szchn-no">${def.ch}</div><div class="szchn-st">${st==="live"?"ON AIR":st==="replay"?"REPLAY":"DARK"}</div></div>
-    <div class="szmeta"><div class="szmeta-t">${esc(def.name)}</div><div class="szmeta-s">${esc(szMeta(s))}</div></div>${tag}
+    <div class="szchn"><div class="szchn-no">${def.ch}</div><div class="szchn-st">${st==="live"?"ON AIR":st==="replay"?"REPLAY":st==="cut"?"CUT":"DARK"}</div></div>
+    <div class="szmeta"><div class="szmeta-t">${esc(def.name)}</div><div class="szmeta-s">${esc(szMeta(s,def))}</div></div>${tag}
   </div>`;
 }
 const ShortzLive={
@@ -60,8 +63,8 @@ const ShortzLive={
     try{
       const box=document.querySelector("#view-streaming #ssCards");
       if(!box||box.querySelector(".szlive"))return;
-      const resolved=SZ_CHANNELS.map(def=>({def, s:szFindStreamer(def)}));
-      const heroDef=(resolved.find(r=>szState(r.s)==="live")||resolved[0]);
+      const resolved=szAllChannels().map(def=>({def, s:szFindStreamer(def)}));
+      const heroDef=(resolved.find(r=>szState(r.s,r.def)==="live")||resolved[0]);
       const rows=resolved.filter(r=>r!==heroDef);
       const sec=document.createElement("div");
       sec.className="szlive";
@@ -72,10 +75,17 @@ const ShortzLive={
       mine.className="szmine"; mine.dataset.szMine="1";
       mine.innerHTML=`<div><div class="szmine-t">🎥 MY CHANNEL — stream here</div><div class="szmine-s">Your channel, your slot. New here? The guided setup walks you in — no guessing.</div></div><span class="szmine-arrow">›</span>`;
       sec.appendChild(mine);
+      if(szIsOwner()){
+        const od=document.createElement("div");
+        od.className="szmine szowndoor"; od.dataset.szOwner="1";
+        od.innerHTML=`<div><div class="szmine-t">👑 THE NETWORK — owner controls</div><div class="szmine-s">Tonight's lineup, give a channel, cut a stream. Your place, your switch.</div></div><span class="szmine-arrow">›</span>`;
+        sec.appendChild(od);
+      }
       sec.addEventListener("click",e=>{
+        if(e.target.closest("[data-sz-owner]")){ ShortzLive.openOwner(); return; }
         if(e.target.closest("[data-sz-mine]")){ ShortzLive.openPanel(); return; }
         const hit=e.target.closest("[data-sz-tap]"); if(!hit)return;
-        const def=SZ_CHANNELS.find(d=>d.ch===hit.dataset.szTap); if(!def)return;
+        const def=szAllChannels().find(d=>d.ch===hit.dataset.szTap); if(!def)return;
         const s=szFindStreamer(def); if(!s)return;
         try{ sstreamJumpTo(streamShareId(s)); }catch(err){}
       });
@@ -188,3 +198,92 @@ ShortzLive.openPanel=function(){
 };
 ShortzLive.paintPanel=function(){ const p=document.getElementById("szPanel"); if(p)p.innerHTML=szPanelHTML(); };
 ShortzLive.closePanel=function(){ const p=document.getElementById("szPanel"); if(p)p.classList.remove("open"); document.body.style.overflow=""; };
+
+/* ============ PIECE 3: the OWNER network panel (weapon 6: a human
+   owns the place). Owner-gated by profile identity. Runs tonight's
+   lineup (show + slot per channel, feeds the Piece 1 section), hands
+   out channels from the carried directory, and carries per-channel
+   END plus the CUT ALL STREAMS master switch. Pre-flip honesty: cuts
+   and grants take hold on this device immediately and go network-wide
+   the day the tower flips — the panel says so in its footer. */
+const SZ_LINEUP_KEY="shortz_sz_lineup", SZ_EXTRA_KEY="shortz_sz_extra", SZ_CUT_KEY="shortz_sz_cut";
+function szExtras(){ const v=szLS(SZ_EXTRA_KEY,[]); return Array.isArray(v)?v:[]; }
+function szAllChannels(){ return SZ_CHANNELS.concat(szExtras()); }
+function szLineup(){ return szLS(SZ_LINEUP_KEY,{}); }
+function szCutSet(){ const v=szLS(SZ_CUT_KEY,[]); return Array.isArray(v)?v:[]; }
+function szIsCutCh(ch){ return szCutSet().includes(ch); }
+function szIsOwner(){
+  try{
+    const prof=(typeof store!=="undefined"&&store.get)?store.get("profile",null):null;
+    const nm=String((prof&&prof.name)||"").toLowerCase(), em=String((prof&&prof.email)||"").toLowerCase();
+    if(em==="craigjrbb@gmail.com")return true;
+    if(/mr\s*math|craig\s*moore|mr\.\s*moore/.test(nm))return true;
+    if(typeof Live!=="undefined"&&Live.name&&/mr\s*math/i.test(String(Live.name)))return true;
+  }catch(e){}
+  return false;
+}
+function szNextNum(){ let m=3; szAllChannels().forEach(d=>{ const n=parseInt(String(d.ch).replace(/\D/g,""),10); if(n>m)m=n; }); return m+1; }
+function szSlugOf(s){ try{ const u=String(s.url||""); const seg=u.split("/").filter(Boolean).pop()||""; return seg.replace(/^@/,"").toLowerCase(); }catch(e){ return ""; } }
+
+function szLineupRowHTML(def,s){
+  const lu=szLineup()[def.ch]||{};
+  const st=szState(s,def), cut=szIsCutCh(def.ch);
+  const stateTxt=cut?"CUT":st==="live"?"ON AIR":st==="replay"?"REPLAY":"DARK";
+  return `<div class="szown-row" data-ch="${def.ch}">
+    <div class="szown-top"><span class="szchn-no2">${def.ch}</span><span class="szown-name">${esc(def.name)}</span><span class="sztag ${cut?"szdf":st==="live"?"szon":st==="replay"?"szrp":"szdf"}">${stateTxt}</span></div>
+    <div class="szown-fields">
+      <input class="szp-input szown-in" data-lu-show="${def.ch}" type="text" maxlength="48" placeholder="Show title (e.g. Boxing Talk)" value="${esc(lu.show||"")}">
+      <input class="szp-input szown-in szown-slot" data-lu-slot="${def.ch}" type="text" maxlength="16" placeholder="Slot (6 PM)" value="${esc(lu.slot||"")}">
+    </div>
+    <div class="szown-btns">
+      <button class="szown-btn" data-sz-own="save" data-ch="${def.ch}">SAVE</button>
+      ${cut?`<button class="szown-btn szown-go" data-sz-own="restore" data-ch="${def.ch}">RESTORE</button>`:`<button class="szown-btn szown-end" data-sz-own="cut" data-ch="${def.ch}">✂ END STREAM</button>`}
+      ${SZ_CHANNELS.some(d=>d.ch===def.ch)?"":`<button class="szown-btn szown-end" data-sz-own="revoke" data-ch="${def.ch}">REVOKE CHANNEL</button>`}
+    </div>
+  </div>`;
+}
+function szOwnerHTML(){
+  const all=szAllChannels();
+  const holders=new Set(all.map(d=>d.match));
+  let cands=[];
+  try{ cands=sstreamList().filter(s=>{ const sl=szSlugOf(s); return sl&&!holders.has(sl)&&![...holders].some(h=>String(s.url||"").toLowerCase().includes(h)); }).slice(0,12); }catch(e){}
+  const cutN=szCutSet().length;
+  return `<div class="szp-head"><button class="szp-x" data-sz-own="close" aria-label="Close">✕</button>
+      <div class="szp-title">👑 THE NETWORK</div><div class="szp-sub">Owner controls — you run this place</div></div>
+    <div class="szp-scroll">
+      <div class="szp-card"><div class="szp-cardt">📋 TONIGHT'S LINEUP</div>
+        ${all.map(def=>szLineupRowHTML(def,szFindStreamer(def))).join("")}
+      </div>
+      <div class="szp-card"><div class="szp-cardt">🎁 GIVE A CHANNEL — next up: SZ${szNextNum()}</div>
+        <div class="szp-stepb">A channel is forever placement in the guide — nobody gets buried here. You hand them out yourself.</div>
+        ${cands.length?cands.map(s=>`<div class="szown-cand"><span class="szown-candn">${esc(s.name||szSlugOf(s))}</span><span class="szown-candp">${esc(s.platform||"")}</span><button class="szown-btn szown-go" data-sz-own="give" data-slug="${esc(szSlugOf(s))}" data-name="${esc(s.name||szSlugOf(s))}">GIVE HIM SZ${szNextNum()}</button></div>`).join(""):'<div class="szp-stepb">Every streamer in the directory already holds a channel.</div>'}
+      </div>
+      ${cutN<all.length?`<button class="szown-cutall" data-sz-own="cutall">✂ CUT ALL STREAMS</button>`:""}
+      ${cutN?`<button class="szown-restoreall" data-sz-own="restoreall">▶ RESTORE ALL STREAMS</button>`:""}
+      <div class="szp-startsub">Cuts and grants take hold on this device now — they go network-wide the day the tower flips.</div>
+    </div>`;
+}
+ShortzLive.openOwner=function(){
+  if(!szIsOwner())return;
+  let p=document.getElementById("szOwnerPanel");
+  if(!p){ p=document.createElement("div"); p.id="szOwnerPanel"; p.className="szpanel"; document.body.appendChild(p);
+    p.addEventListener("click",e=>{
+      const b=e.target.closest("[data-sz-own]"); if(!b)return;
+      const act=b.dataset.szOwn, ch=b.dataset.ch;
+      const after=()=>{ ShortzLive.paintOwner(); try{ ssBuildCards(); }catch(err){} };
+      if(act==="close") ShortzLive.closeOwner();
+      else if(act==="save"){ const lu=szLineup(); const sh=p.querySelector(`[data-lu-show="${ch}"]`), sl=p.querySelector(`[data-lu-slot="${ch}"]`);
+        lu[ch]={show:sh?sh.value.trim():"", slot:sl?sl.value.trim():""}; szSetLS(SZ_LINEUP_KEY,lu); after(); }
+      else if(act==="cut"){ const c=szCutSet(); if(!c.includes(ch)){ c.push(ch); szSetLS(SZ_CUT_KEY,c); } after(); }
+      else if(act==="restore"){ szSetLS(SZ_CUT_KEY,szCutSet().filter(x=>x!==ch)); after(); }
+      else if(act==="cutall"){ szSetLS(SZ_CUT_KEY,szAllChannels().map(d=>d.ch)); after(); }
+      else if(act==="restoreall"){ szSetLS(SZ_CUT_KEY,[]); after(); }
+      else if(act==="revoke"){ szSetLS(SZ_EXTRA_KEY,szExtras().filter(d=>d.ch!==ch)); szSetLS(SZ_CUT_KEY,szCutSet().filter(x=>x!==ch)); after(); }
+      else if(act==="give"){ const ex=szExtras(); ex.push({ch:"SZ"+szNextNum(), match:b.dataset.slug, name:b.dataset.name}); szSetLS(SZ_EXTRA_KEY,ex); after(); }
+    });
+  }
+  ShortzLive.paintOwner();
+  p.classList.add("open"); document.body.style.overflow="hidden";
+};
+ShortzLive.paintOwner=function(){ const p=document.getElementById("szOwnerPanel"); if(p)p.innerHTML=szOwnerHTML(); };
+ShortzLive.closeOwner=function(){ const p=document.getElementById("szOwnerPanel"); if(p)p.classList.remove("open"); document.body.style.overflow=""; };

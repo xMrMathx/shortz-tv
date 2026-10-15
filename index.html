@@ -1305,6 +1305,26 @@ body.playing-game #evToggle,body.playing-game #tvBtn,body.playing-game #evHeader
 .szp-done-t{font-size:16px;font-weight:900;color:#fff}
 .szp-done-s{font-size:12.5px;color:#c6c6cd;line-height:1.55;margin-top:5px}
 .szp-ghost{margin-top:11px;background:none;border:1px solid #3a3a41;color:#c6c6cd;border-radius:9px;padding:9px 13px;font-size:12px;font-weight:800;cursor:pointer}
+/* OWNER network panel (Piece 3) */
+.szowndoor{background:linear-gradient(120deg,#241a04,#4a3808);border-color:#8a6d1f}
+.szown-row{border-top:1px solid #232329;padding:11px 0}
+.szown-row:first-of-type{border-top:0}
+.szown-top{display:flex;align-items:center;gap:8px}
+.szchn-no2{font-size:12px;font-weight:900;color:#ffd34d}
+.szown-name{font-size:13.5px;font-weight:800;color:#f2f2f4;flex:1}
+.szown-fields{display:flex;gap:7px;margin-top:8px}
+.szown-in{font-size:12px;padding:9px}
+.szown-slot{max-width:96px}
+.szown-btns{display:flex;gap:7px;margin-top:8px}
+.szown-btn{background:#26262b;color:#fff;border:1px solid #3a3a41;border-radius:8px;padding:8px 12px;font-size:11px;font-weight:900;cursor:pointer}
+.szown-go{background:#2c7a3f;border-color:#2c7a3f}
+.szown-end{color:#ff9d94}
+.szown-cand{display:flex;align-items:center;gap:8px;padding:8px 0;border-top:1px solid #232329}
+.szown-candn{font-size:12.5px;font-weight:800;color:#f2f2f4}
+.szown-candp{font-size:10px;color:#9a9aa2;text-transform:capitalize}
+.szown-cand .szown-btn{margin-left:auto}
+.szown-cutall{width:100%;margin-top:14px;background:#3a1113;color:#ff7a72;border:1px solid #7d2320;border-radius:12px;padding:14px;font-size:14px;font-weight:900;cursor:pointer}
+.szown-restoreall{width:100%;margin-top:14px;background:#2c7a3f;color:#fff;border:0;border-radius:12px;padding:14px;font-size:14px;font-weight:900;cursor:pointer}
 .szhero{position:relative;border-radius:16px;overflow:hidden;height:196px;background:linear-gradient(160deg,#5c1030,#a31645 40%,#141c52 90%);cursor:pointer}
 .szhero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .szhero-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(0,0,0,.86))}
@@ -4991,7 +5011,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261015013146";
+const BUILD="20261015014248";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8337,10 +8357,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=20261015013146"></script>
+<script src="js/folders.js?v=20261015014248"></script>
 <script>
 </script>
-<script src="js/guide.js?v=20261015013146"></script>
+<script src="js/guide.js?v=20261015014248"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9148,9 +9168,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=20261015013146"></script>
-<script src="js/shortz-live.js?v=20261015013146"></script>
-<script src="js/games.js?v=20261015013146"></script>
+<script src="js/streaming.js?v=20261015014248"></script>
+<script src="js/shortz-live.js?v=20261015014248"></script>
+<script src="js/games.js?v=20261015014248"></script>
 <script>
 
 
@@ -9668,7 +9688,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=20261015013146"></script>
+<script src="js/swipe.js?v=20261015014248"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11888,7 +11908,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=20261015013146"></script>
+<script src="js/live-sports.js?v=20261015014248"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
