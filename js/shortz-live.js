@@ -336,6 +336,13 @@ ShortzLive._car={idx:0, timer:null, holdUntil:0, count:0, go:null, playing:-1, d
 const SZ_CAR_MS=60000;
 function szCarSec(){ return document.querySelector("#view-streaming .szlive"); }
 function szCarVisible(sec){ if(!sec)return false; const r=sec.getBoundingClientRect(); return r.bottom>80&&r.top<window.innerHeight*0.75&&r.right>40&&r.left<window.innerWidth-40; }
+/* The FEED gate must measure the HERO (.szcar) alone, never the whole
+   .szlive section (Brain streaming audit 2026-10-15): the section is
+   header + hero + channel rows + doors — 700-900px tall on his phone —
+   so a section-based gate stayed shut for ~1000px of scrolling: the
+   hero long gone, the carousel still playing to nobody, and every
+   feed activation (and tap) silently refused. Same thresholds, hero box. */
+function szHeroVisible(sec){ const h=sec&&sec.querySelector(".szcar"); if(!h)return false; const r=h.getBoundingClientRect(); return r.bottom>80&&r.top<window.innerHeight*0.75&&r.right>40&&r.left<window.innerWidth-40; }
 function szSlideFill(sec,i,mode){
   const sl=sec&&sec.querySelectorAll(".szslide")[i]; if(!sl)return;
   const art=sl.querySelector(".szslide-card"); if(!art)return;
@@ -375,7 +382,7 @@ ShortzLive.carVis=function(){
   const st=ShortzLive._car, sec=szCarSec(); if(!sec||!st.count)return;
   try{ ShortzLive.carRefill(); }catch(e){} // self-heal: a slide mounted before the live data landed swaps to the real live video on this tick
   if(document.hidden){ ShortzLive.carUnload(); return; }
-  if(szCarVisible(sec)){
+  if(szHeroVisible(sec)){
     const stale=st.playing===st.idx&&(Date.now()-(st.playSince||0)>4000)&&!szSlideAlive(sec,st.idx);
     if(st.playing!==st.idx||stale) ShortzLive.carPlay(st.idx); else szFeedYield();
   }
@@ -411,12 +418,12 @@ ShortzLive.carStart=function(sec,count){
 if(typeof ssPickActive==="function"&&!window.__szPickWrapped){
   window.__szPickWrapped=true;
   const _szPick=ssPickActive;
-  ssPickActive=function(){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")){ const r=sec.getBoundingClientRect(); if(r.width===0||szCarVisible(sec))return; } return _szPick(); };
+  ssPickActive=function(){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")){ const r=sec.getBoundingClientRect(); if(r.width===0||szHeroVisible(sec))return; } return _szPick(); };
 }
 if(typeof ssActivate==="function"&&!window.__szActWrapped){
   window.__szActWrapped=true;
   const _szAct=ssActivate;
-  ssActivate=function(idx){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")&&szCarVisible(sec))return; return _szAct(idx); };
+  ssActivate=function(idx){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")&&szHeroVisible(sec))return; return _szAct(idx); };
 }
 if(typeof stopStreamFeed==="function"&&!window.__szStopWrapped){
   window.__szStopWrapped=true;
