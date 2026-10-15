@@ -90,6 +90,14 @@ const GAMES=[
     embed:"https://html5.gamemonetize.co/nsvqmdi6fps4dvi4a2n3yvnnvnq73ost/",
     thumb:"https://img.gamemonetize.com/nsvqmdi6fps4dvi4a2n3yvnnvnq73ost/512x384.jpg",
     sub:"Full 11v11 football — work the ball up the pitch and beat the keeper, vs the computer. His pick from the top-sports list." },
+  { title:"PunchBox 3D", cat:"Boxing", orient:"landscape",
+    embed:"https://playgama.com/export/game/punchbox-3d",
+    thumb:"https://static.playgama.com/p-img/pg/punchbox-3d/big_preview/d03aaa2ef6ec46c9a3bf42c8a4277f02?width=1200",
+    sub:"3D boxing career — fight rivals in the ring, build your stats, climb to the belt · solo vs the computer. 4.4 stars from 141 players." },
+  { title:"Boxing Stars", cat:"Boxing", orient:"landscape",
+    embed:"https://playgama.com/export/game/boxing-stars",
+    thumb:"https://static.playgama.com/p-img/pg/boxing-stars/big_preview/e924e27fd059432aaceb25596fa1695a?width=1200",
+    sub:"3D boxing career — underground circuit to the championship, tournaments, trainable abilities, knockouts · solo vs the computer." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
