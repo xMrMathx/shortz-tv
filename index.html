@@ -178,6 +178,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 @media(min-width:1024px){ .btt-wrap{max-width:1180px;padding-left:24px;padding-right:24px} }
 .gtile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .gtile{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#101013;border:1px solid #232328;border-radius:14px;padding:16px 14px;color:var(--txt);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-align:left}
+.gtile.games{border-color:rgba(229,9,20,.55);background:linear-gradient(135deg,rgba(229,9,20,.20),rgba(229,9,20,.05))}
 .gtile:active{transform:scale(.98)}
 .gtile .gtile-cnt{font-size:12px;color:var(--mut);font-weight:600;white-space:nowrap}
 .gtile.all{border-color:rgba(229,9,20,.55)}
@@ -426,6 +427,11 @@ body.rot-full #rotexit{display:block}
 .cs-g{font-size:10px;color:var(--mut);margin:1px 0 0}
 .cs-award{font-size:10px;color:#f6c945;margin:1px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .award-e{font-size:10px;color:var(--mut);margin:1px 0 0}
+/* games row in Browse (his order 2026-10-14): same shelf family, landscape art */
+.gm-item{position:relative;flex:0 0 auto;width:170px;cursor:pointer}
+.gm-item img{display:block;width:170px;height:96px;object-fit:cover;border-radius:8px;background:#1a1a1a;box-shadow:0 6px 18px rgba(0,0,0,.55)}
+.gm-play{position:absolute;top:31px;left:50%;transform:translateX(-50%);width:34px;height:34px;border-radius:50%;background:rgba(229,9,20,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 4px 14px rgba(0,0,0,.5);pointer-events:none}
+.gcard.gspot{box-shadow:0 0 0 2px #e50914,0 10px 30px rgba(229,9,20,.35)}
 /* ---------- browse ---------- */
 body.force-land #view-home{transform:rotate(90deg);transform-origin:center center;width:100vh;height:100vw;position:fixed;top:50%;left:50%;margin-left:-50vw;margin-top:-50vh}
 .pills{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 6px;margin:0 -16px}
@@ -4907,7 +4913,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014192716";
+const BUILD="20261014194011";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7313,6 +7319,7 @@ function renderBrowseLanding(){
       <div class="rowlabel" style="margin-top:14px"><h2>Genres</h2><span>${GENRES.length} genres</span></div>
       <div class="gtile-grid">
         <button class="gtile all" data-gtile="${ALL}"><span>All</span><span class="gtile-cnt">${C.length} shows</span></button>
+        ${(window.Games&&Games.list&&Games.list().length)?`<button class="gtile games" data-gtile="__games"><span>🎮 Games</span><span class="gtile-cnt">${Games.list().length} to play</span></button>`:""}
         ${tiles.map(g=>`<button class="gtile" data-gtile="${esc(g)}"><span>${esc(g)}</span><span class="gtile-cnt">${cnt(g)}</span></button>`).join("")}
       </div>
     </div>
@@ -7321,6 +7328,7 @@ function renderBrowseLanding(){
   if(signed)paintBrowseFresh();
   document.querySelectorAll("#view-browse [data-gtile]").forEach(b=>{ b.onclick=()=>{
     const g=b.dataset.gtile;
+    if(g==="__games"){ try{ renderView("games"); }catch(e){} try{ go("games"); }catch(e){} return; }
     if(g===ALL){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); return; }
     if(g==="Sports"){ renderBrowse("Sports"); window.scrollTo(0,0); return; } // phase-1 exception: Sports opens its picker
     openGenreView(g,"browse");
@@ -7378,6 +7386,10 @@ function renderBrowse(g){
         ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
         `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:x==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[x]||0)}</span></button>`).join("")}
       </div>
+    </div></div>
+    <div class="wrap"><div class="award-sec" id="gamesSec" style="display:none">
+      <div class="award-head"><h3>🎮 Games</h3><button id="gamesAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">Open Games ›</button></div>
+      <div class="award-row" id="gamesRow"></div>
     </div></div>
     <div class="wrap"><div class="award-sec" id="awardWinSec" style="display:none">
       <div class="award-head"><h3>🏆 Award Winners</h3><button id="awardWinAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
@@ -7461,6 +7473,7 @@ function renderBrowse(g){
   loadAwardCarousels(); // award-winning short films + short series carousels
   renderAwardWinners(); // 🏆 verified-winners shelf under the genre dropdown
   renderComingSoon(); // 🔜 coming-soon premieres shelf (coming_soon.json)
+  try{if(window.Games&&Games.renderShelf)Games.renderShelf();}catch(e){} // 🎮 Games row in Browse — fed by the one shelf list in games.js
   // Previously spotlight: open James's site in the system browser
   const psb=$("#prevSpotBtn"), psp=$("#prevSpot");
   const openPrev=()=>{ try{ window.open("https://watchpreviously.com/","_blank"); }catch(e){ location.href="https://watchpreviously.com/"; } };
@@ -8139,10 +8152,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=20261014192716"></script>
+<script src="js/folders.js?v=20261014194011"></script>
 <script>
 </script>
-<script src="js/guide.js?v=20261014192716"></script>
+<script src="js/guide.js?v=20261014194011"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -8950,8 +8963,8 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=20261014192716"></script>
-<script src="js/games.js?v=20261014192716"></script>
+<script src="js/streaming.js?v=20261014194011"></script>
+<script src="js/games.js?v=20261014194011"></script>
 <script>
 
 
@@ -9469,7 +9482,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=20261014192716"></script>
+<script src="js/swipe.js?v=20261014194011"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11689,7 +11702,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=20261014192716"></script>
+<script src="js/live-sports.js?v=20261014194011"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>

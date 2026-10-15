@@ -140,4 +140,38 @@ function gameStop(){
   if(p){ p.classList.remove("open"); p.querySelectorAll("iframe").forEach(f => f.remove()); }
   gamesActiveCard = null;
 }
-window.Games={stop:gameStop};
+/* the Games row inside Browse (his order 2026-10-14): fed by THIS list —
+   the shelf has one source of truth, and a tap lands on the game's card
+   in the Games section (card-first rules intact; playing starts there) */
+function renderGamesShelf(){
+  const sec=document.getElementById("gamesSec"),row=document.getElementById("gamesRow");
+  if(!sec||!row||!GAMES.length)return;
+  row.innerHTML=GAMES.map(g=>
+    '<div class="gm-item" data-gtitle="'+esc(g.title)+'">'+
+      '<img decoding="async" src="'+esc(g.thumb)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'+
+      '<div class="gm-play">\u25b6</div>'+
+      '<div class="award-t">'+esc(g.title)+'</div>'+
+      '<div class="award-e">'+esc(g.cat)+'</div>'+
+    '</div>').join("");
+  row.querySelectorAll(".gm-item").forEach(it=>{
+    it.addEventListener("click",()=>{ gamePresent(it.getAttribute("data-gtitle")); });
+  });
+  const all=document.getElementById("gamesAll");
+  if(all)all.onclick=()=>{ try{ renderView("games"); }catch(e){} try{ go("games"); }catch(e){} };
+  sec.style.display="";
+}
+function gamePresent(title){
+  try{ renderView("games"); }catch(e){}
+  try{ go("games"); }catch(e){}
+  setTimeout(()=>{
+    const card=[...document.querySelectorAll("#view-games .gcard")].find(c=>{
+      const n=c.querySelector(".gcard-name"); return n && n.textContent===title;
+    });
+    if(!card)return;
+    try{ card.scrollIntoView({block:"center",behavior:"smooth"}); }catch(e){ card.scrollIntoView(); }
+    card.classList.add("gspot");
+    setTimeout(()=>card.classList.remove("gspot"),1900);
+  },380);
+}
+window.Games={stop:gameStop,list:()=>GAMES,present:gamePresent,renderShelf:renderGamesShelf};
+try{ renderGamesShelf(); }catch(e){}
