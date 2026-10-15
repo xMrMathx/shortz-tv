@@ -54,6 +54,14 @@ const GAMES=[
     embed:"https://playgama.com/export/game/warfare-1942",
     thumb:"https://static.playgama.com/p-img/pg/warfare-1942/big_preview/b6d2f1acce5f428d8f2c3aa570f34660?width=1200",
     sub:"ONLINE multiplayer WW2 FPS — full on-screen touch layout: move left side, aim right side, buttons for the rest." },
+  { title:"Commando Force 2", cat:"First-Person Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/commando-force-2",
+    thumb:"https://static.playgama.com/p-img/pg/commando-force-2/big_preview/83606346549d4c5dbcde95004e61f5a5?width=1200",
+    sub:"ONLINE multiplayer vs real people — Team Play, Free-for-All, Gun Race, Sniper Only. Virtual joystick + on-screen buttons, auto-aim in settings." },
+  { title:"Pool Club: 8 Ball Billiards", cat:"Billiards", orient:"landscape",
+    embed:"https://playgama.com/export/game/pool-club-8-ball-billiards",
+    thumb:"https://static.playgama.com/p-img/ph/pool-club-8-ball-billiards/big_preview/42c35c936b3e4c2ead5d7511675ed31b?width=1200",
+    sub:"Play with Friends in a private room, 1v1 online against the world, solo vs bot, and 40 practice levels. His pick for Ivory (2026-10-14)." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
