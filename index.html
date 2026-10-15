@@ -4918,7 +4918,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014235540";
+const BUILD="20261015002729";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6243,6 +6243,21 @@ function cfRecompute(){
   if(window.__swiping)return; // mid-slide: previews must not cycle under the finger
   if(homeMode!=="cards"||curView!=="home"||document.hidden||piaActive){ cfStopPreview(); return; }
   const sc=$("#cfeed"); if(!sc)return;
+  // HUB TRUTH (2026-10-15, his recording): in the Everything hub,
+  // curView only changes at rest-entry — a parked or crawled ring can
+  // sit on another pane with curView still "home", and every recompute
+  // then kept (or restarted) a Home preview nobody could see, playing
+  // at full sound over the pane on screen. The pane actually centered
+  // in the track is the only truth: not Home -> silence, always.
+  if(sc.closest&&sc.closest("#views.evtrack")){
+    const vs=document.getElementById("views"); const W=window.innerWidth||1;
+    const panes=vs?[...vs.querySelectorAll(".view.evpane")]:[];
+    if(panes.length){
+      const pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
+      const centered=panes[pos]?panes[pos].id.replace("view-",""):"home";
+      if(centered!=="home"){ cfStopPreview(); return; }
+    }
+  }
   const sr=sc.getBoundingClientRect();
   // in the Everything hub the feed is flattened into its pane (the
   // pane scrolls, not the feed), so the feed's own rect spans the
@@ -8249,10 +8264,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=20261014235540"></script>
+<script src="js/folders.js?v=20261015002729"></script>
 <script>
 </script>
-<script src="js/guide.js?v=20261014235540"></script>
+<script src="js/guide.js?v=20261015002729"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9060,8 +9075,8 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=20261014235540"></script>
-<script src="js/games.js?v=20261014235540"></script>
+<script src="js/streaming.js?v=20261015002729"></script>
+<script src="js/games.js?v=20261015002729"></script>
 <script>
 
 
@@ -9579,7 +9594,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=20261014235540"></script>
+<script src="js/swipe.js?v=20261015002729"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11799,7 +11814,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=20261014235540"></script>
+<script src="js/live-sports.js?v=20261015002729"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
