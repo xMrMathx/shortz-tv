@@ -327,24 +327,75 @@ function szSlideHTML(s,def){
   const sub=String(s.title||s.category||"");
   return `<div class="szhero szslide" data-sz-pop="${esc(streamShareId(s))}">
     ${thumb?`<img class="szhero-art" src="${esc(thumb)}" alt="" loading="lazy" onerror="this.remove()">`:""}
+    <article class="sscard szslide-card">${(typeof ssCardHTML==="function")?ssCardHTML():""}</article>
     <div class="szhero-shade"></div><span class="szlive-pill">● LIVE</span><span class="szbug">${esc(bug)}</span>
     <div class="szhero-who"><div class="szhero-name">${esc(s.name||"")}</div><div class="szhero-sub">${esc(sub?sub+" · live now on Shortz VS":"live now on Shortz VS")}</div></div>
   </div>`;
 }
-ShortzLive._car={idx:0, timer:null, holdUntil:0, count:0, go:null};
+ShortzLive._car={idx:0, timer:null, holdUntil:0, count:0, go:null, playing:-1};
+function szCarSec(){ return document.querySelector("#view-streaming .szlive"); }
+function szCarVisible(sec){ if(!sec)return false; const r=sec.getBoundingClientRect(); return r.bottom>80&&r.top<window.innerHeight*0.75; }
+function szSlideFill(sec,i,mode){
+  const sl=sec&&sec.querySelectorAll(".szslide")[i]; if(!sl)return;
+  const art=sl.querySelector(".szslide-card"); if(!art)return;
+  const s=szFindByShareId(sl.dataset.szPop); if(!s)return;
+  try{ sstreamFill(art, s, mode); }catch(e){}
+}
+ShortzLive.carPlay=function(idx){
+  const st=ShortzLive._car, sec=szCarSec(); if(!sec)return;
+  if(st.playing>=0&&st.playing!==idx) szSlideFill(sec, st.playing, "unload");
+  szSlideFill(sec, idx, "current");
+  st.playing=idx;
+  /* the carousel is the on-screen player: the feed card yields */
+  try{ if(typeof ssActiveIdx!=="undefined"&&ssActiveIdx>=0&&typeof ssCards!=="undefined"&&ssCards[ssActiveIdx]) sstreamFill(ssCards[ssActiveIdx], sstreamStack[ssActiveIdx], "unload"); }catch(e){}
+};
+ShortzLive.carUnload=function(){
+  const st=ShortzLive._car, sec=szCarSec();
+  if(st.playing>=0&&sec) szSlideFill(sec, st.playing, "unload");
+  st.playing=-1;
+};
+ShortzLive.carVis=function(){
+  const st=ShortzLive._car, sec=szCarSec(); if(!sec||!st.count)return;
+  if(typeof curView!=="undefined"&&curView!=="streaming"){ ShortzLive.carUnload(); return; }
+  if(szCarVisible(sec)){ if(st.playing!==st.idx) ShortzLive.carPlay(st.idx); }
+  else ShortzLive.carUnload();
+};
 ShortzLive.carStart=function(sec,count){
   const st=ShortzLive._car;
   if(st.timer){ clearInterval(st.timer); st.timer=null; }
-  st.idx=0; st.count=count||0;
+  st.idx=0; st.count=count||0; st.playing=-1;
   const track=sec?sec.querySelector(".szcar-track"):null;
-  if(!track||st.count<2)return;
-  const go2=n=>{ st.idx=((n%st.count)+st.count)%st.count; track.style.transform=`translateX(-${st.idx*100}%)`; sec.querySelectorAll(".szcar-dots i").forEach((d,i)=>d.classList.toggle("on",i===st.idx)); };
+  if(!track||st.count<1)return;
+  const go2=n=>{ st.idx=((n%st.count)+st.count)%st.count; track.style.transform=`translateX(-${st.idx*100}%)`; sec.querySelectorAll(".szcar-dots i").forEach((d,i)=>d.classList.toggle("on",i===st.idx)); if(szCarVisible(sec)) ShortzLive.carPlay(st.idx); };
   st.go=go2;
   let tx=null;
   track.addEventListener("touchstart",e=>{ tx=e.touches[0].clientX; },{passive:true});
   track.addEventListener("touchend",e=>{ if(tx==null)return; const dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>36){ go2(st.idx+(dx<0?1:-1)); st.holdUntil=Date.now()+12000; } },{passive:true});
-  st.timer=setInterval(()=>{ if(document.hidden)return; if(typeof curView!=="undefined"&&curView!=="streaming")return; if(Date.now()<st.holdUntil)return; if(document.getElementById("szPop"))return; go2(st.idx+1); },5500);
+  if(szCarVisible(sec)) ShortzLive.carPlay(0);
+  st.timer=setInterval(()=>{
+    if(document.hidden)return;
+    if(typeof curView!=="undefined"&&curView!=="streaming"){ ShortzLive.carUnload(); return; }
+    if(!szCarVisible(sec)){ ShortzLive.carUnload(); return; }
+    if(document.getElementById("szPop")){ ShortzLive.carUnload(); return; }
+    if(st.playing!==st.idx) ShortzLive.carPlay(st.idx);
+    if(st.count<2||Date.now()<st.holdUntil||document.getElementById("szPop"))return;
+    go2(st.idx+1);
+  },5500);
 };
+/* while the carousel is on screen it owns playback — the feed's
+   auto-pick stands down; leaving the Streaming view silences slides */
+if(typeof ssPickActive==="function"&&!window.__szPickWrapped){
+  window.__szPickWrapped=true;
+  const _szPick=ssPickActive;
+  ssPickActive=function(){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")&&szCarVisible(sec))return; return _szPick(); };
+}
+if(typeof stopStreamFeed==="function"&&!window.__szStopWrapped){
+  window.__szStopWrapped=true;
+  const _szStop=stopStreamFeed;
+  stopStreamFeed=function(){ try{ ShortzLive.carUnload(); }catch(e){} return _szStop(); };
+}
+let _szVisT=null;
+document.addEventListener("scroll",()=>{ if(_szVisT)return; _szVisT=setTimeout(()=>{ _szVisT=null; try{ ShortzLive.carVis(); }catch(e){} },180); },true);
 const SZ_LIKES_KEY="shortz_sz_likes", SZ_FOLLOWS_KEY="shortz_sz_follows", SZ_COMMENTS_KEY="shortz_sz_comments";
 function szArr(k){ const v=szLS(k,[]); return Array.isArray(v)?v:[]; }
 function szCommentsAll(){ const v=szLS(SZ_COMMENTS_KEY,{}); return (v&&typeof v==="object"&&!Array.isArray(v))?v:{}; }
@@ -365,6 +416,7 @@ const SZ_IC={
 ShortzLive.openPop=function(id){
   const s=szFindByShareId(id); if(!s)return;
   ShortzLive.closePop(true);
+  try{ ShortzLive.carUnload(); }catch(e){}
   try{ if(typeof ssActiveIdx!=="undefined"&&ssActiveIdx>=0&&typeof ssCards!=="undefined"&&ssCards[ssActiveIdx]) sstreamFill(ssCards[ssActiveIdx], sstreamStack[ssActiveIdx], "unload"); }catch(e){}
   const def=szDefFor(s), cut=!!(def&&szIsCutCh(def.ch));
   const playable=(()=>{ try{ return sstreamPlayable(s); }catch(e){ return false; } })();
@@ -422,5 +474,5 @@ ShortzLive.closePop=function(silent){
   if(stage){ try{ sstreamFill(stage, null, "blank"); }catch(e){} }
   w.remove();
   if(!document.querySelector(".szpanel.open")){ document.body.classList.remove("sz-open"); document.body.style.overflow=""; }
-  if(!silent){ try{ ssPickActive(); }catch(e){} }
+  if(!silent){ try{ ssPickActive(); }catch(e){} try{ ShortzLive.carVis(); }catch(e){} }
 };

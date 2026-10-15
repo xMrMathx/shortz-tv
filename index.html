@@ -1333,6 +1333,10 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .szcar-dots{position:absolute;left:0;right:0;bottom:7px;display:flex;justify-content:center;gap:5px;z-index:3}
 .szcar-dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35)}
 .szcar-dots i.on{background:#fff;width:16px;border-radius:3px}
+.szslide-card{position:absolute;inset:0;border:0!important;border-radius:0!important;background:#000}
+.szslide-card .sscard-frame{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+.szslide-card .sscard-ov{display:none}
+.szslide-card .sscard-frame iframe,.szslide-card .sscard-frame video{pointer-events:none}
 .szpop-wrap{position:fixed;inset:0;z-index:9300;display:flex;align-items:center;justify-content:center}
 .szpop-scrim{position:absolute;inset:0;background:rgba(0,0,0,.55)}
 .szpop-card{position:relative;width:min(92vw,430px);max-height:88vh;overflow-y:auto;background:#101013;border:1px solid #3d3d46;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.75)}
@@ -5045,7 +5049,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261015020605";
+const BUILD="20261015021120";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8391,10 +8395,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=20261015020605"></script>
+<script src="js/folders.js?v=20261015021120"></script>
 <script>
 </script>
-<script src="js/guide.js?v=20261015020605"></script>
+<script src="js/guide.js?v=20261015021120"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9202,9 +9206,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=20261015020605"></script>
-<script src="js/shortz-live.js?v=20261015020605"></script>
-<script src="js/games.js?v=20261015020605"></script>
+<script src="js/streaming.js?v=20261015021120"></script>
+<script src="js/shortz-live.js?v=20261015021120"></script>
+<script src="js/games.js?v=20261015021120"></script>
 <script>
 
 
@@ -9722,7 +9726,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=20261015020605"></script>
+<script src="js/swipe.js?v=20261015021120"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11942,7 +11946,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=20261015020605"></script>
+<script src="js/live-sports.js?v=20261015021120"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
