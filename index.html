@@ -419,6 +419,7 @@ body.rot-full #rotexit{display:block}
 .top10-v{position:relative;z-index:1;font-size:10px;color:var(--mut);margin:1px 0 0 46px}
 /* award-winning carousels */
 .award-sec{margin:16px -16px 8px}
+.disc-livepill{position:absolute;top:6px;left:6px;background:#e8332a;color:#fff;font-size:10px;font-weight:900;padding:3px 7px;border-radius:6px;letter-spacing:.4px;z-index:3}
 .award-head{display:flex;align-items:baseline;gap:8px;padding:0 16px;margin-bottom:6px}
 .award-head h3{font-size:17px;font-weight:800;color:#fff;margin:0}
 .award-row{display:flex;gap:10px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -1811,7 +1812,7 @@ try{
     <div class="logo">SHORTZ <b>VS</b><sup style="font-size:.42em;font-weight:700;color:#c9c9d2;margin-left:2px;letter-spacing:0">TM</sup></div>
     <nav id="deskNav">
       <button data-nav="home" class="on">Home</button>
-      <button data-nav="browse">Browse</button>
+      <button data-nav="browse">Discovery</button>
       <button data-nav="live">Live</button>
       <button data-nav="streaming">Streaming</button>
       <button data-nav="manga">Manga</button>
@@ -1829,7 +1830,7 @@ try{
     <div class="slogo">SHORTZ <b>VS</b><sup style="font-size:.42em;font-weight:700;color:#c9c9d2;margin-left:2px;letter-spacing:0">TM</sup></div>
     <div class="snav">
       <button data-nav="home" class="on"><span class="sico">🏠</span><span class="slab">Home</span></button>
-      <button data-nav="browse"><span class="sico">🎬</span><span class="slab">Browse</span></button>
+      <button data-nav="browse"><span class="sico">🎬</span><span class="slab">Discovery</span></button>
       <button data-nav="live"><span class="sico">🔴</span><span class="slab">Live</span></button>
       <button data-nav="streaming"><span class="sico">📡</span><span class="slab">Streaming</span></button>
       <button data-nav="manga"><span class="sico">📖</span><span class="slab">Manga</span></button>
@@ -1875,7 +1876,7 @@ try{
   <div id="evHint" aria-hidden="true">Swipe ← → to explore sections</div>
   <button id="micDot" aria-label="Tap for voice">🎙</button>
   <!-- EVERYTHING toggle: persistent — tap to enter/exit the swipeable section hub -->
-  <button id="evToggle" aria-label="Browse all sections">⊞</button>
+  <button id="evToggle" aria-label="All sections">⊞</button>
   <!-- UPDATES TV button: sits right of the All button — tap to summon the little
        TV (NEW / COMING SOON / TOP 10 updates), tap again to put it away.
        Glyph is inline SVG (stroke=currentColor), NOT an emoji: the old 📺 emoji
@@ -2471,7 +2472,7 @@ const Presence={uid:null,db:null,_hb:null,_started:false,_unwatch:null,
 };
 function paintLiveVisitors(){
   const box=$("#liveVisList"); if(!box)return;
-  const tabName=t=>({home:"Home",browse:"Browse",live:"Live",streaming:"Streaming",manga:"Manga",profile:"Profile",detail:"a show"}[t]||t);
+  const tabName=t=>({home:"Home",browse:"Discovery",live:"Live",streaming:"Streaming",manga:"Manga",profile:"Profile",detail:"a show"}[t]||t);
   if(Presence._unwatch)try{Presence._unwatch();}catch(e){}
   Presence._unwatch=Presence.watch(list=>{
     const nn=$("#liveVisN"); if(nn)nn.textContent=list.length?`(${list.length} online)`:"";
@@ -3880,7 +3881,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
    each section. Close button or tapping the grid button again exits. */
 (function(){
   const SECTIONS=["home","browse","live","streaming","manga","games","profile"];
-  const TITLES={home:"Home",browse:"Browse",live:"Live",streaming:"Streaming",manga:"Manga",profile:"Profile"};
+  const TITLES={home:"Home",browse:"Discovery",live:"Live",streaming:"Streaming",manga:"Manga",profile:"Profile"};
   let evMode=false, evIdx=0, tx0=0, ty0=0, swiped=false;
   const $=id=>document.getElementById(id);
   function updateHeader(){
@@ -5084,7 +5085,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792089207";
+const BUILD="1792089657";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7620,8 +7621,55 @@ function bindPrevSpot(root){
   root.querySelectorAll(".prev-spot-btn").forEach(b=>{ b.onclick=e=>{ e.stopPropagation(); openExtUrl("https://watchpreviously.com/"); }; });
   root.querySelectorAll(".prev-spot").forEach(c=>{ c.onclick=()=>{ openExtUrl("https://watchpreviously.com/"); }; });
 }
+/* ---------- Discovery rows (his crown 2026-10-15: Netflix-style rows
+   page in the app's own colors; Home cards untouched) ---------- */
+function discRow(secId,rowId,list,genre){
+  const sec=document.getElementById(secId), row=document.getElementById(rowId);
+  if(!sec||!row||!list||!list.length)return;
+  row.innerHTML=list.map(t=>cardHTML(t)).join("");
+  bindCards(row);
+  sec.style.display="";
+  const b=sec.querySelector("[data-all]");
+  if(b)b.onclick=()=>{ if(genre==="__all__"){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); } else if(genre) renderBrowse(genre); };
+}
+function paintDiscovery(){
+  try{ // Continue Watching — his own history, most recent first
+    const seen=new Set(), cw=[];
+    for(const h of (history||[])){ const t=h&&byId(h.id); if(t&&!seen.has(t.id)){ seen.add(t.id); cw.push(t); } if(cw.length>=12)break; }
+    discRow("discCwSec","discCwRow",cw,"__all__");
+  }catch(e){}
+  try{ // New on Shortz VS
+    const nw=C.filter(t=>t.dateAdded).sort((a,b)=>String(b.dateAdded).localeCompare(String(a.dateAdded))).slice(0,12);
+    discRow("discNewSec","discNewRow",nw,"__all__");
+  }catch(e){}
+  try{ // Genre rows — series first, day-stable shuffle
+    const seed=parseInt(new Date().toISOString().slice(0,10).replace(/-/g,""),10);
+    const grow=g=>{
+      const pool=C.filter(t=>t.genre===g);
+      const sh=a=>a.slice().sort((x,y)=>((hash(x.id)+seed)%997)-((hash(y.id)+seed)%997));
+      return sh(pool.filter(t=>(t.ec||0)>=3)).concat(sh(pool.filter(t=>(t.ec||0)<3))).slice(0,12);
+    };
+    discRow("discHorrorSec","discHorrorRow",grow("Horror"),"Horror");
+    discRow("discHoodSec","discHoodRow",grow("Hood"),"Hood");
+  }catch(e){}
+  try{ // Live Now — streamers, live first; tap lands on Streaming
+    const fill=()=>{
+      const all=[];
+      ["kick","twitch","youtube"].forEach(p=>{ (STREAMERS[p]||[]).forEach(s=>all.push(Object.assign({platform:p},s))); });
+      const list=all.filter(s=>s.live).concat(all.filter(s=>!s.live)).slice(0,12);
+      const sec=document.getElementById("discLiveSec"), row=document.getElementById("discLiveRow");
+      if(!sec||!row||!list.length)return;
+      row.innerHTML=list.map(s=>`<div class="vcard disc-live"><div class="vthumb" style="background:#101013"><img decoding="async" src="${esc(s.thumb||"")}" alt="" loading="lazy" onerror="this.style.display='none'">${s.live?'<span class="disc-livepill">● LIVE</span>':""}<div class="vtitle">${esc(s.name||"")}</div><div class="vsub">${esc(s.platform||"")}</div></div></div>`).join("");
+      row.querySelectorAll(".disc-live").forEach(c=>{ c.onclick=()=>{ try{ go("streaming"); }catch(e){} }; });
+      sec.style.display="";
+      const b=sec.querySelector("[data-all]"); if(b)b.onclick=()=>{ try{ go("streaming"); }catch(e){} };
+    };
+    if(typeof STREAMERS_LOADED!=="undefined"&&STREAMERS_LOADED)fill();
+    else if(typeof loadStreamers==="function")Promise.resolve(loadStreamers()).then(()=>setTimeout(fill,60)).catch(()=>{});
+  }catch(e){}
+}
 function renderBrowseLanding(){
-  try{ featStop(); }catch(e){} // no hero carousel on the landing — keep its timer out
+  if(FEAT_IDS[0]!=="stv-1679")FEAT_IDS.unshift("stv-1679"); // Discovery hero leads with the crowned Kane spotlight (his crown 2026-10-15)
   const cc=catalogCounts();
   const signed=!!(window.ShortzAuth&&window.ShortzAuth.isSignedIn());
   const cnt=g=>g==="Rebirth"?cc.rebirth:g==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[g]||0);
@@ -7629,22 +7677,53 @@ function renderBrowseLanding(){
   { const ki=tiles.indexOf("Kane Pixels"); if(ki>0){ tiles.splice(ki,1); tiles.unshift("Kane Pixels"); } } // featured creator pinned first (his order 2026-10-15)
   $("#view-browse").innerHTML=`
     <div id="browseLanding">
-    ${signed?`
-    <div class="btt-wrap" id="browseTopTenWrap">
-      <div class="btt-head"><h2>🤖 Scout's Top Ten</h2><span>Fresh every visit — swipe</span></div>
-      <div class="btt-win" id="browseTopTen"><div class="btt-track" id="browseTopTenTrack"></div></div>
-    </div>`:""}
     <div class="wrap" style="padding-top:18px">
       <div class="searchbar">
-        <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="" autocomplete="off" enterkeyhint="search">
+        <input id="bsearch" type="text" placeholder="🔍 Search shows, genres, creators..." value="" autocomplete="off" enterkeyhint="search">
         <button id="bsearchx" aria-label="Clear search" style="display:none">✕</button>
         <div id="recentSrch"></div>
       </div>
     </div>
-    ${signed?`
+    <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
+    <div class="btt-wrap" id="browseTopTenWrap">
+      <div class="btt-head"><h2>🤖 Scout's Top Ten</h2><span>Fresh every visit — swipe</span></div>
+      <div class="btt-win" id="browseTopTen"><div class="btt-track" id="browseTopTenTrack"></div></div>
+    </div>
     <div class="bcf-door" id="browseScoutDoor"></div>
     <div class="wrap"><div class="rowlabel" style="margin-top:10px"><h2>🤖 Scout's Picks</h2></div></div>
-    <div class="bcf-list" id="browseScoutPicks"></div>`:""}
+    <div class="bcf-list" id="browseScoutPicks"></div>
+    <div class="wrap"><div class="award-sec" id="discCwSec" style="display:none">
+      <div class="award-head"><h3>▶ Continue Watching</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
+      <div class="award-row" id="discCwRow"></div>
+    </div></div>
+    <div class="wrap"><div class="award-sec" id="kaneSpotSec" style="display:none">
+      <div class="award-head"><h3>🚪 Kane Pixels</h3><span style="margin-left:10px;color:#9a9aa2;font-size:12px;font-weight:700">Creator spotlight</span><button id="kaneSpotAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
+      <div class="award-row" id="kaneSpotRow"></div>
+    </div></div>
+    <div class="wrap"><div class="award-sec" id="discLiveSec" style="display:none">
+      <div class="award-head"><h3>🔴 Live Now</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">All streamers ›</button></div>
+      <div class="award-row" id="discLiveRow"></div>
+    </div></div>
+    <div class="wrap"><div class="top10-sec" id="top10sec" style="display:none">
+      <div class="top10-head"><h3>Top 10</h3><span>Most watched</span></div>
+      <div class="top10-row" id="top10row"></div>
+    </div></div>
+    <div class="wrap"><div class="award-sec" id="awardWinSec" style="display:none">
+      <div class="award-head"><h3>🏆 Award Winners</h3><button id="awardWinAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
+      <div class="award-row" id="awardWinRow"></div>
+    </div></div>
+    <div class="wrap"><div class="award-sec" id="discNewSec" style="display:none">
+      <div class="award-head"><h3>New on Shortz VS</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
+      <div class="award-row" id="discNewRow"></div>
+    </div></div>
+    <div class="wrap"><div class="award-sec" id="discHorrorSec" style="display:none">
+      <div class="award-head"><h3>👻 Horror</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
+      <div class="award-row" id="discHorrorRow"></div>
+    </div></div>
+    <div class="wrap"><div class="award-sec" id="discHoodSec" style="display:none">
+      <div class="award-head"><h3>🏙️ Hood</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
+      <div class="award-row" id="discHoodRow"></div>
+    </div></div>
     <div class="wrap">
       <div class="rowlabel" style="margin-top:14px"><h2>Genres</h2><span>${GENRES.length} genres</span></div>
       <div class="gtile-grid">
@@ -7655,7 +7734,13 @@ function renderBrowseLanding(){
     </div>
     </div>`;
   bindCfCards($("#view-browse"));
-  if(signed)paintBrowseFresh();
+  try{ featBegin(); }catch(e){}
+  paintBrowseFresh();
+  try{ paintBrowseScout(); }catch(e){}
+  try{ renderKaneSpot(); }catch(e){}
+  try{ loadTop10(); }catch(e){}
+  try{ renderAwardWinners(); }catch(e){}
+  try{ paintDiscovery(); }catch(e){}
   document.querySelectorAll("#view-browse [data-gtile]").forEach(b=>{ b.onclick=()=>{
     const g=b.dataset.gtile;
     if(g==="__games"){ try{ renderView("games"); }catch(e){} try{ go("games"); }catch(e){} return; }
@@ -8490,10 +8575,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792089207"></script>
+<script src="js/folders.js?v=1792089657"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792089207"></script>
+<script src="js/guide.js?v=1792089657"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9301,9 +9386,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792089207"></script>
-<script src="js/shortz-live.js?v=1792089207"></script>
-<script src="js/games.js?v=1792089207"></script>
+<script src="js/streaming.js?v=1792089657"></script>
+<script src="js/shortz-live.js?v=1792089657"></script>
+<script src="js/games.js?v=1792089657"></script>
 <script>
 
 
@@ -9821,7 +9906,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792089207"></script>
+<script src="js/swipe.js?v=1792089657"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12041,7 +12126,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792089207"></script>
+<script src="js/live-sports.js?v=1792089657"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
