@@ -2182,7 +2182,7 @@ function alphaSortCached(key, arr){
   }
   return s;
 }
-const GENRES = ["Action","Animation","Anime","Body Cam","Comedy","Faith","Family","Fantasy","Hood","Horror","Kane Pixels","Mr. Ballin","Mystery","Ray WJ","Reality","Rebirth","Revenge","Romance","Sci-Fi","Short Films","Space","Sports","Thriller","Western","Zombie"];
+const GENRES = ["Kane Pixels","Action","Animation","Anime","Body Cam","Comedy","Faith","Family","Fantasy","Hood","Horror","Mr. Ballin","Mystery","Ray WJ","Reality","Rebirth","Revenge","Romance","Sci-Fi","Short Films","Space","Sports","Thriller","Western","Zombie"];
 const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️","Zombie":"🧟","Kane Pixels":"🚪"};
 
 /* ---------- utils ---------- */
@@ -5059,7 +5059,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792087083";
+const BUILD="1792088013";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7217,6 +7217,21 @@ function renderAwardWinners(){
   const all=$("#awardWinAll");
   if(all)all.onclick=()=>{renderBrowse(AWARD);};
 }
+/* ---------- 🚪 Kane Pixels spotlight shelf (his order 2026-10-15: feature him fully) ---------- */
+function renderKaneSpot(){
+  const sec=$("#kaneSpotSec"),row=$("#kaneSpotRow");
+  if(!sec||!row)return;
+  const PIN=["stv-1679","stv-52413","stv-52414"];
+  const rest=[];
+  try{ for(const t of C){ if(t.genre==="Kane Pixels"&&PIN.indexOf(t.id)<0)rest.push(t.id); } }catch(e){}
+  const ids=PIN.filter(id=>byId(id)).concat(rest);
+  if(!ids.length)return;
+  row.innerHTML=ids.map(id=>cardHTML(byId(id))).join("");
+  bindCards(row);
+  sec.style.display="";
+  const all=$("#kaneSpotAll");
+  if(all)all.onclick=()=>{renderBrowse("Kane Pixels");};
+}
 /* ---------- 🔜 Coming Soon shelf: verified drops on the way (data: coming_soon.json) ---------- */
 let csCache=null;
 async function renderComingSoon(){
@@ -7554,6 +7569,7 @@ function renderBrowseLanding(){
   const signed=!!(window.ShortzAuth&&window.ShortzAuth.isSignedIn());
   const cnt=g=>g==="Rebirth"?cc.rebirth:g==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[g]||0);
   const tiles=[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"}));
+  { const ki=tiles.indexOf("Kane Pixels"); if(ki>0){ tiles.splice(ki,1); tiles.unshift("Kane Pixels"); } } // featured creator pinned first (his order 2026-10-15)
   $("#view-browse").innerHTML=`
     <div id="browseLanding">
     ${signed?`
@@ -7644,6 +7660,10 @@ function renderBrowse(g){
         `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:x==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[x]||0)}</span></button>`).join("")}
       </div>
     </div></div>
+    <div class="wrap"><div class="award-sec" id="kaneSpotSec" style="display:none">
+      <div class="award-head"><h3>🚪 Kane Pixels</h3><span style="margin-left:10px;color:#9a9aa2;font-size:12px;font-weight:700">Creator spotlight</span><button id="kaneSpotAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
+      <div class="award-row" id="kaneSpotRow"></div>
+    </div></div>
     <div class="wrap"><div class="award-sec" id="gamesSec" style="display:none">
       <div class="award-head"><h3>🎮 Games</h3><button id="gamesAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">Open Games ›</button></div>
       <div class="award-row" id="gamesRow"></div>
@@ -7728,6 +7748,7 @@ function renderBrowse(g){
   loadTop10(); // Netflix-style Top 10 row under the search bar
   loadTop10Award(); // Top 10 award-winning films + series, ranked by real views
   loadAwardCarousels(); // award-winning short films + short series carousels
+  renderKaneSpot(); // 🚪 Kane Pixels spotlight — first shelf in Browse
   renderAwardWinners(); // 🏆 verified-winners shelf under the genre dropdown
   renderComingSoon(); // 🔜 coming-soon premieres shelf (coming_soon.json)
   try{if(window.Games&&Games.renderShelf)Games.renderShelf();}catch(e){} // 🎮 Games row in Browse — fed by the one shelf list in games.js
@@ -8412,10 +8433,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792087083"></script>
+<script src="js/folders.js?v=1792088013"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792087083"></script>
+<script src="js/guide.js?v=1792088013"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9223,9 +9244,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792087083"></script>
-<script src="js/shortz-live.js?v=1792087083"></script>
-<script src="js/games.js?v=1792087083"></script>
+<script src="js/streaming.js?v=1792088013"></script>
+<script src="js/shortz-live.js?v=1792088013"></script>
+<script src="js/games.js?v=1792088013"></script>
 <script>
 
 
@@ -9743,7 +9764,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792087083"></script>
+<script src="js/swipe.js?v=1792088013"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11963,7 +11984,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792087083"></script>
+<script src="js/live-sports.js?v=1792088013"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
