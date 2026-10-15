@@ -435,6 +435,17 @@ function ssYtQueue(s){
 }
 function ssYtMount(node,s){
   const fr=node.querySelector("[data-sframe]"); if(!fr)return;
+  // LIVE means LIVE (his word, 2026-10-15 — "make them both live stream
+  // please"): a live streamer mounts its live video as a plain embed and
+  // NOTHING else. The API-player path below keeps a recent-5 queue whose
+  // error/ended ladder walks the queue and parks on a SCHEDULED stream's
+  // countdown — that's how the pop-up card showed a countdown while the
+  // carousel played the real broadcast. No ladder exists on this path.
+  if(s.live&&s.ytVideoId){
+    fr.dataset.mountedId=s.ytVideoId;
+    fr.innerHTML=`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(s.ytVideoId)}?autoplay=1&mute=0&rel=0&controls=0&disablekb=1&fs=0" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+    return;
+  }
   const queue=ssYtQueue(s);
   const startId=s.live&&s.ytVideoId?s.ytVideoId:(queue[0]||null);
   fr.dataset.mountedId=startId||"live_stream";
