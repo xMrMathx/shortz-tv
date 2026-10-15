@@ -333,9 +333,21 @@ function vfEnsureOverlay(){
   document.body.appendChild(ov);
   ov.querySelector("#vfBars").onclick=()=>vfCloseFolder(false);
   ov.querySelector("#vfChip").onclick=()=>vfCloseFolder(false);
-  /* a card tap navigates (detail) — the folder steps aside first, instantly */
+  /* ONE TAP INSIDE A FOLDER = THE SHOW (his recordings, builds ...0303
+     and ...0938): the generic card binder routes a card tap through a
+     300ms double-tap wait and a 450ms hold-to-like swallow — on a real
+     finger, inside this heavy overlay, the tap could be eaten whole:
+     the folder closed (this listener) and nothing ever presented,
+     leaving him on Profile. A folder card has no inner controls and
+     exactly one meaning, so the tap is served HERE on capture: close,
+     present, and the generic gesture machinery never sees it. */
   ov.querySelector("#vfScroll").addEventListener("click",e=>{
-    if(e.target.closest&&e.target.closest(".vcard"))vfCloseFolder(true);
+    const vc=e.target.closest&&e.target.closest(".vcard");
+    if(!vc)return;
+    e.stopPropagation(); e.preventDefault();
+    const t=vc.dataset&&byId(vc.dataset.id);
+    vfCloseFolder(true);
+    if(t)cfPresentTitle(t);
   },true);
   return ov;
 }
