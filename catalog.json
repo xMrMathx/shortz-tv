@@ -1421265,5 +1421265,30 @@
     "source_channel": "Mosfilm",
     "award_verified": true,
     "award": "Golden Lion — Venice Film Festival (1962)"
+  },
+  {
+    "id": "stv-52406",
+    "title": "Both Eyes Open",
+    "genre": "Thriller",
+    "eps": "1 ep",
+    "url": "https://www.youtube.com/embed/OMksrmm6Zks",
+    "video_id": "OMksrmm6Zks",
+    "desc": "Ally is rebuilding her life after escaping an abusive relationship when cryptic messages start arriving, suggesting her abuser is still nearby. Psychological thriller (2025) starring Gail Bean and Taye Diggs.",
+    "runtime": "1:40:36",
+    "source_channel": "PowerVault Network",
+    "rights_basis": "Owner-approved 2026-10-15 — full upload by PowerVault Network (indie network channel, est. 2023); API gate 2026-10-15: embeddable, no region restriction, not age-restricted, full 1h40m runtime. Uploader is a third-party network, not the studio.",
+    "ai_made": false,
+    "url_status": "ok",
+    "episodes": [
+      {
+        "kind": "film",
+        "n": 1,
+        "title": "Both Eyes Open — Full Movie",
+        "url": "https://www.youtube.com/embed/OMksrmm6Zks",
+        "verified": true,
+        "video_id": "OMksrmm6Zks"
+      }
+    ],
+    "episodes_note": "Feature film (2025). Single full upload; added at Mr. Moore's word 2026-10-15."
   }
 ]
