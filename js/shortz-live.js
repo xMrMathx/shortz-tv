@@ -332,7 +332,8 @@ function szSlideHTML(s,def){
     <div class="szhero-who"><div class="szhero-name">${esc(s.name||"")}</div><div class="szhero-sub">${esc(sub?sub+" · live now on Shortz VS":"live now on Shortz VS")}</div></div>
   </div>`;
 }
-ShortzLive._car={idx:0, timer:null, holdUntil:0, count:0, go:null, playing:-1};
+ShortzLive._car={idx:0, timer:null, holdUntil:0, count:0, go:null, playing:-1, deadline:0};
+const SZ_CAR_MS=60000;
 function szCarSec(){ return document.querySelector("#view-streaming .szlive"); }
 function szCarVisible(sec){ if(!sec)return false; const r=sec.getBoundingClientRect(); return r.bottom>80&&r.top<window.innerHeight*0.75; }
 function szSlideFill(sec,i,mode){
@@ -366,28 +367,33 @@ ShortzLive.carStart=function(sec,count){
   st.idx=0; st.count=count||0; st.playing=-1;
   const track=sec?sec.querySelector(".szcar-track"):null;
   if(!track||st.count<1)return;
-  const go2=n=>{ st.idx=((n%st.count)+st.count)%st.count; track.style.transform=`translateX(-${st.idx*100}%)`; sec.querySelectorAll(".szcar-dots i").forEach((d,i)=>d.classList.toggle("on",i===st.idx)); if(szCarVisible(sec)) ShortzLive.carPlay(st.idx); };
+  const go2=n=>{ st.idx=((n%st.count)+st.count)%st.count; track.style.transform=`translateX(-${st.idx*100}%)`; sec.querySelectorAll(".szcar-dots i").forEach((d,i)=>d.classList.toggle("on",i===st.idx)); st.deadline=Date.now()+SZ_CAR_MS; if(szCarVisible(sec)) ShortzLive.carPlay(st.idx); };
   st.go=go2;
   let tx=null;
   track.addEventListener("touchstart",e=>{ tx=e.touches[0].clientX; },{passive:true});
   track.addEventListener("touchend",e=>{ if(tx==null)return; const dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>36){ go2(st.idx+(dx<0?1:-1)); st.holdUntil=Date.now()+12000; } },{passive:true});
   if(szCarVisible(sec)) ShortzLive.carPlay(0);
+  st.deadline=Date.now()+SZ_CAR_MS;
+  /* landing on Streams (voice included): the view may still be switching
+     when the section is built — retry the play call as it settles so the
+     carousel, not the feed, is what starts (his word: they play FIRST) */
+  [300,900,1800].forEach(ms=>setTimeout(()=>{ try{ ShortzLive.carVis(); }catch(e){} },ms));
   st.timer=setInterval(()=>{
     if(document.hidden)return;
     if(typeof curView!=="undefined"&&curView!=="streaming"){ ShortzLive.carUnload(); return; }
     if(!szCarVisible(sec)){ ShortzLive.carUnload(); return; }
     if(document.getElementById("szPop")){ ShortzLive.carUnload(); return; }
     if(st.playing!==st.idx) ShortzLive.carPlay(st.idx);
-    if(st.count<2||Date.now()<st.holdUntil||document.getElementById("szPop"))return;
+    if(st.count<2||Date.now()<(st.deadline||0))return;
     go2(st.idx+1);
-  },5500);
+  },2500);
 };
 /* while the carousel is on screen it owns playback — the feed's
    auto-pick stands down; leaving the Streaming view silences slides */
 if(typeof ssPickActive==="function"&&!window.__szPickWrapped){
   window.__szPickWrapped=true;
   const _szPick=ssPickActive;
-  ssPickActive=function(){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")&&szCarVisible(sec))return; return _szPick(); };
+  ssPickActive=function(){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")){ const r=sec.getBoundingClientRect(); if(r.width===0||szCarVisible(sec))return; } return _szPick(); };
 }
 if(typeof stopStreamFeed==="function"&&!window.__szStopWrapped){
   window.__szStopWrapped=true;
