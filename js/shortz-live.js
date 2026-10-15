@@ -332,23 +332,31 @@ function szSlideHTML(s,def){
     <div class="szhero-who"><div class="szhero-name">${esc(s.name||"")}</div><div class="szhero-sub">${esc(sub?sub+" · live now on Shortz VS":"live now on Shortz VS")}</div></div>
   </div>`;
 }
-ShortzLive._car={idx:0, timer:null, holdUntil:0, count:0, go:null, playing:-1, deadline:0};
+ShortzLive._car={idx:0, timer:null, holdUntil:0, count:0, go:null, playing:-1, deadline:0, playSince:0};
 const SZ_CAR_MS=60000;
 function szCarSec(){ return document.querySelector("#view-streaming .szlive"); }
-function szCarVisible(sec){ if(!sec)return false; const r=sec.getBoundingClientRect(); return r.bottom>80&&r.top<window.innerHeight*0.75; }
+function szCarVisible(sec){ if(!sec)return false; const r=sec.getBoundingClientRect(); return r.bottom>80&&r.top<window.innerHeight*0.75&&r.right>40&&r.left<window.innerWidth-40; }
 function szSlideFill(sec,i,mode){
   const sl=sec&&sec.querySelectorAll(".szslide")[i]; if(!sl)return;
   const art=sl.querySelector(".szslide-card"); if(!art)return;
   const s=szFindByShareId(sl.dataset.szPop); if(!s)return;
   try{ sstreamFill(art, s, mode); }catch(e){}
 }
+function szSlideAlive(sec,i){
+  const sl=sec&&sec.querySelectorAll(".szslide")[i]; if(!sl)return false;
+  const f=sl.querySelector("[data-sframe]"); if(!f)return false;
+  return !!f.querySelector("iframe,video");
+}
+function szFeedYield(){
+  try{ if(typeof ssActiveIdx!=="undefined"&&ssActiveIdx>=0&&typeof ssCards!=="undefined"&&ssCards[ssActiveIdx]){ sstreamFill(ssCards[ssActiveIdx], sstreamStack[ssActiveIdx], "unload"); ssActiveIdx=-1; } }catch(e){}
+}
 ShortzLive.carPlay=function(idx){
   const st=ShortzLive._car, sec=szCarSec(); if(!sec)return;
   if(st.playing>=0&&st.playing!==idx) szSlideFill(sec, st.playing, "unload");
   szSlideFill(sec, idx, "current");
-  st.playing=idx;
+  st.playing=idx; st.playSince=Date.now();
   /* the carousel is the on-screen player: the feed card yields */
-  try{ if(typeof ssActiveIdx!=="undefined"&&ssActiveIdx>=0&&typeof ssCards!=="undefined"&&ssCards[ssActiveIdx]) sstreamFill(ssCards[ssActiveIdx], sstreamStack[ssActiveIdx], "unload"); }catch(e){}
+  szFeedYield();
 };
 ShortzLive.carUnload=function(){
   const st=ShortzLive._car, sec=szCarSec();
@@ -357,8 +365,10 @@ ShortzLive.carUnload=function(){
 };
 ShortzLive.carVis=function(){
   const st=ShortzLive._car, sec=szCarSec(); if(!sec||!st.count)return;
-  if(typeof curView!=="undefined"&&curView!=="streaming"){ ShortzLive.carUnload(); return; }
-  if(szCarVisible(sec)){ if(st.playing!==st.idx) ShortzLive.carPlay(st.idx); }
+  if(szCarVisible(sec)){
+    const stale=st.playing===st.idx&&(Date.now()-(st.playSince||0)>4000)&&!szSlideAlive(sec,st.idx);
+    if(st.playing!==st.idx||stale) ShortzLive.carPlay(st.idx); else szFeedYield();
+  }
   else ShortzLive.carUnload();
 };
 ShortzLive.carStart=function(sec,count){
@@ -380,10 +390,8 @@ ShortzLive.carStart=function(sec,count){
   [300,900,1800].forEach(ms=>setTimeout(()=>{ try{ ShortzLive.carVis(); }catch(e){} },ms));
   st.timer=setInterval(()=>{
     if(document.hidden)return;
-    if(typeof curView!=="undefined"&&curView!=="streaming"){ ShortzLive.carUnload(); return; }
-    if(!szCarVisible(sec)){ ShortzLive.carUnload(); return; }
     if(document.getElementById("szPop")){ ShortzLive.carUnload(); return; }
-    if(st.playing!==st.idx) ShortzLive.carPlay(st.idx);
+    ShortzLive.carVis();
     if(st.count<2||Date.now()<(st.deadline||0))return;
     go2(st.idx+1);
   },2500);
@@ -394,6 +402,11 @@ if(typeof ssPickActive==="function"&&!window.__szPickWrapped){
   window.__szPickWrapped=true;
   const _szPick=ssPickActive;
   ssPickActive=function(){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")){ const r=sec.getBoundingClientRect(); if(r.width===0||szCarVisible(sec))return; } return _szPick(); };
+}
+if(typeof ssActivate==="function"&&!window.__szActWrapped){
+  window.__szActWrapped=true;
+  const _szAct=ssActivate;
+  ssActivate=function(idx){ const sec=szCarSec(); if(sec&&sec.querySelector(".szcar")&&szCarVisible(sec))return; return _szAct(idx); };
 }
 if(typeof stopStreamFeed==="function"&&!window.__szStopWrapped){
   window.__szStopWrapped=true;
