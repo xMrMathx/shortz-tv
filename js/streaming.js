@@ -117,17 +117,24 @@ async function loadStreamers(){
     }else{
       let cached=null;
       try{
-        // v2: Chonion removed, YouTube streamers added — old caches are stale
+        // v3 (2026-10-15): the v2 snapshot became a wall — once a phone
+        // had cached the list, it NEVER fetched streamers.json again, so
+        // every streamer added later (Delta Force) was invisible forever
+        // on that phone while fresh devices saw them fine. The cache is
+        // a fallback now, never the source: the server file always wins.
         const cv=localStorage.getItem("shortz_streamers_ver");
-        if(cv!=="2"){ localStorage.removeItem("shortz_streamers"); localStorage.setItem("shortz_streamers_ver","2"); }
+        if(cv!=="3"){ localStorage.removeItem("shortz_streamers"); localStorage.setItem("shortz_streamers_ver","3"); }
         cached=JSON.parse(localStorage.getItem("shortz_streamers")||"null");
       }catch(e){}
-      if(cached&&Array.isArray(cached.kick)&&Array.isArray(cached.twitch)){
-        STREAMERS.kick=cached.kick; STREAMERS.twitch=cached.twitch; STREAMERS.youtube=cached.youtube||[];
-      }else{
-        // bundled streamers.json — 4s ceiling, a slow file fetch never blocks the tab
+      let fresh=null;
+      try{
+        // bundled streamers.json — 4s ceiling, a slow fetch never blocks the tab
         const r=await Promise.race([fetch("streamers.json",{cache:"no-store"}),kickFetchTimeout(4000)]);
-        if(r.ok){ const d=await r.json(); STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; STREAMERS.youtube=d.youtube||[]; }
+        if(r&&r.ok) fresh=await r.json();
+      }catch(e){}
+      const d=fresh||cached;
+      if(d&&(Array.isArray(d.kick)||Array.isArray(d.twitch))){
+        STREAMERS.kick=d.kick||[]; STREAMERS.twitch=d.twitch||[]; STREAMERS.youtube=d.youtube||[];
       }
     }
   }catch(e){ /* empty directory until streamers.json ships */ }
