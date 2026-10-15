@@ -1326,6 +1326,39 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .szown-cand .szown-btn{margin-left:auto}
 .szown-cutall{width:100%;margin-top:14px;background:#3a1113;color:#ff7a72;border:1px solid #7d2320;border-radius:12px;padding:14px;font-size:14px;font-weight:900;cursor:pointer}
 .szown-restoreall{width:100%;margin-top:14px;background:#2c7a3f;color:#fff;border:0;border-radius:12px;padding:14px;font-size:14px;font-weight:900;cursor:pointer}
+/* LIVE CAROUSEL + POP-UP CARD (Piece 5, mock v5) */
+.szcar{position:relative;border-radius:16px;overflow:hidden}
+.szcar-track{display:flex;transition:transform .45s ease}
+.szcar .szhero{flex:0 0 100%;border-radius:0;margin:0}
+.szcar-dots{position:absolute;left:0;right:0;bottom:7px;display:flex;justify-content:center;gap:5px;z-index:3}
+.szcar-dots i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35)}
+.szcar-dots i.on{background:#fff;width:16px;border-radius:3px}
+.szpop-wrap{position:fixed;inset:0;z-index:9300;display:flex;align-items:center;justify-content:center}
+.szpop-scrim{position:absolute;inset:0;background:rgba(0,0,0,.55)}
+.szpop-card{position:relative;width:min(92vw,430px);max-height:88vh;overflow-y:auto;background:#101013;border:1px solid #3d3d46;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.75)}
+.szpop-vid{position:relative;background:#000;border-radius:18px 18px 0 0;overflow:hidden}
+.szpop-stage{border:0!important;border-radius:0!important}
+#szPopStage .sscard-ov{display:none}
+#szPopStage .sscard-frame iframe,#szPopStage .sscard-frame video{pointer-events:auto}
+.szpop-pill{top:9px;left:9px;z-index:5}
+.szpop-x{position:absolute;top:40px;left:9px;z-index:6;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.72);border:1px solid rgba(255,255,255,.4);color:#fff;font-size:14px;cursor:pointer;line-height:1}
+.szpop-bug{top:9px;right:9px;z-index:5}
+.szpop-cut{position:absolute;left:0;right:0;bottom:0;z-index:5;background:rgba(0,0,0,.82);color:#ffb3ac;font-size:11px;font-weight:800;padding:7px 10px}
+.szpop-body{padding:12px}
+.szpop-name{font-size:16px;font-weight:900;color:#fff}
+.szpop-sub{font-size:11px;color:#9a9aa2;margin-top:2px}
+.szpop-acts{display:flex;justify-content:space-around;margin-top:11px;padding-top:10px;border-top:1px solid #232329}
+.szpop-act{background:none;border:0;color:#d8d8de;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:9.5px;font-weight:700;cursor:pointer}
+.szpop-act svg{width:20px;height:20px;fill:none;stroke:#f2f2f4;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.szpop-act.on{color:#ff7a72}
+.szpop-act.szlike.on svg{fill:#e8332a;stroke:#e8332a}
+.szpop-comments{margin-top:11px;max-height:150px;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+.szpop-c{font-size:11.5px;color:#c6c6cd;background:#17171b;border:1px solid #26262b;border-radius:9px;padding:7px 9px}
+.szpop-c b{color:#fff}
+.szpop-cempty{font-size:11px;color:#77777f}
+.szpop-crow{display:flex;gap:7px;margin-top:9px}
+.szpop-crow .szp-input{flex:1}
+.szpop-post{background:#e8332a;color:#fff;border:0;border-radius:9px;font-weight:900;font-size:12px;padding:0 14px;cursor:pointer}
 .szhero{position:relative;border-radius:16px;overflow:hidden;height:196px;background:linear-gradient(160deg,#5c1030,#a31645 40%,#141c52 90%);cursor:pointer}
 .szhero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .szhero-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(0,0,0,.86))}

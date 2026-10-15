@@ -41,7 +41,7 @@ function szHeroHTML(def,s){
   const st=szState(s,def);
   const thumb=s&&typeof ssThumb==="function"?ssThumb(s):"";
   const pill=st==="live"?'<span class="szlive-pill">● LIVE</span>':st==="replay"?'<span class="szlive-pill szrep">▶ REPLAY</span>':st==="cut"?'<span class="szlive-pill szoff">✂ CUT</span>':'<span class="szlive-pill szoff">OFFLINE</span>';
-  return `<div class="szhero" data-sz-tap="${def.ch}">
+  return `<div class="szhero" data-sz-pop="${s?esc(streamShareId(s)):""}" data-sz-ch="${def.ch}">
     ${thumb?`<img class="szhero-art" src="${esc(thumb)}" alt="" loading="lazy" onerror="this.remove()">`:""}
     <div class="szhero-shade"></div>${pill}<span class="szbug">${def.ch}</span>
     <div class="szhero-who"><div class="szhero-name">${esc(def.name)}</div><div class="szhero-sub">${esc(szMeta(s,def))}</div></div>
@@ -64,12 +64,20 @@ const ShortzLive={
       const box=document.querySelector("#view-streaming #ssCards");
       if(!box||box.querySelector(".szlive"))return;
       const resolved=szAllChannels().map(def=>({def, s:szFindStreamer(def)}));
-      const heroDef=(resolved.find(r=>szState(r.s,r.def)==="live")||resolved[0]);
-      const rows=resolved.filter(r=>r!==heroDef);
+      const lives=szLiveSlides();
+      const slideChs=new Set(lives.map(x=>x.def&&x.def.ch).filter(Boolean));
+      let heroDef=null, heroHTML="";
+      if(lives.length){
+        heroHTML=`<div class="szcar"><div class="szcar-track">${lives.map(x=>szSlideHTML(x.s,x.def)).join("")}</div>${lives.length>1?`<div class="szcar-dots">${lives.map((_,i)=>`<i data-d="${i}"${i===0?' class="on"':""}></i>`).join("")}</div>`:""}</div>`;
+      } else {
+        heroDef=(resolved.find(r=>szState(r.s,r.def)==="live")||resolved[0]);
+        heroHTML=szHeroHTML(heroDef.def,heroDef.s);
+      }
+      const rows=resolved.filter(r=>!slideChs.has(r.def.ch)&&(!heroDef||r!==heroDef));
       const sec=document.createElement("div");
       sec.className="szlive";
       sec.innerHTML=`<div class="szlive-hd"><span class="szlive-dot"></span>SHORTZ LIVE<span class="szlive-hdsub">his channels</span></div>`
-        +szHeroHTML(heroDef.def,heroDef.s)
+        +heroHTML
         +(rows.length?`<div class="szlive-lab">THE OTHER CHANNELS</div>`+rows.map(r=>szRowHTML(r.def,r.s)).join(""):"");
       const mine=document.createElement("div");
       mine.className="szmine"; mine.dataset.szMine="1";
@@ -84,12 +92,15 @@ const ShortzLive={
       sec.addEventListener("click",e=>{
         if(e.target.closest("[data-sz-owner]")){ ShortzLive.openOwner(); return; }
         if(e.target.closest("[data-sz-mine]")){ ShortzLive.openPanel(); return; }
+        const pop=e.target.closest("[data-sz-pop]");
+        if(pop&&pop.dataset.szPop){ ShortzLive.openPop(pop.dataset.szPop); return; }
         const hit=e.target.closest("[data-sz-tap]"); if(!hit)return;
         const def=szAllChannels().find(d=>d.ch===hit.dataset.szTap); if(!def)return;
         const s=szFindStreamer(def); if(!s)return;
-        try{ sstreamJumpTo(streamShareId(s)); }catch(err){}
+        try{ ShortzLive.openPop(streamShareId(s)); }catch(err){}
       });
       box.insertBefore(sec, box.firstChild);
+      ShortzLive.carStart(sec, lives.length);
     }catch(e){}
   }
 };
@@ -291,3 +302,125 @@ ShortzLive.openOwner=function(){
 };
 ShortzLive.paintOwner=function(){ const p=document.getElementById("szOwnerPanel"); if(p)p.innerHTML=szOwnerHTML(); };
 ShortzLive.closeOwner=function(){ const p=document.getElementById("szOwnerPanel"); if(p)p.classList.remove("open"); document.body.style.overflow=""; if(!document.querySelector(".szpanel.open"))document.body.classList.remove("sz-open"); };
+
+/* ============ PIECE 5 (mock v5, crowned "perfect" 2026-10-15): the
+   LIVE HERO CAROUSEL + the POP-UP STREAM CARD. The hero rotates whoever
+   is live right now (his channels first); tapping any slide — or any
+   channel row — floats a card over the page (page peeking at the
+   edges, X under the LIVE pill, never on it) with the stream playing
+   inside and Like / Comment / Share / Follow, Home-card style. Likes,
+   follows and comments persist on-device (shortz_sz_*); comments go
+   app-wide with the data layer at the tower flip. */
+function szLiveSlides(){
+  let list=[]; try{ list=sstreamList().filter(x=>x&&x.live); }catch(e){}
+  const chans=szAllChannels(), first=[], rest=[];
+  for(const s of list){
+    const def=chans.find(d=>{ const sl=szSlugOf(s); return sl&&(d.match===sl||String(s.url||"").toLowerCase().includes(d.match)); })||null;
+    (def?first:rest).push({s, def});
+  }
+  first.sort((a,b)=>chans.indexOf(a.def)-chans.indexOf(b.def));
+  return first.concat(rest);
+}
+function szSlideHTML(s,def){
+  const thumb=(typeof ssThumb==="function")?ssThumb(s):"";
+  const bug=def?def.ch:(s.platform==="twitch"?"TWITCH":s.platform==="youtube"?"YT":"KICK");
+  const sub=String(s.title||s.category||"");
+  return `<div class="szhero szslide" data-sz-pop="${esc(streamShareId(s))}">
+    ${thumb?`<img class="szhero-art" src="${esc(thumb)}" alt="" loading="lazy" onerror="this.remove()">`:""}
+    <div class="szhero-shade"></div><span class="szlive-pill">● LIVE</span><span class="szbug">${esc(bug)}</span>
+    <div class="szhero-who"><div class="szhero-name">${esc(s.name||"")}</div><div class="szhero-sub">${esc(sub?sub+" · live now on Shortz VS":"live now on Shortz VS")}</div></div>
+  </div>`;
+}
+ShortzLive._car={idx:0, timer:null, holdUntil:0, count:0, go:null};
+ShortzLive.carStart=function(sec,count){
+  const st=ShortzLive._car;
+  if(st.timer){ clearInterval(st.timer); st.timer=null; }
+  st.idx=0; st.count=count||0;
+  const track=sec?sec.querySelector(".szcar-track"):null;
+  if(!track||st.count<2)return;
+  const go2=n=>{ st.idx=((n%st.count)+st.count)%st.count; track.style.transform=`translateX(-${st.idx*100}%)`; sec.querySelectorAll(".szcar-dots i").forEach((d,i)=>d.classList.toggle("on",i===st.idx)); };
+  st.go=go2;
+  let tx=null;
+  track.addEventListener("touchstart",e=>{ tx=e.touches[0].clientX; },{passive:true});
+  track.addEventListener("touchend",e=>{ if(tx==null)return; const dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>36){ go2(st.idx+(dx<0?1:-1)); st.holdUntil=Date.now()+12000; } },{passive:true});
+  st.timer=setInterval(()=>{ if(document.hidden)return; if(typeof curView!=="undefined"&&curView!=="streaming")return; if(Date.now()<st.holdUntil)return; if(document.getElementById("szPop"))return; go2(st.idx+1); },5500);
+};
+const SZ_LIKES_KEY="shortz_sz_likes", SZ_FOLLOWS_KEY="shortz_sz_follows", SZ_COMMENTS_KEY="shortz_sz_comments";
+function szArr(k){ const v=szLS(k,[]); return Array.isArray(v)?v:[]; }
+function szCommentsAll(){ const v=szLS(SZ_COMMENTS_KEY,{}); return (v&&typeof v==="object"&&!Array.isArray(v))?v:{}; }
+function szFindByShareId(id){ try{ return sstreamList().find(x=>streamShareId(x)===id)||null; }catch(e){ return null; } }
+function szDefFor(s){ if(!s)return null; const sl=szSlugOf(s); return szAllChannels().find(d=>d.match===sl||String(s.url||"").toLowerCase().includes(d.match))||null; }
+function szCommentsHTML(id){
+  const arr=szCommentsAll()[id]||[];
+  if(!arr.length)return `<div class="szpop-cempty">Be the first to comment.</div>`;
+  return arr.map(c=>`<div class="szpop-c"><b>${esc(c.n||"You")}:</b> ${esc(c.t||"")}</div>`).join("");
+}
+const SZ_IC={
+  heart:'<svg viewBox="0 0 24 24"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.3C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8z"/></svg>',
+  comment:'<svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-8 8H4l2.3-2.9A8 8 0 1 1 21 12z"/></svg>',
+  share:'<svg viewBox="0 0 24 24"><path d="M13 5.5 20 12l-7 6.5v-4C7 14.5 4.5 17 3 19c0-6 3.5-9.5 10-10.5z"/></svg>',
+  plus:'<svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+  check:'<svg viewBox="0 0 24 24"><path d="M4.5 12.5 10 18 19.5 6.5"/></svg>'
+};
+ShortzLive.openPop=function(id){
+  const s=szFindByShareId(id); if(!s)return;
+  ShortzLive.closePop(true);
+  try{ if(typeof ssActiveIdx!=="undefined"&&ssActiveIdx>=0&&typeof ssCards!=="undefined"&&ssCards[ssActiveIdx]) sstreamFill(ssCards[ssActiveIdx], sstreamStack[ssActiveIdx], "unload"); }catch(e){}
+  const def=szDefFor(s), cut=!!(def&&szIsCutCh(def.ch));
+  const playable=(()=>{ try{ return sstreamPlayable(s); }catch(e){ return false; } })();
+  const liked=szArr(SZ_LIKES_KEY).includes(id), fol=szArr(SZ_FOLLOWS_KEY).includes(id);
+  const stateTxt=s.live?"● LIVE":playable?"▶ REPLAY":"OFFLINE";
+  const w=document.createElement("div"); w.id="szPop"; w.className="szpop-wrap";
+  w.innerHTML=`<div class="szpop-scrim" data-szpop="close"></div>
+   <div class="szpop-card">
+     <div class="szpop-vid">
+       <span class="szlive-pill szpop-pill">${stateTxt}</span>
+       <button class="szpop-x" data-szpop="close" aria-label="Close">✕</button>
+       ${def?`<span class="szbug szpop-bug">${esc(def.ch)}</span>`:""}
+       <article class="sscard szpop-stage" id="szPopStage"></article>
+       ${cut?`<div class="szpop-cut">✂ Cut by the owner — this channel is off the air.</div>`:""}
+     </div>
+     <div class="szpop-body">
+       <div class="szpop-name">${esc(s.name||"")}</div>
+       <div class="szpop-sub">${esc(s.category||s.title||"")}${(s.category||s.title)?" · ":""}${s.live?"live now":playable?"last stream replaying":"off air"} · via ${s.platform==="twitch"?"Twitch":s.platform==="youtube"?"YouTube":"Kick"}</div>
+       <div class="szpop-acts">
+         <button class="szpop-act szlike${liked?" on":""}" data-szpop="like">${SZ_IC.heart}<span>Like</span></button>
+         <button class="szpop-act" data-szpop="comment">${SZ_IC.comment}<span>Comment</span></button>
+         <button class="szpop-act" data-szpop="share">${SZ_IC.share}<span>Share</span></button>
+         <button class="szpop-act${fol?" on":""}" data-szpop="follow">${fol?SZ_IC.check:SZ_IC.plus}<span>${fol?"Following":"Follow"}</span></button>
+       </div>
+       <div class="szpop-comments" id="szPopComments">${szCommentsHTML(id)}</div>
+       <div class="szpop-crow"><input id="szPopCIn" class="szp-input" type="text" maxlength="240" placeholder="Write a comment…"><button class="szpop-post" data-szpop="post">POST</button></div>
+     </div>
+   </div>`;
+  document.body.appendChild(w);
+  document.body.classList.add("sz-open"); document.body.style.overflow="hidden";
+  const stage=w.querySelector("#szPopStage");
+  stage.innerHTML=ssCardHTML();
+  try{ sstreamFill(stage, s, cut?"unload":"current"); }catch(e){}
+  w.addEventListener("click",e=>{
+    const b=e.target.closest("[data-szpop]"); if(!b)return;
+    const act=b.dataset.szpop;
+    if(act==="close") ShortzLive.closePop();
+    else if(act==="like"){ const a=szArr(SZ_LIKES_KEY); const i=a.indexOf(id); if(i>=0)a.splice(i,1); else a.push(id); szSetLS(SZ_LIKES_KEY,a); b.classList.toggle("on", i<0); }
+    else if(act==="follow"){ const a=szArr(SZ_FOLLOWS_KEY); const i=a.indexOf(id); if(i>=0)a.splice(i,1); else a.push(id); szSetLS(SZ_FOLLOWS_KEY,a); b.classList.toggle("on", i<0); b.innerHTML=(i<0?SZ_IC.check:SZ_IC.plus)+`<span>${i<0?"Following":"Follow"}</span>`; }
+    else if(act==="share"){ try{ shareStream(s); }catch(err){} }
+    else if(act==="comment"){ const inp=document.getElementById("szPopCIn"); if(inp)inp.focus(); }
+    else if(act==="post"){
+      const inp=document.getElementById("szPopCIn"); const t=(inp&&inp.value||"").trim(); if(!t)return;
+      const all=szCommentsAll(); const arr=all[id]||[];
+      let nm="You"; try{ const p=store.get("profile",null); if(p&&p.name)nm=String(p.name).slice(0,40); }catch(_){}
+      arr.push({n:nm, t:t.slice(0,240), ts:Date.now()}); all[id]=arr.slice(-60); szSetLS(SZ_COMMENTS_KEY,all);
+      const box=document.getElementById("szPopComments"); if(box){ box.innerHTML=szCommentsHTML(id); box.scrollTop=box.scrollHeight; }
+      inp.value="";
+    }
+  });
+};
+ShortzLive.closePop=function(silent){
+  const w=document.getElementById("szPop"); if(!w)return;
+  const stage=w.querySelector("#szPopStage");
+  if(stage){ try{ sstreamFill(stage, null, "blank"); }catch(e){} }
+  w.remove();
+  if(!document.querySelector(".szpanel.open")){ document.body.classList.remove("sz-open"); document.body.style.overflow=""; }
+  if(!silent){ try{ ssPickActive(); }catch(e){} }
+};
