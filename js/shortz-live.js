@@ -358,6 +358,14 @@ ShortzLive.carPlay=function(idx){
   /* the carousel is the on-screen player: the feed card yields */
   szFeedYield();
 };
+ShortzLive.carRefill=function(){
+  const st=ShortzLive._car, sec=szCarSec(); if(!sec||st.playing<0)return;
+  const sl=sec.querySelectorAll(".szslide")[st.playing]; if(!sl)return;
+  const s=szFindByShareId(sl.dataset.szPop); if(!s||s.platform!=="youtube")return;
+  const f=sl.querySelector("[data-sframe]"); if(!f)return;
+  const want=(s.live&&s.ytVideoId)?s.ytVideoId:(((typeof ssYtQueue==="function")?(ssYtQueue(s)[0]||null):null)||"live_stream");
+  if(f.dataset.mountedId&&f.dataset.mountedId!==want) szSlideFill(sec, st.playing, "current");
+};
 ShortzLive.carUnload=function(){
   const st=ShortzLive._car, sec=szCarSec();
   if(st.playing>=0&&sec) szSlideFill(sec, st.playing, "unload");
@@ -365,6 +373,7 @@ ShortzLive.carUnload=function(){
 };
 ShortzLive.carVis=function(){
   const st=ShortzLive._car, sec=szCarSec(); if(!sec||!st.count)return;
+  try{ ShortzLive.carRefill(); }catch(e){} // self-heal: a slide mounted before the live data landed swaps to the real live video on this tick
   if(document.hidden){ ShortzLive.carUnload(); return; }
   if(szCarVisible(sec)){
     const stale=st.playing===st.idx&&(Date.now()-(st.playSince||0)>4000)&&!szSlideAlive(sec,st.idx);

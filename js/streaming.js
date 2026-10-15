@@ -437,6 +437,7 @@ function ssYtMount(node,s){
   const fr=node.querySelector("[data-sframe]"); if(!fr)return;
   const queue=ssYtQueue(s);
   const startId=s.live&&s.ytVideoId?s.ytVideoId:(queue[0]||null);
+  fr.dataset.mountedId=startId||"live_stream";
   if(!startId){
     const cid=s.channelId||sstreamChannel(s);
     fr.innerHTML=`<iframe src="https://www.youtube.com/embed/live_stream?channel=${encodeURIComponent(cid)}&autoplay=1&mute=0&rel=0&controls=0&disablekb=1&fs=0" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
@@ -596,7 +597,14 @@ async function pollYtLive(){
       // the last-5 rotation list (his order 2026-10-14)
       if(st.recentIds&&st.recentIds.length&&JSON.stringify(s.ytRecent||[])!==JSON.stringify(st.recentIds)){ s.ytRecent=st.recentIds.slice(0,5); s.ytRecentTitles=st.recentTitles||[]; changed=true; }
     });
-    if(changed&&curView==="streaming")restackStreams();
+    if(changed&&curView==="streaming"){ restackStreams();
+      // the hero carousel fills FIRST on landing — before this poll lands —
+      // so a YouTube slide can be stuck on the channel's scheduled-stream
+      // countdown (live_stream fallback) while the feed card already has
+      // the real live video (his report 2026-10-15). Re-fill the playing
+      // slide whenever the live data moves so the carousel is never stale.
+      try{ if(window.ShortzLive&&ShortzLive.carRefill)ShortzLive.carRefill(); }catch(e){}
+    }
   }catch(e){}
 }
 async function pollKickLive(){
