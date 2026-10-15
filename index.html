@@ -2171,6 +2171,7 @@ const IDX = {
   rev: -1,
 };
 function vcount(t){ return (t.episodes && t.episodes.length) ? t.episodes.filter(e=>e.verified).length : (t.vc || 0); }
+function epsN(t){ if(!t)return 0; if(t.episodes && t.episodes.length)return t.episodes.length; if(t.ec)return t.ec; const m=String(t.eps||"").match(/\d+/); return m?parseInt(m[0],10):0; } // slim-aware: the count lives on the slim record before episodes hydrate
 function buildCatalogIndexes(){
   const rev = window.__catRev || 0;
   if(IDX.rev === rev) return;
@@ -4445,7 +4446,7 @@ function mediaReportNative(playing){
     if(!window.Android||!Android.mediaReport)return;
     const t=(window.feed&&feed.cur)||null;
     Android.mediaReport(t?(t.title||""):"",!!playing,
-      !!(t&&t.episodes&&t.episodes.length>1));
+      !!(t&&epsN(t)>1));
   }catch(e){}
 }
 window.nativeMediaCommand=function(cmd){
@@ -5085,7 +5086,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792092593";
+const BUILD="1792096358";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6088,10 +6089,10 @@ function cfCardHTML(t){
       <button class="cfact" data-cf-open aria-label="Open in the player"><span class="cfcorner"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span><span>Player</span></button>
       <button class="cfact" data-cf-com><span>💬</span><span data-cf-comnum>${cc}</span></button>
       <button class="cfact${inList?" saved":""}" data-cf-save><span data-cf-saveicon>${inList?"✓":"+"}</span></button>
-      ${((t.episodes||[]).length>1)?`<button class="cfact" data-cf-eps aria-expanded="false"><span>▤</span><span>Episodes ${(t.episodes||[]).length}</span><span class="epschev">▾</span></button>`:""}
+      ${(epsN(t)>1)?`<button class="cfact" data-cf-eps aria-expanded="false"><span>▤</span><span>Episodes ${epsN(t)}</span><span class="epschev">▾</span></button>`:""}
       <button class="cfact share" data-cf-share><span>⤴</span><span>Share</span></button>
     </div>
-    ${((t.episodes||[]).length>1)?`<div class="cffold" data-cf-fold hidden><div class="eplist">${epRowsHTML(t)}</div></div>`:""}
+    ${(epsN(t)>1)?`<div class="cffold" data-cf-fold hidden><div class="eplist">${t._epsReady?epRowsHTML(t):""}</div></div>`:""}
   </article>`;
 }
 function cfPickBatch(n,avoidId){
@@ -6908,6 +6909,15 @@ function cfToggleFold(card){
   });
   fold.hidden=!opening;
   if(btn){ btn.classList.toggle("epsopen",opening); btn.setAttribute("aria-expanded",opening?"true":"false"); }
+  if(opening){ // slim catalog: episodes arrive on first open, then the fold fills itself
+    const ct=byId(card.dataset.id);
+    if(ct&&!ct._epsReady&&epsN(ct)>0){
+      const list=fold.querySelector(".eplist");
+      if(list&&!list.dataset.loading){ list.dataset.loading="1";
+        ensureEps(ct).then(()=>{ if(list.isConnected){ list.innerHTML=epRowsHTML(ct); delete list.dataset.loading; } });
+      }
+    }
+  }
   try{ buzz(10); }catch(e){}
 }
 /* ---------- autoplay: when a video ends, play the next verified episode ---------- */
@@ -7181,10 +7191,10 @@ function openDetail(id){
       <div class="playrow">
         <button class="btn-play" id="dPlay" style="flex:0.72;justify-content:center">▶ Play</button>
         <button class="btn-ghost" id="dSave">${inList?"♥ Saved":"＋ My List"}</button>
-        ${((t.episodes||[]).length>1)?`<button class="btn-ghost" id="dEpsBtn" aria-expanded="false">▤ Episodes ${t.episodes.length} <span class="epschev">▾</span></button>`:""}
+        ${(epsN(t)>1)?`<button class="btn-ghost" id="dEpsBtn" aria-expanded="false">▤ Episodes ${epsN(t)} <span class="epschev">▾</span></button>`:""}
         <button class="btn-ghost" id="dShare">⤴ Share</button>
       </div>
-      ${((t.episodes||[]).length>1)?`<div class="eplist" id="dEps" hidden style="margin-top:12px">${epRowsHTML(t)}</div>`:""}
+      ${(epsN(t)>1)?`<div class="eplist" id="dEps" hidden style="margin-top:12px">${t._epsReady?epRowsHTML(t):""}</div>`:""}
     </div></div>`;
   $("#dBack").onclick=()=>go(returnView);
   $("#dPlay").onclick=()=>{cfPresentTitle(t)};
@@ -7192,6 +7202,9 @@ function openDetail(id){
   if(dl)dl.querySelectorAll("button.erow").forEach(r=>{
     r.onclick=()=>playEpFromFold(t,parseInt(r.dataset.idx,10));
   });
+  if(dl&&!t._epsReady&&epsN(t)>1){ // slim catalog: fill the detail episode list as soon as the pack lands
+    ensureEps(t).then(()=>{ const d2=$("#dEps"); if(d2&&d2.isConnected){ d2.innerHTML=epRowsHTML(t); d2.querySelectorAll("button.erow").forEach(r=>{ r.onclick=()=>playEpFromFold(t,parseInt(r.dataset.idx,10)); }); } });
+  }
   const eb=$("#dEpsBtn");
   if(eb)eb.onclick=()=>{
     if(!dl)return;
@@ -8575,10 +8588,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792092593"></script>
+<script src="js/folders.js?v=1792096358"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792092593"></script>
+<script src="js/guide.js?v=1792096358"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9386,9 +9399,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792092593"></script>
-<script src="js/shortz-live.js?v=1792092593"></script>
-<script src="js/games.js?v=1792092593"></script>
+<script src="js/streaming.js?v=1792096358"></script>
+<script src="js/shortz-live.js?v=1792096358"></script>
+<script src="js/games.js?v=1792096358"></script>
 <script>
 
 
@@ -9906,7 +9919,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792092593"></script>
+<script src="js/swipe.js?v=1792096358"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11531,7 +11544,7 @@ function seenIds(){
   try{ mylist.forEach(id=>s.add(id)); }catch(e){}
   return s;
 }
-function epCount(t){ return (t&&t.episodes&&t.episodes.length)||0; }
+function epCount(t){ return epsN(t); }
 function scoreTitle(t,w){
   let s=0; const g=(t&&t.genre)||"";
   if(g&&w[g]) s+=w[g];
@@ -12126,7 +12139,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792092593"></script>
+<script src="js/live-sports.js?v=1792096358"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
