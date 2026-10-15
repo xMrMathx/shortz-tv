@@ -30,7 +30,7 @@ const VF_DEFS=[
   {key:"history",name:"Watch History",cls:"vf-teal",  unit:"watched",
    empty:"No watch history yet."}
 ];
-let vfState={}, vfObs=null, vfOpenKey=null;
+let vfState={}, vfObs=null, vfOpenKey=null, vfPresenting=false;
 function vfInbox(){ try{ if(window.Scout&&Scout.getInbox) return Scout.getInbox()||[]; }catch(e){} return []; }
 function vfMsgLine(m){ try{ if(window.Scout&&Scout.msgLine) return Scout.msgLine(m)||""; }catch(e){} return (m&&m.reason)||""; }
 function vfFolderItems(key){
@@ -344,11 +344,43 @@ function vfEnsureOverlay(){
   ov.querySelector("#vfScroll").addEventListener("click",e=>{
     const vc=e.target.closest&&e.target.closest(".vcard");
     if(!vc)return;
+    if(window.__vfTouchServed&&Date.now()-window.__vfTouchServed<600)return; // already served on touchend — never twice
     e.stopPropagation(); e.preventDefault();
     const t=vc.dataset&&byId(vc.dataset.id);
+    vfPresenting=true; // the close must stay silent — a show is opening (Brain audit fix 4)
     vfCloseFolder(true);
+    vfPresenting=false;
     if(t)cfPresentTitle(t);
   },true);
+  /* A REAL FINGER IS NOT A CLICK (folder audit layer 1, 2026-10-15,
+     proven by the phone-shaped probe): on Android, a tap that lands
+     with any drift — or right after scrolling the grid to find the
+     movie — has its CLICK CANCELLED by the scroller, so no handler
+     ever ran and he was left staring at the folder. Serve the tap on
+     touchend instead: still finger (<24px of travel) and the grid not
+     flinging (a fast-moving grid means the tap was only stopping the
+     scroll — that tap is left alone). */
+  let vfTouch=null, vfScrollHist=[];
+  const vsc=ov.querySelector("#vfScroll");
+  vsc.addEventListener("scroll",()=>{ const n=Date.now(); vfScrollHist.push([n,vsc.scrollTop]); if(vfScrollHist.length>24)vfScrollHist=vfScrollHist.filter(p=>n-p[0]<400); },{passive:true});
+  vsc.addEventListener("touchstart",e=>{
+    const t=e.touches&&e.touches[0]; if(!t)return;
+    const vc=e.target.closest&&e.target.closest(".vcard");
+    // fling truth is only the last 150ms — older entries are stale history
+    vfTouch=vc?{x:t.clientX,y:t.clientY,id:vc.dataset.id,hist:vfScrollHist.filter(p=>Date.now()-p[0]<150)}:null;
+  },{capture:true,passive:true});
+  vsc.addEventListener("touchend",e=>{
+    const st=vfTouch; vfTouch=null; if(!st)return;
+    const t=e.changedTouches&&e.changedTouches[0]; if(!t)return;
+    if(Math.abs(t.clientX-st.x)>24||Math.abs(t.clientY-st.y)>24)return; // a drag, not a tap
+    const h=st.hist;
+    if(h.length>1){ const a=h[0], b=h[h.length-1]; if(b[0]-a[0]>30&&Math.abs(b[1]-a[1])/(b[0]-a[0])>0.5)return; } // grid was flinging — this tap only stops it
+    const tt=st.id&&byId(st.id); if(!tt)return;
+    e.preventDefault(); e.stopPropagation();
+    window.__vfTouchServed=Date.now();
+    vfPresenting=true; vfCloseFolder(true); vfPresenting=false;
+    cfPresentTitle(tt);
+  },{capture:true});
   return ov;
 }
 function vfChipHTML(cls){
@@ -397,6 +429,11 @@ function vfOpenFolder(key){
   }
   sc.scrollTop=0;
   vfOpenKey=key;
+  /* Warm this folder's episode packs NOW (Brain audit 2026-10-15): a tap
+     inside a folder must never wait on a cold pack download — packs are
+     shared and deduped by _packPromises, so this is a few fetches while
+     he is still looking at the folder. */
+  try{ items.slice(0,8).forEach(it=>{ const t=it&&it.t; if(t&&!t._epsReady&&epsN(t)>0)ensureEps(t); }); }catch(e){} // capped at the first screen (Brain audit 2026-10-15): warming all ~56 packs at open saturates the connection against the tapped title's own pack
   ov.classList.add("open");
   requestAnimationFrame(()=>requestAnimationFrame(()=>ov.classList.add("shown")));
   /* the folder's icon shoots up to the top-left, beside the two-bar button */
@@ -423,7 +460,7 @@ function vfCloseFolder(instant){
       const f=vfState[key].folder;
       f.classList.remove("settle"); void f.offsetWidth; f.classList.add("settle");
     }
-    if(curView==="profile"){ vfStartPreviews(); const _pv=$("#tgPreviewBox"); if(_pv&&_pv._tid&&typeof tgPreview==="function"){ try{ tgPreview(_pv._tid); }catch(e){} } } // guide resumes the same show it was previewing
+    if(curView==="profile"&&!vfPresenting){ vfStartPreviews(); const _pv=$("#tgPreviewBox"); if(_pv&&_pv._tid&&typeof tgPreview==="function"){ try{ tgPreview(_pv._tid); }catch(e){} } } // guide resumes the same show it was previewing — UNLESS a present is in flight (Brain audit 2026-10-15): restarting folder+guide previews inside the present tap mounts up to 5 iframes that go("home") tears down a tick later (the ~3s freeze)
   };
   if(instant||!key||!chip){ finish(); return; }
   const def=VF_DEFS.find(d=>d.key===key);

@@ -3962,7 +3962,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // because the rest path no longer writes scrollLeft at all (the
   // write was the momentum-killer, not the entry), so a false rest
   // costs nothing.
-  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0;
+  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evJumpTarget=null, evJumpAt=0;
   function evPanesInOrder(){ const vs=$("views"); return vs ? [...vs.querySelectorAll(".view.evpane")] : []; }
   function evGuard(){
     const vs=$("views"); if(!vs)return;
@@ -4002,6 +4002,16 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     let pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
     const pane=panes[pos]; if(!pane)return;
     const v=pane.id.replace("view-","");
+    /* JUMP INTENT (Brain audit 2026-10-15): while a programmatic jump is
+       in flight, a displaced track is RE-ISSUED to its target — never
+       silently accepted by the stale-section no-op below. That no-op is
+       what stranded him on the Profile pane with curView already "home"
+       and the folder fronts dead. */
+    if(evJumpTarget){
+      if(v===evJumpTarget){ evJumpTarget=null; }
+      else if(Date.now()-evJumpAt<2500){ evGoTo(evJumpTarget); return; }
+      else evJumpTarget=null;
+    }
     if(v!==evSection){
       evSection=v;
       evIdx=SECTIONS.indexOf(v); if(evIdx<0)evIdx=0;
@@ -4028,6 +4038,12 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
     const centered=panes[pos]?panes[pos].id.replace("view-",""):"";
     if(centered===v)return;
+    /* record the intent synchronously (Brain audit fix 3): the sampler's
+       only truth was position, so a nudge back toward the old pane read
+       as "never left" — now evRest can tell a jump in flight from a rest
+       state. Re-issues keep the original timestamp so the window closes. */
+    if(evJumpTarget!==v){ evJumpTarget=v; evJumpAt=Date.now(); }
+    evSection=v; evIdx=SECTIONS.indexOf(v); if(evIdx<0)evIdx=0;
     evRotateTo(v);
     try{ vs.scrollLeft=Math.floor((SECTIONS.length-1)/2)*W; }catch(e){}
     try{ evNoteScroll(); }catch(e){}
@@ -4088,6 +4104,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // swipe detection: capture phase, only in ev-mode, horizontal-dominant only
   document.addEventListener("touchstart",e=>{
     if(!evMode||!e.touches||!e.touches[0])return;
+    evJumpTarget=null; // a genuine touch takes the wheel (Brain verify D2): jump intent never outranks his finger — safe ordering, since jumps record intent after their own tap's touchstart
     tx0=e.touches[0].clientX;ty0=e.touches[0].clientY;swiped=false;
   },{passive:true,capture:true});
   document.addEventListener("touchend",e=>{
@@ -5102,7 +5119,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792102125";
+const BUILD="1792105481";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6076,7 +6093,7 @@ $("#ccclose").addEventListener("click",closeCc);
    Feed source/order is unchanged: the HOME FRESH pickRandom pool and
    scoring the pager always used — dealt as cards instead of slides. */
 var homeMode="cards";           // "cards" | "stage"
-var cfLineup=[], cfBuilt=false, cfActive=null, cfScrollTick=false;
+var cfLineup=[], cfBuilt=false, cfActive=null, cfScrollTick=false, cfPresentLock=null;
 
 function cfCardHTML(t){
   const art=thumb(t,"hq");
@@ -6193,10 +6210,17 @@ function cfPreviewSrc(t){
 }
 function cfActivate(card){
   if(cfActive===card)return;
-  cfStopPreview();
-  if(!card)return;
-  const t=byId(card.dataset.id); if(!t)return;
+  /* no card / unknown title still stops the room (Brain verify D1):
+     cfRecompute passes null at rest in a no-card position, and the old
+     unconditional stop was the one-audio law's enforcer there. */
+  if(!card||!byId(card.dataset.id)){ cfStopPreview(); return; }
+  const t=byId(card.dataset.id);
+  /* readiness BEFORE the kill (Brain audit 2026-10-15): a cold successor
+     used to stop the playing preview first and only then defer, leaving
+     NOTHING playing — the incumbent now plays until the successor can
+     actually mount. */
   if(!t._epsReady){ ensureEps(t).then(()=>{ if(card.isConnected && cfActive!==card) cfActivate(card); }); return; }
+  cfStopPreview();
   const media=card.querySelector("[data-cf-media]"); if(!media)return;
   const au=cfEpUrl(t);
   if(isArchiveUrl(au)){
@@ -6458,6 +6482,15 @@ function cfRecompute(){
     const d=Math.abs((r.top+r.height/2)-cy)+Math.abs((r.left+r.width/2)-cx)*0.5;
     if(d<bestD){bestD=d;best=c;}
   });
+  /* PRESENT LOCK (Brain audit 2026-10-15): while a present is landing,
+     the geometrically centered card may not steal activation — the
+     presented card is the only activation until it wins or the lock
+     expires. This race is what left NOTHING playing after a folder tap. */
+  if(cfPresentLock&&Date.now()<cfPresentLock.until&&best!==cfPresentLock.card){
+    if(cfActive!==cfPresentLock.card)cfActivate(cfPresentLock.card);
+    return;
+  }
+  if(cfPresentLock&&Date.now()>=cfPresentLock.until)cfPresentLock=null;
   cfActivate(best);
 }
 function cfOnScroll(){
@@ -6850,13 +6883,22 @@ function ensureEps(t){
   if(!_packPromises.has(p)){
     _packPromises.set(p, fetch("episodes/pack-" + p + ".json?v=" + BUILD).then(r => r.ok ? r.json() : {}).catch(() => ({})));
   }
-  t._epsPromise = _packPromises.get(p).then(pack => { _applyPack(pack); t._epsPromise = null; return t; });
+  t._epsPromise = _packPromises.get(p).then(pack => { _applyPack(pack); if(!t._epsReady)t._epsReady=true; t._epsPromise = null; return t; });
   return t._epsPromise;
 }
 window.ensureEps = ensureEps;
 function cfPresentTitle(t,epIdx){
   if(!t)return;
-  if(!t._epsReady){ ensureEps(t).then(()=>cfPresentTitle(t,epIdx)); return; }
+  /* NEVER defer the whole present on a cold pack (Brain audit
+     2026-10-15, the folder bounce): the old gate returned instantly and
+     re-entered only after the pack downloaded AND parsed (up to
+     1.78 MB) — on his phone that dead time ran seconds with the folder
+     already closed, which is exactly "back to the folders, frozen,
+     nothing played." Discovery titles arrive warm (browsing hydrates
+     them); folder titles are always cold. So: kick the fetch, navigate
+     and insert NOW — cfActivate self-defers on _epsReady, and the
+     episode pick is applied when the pack lands. */
+  if(!t._epsReady){ ensureEps(t).then(()=>{ if(typeof epIdx==="number"){ const e2=(t.episodes||[])[epIdx]; if(e2&&e2.verified&&e2.url)t._cfEp=e2; } /* the pack landing is when the feed's scroll-settle can steal activation back to its centered card — re-assert the presented card once, right after (act() no-ops if it already won) */ setTimeout(()=>{ try{ act(); }catch(e){} },60); }); }
   const eps=t.episodes||[];
   if(typeof epIdx==="number"&&eps[epIdx]&&eps[epIdx].verified&&eps[epIdx].url)t._cfEp=eps[epIdx];
   try{ go("home"); }catch(e){}
@@ -6871,12 +6913,25 @@ function cfPresentTitle(t,epIdx){
     if(card){ inner.insertBefore(card,inner.firstChild); cfLineup.unshift(t); try{ likesWatch($("#view-home")); }catch(e){} }
   }
   if(!card)return;
+  cfPresentLock={id:t.id,card:card,until:Date.now()+6000}; // the present owns activation until it lands (Brain audit fix 1)
   if(t._cfEp){ const ix=eps.indexOf(t._cfEp); if(ix>=0)card.querySelectorAll("[data-cf-fold] .erow").forEach(r=>r.classList.toggle("now",parseInt(r.dataset.idx,10)===ix)); }
   try{ pushHistory(t); }catch(e){}
-  try{ card.scrollIntoView({block:"center"}); }catch(e){}
+  /* Positioning (Brain audit fix 2): in the Everything hub the card's
+     pane is parked in a horizontal track — scrollIntoView there can
+     scroll the TRACK itself on his WebView and the ring then settles
+     back on the pane he came from. Hub mode positions the pane's own
+     scroll directly; classic mode keeps the original scrollIntoView. */
+  try{
+    if(window.Everything&&Everything.isOpen()){
+      const pane=$("view-home");
+      if(pane){ const cr=card.getBoundingClientRect(), pr=pane.getBoundingClientRect(); const dh=(cr.top-pr.top)-(pane.clientHeight-card.offsetHeight)/2; if(dh)pane.scrollTop+=Math.round(dh); }
+    }else{
+      card.scrollIntoView({block:"center"});
+    }
+  }catch(e){}
   const force=(typeof epIdx==="number");
   let first=true;
-  const act=()=>{ const f=first; first=false; if(piaActive||document.hidden)return; if((f&&force)||cfActive!==card){ cfStopPreview(); cfActivate(card); } };
+  const act=()=>{ const f=first; first=false; if(piaActive||document.hidden)return; if((f&&force)||cfActive!==card){ cfStopPreview(); cfActivate(card); } if(cfActive===card)cfPresentLock=null; };
   setTimeout(act,80);
   setTimeout(act,500);
 }
@@ -6925,12 +6980,12 @@ function cfToggleFold(card){
   });
   fold.hidden=!opening;
   if(btn){ btn.classList.toggle("epsopen",opening); btn.setAttribute("aria-expanded",opening?"true":"false"); }
-  if(opening){ // slim catalog: episodes arrive on first open, then the fold fills itself
+  if(opening){ // slim catalog: fill the fold whenever it is EMPTY and the title has episodes — a card presented cold (F1) is born with an empty list and is warm by the time he opens it, so gating on "still cold" left it empty forever (Brain verify D1, 2026-10-15)
     const ct=byId(card.dataset.id);
-    if(ct&&!ct._epsReady&&epsN(ct)>0){
+    if(ct&&epsN(ct)>0){
       const list=fold.querySelector(".eplist");
-      if(list&&!list.dataset.loading){ list.dataset.loading="1";
-        ensureEps(ct).then(()=>{ if(list.isConnected){ list.innerHTML=epRowsHTML(ct); delete list.dataset.loading; } });
+      if(list&&!list.children.length&&!list.dataset.loading){ list.dataset.loading="1";
+        ensureEps(ct).then(()=>{ if(list.isConnected){ list.innerHTML=epRowsHTML(ct); delete list.dataset.loading; if(ct._cfEp){ const ix=(ct.episodes||[]).indexOf(ct._cfEp); if(ix>=0)list.querySelectorAll(".erow").forEach(r=>r.classList.toggle("now",parseInt(r.dataset.idx,10)===ix)); } } });
       }
     }
   }
@@ -8604,10 +8659,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792102125"></script>
+<script src="js/folders.js?v=1792105481"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792102125"></script>
+<script src="js/guide.js?v=1792105481"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9415,9 +9470,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792102125"></script>
-<script src="js/shortz-live.js?v=1792102125"></script>
-<script src="js/games.js?v=1792102125"></script>
+<script src="js/streaming.js?v=1792105481"></script>
+<script src="js/shortz-live.js?v=1792105481"></script>
+<script src="js/games.js?v=1792105481"></script>
 <script>
 
 
@@ -9935,7 +9990,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792102125"></script>
+<script src="js/swipe.js?v=1792105481"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12155,7 +12210,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792102125"></script>
+<script src="js/live-sports.js?v=1792105481"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
