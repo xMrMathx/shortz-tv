@@ -394,7 +394,7 @@ ShortzLive.carStart=function(sec,count){
   st.idx=0; st.count=count||0; st.playing=-1;
   const track=sec?sec.querySelector(".szcar-track"):null;
   if(!track||st.count<1)return;
-  const go2=n=>{ st.idx=((n%st.count)+st.count)%st.count; track.style.transform=`translateX(-${st.idx*100}%)`; sec.querySelectorAll(".szcar-dots i").forEach((d,i)=>d.classList.toggle("on",i===st.idx)); st.deadline=Date.now()+SZ_CAR_MS; if(szCarVisible(sec)) ShortzLive.carPlay(st.idx); };
+  const go2=n=>{ st.idx=((n%st.count)+st.count)%st.count; track.style.transform=`translateX(-${st.idx*100}%)`; sec.querySelectorAll(".szcar-dots i").forEach((d,i)=>d.classList.toggle("on",i===st.idx)); st.deadline=Date.now()+SZ_CAR_MS; if(szHeroVisible(sec)) ShortzLive.carPlay(st.idx); };
   st.go=go2;
   let tx=null;
   track.addEventListener("touchstart",e=>{ tx=e.touches[0].clientX; },{passive:true});
