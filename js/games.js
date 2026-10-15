@@ -103,6 +103,10 @@ function gameMount(card, g){
   ifr.title = g.title;
   p.insertBefore(ifr, p.firstChild);
   p.classList.add("open");
+  // his order 2026-10-14: the app's own floating top buttons (hub grid +
+  // TV, z-9600) sit ABOVE this player (z-9000) — while a game is open
+  // they step off the screen; gameStop() brings them back
+  document.body.classList.add("playing-game");
   // take the whole screen; landscape games swing sideways, portrait
   // games stay tall. Where the platform refuses (iPhone web), the
   // layer already fills the screen, so the game still plays big.
@@ -114,6 +118,7 @@ function gameMount(card, g){
   }catch(e){}
 }
 function gameStop(){
+  document.body.classList.remove("playing-game");
   if(document.fullscreenElement){ try{ document.exitFullscreen().catch(() => {}); }catch(e){} }
   const p = document.getElementById("gamePlayer");
   if(p){ p.classList.remove("open"); p.querySelectorAll("iframe").forEach(f => f.remove()); }
