@@ -130,10 +130,6 @@ const GAMES=[
     embed:"https://playgama.com/export/game/swat-ops-body-camera",
     thumb:"https://static.playgama.com/p-img/pg/swat-ops-body-camera/big_preview/4ade3f1257e841abbe6c3704466b8c2d?width=1200",
     sub:"Body-camera FPS — 3-minute Deathmatch and 4v4 Team Deathmatch against BOTS (not online), 4 maps, 100+ weapon skins. The Venge feel in bot matches · his pick." },
-  { title:"Zombie Hunters", cat:"Top-Down Shooter", orient:"landscape",
-    embed:"https://html5.gamemonetize.co/f9azv4ensecx1u3kneq20ixfu5utbteq/",
-    thumb:"https://img.gamemonetize.com/f9azv4ensecx1u3kneq20ixfu5utbteq/512x384.jpg",
-    sub:"ONLINE top-down arena shooter — team with real players against zombie waves across 13 maps · co-op, not versus · mobile joystick built in." },
   { title:"Party Games Mini Shooter Battle", cat:"Top-Down Shooter", orient:"landscape",
     embed:"https://playgama.com/export/game/party-games-mini-shooter-battle",
     thumb:"https://static.playgama.com/p-img/pg/party-games-mini-shooter-battle/big-preview/1df03c20a9274246abfbde5c76475520?width=1200",
@@ -146,6 +142,14 @@ const GAMES=[
     embed:"https://html5.gamemonetize.co/h8tqlnll0m80exyi5l7q8eggc2p8zkyc/",
     thumb:"https://img.gamemonetize.com/h8tqlnll0m80exyi5l7q8eggc2p8zkyc/512x384.jpg",
     sub:"Top-down zombie shooter — virtual joystick, dash and grenades, unlockable weapons · solo waves and missions." },
+  { title:"Tank Arena Multiplayer", cat:"Top-Down Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/tank-arena-multiplayer",
+    thumb:"https://static.playgama.com/p-img/pg/tank-arena-multiplayer/big-preview/afece83b5238464b8564375629db263d?width=1200",
+    sub:"ONLINE top-down tank arena — real-time matches up to 4 players · twin-stick touch: left stick moves, right stick aims · plus bots to practice. Thin base (4.2 stars, 112 ratings)." },
+  { title:"BattleDudes.io", cat:"Top-Down Shooter", orient:"landscape",
+    embed:"https://html5.gamemonetize.co/qaf7ryh54m4k9j3e0jhf3z45rzuyugql/",
+    thumb:"https://img.gamemonetize.com/qaf7ryh54m4k9j3e0jhf3z45rzuyugql/512x384.jpg",
+    sub:"ONLINE 2D top-down shooter — fight other teams and players, destructible maps, 20+ weapons, drivable cars. GameMonetize marks it mobile-ready; printed controls are desktop-worded — phone test decides." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
