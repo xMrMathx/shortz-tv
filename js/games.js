@@ -98,6 +98,18 @@ const GAMES=[
     embed:"https://playgama.com/export/game/boxing-stars",
     thumb:"https://static.playgama.com/p-img/pg/boxing-stars/big_preview/e924e27fd059432aaceb25596fa1695a?width=1200",
     sub:"3D boxing career — underground circuit to the championship, tournaments, trainable abilities, knockouts · solo vs the computer." },
+  { title:"Rim Rebels 3v3", cat:"Basketball", orient:"landscape",
+    embed:"https://playgama.com/export/game/rim-rebels-3v3",
+    thumb:"https://static.playgama.com/p-img/pg/rim-rebels-3v3/big_preview/094c1018417f47698154ac9742c03e5f?width=1200",
+    sub:"ONLINE 3v3 street basketball — quick match vs real people, or a room code to play a friend · plus vs computer. Brand-new (4.1 stars, 7 ratings) — lobbies unproven." },
+  { title:"Football 2026", cat:"Football", orient:"landscape",
+    embed:"https://playgama.com/export/game/football-2026",
+    thumb:"https://static.playgama.com/p-img/pg/football-2026/big-preview/2237fc6b7b104ab5ba0ef43348407fac?width=1200",
+    sub:"Full-match 3D soccer — career mode with a national team, championships and tournaments, Amateur to Legendary · solo vs the computer. 4.5 stars from 2,162 players." },
+  { title:"2 Minute Football QB Legend", cat:"American Football", orient:"landscape",
+    embed:"https://playgama.com/export/game/2-minute-football-qb-legend",
+    thumb:"https://static.playgama.com/p-img/pg/2-minute-football-qb-legend/big-preview/a2e92873908445478f326006daa1c0d5?width=1200",
+    sub:"Quarterback game — read the field, thread passes, run two-minute drives to the championship · solo. 4.7 stars from 172 players." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
