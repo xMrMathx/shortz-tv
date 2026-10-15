@@ -208,8 +208,10 @@ function sstreamPlayable(s){
 function sstreamList(){
   const out=[];
   ["kick","twitch","youtube"].forEach(p=>{ (STREAMERS[p]||[]).forEach(s=>out.push(Object.assign({platform:p},s))); });
-  // pinned first (Mr. Moore's favorites), then playable, then live
-  out.sort((a,b)=>((b.pinned?1:0)-(a.pinned?1:0))||((sstreamPlayable(b)?1:0)-(sstreamPlayable(a)?1:0))||((b.live?1:0)-(a.live?1:0)));
+  // pinned first (Mr. Moore's favorites), then LIVE (a live event beats
+  // any replay — his "push them" order for the Delta Force tournament,
+  // 2026-10-15), then playable
+  out.sort((a,b)=>((b.pinned?1:0)-(a.pinned?1:0))||((b.live?1:0)-(a.live?1:0))||((sstreamPlayable(b)?1:0)-(sstreamPlayable(a)?1:0)));
   return out;
 }
 function sstreamChannel(s){ return String(s.url||"").split("/").filter(Boolean).pop()||""; }
