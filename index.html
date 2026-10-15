@@ -4913,7 +4913,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014222449";
+const BUILD="20261014223359";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8018,6 +8018,11 @@ function renderProfile(){
   const friendsN=(Live.friendsSnap&&Object.keys(Live.friendsSnap).length)||0;
   $("#view-profile").innerHTML=`<div class="wrap">
     <div style="text-align:center;color:rgba(255,255,255,.35);font-size:11px;margin:2px 0 10px">Shortz VS · build ${BUILD}</div>
+    <div id="prevSpot" style="border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,rgba(229,9,20,.14),rgba(255,255,255,.04));border-radius:14px;padding:12px 14px;margin:0 0 14px">
+      <div style="font-size:14px;font-weight:800">📺 Want something longer?</div>
+      <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">You&rsquo;ve been watching short-form content all day. For longer-form shows and movies, check out <b style="color:#fff">WatchPreviously.com</b> &mdash; my brother James&rsquo;s website.</div>
+      <button id="prevSpotBtn" class="pbtn sm" style="margin-top:9px">Visit WatchPreviously.com &#8599;</button>
+    </div>
     <div class="profhead">
       ${avatarHTML(p,"lg")}
       <div style="flex:1"><div style="font-size:19px;font-weight:800">${esc(p.name||"Viewer")}</div>
@@ -8050,6 +8055,7 @@ function renderProfile(){
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
+  const _pb=$("#prevSpotBtn"); if(_pb)_pb.onclick=e=>{e.stopPropagation(); try{ window.open("https://watchpreviously.com/","_blank"); }catch(err){ location.href="https://watchpreviously.com/"; } };
   renderTvGuide();
   paintYtSignInRows();
   paintLiveVisitors();
@@ -8152,10 +8158,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=20261014222449"></script>
+<script src="js/folders.js?v=20261014223359"></script>
 <script>
 </script>
-<script src="js/guide.js?v=20261014222449"></script>
+<script src="js/guide.js?v=20261014223359"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -8963,8 +8969,8 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=20261014222449"></script>
-<script src="js/games.js?v=20261014222449"></script>
+<script src="js/streaming.js?v=20261014223359"></script>
+<script src="js/games.js?v=20261014223359"></script>
 <script>
 
 
@@ -9482,7 +9488,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=20261014222449"></script>
+<script src="js/swipe.js?v=20261014223359"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11702,7 +11708,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=20261014222449"></script>
+<script src="js/live-sports.js?v=20261014223359"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
