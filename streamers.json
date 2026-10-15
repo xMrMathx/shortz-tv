@@ -275,7 +275,8 @@
       "followers": "306000",
       "name": "Delta Force Game",
       "url": "https://www.youtube.com/@deltaforcegame",
-      "thumb": "https://i.ytimg.com/vi/IE4dD4-gpao/maxresdefault.jpg"
+      "thumb": "https://i.ytimg.com/vi/IE4dD4-gpao/maxresdefault.jpg",
+      "featured": true
     }
   ]
 }
