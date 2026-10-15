@@ -3060,6 +3060,7 @@ function mgBindLikes(root){
 let curView="home", returnView="home";
 function go(v){
   if(window.__swParkClear)__swParkClear(); // a parked mid-slide strip settles before any navigation
+  if(v!==curView&&window.Everything&&Everything.isOpen()&&typeof SECTIONS!=="undefined"&&SECTIONS.indexOf(v)>=0){ try{ Everything.goTo(v); }catch(e){} } // HUB: the visible pane is the track's scroll position, not the .active class — a programmatic jump (folder tap -> cfPresentTitle -> go('home')) that only flips classes leaves him staring at the pane he came from. Rotate the ring to the target; the rest sampler settles it like a swipe.
   if(v===curView&&v!=="detail")return;
   if(curView==="home"&&v!=="home"&&!piaActive)pauseFeedVideo(); // PIA: keep playing while browsing
   if(curView==="home"&&v!=="home"){try{cfStopPreview();}catch(e){}} // card previews never play off-Home
@@ -4016,6 +4017,14 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     }
     evLazyBuild();
   }
+  function evGoTo(v){
+    if(!evMode||evMoving||evSection===v)return;
+    if(SECTIONS.indexOf(v)<0)return;
+    evRotateTo(v);
+    const vs=$("views");
+    if(vs){ try{ vs.scrollLeft=Math.floor((SECTIONS.length-1)/2)*(window.innerWidth||1); }catch(e){} }
+    try{ evNoteScroll(); }catch(e){}
+  }
   function evRotateTo(v){
     const vs=$("views"); if(!vs)return;
     const k=SECTIONS.indexOf(v); if(k<0)return;
@@ -4143,7 +4152,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       }).observe(views,{attributes:true,subtree:true,attributeFilter:["class"]});
     }
   }catch(e){}
-  window.Everything={open,close,toggle(){evMode?close():open();},isOpen(){return evMode;},go:evGo};
+  window.Everything={open,close,toggle(){evMode?close():open();},isOpen(){return evMode;},go:evGo,goTo:evGoTo};
 })();
 function renderView(v){
   if(v==="home"){
@@ -5086,7 +5095,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792096358";
+const BUILD="1792100048";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8588,10 +8597,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792096358"></script>
+<script src="js/folders.js?v=1792100048"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792096358"></script>
+<script src="js/guide.js?v=1792100048"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9399,9 +9408,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792096358"></script>
-<script src="js/shortz-live.js?v=1792096358"></script>
-<script src="js/games.js?v=1792096358"></script>
+<script src="js/streaming.js?v=1792100048"></script>
+<script src="js/shortz-live.js?v=1792100048"></script>
+<script src="js/games.js?v=1792100048"></script>
 <script>
 
 
@@ -9919,7 +9928,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792096358"></script>
+<script src="js/swipe.js?v=1792100048"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12139,7 +12148,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792096358"></script>
+<script src="js/live-sports.js?v=1792100048"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
