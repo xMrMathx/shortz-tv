@@ -26,6 +26,10 @@
    Shooters 2 and Tile Master Deluxe, even via the direct file URL).
    GD games return only if the site is registered with GD. Working
    model: GameMonetize — direct embeds, no domain block.
+   SPECIAL OPS: GO + DARK CITY ARE OUT (2026-10-14, his phone: "those
+   don't work") — a channel 200 and good paperwork are NOT a working
+   game; only his device crowns a title. RIVALS FPS + WARFARE 1942
+   passed his testing same night ("everything else is good").
    DEADSHOT.IO IS OUT (2026-10-14, his phone): the CrazyGames embed
    document loads, but the game itself serves "DEADSHOT.io is no
    longer available" at runtime — a channel 200 is not a playable
@@ -42,10 +46,6 @@ const GAMES=[
     embed:"https://playgama.com/export/game/hazmob-fps-online-shooter",
     thumb:"https://static.playgama.com/p-img/pg/hazmob-fps-online-shooter/big_preview/df01c609f8c44052b837b336d0e63617?width=1200",
     sub:"ONLINE multiplayer — Team Deathmatch, Search & Destroy, Domination, Capture the Flag. Live lobbies shared with the phone game's players." },
-  { title:"Special Ops: GO", cat:"First-Person Shooter", orient:"landscape",
-    embed:"https://playgama.com/export/game/special-ops",
-    thumb:"https://static.playgama.com/p-img/pg/special-ops/big_preview/379c25433de24d13afadf693d918e11e?width=1200",
-    sub:"ONLINE multiplayer — 5v5 Deathmatch, Team Deathmatch, Ranked and custom rooms. From the studio behind Hazmob FPS." },
   { title:"RIVALS FPS: Online Shooter", cat:"First-Person Shooter", orient:"landscape",
     embed:"https://playgama.com/export/game/rivals-fps-online-shooter",
     thumb:"https://static.playgama.com/p-img/pg/rivals-fps-online-shooter/big_preview/f09adf25db724a509d28d6427dfd4d7c?width=1200",
@@ -54,10 +54,6 @@ const GAMES=[
     embed:"https://playgama.com/export/game/warfare-1942",
     thumb:"https://static.playgama.com/p-img/pg/warfare-1942/big_preview/b6d2f1acce5f428d8f2c3aa570f34660?width=1200",
     sub:"ONLINE multiplayer WW2 FPS — full on-screen touch layout: move left side, aim right side, buttons for the rest." },
-  { title:"Dark City. Multiplayer", cat:"Multiplayer Shooter", orient:"landscape",
-    embed:"https://playgama.com/export/game/dark-city-multiplayer",
-    thumb:"https://static.playgama.com/p-img/pg/dark-city-multiplayer/big-preview/5a4c5effe1bb4e09aa02d01b7a2a8363?width=1200",
-    sub:"ONLINE — police vs bandits fight for control of the city. Added at his word (2026-10-14); its documented controls are keyboard-only, so touch is UNPROVEN — his phone test is the verdict." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
