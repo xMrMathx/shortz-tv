@@ -1423899,5 +1423899,308 @@
     ],
     "award_verified": false,
     "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52436",
+    "title": "The Commander",
+    "genre": "Crime",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "S1E1: Entrapment",
+        "url": "https://www.youtube.com/embed/Xr8tX1E0NNA",
+        "video_id": "Xr8tX1E0NNA",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Xr8tX1E0NNA",
+    "eps": "1 eps",
+    "desc": "Lynda La Plante's police procedural — Commander Clare Blake heads the Metropolitan Police murder review team, re-examining the cases other officers got wrong.",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "Demand Drama",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52437",
+    "title": "Above Suspicion",
+    "genre": "Crime",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "S1E1: Above Suspicion — Part 1",
+        "url": "https://www.youtube.com/embed/gdm9ICvdQeQ",
+        "video_id": "gdm9ICvdQeQ",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "S1E2: Above Suspicion — Part 2",
+        "url": "https://www.youtube.com/embed/bap_Pk-yG1Y",
+        "video_id": "bap_Pk-yG1Y",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "S2E1: The Red Dahlia — Part 1",
+        "url": "https://www.youtube.com/embed/TRkA3q6c1qA",
+        "video_id": "TRkA3q6c1qA",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "S2E2: The Red Dahlia — Part 2",
+        "url": "https://www.youtube.com/embed/knR9YK_VKeE",
+        "video_id": "knR9YK_VKeE",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "S2E3: The Red Dahlia — Part 3",
+        "url": "https://www.youtube.com/embed/etSCrKXluNg",
+        "video_id": "etSCrKXluNg",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "S3E1: Deadly Intent — Part 1",
+        "url": "https://www.youtube.com/embed/f5bL3sVpA8c",
+        "video_id": "f5bL3sVpA8c",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "S3E2: Deadly Intent — Part 2",
+        "url": "https://www.youtube.com/embed/dbdV8wXN1XM",
+        "video_id": "dbdV8wXN1XM",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "url": "https://www.youtube.com/embed/gdm9ICvdQeQ",
+    "eps": "7 eps",
+    "desc": "Lynda La Plante's murder-squad procedural — trainee detective Anna Travis works serial-killer cases under the volatile DCI James Langton.",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "Demand Drama",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52438",
+    "title": "Rose and Maloney",
+    "genre": "Crime",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "S1E1: Rose Ignores Orders",
+        "url": "https://www.youtube.com/embed/7V1jos0YpyQ",
+        "video_id": "7V1jos0YpyQ",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "S1E2: Rose Battles Her Demons",
+        "url": "https://www.youtube.com/embed/ijRKGL2pyk4",
+        "video_id": "ijRKGL2pyk4",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "S1E3: Katie Phelan: Part 1",
+        "url": "https://www.youtube.com/embed/H3hYSvY1_dc",
+        "video_id": "H3hYSvY1_dc",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "S1E4: The Baby No One Saw",
+        "url": "https://www.youtube.com/embed/Efu4YHE57g4",
+        "video_id": "Efu4YHE57g4",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "S1E5: Secrets Behind Bars",
+        "url": "https://www.youtube.com/embed/0nOP2VPc8OM",
+        "video_id": "0nOP2VPc8OM",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "S1E6: Dangerous Secrets",
+        "url": "https://www.youtube.com/embed/TgH5IcL-cT0",
+        "video_id": "TgH5IcL-cT0",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "S2E1: Innocent or Master Manipulator?",
+        "url": "https://www.youtube.com/embed/5jul7BtdSUc",
+        "video_id": "5jul7BtdSUc",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "S2E2: Love Or Obsession?",
+        "url": "https://www.youtube.com/embed/4PmMcyYgVck",
+        "video_id": "4PmMcyYgVck",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "S2E3: The Dirty Side of Wealth",
+        "url": "https://www.youtube.com/embed/6KdkHvq8M4U",
+        "video_id": "6KdkHvq8M4U",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "url": "https://www.youtube.com/embed/7V1jos0YpyQ",
+    "eps": "9 eps",
+    "desc": "British crime drama — investigator Rose Linden and caseworker Maloney dig into possible miscarriages of justice for the Criminal Justice Review Agency.",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "Demand Drama",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52439",
+    "title": "Accused",
+    "genre": "Crime",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "S1E1: Willy's Story",
+        "url": "https://www.youtube.com/embed/pQZiJWOSLHA",
+        "video_id": "pQZiJWOSLHA",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "S1E2: Frankie's Story",
+        "url": "https://www.youtube.com/embed/j05FxwY5od4",
+        "video_id": "j05FxwY5od4",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "S1E3: Helen's Story",
+        "url": "https://www.youtube.com/embed/LKMI17sWIbM",
+        "video_id": "LKMI17sWIbM",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "S1E4: Liam's Story",
+        "url": "https://www.youtube.com/embed/JFrk5m35kf0",
+        "video_id": "JFrk5m35kf0",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "S1E5: Kenny's Story",
+        "url": "https://www.youtube.com/embed/Q9dJ1ey-K6Q",
+        "video_id": "Q9dJ1ey-K6Q",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "S1E6: Alison's Story",
+        "url": "https://www.youtube.com/embed/UMaNsEQJHcY",
+        "video_id": "UMaNsEQJHcY",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "S2E1: Mo's Story",
+        "url": "https://www.youtube.com/embed/acJz_h54c64",
+        "video_id": "acJz_h54c64",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "S2E2: Stephen's Story",
+        "url": "https://www.youtube.com/embed/oa63hc7Mk-I",
+        "video_id": "oa63hc7Mk-I",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "S2E3: Tracie's Story",
+        "url": "https://www.youtube.com/embed/3TGOGRal4R4",
+        "video_id": "3TGOGRal4R4",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "S2E4: Tina's Story",
+        "url": "https://www.youtube.com/embed/-rb1o-AZrMc",
+        "video_id": "-rb1o-AZrMc",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "url": "https://www.youtube.com/embed/pQZiJWOSLHA",
+    "eps": "10 eps",
+    "desc": "Jimmy McGovern's courtroom anthology — every episode follows one defendant from the dock back through their crime, and leaves the verdict hanging until the end.",
+    "rights_basis": "Public YouTube embed",
+    "source_channel": "Demand Drama",
+    "award_verified": false
   }
 ]
