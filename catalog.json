@@ -1421350,5 +1421350,513 @@
       }
     ],
     "episodes_note": "Short film (2022)."
+  },
+  {
+    "id": "stv-52409",
+    "title": "Bad Timing",
+    "genre": "Zombie",
+    "eps": "34 eps",
+    "desc": "An awkward IT guy finally gets his shot with the girl of his dreams — after a zombie apocalypse. Streamy-nominated zombie romantic comedy web series from Goldentusk (Andy Goldenberg and Aqueela Zoll).",
+    "url": "https://www.youtube.com/watch?v=GD93RoUHwvQ",
+    "source_channel": "Goldentusk",
+    "rights_basis": "Official Goldentusk channel — all 34 episodes gate-passed 2026-10-15 (embeddable, US-clear, not age-restricted).",
+    "award": "NOMINEE — Streamy Awards (per the official channel); LA Weekly Web Series Pick of the Week",
+    "award_verified": false,
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "ai_made": false,
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The End",
+        "url": "https://www.youtube.com/watch?v=GD93RoUHwvQ",
+        "video_id": "GD93RoUHwvQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "As Good as It Gets",
+        "url": "https://www.youtube.com/watch?v=YVTA9KiCDOg",
+        "video_id": "YVTA9KiCDOg",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "A New Hope",
+        "url": "https://www.youtube.com/watch?v=qM_Ok6LhF_M",
+        "video_id": "qM_Ok6LhF_M",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "All About Eve, and Andy",
+        "url": "https://www.youtube.com/watch?v=xZCCPpRjNOk",
+        "video_id": "xZCCPpRjNOk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Date Night",
+        "url": "https://www.youtube.com/watch?v=TiernPx_nWg",
+        "video_id": "TiernPx_nWg",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "Me, Myself & Eve",
+        "url": "https://www.youtube.com/watch?v=gWu7IdO7JGk",
+        "video_id": "gWu7IdO7JGk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "Dead Man Walking",
+        "url": "https://www.youtube.com/watch?v=u6Z1fHXjOBQ",
+        "video_id": "u6Z1fHXjOBQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 8,
+        "title": "Three's Company",
+        "url": "https://www.youtube.com/watch?v=LttDs1_7oNs",
+        "video_id": "LttDs1_7oNs",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 9,
+        "title": "No Work. No Play. Dull Boy.",
+        "url": "https://www.youtube.com/watch?v=bSsCs3wdu4M",
+        "video_id": "bSsCs3wdu4M",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 10,
+        "title": "Hell's Kitchen",
+        "url": "https://www.youtube.com/watch?v=TG0ArcCzDWM",
+        "video_id": "TG0ArcCzDWM",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 11,
+        "title": "Man. Myth. Kevin.",
+        "url": "https://www.youtube.com/watch?v=1a0ay6Wen2A",
+        "video_id": "1a0ay6Wen2A",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 12,
+        "title": "The Good, the Bad & the Gorgeous",
+        "url": "https://www.youtube.com/watch?v=7C6SO9GwpuA",
+        "video_id": "7C6SO9GwpuA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 13,
+        "title": "Apocalypse Now",
+        "url": "https://www.youtube.com/watch?v=yx77f9ruTUI",
+        "video_id": "yx77f9ruTUI",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 14,
+        "title": "The Best Man",
+        "url": "https://www.youtube.com/watch?v=KzS6N_rzUN8",
+        "video_id": "KzS6N_rzUN8",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 15,
+        "title": "Once Upon a Time at Barb's",
+        "url": "https://www.youtube.com/watch?v=hVHkY5JBTFU",
+        "video_id": "hVHkY5JBTFU",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 16,
+        "title": "Don't Stop, or My Mom Will Shoot",
+        "url": "https://www.youtube.com/watch?v=hYtajvK3rSk",
+        "video_id": "hYtajvK3rSk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 17,
+        "title": "New Girl",
+        "url": "https://www.youtube.com/watch?v=CVZSA25jEZU",
+        "video_id": "CVZSA25jEZU",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 18,
+        "title": "Starting Over",
+        "url": "https://www.youtube.com/watch?v=53sc1D6lXnw",
+        "video_id": "53sc1D6lXnw",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 19,
+        "title": "From Here to Eternity",
+        "url": "https://www.youtube.com/watch?v=DwcFF-biAdM",
+        "video_id": "DwcFF-biAdM",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 20,
+        "title": "Brad Timing",
+        "url": "https://www.youtube.com/watch?v=n5tBnTBvTkA",
+        "video_id": "n5tBnTBvTkA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 21,
+        "title": "Couples Retreat",
+        "url": "https://www.youtube.com/watch?v=nKVTsOHnE58",
+        "video_id": "nKVTsOHnE58",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 22,
+        "title": "Road Trip",
+        "url": "https://www.youtube.com/watch?v=agXfyxSz9rk",
+        "video_id": "agXfyxSz9rk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 23,
+        "title": "House of Horrors",
+        "url": "https://www.youtube.com/watch?v=0IOIMToxRFg",
+        "video_id": "0IOIMToxRFg",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 24,
+        "title": "Dead or Alive",
+        "url": "https://www.youtube.com/watch?v=k9ROHBVVcnU",
+        "video_id": "k9ROHBVVcnU",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 25,
+        "title": "Die Hard",
+        "url": "https://www.youtube.com/watch?v=z5vhq_hKT30",
+        "video_id": "z5vhq_hKT30",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 26,
+        "title": "A Perfect Getaway",
+        "url": "https://www.youtube.com/watch?v=ibkUbwMcpdw",
+        "video_id": "ibkUbwMcpdw",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 27,
+        "title": "Walk Like a Man",
+        "url": "https://www.youtube.com/watch?v=GuddAbd8C3o",
+        "video_id": "GuddAbd8C3o",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 28,
+        "title": "Love Bites",
+        "url": "https://www.youtube.com/watch?v=BGVMhtfwt6M",
+        "video_id": "BGVMhtfwt6M",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 29,
+        "title": "Days of Our Lives",
+        "url": "https://www.youtube.com/watch?v=dhalzVJYGOw",
+        "video_id": "dhalzVJYGOw",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 30,
+        "title": "Past Tense",
+        "url": "https://www.youtube.com/watch?v=kyUa4J3hGpA",
+        "video_id": "kyUa4J3hGpA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 31,
+        "title": "Some Like It Hot",
+        "url": "https://www.youtube.com/watch?v=JS5RyN_hfRQ",
+        "video_id": "JS5RyN_hfRQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 32,
+        "title": "Die Another Day",
+        "url": "https://www.youtube.com/watch?v=L8wBYeaPLy0",
+        "video_id": "L8wBYeaPLy0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 33,
+        "title": "The Blind Side",
+        "url": "https://www.youtube.com/watch?v=lpBSQuwU-6o",
+        "video_id": "lpBSQuwU-6o",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 34,
+        "title": "Kiss Kiss Bang Bang",
+        "url": "https://www.youtube.com/watch?v=MrlzcRaifQs",
+        "video_id": "MrlzcRaifQs",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "episodes_note": "Complete series: Season 1 (Episodes 1-15) + Season 2 (Episodes 16-34), continuous numbering on the official channel."
+  },
+  {
+    "id": "stv-52410",
+    "title": "Fight of the Living Dead",
+    "genre": "Zombie",
+    "eps": "8 eps",
+    "desc": "YouTube stars are locked inside an abandoned jail and pitted against a zombie horde in a Survivor-style elimination game. BlackBoxTV reality web series (Joey Graceffa, iJustine, PrankvsPrank and more).",
+    "url": "https://www.youtube.com/watch?v=Jpg784McjKY",
+    "source_channel": "BlackBoxTV",
+    "rights_basis": "Official BlackBoxTV channel — all 8 parts gate-passed 2026-10-15 (embeddable, US-clear, not age-restricted).",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "ai_made": false,
+    "episodes": [
+      {
+        "n": 1,
+        "title": "It Begins!",
+        "url": "https://www.youtube.com/watch?v=Jpg784McjKY",
+        "video_id": "Jpg784McjKY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "Help is Found",
+        "url": "https://www.youtube.com/watch?v=8oS1-baFAHk",
+        "video_id": "8oS1-baFAHk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "Safe No More",
+        "url": "https://www.youtube.com/watch?v=599iclgopLI",
+        "video_id": "599iclgopLI",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "Showdown",
+        "url": "https://www.youtube.com/watch?v=kLFJ2mb0Yzo",
+        "video_id": "kLFJ2mb0Yzo",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Trust No One",
+        "url": "https://www.youtube.com/watch?v=w6CNTnAKyrg",
+        "video_id": "w6CNTnAKyrg",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "Tests",
+        "url": "https://www.youtube.com/watch?v=lhkG5vqf_ck",
+        "video_id": "lhkG5vqf_ck",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "Survival",
+        "url": "https://www.youtube.com/watch?v=NmbZ120SNTI",
+        "video_id": "NmbZ120SNTI",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 8,
+        "title": "Finale",
+        "url": "https://www.youtube.com/watch?v=rJlMxdeUgs4",
+        "video_id": "rJlMxdeUgs4",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "episodes_note": "Season 1 complete: Episodes 1-7 + the Finale."
+  },
+  {
+    "id": "stv-52411",
+    "title": "Zombie with a Shotgun",
+    "genre": "Zombie",
+    "eps": "5 eps",
+    "runtime": "~4–6 min each",
+    "desc": "Bitten and slowly turning, Aaron fights to stay human long enough to protect the people he loves. Gritty indie zombie web series by Hilton Ariel Ruiz — later expanded into a feature film.",
+    "url": "https://www.youtube.com/watch?v=53u99AglWuw",
+    "source_channel": "Hilton Ariel Ruiz",
+    "rights_basis": "Filmmaker's own channel — all 5 episodes gate-passed 2026-10-15 (embeddable, US-clear, not age-restricted).",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "ai_made": false,
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Episode 1",
+        "url": "https://www.youtube.com/watch?v=53u99AglWuw",
+        "video_id": "53u99AglWuw",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "Episode 2",
+        "url": "https://www.youtube.com/watch?v=ZGdJi6vA4zk",
+        "video_id": "ZGdJi6vA4zk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "Episode 3",
+        "url": "https://www.youtube.com/watch?v=MoLhXSlC74U",
+        "video_id": "MoLhXSlC74U",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "Episode 4",
+        "url": "https://www.youtube.com/watch?v=eeHH383FT3U",
+        "video_id": "eeHH383FT3U",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Episode 5",
+        "url": "https://www.youtube.com/watch?v=no6eQAMEsqg",
+        "video_id": "no6eQAMEsqg",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "episodes_note": "Complete five-episode web series."
+  },
+  {
+    "id": "stv-52412",
+    "title": "Vitamin Z",
+    "genre": "Zombie",
+    "eps": "8 eps",
+    "runtime": "~10–15 min each",
+    "desc": "A crew of survivors scraps through a zombie-ruined Las Vegas, held together by a drug they call Vitamin Z. Season 1 of the House of DON Productions web series.",
+    "url": "https://www.youtube.com/watch?v=j84eqqUX_sE",
+    "source_channel": "House of DON Productions",
+    "rights_basis": "Official House of DON Productions channel — all 8 episodes gate-passed 2026-10-15 (embeddable, US-clear, not age-restricted).",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "ai_made": false,
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Take Out",
+        "url": "https://www.youtube.com/watch?v=j84eqqUX_sE",
+        "video_id": "j84eqqUX_sE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "Enhancements",
+        "url": "https://www.youtube.com/watch?v=YFCKL7g-LZg",
+        "video_id": "YFCKL7g-LZg",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "Raw Meat",
+        "url": "https://www.youtube.com/watch?v=bx8GY15eL1E",
+        "video_id": "bx8GY15eL1E",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "Conflict",
+        "url": "https://www.youtube.com/watch?v=L1z-zscS_mA",
+        "video_id": "L1z-zscS_mA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Withdrawals",
+        "url": "https://www.youtube.com/watch?v=3OYxjKD-BVQ",
+        "video_id": "3OYxjKD-BVQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "The Savior",
+        "url": "https://www.youtube.com/watch?v=hBYDzpvrQ-w",
+        "video_id": "hBYDzpvrQ-w",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "Escape the Horde",
+        "url": "https://www.youtube.com/watch?v=_5eZcUbA2Lc",
+        "video_id": "_5eZcUbA2Lc",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 8,
+        "title": "Renegades",
+        "url": "https://www.youtube.com/watch?v=68OyYOrM1yI",
+        "video_id": "68OyYOrM1yI",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "episodes_note": "Season 1 complete, 8 episodes."
   }
 ]
