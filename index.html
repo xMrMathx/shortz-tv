@@ -1227,7 +1227,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .gcard{background:#101013;border:1px solid #232328;border-radius:16px;overflow:hidden}
 .gcard-stage{position:relative;background:#000}
 .gstage-land{aspect-ratio:16/9}
-.gstage-port{aspect-ratio:9/16;max-width:430px;margin:0 auto}
+.gstage-port{aspect-ratio:16/9} /* his order 2026-10-14: cards are uniform doors — portrait games get the SAME stage size as landscape in the feed; the tall shape belongs to the fullscreen player, not the card */
 .gcard-frame{position:absolute;inset:0}
 .gcard-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .gposter{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -4913,7 +4913,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261014194338";
+const BUILD="20261014195142";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8152,10 +8152,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=20261014194338"></script>
+<script src="js/folders.js?v=20261014195142"></script>
 <script>
 </script>
-<script src="js/guide.js?v=20261014194338"></script>
+<script src="js/guide.js?v=20261014195142"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -8963,8 +8963,8 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=20261014194338"></script>
-<script src="js/games.js?v=20261014194338"></script>
+<script src="js/streaming.js?v=20261014195142"></script>
+<script src="js/games.js?v=20261014195142"></script>
 <script>
 
 
@@ -9482,7 +9482,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=20261014194338"></script>
+<script src="js/swipe.js?v=20261014195142"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11702,7 +11702,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=20261014194338"></script>
+<script src="js/live-sports.js?v=20261014195142"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
