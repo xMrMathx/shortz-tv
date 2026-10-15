@@ -2182,8 +2182,8 @@ function alphaSortCached(key, arr){
   }
   return s;
 }
-const GENRES = ["Action","Animation","Anime","Body Cam","Comedy","Faith","Family","Fantasy","Hood","Horror","Mr. Ballin","Mystery","Ray WJ","Reality","Rebirth","Revenge","Romance","Sci-Fi","Short Films","Space","Sports","Thriller","Western","Zombie"];
-const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️","Zombie":"🧟"};
+const GENRES = ["Action","Animation","Anime","Body Cam","Comedy","Faith","Family","Fantasy","Hood","Horror","Kane Pixels","Mr. Ballin","Mystery","Ray WJ","Reality","Rebirth","Revenge","Romance","Sci-Fi","Short Films","Space","Sports","Thriller","Western","Zombie"];
+const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️","Zombie":"🧟","Kane Pixels":"🚪"};
 
 /* ---------- utils ---------- */
 const $ = s => document.querySelector(s);
@@ -3121,7 +3121,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   const GENRE_ALIASES={
     "action":"Action","animation":"Animation","anime":"Anime","body cam":"Body Cam","bodycam":"Body Cam",
     "comedy":"Comedy","faith":"Faith","family":"Family","fantasy":"Fantasy","hood":"Hood","horror":"Horror",
-    "mr ballin":"Mr. Ballin","ballin":"Mr. Ballin","mystery":"Mystery","ray wj":"Ray WJ","wj":"Ray WJ","reality":"Reality",
+    "mr ballin":"Mr. Ballin","ballin":"Mr. Ballin","kane pixels":"Kane Pixels","mystery":"Mystery","ray wj":"Ray WJ","wj":"Ray WJ","reality":"Reality",
     "reborn":"Rebirth","rebirth":"Rebirth","revenge":"Revenge","romance":"Romance",
     "sci fi":"Sci-Fi","sci-fi":"Sci-Fi","scifi":"Sci-Fi","science fiction":"Sci-Fi",
     "short film":"Short Films","short films":"Short Films","space":"Space","sports":"Sports",
@@ -5059,7 +5059,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792086254";
+const BUILD="1792087083";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8412,10 +8412,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792086254"></script>
+<script src="js/folders.js?v=1792087083"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792086254"></script>
+<script src="js/guide.js?v=1792087083"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9223,9 +9223,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792086254"></script>
-<script src="js/shortz-live.js?v=1792086254"></script>
-<script src="js/games.js?v=1792086254"></script>
+<script src="js/streaming.js?v=1792087083"></script>
+<script src="js/shortz-live.js?v=1792087083"></script>
+<script src="js/games.js?v=1792087083"></script>
 <script>
 
 
@@ -9743,7 +9743,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792086254"></script>
+<script src="js/swipe.js?v=1792087083"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11963,7 +11963,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792086254"></script>
+<script src="js/live-sports.js?v=1792087083"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>

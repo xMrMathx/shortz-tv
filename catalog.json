@@ -53157,7 +53157,7 @@
   {
     "id": "stv-1679",
     "title": "The Backrooms (Kane Pixels)",
-    "genre": "Horror",
+    "genre": "Kane Pixels",
     "eps": "24 eps",
     "runtime": "~1-3 min each",
     "desc": "Kane Parsons' viral liminal horror: a cameraman falls into the endless yellow backrooms, and ASYNC's experiments keep opening doors that shouldn't open. Found-footage dread built in Blender by a teena",
@@ -1421858,5 +1421858,463 @@
       }
     ],
     "episodes_note": "Season 1 complete, 8 episodes."
+  },
+  {
+    "id": "stv-52413",
+    "title": "The Oldest View (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "6 eps",
+    "runtime": "~4-46 min each",
+    "desc": "Kane Parsons' second analog-horror saga: a man documents a dying Texas mall and the parade giant that still moves through it after closing. The complete series in Kane's own playlist order, closing with his documentary on the real Valley View Mall.",
+    "url": "https://www.youtube.com/embed/9DYOG1RuJ4w",
+    "video_id": "9DYOG1RuJ4w",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "The Oldest View - Renewal",
+        "video_id": "9DYOG1RuJ4w",
+        "url": "https://www.youtube.com/embed/9DYOG1RuJ4w",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "The Oldest View - Beneath The Earth",
+        "video_id": "EjY897CCu4g",
+        "url": "https://www.youtube.com/embed/EjY897CCu4g",
+        "n": 2,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "The Rolling Giant (The Oldest View Part 3)",
+        "video_id": "wWNMsZ44ooc",
+        "url": "https://www.youtube.com/embed/wWNMsZ44ooc",
+        "n": 3,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Life of a Giant",
+        "video_id": "hTw936FtnBc",
+        "url": "https://www.youtube.com/embed/hTw936FtnBc",
+        "n": 4,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "The Oldest View - Dispersal",
+        "video_id": "HeFOjiL6FpE",
+        "url": "https://www.youtube.com/embed/HeFOjiL6FpE",
+        "n": 5,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "The Remains of Valley View Mall (Post-Demolition)",
+        "video_id": "3LC5sFtnDlQ",
+        "url": "https://www.youtube.com/embed/3LC5sFtnDlQ",
+        "n": 6,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52414",
+    "title": "People Still Live Here (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "5 eps",
+    "runtime": "~1-19 min each",
+    "desc": "Kane Parsons' found-footage horror series framed as gameplay tapes from a lost 2005 video game that remembers its players. The complete run in his official playlist order.",
+    "url": "https://www.youtube.com/embed/MwYg4eUDgwE",
+    "video_id": "MwYg4eUDgwE",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "SAYWELL",
+        "video_id": "MwYg4eUDgwE",
+        "url": "https://www.youtube.com/embed/MwYg4eUDgwE",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "People Still Live Here V8.3 (2005 Gameplay)",
+        "video_id": "Am3_Hl_U_yo",
+        "url": "https://www.youtube.com/embed/Am3_Hl_U_yo",
+        "n": 2,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Graveyard",
+        "video_id": "cIGCjcAnKuM",
+        "url": "https://www.youtube.com/embed/cIGCjcAnKuM",
+        "n": 3,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "People Still Live Here (2005) - DAY 2 GAMEPLAY",
+        "video_id": "ksvd-nqE_m8",
+        "url": "https://www.youtube.com/embed/ksvd-nqE_m8",
+        "n": 4,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Sunshine",
+        "video_id": "VdRZlePkasY",
+        "url": "https://www.youtube.com/embed/VdRZlePkasY",
+        "n": 5,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52415",
+    "title": "Corpus Schizophrenic (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "9 min",
+    "desc": "Kane Parsons' early short film set inside Aperture Science: a test subject's reality comes apart one chamber at a time.",
+    "url": "https://www.youtube.com/embed/IsrmUWBZHlU",
+    "video_id": "IsrmUWBZHlU",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "Corpus Schizophrenic - A Portal 2 Short Film",
+        "video_id": "IsrmUWBZHlU",
+        "url": "https://www.youtube.com/embed/IsrmUWBZHlU",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52416",
+    "title": "It's Nicer Here (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "10 min",
+    "desc": "Kane Parsons' early sci-fi short: two travelers weigh the world they left against the one that took them in.",
+    "url": "https://www.youtube.com/embed/NcyQ0W_jGss",
+    "video_id": "NcyQ0W_jGss",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "It's Nicer Here",
+        "video_id": "NcyQ0W_jGss",
+        "url": "https://www.youtube.com/embed/NcyQ0W_jGss",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52417",
+    "title": "I Remember (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "2 min",
+    "desc": "Kane Parsons' analog-horror short: a recorded memory that doesn't match the man remembering it.",
+    "url": "https://www.youtube.com/embed/c-H59GkA-I4",
+    "video_id": "c-H59GkA-I4",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "I Remember",
+        "video_id": "c-H59GkA-I4",
+        "url": "https://www.youtube.com/embed/c-H59GkA-I4",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52418",
+    "title": "The Numbered Shorts (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "4 eps",
+    "runtime": "~1-11 min each",
+    "desc": "Kane Parsons' early numbered short-film sequence — four linked pieces that built the found-footage style he'd later take into The Backrooms.",
+    "url": "https://www.youtube.com/embed/GFvye9JaAJA",
+    "video_id": "GFvye9JaAJA",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "1 - Collect",
+        "video_id": "GFvye9JaAJA",
+        "url": "https://www.youtube.com/embed/GFvye9JaAJA",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "2 - Evaluate",
+        "video_id": "EK1Ti8JAM6A",
+        "url": "https://www.youtube.com/embed/EK1Ti8JAM6A",
+        "n": 2,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "3 - Town, USA",
+        "video_id": "uJzBmY1EEf4",
+        "url": "https://www.youtube.com/embed/uJzBmY1EEf4",
+        "n": 3,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "4 - Recreational Time",
+        "video_id": "9FCk9eJFUQs",
+        "url": "https://www.youtube.com/embed/9FCk9eJFUQs",
+        "n": 4,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52419",
+    "title": "Attack on Titan (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "6 eps",
+    "runtime": "~2-5 min each",
+    "desc": "Kane Parsons' early animated takes on Attack on Titan's biggest moments, made before The Backrooms launched his channel.",
+    "url": "https://www.youtube.com/embed/YmWo2zG99e4",
+    "video_id": "YmWo2zG99e4",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "Attack on Titan // Historical Footage",
+        "video_id": "YmWo2zG99e4",
+        "url": "https://www.youtube.com/embed/YmWo2zG99e4",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Attack on Titan - The Rumbling Animated",
+        "video_id": "GcnSsT-9mXA",
+        "url": "https://www.youtube.com/embed/GcnSsT-9mXA",
+        "n": 2,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Attack on Titan - The Paths Animated",
+        "video_id": "33QDNEL-eaI",
+        "url": "https://www.youtube.com/embed/33QDNEL-eaI",
+        "n": 3,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Attack on Titan - The Depths of Despair",
+        "video_id": "iX9vp5zhMHI",
+        "url": "https://www.youtube.com/embed/iX9vp5zhMHI",
+        "n": 4,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Attack on Titan - The Ending Animated",
+        "video_id": "Cna4_2ulGwg",
+        "url": "https://www.youtube.com/embed/Cna4_2ulGwg",
+        "n": 5,
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "title": "Attack on Titan - Declaration of War [Historical Footage]",
+        "video_id": "nZr1C9KG7hY",
+        "url": "https://www.youtube.com/embed/nZr1C9KG7hY",
+        "n": 6,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52420",
+    "title": "Sandwich (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "1 min",
+    "desc": "Kane Parsons' first upload — a 27-second sandwich, years before The Backrooms.",
+    "url": "https://www.youtube.com/embed/4SvouMHCLhg",
+    "video_id": "4SvouMHCLhg",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "Sandwich",
+        "video_id": "4SvouMHCLhg",
+        "url": "https://www.youtube.com/embed/4SvouMHCLhg",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52421",
+    "title": "HOME - Decay (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "4 min",
+    "desc": "A music video from Kane Parsons, shot in his early decayed-spaces style.",
+    "url": "https://www.youtube.com/embed/KR4Y8WPADfY",
+    "video_id": "KR4Y8WPADfY",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "HOME - Decay (Music Video)",
+        "video_id": "KR4Y8WPADfY",
+        "url": "https://www.youtube.com/embed/KR4Y8WPADfY",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52422",
+    "title": "Portal - Welcome to the Enrichment Center (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "2 min",
+    "desc": "Kane Parsons' animated welcome to Aperture Science's Enrichment Center.",
+    "url": "https://www.youtube.com/embed/Z34C_XE0KXM",
+    "video_id": "Z34C_XE0KXM",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "Portal - Welcome to the Enrichment Center [Animation]",
+        "video_id": "Z34C_XE0KXM",
+        "url": "https://www.youtube.com/embed/Z34C_XE0KXM",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52423",
+    "title": "Human Sadness (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "3 min",
+    "desc": "Kane Parsons' moody music piece from the Depths of Despair sessions.",
+    "url": "https://www.youtube.com/embed/hVDnN6WyLsI",
+    "video_id": "hVDnN6WyLsI",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "Human Sadness - [Depths of Despair Version]",
+        "video_id": "hVDnN6WyLsI",
+        "url": "https://www.youtube.com/embed/hVDnN6WyLsI",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52424",
+    "title": "Music to Listen to While Inside Paths (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "35 min",
+    "desc": "Kane Parsons' long-form ambient score for the Paths — 35 minutes of his original music.",
+    "url": "https://www.youtube.com/embed/Uk2rVlLYVbY",
+    "video_id": "Uk2rVlLYVbY",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "Attack on Titan - Music to Listen to While Inside Paths",
+        "video_id": "Uk2rVlLYVbY",
+        "url": "https://www.youtube.com/embed/Uk2rVlLYVbY",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52425",
+    "title": "Music to Listen to While Inside Paths 2 (Kane Pixels)",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "35 min",
+    "desc": "The second volume of Kane Parsons' Paths ambient sessions.",
+    "url": "https://www.youtube.com/embed/jAMG1mjCw1s",
+    "video_id": "jAMG1mjCw1s",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "Attack on Titan - Music to Listen to While Inside Paths (2)",
+        "video_id": "jAMG1mjCw1s",
+        "url": "https://www.youtube.com/embed/jAMG1mjCw1s",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
+  },
+  {
+    "id": "stv-52426",
+    "title": "Kane Pixels - Live Q&A",
+    "genre": "Kane Pixels",
+    "eps": "1 ep",
+    "runtime": "2h 30m",
+    "desc": "Kane Parsons' full live Q&A from May 2021 — two and a half hours on his process, his worlds, and what's coming next.",
+    "url": "https://www.youtube.com/embed/JjOIicR7XpI",
+    "video_id": "JjOIicR7XpI",
+    "source_channel": "Kane Pixels",
+    "ai_made": false,
+    "episodes": [
+      {
+        "title": "Kane Pixels - Live Q&A (May 22, 2021)",
+        "video_id": "JjOIicR7XpI",
+        "url": "https://www.youtube.com/embed/JjOIicR7XpI",
+        "n": 1,
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "rights_basis": "Public YouTube embed — official Kane Pixels channel"
   }
 ]
