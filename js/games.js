@@ -86,6 +86,10 @@ const GAMES=[
     embed:"https://html5.gamemonetize.co/3v46j2mwch01pteg5do49xw7a1otu69x/",
     thumb:"https://img.gamemonetize.com/3v46j2mwch01pteg5do49xw7a1otu69x/512x384.jpg",
     sub:"ONLINE rummy vs real people on other phones — public matchmaking, plus vs computer. Plain rummy, not Phase 10." },
+  { title:"Pro Football Eleven 2027", cat:"Football", orient:"landscape",
+    embed:"https://html5.gamemonetize.co/nsvqmdi6fps4dvi4a2n3yvnnvnq73ost/",
+    thumb:"https://img.gamemonetize.com/nsvqmdi6fps4dvi4a2n3yvnnvnq73ost/512x384.jpg",
+    sub:"Full 11v11 football — work the ball up the pitch and beat the keeper, vs the computer. His pick from the top-sports list." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
