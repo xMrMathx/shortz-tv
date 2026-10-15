@@ -86,6 +86,10 @@ const GAMES=[
     embed:"https://playgama.com/export/game/mom-life-simulator-baby-care",
     thumb:"https://static.playgama.com/p-img/pg/mom-life-simulator-baby-care/big_preview/8fab63cf520a4823bd2161fa9720d72a?width=1200",
     sub:"Play a mom running daily family life in 3D — household and baby-care missions, level by level." },
+  { title:"Rummy Multiplayer", cat:"Card Game", orient:"landscape",
+    embed:"https://html5.gamemonetize.co/3v46j2mwch01pteg5do49xw7a1otu69x/",
+    thumb:"https://img.gamemonetize.com/3v46j2mwch01pteg5do49xw7a1otu69x/512x384.jpg",
+    sub:"ONLINE rummy vs real people on other phones — public matchmaking, plus vs computer. Plain rummy, not Phase 10." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
