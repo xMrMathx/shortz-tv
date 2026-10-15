@@ -1424202,5 +1424202,605 @@
     "rights_basis": "Public YouTube embed",
     "source_channel": "Demand Drama",
     "award_verified": false
+  },
+  {
+    "id": "stv-52440",
+    "title": "Racket Squad",
+    "genre": "Crime",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "S1E4: Two Little Country Girls",
+        "url": "https://www.youtube.com/embed/p9M6Go3UvNk",
+        "video_id": "p9M6Go3UvNk",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "S1E5: Heaven for Sale",
+        "url": "https://www.youtube.com/embed/vMXT8uAW9jI",
+        "video_id": "vMXT8uAW9jI",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "S2E1: Kite High",
+        "url": "https://www.youtube.com/embed/9B-0MkKQT5c",
+        "video_id": "9B-0MkKQT5c",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "S2E6: The Case of the Old Flame",
+        "url": "https://www.youtube.com/embed/OUo_AaJmz2g",
+        "video_id": "OUo_AaJmz2g",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "S2E10: Babies for Sale",
+        "url": "https://www.youtube.com/embed/AocJ1Z3ByL0",
+        "video_id": "AocJ1Z3ByL0",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "S2E17: Knockout",
+        "url": "https://www.youtube.com/embed/NjAkHxpsvqg",
+        "video_id": "NjAkHxpsvqg",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "S2E23: One Angle Too Many",
+        "url": "https://www.youtube.com/embed/b8oWx1KMHQU",
+        "video_id": "b8oWx1KMHQU",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "S2E28: Home Wreckers",
+        "url": "https://www.youtube.com/embed/KyhXiHDYPP8",
+        "video_id": "KyhXiHDYPP8",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "S2E29: The Matchmaker",
+        "url": "https://www.youtube.com/embed/tlpcOQt1fQU",
+        "video_id": "tlpcOQt1fQU",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "S2E30: Staff of Life",
+        "url": "https://www.youtube.com/embed/8ryHYjual3c",
+        "video_id": "8ryHYjual3c",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "S2E35: Soft Touch",
+        "url": "https://www.youtube.com/embed/_8CT-NcFS3k",
+        "video_id": "_8CT-NcFS3k",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "S2E44: Long Shot",
+        "url": "https://www.youtube.com/embed/zFfZts_gsBE",
+        "video_id": "zFfZts_gsBE",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "S2E46: Anyone Can Be a Sucker",
+        "url": "https://www.youtube.com/embed/gWG-ISTFcNg",
+        "video_id": "gWG-ISTFcNg",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "S2E48: Pick a Number",
+        "url": "https://www.youtube.com/embed/kDutGfU72AM",
+        "video_id": "kDutGfU72AM",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "S2E50: One More Dream",
+        "url": "https://www.youtube.com/embed/G8K4h0zFb4k",
+        "video_id": "G8K4h0zFb4k",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "S3E2: Heartbreak for Sale",
+        "url": "https://www.youtube.com/embed/tqPPeo0HP_I",
+        "video_id": "tqPPeo0HP_I",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "S3E6: Beauty for Hire",
+        "url": "https://www.youtube.com/embed/qH_PFowzplE",
+        "video_id": "qH_PFowzplE",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "S3E7: The Suit Club",
+        "url": "https://www.youtube.com/embed/yCoAxOKIeVQ",
+        "video_id": "yCoAxOKIeVQ",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "S3E8: The Front Man",
+        "url": "https://www.youtube.com/embed/mtW_QP3AZI4",
+        "video_id": "mtW_QP3AZI4",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "S3E16: System",
+        "url": "https://www.youtube.com/embed/6F9OTecfuyM",
+        "video_id": "6F9OTecfuyM",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 21,
+        "title": "S3E18: Dancing Lady",
+        "url": "https://www.youtube.com/embed/15uLXXRrZBM",
+        "video_id": "15uLXXRrZBM",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 22,
+        "title": "S3E22: Impatient Heir",
+        "url": "https://www.youtube.com/embed/DoUylhlFYdA",
+        "video_id": "DoUylhlFYdA",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 23,
+        "title": "S3E31: Romance Unlimited",
+        "url": "https://www.youtube.com/embed/1nL-4i8PDvc",
+        "video_id": "1nL-4i8PDvc",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 24,
+        "title": "S3E35: Sure Thing",
+        "url": "https://www.youtube.com/embed/4KV8FiYUgws",
+        "video_id": "4KV8FiYUgws",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 25,
+        "title": "Case of the Fabulous Fraud",
+        "url": "https://www.youtube.com/embed/VkZij9Q368A",
+        "video_id": "VkZij9Q368A",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 26,
+        "title": "Figures Don't Lie",
+        "url": "https://www.youtube.com/embed/EgPRpYTr7_E",
+        "video_id": "EgPRpYTr7_E",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 27,
+        "title": "Romance Market",
+        "url": "https://www.youtube.com/embed/gsvczvVJaSE",
+        "video_id": "gsvczvVJaSE",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 28,
+        "title": "The Case Of No Questions Asked",
+        "url": "https://www.youtube.com/embed/TJHqB6adlkY",
+        "video_id": "TJHqB6adlkY",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 29,
+        "title": "The Case Of The Condemned Cattle",
+        "url": "https://www.youtube.com/embed/m50bFERu1go",
+        "video_id": "m50bFERu1go",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 30,
+        "title": "The Spanish Prisoner",
+        "url": "https://www.youtube.com/embed/n0k9MzXE5g8",
+        "video_id": "n0k9MzXE5g8",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "url": "https://www.youtube.com/embed/p9M6Go3UvNk",
+    "eps": "30 eps",
+    "desc": "1950s San Francisco police procedural — Captain John Braddock of the Racket Squad exposes a different confidence racket every episode.",
+    "rights_basis": "Public domain — public YouTube embed",
+    "source_channel": "Classic TV Channel (public-domain archives)",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52441",
+    "title": "Scotland Yard",
+    "genre": "Crime",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Newcastle Train Murder",
+        "url": "https://www.youtube.com/embed/Hd34yBP633Y",
+        "video_id": "Hd34yBP633Y",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "The Penge Mystery",
+        "url": "https://www.youtube.com/embed/aga2m_mBA8k",
+        "video_id": "aga2m_mBA8k",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "The Charge Is Murder",
+        "url": "https://www.youtube.com/embed/s_508BSeLgg",
+        "video_id": "s_508BSeLgg",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Hd34yBP633Y",
+    "eps": "3 eps",
+    "desc": "Edgar Lustgarten introduces dramatized Scotland Yard case files from the Merton Park film series — real-style cases, half an hour each.",
+    "rights_basis": "Public domain — public YouTube embed",
+    "source_channel": "public-domain archives",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52442",
+    "title": "Colonel March of Scotland Yard",
+    "genre": "Crime",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Sorcerer",
+        "url": "https://www.youtube.com/embed/4GuZv31e4LY",
+        "video_id": "4GuZv31e4LY",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "The Abominable Snowman",
+        "url": "https://www.youtube.com/embed/e3uduVrfmQY",
+        "video_id": "e3uduVrfmQY",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Present Tense",
+        "url": "https://www.youtube.com/embed/_JgnyHhFzSM",
+        "video_id": "_JgnyHhFzSM",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "At Night All Cats Are Gray",
+        "url": "https://www.youtube.com/embed/XRF9HfP5W-Y",
+        "video_id": "XRF9HfP5W-Y",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "The Case of the Kidnapped Poodle",
+        "url": "https://www.youtube.com/embed/Mjy0Y-h4CfQ",
+        "video_id": "Mjy0Y-h4CfQ",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "The Invisible Knife",
+        "url": "https://www.youtube.com/embed/sRc0natNuUk",
+        "video_id": "sRc0natNuUk",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "The Strange Event at Roman Fall",
+        "url": "https://www.youtube.com/embed/BugvKgp_7bM",
+        "video_id": "BugvKgp_7bM",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "The Second Mona Lisa",
+        "url": "https://www.youtube.com/embed/buY2xr5dCGA",
+        "video_id": "buY2xr5dCGA",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Death in Inner Space",
+        "url": "https://www.youtube.com/embed/MedHD4bAeTE",
+        "video_id": "MedHD4bAeTE",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "The Talking Head",
+        "url": "https://www.youtube.com/embed/JLDaYteWegU",
+        "video_id": "JLDaYteWegU",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "Death And The Other Monkey",
+        "url": "https://www.youtube.com/embed/D68F1qP9qUc",
+        "video_id": "D68F1qP9qUc",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "The Stolen Crime",
+        "url": "https://www.youtube.com/embed/3HLr6DeGoIs",
+        "video_id": "3HLr6DeGoIs",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "The Silver Curtain",
+        "url": "https://www.youtube.com/embed/m1XztUmrz6o",
+        "video_id": "m1XztUmrz6o",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "Error At Daybreak",
+        "url": "https://www.youtube.com/embed/FJ4-SFd-1bU",
+        "video_id": "FJ4-SFd-1bU",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "Hot Money",
+        "url": "https://www.youtube.com/embed/l7oX9HoDfKc",
+        "video_id": "l7oX9HoDfKc",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "The Missing Link",
+        "url": "https://www.youtube.com/embed/ZyX76p2Uxdc",
+        "video_id": "ZyX76p2Uxdc",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "The Case Of The Misguided Missal",
+        "url": "https://www.youtube.com/embed/OULN_dLnwnU",
+        "video_id": "OULN_dLnwnU",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "The Deadly Gift",
+        "url": "https://www.youtube.com/embed/GYUIc_Rp2r8",
+        "video_id": "GYUIc_Rp2r8",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "The Case Of The Lively Ghost",
+        "url": "https://www.youtube.com/embed/HMXUT3tHf3M",
+        "video_id": "HMXUT3tHf3M",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "Death In The Dressing Room",
+        "url": "https://www.youtube.com/embed/aUdXilnhLqQ",
+        "video_id": "aUdXilnhLqQ",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 21,
+        "title": "The New Invisible Man",
+        "url": "https://www.youtube.com/embed/ZN3hNVc4Zt0",
+        "video_id": "ZN3hNVc4Zt0",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 22,
+        "title": "Passage At Arms",
+        "url": "https://www.youtube.com/embed/4eMvDMZMZNQ",
+        "video_id": "4eMvDMZMZNQ",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "url": "https://www.youtube.com/embed/4GuZv31e4LY",
+    "eps": "22 eps",
+    "desc": "Boris Karloff is Colonel March of the Department of Queer Complaints — Scotland Yard's one-eyed detective for impossible crimes.",
+    "rights_basis": "Public domain — public YouTube embed",
+    "source_channel": "TheArchiveSeries (public-domain archives)",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52443",
+    "title": "Fabian of the Yard",
+    "genre": "Crime",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Bombs in Piccadilly",
+        "url": "https://www.youtube.com/embed/PRxT1K4UIG0",
+        "video_id": "PRxT1K4UIG0",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Brides of the Fire",
+        "url": "https://www.youtube.com/embed/Kdxz2lGujOk",
+        "video_id": "Kdxz2lGujOk",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Nell Gwynn's Tear",
+        "url": "https://www.youtube.com/embed/e5WbjIQ8wks",
+        "video_id": "e5WbjIQ8wks",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Robbery in the Museum",
+        "url": "https://www.youtube.com/embed/H1b8y1ed7cU",
+        "video_id": "H1b8y1ed7cU",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "The Executioner",
+        "url": "https://www.youtube.com/embed/R6JmWGWKldI",
+        "video_id": "R6JmWGWKldI",
+        "platform": "youtube",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "url": "https://www.youtube.com/embed/PRxT1K4UIG0",
+    "eps": "5 eps",
+    "desc": "1950s Scotland Yard procedural — Inspector Robert Fabian works the Yard's case files, from Piccadilly bombings to museum robberies.",
+    "rights_basis": "Public domain — public YouTube embed",
+    "source_channel": "public-domain archives",
+    "award_verified": false
   }
 ]
