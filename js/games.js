@@ -150,6 +150,22 @@ const GAMES=[
     embed:"https://html5.gamemonetize.co/qaf7ryh54m4k9j3e0jhf3z45rzuyugql/",
     thumb:"https://img.gamemonetize.com/qaf7ryh54m4k9j3e0jhf3z45rzuyugql/512x384.jpg",
     sub:"ONLINE 2D top-down shooter — fight other teams and players, destructible maps, 20+ weapons, drivable cars. GameMonetize marks it mobile-ready; printed controls are desktop-worded — phone test decides." },
+  { title:"Online Car Destruction Simulator 3D", cat:"Racing", orient:"landscape",
+    embed:"https://playgama.com/export/game/online-car-destruction",
+    thumb:"https://static.playgama.com/p-img/pg/online-car-destruction/big-preview/39924242bbdd4fe0b34a807e27611dc2?width=1200",
+    sub:"ONLINE co-play crash sandbox — one shared world with real players and a leaderboard; smash cars together · not a structured versus mode. Deepest base: 4.7 stars, 7,036 ratings." },
+  { title:"Chess Online Multiplayer", cat:"Board", orient:"portrait",
+    embed:"https://playgama.com/export/game/chess-online-multiplayer",
+    thumb:"https://static.playgama.com/p-img/pg/chess-online-multiplayer/big_preview/94a907a44037494c955d803fb45ec5fd?width=1200",
+    sub:"ONLINE chess — ranked duels against players worldwide plus direct friend challenges · tap-and-drag pieces, legal moves lit up. 4.6 stars, 6,399 ratings." },
+  { title:"English Checkers Online Multiplayer", cat:"Board", orient:"portrait",
+    embed:"https://playgama.com/export/game/english-checkers-online-multiplayer",
+    thumb:"https://static.playgama.com/p-img/pg/english-checkers-online-multiplayer/big_preview/fc3eed1af47c484da91e805482fee74e?width=1200",
+    sub:"ONLINE checkers — live PvP against real opponents, rating ladder, five time controls · plus AI (10 levels) and local play. 4.6 stars, 5,778 ratings." },
+  { title:"Domino Online Multiplayer", cat:"Board", orient:"portrait",
+    embed:"https://playgama.com/export/game/domino-online-multiplayer",
+    thumb:"https://static.playgama.com/p-img/pg/domino-online-multiplayer/big_preview/aa648994ddda4f9aad9c2f07a72ee3f6?width=1200",
+    sub:"ONLINE dominoes — real-time ranked duels with live chat, or challenge a friend by link · tap to play. 4.4 stars, 1,337 ratings." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
