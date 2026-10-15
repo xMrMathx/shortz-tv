@@ -130,6 +130,22 @@ const GAMES=[
     embed:"https://playgama.com/export/game/swat-ops-body-camera",
     thumb:"https://static.playgama.com/p-img/pg/swat-ops-body-camera/big_preview/4ade3f1257e841abbe6c3704466b8c2d?width=1200",
     sub:"Body-camera FPS — 3-minute Deathmatch and 4v4 Team Deathmatch against BOTS (not online), 4 maps, 100+ weapon skins. The Venge feel in bot matches · his pick." },
+  { title:"Zombie Hunters", cat:"Top-Down Shooter", orient:"landscape",
+    embed:"https://html5.gamemonetize.co/f9azv4ensecx1u3kneq20ixfu5utbteq/",
+    thumb:"https://img.gamemonetize.com/f9azv4ensecx1u3kneq20ixfu5utbteq/512x384.jpg",
+    sub:"ONLINE top-down arena shooter — team with real players against zombie waves across 13 maps · co-op, not versus · mobile joystick built in." },
+  { title:"Party Games Mini Shooter Battle", cat:"Top-Down Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/party-games-mini-shooter-battle",
+    thumb:"https://static.playgama.com/p-img/pg/party-games-mini-shooter-battle/big-preview/1df03c20a9274246abfbde5c76475520?width=1200",
+    sub:"Mini top-down arena battles — free-for-all, weapon drops, dash button · billed as multiplayer with friends; online versus unproven, may be same-device. (4.2 stars, 103 ratings.)" },
+  { title:"Hotline Miami", cat:"Top-Down Shooter", orient:"landscape",
+    embed:"https://html5.gamemonetize.co/9hox58eqiu1ghoxfy80v691ijtd2ou92/",
+    thumb:"https://img.gamemonetize.com/9hox58eqiu1ghoxfy80v691ijtd2ou92/512x384.jpg",
+    sub:"Top-down twin-stick room-clearing — left stick moves, right stick shoots · solo. (A fan-made namesake of the 2012 classic — the channel's clone under this name; his pick.)" },
+  { title:"Outbreak Ops", cat:"Top-Down Shooter", orient:"landscape",
+    embed:"https://html5.gamemonetize.co/h8tqlnll0m80exyi5l7q8eggc2p8zkyc/",
+    thumb:"https://img.gamemonetize.com/h8tqlnll0m80exyi5l7q8eggc2p8zkyc/512x384.jpg",
+    sub:"Top-down zombie shooter — virtual joystick, dash and grenades, unlockable weapons · solo waves and missions." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
