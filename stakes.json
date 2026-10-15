@@ -337,6 +337,22 @@
       "kind": "marathon",
       "streamer": "Symfuhny",
       "resolvedAt": 1791815090
+    },
+    {
+      "id": "auto-vs-1792061665-aydan-symfuhny",
+      "title": "\u2694\ufe0f Aydan vs Symfuhny \u2014 who peaks higher?",
+      "sub": "Warzone \u00b7 both live now",
+      "optA": "Aydan",
+      "optB": "Symfuhny",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "versus",
+      "streamer": "Aydan",
+      "streamerB": "Symfuhny",
+      "versus_key": "Aydan|Symfuhny"
     }
   ]
 }
