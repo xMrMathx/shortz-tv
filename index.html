@@ -2027,7 +2027,7 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog.js?v=33827c7"></script>
+<script src="catalog-slim.js?v=c2f255d"></script>
 <script defer src="manga-catalog.js?v=dfe55fc"></script>
 <script defer src="manga-chapters.js?v=b8aa517"></script>
 <script>
@@ -2037,7 +2037,29 @@ try{
    catalog.js copy above is only the offline fallback. Fresh data is spliced
    into the SAME array object (not replaced) so every existing reference keeps
    working. Boot waits for this (or a 2s timeout) before rendering. */
-window.SHORTZ_CATALOG = window.SHORTZ_CATALOG || [];
+window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
+window.SHORTZ_SLIM = null;
+/* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
+   szExpand restores the full field names, derives url/eps, and marks
+   every record episode-less until ensureEps hydrates it from its pack. */
+function szExpand(r){
+  if(!r || r.id) return r;
+  var o = {};
+  o.id = r.i; o.title = r.t; o.genre = r.g; o.runtime = r.r || "";
+  o.desc = r.d || ""; o.url = r.u || (r.v ? "https://www.youtube.com/embed/" + r.v : "");
+  o.video_id = r.v || ""; o.ai_made = r.a; o.award_verified = r.w;
+  o.dateAdded = r.n; o.verified = r.f;
+  o.ec = r.c || 0; o.vc = r.k || 0; o.vm = !!r.m; o.p = r.p || 0;
+  o.eps = o.ec + (o.ec === 1 ? " ep" : " eps");
+  o.episodes = []; o._epsReady = o.ec === 0;
+  var skip = {i:1,t:1,g:1,r:1,d:1,u:1,v:1,a:1,w:1,n:1,f:1,c:1,k:1,m:1,p:1};
+  for(var k in r){ if(!(k in o) && !skip[k]) o[k] = r[k]; }
+  return o;
+}
+window.__szExpand = szExpand;
+if(window.SHORTZ_CATALOG.length && window.SHORTZ_CATALOG[0] && !window.SHORTZ_CATALOG[0].id){
+  window.SHORTZ_CATALOG = window.SHORTZ_CATALOG.map(szExpand);
+}
 window.SHORTZ_CATALOG_READY = (function(){
   // Fetch version first, then cache-bust the catalog so a new deploy always pulls fresh data
   var verUrl = "https://xmrmathx.github.io/shortz-tv/version.json";
@@ -2046,7 +2068,7 @@ window.SHORTZ_CATALOG_READY = (function(){
     .catch(function(){ return String(Date.now()); });
   var timeout = new Promise(function(res){ setTimeout(res, 2000); });
   var fresh = getVer.then(function(ver){
-    var url = "https://xmrmathx.github.io/shortz-tv/catalog.json?v=" + encodeURIComponent(ver);
+    var url = "https://xmrmathx.github.io/shortz-tv/catalog-slim.json?v=" + encodeURIComponent(ver);
     return fetch(url, {cache: "no-store"}).then(function(r){
       if (!r.ok) throw 0;
       return r.json();
@@ -2055,7 +2077,7 @@ window.SHORTZ_CATALOG_READY = (function(){
     if (Array.isArray(data) && data.length > 0) {
       var c = window.SHORTZ_CATALOG;
       c.length = 0;
-      for (var i = 0; i < data.length; i++) c.push(data[i]);
+      for (var i = 0; i < data.length; i++) c.push(window.__szExpand ? window.__szExpand(data[i]) : data[i]);
       window.__catRev = (window.__catRev || 0) + 1;
     }
   }).catch(function(){ /* offline: keep bundled fallback */ });
@@ -2147,6 +2169,7 @@ const IDX = {
   sorted: new Map(),     // cache key -> alpha-sorted array
   rev: -1,
 };
+function vcount(t){ return (t.episodes && t.episodes.length) ? t.episodes.filter(e=>e.verified).length : (t.vc || 0); }
 function buildCatalogIndexes(){
   const rev = window.__catRev || 0;
   if(IDX.rev === rev) return;
@@ -2165,7 +2188,7 @@ function buildCatalogIndexes(){
     if(t.trek === true) IDX.trekN++;
     if(isEarlyRelease(t)){ IDX.earlyN++; IDX.earlyList.push(t); }
     if(isVertMain(t)) IDX.vertPool.push(t);
-    if((t.episodes||[]).filter(e=>e.verified).length>=5){
+    if(vcount(t)>=5){
       IDX.homePool.push(t);
       if(isVertMain(t)) IDX.homeVertPool.push(t);
     }
@@ -2501,7 +2524,7 @@ function shareTitle(t){
 }
 function byVid(vid){ return C.find(t=>t.video_id===vid || (t.episodes&&t.episodes.some(e=>e.video_id===vid))); }
 /* early release: computed live — exactly 1 verified episode; auto-graduates as the hunt verifies more */
-function isEarlyRelease(t){return (t.episodes||[]).filter(e=>e.verified).length===1}
+function isEarlyRelease(t){return vcount(t)===1}
 /* ---------- catalog-derived count cache (tab-switch speed) ----------
    Thin adapter over IDX (built once per catalog rev in buildCatalogIndexes).
    The fresh catalog.json splice bumps window.__catRev, which invalidates. */
@@ -3391,6 +3414,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
         if(best){
           voiceCtx.lastSeries={id:best.id,title:best.title};saveCtx();
           if(epNum){
+            if(!best._epsReady){ ensureEps(best).then(()=>{ const ep2=(best.episodes||[]).find(e=>e.n===epNum); if(ep2&&ep2.verified){ voiceCtx.lastEpisode=epNum; cfPresentTitle(best,(best.episodes||[]).indexOf(ep2)); toast("▶ "+best.title+" — Ep "+epNum); } else cfPresentTitle(best); }); return true; }
             const ep=(best.episodes||[]).find(e=>e.n===epNum);
             if(ep&&ep.verified){
               voiceCtx.lastEpisode=epNum;
@@ -4160,6 +4184,7 @@ let snapAnim=false, suppressClick=false, skipMouseUntil=0;
 function isVertMain(t){
   // true when the series' main video is natively vertical (9:16) — cached on t._vmain.
   if(t._vmain!==undefined)return t._vmain;
+  if(t.vm!==undefined){ t._vmain=!!t.vm; return t._vmain; } // slim precompute (Piece 1 stage B)
   let v=!!t.vertical;
   if(!v){
     const m=String(t.url||"").match(/embed\/([A-Za-z0-9_-]+)/);
@@ -5059,7 +5084,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792088579";
+const BUILD="1792089207";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6153,6 +6178,7 @@ function cfActivate(card){
   cfStopPreview();
   if(!card)return;
   const t=byId(card.dataset.id); if(!t)return;
+  if(!t._epsReady){ ensureEps(t).then(()=>{ if(card.isConnected && cfActive!==card) cfActivate(card); }); return; }
   const media=card.querySelector("[data-cf-media]"); if(!media)return;
   const au=cfEpUrl(t);
   if(isArchiveUrl(au)){
@@ -6780,8 +6806,39 @@ function playEpFromFold(t,idx){ cfPresentTitle(t,idx); }
    dealt in at the top of the feed, centered and playing inside the card.
    Never the detail sheet, never the player. epIdx, when given (a Browse
    card's fold row), starts the card on that episode (via t._cfEp). */
+/* ---------- Piece 1 stage B: episode hydration ----------
+   Slim records boot with episodes=[]; the full episode list (+ full
+   desc, source_channel, rights_basis) lives in episodes/pack-<p>.json
+   (500 titles per pack). ensureEps fetches the pack once and fills
+   EVERY title in it, so neighbors are free after the first open. */
+const _packPromises = new Map();
+function _applyPack(pack){
+  if(!pack) return;
+  for(const id in pack){
+    const t = byId(id), rec = pack[id];
+    if(!t || t._epsReady || !rec) continue;
+    t.episodes = rec.e || [];
+    if(rec.d) t.desc = rec.d;
+    if(rec.s) t.source_channel = rec.s;
+    if(rec.r) t.rights_basis = rec.r;
+    t._epsReady = true;
+  }
+}
+function ensureEps(t){
+  if(!t) return Promise.resolve(t);
+  if(t._epsReady) return Promise.resolve(t);
+  if(t._epsPromise) return t._epsPromise;
+  const p = t.p || 0;
+  if(!_packPromises.has(p)){
+    _packPromises.set(p, fetch("episodes/pack-" + p + ".json?v=" + BUILD).then(r => r.ok ? r.json() : {}).catch(() => ({})));
+  }
+  t._epsPromise = _packPromises.get(p).then(pack => { _applyPack(pack); t._epsPromise = null; return t; });
+  return t._epsPromise;
+}
+window.ensureEps = ensureEps;
 function cfPresentTitle(t,epIdx){
   if(!t)return;
+  if(!t._epsReady){ ensureEps(t).then(()=>cfPresentTitle(t,epIdx)); return; }
   const eps=t.episodes||[];
   if(typeof epIdx==="number"&&eps[epIdx]&&eps[epIdx].verified&&eps[epIdx].url)t._cfEp=eps[epIdx];
   try{ go("home"); }catch(e){}
@@ -8433,10 +8490,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792088579"></script>
+<script src="js/folders.js?v=1792089207"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792088579"></script>
+<script src="js/guide.js?v=1792089207"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9244,9 +9301,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792088579"></script>
-<script src="js/shortz-live.js?v=1792088579"></script>
-<script src="js/games.js?v=1792088579"></script>
+<script src="js/streaming.js?v=1792089207"></script>
+<script src="js/shortz-live.js?v=1792089207"></script>
+<script src="js/games.js?v=1792089207"></script>
 <script>
 
 
@@ -9764,7 +9821,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792088579"></script>
+<script src="js/swipe.js?v=1792089207"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11984,7 +12041,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792088579"></script>
+<script src="js/live-sports.js?v=1792089207"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
