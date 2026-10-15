@@ -365,6 +365,7 @@ ShortzLive.carUnload=function(){
 };
 ShortzLive.carVis=function(){
   const st=ShortzLive._car, sec=szCarSec(); if(!sec||!st.count)return;
+  if(document.hidden){ ShortzLive.carUnload(); return; }
   if(szCarVisible(sec)){
     const stale=st.playing===st.idx&&(Date.now()-(st.playSince||0)>4000)&&!szSlideAlive(sec,st.idx);
     if(st.playing!==st.idx||stale) ShortzLive.carPlay(st.idx); else szFeedYield();
@@ -495,3 +496,28 @@ ShortzLive.closePop=function(silent){
   if(!document.querySelector(".szpanel.open")){ document.body.classList.remove("sz-open"); document.body.style.overflow=""; }
   if(!silent){ try{ ssPickActive(); }catch(e){} try{ ShortzLive.carVis(); }catch(e){} }
 };
+
+/* ============ AUDIO DISCIPLINE (his word, 2026-10-15: "audio need to
+   cut out if you're not watching them — not overlapping audios").
+   The carousel and the feed already yield to each other while he's ON
+   Streaming; this is the exit discipline. Every way out of Streaming
+   funnels through go() — so go() itself nukes every media element in
+   the streaming view (iframe src blanked BEFORE removal: a removed
+   iframe is not a trustworthy kill in a WebView), closes the pop, and
+   resets the players' bookkeeping. A slow sweeper repeats the kill
+   while he's anywhere else, so a stray poll/rebuild player can never
+   sit behind another screen talking over it. ============ */
+function szKillStreamingMedia(){
+  const v=document.getElementById("view-streaming"); if(!v)return;
+  v.querySelectorAll("iframe").forEach(f=>{ try{ f.src="about:blank"; }catch(e){} try{ f.remove(); }catch(e){} });
+  v.querySelectorAll("video").forEach(m=>{ try{ m.pause(); m.removeAttribute("src"); m.load(); }catch(e){} });
+  if(ShortzLive._car) ShortzLive._car.playing=-1;
+  try{ ssActiveIdx=-1; }catch(e){}
+}
+if(typeof go==="function"&&!window.__szGoWrapped){
+  window.__szGoWrapped=true;
+  const _szGo=go;
+  go=function(v){ if(v!=="streaming"){ try{ ShortzLive.closePop(true); }catch(e){} szKillStreamingMedia(); } return _szGo(v); };
+}
+document.addEventListener("visibilitychange",()=>{ if(document.hidden) szKillStreamingMedia(); });
+setInterval(()=>{ if(typeof curView!=="undefined"&&curView!=="streaming") szKillStreamingMedia(); },5000);
