@@ -1,5 +1,6 @@
 /* Shortz TV service worker — app shell: network-first for the page (always fresh when online), cache-first for the rest */
-const CACHE = "shortztv-v6"; // bumped 2026-10-14: js modules go network-first (stale-module fix)
+const CACHE = "shortztv-v7"; // bumped 2026-10-15: catalog goes cache-first (Piece 1 transfer diet)
+const CATALOG_CACHE = "shortztv-catalog-v1"; // survives shell bumps; keys are content-addressed URLs
 const THUMBS = "shortztv-thumbs-v1";
 const SHELL = ["catalog.js", "manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
@@ -42,7 +43,7 @@ self.addEventListener("install", e => {
 self.addEventListener("activate", e => {
   e.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== THUMBS).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== THUMBS && k !== CATALOG_CACHE).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -91,16 +92,23 @@ self.addEventListener("fetch", e => {
   }
   if (!isShell(url)) return; // thumbnails/embeds: network
   if (isCatalog(url)) {
-    // Catalog DATA (not shell): network first, so a fresh catalog reaches
-    // repeat viewers with no cache clearing. Full-URL match (no ignoreSearch)
-    // so catalog.js?v=<new> can never serve a stale cached copy. Offline falls
-    // back to the cached copy.
+    // Catalog DATA — CACHE-FIRST in the dedicated catalog cache (Piece 1,
+    // 2026-10-15). Both catalog URLs are content-addressed: catalog.js
+    // carries ?v=<git blob hash of its content> (bumped by the ingest
+    // pipeline on every catalog change) and the boot fetches
+    // catalog.json?v=<build version> (the version stamp moves on every
+    // ship). Same URL therefore always means same bytes, so a cache hit
+    // is never stale — and repeat opens stop re-downloading ~88 MB of
+    // catalog on every launch. A new deploy changes the URL, misses the
+    // cache, and fetches fresh: the auto-fresh law is preserved exactly.
     e.respondWith(
-      fetch(e.request).then(res => {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(e.request, copy));
-        return res;
-      }).catch(() => caches.match(e.request))
+      caches.open(CATALOG_CACHE).then(c => c.match(e.request).then(hit => {
+        if (hit) return hit;
+        return fetch(e.request).then(res => {
+          if (res && res.ok) { const copy = res.clone(); c.put(e.request, copy); }
+          return res;
+        }).catch(() => caches.match(e.request));
+      }))
     );
     return;
   }
