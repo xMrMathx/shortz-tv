@@ -26,6 +26,14 @@
    Shooters 2 and Tile Master Deluxe, even via the direct file URL).
    GD games return only if the site is registered with GD. Working
    model: GameMonetize — direct embeds, no domain block.
+   POOL CLUB IS OUT (2026-10-14, his phone): its Playgama export door
+   opens onto a playhop.com dist-app document that FRAME-BLOCKS us
+   (ERR_BLOCKED_BY_RESPONSE in the player) — the export 200 was real,
+   the game behind it refuses embedding. Marker for next time: its art
+   lived under p-img/ph/ (Playhop) while working titles use p-img/pg/.
+   Swapped for Eco Pool Online at his word ("the other multiplayer
+   one") — public matchmaking, no private room; its framing is
+   unproven until his phone says so.
    SPECIAL OPS: GO + DARK CITY ARE OUT (2026-10-14, his phone: "those
    don't work") — a channel 200 and good paperwork are NOT a working
    game; only his device crowns a title. RIVALS FPS + WARFARE 1942
@@ -58,10 +66,10 @@ const GAMES=[
     embed:"https://playgama.com/export/game/commando-force-2",
     thumb:"https://static.playgama.com/p-img/pg/commando-force-2/big_preview/83606346549d4c5dbcde95004e61f5a5?width=1200",
     sub:"ONLINE multiplayer vs real people — Team Play, Free-for-All, Gun Race, Sniper Only. Virtual joystick + on-screen buttons, auto-aim in settings." },
-  { title:"Pool Club: 8 Ball Billiards", cat:"Billiards", orient:"landscape",
-    embed:"https://playgama.com/export/game/pool-club-8-ball-billiards",
-    thumb:"https://static.playgama.com/p-img/ph/pool-club-8-ball-billiards/big_preview/42c35c936b3e4c2ead5d7511675ed31b?width=1200",
-    sub:"Play with Friends in a private room, 1v1 online against the world, solo vs bot, and 40 practice levels. His pick for Ivory (2026-10-14)." },
+  { title:"Eco Pool Online", cat:"Billiards", orient:"landscape",
+    embed:"https://playgama.com/export/game/eco-pool-online",
+    thumb:"https://static.playgama.com/p-img/pg/eco-pool-online/big-preview/7c9668d7721e4f548f17ae043dfe503d?width=1200",
+    sub:"ONLINE 1v1 pool duels against real players on separate phones, plus a solo challenge series. (No private rooms — matchmaking only.)" },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
