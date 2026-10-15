@@ -19,9 +19,9 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <link rel="canonical" href="https://xmrmathx.github.io/shortz-tv/">
-<title>Shortz VS — Free Short Dramas</title>
-<meta property="og:title" content="Shortz VS — Free Short Dramas">
-<meta property="og:description" content="Watch free short dramas, films & highlights. 100% free, no sign-up.">
+<title>Shortz VS — Free Shows, Films & Live</title>
+<meta property="og:title" content="Shortz VS — Free Shows, Films & Live">
+<meta property="og:description" content="Watch free shows, films, series & live streams. 100% free — every episode plays right in the app.">
 <meta property="og:image" content="https://i.ytimg.com/vi/IfgesY42oN8/maxresdefault.jpg">
 <link rel="preconnect" href="https://i.ytimg.com">
 <link rel="preconnect" href="https://www.youtube.com">
@@ -29,7 +29,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.ytimg.com/vi/IfgesY42oN8/maxresdefault.jpg">
-<meta name="description" content="Shortz VS: 100% free short drama series. Every episode plays right in the app.">
+<meta name="description" content="Shortz VS: free shows, films, series & live streams. 100% free — every episode plays right in the app.">
 <meta name="theme-color" content="#0b0b10">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -2489,7 +2489,7 @@ function paintLiveVisitors(){
 }
 function shareWholeApp(){
   const url=SHARE_BASE;
-  const txt="Watch free short series on Shortz VS";
+  const txt="Watch free shows, films & live on Shortz VS";
   const done=()=>toast("Link copied");
   (async()=>{
     try{
@@ -5085,7 +5085,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792090167";
+const BUILD="1792090183";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8575,10 +8575,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792090167"></script>
+<script src="js/folders.js?v=1792090183"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792090167"></script>
+<script src="js/guide.js?v=1792090183"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9386,9 +9386,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792090167"></script>
-<script src="js/shortz-live.js?v=1792090167"></script>
-<script src="js/games.js?v=1792090167"></script>
+<script src="js/streaming.js?v=1792090183"></script>
+<script src="js/shortz-live.js?v=1792090183"></script>
+<script src="js/games.js?v=1792090183"></script>
 <script>
 
 
@@ -9906,7 +9906,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792090167"></script>
+<script src="js/swipe.js?v=1792090183"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12126,7 +12126,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792090167"></script>
+<script src="js/live-sports.js?v=1792090183"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
