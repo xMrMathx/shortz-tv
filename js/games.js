@@ -110,6 +110,10 @@ const GAMES=[
     embed:"https://playgama.com/export/game/2-minute-football-qb-legend",
     thumb:"https://static.playgama.com/p-img/pg/2-minute-football-qb-legend/big-preview/a2e92873908445478f326006daa1c0d5?width=1200",
     sub:"Quarterback game — read the field, thread passes, run two-minute drives to the championship · solo. 4.7 stars from 172 players." },
+  { title:"Epic Battle Simulator 2", cat:"Battle Simulator", orient:"landscape",
+    embed:"https://playgama.com/export/game/epic-battle-simulator-2",
+    thumb:"https://static.playgama.com/p-img/pg/epic-battle-simulator-2/big-preview/5c1998558eb34c5aa9d63d8843542aa5?width=1200",
+    sub:"Build the battle, then watch it — place your troops and spectate the ragdoll war · 100+ campaign battles + design-your-own custom mode · solo. 4.7 stars from 4,931 players." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
