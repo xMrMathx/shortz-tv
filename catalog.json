@@ -1423448,5 +1423448,456 @@
     ],
     "award_verified": false,
     "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52431",
+    "title": "Party Heat",
+    "genre": "Reality",
+    "eps": "21 eps",
+    "runtime": "~44 min",
+    "desc": "Cops, medics and lifeguards patrol America's wildest spring-break hotspots — keeping the biggest party in the country from turning into a crime scene. truTV reality, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/6bsTy6nFLOo",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Spring Break '08 Havasu - Part 1",
+        "video_id": "6bsTy6nFLOo",
+        "url": "https://www.youtube.com/embed/6bsTy6nFLOo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Spring Break '08 Havasu - Part 2",
+        "video_id": "rzyJbyGuNOI",
+        "url": "https://www.youtube.com/embed/rzyJbyGuNOI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Shake the Lake",
+        "video_id": "DPZgwpgdY1E",
+        "url": "https://www.youtube.com/embed/DPZgwpgdY1E",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Female Subject",
+        "video_id": "OCiqWg9KJ6U",
+        "url": "https://www.youtube.com/embed/OCiqWg9KJ6U",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Extra Strength",
+        "video_id": "S-sKeKC6mMQ",
+        "url": "https://www.youtube.com/embed/S-sKeKC6mMQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Spring Break '09 Havasu",
+        "video_id": "yyJK15wnaLo",
+        "url": "https://www.youtube.com/embed/yyJK15wnaLo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Spring Break '09 Havasu 2",
+        "video_id": "ArLXQ1XnTDQ",
+        "url": "https://www.youtube.com/embed/ArLXQ1XnTDQ",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Little Sturgis, Big Blast",
+        "video_id": "CB5qgorDiJs",
+        "url": "https://www.youtube.com/embed/CB5qgorDiJs",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Mardi Gras",
+        "video_id": "q-6WoDa40pg",
+        "url": "https://www.youtube.com/embed/q-6WoDa40pg",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Wet and Wild",
+        "video_id": "7aSHf3PlaoA",
+        "url": "https://www.youtube.com/embed/7aSHf3PlaoA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "Vegas Bikers",
+        "video_id": "aGU2NcHfTsA",
+        "url": "https://www.youtube.com/embed/aGU2NcHfTsA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 12,
+        "title": "Wild on the Water",
+        "video_id": "m17byI8v8H8",
+        "url": "https://www.youtube.com/embed/m17byI8v8H8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 13,
+        "title": "Wild on the Water 2",
+        "video_id": "ItRcfYinK_E",
+        "url": "https://www.youtube.com/embed/ItRcfYinK_E",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 14,
+        "title": "Texas Blowout",
+        "video_id": "vqTXBvS8l5Q",
+        "url": "https://www.youtube.com/embed/vqTXBvS8l5Q",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 15,
+        "title": "Lake Havasu | Episode 1",
+        "video_id": "aM2xftP8xcA",
+        "url": "https://www.youtube.com/embed/aM2xftP8xcA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 16,
+        "title": "Lake Havasu | Episode 2",
+        "video_id": "m937oEX7o4o",
+        "url": "https://www.youtube.com/embed/m937oEX7o4o",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 17,
+        "title": "Lake Havasu | Episode 3",
+        "video_id": "-HFwY3r5cf8",
+        "url": "https://www.youtube.com/embed/-HFwY3r5cf8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 18,
+        "title": "Lake Havasu: Episode 4",
+        "video_id": "-CQIdovQcMI",
+        "url": "https://www.youtube.com/embed/-CQIdovQcMI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 19,
+        "title": "Lake Havasu: Episode 5",
+        "video_id": "a0TLk21U8Co",
+        "url": "https://www.youtube.com/embed/a0TLk21U8Co",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 20,
+        "title": "Lake Havasu: Episode 7",
+        "video_id": "oVridyuIe8Q",
+        "url": "https://www.youtube.com/embed/oVridyuIe8Q",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 21,
+        "title": "Lake Havasu: Episode 8",
+        "video_id": "43uNKnZCng0",
+        "url": "https://www.youtube.com/embed/43uNKnZCng0",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52432",
+    "title": "The Safecrackers",
+    "genre": "Reality",
+    "eps": "8 eps",
+    "runtime": "~21 min",
+    "desc": "Two safecrackers travel America opening forgotten safes, vaults and lockboxes whose combinations are long lost — and split whatever they find inside. truTV reality, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/o3PKPO1bsIE",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Secret of the Alabama River Safe",
+        "video_id": "o3PKPO1bsIE",
+        "url": "https://www.youtube.com/embed/o3PKPO1bsIE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "The Case of the Jewel Runner's Ride",
+        "video_id": "sB5YE9FELII",
+        "url": "https://www.youtube.com/embed/sB5YE9FELII",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Boondoggle at the Abandoned Barn",
+        "video_id": "tHygWOMZZCo",
+        "url": "https://www.youtube.com/embed/tHygWOMZZCo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "The Legend of General Rucker's Gold",
+        "video_id": "vaYPjyW5sk8",
+        "url": "https://www.youtube.com/embed/vaYPjyW5sk8",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "The Mystery of the Money Truck",
+        "video_id": "J6UB1DvET1s",
+        "url": "https://www.youtube.com/embed/J6UB1DvET1s",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "The Mystery of the No-Tell Hotel",
+        "video_id": "E6pvyRrnP-s",
+        "url": "https://www.youtube.com/embed/E6pvyRrnP-s",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "The Mad Biker's Bounty",
+        "video_id": "I0L5oU9Qx2s",
+        "url": "https://www.youtube.com/embed/I0L5oU9Qx2s",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "The Secret Locked Below Hill House",
+        "video_id": "laHbJusPDyA",
+        "url": "https://www.youtube.com/embed/laHbJusPDyA",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52433",
+    "title": "Rich and Reckless",
+    "genre": "Reality",
+    "eps": "5 eps",
+    "runtime": "~44 min",
+    "desc": "Five case-file episodes — 'Under the Boardwalk,' 'Vegas Voodoo,' 'The Russian Front,' 'Final Cut' and 'Muscle Bound.' A truTV reality series, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/mLus8FLsNKY",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Under the Boardwalk",
+        "video_id": "mLus8FLsNKY",
+        "url": "https://www.youtube.com/embed/mLus8FLsNKY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Vegas Voodoo",
+        "video_id": "_zXqBIvXlgc",
+        "url": "https://www.youtube.com/embed/_zXqBIvXlgc",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "The Russian Front",
+        "video_id": "0AqsRs7IySI",
+        "url": "https://www.youtube.com/embed/0AqsRs7IySI",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Final Cut",
+        "video_id": "Ioop0qi6IX0",
+        "url": "https://www.youtube.com/embed/Ioop0qi6IX0",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Muscle Bound",
+        "video_id": "Sf1V0rMl06E",
+        "url": "https://www.youtube.com/embed/Sf1V0rMl06E",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52434",
+    "title": "Super Into",
+    "genre": "Reality",
+    "eps": "11 eps",
+    "runtime": "~20 min",
+    "desc": "Each episode, a celebrity shows off the hobby, collection or obsession they can't give up — Michelle Rodriguez, Aaron Paul, Kesha, RZA and more. truTV reality, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/KI-RZmfRzJE",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Super Into with Michelle Rodriguez",
+        "video_id": "KI-RZmfRzJE",
+        "url": "https://www.youtube.com/embed/KI-RZmfRzJE",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Super Into with Rob Corddry",
+        "video_id": "z78tnVpJjjA",
+        "url": "https://www.youtube.com/embed/z78tnVpJjjA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 3,
+        "title": "Super Into with Kesha",
+        "video_id": "lHWndsh2mtY",
+        "url": "https://www.youtube.com/embed/lHWndsh2mtY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 4,
+        "title": "Super Into with Alfonso Ribeiro",
+        "video_id": "tylvhZHa2iY",
+        "url": "https://www.youtube.com/embed/tylvhZHa2iY",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 5,
+        "title": "Super Into with Diablo Cody",
+        "video_id": "-8r16q5ewCo",
+        "url": "https://www.youtube.com/embed/-8r16q5ewCo",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 6,
+        "title": "Super Into with Aaron Paul",
+        "video_id": "I5wjR5JL7Mw",
+        "url": "https://www.youtube.com/embed/I5wjR5JL7Mw",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 7,
+        "title": "Super Into with Greg Grunberg",
+        "video_id": "cELjFJsw_S4",
+        "url": "https://www.youtube.com/embed/cELjFJsw_S4",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 8,
+        "title": "Super Into with Nick Young",
+        "video_id": "LLAghnMJjXk",
+        "url": "https://www.youtube.com/embed/LLAghnMJjXk",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 9,
+        "title": "Super Into with Reggie Watts and Adrianne Curry",
+        "video_id": "UzEqs1I2MmA",
+        "url": "https://www.youtube.com/embed/UzEqs1I2MmA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 10,
+        "title": "Super Into with RZA",
+        "video_id": "4vaBzpBcIQA",
+        "url": "https://www.youtube.com/embed/4vaBzpBcIQA",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 11,
+        "title": "Super Into with Paul Scheer",
+        "video_id": "MWVfU8z2yck",
+        "url": "https://www.youtube.com/embed/MWVfU8z2yck",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
+  },
+  {
+    "id": "stv-52435",
+    "title": "truInside",
+    "genre": "Reality",
+    "eps": "2 eps",
+    "runtime": "~40 min",
+    "desc": "The casts, creators and comedians revisit the classic comedies that changed everything — Airplane! and Election, scene by scene. truTV, full episodes from truTV UK.",
+    "source_channel": "truTV UK",
+    "rights_basis": "Public YouTube embed",
+    "url": "https://www.youtube.com/embed/daS7zXf520Q",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Airplane!",
+        "video_id": "daS7zXf520Q",
+        "url": "https://www.youtube.com/embed/daS7zXf520Q",
+        "verified": true,
+        "kind": "episode"
+      },
+      {
+        "n": 2,
+        "title": "Election",
+        "video_id": "andz_ngL1_I",
+        "url": "https://www.youtube.com/embed/andz_ngL1_I",
+        "verified": true,
+        "kind": "episode"
+      }
+    ],
+    "award_verified": false,
+    "dateAdded": "2026-10-15"
   }
 ]
