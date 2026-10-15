@@ -346,13 +346,14 @@
       "optB": "Symfuhny",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "versus",
       "streamer": "Aydan",
       "streamerB": "Symfuhny",
-      "versus_key": "Aydan|Symfuhny"
+      "versus_key": "Aydan|Symfuhny",
+      "resolvedAt": 1792095859
     }
   ]
 }
