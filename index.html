@@ -1259,6 +1259,52 @@ body.playing-game #evToggle,body.playing-game #tvBtn,body.playing-game #evHeader
 .szlive-hd{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:900;letter-spacing:.8px;color:#fff;margin:2px 2px 10px}
 .szlive-dot{width:8px;height:8px;border-radius:50%;background:#e8332a;box-shadow:0 0 8px #e8332a}
 .szlive-hdsub{margin-left:auto;font-size:10px;font-weight:600;letter-spacing:0;color:#9a9aa2}
+/* MY CHANNEL door + streamer panel (Piece 2) */
+.szmine{display:flex;align-items:center;gap:9px;margin-top:14px;background:linear-gradient(120deg,#3d0a18,#7d1230);border:1px solid #a31645;border-radius:12px;padding:12px;cursor:pointer}
+.szmine-t{font-size:13.5px;font-weight:900;color:#fff}
+.szmine-s{font-size:10.5px;color:#f0b9c8}
+.szmine-arrow{margin-left:auto;font-size:17px;color:#fff;font-weight:900}
+.szpanel{position:fixed;inset:0;z-index:9200;background:#0c0c0f;display:none;flex-direction:column}
+.szpanel.open{display:flex}
+.szp-head{padding:14px 14px 10px;border-bottom:1px solid #232329;position:relative}
+.szp-x{position:absolute;top:10px;right:10px;width:34px;height:34px;border-radius:50%;background:#1d1d22;color:#fff;border:1px solid #33333a;font-size:15px;cursor:pointer}
+.szp-title{font-size:17px;font-weight:900;color:#fff;letter-spacing:.4px}
+.szp-sub{font-size:11px;color:#9a9aa2;margin-top:1px}
+.szp-scroll{flex:1;overflow-y:auto;padding:14px 14px 40px;max-width:720px;width:100%;margin:0 auto}
+.szp-chan{background:#141417;border:1px solid #26262b;border-radius:14px;padding:13px}
+.szp-chan-top{display:flex;align-items:center;gap:8px}
+.szp-chan-top .szbug{position:static}
+.szp-chan-name{font-size:14.5px;font-weight:900;color:#fff}
+.szp-chan-sub{font-size:11.5px;color:#b9b9c0;margin-top:5px;line-height:1.45}
+.szp-applyrow{display:flex;gap:8px;margin-top:10px}
+.szp-input{flex:1;background:#0c0c0f;border:1px solid #33333a;border-radius:9px;color:#fff;padding:11px;font-size:13px;min-width:0}
+.szp-apply{background:#e8332a;color:#fff;border:0;border-radius:9px;font-weight:900;font-size:12.5px;padding:0 16px;cursor:pointer}
+.szp-start{width:100%;margin-top:14px;background:#e8332a;color:#fff;border:0;border-radius:13px;padding:16px;font-size:16.5px;font-weight:900;letter-spacing:.5px;cursor:pointer;box-shadow:0 6px 22px rgba(232,51,42,.35)}
+.szp-startsub{text-align:center;font-size:10.5px;color:#9a9aa2;margin-top:6px}
+.szp-card{background:#141417;border:1px solid #26262b;border-radius:14px;padding:13px;margin-top:14px}
+.szp-cardt{font-size:13px;font-weight:900;color:#fff;letter-spacing:.4px}
+.szp-cardb{margin-top:9px}
+.szp-steps{display:flex;align-items:center;gap:0;margin:2px 0 10px}
+.szp-dot{width:24px;height:24px;border-radius:50%;background:#232329;color:#9a9aa2;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.szp-dot.now{background:#e8332a;color:#fff;box-shadow:0 0 0 3px rgba(232,51,42,.3)}
+.szp-dot.done{background:#2c7a3f;color:#fff}
+.szp-link{flex:1;height:2px;background:#2a2a30;margin:0 5px}
+.szp-steplab{font-size:9.5px;font-weight:900;color:#ff7a72;letter-spacing:1px}
+.szp-stept{font-size:16.5px;font-weight:900;color:#fff;margin-top:3px}
+.szp-stepb{font-size:12.5px;color:#c6c6cd;line-height:1.55;margin-top:5px}
+.szp-big{display:block;width:100%;text-align:center;margin-top:11px;border-radius:11px;padding:13px;font-size:14px;font-weight:900;cursor:pointer;border:0;text-decoration:none}
+.szp-ext{background:#fff;color:#111}
+.szp-ok{background:#26262b;color:#fff;border:1px solid #3a3a41}
+.szp-games{background:#7d1230;color:#fff}
+.szp-keys{background:#0c0c0f;border:1px solid #2a2a30;border-radius:10px;padding:10px;margin-top:10px}
+.szp-keyrow{display:flex;gap:8px;align-items:center;padding:4px 0}
+.szp-keylab{font-size:9px;font-weight:900;color:#9a9aa2;letter-spacing:.7px;width:62px;flex:0 0 auto}
+.szp-keyval{font-size:11px;color:#d8d8de}
+.szp-pronote{font-size:11.5px;color:#b9b9c0;line-height:1.5;margin-top:9px}
+.szp-pro summary{font-size:13px;font-weight:900;color:#fff;cursor:pointer;list-style:none}
+.szp-done-t{font-size:16px;font-weight:900;color:#fff}
+.szp-done-s{font-size:12.5px;color:#c6c6cd;line-height:1.55;margin-top:5px}
+.szp-ghost{margin-top:11px;background:none;border:1px solid #3a3a41;color:#c6c6cd;border-radius:9px;padding:9px 13px;font-size:12px;font-weight:800;cursor:pointer}
 .szhero{position:relative;border-radius:16px;overflow:hidden;height:196px;background:linear-gradient(160deg,#5c1030,#a31645 40%,#141c52 90%);cursor:pointer}
 .szhero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .szhero-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(0,0,0,.86))}
@@ -4945,7 +4991,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="20261015010704";
+const BUILD="20261015013146";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8291,10 +8337,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=20261015010704"></script>
+<script src="js/folders.js?v=20261015013146"></script>
 <script>
 </script>
-<script src="js/guide.js?v=20261015010704"></script>
+<script src="js/guide.js?v=20261015013146"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9102,9 +9148,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=20261015010704"></script>
-<script src="js/shortz-live.js?v=20261015010704"></script>
-<script src="js/games.js?v=20261015010704"></script>
+<script src="js/streaming.js?v=20261015013146"></script>
+<script src="js/shortz-live.js?v=20261015013146"></script>
+<script src="js/games.js?v=20261015013146"></script>
 <script>
 
 
@@ -9622,7 +9668,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=20261015010704"></script>
+<script src="js/swipe.js?v=20261015013146"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11842,7 +11888,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=20261015010704"></script>
+<script src="js/live-sports.js?v=20261015013146"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
