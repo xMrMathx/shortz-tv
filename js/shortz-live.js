@@ -194,10 +194,10 @@ ShortzLive.openPanel=function(){
     });
   }
   ShortzLive.paintPanel();
-  p.classList.add("open"); document.body.style.overflow="hidden";
+  p.classList.add("open"); document.body.style.overflow="hidden"; document.body.classList.add("sz-open");
 };
 ShortzLive.paintPanel=function(){ const p=document.getElementById("szPanel"); if(p)p.innerHTML=szPanelHTML(); };
-ShortzLive.closePanel=function(){ const p=document.getElementById("szPanel"); if(p)p.classList.remove("open"); document.body.style.overflow=""; };
+ShortzLive.closePanel=function(){ const p=document.getElementById("szPanel"); if(p)p.classList.remove("open"); document.body.style.overflow=""; if(!document.querySelector(".szpanel.open"))document.body.classList.remove("sz-open"); };
 
 /* ============ PIECE 3: the OWNER network panel (weapon 6: a human
    owns the place). Owner-gated by profile identity. Runs tonight's
@@ -213,12 +213,16 @@ function szLineup(){ return szLS(SZ_LINEUP_KEY,{}); }
 function szCutSet(){ const v=szLS(SZ_CUT_KEY,[]); return Array.isArray(v)?v:[]; }
 function szIsCutCh(ch){ return szCutSet().includes(ch); }
 function szIsOwner(){
+  const norm = v => String(v||"").toLowerCase().replace(/[^a-z0-9@.]/g,"");
+  const NAMES = ["mrmath","craigmoore","mrmoore"];
   try{
     const prof=(typeof store!=="undefined"&&store.get)?store.get("profile",null):null;
-    const nm=String((prof&&prof.name)||"").toLowerCase(), em=String((prof&&prof.email)||"").toLowerCase();
-    if(em==="craigjrbb@gmail.com")return true;
-    if(/mr\s*math|craig\s*moore|mr\.\s*moore/.test(nm))return true;
-    if(typeof Live!=="undefined"&&Live.name&&/mr\s*math/i.test(String(Live.name)))return true;
+    const cands=[prof&&prof.name, prof&&prof.username, prof&&prof.displayName,
+      (typeof Live!=="undefined"&&Live)?Live.name:null];
+    for(const c of cands){ const n=norm(c).replace(/[@.]/g,""); if(NAMES.includes(n))return true; }
+    const emails=[prof&&prof.email, (typeof Live!=="undefined"&&Live)?Live.email:null];
+    try{ const a=(typeof fbAuth==="function")?fbAuth():null; if(a&&a.currentUser)emails.push(a.currentUser.email); }catch(e){}
+    for(const e of emails){ if(norm(e)==="craigjrbb@gmail.com")return true; }
   }catch(e){}
   return false;
 }
@@ -283,7 +287,7 @@ ShortzLive.openOwner=function(){
     });
   }
   ShortzLive.paintOwner();
-  p.classList.add("open"); document.body.style.overflow="hidden";
+  p.classList.add("open"); document.body.style.overflow="hidden"; document.body.classList.add("sz-open");
 };
 ShortzLive.paintOwner=function(){ const p=document.getElementById("szOwnerPanel"); if(p)p.innerHTML=szOwnerHTML(); };
-ShortzLive.closeOwner=function(){ const p=document.getElementById("szOwnerPanel"); if(p)p.classList.remove("open"); document.body.style.overflow=""; };
+ShortzLive.closeOwner=function(){ const p=document.getElementById("szOwnerPanel"); if(p)p.classList.remove("open"); document.body.style.overflow=""; if(!document.querySelector(".szpanel.open"))document.body.classList.remove("sz-open"); };
