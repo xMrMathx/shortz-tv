@@ -70,6 +70,22 @@ const GAMES=[
     embed:"https://playgama.com/export/game/eco-pool-online",
     thumb:"https://static.playgama.com/p-img/pg/eco-pool-online/big-preview/7c9668d7721e4f548f17ae043dfe503d?width=1200",
     sub:"ONLINE 1v1 pool duels against real players on separate phones, plus a solo challenge series. (No private rooms — matchmaking only.)" },
+  { title:"BitLife - Life Simulator", cat:"Life Simulator", orient:"portrait",
+    embed:"https://html5.gamemonetize.co/sunlne8825d1006jux3b1xrl9vda49f1/",
+    thumb:"https://img.gamemonetize.com/sunlne8825d1006jux3b1xrl9vda49f1/512x384.jpg",
+    sub:"Born, choose, age up year by year — school, career, love, money, health, all the way to the grave. The full life loop, tall like the phone app. (The channel's life sim under this name — not Candywriter's app-store original; he knows, his pick 2026-10-14.)" },
+  { title:"Millionaire Life", cat:"Life Simulator", orient:"portrait",
+    embed:"https://playgama.com/export/game/millionaire-life",
+    thumb:"https://static.playgama.com/p-img/pg/millionaire-life/big_preview/cfdbe49b492d4eac95856419c2c16e05?width=1200",
+    sub:"You hit the lottery — a chain of spending choices and bold moves up the outrageous wealthy life. 4.7 stars from 18,000+ players." },
+  { title:"My Town Home: Family Playhouse", cat:"Dollhouse Life", orient:"landscape",
+    embed:"https://playgama.com/export/game/my-town-home-family-playhouse",
+    thumb:"https://static.playgama.com/p-img/pg/my-town-home-family-playhouse/big_preview/7cfc3b9750e84aceb634888d9518f8d3?width=1200",
+    sub:"Pick a family and live their stories in a big two-story dollhouse — cook, garden, move room to room, invent the day." },
+  { title:"Mom Life Simulator: Baby Care", cat:"Daily Life", orient:"landscape",
+    embed:"https://playgama.com/export/game/mom-life-simulator-baby-care",
+    thumb:"https://static.playgama.com/p-img/pg/mom-life-simulator-baby-care/big_preview/8fab63cf520a4823bd2161fa9720d72a?width=1200",
+    sub:"Play a mom running daily family life in 3D — household and baby-care missions, level by level." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
