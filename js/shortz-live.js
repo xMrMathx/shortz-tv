@@ -399,7 +399,7 @@ ShortzLive.carStart=function(sec,count){
   let tx=null;
   track.addEventListener("touchstart",e=>{ tx=e.touches[0].clientX; },{passive:true});
   track.addEventListener("touchend",e=>{ if(tx==null)return; const dx=e.changedTouches[0].clientX-tx; tx=null; if(Math.abs(dx)>36){ go2(st.idx+(dx<0?1:-1)); st.holdUntil=Date.now()+12000; } },{passive:true});
-  if(szCarVisible(sec)) ShortzLive.carPlay(0);
+  if(szHeroVisible(sec)) ShortzLive.carPlay(0);
   st.deadline=Date.now()+SZ_CAR_MS;
   /* landing on Streams (voice included): the view may still be switching
      when the section is built — retry the play call as it settles so the
