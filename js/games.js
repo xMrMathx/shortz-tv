@@ -114,6 +114,22 @@ const GAMES=[
     embed:"https://playgama.com/export/game/epic-battle-simulator-2",
     thumb:"https://static.playgama.com/p-img/pg/epic-battle-simulator-2/big-preview/5c1998558eb34c5aa9d63d8843542aa5?width=1200",
     sub:"Build the battle, then watch it — place your troops and spectate the ragdoll war · 100+ campaign battles + design-your-own custom mode · solo. 4.7 stars from 4,931 players." },
+  { title:"Blue versus Red: Who's better?", cat:"First-Person Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/blue-versus-red-whos-better",
+    thumb:"https://static.playgama.com/p-img/pg/blue-versus-red-whos-better/big_preview/a65b6a0546f14ef9adf447f57860a120?width=1200",
+    sub:"ONLINE arena FPS — Team Deathmatch, Free-For-All and zombie mode, short matches, weapon upgrades · joystick + swipe aim. Small new base (4.5 stars, 125 ratings) — lobbies unproven." },
+  { title:"ObbloxGun.io 3D FPS Shooter", cat:"First-Person Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/obbloxgunio-3d-fps-shooter",
+    thumb:"https://static.playgama.com/p-img/pg/obbloxgunio-3d-fps-shooter/big_preview/cd770d75f8e64c1884c7520f35bc267e?width=1200",
+    sub:"ONLINE arena FPS — fast kill-driven matches · auto-aim and auto-fire on mobile · blocky arena look. (4.3 stars, 102 ratings — lobbies unproven.)" },
+  { title:"Chicken Strike", cat:"First-Person Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/chicken-strike",
+    thumb:"https://static.playgama.com/p-img/pg/chicken-strike/big_preview/905e151eb58b4b9eb83fcc2bdc9ca61d?width=1200",
+    sub:"Team deathmatch as armed chickens — loadouts, skins, ranks · its page claims team multiplayer; reports conflict, unproven. (4.3 stars, 112 ratings.)" },
+  { title:"SWAT OPS: Body Camera", cat:"First-Person Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/swat-ops-body-camera",
+    thumb:"https://static.playgama.com/p-img/pg/swat-ops-body-camera/big_preview/4ade3f1257e841abbe6c3704466b8c2d?width=1200",
+    sub:"Body-camera FPS — 3-minute Deathmatch and 4v4 Team Deathmatch against BOTS (not online), 4 maps, 100+ weapon skins. The Venge feel in bot matches · his pick." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
