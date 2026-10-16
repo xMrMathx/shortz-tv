@@ -267,14 +267,17 @@ function lsStickInit(){
   const st=$("#lsStage"); if(st){ st.classList.remove("stuck"); st._stickTop=null; }
   const ph=$("#lsStickPh"); if(ph)ph.remove();
 }
+function lsStickPane(el){ if(document.body.classList.contains("ev-mode")&&el&&el.closest){ const p=el.closest(".view"); if(p)return p; } return null; }
+function lsStickY(el){ const p=lsStickPane(el); return p?p.scrollTop:(window.scrollY||0); }
+function lsStickTop(el){ const p=lsStickPane(el); const r=el.getBoundingClientRect(); return p?(r.top-p.getBoundingClientRect().top+p.scrollTop):(r.top+(window.scrollY||0)); }
 function lsStickCheck(){
   const st=$("#lsStage"); if(!st||typeof curView==="undefined"||curView!=="live"||typeof Live==="undefined"||Live.tab!=="sports")return;
   const stuck=st.classList.contains("stuck");
   if(!stuck){
     if(st._stickTop==null){
-      try{ st._stickTop=st.getBoundingClientRect().top+window.scrollY; }catch(e){ return; }
+      try{ st._stickTop=lsStickTop(st); }catch(e){ return; }
     }
-    if(window.scrollY>st._stickTop+40){
+    if(lsStickY(st)>st._stickTop+40){
       const ph=document.createElement("div");
       ph.id="lsStickPh"; ph.style.height=st.offsetHeight+"px";
       st.parentNode.insertBefore(ph,st);
@@ -284,8 +287,8 @@ function lsStickCheck(){
     const ph=$("#lsStickPh");
     if(ph){
       let phTop=0;
-      try{ phTop=ph.getBoundingClientRect().top+window.scrollY; }catch(e){}
-      if(window.scrollY<=phTop){
+      try{ phTop=lsStickTop(ph); }catch(e){}
+      if(lsStickY(st)<=phTop){
         st.classList.remove("stuck"); ph.remove(); st._stickTop=null;
       }
     }else{ st.classList.remove("stuck"); st._stickTop=null; }

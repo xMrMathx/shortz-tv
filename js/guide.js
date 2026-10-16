@@ -333,7 +333,14 @@ function tgRefreshGuideData(){
     })
     .catch(done); /* offline/failure: keep what's already on screen */
 }
-/* keep the guide preview fully visible while it follows the scroll */
+/* keep the guide preview fully visible while it follows the scroll.
+   Scroll geometry: in the Everything hub the PANE scrolls and
+   window.scrollY never moves — measure the pane there (his report
+   2026-10-16: the guide stopped following in Profile AND Live; both
+   stick checks read the document scroll the hub never produces). */
+function tgStickPane(el){ if(document.body.classList.contains("ev-mode")&&el&&el.closest){ const p=el.closest(".view"); if(p)return p; } return null; }
+function tgStickY(el){ const p=tgStickPane(el); return p?p.scrollTop:(window.scrollY||0); }
+function tgStickTop(el){ const p=tgStickPane(el); const r=el.getBoundingClientRect(); return p?(r.top-p.getBoundingClientRect().top+p.scrollTop):(r.top+(window.scrollY||0)); }
 function tgStickInit(){
   const pv=$("#tgPreviewBox"); if(!pv)return;
   pv.classList.remove("stuck");
@@ -345,9 +352,9 @@ function tgStickCheck(){
   const stuck=pv.classList.contains("stuck");
   if(!stuck){
     if(pv._stickTop==null){
-      try{pv._stickTop=pv.getBoundingClientRect().top+window.scrollY;}catch(e){return;}
+      try{pv._stickTop=tgStickTop(pv);}catch(e){return;}
     }
-    if(window.scrollY>pv._stickTop+40){
+    if(tgStickY(pv)>pv._stickTop+40){
       const ph=document.createElement("div");
       ph.id="tgStickPh"; ph.style.height=pv.offsetHeight+"px";
       pv.parentNode.insertBefore(ph,pv);
@@ -357,8 +364,8 @@ function tgStickCheck(){
     const ph=$("#tgStickPh");
     if(ph){
       let phTop=0;
-      try{phTop=ph.getBoundingClientRect().top+window.scrollY;}catch(e){}
-      if(window.scrollY<=phTop){
+      try{phTop=tgStickTop(ph);}catch(e){}
+      if(tgStickY(pv)<=phTop){
         pv.classList.remove("stuck"); ph.remove(); pv._stickTop=null;
       }
     }else{pv.classList.remove("stuck");pv._stickTop=null;}
