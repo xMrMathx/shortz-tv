@@ -551,21 +551,46 @@ function ssPickActive(){
   if(ssSettleT)clearTimeout(ssSettleT);
   ssSettleT=setTimeout(()=>{ ssSettleT=null; if(ssPendingIdx>=0)ssActivate(ssPendingIdx); },240);
 }
+let ssPickWatch=0;
+function ssArmPick(){
+  if(ssScrollRaf)return;
+  ssScrollRaf=requestAnimationFrame(ssPickActive);
+  /* the arm above trusts the rAF callback to clear ssScrollRaf (it is
+     the pick's first line). If that callback is ever dropped — a
+     WebView can arm one mid view-switch and never deliver it — the
+     flag stays set forever, every later scroll is skipped, and the
+     feed never activates again until a reload. The watchdog clears a
+     stale arm and runs the pick itself; when the rAF lands normally
+     the flag is already 0 and the watchdog does nothing. */
+  clearTimeout(ssPickWatch);
+  ssPickWatch=setTimeout(()=>{ if(ssScrollRaf){ ssScrollRaf=0; try{ ssPickActive(); }catch(e){} } },200);
+}
 function ssBindScroll(){
   if(ssScrollBound)return; ssScrollBound=true;
   const v=$("#view-streaming"); if(!v)return;
-  v.addEventListener("scroll",()=>{ if(!ssScrollRaf)ssScrollRaf=requestAnimationFrame(ssPickActive); },{passive:true});
-  window.addEventListener("scroll",()=>{ if(curView==="streaming"&&!ssScrollRaf)ssScrollRaf=requestAnimationFrame(ssPickActive); },{passive:true});
+  v.addEventListener("scroll",ssArmPick,{passive:true});
+  window.addEventListener("scroll",()=>{ if(curView==="streaming")ssArmPick(); },{passive:true});
 }
 function ssBuildCards(){
   const v=$("#view-streaming"); if(!v)return;
   const prevTop=v.scrollTop, prevWin=window.scrollY||0, hadCards=ssCards.length>0;
+  /* a settle armed against the pre-rebuild stack must never fire
+     into the re-sorted one — cancel it; the wrapper's post-build
+     pick computes the fresh target against the final layout */
+  if(ssSettleT){ clearTimeout(ssSettleT); ssSettleT=null; }
+  ssPendingIdx=-1;
   ssCards.forEach(ssUnloadFrame);
   v.innerHTML=`<div class="sscards" id="ssCards"></div>`;
   const box=v.querySelector("#ssCards");
   ssCards=sstreamStack.map(st=>{
     const d=document.createElement("article");
     d.className="sscard"; d.innerHTML=ssCardHTML();
+    /* his tap is an order, not a hint: tapping a card plays THAT card
+       (through the same ssActivate funnel as the scroll settle, so the
+       carousel gate and one-audio discipline still rule). Scroll
+       drags never produce this click; the share button stops its own
+       propagation, so it never double-fires. */
+    d.addEventListener("click",()=>{ try{ ssActivate(ssCards.indexOf(d)); }catch(e){} });
     box.appendChild(d);
     return d;
   });

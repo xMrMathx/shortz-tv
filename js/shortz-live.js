@@ -107,7 +107,15 @@ const ShortzLive={
 /* every feed rebuild funnels through ssBuildCards — ride it */
 if(typeof ssBuildCards==="function"){
   const _szBuild=ssBuildCards;
-  ssBuildCards=function(){ _szBuild(); ShortzLive.decorate(); };
+  ssBuildCards=function(){ _szBuild(); ShortzLive.decorate();
+    /* a rebuild re-sorts the stack and (via decorate) re-lays the
+       section above the cards — any pick computed before it points at
+       the old layout, and if he is holding still no new scroll ever
+       re-picks: the feed sits dead under his thumb. One fresh pick
+       against the final layout after EVERY rebuild re-arms the
+       settle; the hero gate still owns the landing. */
+    requestAnimationFrame(()=>{ try{ ssPickActive(); }catch(e){} });
+  };
 }
 window.ShortzLive=ShortzLive;
 
