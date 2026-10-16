@@ -1425357,5 +1425357,76 @@
     "rights_basis": "Public YouTube embed — series' official channel",
     "source_channel": "YouTube (The Feels)",
     "award_verified": true
+  },
+  {
+    "id": "stv-52579",
+    "title": "Goten's Great Adventure",
+    "genre": "Anime",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Episode 1",
+        "url": "https://www.youtube.com/embed/wv--xEfBqNM",
+        "video_id": "wv--xEfBqNM",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "Episode 2",
+        "url": "https://www.youtube.com/embed/X-kfDFW9ovQ",
+        "video_id": "X-kfDFW9ovQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "Episode 3",
+        "url": "https://www.youtube.com/embed/TbZSacDPz6I",
+        "video_id": "TbZSacDPz6I",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "Episode 4",
+        "url": "https://www.youtube.com/embed/Wm9xdDrMDm0",
+        "video_id": "Wm9xdDrMDm0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Episode 5",
+        "url": "https://www.youtube.com/embed/VI49TDqyzxE",
+        "video_id": "VI49TDqyzxE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "Episode 6",
+        "url": "https://www.youtube.com/embed/Vi4KO6rp7uM",
+        "video_id": "Vi4KO6rp7uM",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "Episode 7 · The Final Episode",
+        "url": "https://www.youtube.com/embed/EaU_XDtINYI",
+        "video_id": "EaU_XDtINYI",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/wv--xEfBqNM",
+    "eps": "7 eps",
+    "desc": "A fan-made AI Dragon Ball adventure following Goten — Goku's youngest son — on a journey all his own, told across seven episodes by creator POD (Miaouwai).",
+    "rights_basis": "Creator's own YouTube uploads — public embed (fan-made AI series)",
+    "source_channel": "POD (Miaouwai)",
+    "award_verified": false
   }
 ]
