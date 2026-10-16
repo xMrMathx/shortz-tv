@@ -132,11 +132,12 @@
       "avatar": "https://files.kick.com/images/user/1282398/profile_image/conversion/dd52fc92-fb87-4e76-8f9f-1fb59d2c9a9c-fullsize.webp",
       "game": "Madden 26",
       "name": "RagingAscend",
-      "thumb": "https://images.kick.com/video_thumbnails/k8GTLeQ7PEqW/olvLnHPZm5EP/720.webp",
+      "thumb": "",
       "url": "https://kick.com/ragingascend",
       "vod_hls": "https://stream.kick.com/3c81249a5ce0/ivs/v1/196233775518/k8GTLeQ7PEqW/2026/9/15/19/59/olvLnHPZm5EP/media/hls/master.m3u8",
       "vod_id": 127465481,
-      "vod_title": "#1 Madden player in my apartment"
+      "vod_title": "#1 Madden player in my apartment",
+      "followers": "697"
     },
     {
       "avatar": "https://files.kick.com/images/user/5633492/profile_image/conversion/a2f499a2-6726-4931-b747-280ff2f771b1-fullsize.webp",
