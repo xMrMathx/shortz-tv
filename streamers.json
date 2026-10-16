@@ -137,6 +137,17 @@
       "vod_hls": "https://stream.kick.com/3c81249a5ce0/ivs/v1/196233775518/k8GTLeQ7PEqW/2026/9/15/19/59/olvLnHPZm5EP/media/hls/master.m3u8",
       "vod_id": 127465481,
       "vod_title": "#1 Madden player in my apartment"
+    },
+    {
+      "avatar": "https://files.kick.com/images/user/5633492/profile_image/conversion/a2f499a2-6726-4931-b747-280ff2f771b1-fullsize.webp",
+      "category": "IRL",
+      "followers": "358600",
+      "name": "RampageJackson",
+      "thumb": "https://images.kick.com/video_thumbnails/jHtppgXXoKhP/M5TLd10qeL12/720.webp",
+      "url": "https://kick.com/rampagejackson",
+      "vod_hls": "https://stream.kick.com/3c81249a5ce0/ivs/v1/196233775518/jHtppgXXoKhP/2026/10/15/17/39/uwLbYwpR4Dl9/media/hls/master.m3u8",
+      "vod_id": 132487796,
+      "vod_title": "DRIFTING w/ @LaurenHallen"
     }
   ],
   "twitch": [
