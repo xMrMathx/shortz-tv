@@ -1427727,5 +1427727,819 @@
     "rights_basis": "Public Vimeo embed — co-director's official account",
     "source_channel": "Vimeo (Matt Houghton)",
     "award_verified": true
+  },
+  {
+    "id": "stv-52577",
+    "title": "Brown Girls",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Episode 1",
+        "url": "https://player.vimeo.com/video/203924325",
+        "video_id": "203924325",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "Episode 2",
+        "url": "https://player.vimeo.com/video/204010747",
+        "video_id": "204010747",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "Episode 3",
+        "url": "https://player.vimeo.com/video/204010519",
+        "video_id": "204010519",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "Episode 4",
+        "url": "https://player.vimeo.com/video/204010226",
+        "video_id": "204010226",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Episode 5",
+        "url": "https://player.vimeo.com/video/204010026",
+        "video_id": "204010026",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "Episode 6",
+        "url": "https://player.vimeo.com/video/204009737",
+        "video_id": "204009737",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "Episode 7",
+        "url": "https://player.vimeo.com/video/204008552",
+        "video_id": "204008552",
+        "platform": "vimeo",
+        "verified": true
+      }
+    ],
+    "url": "https://player.vimeo.com/video/203924325",
+    "eps": "7 eps",
+    "desc": "Two Chicago friends — a queer Pakistani-American poet and a Black musician — figuring out love, art and each other. Winner of Best Drama Series at the 2017 Streamy Awards.",
+    "rights_basis": "Public Vimeo embed — producing rights-holder's channel",
+    "source_channel": "Vimeo (OTV | Open Television)",
+    "award_verified": true
+  },
+  {
+    "id": "stv-52578",
+    "title": "The Feels",
+    "genre": "Comedy",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "S1E1 — Wet",
+        "url": "https://www.youtube.com/embed/gQrbeOWLzto",
+        "video_id": "gQrbeOWLzto",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "S1E2 — Essay",
+        "url": "https://www.youtube.com/embed/esvzJMDvXDY",
+        "video_id": "esvzJMDvXDY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "S1E3 — Biter",
+        "url": "https://www.youtube.com/embed/3vfe86NzWCo",
+        "video_id": "3vfe86NzWCo",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "S1E4 — Revirginized",
+        "url": "https://www.youtube.com/embed/WI9b6TppqNE",
+        "video_id": "WI9b6TppqNE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "S1E5 — Sacrament",
+        "url": "https://www.youtube.com/embed/iHx4NgGPfi8",
+        "video_id": "iHx4NgGPfi8",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "S1E6 — Ideophone",
+        "url": "https://www.youtube.com/embed/oB4BOa766x0",
+        "video_id": "oB4BOa766x0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "S1E7 — Visibility",
+        "url": "https://www.youtube.com/embed/kCweA6eoQG8",
+        "video_id": "kCweA6eoQG8",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 8,
+        "title": "S1E8 — Mall",
+        "url": "https://www.youtube.com/embed/Fr6tGaAEf2A",
+        "video_id": "Fr6tGaAEf2A",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 9,
+        "title": "S1E9 — Almost",
+        "url": "https://www.youtube.com/embed/b7p_3rC1ALI",
+        "video_id": "b7p_3rC1ALI",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 10,
+        "title": "S1E10 — Consensus",
+        "url": "https://www.youtube.com/embed/y9SG-M6HKfE",
+        "video_id": "y9SG-M6HKfE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 11,
+        "title": "S1E11 — Pause",
+        "url": "https://www.youtube.com/embed/Q3_9-RvNeyk",
+        "video_id": "Q3_9-RvNeyk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 12,
+        "title": "S1E12 — MOMS feat. Peter Aguero",
+        "url": "https://www.youtube.com/embed/Curp_Ph9aAY",
+        "video_id": "Curp_Ph9aAY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 13,
+        "title": "S1E13 — Batarang",
+        "url": "https://www.youtube.com/embed/uP_p3Or3l_Y",
+        "video_id": "uP_p3Or3l_Y",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 14,
+        "title": "S1E14 — Yes",
+        "url": "https://www.youtube.com/embed/LWLe1fdZ70k",
+        "video_id": "LWLe1fdZ70k",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 15,
+        "title": "S1E15 — Sandwich",
+        "url": "https://www.youtube.com/embed/duheyX3lkxk",
+        "video_id": "duheyX3lkxk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 16,
+        "title": "S1E16 — Men!",
+        "url": "https://www.youtube.com/embed/kaa5088QNto",
+        "video_id": "kaa5088QNto",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 17,
+        "title": "S1E17 — Duel",
+        "url": "https://www.youtube.com/embed/XkrzAqlhOQQ",
+        "video_id": "XkrzAqlhOQQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 18,
+        "title": "S1E18 — Chandelier",
+        "url": "https://www.youtube.com/embed/jkmijbqP14U",
+        "video_id": "jkmijbqP14U",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 19,
+        "title": "S1E19 — Authenticity",
+        "url": "https://www.youtube.com/embed/sG2xN_Mlp6k",
+        "video_id": "sG2xN_Mlp6k",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 20,
+        "title": "S1E20 — Buckley",
+        "url": "https://www.youtube.com/embed/o0IkOwETGbo",
+        "video_id": "o0IkOwETGbo",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 21,
+        "title": "S1E21 — Subway",
+        "url": "https://www.youtube.com/embed/Oo-TR4uFo04",
+        "video_id": "Oo-TR4uFo04",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 22,
+        "title": "S1E22 — Grading",
+        "url": "https://www.youtube.com/embed/ceLAQFzOZSw",
+        "video_id": "ceLAQFzOZSw",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 23,
+        "title": "S1E23 — Nook",
+        "url": "https://www.youtube.com/embed/gu_NRqDIaPo",
+        "video_id": "gu_NRqDIaPo",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 24,
+        "title": "S1E24 — Peligro",
+        "url": "https://www.youtube.com/embed/WChuKGTJofc",
+        "video_id": "WChuKGTJofc",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 25,
+        "title": "S1E25 — Breathe",
+        "url": "https://www.youtube.com/embed/2iSsCuzTqD0",
+        "video_id": "2iSsCuzTqD0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 26,
+        "title": "S1E26 — Catsitter",
+        "url": "https://www.youtube.com/embed/SvRemfRj-V8",
+        "video_id": "SvRemfRj-V8",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 27,
+        "title": "S1E27 — Unclear",
+        "url": "https://www.youtube.com/embed/8nNweCcLcIg",
+        "video_id": "8nNweCcLcIg",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 28,
+        "title": "S1E28 — Shadowboxing",
+        "url": "https://www.youtube.com/embed/SMpuqh4r10k",
+        "video_id": "SMpuqh4r10k",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 29,
+        "title": "S1E29 — Bridge",
+        "url": "https://www.youtube.com/embed/28mUEHUSjnU",
+        "video_id": "28mUEHUSjnU",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 30,
+        "title": "S1E30 — Silence",
+        "url": "https://www.youtube.com/embed/WwdOp5Satzo",
+        "video_id": "WwdOp5Satzo",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 31,
+        "title": "S2E1 — DIFFERENT feat. Tara Clancy",
+        "url": "https://www.youtube.com/embed/-z8X7jOPj9k",
+        "video_id": "-z8X7jOPj9k",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 32,
+        "title": "S2E2 — The Feels · S2E02 · TRUTH",
+        "url": "https://www.youtube.com/embed/am1dsdKQV0A",
+        "video_id": "am1dsdKQV0A",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 33,
+        "title": "S2E3 — Touch",
+        "url": "https://www.youtube.com/embed/tzeNFSj4q-c",
+        "video_id": "tzeNFSj4q-c",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 34,
+        "title": "S2E4 — Noise",
+        "url": "https://www.youtube.com/embed/Xc6F-vIji3I",
+        "video_id": "Xc6F-vIji3I",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 35,
+        "title": "S2E5 — Angel",
+        "url": "https://www.youtube.com/embed/fvn50d0dwuw",
+        "video_id": "fvn50d0dwuw",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 36,
+        "title": "S2E6 — Binary",
+        "url": "https://www.youtube.com/embed/tORS63WsgDE",
+        "video_id": "tORS63WsgDE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 37,
+        "title": "S2E7 — Power",
+        "url": "https://www.youtube.com/embed/BigHsRlSjN4",
+        "video_id": "BigHsRlSjN4",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 38,
+        "title": "S2E8 — Briefcase",
+        "url": "https://www.youtube.com/embed/R7YvNxeN0jY",
+        "video_id": "R7YvNxeN0jY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 39,
+        "title": "S2E9 — Hair",
+        "url": "https://www.youtube.com/embed/dgwfRezdt2g",
+        "video_id": "dgwfRezdt2g",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 40,
+        "title": "S2E10 — White",
+        "url": "https://www.youtube.com/embed/Zw3wciGpDbA",
+        "video_id": "Zw3wciGpDbA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 41,
+        "title": "S2E11 — Responsibility",
+        "url": "https://www.youtube.com/embed/Dlro0Sv7m0w",
+        "video_id": "Dlro0Sv7m0w",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 42,
+        "title": "S2E12 — Gravity",
+        "url": "https://www.youtube.com/embed/QlHWBLPvg8c",
+        "video_id": "QlHWBLPvg8c",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 43,
+        "title": "S2E13 — QUIET feat. Tyler Ford",
+        "url": "https://www.youtube.com/embed/hPmavD4yv3k",
+        "video_id": "hPmavD4yv3k",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 44,
+        "title": "S2E14 — Roommates",
+        "url": "https://www.youtube.com/embed/WW-qs49vqRA",
+        "video_id": "WW-qs49vqRA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 45,
+        "title": "S2E15 — Vision",
+        "url": "https://www.youtube.com/embed/A7wfaUDP6t0",
+        "video_id": "A7wfaUDP6t0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 46,
+        "title": "S2E16 — SECRET feat. Adepero Oduye",
+        "url": "https://www.youtube.com/embed/PxVE1ZmCWgQ",
+        "video_id": "PxVE1ZmCWgQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 47,
+        "title": "S2E17 — Sanctuary",
+        "url": "https://www.youtube.com/embed/EZEA1e7MUlA",
+        "video_id": "EZEA1e7MUlA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 48,
+        "title": "S2E18 — DADS feat. Peter Aguero",
+        "url": "https://www.youtube.com/embed/TPuoszPW8os",
+        "video_id": "TPuoszPW8os",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 49,
+        "title": "S2E19 — DISASSOCIATION feat. Tyler Ford",
+        "url": "https://www.youtube.com/embed/VrLVwLvWPOE",
+        "video_id": "VrLVwLvWPOE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 50,
+        "title": "S2E20 — Reroute",
+        "url": "https://www.youtube.com/embed/dOwrRgciVWU",
+        "video_id": "dOwrRgciVWU",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 51,
+        "title": "S2E21 — Liminal",
+        "url": "https://www.youtube.com/embed/Ftfer4H3OJc",
+        "video_id": "Ftfer4H3OJc",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 52,
+        "title": "S2E22 — STRANGER feat. Rory Ferreira",
+        "url": "https://www.youtube.com/embed/ioo9sQehMa0",
+        "video_id": "ioo9sQehMa0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 53,
+        "title": "S2E23 — Teacher",
+        "url": "https://www.youtube.com/embed/_mNd80xKkHU",
+        "video_id": "_mNd80xKkHU",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 54,
+        "title": "S2E24 — Oculus",
+        "url": "https://www.youtube.com/embed/yInFonrNwbQ",
+        "video_id": "yInFonrNwbQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 55,
+        "title": "S2E25 — VALENTINE feat. Tyler Ford",
+        "url": "https://www.youtube.com/embed/9bMJ4vzPikk",
+        "video_id": "9bMJ4vzPikk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 56,
+        "title": "S2E26 — Friends",
+        "url": "https://www.youtube.com/embed/YQC0uu5a-KA",
+        "video_id": "YQC0uu5a-KA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 57,
+        "title": "S2E27 — Home",
+        "url": "https://www.youtube.com/embed/qRoCy7ylY3Q",
+        "video_id": "qRoCy7ylY3Q",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 58,
+        "title": "S2E28 — SUNSHINE feat. Adepero Oduye",
+        "url": "https://www.youtube.com/embed/7eG5qCinuQA",
+        "video_id": "7eG5qCinuQA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 59,
+        "title": "S2E29 — Heart",
+        "url": "https://www.youtube.com/embed/-5nEbDM5Xj0",
+        "video_id": "-5nEbDM5Xj0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 60,
+        "title": "S2E30 — Fireflies",
+        "url": "https://www.youtube.com/embed/DmR2F823imI",
+        "video_id": "DmR2F823imI",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 61,
+        "title": "S3E1 — Trailer",
+        "url": "https://www.youtube.com/embed/E0wcS83j9qU",
+        "video_id": "E0wcS83j9qU",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 62,
+        "title": "S3E2 — Proud",
+        "url": "https://www.youtube.com/embed/eesveocW_5I",
+        "video_id": "eesveocW_5I",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 63,
+        "title": "S3E3 — Haircutter",
+        "url": "https://www.youtube.com/embed/9NpD9S7ZAM8",
+        "video_id": "9NpD9S7ZAM8",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 64,
+        "title": "S3E4 — PERSPECTIVE feat. Zoe Ko",
+        "url": "https://www.youtube.com/embed/w6IYEXNxtf4",
+        "video_id": "w6IYEXNxtf4",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 65,
+        "title": "S3E5 — SALVE feat. Sara Ramirez",
+        "url": "https://www.youtube.com/embed/bNhjBZMWLlk",
+        "video_id": "bNhjBZMWLlk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 66,
+        "title": "S3E6 — HISTORY feat. Adepero Oduye",
+        "url": "https://www.youtube.com/embed/I6k_IJRsRmk",
+        "video_id": "I6k_IJRsRmk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 67,
+        "title": "S3E7 — NOPE. feat. Nicole Kang",
+        "url": "https://www.youtube.com/embed/jCqaTHG8GFI",
+        "video_id": "jCqaTHG8GFI",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 68,
+        "title": "S3E8 — AVOCADOS feat. Almonte",
+        "url": "https://www.youtube.com/embed/w5Hny9Ehj-c",
+        "video_id": "w5Hny9Ehj-c",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 69,
+        "title": "S3E9 — HETERO feat. Peter Aguero",
+        "url": "https://www.youtube.com/embed/CuHe5AF9i8M",
+        "video_id": "CuHe5AF9i8M",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 70,
+        "title": "S3E10 — VIRGINIA feat. Nicole Kang",
+        "url": "https://www.youtube.com/embed/9d-NxNCnnqY",
+        "video_id": "9d-NxNCnnqY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 71,
+        "title": "S3E11 — Winner",
+        "url": "https://www.youtube.com/embed/3y1j-yID6T0",
+        "video_id": "3y1j-yID6T0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 72,
+        "title": "S3E12 — BAGGAGE feat. Sara Ramirez",
+        "url": "https://www.youtube.com/embed/D5i4oWLF_BU",
+        "video_id": "D5i4oWLF_BU",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 73,
+        "title": "S3E13 — COOL feat. Almonte",
+        "url": "https://www.youtube.com/embed/xxdPIWF56x0",
+        "video_id": "xxdPIWF56x0",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 74,
+        "title": "S3E14 — Being",
+        "url": "https://www.youtube.com/embed/XfoMMKHEP68",
+        "video_id": "XfoMMKHEP68",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 75,
+        "title": "S3E15 — Bedtime",
+        "url": "https://www.youtube.com/embed/ks1JLkiVrNM",
+        "video_id": "ks1JLkiVrNM",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 76,
+        "title": "S3E16 — Nice",
+        "url": "https://www.youtube.com/embed/C06xkK3uMJc",
+        "video_id": "C06xkK3uMJc",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 77,
+        "title": "S3E17 — Grandma",
+        "url": "https://www.youtube.com/embed/AFMI20wnxPY",
+        "video_id": "AFMI20wnxPY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 78,
+        "title": "S3E18 — Mourning",
+        "url": "https://www.youtube.com/embed/7GGuM6fQLqk",
+        "video_id": "7GGuM6fQLqk",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 79,
+        "title": "S3E19 — Rug",
+        "url": "https://www.youtube.com/embed/PQ0_mp-lbiE",
+        "video_id": "PQ0_mp-lbiE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 80,
+        "title": "S3E20 — JOY feat. Adepero Oduye",
+        "url": "https://www.youtube.com/embed/1E0n1Q7f-zc",
+        "video_id": "1E0n1Q7f-zc",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 81,
+        "title": "S3E21 — RECOVERY feat. Alice Kremelberg",
+        "url": "https://www.youtube.com/embed/QPWwjiYOn70",
+        "video_id": "QPWwjiYOn70",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 82,
+        "title": "S3E22 — GHOSTS feat. Alice Kremelberg",
+        "url": "https://www.youtube.com/embed/DzqEixQynFI",
+        "video_id": "DzqEixQynFI",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 83,
+        "title": "S3E23 — CLOSURE feat. Alice Kremelberg",
+        "url": "https://www.youtube.com/embed/XIYPjkm4sl4",
+        "video_id": "XIYPjkm4sl4",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 84,
+        "title": "S3E24 — POTTER feat. Peter Aguero",
+        "url": "https://www.youtube.com/embed/aZIMfwezsMo",
+        "video_id": "aZIMfwezsMo",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 85,
+        "title": "S3E25 — Backwards",
+        "url": "https://www.youtube.com/embed/LBKmTNZfWuY",
+        "video_id": "LBKmTNZfWuY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 86,
+        "title": "S3E26 — LIGHT feat. Sara Ramirez",
+        "url": "https://www.youtube.com/embed/v3v0vro3pcA",
+        "video_id": "v3v0vro3pcA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 87,
+        "title": "S3E27 — RESPITE feat. Tyler Ford",
+        "url": "https://www.youtube.com/embed/tlR91EZidCE",
+        "video_id": "tlR91EZidCE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 88,
+        "title": "S3E28 — BEAUTIFUL feat. Adepero Oduye",
+        "url": "https://www.youtube.com/embed/0XcA6IdV8JQ",
+        "video_id": "0XcA6IdV8JQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 89,
+        "title": "S3E29 — Self",
+        "url": "https://www.youtube.com/embed/0tb0Web_Exg",
+        "video_id": "0tb0Web_Exg",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 90,
+        "title": "S3E30 — FAMILY feat. Sara Ramirez",
+        "url": "https://www.youtube.com/embed/kcdWhHvvxDs",
+        "video_id": "kcdWhHvvxDs",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 91,
+        "title": "S3E31 — Closet",
+        "url": "https://www.youtube.com/embed/oOz8nLw56AI",
+        "video_id": "oOz8nLw56AI",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/gQrbeOWLzto",
+    "eps": "91 eps",
+    "desc": "Micro-episodes about queer dating and relationships — 91 short installments across three seasons. Winner of Best Indie Series at the 2019 Streamy Awards.",
+    "rights_basis": "Public YouTube embed — series' official channel",
+    "source_channel": "YouTube (The Feels)",
+    "award_verified": true
   }
 ]
