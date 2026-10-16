@@ -545,6 +545,11 @@ function szKillStreamingMedia(){
   v.querySelectorAll("video").forEach(m=>{ try{ m.pause(); m.removeAttribute("src"); m.load(); }catch(e){} });
   if(ShortzLive._car) ShortzLive._car.playing=-1;
   try{ ssActiveIdx=-1; }catch(e){}
+  /* a settle armed in the last instants on Streaming must never fire
+     into Home: disarm the pick timer and forget its target, or the
+     feed card it names mounts with sound behind the next screen */
+  try{ if(typeof ssSettleT!=="undefined"&&ssSettleT){ clearTimeout(ssSettleT); ssSettleT=null; } }catch(e){}
+  try{ if(typeof ssPendingIdx!=="undefined")ssPendingIdx=-1; }catch(e){}
 }
 if(typeof go==="function"&&!window.__szGoWrapped){
   window.__szGoWrapped=true;

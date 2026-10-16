@@ -460,7 +460,7 @@ function ssYtMount(node,s){
   const poster=fr.querySelector(".ssposter"); // keep the thumbnail up while the player loads
   fr.innerHTML=""; if(poster)fr.appendChild(poster); fr.appendChild(box);
   let dead=false, player=null;
-  const fallback=()=>{ if(dead)return; dead=true;
+  const fallback=()=>{ if(dead)return; if(typeof curView!=="undefined"&&curView!=="streaming")return; /* he left Streaming while the API was loading — planting a sounding iframe now would bleed onto the next screen */ dead=true;
     const ids=queue.length?queue:[startId];
     fr.innerHTML=`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(ids[0])}?autoplay=1&mute=0&rel=0&controls=0&disablekb=1&fs=0&loop=1&playlist=${encodeURIComponent(ids.join(","))}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
   };
