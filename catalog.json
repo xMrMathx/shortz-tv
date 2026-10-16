@@ -1431569,5 +1431569,120 @@
     "rights_basis": "published 1976 — released without a US copyright notice; a standard public-domain catalog title (documented PD-accident basis)",
     "source_channel": "Cult Cinema Classics",
     "award_verified": false
+  },
+  {
+    "id": "stv-52847",
+    "title": "S.N.U.B.: The Death Bunker",
+    "genre": "Sci-Fi",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "S.N.U.B.: The Death Bunker",
+        "url": "https://www.youtube.com/embed/fzbYWQYpI9E",
+        "video_id": "fzbYWQYpI9E",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/fzbYWQYpI9E",
+    "eps": "1 ep",
+    "desc": "A junior government minister, tipped to a nuclear plot against London, flees with an advisor to a secret state nuclear bunker — elites sealed underground while a conspiracy plays out above and inside.",
+    "rights_basis": "Distributor-posted full feature — Watch Movies Now network official YouTube upload, public embed",
+    "source_channel": "WATCH NOW - SCI-FI & FANTASY",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52848",
+    "title": "Dome House Six",
+    "genre": "Sci-Fi",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Dome House Six",
+        "url": "https://www.youtube.com/embed/X-DZCa8QhHg",
+        "video_id": "X-DZCa8QhHg",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/X-DZCa8QhHg",
+    "eps": "1 ep",
+    "desc": "After civilization collapses, four strangers shelter in a dome house where the game inside is trust, control and secrets — a sealed micro-community under pressure.",
+    "rights_basis": "Distributor-posted full feature — Watch Movies Now network official YouTube upload, public embed",
+    "source_channel": "WATCH NOW - SCI-FI & FANTASY",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52849",
+    "title": "The White King",
+    "genre": "Sci-Fi",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The White King",
+        "url": "https://www.youtube.com/embed/Xr_MYC-IyXU",
+        "video_id": "Xr_MYC-IyXU",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Xr_MYC-IyXU",
+    "eps": "1 ep",
+    "desc": "A boy grows up inside a sealed-off totalitarian homeland; when the state brands his father a traitor and takes him, the boy starts digging at the truth the regime runs on.",
+    "rights_basis": "Distributor-posted full feature — Watch Movies Now network official YouTube upload, public embed",
+    "source_channel": "WATCH NOW - SCI-FI & FANTASY",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52850",
+    "title": "Aftermath (2014)",
+    "genre": "Sci-Fi",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Aftermath (2014)",
+        "url": "https://www.youtube.com/embed/4MQZLND5zYw",
+        "video_id": "4MQZLND5zYw",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/4MQZLND5zYw",
+    "eps": "1 ep",
+    "desc": "After a nuclear attack, nine survivors seal themselves in a farmhouse cellar with the radiation rising outside — a bunker community eating itself over supplies, leadership and fear.",
+    "rights_basis": "Distributor-posted full feature — Watch Movies Now network official YouTube upload, public embed",
+    "source_channel": "WATCH ACTION MOVIES NOW",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52851",
+    "title": "Containment: Outbreak",
+    "genre": "Sci-Fi",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Containment: Outbreak",
+        "url": "https://www.youtube.com/embed/ZKQboj2bUJg",
+        "video_id": "ZKQboj2bUJg",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/ZKQboj2bUJg",
+    "eps": "1 ep",
+    "desc": "An epidemic zone whose residents are deliberately kept in the dark by the authorities containing them — survival depends on learning what they were never told.",
+    "rights_basis": "Distributor-posted full feature — Watch Movies Now network official YouTube upload, public embed",
+    "source_channel": "WATCH NOW - SCI-FI & FANTASY",
+    "award_verified": false
   }
 ]
