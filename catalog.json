@@ -1427521,5 +1427521,672 @@
     "rights_basis": "published 1963 — renewal-era title in PizzaFlix PD catalog; renewal lapses are the standard basis for this catalog class",
     "source_channel": "PizzaFlix",
     "award_verified": false
+  },
+  {
+    "id": "stv-52671",
+    "title": "Wagon Trail",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Wagon Trail",
+        "url": "https://www.youtube.com/embed/6Zq4m1ib_rc",
+        "video_id": "6Zq4m1ib_rc",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/6Zq4m1ib_rc",
+    "eps": "1 ep",
+    "desc": "Wagon Trail (1935) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1935 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52672",
+    "title": "Billy the Kid Returns",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Billy the Kid Returns",
+        "url": "https://www.youtube.com/embed/Bfrv-c8Zuew",
+        "video_id": "Bfrv-c8Zuew",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Bfrv-c8Zuew",
+    "eps": "1 ep",
+    "desc": "Billy the Kid Returns (1938) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1938 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52673",
+    "title": "Shine On Harvest Moon",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Shine On Harvest Moon",
+        "url": "https://www.youtube.com/embed/-qRJODWchrM",
+        "video_id": "-qRJODWchrM",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/-qRJODWchrM",
+    "eps": "1 ep",
+    "desc": "Shine On Harvest Moon (1938) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1938 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52674",
+    "title": "Songs And Saddles",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Songs And Saddles",
+        "url": "https://www.youtube.com/embed/P5B3BmhXM7w",
+        "video_id": "P5B3BmhXM7w",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/P5B3BmhXM7w",
+    "eps": "1 ep",
+    "desc": "Songs And Saddles (1938) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1938 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52675",
+    "title": "Gullivers Travels - Full Movie",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Gullivers Travels - Full Movie",
+        "url": "https://www.youtube.com/embed/GeoVX3cGSho",
+        "video_id": "GeoVX3cGSho",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/GeoVX3cGSho",
+    "eps": "1 ep",
+    "desc": "Gullivers Travels - Full Movie (1939) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1939 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52676",
+    "title": "The Jungle Book - Full Movie",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Jungle Book - Full Movie",
+        "url": "https://www.youtube.com/embed/FaNRStgRgl8",
+        "video_id": "FaNRStgRgl8",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/FaNRStgRgl8",
+    "eps": "1 ep",
+    "desc": "The Jungle Book - Full Movie (1942) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1942 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52677",
+    "title": "Life With Father - Full Movie",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Life With Father - Full Movie",
+        "url": "https://www.youtube.com/embed/Udyx4pbeZA8",
+        "video_id": "Udyx4pbeZA8",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Udyx4pbeZA8",
+    "eps": "1 ep",
+    "desc": "Life With Father - Full Movie (1947) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1947 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52678",
+    "title": "Springtime In The Sierras",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Springtime In The Sierras",
+        "url": "https://www.youtube.com/embed/eiRf8nrHpkY",
+        "video_id": "eiRf8nrHpkY",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/eiRf8nrHpkY",
+    "eps": "1 ep",
+    "desc": "Springtime In The Sierras (1947) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1947 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52679",
+    "title": "Snows of Kilimanjaro",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Snows of Kilimanjaro",
+        "url": "https://www.youtube.com/embed/Az0-uGgIM_E",
+        "video_id": "Az0-uGgIM_E",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Az0-uGgIM_E",
+    "eps": "1 ep",
+    "desc": "Snows of Kilimanjaro (1952) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1952 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52680",
+    "title": "The Snows of Kilimanjaro - Full Movie",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Snows of Kilimanjaro - Full Movie",
+        "url": "https://www.youtube.com/embed/2Ph_K-qBpg8",
+        "video_id": "2Ph_K-qBpg8",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/2Ph_K-qBpg8",
+    "eps": "1 ep",
+    "desc": "The Snows of Kilimanjaro - Full Movie (1952) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1952 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52681",
+    "title": "The Proud Rebel",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Proud Rebel",
+        "url": "https://www.youtube.com/embed/b2OlYD6EXh0",
+        "video_id": "b2OlYD6EXh0",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/b2OlYD6EXh0",
+    "eps": "1 ep",
+    "desc": "The Proud Rebel (1958) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1958 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52682",
+    "title": "The Alphabet Conspiracy",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Alphabet Conspiracy",
+        "url": "https://www.youtube.com/embed/wPQ-7nq4sTg",
+        "video_id": "wPQ-7nq4sTg",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/wPQ-7nq4sTg",
+    "eps": "1 ep",
+    "desc": "The Alphabet Conspiracy (1959) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1959 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52683",
+    "title": "Gorgo",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Gorgo",
+        "url": "https://www.youtube.com/embed/SG4cF8hDaig",
+        "video_id": "SG4cF8hDaig",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/SG4cF8hDaig",
+    "eps": "1 ep",
+    "desc": "Gorgo (1961) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1961 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52684",
+    "title": "One-Eyed Jacks",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "One-Eyed Jacks",
+        "url": "https://www.youtube.com/embed/s8VmSvxHLFM",
+        "video_id": "s8VmSvxHLFM",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/s8VmSvxHLFM",
+    "eps": "1 ep",
+    "desc": "One-Eyed Jacks (1961) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1961 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52685",
+    "title": "The Terror (1963) - Full Movie",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Terror (1963) - Full Movie",
+        "url": "https://www.youtube.com/embed/xEN3TB6mwgo",
+        "video_id": "xEN3TB6mwgo",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/xEN3TB6mwgo",
+    "eps": "1 ep",
+    "desc": "The Terror (1963) - Full Movie (1963) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1963 — renewal-era title in The Film Detective classics catalog; renewal lapses are the standard basis for this catalog class",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52686",
+    "title": "Alice of Wonderland in Paris",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Alice of Wonderland in Paris",
+        "url": "https://www.youtube.com/embed/-VkL0FnFe4U",
+        "video_id": "-VkL0FnFe4U",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/-VkL0FnFe4U",
+    "eps": "1 ep",
+    "desc": "Alice of Wonderland in Paris (1966) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1966 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52687",
+    "title": "Cape Town Affair",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Cape Town Affair",
+        "url": "https://www.youtube.com/embed/ouV8mql19tA",
+        "video_id": "ouV8mql19tA",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/ouV8mql19tA",
+    "eps": "1 ep",
+    "desc": "Cape Town Affair (1967) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1967 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52688",
+    "title": "Black Bikers from Hell",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Black Bikers from Hell",
+        "url": "https://www.youtube.com/embed/Mmz7GJuehfw",
+        "video_id": "Mmz7GJuehfw",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Mmz7GJuehfw",
+    "eps": "1 ep",
+    "desc": "Black Bikers from Hell (1970) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1970 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52689",
+    "title": "The Black Brigade",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Black Brigade",
+        "url": "https://www.youtube.com/embed/_g-uwhJRmQc",
+        "video_id": "_g-uwhJRmQc",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/_g-uwhJRmQc",
+    "eps": "1 ep",
+    "desc": "The Black Brigade (1970) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1970 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52690",
+    "title": "Catch Me a Spy",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Catch Me a Spy",
+        "url": "https://www.youtube.com/embed/ZBUlAAoxK_E",
+        "video_id": "ZBUlAAoxK_E",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/ZBUlAAoxK_E",
+    "eps": "1 ep",
+    "desc": "Catch Me a Spy (1971) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1971 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52691",
+    "title": "Doomsday Machine",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Doomsday Machine",
+        "url": "https://www.youtube.com/embed/KQqcFKLQa3I",
+        "video_id": "KQqcFKLQa3I",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/KQqcFKLQa3I",
+    "eps": "1 ep",
+    "desc": "Doomsday Machine (1972) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1972 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52692",
+    "title": "Sounder",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sounder",
+        "url": "https://www.youtube.com/embed/R3jkyHqIasU",
+        "video_id": "R3jkyHqIasU",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/R3jkyHqIasU",
+    "eps": "1 ep",
+    "desc": "Sounder (1972) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1972 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52693",
+    "title": "Firehouse",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Firehouse",
+        "url": "https://www.youtube.com/embed/Ykk3zPe0JJs",
+        "video_id": "Ykk3zPe0JJs",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Ykk3zPe0JJs",
+    "eps": "1 ep",
+    "desc": "Firehouse (1973) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1973 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52694",
+    "title": "The Borrowers",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "The Borrowers",
+        "url": "https://www.youtube.com/embed/O0PtV00fPpo",
+        "video_id": "O0PtV00fPpo",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/O0PtV00fPpo",
+    "eps": "1 ep",
+    "desc": "The Borrowers (1973) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1973 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52695",
+    "title": "All the Kind Strangers",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "All the Kind Strangers",
+        "url": "https://www.youtube.com/embed/Lv9BuuE0DLc",
+        "video_id": "Lv9BuuE0DLc",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/Lv9BuuE0DLc",
+    "eps": "1 ep",
+    "desc": "All the Kind Strangers (1974) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1974 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52696",
+    "title": "Ginger in the Morning",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Ginger in the Morning",
+        "url": "https://www.youtube.com/embed/b_KTWZd4wWY",
+        "video_id": "b_KTWZd4wWY",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/b_KTWZd4wWY",
+    "eps": "1 ep",
+    "desc": "Ginger in the Morning (1974) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1974 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52697",
+    "title": "Darktown Strutters",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Darktown Strutters",
+        "url": "https://www.youtube.com/embed/ClnM6voDma8",
+        "video_id": "ClnM6voDma8",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/ClnM6voDma8",
+    "eps": "1 ep",
+    "desc": "Darktown Strutters (1975) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1975 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52698",
+    "title": "Mission to Glory: A True Story",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Mission to Glory: A True Story",
+        "url": "https://www.youtube.com/embed/dygsQ_u5h2Y",
+        "video_id": "dygsQ_u5h2Y",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/dygsQ_u5h2Y",
+    "eps": "1 ep",
+    "desc": "Mission to Glory: A True Story (1976) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1976 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
+  },
+  {
+    "id": "stv-52699",
+    "title": "Track Of The Moon Beast",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Track Of The Moon Beast",
+        "url": "https://www.youtube.com/embed/s-maU_cLPvg",
+        "video_id": "s-maU_cLPvg",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/s-maU_cLPvg",
+    "eps": "1 ep",
+    "desc": "Track Of The Moon Beast (1976) — a public-domain feature in color, presented by The Film Detective.",
+    "rights_basis": "published 1976 — post-1963; basis: posted by The Film Detective (a classics film distributor) on its own official channel from its licensed/restored catalog — distributor-posted, not a PD claim",
+    "source_channel": "The Film Detective",
+    "award_verified": false
   }
 ]
