@@ -166,6 +166,10 @@ const GAMES=[
     embed:"https://html-classic.itch.zone/html/7899881/Poc%20WebGL%20gzip/index.html",
     thumb:"games-img/zombie-madness.png",
     sub:"Third-person SWAT shooter vs zombie waves in a desert town · built for phones — full on-screen touch controls. Solo vs AI." },
+  { title:"Hunt Zone: Battle Royale", cat:"Third-Person Shooter", orient:"landscape",
+    embed:"https://playgama.com/export/game/hunt-zone",
+    thumb:"https://static.playgama.com/p-img/ph/hunt-zone/big_preview/5a9144081dd24837803cf299fbd98f66?width=1200",
+    sub:"ONLINE PvP — 35-player Battle Royale on a shrinking island + 5v5 Team Deathmatch, Deathmatch, Duels · virtual joystick + on-screen touch buttons." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
