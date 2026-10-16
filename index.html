@@ -5119,7 +5119,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792119273";
+const BUILD="1792120950";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6018,6 +6018,14 @@ function commitSnap(dir){
 function shareTitle(t,epIdx){
   if(!t)return;
   const txt=`Watch "${t.title}" free on Shortz VS`;
+  // native app: the Android bridge shares with the cover art attached — WebView Web Share cannot attach files, so in-app shares used to fall back to a plain copied link with no art
+  try{ if(window.Android&&window.Android.shareWithImage){
+    const _go=()=>{ try{ window.Android.shareWithImage(txt, shareUrl(t.id,epIdx), thumb(t,"maxres")); }catch(e){} };
+    if(thumb(t,"maxres")) _go();
+    else if(typeof ensureEps==="function") ensureEps(t,_go);
+    else _go();
+    return;
+  } }catch(e){}
   (async()=>{
     // attach the cover art image when the platform supports it
     let files=[];
@@ -8265,6 +8273,7 @@ function openSportsReel(sport){
     const _ei=sl&&sl.dataset.i!==undefined?parseInt(sl.dataset.i,10):-1;
     const url=_t?shareUrl(_t.id,_ei>=0?_ei:undefined):"https://www.youtube.com/watch?v="+vid;
     const done=()=>toast("Link copied");
+    try{ if(window.Android&&window.Android.shareWithImage){ window.Android.shareWithImage("Watch this "+sport+" highlight free on Shortz VS", url, "https://i.ytimg.com/vi/"+vid+"/maxresdefault.jpg"); return; } }catch(_){}
     (async()=>{
       let files=[];
       try{
@@ -8677,10 +8686,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792119273"></script>
+<script src="js/folders.js?v=1792120950"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792119273"></script>
+<script src="js/guide.js?v=1792120950"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9488,9 +9497,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792119273"></script>
-<script src="js/shortz-live.js?v=1792119273"></script>
-<script src="js/games.js?v=1792119273"></script>
+<script src="js/streaming.js?v=1792120950"></script>
+<script src="js/shortz-live.js?v=1792120950"></script>
+<script src="js/games.js?v=1792120950"></script>
 <script>
 
 
@@ -10008,7 +10017,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792119273"></script>
+<script src="js/swipe.js?v=1792120950"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12228,7 +12237,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792119273"></script>
+<script src="js/live-sports.js?v=1792120950"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
