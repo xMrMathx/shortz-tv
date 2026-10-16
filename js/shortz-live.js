@@ -350,7 +350,15 @@ function szCarVisible(sec){ if(!sec)return false; const r=sec.getBoundingClientR
    so a section-based gate stayed shut for ~1000px of scrolling: the
    hero long gone, the carousel still playing to nobody, and every
    feed activation (and tap) silently refused. Same thresholds, hero box. */
-function szHeroVisible(sec){ const h=sec&&sec.querySelector(".szcar"); if(!h)return false; const r=h.getBoundingClientRect(); return r.bottom>80&&r.top<window.innerHeight*0.75&&r.right>40&&r.left<window.innerWidth-40; }
+/* The view check comes FIRST and is not optional: an inactive classic
+   view is position:absolute + opacity:0, NOT display:none — its hero
+   keeps a full on-screen rect after he leaves for Home, so a rect-only
+   gate reads "visible" forever and the carousel's own interval
+   resurrects the slide (and its audio) on the Home screen seconds
+   after the exit kill cleaned it. curView is the app's truth in both
+   modes (the hub's rest sampler keeps it synced); rects only get a
+   say while Streaming is actually the current view. */
+function szHeroVisible(sec){ if(typeof curView==="undefined"||curView!=="streaming")return false; const h=sec&&sec.querySelector(".szcar"); if(!h)return false; const r=h.getBoundingClientRect(); return r.bottom>80&&r.top<window.innerHeight*0.75&&r.right>40&&r.left<window.innerWidth-40; }
 function szSlideFill(sec,i,mode){
   const sl=sec&&sec.querySelectorAll(".szslide")[i]; if(!sl)return;
   const art=sl.querySelector(".szslide-card"); if(!art)return;
