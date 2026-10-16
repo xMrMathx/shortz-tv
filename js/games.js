@@ -178,6 +178,10 @@ const GAMES=[
     embed:"https://buildroyale.io/",
     thumb:"games-img/buildroyale.png",
     sub:"ONLINE battle royale with building — up to 100 per match, storm closing, Solo, Duos and Squad · free. Top-down, touch controls." },
+  { title:"Meatwave", cat:"Zombie Co-op", orient:"landscape",
+    embed:"https://www.meatwave.io/",
+    thumb:"games-img/meatwave.png",
+    sub:"ONLINE CO-OP zombie survival — up to 4 players team up by lobby code and hold out against the waves · free, no signup (co-op server verified live 2026-10-16). Top-down twin-stick — touch controls under test." },
 ];
 /* HUNT ZONE IS OUT (2026-10-15, Brain audit before his phone test): the
    game itself is a Playhop dist-app document (playhop.com/dist-app) —
