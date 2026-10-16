@@ -2040,7 +2040,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792122640";
+window.__SZ_BUILD = "1792122837";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5125,7 +5125,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792122640";
+const BUILD="1792122837";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6119,7 +6119,7 @@ function cfCardHTML(t){
   const lc=(window.Likes&&Likes.cache)?likesCount(t.id):0;
   return `<article class="cfcard" data-id="${t.id}">
     <div class="cfmedia" data-cf-media style="background:${artBg(t.title)}">
-      ${art?`<img class="cfart" src="${art}" alt="" loading="lazy" onerror="this.style.display='none'">`:""}
+      ${art?`<img class="cfart" src="${art}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`:""}
       ${badge?`<span class="cfbadge">${badge}</span>`:""}
       ${dur?`<span class="cfdur">${dur}</span>`:""}
       <span class="cfplay">▶</span>
@@ -6507,13 +6507,29 @@ function cfRecompute(){
   const inHub=!!(sc.closest&&sc.closest("#views.evtrack"));
   const cx=inHub?window.innerWidth/2:sr.left+sr.width/2, cy=inHub?window.innerHeight/2:sr.top+sr.height/2;
   let best=null,bestD=1e18;
-  sc.querySelectorAll(".cfcard").forEach(c=>{
+  const _cfScan=c=>{
     const r=c.getBoundingClientRect();
     if(inHub){ if(r.bottom<0||r.top>window.innerHeight)return; }
     else if(r.bottom<sr.top||r.top>sr.bottom)return;
     const d=Math.abs((r.top+r.height/2)-cy)+Math.abs((r.left+r.width/2)-cx)*0.5;
     if(d<bestD){bestD=d;best=c;}
-  });
+  };
+  // Piece B (smoother scrolling): rect-read only a window of cards around the
+  // active one — while scrolling, the centered card is always near it, and the
+  // old full scan grew with every card ever dealt. If the window holds no
+  // visible card (hard jump, pane switch), fall back to the full scan, so
+  // activation picks exactly the same card as before.
+  const _cfAll=sc.querySelectorAll(".cfcard");
+  let _cfWin=false;
+  if(cfActive&&_cfAll.length>25){
+    let ai=-1; for(let i=0;i<_cfAll.length;i++){ if(_cfAll[i]===cfActive){ai=i;break;} }
+    if(ai>=0){
+      const lo=Math.max(0,ai-12), hi=Math.min(_cfAll.length-1,ai+12);
+      for(let i=lo;i<=hi;i++)_cfScan(_cfAll[i]);
+      _cfWin=!!best;
+    }
+  }
+  if(!_cfWin){ best=null; bestD=1e18; _cfAll.forEach(_cfScan); }
   /* PRESENT LOCK (Brain audit 2026-10-15): while a present is landing,
      the geometrically centered card may not steal activation — the
      presented card is the only activation until it wins or the lock
@@ -8692,10 +8708,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792122640"></script>
+<script src="js/folders.js?v=1792122837"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792122640"></script>
+<script src="js/guide.js?v=1792122837"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9503,9 +9519,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792122640"></script>
-<script src="js/shortz-live.js?v=1792122640"></script>
-<script src="js/games.js?v=1792122640"></script>
+<script src="js/streaming.js?v=1792122837"></script>
+<script src="js/shortz-live.js?v=1792122837"></script>
+<script src="js/games.js?v=1792122837"></script>
 <script>
 
 
@@ -10023,7 +10039,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792122640"></script>
+<script src="js/swipe.js?v=1792122837"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12243,7 +12259,7 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792122640"></script>
+<script src="js/live-sports.js?v=1792122837"></script>
 <div id="evRing" aria-hidden="true"></div>
 </body>
 </html>
