@@ -162,6 +162,10 @@ const GAMES=[
     embed:"https://playgama.com/export/game/domino-online-multiplayer",
     thumb:"https://static.playgama.com/p-img/pg/domino-online-multiplayer/big_preview/aa648994ddda4f9aad9c2f07a72ee3f6?width=1200",
     sub:"ONLINE dominoes — real-time ranked duels with live chat, or challenge a friend by link · tap to play. 4.4 stars, 1,337 ratings." },
+  { title:"Zombie Madness", cat:"Third-Person Shooter", orient:"landscape",
+    embed:"https://html-classic.itch.zone/html/7899881/Poc%20WebGL%20gzip/index.html",
+    thumb:"games-img/zombie-madness.png",
+    sub:"Third-person SWAT shooter vs zombie waves in a desert town · built for phones — full on-screen touch controls. Solo vs AI." },
 ];
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
