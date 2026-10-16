@@ -708,8 +708,7 @@ body.ev-mode .view.ev-slide-r{transform:translateX(24px)!important}
    is ON, a red frame rings the whole screen on every screen — you
    KNOW All mode is on. Toggle off, the ring is gone. One overlay
    element, painted once — never inside the sliding layers. */
-#evRing{position:fixed;inset:0;border:2px solid #e50914;pointer-events:none;z-index:900;display:none}
-body.ev-mode #evRing{display:block}
+
 /* NATIVE HUB (2026-10-14, his verdict on the video he sent: side
    scrolling must feel EXACTLY like the Home feed's own scrolling —
    so the hub no longer drags screens with script. In ev-mode the
@@ -2048,7 +2047,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792136666";
+window.__SZ_BUILD = "1792165490";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4145,13 +4144,39 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const c=$("evClose");
     if(c&&!c._evWired){c._evWired=true;c.addEventListener("click",e=>{e.stopPropagation();close();});}
   }catch(e){}
-  // section arrows by the mic (his order 2026-10-16): always live, no mode
-  // to turn on — a tap steps the ring exactly like a swipe did; from
-  // outside the hub, a tap opens the hub and steps once. All button gone.
+  // section arrows by the mic (his order 2026-10-16): a tap SLIDES the
+  // hub track one pane — the same motion a flick makes, so the rest
+  // sampler syncs section/header exactly as it does after a swipe.
+  // (evGo must NOT drive this: it flags __evInternalNav, and go() then
+  // deliberately skips the track move — bookkeeping only, screen stays.
+  // That was the first arrows build's bug, his phone 2026-10-16.)
+  function evStep(dir){
+    const vs=$("views"); if(!vs)return;
+    const W=window.innerWidth||1; if(!W)return;
+    const panes=evPanesInOrder(); if(!panes.length)return;
+    let pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
+    const centeredEl=panes[pos]; if(!centeredEl)return;
+    const ci=SECTIONS.indexOf(centeredEl.id.replace("view-","")); if(ci<0)return;
+    // Runway rule: the slide must stay inside the guard's free zone
+    // (1W..5W) — a smooth scroll into the wall zone gets its animation
+    // cancelled by the guard's scrollLeft writes and the pane never
+    // changes. When the centered slot is too close to an edge, first
+    // re-anchor the ring on the SAME pane at the middle slot (invisible:
+    // the same section stays centered), then slide one slot.
+    if(pos+dir<1||pos+dir>panes.length-2){
+      const N=SECTIONS.length;
+      for(let k=0;k<N;k++){ const el=document.getElementById("view-"+SECTIONS[(ci+k-3+N*2)%N]); if(el)vs.appendChild(el); }
+      try{ vs.scrollLeft=3*W; }catch(e){}
+      pos=3;
+    }
+    const dest=pos+dir;
+    try{ vs.scrollTo({left:dest*W,behavior:"smooth"}); }
+    catch(e){ try{ vs.scrollLeft=dest*W; }catch(_){} }
+  }
   try{
     const pv=$("evPrev"), nx=$("evNext");
-    if(pv&&!pv._evWired){pv._evWired=true;pv.addEventListener("click",e=>{e.stopPropagation();if(!evMode)open();evGo(-1,"ev-slide-l");});}
-    if(nx&&!nx._evWired){nx._evWired=true;nx.addEventListener("click",e=>{e.stopPropagation();if(!evMode)open();evGo(1,"ev-slide-r");});}
+    if(pv&&!pv._evWired){pv._evWired=true;pv.addEventListener("click",e=>{e.stopPropagation();if(!evMode){open();setTimeout(()=>evStep(-1),80);}else evStep(-1);});}
+    if(nx&&!nx._evWired){nx._evWired=true;nx.addEventListener("click",e=>{e.stopPropagation();if(!evMode){open();setTimeout(()=>evStep(1),80);}else evStep(1);});}
   }catch(e){}
   // persistent floating toggle: tap to enter ev-mode, tap again to exit (stay on section)
   function wireEvToggle(){
@@ -5141,7 +5166,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792136666";
+const BUILD="1792165490";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8724,10 +8749,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792136666"></script>
+<script src="js/folders.js?v=1792165490"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792136666"></script>
+<script src="js/guide.js?v=1792165490"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9535,9 +9560,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792136666"></script>
-<script src="js/shortz-live.js?v=1792136666"></script>
-<script src="js/games.js?v=1792136666"></script>
+<script src="js/streaming.js?v=1792165490"></script>
+<script src="js/shortz-live.js?v=1792165490"></script>
+<script src="js/games.js?v=1792165490"></script>
 <script>
 
 
@@ -10055,7 +10080,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792136666"></script>
+<script src="js/swipe.js?v=1792165490"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12275,7 +12300,6 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792136666"></script>
-<div id="evRing" aria-hidden="true"></div>
+<script src="js/live-sports.js?v=1792165490"></script>
 </body>
 </html>
