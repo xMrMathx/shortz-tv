@@ -1597,6 +1597,7 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .stkSec{display:none}.stkSec.sel{display:block}
   /* FULL-SCREEN GENRE VIEW: just the genre name at top, all the shows below. Nothing else. */
   #view-genre{background:#000;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  body.genre-open #view-genre{position:fixed;inset:0;z-index:9650;display:block!important;opacity:1!important;transform:none!important;pointer-events:auto!important;overflow-y:auto;-webkit-overflow-scrolling:touch}
   #view-genre .gfull-head{position:sticky;top:0;z-index:5;background:rgba(0,0,0,.92);
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     padding:calc(14px + env(safe-area-inset-top)) 18px 14px;
@@ -2048,7 +2049,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792166014";
+window.__SZ_BUILD = "1792166727";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5167,7 +5168,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792166014";
+const BUILD="1792166727";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8172,7 +8173,7 @@ function sportEntry(sport){ return C.find(t=>t.genre==="Sports"&&t.sport===sport
    and tapping a genre in Browse (his order). Just the genre name at top, every
    show in the genre in a clean grid. Nothing else. Opened from Browse, the
    back button returns to Browse; from anywhere else it returns Home. */
-let genreChunks=null, genreBackTo=null, genreScrollY=0;
+let genreChunks=null, genreBackTo=null, genreScrollY=0, genreCard=false;
 const GENRE_CHUNK=60; // same chunk size as the Browse grid — big genres stream in on scroll
 function genreMore(){
   if(!genreChunks)return;
@@ -8186,7 +8187,18 @@ function genreMore(){
   genreChunks.shown=next;
   try{ likesWatch($("#view-genre")); }catch(e){} // live like counts on the new cards, same as the feed
 }
+function closeGenreCard(){
+  genreCard=false;
+  document.body.classList.remove("genre-open");
+  const vv=$("#view-genre");
+  if(vv&&vv._homeSpot&&vv.parentNode!==vv._homeSpot.p){
+    const spot=vv._homeSpot;
+    if(spot.n&&spot.n.parentNode===spot.p)spot.p.insertBefore(vv,spot.n); else spot.p.appendChild(vv);
+  }
+}
 function openGenreView(g,origin){
+  // an abandoned card may have left the view parked on <body> — put it home first
+  try{ const vv0=$("#view-genre"); if(vv0&&vv0._homeSpot&&vv0.parentNode!==vv0._homeSpot.p)closeGenreCard(); }catch(e){}
   // The genre's titles = exactly what Browse lists/counts for it (browseList is
   // the one definition: Sci-Fi includes Space, Rebirth is the rebirth flag).
   // Save/restore so Browse's own filter state is never disturbed.
@@ -8199,7 +8211,7 @@ function openGenreView(g,origin){
   const v=$("#view-genre");
   v.innerHTML=`
     <div class="gfull-head">
-      <button class="gfull-back" id="gfullBack" aria-label="Back">‹</button>
+      <button class="gfull-back" id="gfullBack" aria-label="Close">✕</button>
       <div class="gfull-title">${esc(g)}</div>
       <div class="gfull-count">${list.length} shows</div>
     </div>
@@ -8220,12 +8232,38 @@ function openGenreView(g,origin){
   }
   const back=v.querySelector("#gfullBack");
   if(back)back.addEventListener("click",()=>{
+    if(genreCard){ closeGenreCard(); return; } // card mode: lift the card — the hub underneath never moved
     if(genreBackTo==="browse"){
       try{go("browse");}catch(e){}
       try{requestAnimationFrame(()=>window.scrollTo(0,genreScrollY));}catch(e){} // back where he was in Browse
     } else { try{go("home");}catch(e){} }
   });
-  go("genre");
+  // HUB MODE: the genre opens as a full-screen CARD above the hub (his
+  // spec 2026-10-16) — go("genre") dead-ends in the hub (evGoTo only
+  // moves between sections, and the track hides non-pane views), so the
+  // classic view switch is skipped and hub state stays untouched.
+  if(document.body.classList.contains("ev-mode")){
+    genreCard=true;
+    document.body.classList.add("genre-open");
+    // the card must live on <body>: inside #views the track's stacking
+    // context traps it UNDER #evHeader (z9500) — the header ate the X
+    // tap on his phone. Body level, the card's z9650 truly sits on top.
+    if(!v._homeSpot)v._homeSpot={p:v.parentNode,n:v.nextSibling};
+    if(v.parentNode!==document.body)document.body.appendChild(v);
+    if(!v._gcardHook){
+      v._gcardHook=true;
+      v.addEventListener("scroll",()=>{
+        if(!genreCard||!genreChunks)return;
+        const grid=$("#view-genre .gfull-cflist"); if(!grid)return;
+        try{ if(grid.getBoundingClientRect().bottom<window.innerHeight+900)genreMore(); }catch(e){}
+      },{passive:true});
+      v.addEventListener("click",e=>{
+        if(genreCard&&e.target&&e.target.closest&&e.target.closest(".cfcard"))closeGenreCard();
+      },true);
+    }
+  } else {
+    go("genre");
+  }
 }
 function renderSportPicker(){
   const box=$("#sportpick"); if(!box) return;
@@ -8750,10 +8788,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792166014"></script>
+<script src="js/folders.js?v=1792166727"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792166014"></script>
+<script src="js/guide.js?v=1792166727"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9561,9 +9599,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792166014"></script>
-<script src="js/shortz-live.js?v=1792166014"></script>
-<script src="js/games.js?v=1792166014"></script>
+<script src="js/streaming.js?v=1792166727"></script>
+<script src="js/shortz-live.js?v=1792166727"></script>
+<script src="js/games.js?v=1792166727"></script>
 <script>
 
 
@@ -10081,7 +10119,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792166014"></script>
+<script src="js/swipe.js?v=1792166727"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12301,6 +12339,6 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792166014"></script>
+<script src="js/live-sports.js?v=1792166727"></script>
 </body>
 </html>
