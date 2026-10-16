@@ -182,6 +182,10 @@ const GAMES=[
     embed:"https://www.meatwave.io/",
     thumb:"games-img/meatwave.png",
     sub:"ONLINE CO-OP zombie survival — up to 4 players team up by lobby code and hold out against the waves · free, no signup (co-op server verified live 2026-10-16). Top-down twin-stick — touch controls under test." },
+  { title:"Dead Land: Survival", cat:"Zombie Survival", orient:"landscape",
+    embed:"https://playgama.com/export/game/dead-land-survival",
+    thumb:"https://static.playgama.com/p-img/pg/dead-land-survival/big_preview/3ec05c224d064e1789d0a98fd4a9d048?width=1200",
+    sub:"ONLINE zombie survival — rebuild your settlement, craft, run quests and team up with friends and clanmates for boss raids · free, guest play (game verified loading live 2026-10-16). Isometric — touch controls under test." },
 ];
 /* HUNT ZONE IS OUT (2026-10-15, Brain audit before his phone test): the
    game itself is a Playhop dist-app document (playhop.com/dist-app) —
