@@ -1427395,5 +1427395,337 @@
     "rights_basis": "Public YouTube embed",
     "source_channel": "FilmRise Movies",
     "award_verified": false
+  },
+  {
+    "id": "stv-52553",
+    "title": "Keith Vs.",
+    "genre": "Comedy",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Keith Vs. White Guys",
+        "url": "https://player.vimeo.com/video/881839530",
+        "video_id": "881839530",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "Keith vs. The Neighborhood",
+        "url": "https://player.vimeo.com/video/884911294",
+        "video_id": "884911294",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "Keith Vs. Cops",
+        "url": "https://player.vimeo.com/video/886516429",
+        "video_id": "886516429",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "Keith Vs. Spoken Word",
+        "url": "https://player.vimeo.com/video/889357748",
+        "video_id": "889357748",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Keith Vs. Charity",
+        "url": "https://player.vimeo.com/video/891249258",
+        "video_id": "891249258",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "Keith Vs. Family",
+        "url": "https://player.vimeo.com/video/893391583",
+        "video_id": "893391583",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "Keith Vs. Jill",
+        "url": "https://player.vimeo.com/video/896064354",
+        "video_id": "896064354",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 8,
+        "title": "Keith Vs. Pets",
+        "url": "https://player.vimeo.com/video/898389057",
+        "video_id": "898389057",
+        "platform": "vimeo",
+        "verified": true
+      }
+    ],
+    "url": "https://player.vimeo.com/video/881839530",
+    "eps": "8 eps",
+    "desc": "Keith Powell (30 Rock) declares war on everyday life — white guys, cops, charity, family, even his own wife — one unwinnable battle at a time. Winner of 7 Indie Series Awards including Best Comedy Series (2025).",
+    "rights_basis": "Public Vimeo embed — creator's official account",
+    "source_channel": "Vimeo (Keith Powell)",
+    "award_verified": true
+  },
+  {
+    "id": "stv-52554",
+    "title": "Starting From Now",
+    "genre": "Drama",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Season 1 Episode 1",
+        "url": "https://player.vimeo.com/video/88740960",
+        "video_id": "88740960",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "Season 1 Episode 2",
+        "url": "https://player.vimeo.com/video/89467299",
+        "video_id": "89467299",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "Season 1 Episode 3",
+        "url": "https://player.vimeo.com/video/90001226",
+        "video_id": "90001226",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "Season 1 Episode 4",
+        "url": "https://player.vimeo.com/video/90618837",
+        "video_id": "90618837",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Season 1 Episode 5",
+        "url": "https://player.vimeo.com/video/91362482",
+        "video_id": "91362482",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "Season 1 Episode 6",
+        "url": "https://player.vimeo.com/video/93197441",
+        "video_id": "93197441",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "S02 E01",
+        "url": "https://player.vimeo.com/video/97283019",
+        "video_id": "97283019",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 8,
+        "title": "S02 E02",
+        "url": "https://player.vimeo.com/video/97888572",
+        "video_id": "97888572",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 9,
+        "title": "S02 E03",
+        "url": "https://player.vimeo.com/video/98497041",
+        "video_id": "98497041",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 10,
+        "title": "S02 E04",
+        "url": "https://player.vimeo.com/video/99096920",
+        "video_id": "99096920",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 11,
+        "title": "S02 E05",
+        "url": "https://player.vimeo.com/video/99696035",
+        "video_id": "99696035",
+        "platform": "vimeo",
+        "verified": true
+      },
+      {
+        "n": 12,
+        "title": "S02 E06",
+        "url": "https://player.vimeo.com/video/100267329",
+        "video_id": "100267329",
+        "platform": "vimeo",
+        "verified": true
+      }
+    ],
+    "url": "https://player.vimeo.com/video/88740960",
+    "eps": "12 eps",
+    "desc": "Four Sydney women navigate love, work and starting over. Seasons 1–2 of the award-winning drama — Best Web Series at She WebFest, with wins at LA WebFest and Melbourne WebFest.",
+    "rights_basis": "Public Vimeo embed — official series channel",
+    "source_channel": "Vimeo (Starting From Now)",
+    "award_verified": true
+  },
+  {
+    "id": "stv-52555",
+    "title": "The Katering Show",
+    "genre": "Comedy",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Mexicana Festiana",
+        "url": "https://www.youtube.com/embed/J55vgxNaaBY",
+        "video_id": "J55vgxNaaBY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 2,
+        "title": "Ethical Eating",
+        "url": "https://www.youtube.com/embed/rnbtRiLamsw",
+        "video_id": "rnbtRiLamsw",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 3,
+        "title": "We Quit Sugar",
+        "url": "https://www.youtube.com/embed/8UZJRR8OHhY",
+        "video_id": "8UZJRR8OHhY",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 4,
+        "title": "Thermomix",
+        "url": "https://www.youtube.com/embed/4yr_etbfZtQ",
+        "video_id": "4yr_etbfZtQ",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 5,
+        "title": "Christmas",
+        "url": "https://www.youtube.com/embed/cwoR3fkcJ9g",
+        "video_id": "cwoR3fkcJ9g",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 6,
+        "title": "Red Ramen",
+        "url": "https://www.youtube.com/embed/hKbm4CDvO-A",
+        "video_id": "hKbm4CDvO-A",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 7,
+        "title": "Yummy Mummies",
+        "url": "https://www.youtube.com/embed/-LhgJjicMz8",
+        "video_id": "-LhgJjicMz8",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 8,
+        "title": "It Gets Feta",
+        "url": "https://www.youtube.com/embed/0B0muCuY1yE",
+        "video_id": "0B0muCuY1yE",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 9,
+        "title": "The Body Issue",
+        "url": "https://www.youtube.com/embed/wYqphYFFC8M",
+        "video_id": "wYqphYFFC8M",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 10,
+        "title": "The Cook and the Kates",
+        "url": "https://www.youtube.com/embed/74QdmDtMK1Y",
+        "video_id": "74QdmDtMK1Y",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 11,
+        "title": "Tying the Not",
+        "url": "https://www.youtube.com/embed/JF561BkiJnI",
+        "video_id": "JF561BkiJnI",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 12,
+        "title": "Chienging Flavours",
+        "url": "https://www.youtube.com/embed/0SuGC2ifkIA",
+        "video_id": "0SuGC2ifkIA",
+        "platform": "youtube",
+        "verified": true
+      },
+      {
+        "n": 13,
+        "title": "End of Days",
+        "url": "https://www.youtube.com/embed/W1SjJm7yfek",
+        "video_id": "W1SjJm7yfek",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/J55vgxNaaBY",
+    "eps": "13 eps",
+    "desc": "The Kates' unhinged cooking show — food trends taken far too seriously and not seriously enough. Best of the Fest and Best Short-Form Digital Series at the New York Television Festival; Best Comedy at Melbourne WebFest. (One age-restricted episode is not carried.)",
+    "rights_basis": "Public YouTube embed — creators' official channel",
+    "source_channel": "YouTube (The Kates)",
+    "award_verified": true
+  },
+  {
+    "id": "stv-52556",
+    "title": "This Is Endometriosis",
+    "genre": "Documentary",
+    "verified": true,
+    "dateAdded": "2026-10-15",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "This Is Endometriosis",
+        "url": "https://player.vimeo.com/video/919495383",
+        "video_id": "919495383",
+        "platform": "vimeo",
+        "verified": true
+      }
+    ],
+    "url": "https://player.vimeo.com/video/919495383",
+    "eps": "1 ep",
+    "desc": "Georgie Wileman's decade living with endometriosis — the pain, the dismissals, and the fight to be believed. Winner of Best British Short Film at the 2026 BAFTA Film Awards.",
+    "rights_basis": "Public Vimeo embed — co-director's official account",
+    "source_channel": "Vimeo (Matt Houghton)",
+    "award_verified": true
   }
 ]
