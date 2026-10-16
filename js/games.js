@@ -166,11 +166,13 @@ const GAMES=[
     embed:"https://html-classic.itch.zone/html/7899881/Poc%20WebGL%20gzip/index.html",
     thumb:"games-img/zombie-madness.png",
     sub:"Third-person SWAT shooter vs zombie waves in a desert town · built for phones — full on-screen touch controls. Solo vs AI." },
-  { title:"Hunt Zone: Battle Royale", cat:"Third-Person Shooter", orient:"landscape",
-    embed:"https://playgama.com/export/game/hunt-zone",
-    thumb:"https://static.playgama.com/p-img/ph/hunt-zone/big_preview/5a9144081dd24837803cf299fbd98f66?width=1200",
-    sub:"ONLINE PvP — 35-player Battle Royale on a shrinking island + 5v5 Team Deathmatch, Deathmatch, Duels · virtual joystick + on-screen touch buttons." },
 ];
+/* HUNT ZONE IS OUT (2026-10-15, Brain audit before his phone test): the
+   game itself is a Playhop dist-app document (playhop.com/dist-app) —
+   the exact pattern that frame-blocked Pool Club on his phone — and
+   Playgama flags the title is_hidden / NOT in the export catalog, so
+   the door was never officially open. Pulled pre-emptively build after
+   …8414; do not re-add unless its door changes class. */
 let gamesBuilt=false, gamesActiveCard=null;
 function gamePosterHTML(g){
   return (g.thumb?`<img class="gposter" src="${esc(g.thumb)}" alt="" loading="lazy" onerror="this.remove()">`:"")
