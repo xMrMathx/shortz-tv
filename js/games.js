@@ -166,6 +166,18 @@ const GAMES=[
     embed:"https://html-classic.itch.zone/html/7899881/Poc%20WebGL%20gzip/index.html",
     thumb:"games-img/zombie-madness.png",
     sub:"Third-person SWAT shooter vs zombie waves in a desert town · built for phones — full on-screen touch controls. Solo vs AI." },
+  { title:"Survev.io", cat:"Battle Royale", orient:"landscape",
+    embed:"https://survev.io/",
+    thumb:"games-img/survev.png",
+    sub:"ONLINE battle royale — 50 players drop in, loot up, last one standing as the red zone closes · Solo, Duo and Squad, live lobbies. Top-down, touch controls." },
+  { title:"ZombsRoyale.io", cat:"Battle Royale", orient:"landscape",
+    embed:"https://zombsroyale.io/",
+    thumb:"games-img/zombsroyale.png",
+    sub:"ONLINE battle royale — 100 players, gas closing in, Solo, Duos and Squads · free, cosmetics only. Top-down shooter — touch controls under test." },
+  { title:"BuildRoyale.io", cat:"Battle Royale", orient:"landscape",
+    embed:"https://buildroyale.io/",
+    thumb:"games-img/buildroyale.png",
+    sub:"ONLINE battle royale with building — up to 100 per match, storm closing, Solo, Duos and Squad · free. Top-down, touch controls." },
 ];
 /* HUNT ZONE IS OUT (2026-10-15, Brain audit before his phone test): the
    game itself is a Playhop dist-app document (playhop.com/dist-app) —
