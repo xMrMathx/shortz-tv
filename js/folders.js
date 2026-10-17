@@ -166,6 +166,7 @@ function vfGuideResume(){
   try{
     if(curView!=="profile")return;
     if(document.querySelector("#vfOpen.open"))return;
+    if(document.querySelector("#csView.open"))return; // Creator Space owns the screen — never resurrect the guide under it
     const sk=vfSoundKey&&vfState[vfSoundKey];
     if(sk&&(sk.timer||(sk.ratio||0)>=0.35))return; // the sound folder owns the room while it plays OR is on screen (a tap starts it a tick after the sync — never resume over a folder he is looking at)
     const pv=$("#tgPreviewBox"), fr=$("#tgFrame");
