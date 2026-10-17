@@ -1324,6 +1324,84 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .dubCaseHead b{font-size:16px;letter-spacing:.14em}
 .dubCaseX{background:rgba(255,255,255,.08);color:#fff;border:1px solid #2c2c38;border-radius:9px;padding:8px 13px;font-weight:800;cursor:pointer}
 .dubCaseList{flex:1;overflow-y:auto;padding:4px 14px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:9px}
+/* Creator Space (2026-10-17) */
+.cs-door{border:1px solid rgba(246,201,69,.45);background:linear-gradient(135deg,rgba(246,201,69,.10),rgba(255,255,255,.03));border-radius:14px;padding:12px 14px;margin:0 0 14px}
+.cs-badge{font-size:9px;font-weight:900;letter-spacing:.8px;background:#f6c945;color:#151310;border-radius:4px;padding:2px 5px;margin-left:7px;vertical-align:2px;white-space:nowrap}
+#csView{position:fixed;inset:0;z-index:9760;background:#151517;display:none;flex-direction:column;overscroll-behavior:contain}
+#csView.open{display:flex}
+.cs-head{display:flex;align-items:center;gap:11px;padding:calc(12px + env(safe-area-inset-top,0px)) 14px 10px;background:#1b1b1e;border-bottom:1px solid rgba(255,255,255,.08);color:#fff}
+.cs-x{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:9px;padding:7px 12px;font-weight:800;cursor:pointer}
+.cs-title{flex:1;font-size:16px;font-weight:900;letter-spacing:.06em}
+.cs-members-btn{background:none;border:1px solid rgba(246,201,69,.55);color:#f6c945;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px;cursor:pointer}
+.cs-pulse{padding:8px 16px;font-size:12px;color:#f6c945;background:rgba(246,201,69,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.cs-body{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:14px 14px calc(22px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px}
+.cs-gate{background:#1f1f22;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px 18px;text-align:center}
+.cs-gate-ic{font-size:34px}
+.cs-gate-t{font-size:17px;font-weight:900;color:#fff;margin-top:8px}
+.cs-gate-b{font-size:13.5px;color:#b9b9c0;line-height:1.55;margin-top:8px}
+.cs-bigbtn{background:#f6c945;color:#151310;border:none;border-radius:11px;padding:12px 20px;font-weight:900;font-size:14px;cursor:pointer;margin-top:14px}
+.cs-bigbtn.sm{margin-top:0;padding:9px 18px}
+.cs-sent{margin-top:14px;color:#f6c945;font-size:13px;font-weight:700;border:1px dashed rgba(246,201,69,.5);border-radius:10px;padding:10px}
+.cs-memstrip{background:#1f1f22;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 16px}
+.cs-memttl{color:#f6c945;font-size:10.5px;font-weight:900;letter-spacing:2px}
+.cs-mems{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.cs-mem{font-size:12px;font-weight:700;color:#eee;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 11px}
+.cs-composer{background:#1f1f22;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px}
+.cs-flairs{display:flex;flex-wrap:wrap;gap:7px}
+.cs-flair{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#ddd;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer}
+.cs-flair.on{background:#f6c945;color:#151310;border-color:#f6c945}
+.cs-composer textarea{width:100%;margin-top:11px;background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:11px;color:#fff;padding:10px 12px;font-size:14px;font-family:inherit;resize:vertical}
+.cs-attachrow{display:flex;gap:8px;margin-top:9px}
+.cs-attachrow input{flex:1;background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:9px;color:#fff;padding:8px 11px;font-size:13px}
+.cs-smallbtn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:#eee;border-radius:9px;padding:8px 13px;font-weight:800;font-size:12.5px;cursor:pointer}
+.cs-smallbtn.gold{background:#f6c945;color:#151310;border-color:#f6c945}
+.cs-attachlbl{font-size:12px;color:#f6c945;margin-top:6px;min-height:14px}
+.cs-compfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:11px}
+.cs-hint{font-size:12px;color:#8f8f98;line-height:1.45}
+.cs-filters{display:flex;flex-wrap:wrap;gap:7px}
+.cs-dirty{background:rgba(246,201,69,.14);border:1px solid rgba(246,201,69,.5);color:#f6c945;border-radius:11px;padding:9px 12px;font-size:12.5px;font-weight:800;text-align:center;cursor:pointer}
+.cs-admin{background:#1f1f22;border:1px solid rgba(246,201,69,.4);border-radius:16px;padding:13px 15px}
+.cs-req{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.06);color:#eee;font-size:13.5px;font-weight:700}
+.cs-req:last-child{border-bottom:none}
+.cs-reqbtns{display:flex;gap:7px}
+.cs-post{background:#1f1f22;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 15px}
+.cs-phead{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.cs-av{width:34px;height:34px;border-radius:50%;background:#f6c945;color:#151310;display:inline-flex;align-items:center;justify-content:center;font-weight:900;font-size:12.5px;flex:none}
+.cs-av.sm{width:26px;height:26px;font-size:10.5px}
+.cs-pname{font-weight:800;color:#fff;font-size:14px}
+.cs-pname.sm{font-size:13px}
+.cs-ptime{color:#8f8f98;font-size:12px}
+.cs-tag{margin-left:auto;font-size:11px;font-weight:800;color:#f6c945;background:rgba(246,201,69,.1);border:1px solid rgba(246,201,69,.35);border-radius:999px;padding:3px 9px}
+.cs-boost{margin-top:11px;border-left:3px solid #f6c945;background:rgba(246,201,69,.06);border-radius:0 10px 10px 0;padding:9px 12px}
+.cs-boost-h{font-size:11.5px;font-weight:800;color:#f6c945}
+.cs-boost-b{font-size:13px;color:#cfcfd6;margin-top:3px;line-height:1.45}
+.cs-ptext{font-size:14.5px;color:#f0f0f3;line-height:1.55;margin-top:10px;white-space:pre-wrap;word-break:break-word}
+.cs-ptext.sm{font-size:13px;color:#cfcfd6;margin-top:6px}
+.cs-attach{display:flex;align-items:center;gap:11px;width:100%;margin-top:11px;background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:8px;cursor:pointer;text-align:left}
+.cs-athumb{width:52px;height:52px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex:none;text-shadow:0 1px 4px #000}
+.cs-atitle{flex:1;color:#fff;font-weight:800;font-size:13.5px;line-height:1.3}
+.cs-awatch{color:#f6c945;font-weight:900;font-size:12px}
+.cs-acts{display:flex;gap:4px;margin-top:11px;border-top:1px solid rgba(255,255,255,.07);padding-top:9px}
+.cs-act{flex:1;background:none;border:none;color:#a9a9b3;font-size:12px;font-weight:800;padding:6px 2px;border-radius:8px;cursor:pointer}
+.cs-act.on{color:#f6c945}
+.cs-act.dots{flex:0 0 40px}
+.cs-empty{background:#1f1f22;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px 18px;text-align:center}
+#csSheet{position:absolute;inset:0;z-index:5;background:rgba(0,0,0,.62);display:none;align-items:flex-end;justify-content:center}
+.cs-sheetcard{background:#1f1f22;border:1px solid rgba(255,255,255,.12);border-bottom:none;border-radius:18px 18px 0 0;width:100%;max-height:82%;overflow-y:auto;padding:16px 16px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:9px}
+.cs-sheet-t{font-size:15px;font-weight:900;color:#fff}
+.cs-sheetbtn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#eee;border-radius:11px;padding:12px;font-weight:800;font-size:13.5px;cursor:pointer;text-align:center;width:100%}
+.cs-sheetbtn.danger{color:#ff7a7e;border-color:rgba(255,122,126,.4)}
+.cs-clist{display:flex;flex-direction:column;gap:10px;max-height:300px;overflow-y:auto}
+.cs-comment{display:flex;gap:9px}
+.cs-cbody{flex:1;background:#151517;border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:8px 11px}
+.cs-tc{font-size:11px;font-weight:900;color:#151310;background:#f6c945;border-radius:5px;padding:1px 6px;margin-left:7px}
+.cs-ctext{font-size:13.5px;color:#e8e8ec;line-height:1.45;margin-top:2px}
+.cs-tcrow input,.cs-crow input{background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:9px;color:#fff;padding:9px 11px;font-size:13px;width:100%}
+.cs-crow{display:flex;gap:8px}
+.cs-crow input{flex:1}
+#csToast{position:absolute;left:50%;bottom:calc(26px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:#f6c945;color:#151310;font-weight:900;font-size:13px;border-radius:999px;padding:10px 18px;opacity:0;pointer-events:none;transition:all .25s;z-index:9;white-space:nowrap;max-width:92%}
+#csToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
 .dubCaseSec{color:#f6c945;font-size:11px;font-weight:900;letter-spacing:2.2px;margin:14px 2px 1px}
 .dubRow{display:flex;align-items:center;gap:11px;background:#141419;border:1px solid #23232c;border-radius:13px;padding:10px 12px;color:#fff;opacity:.62}
 .dubRow.got{opacity:1;border-color:rgba(246,201,69,.4)}
@@ -2114,7 +2192,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792249262";
+window.__SZ_BUILD = "1792251561";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5238,7 +5316,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792249262";
+const BUILD="1792251561";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8825,6 +8903,11 @@ function renderProfile(){
       <div style="font-size:12px;color:var(--mut);margin-top:4px">${esc(bioLine(p))}</div></div>
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
     </div>
+    <div class="cs-door" id="csDoor">
+      <div style="font-size:14px;font-weight:800">🎨 Creator Space <span class="cs-badge">CREATORS ONLY</span></div>
+      <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">The backstage room for Shortz VS creators — collab, post casting calls, and get real feedback on your episodes. If you stream or upload a series here, you&rsquo;re in. Everybody else stays out.</div>
+      <button class="pbtn sm" id="csDoorBtn" style="margin-top:9px;background:#f6c945;color:#151310;border-color:#f6c945;font-weight:800">Enter Creator Space</button>
+    </div>
     <div id="profAuth" style="margin-top:12px"></div>
     <div class="biochips">${(p.favGenres||[]).map(g=>`<span class="biochip">${esc(g)}</span>`).join("")}</div>
     <div id="vfSection"></div>
@@ -8851,6 +8934,7 @@ function renderProfile(){
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
+  const _csdb=$("#csDoorBtn"); if(_csdb)_csdb.onclick=()=>{ if(window.CreatorSpace) CreatorSpace.open(); };
   bindPrevSpot(document.getElementById("view-profile"));
   renderTvGuide();
   paintYtSignInRows();
@@ -8954,10 +9038,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792249262"></script>
+<script src="js/folders.js?v=1792251561"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792249262"></script>
+<script src="js/guide.js?v=1792251561"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9217,6 +9301,8 @@ function friendsEnsure(){
    If no real session exists, the repair stays armed and silent, and
    the Profile sections render their clean states (below). */
 let _sessRepairBusy=false, _sessRepairWired=false;
+/* fbAuth race guard (2026-10-17): the Live block publishes window.fbAuth when it runs; any bare fbAuth() call before that threw ReferenceError (the Guard caught it intermittently in probe_dubs). A null-returning stub holds the name until the real accessor lands; every caller already treats null as "no auth yet" and retries. */
+if(!window.fbAuth)window.fbAuth=function(){return null;};
 async function sessionRepair(){
   if(_sessRepairBusy)return;
   let acctUid="";
@@ -9765,9 +9851,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792249262"></script>
-<script src="js/shortz-live.js?v=1792249262"></script>
-<script src="js/games.js?v=1792249262"></script>
+<script src="js/streaming.js?v=1792251561"></script>
+<script src="js/shortz-live.js?v=1792251561"></script>
+<script src="js/games.js?v=1792251561"></script>
 <script>
 
 
@@ -10285,7 +10371,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792249262"></script>
+<script src="js/swipe.js?v=1792251561"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12506,6 +12592,333 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792249262"></script>
+<div id="csView" aria-hidden="true">
+  <div class="cs-head">
+    <button class="cs-x" id="csBack">✕ Close</button>
+    <div class="cs-title">Creator Space</div>
+    <button class="cs-members-btn" id="csMembersBtn">Members</button>
+  </div>
+  <div class="cs-pulse" id="csPulse"></div>
+  <div class="cs-body" id="csBody"></div>
+  <div id="csSheet"></div>
+  <div id="csToast"></div>
+</div>
+<script src="js/live-sports.js?v=1792251561"></script>
+<script>
+/* ================= CREATOR SPACE (his idea, 2026-10-17) =================
+   Creators-only room inside Shortz VS. Gate = founder email or a
+   creatorSpace/members/{uid} flag (approved by the founder in-app).
+   NEVER derived from the catalog. Posts carry 4 flairs; feedback
+   comments can pin a timecode; boosts keep the credit attached. */
+(function(){
+"use strict";
+var CS={db:null,uid:null,name:"",email:"",isFounder:false,isMember:false,requested:false,
+  posts:{},members:{},requests:{},open:false,draft:"",flair:"update",filter:"all",
+  attachId:"",attachLabel:"",blocked:{},commentsFor:null,comments:{},dirtyFeed:false,ensured:false};
+try{CS.blocked=JSON.parse(localStorage.getItem("cs_blocked")||"{}")||{};}catch(e){CS.blocked={};}
+try{CS.draft=localStorage.getItem("cs_draft")||"";}catch(e){}
+var FOUNDER_EMAIL="craigjrbb@gmail.com";
+var FLAIRS={update:"📣 Update",casting:"🎬 Casting Call",feedback:"🛠 Feedback Wanted",collab:"🤝 Collab Wanted"};
+var FOUNDING=["ShowBizz The Adult","GriffPierre","Deen The Great","Mr. Ballin","Kane Pixels","P. Royal Lit","Unghetto","Miaouwai"];
+var $cs=function(s){return document.querySelector(s);};
+function ago(ts){var s=Math.max(1,(Date.now()-ts)/1000);if(s<60)return "now";var m=s/60;if(m<60)return Math.floor(m)+"m";var h=m/60;if(h<24)return Math.floor(h)+"h";return Math.floor(h/24)+"d";}
+function initials(n){return String(n||"?").split(/\s+/).map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"C";}
+function tcFmt(sec){sec=Math.max(0,Math.floor(sec||0));var m=Math.floor(sec/60),s=sec%60;return m+":"+(s<10?"0":"")+s;}
+function tcParse(v){v=String(v||"").trim();if(!v)return null;if(/^\d+$/.test(v))return parseInt(v,10);var m=v.match(/^(\d+):([0-5]?\d)$/);if(m)return parseInt(m[1],10)*60+parseInt(m[2],10);return null;}
+function toast(msg){var t=$cs("#csToast");if(!t)return;t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},2600);}
+function art(title){try{return artBg(title)||"";}catch(e){return "";}}
+async function csEnsure(){
+  if(CS.ensured)return;
+  CS.ensured=true;
+  try{var gc=JSON.parse(localStorage.getItem("cs_gate")||"null");if(gc&&(gc.member||gc.founder)){CS.isMember=!!gc.member;CS.isFounder=!!gc.founder;}}catch(e){}
+  try{
+    if(!window.firebase||typeof authEnsureUser!=="function")return;
+    var user=await authEnsureUser(firebase.auth(),{anon:false});
+    if(!user)return;
+    CS.uid=user.uid;CS.email=(user.email||"").toLowerCase();
+    CS.isFounder=CS.email===FOUNDER_EMAIL;
+    try{var p=(typeof getProfile==="function")?getProfile():null;CS.name=(p&&p.name)||(typeof likesMyName==="function"?likesMyName():"")||user.displayName||"Creator";}catch(e){CS.name="Creator";}
+    CS.db=firebase.database();
+    var ms=await CS.db.ref("creatorSpace/members/"+CS.uid).once("value");
+    CS.isMember=!!(ms&&ms.val());
+    if(!CS.isMember&&!CS.isFounder){
+      var rq=await CS.db.ref("creatorSpace/requests/"+CS.uid).once("value");
+      CS.requested=!!(rq&&rq.val());
+    }
+    try{localStorage.setItem("cs_gate",JSON.stringify({uid:CS.uid,member:CS.isMember,founder:CS.isFounder}));}catch(e){}
+  }catch(e){}
+}
+function csRefs(){
+  return {posts:CS.db.ref("creatorSpace/posts"),members:CS.db.ref("creatorSpace/members"),requests:CS.db.ref("creatorSpace/requests")};
+}
+var _listeners=[];
+function listen(ref,ev,cb){ref.on(ev,cb);_listeners.push([ref,ev,cb]);}
+function unlistenAll(){_listeners.forEach(function(x){try{x[0].off(x[1],x[2]);}catch(e){}});_listeners=[];}
+function csOpen(){
+  var v=$cs("#csView");if(!v)return;
+  CS.open=true;v.classList.add("open");v.setAttribute("aria-hidden","false");
+  try{if(typeof hudWake==="function")hudWake();}catch(e){}
+  paintShell();
+  csEnsure().then(function(){
+    paintShell();
+    if((CS.isMember||CS.isFounder)&&CS.db){
+      var r=csRefs();
+      listen(r.posts.orderByChild("ts").limitToLast(50),"value",function(s){CS.posts=s.val()||{};if(document.activeElement&&document.activeElement.id==="csText"){CS.dirtyFeed=true;paintDirty();}else paintFeed();});
+      listen(r.members,"value",function(s){CS.members=s.val()||{};paintPulse();});
+      if(CS.isFounder)listen(r.requests,"value",function(s){CS.requests=s.val()||{};paintAdmin();});
+    }
+  });
+}
+function csClose(){
+  var v=$cs("#csView");if(!v)return;
+  CS.open=false;CS.commentsFor=null;unlistenAll();
+  v.classList.remove("open");v.setAttribute("aria-hidden","true");
+  var sh=$cs("#csSheet");if(sh)sh.style.display="none";
+}
+function gateState(){if(CS.isFounder||CS.isMember)return "in";if(CS.uid)return "locked";return "signedout";}
+function foundingHTML(){
+  return '<div class="cs-memstrip"><div class="cs-memttl">FOUNDING CREATORS</div><div class="cs-mems">'+
+    FOUNDING.map(function(n){return '<span class="cs-mem">'+esc(n)+'</span>';}).join("")+"</div></div>";
+}
+function paintShell(){
+  var body=$cs("#csBody");if(!body)return;
+  var g=gateState();
+  if(g==="signedout"){
+    body.innerHTML='<div class="cs-gate"><div class="cs-gate-ic">🎨</div><div class="cs-gate-t">Creators only</div>'+
+    '<div class="cs-gate-b">Creator Space is the backstage room for people who stream or upload a series on Shortz VS. Sign in first — if you\u2019re a creator, the door opens. If you\u2019re not, it stays shut. That\u2019s the rule that keeps the room clean.</div>'+
+    '<button class="cs-bigbtn" id="csSignIn">Sign in</button></div>'+foundingHTML();
+    var b=$cs("#csSignIn");if(b)b.onclick=function(){csClose();try{go("profile");}catch(e){}};
+    paintPulse();return;
+  }
+  if(g==="locked"){
+    body.innerHTML='<div class="cs-gate"><div class="cs-gate-ic">🔒</div><div class="cs-gate-t">This door is creators-only</div>'+
+    '<div class="cs-gate-b">You\u2019re signed in, but your account isn\u2019t flagged as a creator yet. Creators get in by streaming or uploading a series on Shortz VS — Mr. Math reviews every request himself. No forms, no buying in.</div>'+
+    (CS.requested?'<div class="cs-sent">Request sent — you\u2019re in line. Mr. Math reviews these personally.</div>'
+      :'<button class="cs-bigbtn" id="csReqBtn">Request creator access</button>')+
+    '</div>'+foundingHTML();
+    var r2=$cs("#csReqBtn");if(r2)r2.onclick=csRequest;
+    paintPulse();return;
+  }
+  body.innerHTML='<div id="csAdmin"></div>'+
+   '<div class="cs-composer"><div class="cs-flairs" id="csFlairs">'+
+   Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.flair===k?" on":"")+'" data-flair="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
+   '<textarea id="csText" rows="3" placeholder="Share with creators\u2026 a drop, a question, a call for collabs">'+esc(CS.draft)+"</textarea>"+
+   '<div class="cs-attachrow"><input id="csAttach" placeholder="Attach a title (optional) \u2014 type a name, tap Resolve" value="'+esc(CS.attachLabel)+'"><button class="cs-smallbtn" id="csResolve">Resolve</button></div>'+
+   '<div class="cs-attachlbl" id="csAttachLbl">'+(CS.attachId?("Attached: "+esc(CS.attachLabel)):"")+"</div>"+
+   '<div class="cs-compfoot"><span class="cs-hint">Creators only in here. Keep it about the work.</span><button class="cs-bigbtn sm" id="csPost">Post</button></div></div>'+
+   '<div class="cs-filters" id="csFilters"><button class="cs-flair'+(CS.filter==="all"?" on":"")+'" data-filter="all">All</button>'+
+   Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.filter===k?" on":"")+'" data-filter="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
+   '<div class="cs-dirty" id="csDirty" style="display:none">New posts landed \u2014 tap to refresh</div>'+
+   '<div id="csFeed"></div>';
+  var ta=$cs("#csText");
+  if(ta)ta.addEventListener("input",function(){CS.draft=ta.value;try{localStorage.setItem("cs_draft",CS.draft);}catch(e){}});
+  $cs("#csFlairs").addEventListener("click",function(e){var b=e.target.closest("[data-flair]");if(!b)return;CS.flair=b.getAttribute("data-flair");paintShell();var t2=$cs("#csText");if(t2)t2.focus();});
+  $cs("#csFilters").addEventListener("click",function(e){var b=e.target.closest("[data-filter]");if(!b)return;CS.filter=b.getAttribute("data-filter");paintShell();});
+  $cs("#csResolve").onclick=csResolveAttach;
+  $cs("#csPost").onclick=csPost;
+  var dt=$cs("#csDirty");if(dt)dt.onclick=function(){CS.dirtyFeed=false;paintShell();};
+  paintAdmin();paintFeed();paintPulse();
+}
+function paintDirty(){var d=$cs("#csDirty");if(d&&CS.dirtyFeed)d.style.display="block";}
+function paintPulse(){
+  var el=$cs("#csPulse");if(!el)return;
+  var n=0;
+  try{
+    var week=Date.now()-7*864e5;
+    n=C.filter(function(t){var d=new Date(t.dateAdded||0).getTime();return !isNaN(d)&&d>week&&["Kane Pixels","Mr. Ballin","Ray WJ","Hood","Faith"].indexOf(t.genre||"")>=0;}).length;
+  }catch(e){n=0;}
+  el.textContent=n>0?("⚡ "+n+" new drop"+(n===1?"":"s")+" on creator shelves this week"):"⚡ The room is open — founding creators are in";
+}
+function paintAdmin(){
+  var el=$cs("#csAdmin");if(!el)return;
+  if(!CS.isFounder){el.innerHTML="";return;}
+  var ids=Object.keys(CS.requests||{});
+  if(!ids.length){el.innerHTML="";return;}
+  el.innerHTML='<div class="cs-admin"><div class="cs-memttl">CREATOR REQUESTS ('+ids.length+")</div>"+
+   ids.map(function(uid){var r=CS.requests[uid]||{};return '<div class="cs-req"><span>'+esc(r.name||"Creator")+'</span><span class="cs-reqbtns"><button class="cs-smallbtn gold" data-approve="'+uid+'">Approve</button><button class="cs-smallbtn" data-deny="'+uid+'">Deny</button></span></div>';}).join("")+"</div>";
+  el.querySelectorAll("[data-approve]").forEach(function(b){b.onclick=function(){csApprove(b.getAttribute("data-approve"),true);};});
+  el.querySelectorAll("[data-deny]").forEach(function(b){b.onclick=function(){csApprove(b.getAttribute("data-deny"),false);};});
+}
+async function csApprove(uid,yes){
+  if(!CS.db)return;
+  try{
+    if(yes){var r=(CS.requests||{})[uid]||{};await CS.db.ref("creatorSpace/members/"+uid).set({name:r.name||"Creator",by:CS.uid,ts:Date.now()});}
+    await CS.db.ref("creatorSpace/requests/"+uid).remove();
+    toast(yes?"Creator approved — they\u2019re in":"Request denied");
+  }catch(e){toast("Couldn\u2019t save that — permissions blocked it");}
+}
+async function csRequest(){
+  if(!CS.db||!CS.uid)return;
+  try{await CS.db.ref("creatorSpace/requests/"+CS.uid).set({name:CS.name,ts:Date.now()});CS.requested=true;paintShell();toast("Request sent");}
+  catch(e){toast("Couldn\u2019t send — try again in a moment");}
+}
+function csResolveAttach(){
+  var inp=$cs("#csAttach");if(!inp)return;
+  var q=(inp.value||"").trim().toLowerCase();CS.attachId="";CS.attachLabel=inp.value||"";
+  if(q){
+    var hit=null;
+    try{
+      hit=C.filter(function(t){return (t.title||"").toLowerCase()===q;})[0]||
+          C.filter(function(t){return (t.title||"").toLowerCase().indexOf(q)===0;})[0]||
+          C.filter(function(t){return (t.title||"").toLowerCase().indexOf(q)>=0;})[0]||null;
+    }catch(e){hit=null;}
+    if(hit){CS.attachId=hit.id;CS.attachLabel=hit.title;}
+  }
+  var lbl=$cs("#csAttachLbl");if(lbl)lbl.textContent=CS.attachId?("Attached: "+CS.attachLabel):(q?"No match in the catalog — post goes up without it":"");
+}
+async function csPost(){
+  var text=(CS.draft||"").trim();
+  if(!text){toast("Write something first");return;}
+  if(!CS.db||!CS.uid)return;
+  var post={uid:CS.uid,name:CS.name,flair:CS.flair,text:text.slice(0,1200),ts:Date.now()};
+  if(CS.attachId)post.tid=CS.attachId;
+  if(CS.isFounder)post.founder=true;
+  try{
+    await CS.db.ref("creatorSpace/posts").push(post);
+    CS.draft="";try{localStorage.removeItem("cs_draft");}catch(e){}CS.attachId="";CS.attachLabel="";CS.dirtyFeed=false;
+    paintShell();toast("Posted to Creator Space");
+  }catch(e){toast("Couldn\u2019t post — connection or permissions");}
+}
+function postCard(pid,p){
+  var applauds=p.applauds||{};var nAp=Object.keys(applauds).length;var mine=!!(CS.uid&&applauds[CS.uid]);
+  var t=null;if(p.tid){try{t=byId(p.tid);}catch(e){t=null;}}
+  var h='<div class="cs-post" data-pid="'+pid+'">';
+  h+='<div class="cs-phead"><span class="cs-av">'+esc(initials(p.name))+'</span><span class="cs-pname">'+esc(p.name||"Creator")+(p.founder?'<span class="cs-badge">FOUNDER</span>':"")+'</span><span class="cs-ptime">'+ago(p.ts||Date.now())+'</span><span class="cs-tag">'+(FLAIRS[p.flair]||FLAIRS.update)+"</span></div>";
+  if(p.boostOf){
+    h+='<div class="cs-boost"><div class="cs-boost-h">🔁 Boosted from '+esc(p.boostName||"a creator")+' — credit stays on it</div><div class="cs-boost-b">'+esc(p.boostText||"")+"</div></div>";
+  }
+  h+='<div class="cs-ptext">'+esc(p.text||"")+"</div>";
+  if(t){
+    h+='<button class="cs-attach" data-watch="'+esc(t.id)+'"><span class="cs-athumb" style="background:'+art(t.title)+'">▶</span><span class="cs-atitle">'+esc(t.title)+'</span><span class="cs-awatch">Watch</span></button>';
+  }
+  h+='<div class="cs-acts"><button class="cs-act'+(mine?" on":"")+'" data-applaud="'+pid+'">♥ Applaud · '+nAp+'</button>'+
+     '<button class="cs-act" data-comments="'+pid+'">💬 Feedback<span data-ccount="'+pid+'"></span></button>'+
+     '<button class="cs-act" data-boost="'+pid+'">🔁 Boost</button>'+
+     '<button class="cs-act dots" data-menu="'+pid+'">•••</button></div>';
+  h+="</div>";
+  return h;
+}
+function paintFeed(){
+  var el=$cs("#csFeed");if(!el)return;
+  var ids=Object.keys(CS.posts||{});
+  ids=ids.filter(function(pid){var p=CS.posts[pid];return p&&!CS.blocked[p.uid]&&(CS.filter==="all"||p.flair===CS.filter);});
+  ids.sort(function(a,b){return (CS.posts[b].ts||0)-(CS.posts[a].ts||0);});
+  if(!ids.length){
+    el.innerHTML='<div class="cs-empty"><div class="cs-gate-t">The room is open</div><div class="cs-gate-b">No posts yet'+(CS.filter==="all"?"":" in this lane")+'. Yours could be the first thing every creator on Shortz VS sees. Drop a trailer, call a casting, ask for real feedback.</div></div>'+foundingHTML();
+    return;
+  }
+  el.innerHTML=ids.map(function(pid){return postCard(pid,CS.posts[pid]);}).join("");
+  el.querySelectorAll("[data-applaud]").forEach(function(b){b.onclick=function(){csApplaud(b.getAttribute("data-applaud"));};});
+  el.querySelectorAll("[data-comments]").forEach(function(b){b.onclick=function(){csOpenComments(b.getAttribute("data-comments"));};});
+  el.querySelectorAll("[data-boost]").forEach(function(b){b.onclick=function(){csBoost(b.getAttribute("data-boost"));};});
+  el.querySelectorAll("[data-menu]").forEach(function(b){b.onclick=function(){csMenu(b.getAttribute("data-menu"));};});
+  el.querySelectorAll("[data-watch]").forEach(function(b){b.onclick=function(){var t=null;try{t=byId(b.getAttribute("data-watch"));}catch(e){}if(t){csClose();try{cfPresentTitle(t);}catch(e){}}};});
+  if(CS.db)ids.forEach(function(pid){
+    CS.db.ref("creatorSpace/comments/"+pid).once("value").then(function(sn){
+      var n=sn?sn.numChildren():0;var sp=el.querySelector('[data-ccount="'+pid+'"]');
+      if(sp)sp.textContent=n>0?(" · "+n):"";
+    }).catch(function(){});
+  });
+}
+async function csApplaud(pid){
+  if(!CS.db||!CS.uid)return;
+  var p=CS.posts[pid];if(!p)return;
+  var ref=CS.db.ref("creatorSpace/posts/"+pid+"/applauds/"+CS.uid);
+  try{
+    if(p.applauds&&p.applauds[CS.uid])await ref.remove();else await ref.set({ts:Date.now()});
+  }catch(e){toast("Couldn\u2019t applaud — try again");}
+}
+async function csBoost(pid){
+  if(!CS.db||!CS.uid)return;
+  var p=CS.posts[pid];if(!p)return;
+  var srcPid=p.boostOf||pid;
+  var src=(CS.posts[srcPid])||p;
+  var post={uid:CS.uid,name:CS.name,flair:"update",text:"Boosting this — more creators need eyes on it.",ts:Date.now(),
+    boostOf:srcPid,boostName:src.name||"a creator",boostText:String(src.text||"").slice(0,220)};
+  if(src.tid)post.tid=src.tid;
+  if(CS.isFounder)post.founder=true;
+  try{await CS.db.ref("creatorSpace/posts").push(post);toast("Boosted — credit\u2019s attached");}
+  catch(e){toast("Couldn\u2019t boost — try again");}
+}
+function csMenu(pid){
+  var p=CS.posts[pid];if(!p)return;
+  var mine=p.uid===CS.uid;
+  var sh=$cs("#csSheet");if(!sh)return;
+  sh.innerHTML='<div class="cs-sheetcard"><div class="cs-sheet-t">'+esc(p.name||"Creator")+'</div>'+
+   (mine||CS.isFounder?'<button class="cs-sheetbtn danger" id="csDel">Delete this post</button>':"")+
+   (!mine?'<button class="cs-sheetbtn" id="csReport">Report this post</button><button class="cs-sheetbtn" id="csBlock">Block this creator</button>':"")+
+   '<button class="cs-sheetbtn" id="csSheetX">Cancel</button></div>';
+  sh.style.display="flex";
+  var x=$cs("#csSheetX");if(x)x.onclick=function(){sh.style.display="none";};
+  var d=$cs("#csDel");if(d)d.onclick=async function(){try{await CS.db.ref("creatorSpace/posts/"+pid).remove();await CS.db.ref("creatorSpace/comments/"+pid).remove();}catch(e){}sh.style.display="none";toast("Deleted");};
+  var r=$cs("#csReport");if(r)r.onclick=async function(){try{await CS.db.ref("creatorSpace/reports/"+pid+"/"+CS.uid).set(Date.now());}catch(e){}sh.style.display="none";toast("Reported — Mr. Math reviews these");};
+  var bl=$cs("#csBlock");if(bl)bl.onclick=function(){CS.blocked[p.uid]=p.name||"Creator";try{localStorage.setItem("cs_blocked",JSON.stringify(CS.blocked));}catch(e){}sh.style.display="none";paintFeed();toast("Blocked — you won\u2019t see their posts");};
+}
+function csOpenComments(pid){
+  var p=CS.posts[pid];if(!p)return;
+  CS.commentsFor=pid;
+  var sh=$cs("#csSheet");if(!sh)return;
+  var hasT=!!p.tid;
+  sh.innerHTML='<div class="cs-sheetcard tall"><div class="cs-sheet-t">Feedback</div>'+
+   '<div class="cs-ptext sm">'+esc(p.text||"")+"</div>"+
+   '<div class="cs-clist" id="csClist"><div class="cs-hint">Loading\u2026</div></div>'+
+   (hasT?'<div class="cs-tcrow"><input id="csTc" placeholder="Timecode (e.g. 1:24) — pin your note to the moment" inputmode="numeric"></div>':"")+
+   '<div class="cs-crow"><input id="csCText" placeholder="Give real feedback\u2026"><button class="cs-smallbtn gold" id="csCSend">Send</button></div>'+
+   '<button class="cs-sheetbtn" id="csSheetX">Close</button></div>';
+  sh.style.display="flex";
+  $cs("#csSheetX").onclick=function(){sh.style.display="none";CS.commentsFor=null;unlistenComments();};
+  $cs("#csCSend").onclick=function(){csSendComment(pid);};
+  listenComments(pid);
+}
+var _cRef=null,_cCb=null;
+function listenComments(pid){
+  unlistenComments();
+  if(!CS.db)return;
+  _cRef=CS.db.ref("creatorSpace/comments/"+pid);
+  _cCb=function(s){CS.comments=s.val()||{};paintComments();};
+  _cRef.on("value",_cCb);
+}
+function unlistenComments(){if(_cRef&&_cCb){try{_cRef.off("value",_cCb);}catch(e){}}_cRef=null;_cCb=null;}
+function paintComments(){
+  var el=$cs("#csClist");if(!el)return;
+  var ids=Object.keys(CS.comments||{});
+  ids.sort(function(a,b){return (CS.comments[a].ts||0)-(CS.comments[b].ts||0);});
+  if(!ids.length){el.innerHTML='<div class="cs-hint">No feedback yet — be the first creator to weigh in.</div>';return;}
+  el.innerHTML=ids.map(function(cid){var c=CS.comments[cid];return '<div class="cs-comment"><span class="cs-av sm">'+esc(initials(c.name))+'</span><div class="cs-cbody"><span class="cs-pname sm">'+esc(c.name||"Creator")+"</span>"+(c.tc!=null?'<span class="cs-tc">⏱ '+tcFmt(c.tc)+"</span>":"")+'<div class="cs-ctext">'+esc(c.text||"")+"</div></div></div>";}).join("");
+  el.scrollTop=el.scrollHeight;
+}
+async function csSendComment(pid){
+  var inp=$cs("#csCText");if(!inp)return;
+  var text=(inp.value||"").trim();if(!text)return;
+  var tcEl=$cs("#csTc");var tc=tcEl?tcParse(tcEl.value):null;
+  var c={uid:CS.uid,name:CS.name,text:text.slice(0,600),ts:Date.now()};
+  if(tc!=null)c.tc=tc;
+  try{
+    await CS.db.ref("creatorSpace/comments/"+pid).push(c);
+    inp.value="";if(tcEl)tcEl.value="";
+  }catch(e){toast("Couldn\u2019t send — try again");}
+}
+function csMembers(){
+  var sh=$cs("#csSheet");if(!sh)return;
+  var memIds=Object.keys(CS.members||{});
+  var blockedIds=Object.keys(CS.blocked||{});
+  sh.innerHTML='<div class="cs-sheetcard tall"><div class="cs-sheet-t">Who\u2019s in the room</div>'+
+   '<div class="cs-memttl">FOUNDING CREATORS</div><div class="cs-mems">'+FOUNDING.map(function(n){return '<span class="cs-mem">'+esc(n)+"</span>";}).join("")+'</div>'+
+   '<div class="cs-memttl" style="margin-top:14px">FLAGGED MEMBERS ('+memIds.length+")</div>"+
+   (memIds.length?memIds.map(function(uid){var m=CS.members[uid]||{};return '<div class="cs-req"><span>'+esc(m.name||"Creator")+"</span></div>";}).join(""):'<div class="cs-hint">No flagged members yet — approvals land here.</div>')+
+   (blockedIds.length?'<div class="cs-memttl" style="margin-top:14px">BLOCKED BY YOU</div>'+blockedIds.map(function(uid){return '<div class="cs-req"><span>'+esc(CS.blocked[uid])+'</span><button class="cs-smallbtn" data-unblock="'+uid+'">Unblock</button></div>';}).join(""):"")+
+   '<button class="cs-sheetbtn" id="csSheetX">Close</button></div>';
+  sh.style.display="flex";
+  $cs("#csSheetX").onclick=function(){sh.style.display="none";};
+  sh.querySelectorAll("[data-unblock]").forEach(function(b){b.onclick=function(){delete CS.blocked[b.getAttribute("data-unblock")];try{localStorage.setItem("cs_blocked",JSON.stringify(CS.blocked));}catch(e){}csMembers();paintFeed();};});
+}
+document.addEventListener("DOMContentLoaded",function(){
+  var back=$cs("#csBack");if(back)back.onclick=csClose;
+  var mb=$cs("#csMembersBtn");if(mb)mb.onclick=csMembers;
+});
+window.CreatorSpace={open:csOpen,close:csClose,state:function(){return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember};}};
+})();
+
+</script>
 </body>
 </html>
