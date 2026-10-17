@@ -12,6 +12,32 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<script>
+/* PHONE-SCALE RESCUE (2026-10-17, his report): on his phone the web version
+   rendered SMALL — a narrow centered column, tiny text — because the
+   browser handed the page a desktop-class layout viewport ("desktop site"
+   mode / a zoomed-out webview) even though the screen is phone-sized.
+   Detect exactly that mismatch (touch device, phone-class screen, layout
+   viewport far wider than the screen) and counter-zoom the root so the app
+   lays out at the phone's true width — the mobile version, every time.
+   Inert everywhere else: desktops, tablets, the APK, and phones with a
+   correct viewport never meet the condition. The raw-width check reads
+   through any zoom already applied, so re-runs are stable, never a loop. */
+(function(){
+  var apply=function(){
+    try{
+      var sw=window.screen?screen.width:0, iw=window.innerWidth||0;
+      var touch=(navigator.maxTouchPoints||0)>0;
+      var z=parseFloat(document.documentElement.style.zoom)||1;
+      var raw=iw*z;
+      if(touch&&sw>0&&sw<=620&&raw>sw*1.4){ document.documentElement.style.zoom=String(raw/sw); }
+      else if(z!==1){ document.documentElement.style.zoom=""; }
+    }catch(e){}
+  };
+  apply();
+  var t=0; window.addEventListener("resize",function(){ clearTimeout(t); t=setTimeout(apply,200); });
+})();
+</script>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -2211,7 +2237,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792272496";
+window.__SZ_BUILD = "1792275023";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5335,7 +5361,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792272496";
+const BUILD="1792275023";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9079,10 +9105,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792272496"></script>
+<script src="js/folders.js?v=1792275023"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792272496"></script>
+<script src="js/guide.js?v=1792275023"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9892,9 +9918,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792272496"></script>
-<script src="js/shortz-live.js?v=1792272496"></script>
-<script src="js/games.js?v=1792272496"></script>
+<script src="js/streaming.js?v=1792275023"></script>
+<script src="js/shortz-live.js?v=1792275023"></script>
+<script src="js/games.js?v=1792275023"></script>
 <script>
 
 
@@ -10412,7 +10438,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792272496"></script>
+<script src="js/swipe.js?v=1792275023"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12644,7 +12670,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792272496"></script>
+<script src="js/live-sports.js?v=1792275023"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
