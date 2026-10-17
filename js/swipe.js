@@ -44,7 +44,8 @@ function swipeBlocked(){
   return false;
 }
 function swStripPlace(s,dx){
-  const W=window.innerWidth||1;
+  const W=(window.SZ_W?SZ_W():window.innerWidth||1);
+  if(window.__SZ_ON&&window.__SZ_K>1)dx=Math.round(dx/window.__SZ_K); // finger travel arrives in viewport px; the strip lives in stage px
   s.dx=dx;
   const cx=s.dir>0?-dx:dx;
   if(s.curEl)s.curEl.style.transform="translate("+cx+"px,"+(-(s.sy||0))+"px)";
@@ -77,7 +78,7 @@ function swResetStrip(s){
   if(s.stubT){ clearTimeout(s.stubT); s.stubT=0; }
   swStripUndress(s);
   if(s.target==="live"&&curView!=="live"){ try{ if(typeof lsStop==="function")lsStop(); }catch(e){} } // an abandoned Live peek must not keep playing
-  if(s.sy!=null){ try{ window.scrollTo(0,s.sy); }catch(e){} }
+  if(s.sy!=null){ try{ (window.SZ_TOP?SZ_TOP(s.sy):window.scrollTo(0,s.sy)); }catch(e){} }
 }
 function swSettleRecompute(){ try{ if(typeof cfRecompute==="function")cfRecompute(); }catch(e){} }
 /* while the strip is engaged, the Home card preview pauses — a decoding
@@ -246,7 +247,7 @@ document.addEventListener("touchmove",e=>{
   if(window.__evNative)return;
   const s=_sw; if(!s)return;
   const tt=e.touches[0]; if(!tt)return;
-  const W=window.innerWidth||1;
+  const W=(window.SZ_W?SZ_W():window.innerWidth||1);
   if(!s.locked){
     const dx=tt.clientX-s.x0, dy=tt.clientY-s.y0;
     if(Math.abs(dy)>10&&Math.abs(dy)>=Math.abs(dx)){ _sw=null; if(!_swPark){ try{ document.body.style.minHeight=""; }catch(e){} } return; } // vertical: native scroll owns this gesture
@@ -271,7 +272,7 @@ document.addEventListener("touchmove",e=>{
         // happen finger-up only: at park (swStubFlush) and one frame
         // after a settle (swFinalize).
       }
-      s.sy=window.scrollY||0;
+      s.sy=(window.SZ_SY?SZ_SY():window.scrollY||0);
       swBodyLock();
       if(s.curEl){ s.curEl.classList.add("swipe-cur"); s.curEl.style.transition="none"; s.curEl.style.willChange="transform"; }
       if(pk){ pk.classList.add("swipe-peek"); pk.style.transition="none"; pk.style.willChange="transform"; s.peekEl=pk; }
@@ -333,13 +334,13 @@ let _swChain=null;
 function swChainStep(){
   const ch=_swChain; if(!ch)return;
   const idx=SWIPE_TABS.indexOf(curView);
-  const W=window.innerWidth||1;
+  const W=(window.SZ_W?SZ_W():window.innerWidth||1);
   if(idx<0){ _swChain=null; return; }
   const target=SWIPE_TABS[(idx+ch.dir+SWIPE_TABS.length)%SWIPE_TABS.length];
   const curEl=$("#view-"+curView), pk=$("#view-"+target);
   if(!curEl||!pk){ _swChain=null; return; }
   if(!pk.innerHTML.trim()||pk.querySelector("[data-swstub]")){ try{ renderView(target); }catch(e){} }
-  const s={resume:false,locked:true,x0:0,y0:0,base:0,dx:0,dir:ch.dir,target:target,peekEl:pk,curEl:curEl,curName:curView,idx:idx,sy:window.scrollY||0,moved:true,
+  const s={resume:false,locked:true,x0:0,y0:0,base:0,dx:0,dir:ch.dir,target:target,peekEl:pk,curEl:curEl,curName:curView,idx:idx,sy:(window.SZ_SY?SZ_SY():window.scrollY||0),moved:true,
     hist:[{dx:0,t:performance.now()},{dx:Math.max(8,ch.v*16),t:performance.now()+16}]};
   _sw=s; window.__swiping=true;
   try{ document.body.classList.add("swiping"); }catch(e){}
@@ -376,7 +377,7 @@ function swEndV2(){
   if(!s.locked){ _sw=null; if(!_swPark){ try{ document.body.style.minHeight=""; }catch(e){} } return; }
   swFlushPlace(s); // land the strip exactly where the finger stopped
   if(s.resume&&!s.moved){ swUnpark(s); return; } // a tap on a parked strip cancels it — the screen is his again
-  const W=window.innerWidth||1;
+  const W=(window.SZ_W?SZ_W():window.innerWidth||1);
   // a drag that moved the strip must not fire the tap under the finger
   if(s.moved){
     const swallow=e=>{ e.stopPropagation(); e.preventDefault(); document.removeEventListener("click",swallow,true); };

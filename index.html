@@ -12,6 +12,62 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<script>
+/* ============ PHONE SHIELD (desktop-mode defense) ============
+ * Some phone browsers (Chrome "Desktop site") hand this page a desktop
+ * layout viewport (measured on the founder's S23+: screen 384, layout 980,
+ * fit-scale 0.3918) and ignore the viewport meta, so the app renders small.
+ * When that exact signature is present (touch phone, small screen, layout
+ * far wider than the screen, portrait), the shield composes the app at the
+ * phone's true width on <body> and scales the body up by layout/screen, so
+ * the browser's own fit-scale cancels it and the app appears phone-size.
+ * A CSS transform never reflows the layout viewport (the earlier `zoom`
+ * attempt double-counted in his browser and was rolled back — transforms
+ * are the safe lever). Inert on healthy phones, tablets, desktops, the APK.
+ * Engines read geometry through SZ_W()/SZ_H()/SZ_SY()/SZ_TOP() so stage
+ * units stay consistent while the shield is on. */
+(function(){
+  var on=false, K=1, stageW=0;
+  function metrics(){
+    var sw=window.screen?screen.width:0, sh=window.screen?screen.height:0;
+    var touch=(navigator.maxTouchPoints||0)>0;
+    var phone=Math.min(sw,sh)>0 && Math.min(sw,sh)<=620;
+    var portrait=sw<=sh;
+    var wide=window.innerWidth>sw*1.6;
+    return {ok:touch&&phone&&portrait&&wide, sw:sw};
+  }
+  function apply(){
+    var m=metrics(), root=document.documentElement;
+    if(m.ok){
+      K=window.innerWidth/m.sw; stageW=m.sw; on=true;
+      root.style.setProperty('--sz-k',K);
+      root.classList.add('sz-on');
+    } else {
+      on=false; K=1; stageW=0;
+      root.classList.remove('sz-on');
+    }
+    window.__SZ_ON=on; window.__SZ_K=K;
+  }
+  window.__SZ_ON=false; window.__SZ_K=1;
+  window.SZ_W=function(){ return on?stageW:(window.innerWidth||1); };
+  window.SZ_H=function(){ return on?Math.round((window.innerHeight||1)/K):(window.innerHeight||1); };
+  window.SZ_SY=function(){ return on?(document.body?document.body.scrollTop:0):(window.scrollY||0); };
+  window.SZ_TOP=function(y,smooth){
+    if(on){ var b=document.body; if(!b)return; try{ b.scrollTo({top:y||0,behavior:smooth?'smooth':'auto'}); }catch(e){ b.scrollTop=y||0; } }
+    else if(smooth){ try{ window.scrollTo({top:y||0,behavior:'smooth'}); }catch(e){ window.scrollTo(0,y||0); } }
+    else window.scrollTo(0,y||0);
+  };
+  apply();
+  var t=null;
+  window.addEventListener('resize',function(){ clearTimeout(t); t=setTimeout(apply,180); },{passive:true});
+  window.addEventListener('orientationchange',function(){ setTimeout(apply,350); },{passive:true});
+  /* window-scroll listeners (prefetch, stick, arm, to-top) must also fire
+     when the BODY is the scroller in shield mode */
+  document.addEventListener('DOMContentLoaded',function(){
+    document.body.addEventListener('scroll',function(){ if(on) window.dispatchEvent(new Event('scroll')); },{passive:true});
+  });
+})();
+</script>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -1770,6 +1826,30 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
   #view-genre .gfull-card .t{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 8px;
     background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:11px;font-weight:700;line-height:1.25}
 </style>
+<style>
+/* ============ PHONE SHIELD layout (only under html.sz-on) ============
+ * The app composes on <body> at the phone's true CSS width; the body is
+ * scaled by var(--sz-k) (layout/screen) and becomes the page scroller.
+ * Every viewport-unit size below is re-declared divided by var(--sz-k),
+ * which maps it to its stage-space equivalent. Off = zero effect. */
+html.sz-on{overflow:hidden;background:#050506}
+html.sz-on body{width:calc(100vw / var(--sz-k));height:calc(100vh / var(--sz-k));transform:scale(var(--sz-k));transform-origin:0 0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
+html.sz-on #cfeed,html.sz-on .feedstage{height:calc(100dvh / var(--sz-k))}
+html.sz-on #detailArt{width:calc(100vw / var(--sz-k));margin-left:calc(50% - 50vw / var(--sz-k))}
+html.sz-on .swipe-stub{min-height:calc(100vh / var(--sz-k))}
+html.sz-on #views{min-height:calc(80vh / var(--sz-k))}
+html.sz-on .cffold .eplist{max-height:calc(44vh / var(--sz-k))}
+html.sz-on #cdraw,html.sz-on #ccsheet{max-height:calc(70vh / var(--sz-k))}
+html.sz-on #edraw{max-height:calc(78dvh / var(--sz-k))}
+html.sz-on #lvsheet,html.sz-on #lnsheet,html.sz-on #scoutSheet{max-height:calc(72vh / var(--sz-k))}
+html.sz-on #stkSheet{max-height:calc(88vh / var(--sz-k))}
+html.sz-on .gm-box{max-height:calc(85vh / var(--sz-k))}
+html.sz-on #avatarView .av-full{max-width:calc(92vw / var(--sz-k));max-height:calc(86vh / var(--sz-k))}
+html.sz-on body.css-land #view-home .feed-video{width:calc(100vh / var(--sz-k))!important;height:calc(100vw / var(--sz-k))!important}
+html.sz-on body.css-land #view-home .feed-video iframe{width:calc(177.78vh / var(--sz-k))!important;height:calc(56.25vw / var(--sz-k))!important;min-width:calc(100vw / var(--sz-k))!important;min-height:calc(100vh / var(--sz-k))!important}
+html.sz-on body.rot-full #view-home .feed-video,html.sz-on body.rot-full #view-home .feed-video iframe{width:calc(177.78vh / var(--sz-k))!important;height:calc(100vh / var(--sz-k))!important;min-width:calc(100vw / var(--sz-k))!important;min-height:calc(56.25vw / var(--sz-k))!important}
+html.sz-on body.force-land #view-home{width:calc(100vh / var(--sz-k));height:calc(100vw / var(--sz-k));margin-left:calc(-50vw / var(--sz-k));margin-top:calc(-50vh / var(--sz-k))}
+</style>
 </head>
 <body>
 <!-- Shortz VS film-reel intro: scrolling reels, logo lands with the beat, glitch, out at 3s -->
@@ -2211,7 +2291,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792275562";
+window.__SZ_BUILD = "1792278646";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2317,7 +2397,7 @@ document.addEventListener("click",function(e){
   let sy=0, pulling=false;
   const ptr=document.getElementById("ptr");
   document.addEventListener("touchstart",function(e){
-    if(window.scrollY===0 && document.body.classList.contains("feedfull")){ sy=e.touches[0].clientY; pulling=true; }
+    if(SZ_SY()===0 && document.body.classList.contains("feedfull")){ sy=e.touches[0].clientY; pulling=true; }
   },{passive:true});
   document.addEventListener("touchmove",function(e){
     if(!pulling)return;
@@ -3268,7 +3348,7 @@ function go(v){
   document.body.classList.toggle("feedfull",v==="home"); // streaming left the stage era: its card feed scrolls the document, and feedfull's overflow:hidden nailed that scroll shut (his report 2026-10-14 — hub mode scrolled because the pane scrolls itself; tab mode could not scroll at all)
   try{if(window.Android&&window.Android.onWatching)window.Android.onWatching(v==="home")}catch(e){}
   // SPEED: single cheap scroll reset — scrollIntoView+scrollTo pair forced sync layout
-  const _vs=$("#views"); if(_vs)_vs.scrollTop=0; window.scrollTo(0,0);
+  const _vs=$("#views"); if(_vs)_vs.scrollTop=0; SZ_TOP(0);
 }
 // tab buttons cached once — go() runs on every tab switch
 const TAB_BTNS=[...document.querySelectorAll(".tab")];
@@ -4144,7 +4224,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   function evPanesInOrder(){ const vs=$("views"); return vs ? [...vs.querySelectorAll(".view.evpane")] : []; }
   function evGuard(){
     const vs=$("views"); if(!vs)return;
-    const W=window.innerWidth||1;
+    const W=SZ_W();
     let sl=vs.scrollLeft;
     const panes=evPanesInOrder(); if(panes.length<2)return;
     while(sl<W*1.0){
@@ -4175,7 +4255,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   }
   function evRest(){
     const vs=$("views"); if(!vs||!evMode)return;
-    const W=window.innerWidth||1;
+    const W=SZ_W();
     const panes=evPanesInOrder(); if(!panes.length)return;
     let pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
     const pane=panes[pos]; if(!pane)return;
@@ -4208,7 +4288,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   function evGoTo(v){
     if(!evMode||SECTIONS.indexOf(v)<0)return;
     const vs=$("views"); if(!vs)return;
-    const W=window.innerWidth||1; if(!W)return;
+    const W=SZ_W(); if(!W)return;
     // ground truth is the pane actually centered on screen — the section
     // bookkeeping (evSection) can be stale, and a stuck evMoving flag must
     // never veto an outside jump (both failure shapes shipped once already)
@@ -4263,7 +4343,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       evBindScroll();
       evSection=SECTIONS[evIdx];
       evRotateTo(evSection); // the current section starts mid-ring: wraparound runway both ways
-      requestAnimationFrame(()=>{ try{ vs.scrollLeft=Math.floor((SECTIONS.length-1)/2)*(window.innerWidth||1); }catch(e){} });
+      requestAnimationFrame(()=>{ try{ vs.scrollLeft=Math.floor((SECTIONS.length-1)/2)*SZ_W(); }catch(e){} });
     }
     updateHeader();
     try{
@@ -4318,7 +4398,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // That was the first arrows build's bug, his phone 2026-10-16.)
   function evStep(dir){
     const vs=$("views"); if(!vs)return;
-    const W=window.innerWidth||1; if(!W)return;
+    const W=SZ_W(); if(!W)return;
     const panes=evPanesInOrder(); if(!panes.length)return;
     let pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
     const centeredEl=panes[pos]; if(!centeredEl)return;
@@ -4651,7 +4731,7 @@ function applyPipLayout(){
   _pipLastPlaying=null; // fresh PiP entry: force the next state report through
   document.querySelectorAll(".feed-video iframe").forEach(fr=>{
     if(!on){fr.style.cssText="";return;}
-    const w=window.innerWidth,h=window.innerHeight;
+    const w=SZ_W(),h=SZ_H();
     const vert=fr.closest(".feed-video").classList.contains("vert");
     const vr=vert?9/16:16/9, wr=w/h;
     let iw,ih;
@@ -5335,7 +5415,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792275562";
+const BUILD="1792278646";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5746,7 +5826,7 @@ function handleTap(x,y){
   const now=Date.now();
   if(soundOn&&now-lastTapT<350){
     clearTimeout(tapTimer);tapTimer=null;lastTapT=0;
-    const w=(curSlide()&&curSlide().clientWidth)||window.innerWidth||390;
+    const w=(curSlide()&&curSlide().getBoundingClientRect().width)||window.innerWidth||390;
     seekBy(x<w/2?-10:10);
     return;
   }
@@ -6713,7 +6793,7 @@ function cfRecompute(){
   // at full sound over the pane on screen. The pane actually centered
   // in the track is the only truth: not Home -> silence, always.
   if(sc.closest&&sc.closest("#views.evtrack")){
-    const vs=document.getElementById("views"); const W=window.innerWidth||1;
+    const vs=document.getElementById("views"); const W=SZ_W();
     const panes=vs?[...vs.querySelectorAll(".view.evpane")]:[];
     if(panes.length){
       const pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
@@ -8003,7 +8083,7 @@ function discRow(secId,rowId,list,genre){
   bindCards(row);
   sec.style.display="";
   const b=sec.querySelector("[data-all]");
-  if(b)b.onclick=()=>{ if(genre==="__all__"){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); } else if(genre) renderBrowse(genre); };
+  if(b)b.onclick=()=>{ if(genre==="__all__"){ browseWall=true; renderBrowse(ALL); SZ_TOP(0); } else if(genre) renderBrowse(genre); };
 }
 function discCwRow(list){
   const sec=document.getElementById("discCwSec"), row=document.getElementById("discCwRow");
@@ -8023,7 +8103,7 @@ function discCwRow(list){
     </div>`;}).join("");
   bindCards(row);
   sec.style.display="";
-  const b=sec.querySelector("[data-all]"); if(b)b.onclick=()=>{ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); };
+  const b=sec.querySelector("[data-all]"); if(b)b.onclick=()=>{ browseWall=true; renderBrowse(ALL); SZ_TOP(0); };
 }
 function paintDiscovery(){
   try{ // Continue Watching — his own history, most recent first
@@ -8144,8 +8224,8 @@ function renderBrowseLanding(){
   document.querySelectorAll("#view-browse [data-gtile]").forEach(b=>{ b.onclick=()=>{
     const g=b.dataset.gtile;
     if(g==="__games"){ try{ renderView("games"); }catch(e){} try{ go("games"); }catch(e){} return; }
-    if(g===ALL){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); return; }
-    if(g==="Sports"){ renderBrowse("Sports"); window.scrollTo(0,0); return; } // phase-1 exception: Sports opens its picker
+    if(g===ALL){ browseWall=true; renderBrowse(ALL); SZ_TOP(0); return; }
+    if(g==="Sports"){ renderBrowse("Sports"); SZ_TOP(0); return; } // phase-1 exception: Sports opens its picker
     openGenreView(g,"browse");
   };});
   // Landing chips (his mockup): Series = wall filtered to multi-episode
@@ -8153,10 +8233,10 @@ function renderBrowseLanding(){
   // opened at its creators section. For you is this landing itself.
   document.querySelectorAll("#view-browse [data-chip]").forEach(b=>{ b.onclick=()=>{
     const c=b.dataset.chip;
-    if(c==="series"){ browseKind="series"; browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); }
-    else if(c==="awards"){ renderBrowse(AWARD); window.scrollTo(0,0); }
+    if(c==="series"){ browseKind="series"; browseWall=true; renderBrowse(ALL); SZ_TOP(0); }
+    else if(c==="awards"){ renderBrowse(AWARD); SZ_TOP(0); }
     else if(c==="creators"){ renderGenresPage("creators"); }
-    else{ window.scrollTo(0,0); }
+    else{ SZ_TOP(0); }
   };});
   const ga2=$("#genresAll"); if(ga2)ga2.onclick=()=>renderGenresPage();
   // Search entry: the first focus or keystroke flips to the full Browse
@@ -8206,13 +8286,13 @@ function renderGenresPage(anchor){
     <div class="gp-sec" id="gpCreators"><h4>CREATORS &amp; COMMUNITIES</h4><div class="gp-pills">${CRE.map(pill).join("")}</div></div>
     <div class="gp-sec" style="padding-bottom:calc(96px + env(safe-area-inset-bottom))"><h4>MORE GENRES</h4><div class="gp-pills">${more.map(pill).join("")}</div></div>
    </div>`;
-  window.scrollTo(0,0);
-  const back=$("#gpBack"); if(back)back.onclick=()=>{ renderBrowseLanding(); window.scrollTo(0,0); };
+  SZ_TOP(0);
+  const back=$("#gpBack"); if(back)back.onclick=()=>{ renderBrowseLanding(); SZ_TOP(0); };
   document.querySelectorAll("#genresPage [data-gtile]").forEach(b=>{ b.onclick=()=>{
     const g=b.dataset.gtile;
     if(g==="__games"){ try{ renderView("games"); }catch(e){} try{ go("games"); }catch(e){} return; }
-    if(g===ALL){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); return; }
-    if(g==="Sports"){ renderBrowse("Sports"); window.scrollTo(0,0); return; }
+    if(g===ALL){ browseWall=true; renderBrowse(ALL); SZ_TOP(0); return; }
+    if(g==="Sports"){ renderBrowse("Sports"); SZ_TOP(0); return; }
     openGenreView(g,"browse");
   };});
   const fi=$("#gpFilter");
@@ -8490,7 +8570,7 @@ function openGenreView(g,origin){
   const list=browseList();
   browseGenre=svG; browseQuery=svQ;
   genreBackTo=(origin==="browse")?"browse":null;
-  if(genreBackTo)genreScrollY=window.scrollY||0; // his place in Browse, for the way back
+  if(genreBackTo)genreScrollY=SZ_SY(); // his place in Browse, for the way back
   const v=$("#view-genre");
   v.innerHTML=`
     <div class="gfull-head">
@@ -8518,7 +8598,7 @@ function openGenreView(g,origin){
     if(genreCard){ closeGenreCard(); return; } // card mode: lift the card — the hub underneath never moved
     if(genreBackTo==="browse"){
       try{go("browse");}catch(e){}
-      try{requestAnimationFrame(()=>window.scrollTo(0,genreScrollY));}catch(e){} // back where he was in Browse
+      try{requestAnimationFrame(()=>SZ_TOP(genreScrollY));}catch(e){} // back where he was in Browse
     } else { try{go("home");}catch(e){} }
   });
   // HUB MODE: the genre opens as a full-screen CARD above the hub (his
@@ -9079,10 +9159,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792275562"></script>
+<script src="js/folders.js?v=1792278646"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792275562"></script>
+<script src="js/guide.js?v=1792278646"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9892,9 +9972,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792275562"></script>
-<script src="js/shortz-live.js?v=1792275562"></script>
-<script src="js/games.js?v=1792275562"></script>
+<script src="js/streaming.js?v=1792278646"></script>
+<script src="js/shortz-live.js?v=1792278646"></script>
+<script src="js/games.js?v=1792278646"></script>
 <script>
 
 
@@ -10346,11 +10426,11 @@ mountFeed();
   const OK_VIEWS={browse:1,genre:1,profile:1,detail:1,manga:1};
   function upd(){
     try{
-      const show=OK_VIEWS[curView]&&window.scrollY>700;
+      const show=OK_VIEWS[curView]&&SZ_SY()>700;
       btn.classList.toggle("show",!!show);
     }catch(e){}
   }
-  btn.addEventListener("click",()=>{try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){window.scrollTo(0,0)}});
+  btn.addEventListener("click",()=>{SZ_TOP(0,true)});
   window.addEventListener("scroll",upd,{passive:true});
   setInterval(upd,1500); // catch view changes (go() resets scroll)
 })();
@@ -10412,7 +10492,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792275562"></script>
+<script src="js/swipe.js?v=1792278646"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -10612,7 +10692,7 @@ function mgOpenDetail(mid){
     const el=$("#mgChapters");
     if(el)el.innerHTML='<div class="mg-center">Couldn\'t load chapters.<br><button class="mg-retry" onclick="mgOpenDetail(\''+mid+'\')">Retry</button></div>';
   });
-  const vs=$("#views"); if(vs)vs.scrollTop=0; window.scrollTo(0,0);
+  const vs=$("#views"); if(vs)vs.scrollTop=0; SZ_TOP(0);
 }
 function mgDrawChapters(){
   const el=$("#mgChapters"); if(!el)return;
@@ -12644,7 +12724,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792275562"></script>
+<script src="js/live-sports.js?v=1792278646"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a

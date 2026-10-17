@@ -389,6 +389,7 @@ function vfChipHTML(cls){
 }
 function vfFly(fromRect,toRect,cls,reverse,done){
   if(!fromRect||!toRect||!fromRect.width||!toRect.width){ if(done)done(); return; }
+  if(window.__SZ_ON&&window.__SZ_K>1){ const K=window.__SZ_K, dv=r=>({left:r.left/K,top:r.top/K,width:r.width/K,height:r.height/K}); fromRect=dv(fromRect); toRect=dv(toRect); } // phone shield: getBoundingClientRect speaks viewport px, style px are stage px
   const fly=document.createElement("div");
   fly.id="vfFly"; fly.className="vf-chip "+cls;
   fly.innerHTML=vfChipHTML(cls);
