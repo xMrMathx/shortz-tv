@@ -678,10 +678,12 @@ body.hud-hidden.feedfull #micDot{opacity:1;pointer-events:auto}
 body.pip #micDot{display:none}
 #evPrev,#evNext{position:fixed;bottom:calc(11px + env(safe-area-inset-bottom));z-index:61;width:52px;height:52px;border-radius:50%;padding:0;cursor:pointer;background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#f6c945;display:flex;align-items:center;justify-content:center;transition:background .2s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent}
 #evPrev{left:calc(50% - 93px)}
+#dubBtn{position:fixed;bottom:calc(11px + env(safe-area-inset-bottom));left:calc(50% - 153px);z-index:61;width:52px;height:52px;border-radius:50%;padding:0;cursor:pointer;background:radial-gradient(circle at 35% 30%,#ffe9a8,#f6c945 55%,#c9930a);border:1px solid rgba(246,201,69,.7);color:#4a3200;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.45);-webkit-tap-highlight-color:transparent}
+#dubBtn:active{transform:scale(.92)}
 #evNext{left:calc(50% + 41px)}
 #evPrev:active,#evNext:active{background:rgba(246,201,69,.25)}
-body.hud-hidden.feedfull #evPrev,body.hud-hidden.feedfull #evNext{bottom:calc(24px + env(safe-area-inset-bottom))}
-body.pip #evPrev,body.pip #evNext{display:none}
+body.hud-hidden.feedfull #evPrev,body.hud-hidden.feedfull #evNext,body.hud-hidden.feedfull #dubBtn{bottom:calc(24px + env(safe-area-inset-bottom))}
+body.pip #evPrev,body.pip #evNext,body.pip #dubBtn{display:none}
 
 /* EVERYTHING: swipeable hub — grid button in HUD, header bar in ev-mode */
 #evHeader{position:fixed;top:0;left:0;right:0;z-index:9500;display:none;align-items:center;gap:12px;
@@ -1089,7 +1091,7 @@ body:has(:is(#scoutSheet,#stkSheet,#isheet,#lvsheet,#lnsheet,#ccsheet,#cdraw,#ed
   #voicePop{left:calc(50% + 120px)}
   /* mic dot is a mobile watch-surface affordance — not needed with the desktop sidebar */
   #micDot{display:none!important}
-  #evPrev,#evNext{display:none!important}
+  #evPrev,#evNext,#dubBtn{display:none!important}
   /* everything toggle on desktop: bottom-right corner cluster — clear of
      #toTop (bottom:86px) and of the topbar; no tabbar/mic chrome exists on
      desktop. It sits LEFT of the updates TV button in the pair. */
@@ -1267,8 +1269,8 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 #gamePlayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 /* while a game is open, the floating top chrome steps off the screen
    (his order 2026-10-14) and returns when the game closes */
-body.playing-game #evToggle,body.playing-game #tvBtn,body.playing-game #evHeader,body.playing-game #evHint,body.playing-game #tvBox,body.playing-game #evPrev,body.playing-game #evNext{display:none!important}
-body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #evHint,body.sz-open #tvBox,body.sz-open #evPrev,body.sz-open #evNext{display:none!important}
+body.playing-game #evToggle,body.playing-game #tvBtn,body.playing-game #evHeader,body.playing-game #evHint,body.playing-game #tvBox,body.playing-game #evPrev,body.playing-game #evNext,body.playing-game #dubBtn{display:none!important}
+body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #evHint,body.sz-open #tvBox,body.sz-open #evPrev,body.sz-open #evNext,body.sz-open #dubBtn{display:none!important}
 #gamePlayer .gclose{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:5;background:rgba(10,10,16,.82);color:#fff;border:1px solid #2c2c38;border-radius:9px;padding:9px 14px;font-weight:800;cursor:pointer}
 /* SHORTZ DUBS (his order 2026-10-17): the unlock banner fuses Xbox's
    bottom rise-and-expand with PlayStation's dark glass — gold on
@@ -1306,10 +1308,11 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .dubBar.sm{height:5px;margin-top:5px}
 #dubCase{position:fixed;inset:0;z-index:9750;background:#0c0c0f;display:none;flex-direction:column}
 #dubCase.open{display:flex}
-.dubCaseHead{display:flex;align-items:center;justify-content:space-between;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 12px;color:#fff}
+.dubCaseHead{display:flex;align-items:center;gap:13px;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 12px;color:#fff}
 .dubCaseHead b{font-size:16px;letter-spacing:.14em}
 .dubCaseX{background:rgba(255,255,255,.08);color:#fff;border:1px solid #2c2c38;border-radius:9px;padding:8px 13px;font-weight:800;cursor:pointer}
 .dubCaseList{flex:1;overflow-y:auto;padding:4px 14px calc(20px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:9px}
+.dubCaseSec{color:#f6c945;font-size:11px;font-weight:900;letter-spacing:2.2px;margin:14px 2px 1px}
 .dubRow{display:flex;align-items:center;gap:11px;background:#141419;border:1px solid #23232c;border-radius:13px;padding:10px 12px;color:#fff;opacity:.62}
 .dubRow.got{opacity:1;border-color:rgba(246,201,69,.4)}
 .dubRowT{flex:1 1 auto;min-width:0;display:flex;flex-direction:column}
@@ -1933,6 +1936,7 @@ try{
   <button id="micDot" aria-label="Tap for voice">🎙</button>
   <button id="evPrev" aria-label="Previous section"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 4.5L8 12l7.5 7.5 1.8-1.8L11.6 12l5.7-5.7z"/></svg></button>
   <button id="evNext" aria-label="Next section"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 4.5L16 12l-7.5 7.5-1.8-1.8L12.4 12 6.7 6.3z"/></svg></button>
+  <button id="dubBtn" aria-label="My Dubs — see your Dubs">W</button>
   <!-- EVERYTHING toggle: persistent — tap to enter/exit the swipeable section hub (restored 2026-10-16, his word: the All button stays) -->
   <button id="evToggle" aria-label="All sections">⊞</button>
   <!-- UPDATES TV button: sits right of the All button — tap to summon the little
@@ -2098,7 +2102,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792217958";
+window.__SZ_BUILD = "1792219422";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2677,7 +2681,7 @@ let ccLang = store.get("cc_lang","")||"";
 let audioLang = store.get("audio_lang","")||"";
 let ccSlide = null, ccTracks = [], ccLoading = false;
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800)}
-function saveList(){store.set("mylist",[...mylist]);syncMyListRemote();}
+function saveList(){store.set("mylist",[...mylist]);syncMyListRemote();try{ if(window.Dubs) Dubs.syncSaves([...mylist]); }catch(e){} /* Dubs Everywhere */}
 function syncMyListRemote(){
   try{
     if(Live.authed&&Live.db&&Live.uid){
@@ -2925,6 +2929,7 @@ async function likeToggle(id){
   const was=likesMine(id);
   const on=!was;
   likesIntentSet(id,on);
+  try{ if(window.Dubs) Dubs.like(id,on); }catch(e){} /* Dubs Everywhere */
   likesRepaint(id);
   toast(on?"♥ Liked":"Unliked");
   /* mirror MY manga likes locally for the profile shelf (manga ids aren't stv-) */
@@ -4897,6 +4902,7 @@ function railAction(a,slide){
   if(a==="like"){
     if(likes[t.id]){delete likes[t.id];toast("Unliked")}else{likes[t.id]=1;toast("♥ Liked")}
     store.set("likes",likes);updateRailIn(slide,t);
+    try{ if(window.Dubs) Dubs.like(t.id,!!likes[t.id]); }catch(e){} /* Dubs Everywhere: rail likes count too */
   }else if(a==="com"){renderComments();$("#cdraw").classList.add("open");$("#cscrim").classList.add("open")}
   else if(a==="share"){shareCur()}
   else if(a==="save"){
@@ -5218,7 +5224,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792217958";
+const BUILD="1792219422";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5899,7 +5905,8 @@ window.ytSignInDone=function(){
   }catch(e){}
 };
 function loadVideoInto(node,url,vid){
-  hudWake(); // new video → UI visible, restart the 3s hide timer
+  hudWake();
+  try{ if(window.Dubs) Dubs.watchPlay(); }catch(e){} /* Dubs: a stage play counts */ // new video → UI visible, restart the 3s hide timer
   // auto-pull algorithm: never load a video the player already proved unplayable
   if(vid&&isVidBlocked(vid)){ skipBlockedVid(node,vid); return; }
   node._endedFired=false; // reset the backup auto-next flag for the new video
@@ -5925,7 +5932,7 @@ function loadVideoInto(node,url,vid){
     v.muted=!soundOn; // soundOn (APK): start unmuted directly; web: muted until tap
     v.onloadedmetadata=()=>{ maybeResume(node,sh); if(soundOn){ try{if(node._player===sh)v.muted=false;}catch(e){} } };
     v.onplaying=()=>{try{suggestFit(node)}catch(e){}};
-    v.onended=()=>{ try{clearProg(node);}catch(e){} autoNext(node,vid); };
+    v.onended=()=>{ try{clearProg(node);}catch(e){} try{dubFinHook(vid)}catch(e){} autoNext(node,vid); };
     v.onpause=()=>{ try{if(!v.ended)saveProg(node);}catch(e){} };
     v.onerror=()=>{ try{toast("Video unavailable");}catch(e){} };
     v.src=url;
@@ -5982,7 +5989,7 @@ function loadVideoInto(node,url,vid){
           try{
             if(ev.data===YT.PlayerState.PAUSED)saveProg(node);
             else if(ev.data===YT.PlayerState.PLAYING){try{suggestFit(node)}catch(e){}}
-            else if(ev.data===YT.PlayerState.ENDED){clearProg(node);autoNext(node,vid);}
+            else if(ev.data===YT.PlayerState.ENDED){clearProg(node);try{dubFinHook(vid)}catch(e){} autoNext(node,vid);}
             // system-PiP native button: keep its play/pause icon in sync
             if(document.body.classList.contains("pip"))
               pipReportState(ev.data===YT.PlayerState.PLAYING||ev.data===YT.PlayerState.BUFFERING);
@@ -6004,9 +6011,10 @@ function pollProg(){
   // backup auto-next: if the YT API onStateChange missed ENDED, catch it here
   try{
     if(s._player&&s._player.getPlayerState&&s._player.getPlayerState()===0){
-      if(!s._endedFired){ s._endedFired=true; clearProg(s); autoNext(s,s._vid); }
+      if(!s._endedFired){ s._endedFired=true; clearProg(s); try{dubFinHook(s._vid)}catch(e){} autoNext(s,s._vid); }
       return;
     }
+    try{ if(s._player&&s._player.getPlayerState&&s._player.getPlayerState()===1&&window.Dubs) Dubs.watchSecs(5); }catch(e){} /* Dubs: honest watch time — only while PLAYING */
     if(s._player&&s._player.getPlayerState&&s._player.getPlayerState()!==0){ s._endedFired=false; }
   }catch(e){}
   saveProg(s);
@@ -6019,7 +6027,7 @@ window.addEventListener("message",e=>{
     if(d&&(d.event==="ended"||(d.event==="onStateChange"&&d.info===0))){
       slotNodes.forEach(n=>{
         const fr=n.querySelector("[data-frame]");
-        if(n._vid&&fr&&fr.contentWindow===e.source){try{autoNext(n,n._vid)}catch(_){}}
+        if(n._vid&&fr&&fr.contentWindow===e.source){try{dubFinHook(n._vid)}catch(_){} try{autoNext(n,n._vid)}catch(_){}}
       });
       return;
     }
@@ -8844,10 +8852,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792217958"></script>
+<script src="js/folders.js?v=1792219422"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792217958"></script>
+<script src="js/guide.js?v=1792219422"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9655,9 +9663,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792217958"></script>
-<script src="js/shortz-live.js?v=1792217958"></script>
-<script src="js/games.js?v=1792217958"></script>
+<script src="js/streaming.js?v=1792219422"></script>
+<script src="js/shortz-live.js?v=1792219422"></script>
+<script src="js/games.js?v=1792219422"></script>
 <script>
 
 
@@ -10175,7 +10183,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792217958"></script>
+<script src="js/swipe.js?v=1792219422"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12396,6 +12404,6 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792217958"></script>
+<script src="js/live-sports.js?v=1792219422"></script>
 </body>
 </html>

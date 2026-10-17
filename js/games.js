@@ -338,9 +338,28 @@ const DUB_DEFS=[
  {id:"life_of_party",tier:"crown",name:"Life of the Party",sub:"Play 5 different online multiplayer games",coins:50,goal:s=>({cur:Math.min(dubOnlineDistinct(s),5),target:5})},
  {id:"iron_man",tier:"crown",name:"Iron Man",sub:"Play 5 hours total",coins:50,goal:s=>({cur:Math.min(Math.floor(s.totalSecs/60),300),target:300,unit:"min"})},
  {id:"no_days_off",tier:"crown",name:"No Days Off",sub:"Play 7 days in a row",coins:250,goal:s=>({cur:Math.min(s.bestStreak,7),target:7,unit:"days"})},
- {id:"completionist",tier:"crown",name:"The Completionist",sub:"Earn every other Dub",coins:250,goal:s=>({cur:Object.keys(s.unlocked).filter(k=>k!=="completionist").length,target:11,unit:"Dubs"})}
+ {id:"completionist",tier:"crown",name:"The Completionist",sub:"Earn every other Games Dub",coins:250,goal:s=>({cur:DUB_DEFS.filter(x=>x.cat==="games"&&x.id!=="completionist"&&s.unlocked[x.id]).length,target:11,unit:"Dubs"})},
+ /* ---- DUBS EVERYWHERE (his crown, 2026-10-17): the same award
+    system across the whole app — watching, likes, saves. ---- */
+ {id:"first_watch",cat:"watch",tier:"bronze",name:"First Watch",sub:"Watch your first video",coins:10,goal:s=>({cur:Math.min(s.watchPlays||0,1),target:1})},
+ {id:"binge_watch",cat:"watch",tier:"silver",name:"Binge Watch",sub:"Finish 10 videos",coins:25,goal:s=>({cur:Math.min(dubCount(s.finVids),10),target:10,unit:"videos"})},
+ {id:"series_finisher",cat:"watch",tier:"crown",name:"Series Finisher",sub:"Finish a whole series",coins:50,goal:s=>({cur:Math.min(dubCount(s.finSeries),1),target:1})},
+ {id:"triple_crown",cat:"watch",tier:"crown",name:"Triple Crown",sub:"Finish 3 series with 10+ episodes",coins:50,goal:s=>({cur:Math.min(dubBigSeries(s),3),target:3,unit:"series"})},
+ {id:"series_royalty",cat:"watch",tier:"crown",name:"Series Royalty",sub:"Finish 5 series with 10+ episodes",coins:250,goal:s=>({cur:Math.min(dubBigSeries(s),5),target:5,unit:"series"})},
+ {id:"screen_royalty",cat:"watch",tier:"crown",name:"Screen Royalty",sub:"Watch 100 hours total",coins:250,goal:s=>({cur:Math.min(Math.floor((s.watchSecs||0)/3600),100),target:100,unit:"hrs"})},
+ {id:"first_love",cat:"likes",tier:"bronze",name:"First Love",sub:"Like your first video",coins:10,goal:s=>({cur:Math.min(dubCount(s.likes),1),target:1})},
+ {id:"big_fan",cat:"likes",tier:"silver",name:"Big Fan",sub:"Like 25 different videos",coins:25,goal:s=>({cur:Math.min(dubCount(s.likes),25),target:25,unit:"videos"})},
+ {id:"superfan",cat:"likes",tier:"crown",name:"Superfan",sub:"Like 100 different videos",coins:50,goal:s=>({cur:Math.min(dubCount(s.likes),100),target:100,unit:"videos"})},
+ {id:"all_heart",cat:"likes",tier:"crown",name:"All Heart",sub:"Like 250 different videos",coins:250,goal:s=>({cur:Math.min(dubCount(s.likes),250),target:250,unit:"videos"})},
+ {id:"first_save",cat:"saves",tier:"bronze",name:"First Save",sub:"Save your first video",coins:10,goal:s=>({cur:Math.min(dubCount(s.saves),1),target:1})},
+ {id:"collector",cat:"saves",tier:"silver",name:"The Collector",sub:"Save 25 different videos",coins:25,goal:s=>({cur:Math.min(dubCount(s.saves),25),target:25,unit:"videos"})},
+ {id:"archivist",cat:"saves",tier:"crown",name:"The Archivist",sub:"Save 100 different videos",coins:50,goal:s=>({cur:Math.min(dubCount(s.saves),100),target:100,unit:"videos"})},
+ {id:"full_library",cat:"saves",tier:"crown",name:"Full Library",sub:"Save 250 different videos",coins:250,goal:s=>({cur:Math.min(dubCount(s.saves),250),target:250,unit:"videos"})}
 ];
-function dubsDefaults(){ return {plays:{},onlinePlays:{},totalPlays:0,totalSecs:0,days:{},lastDay:"",streak:0,bestStreak:0,unlocked:{},pendingCoins:0,dubCoins:0}; }
+DUB_DEFS.forEach(d=>{ if(!d.cat) d.cat="games"; });
+function dubCount(o){ return Object.keys(o||{}).length; }
+function dubBigSeries(s){ return Object.keys(s.finSeries||{}).filter(t=>(s.finSeriesEp||{})[t]>=10).length; }
+function dubsDefaults(){ return {plays:{},onlinePlays:{},totalPlays:0,totalSecs:0,days:{},lastDay:"",streak:0,bestStreak:0,unlocked:{},pendingCoins:0,dubCoins:0,watchPlays:0,watchSecs:0,finVids:{},finEps:{},finSeries:{},finSeriesEp:{},likes:{},saves:{}}; }
 function dubsLoad(){ try{ const d=JSON.parse(localStorage.getItem("shortztv_dubs")||"null"); if(d&&typeof d==="object") return Object.assign(dubsDefaults(),d); }catch(e){} return dubsDefaults(); }
 let DUBS_STATE=dubsLoad();
 function dubsSave(){ try{ localStorage.setItem("shortztv_dubs",JSON.stringify(DUBS_STATE)); }catch(e){} }
@@ -456,15 +475,19 @@ function dubCaseOpen(){
   let o=document.getElementById("dubCase");
   if(!o){
     o=document.createElement("div"); o.id="dubCase";
-    o.innerHTML=`<div class="dubCaseHead"><b>MY DUBS</b><button class="dubCaseX" data-dubx>✕ Close</button></div><div class="dubCaseList"></div>`;
+    o.innerHTML=`<div class="dubCaseHead"><button class="dubCaseX" data-dubx aria-label="Close">✕</button><b>MY DUBS</b></div><div class="dubCaseList"></div>`;
     document.body.appendChild(o);
     o.querySelector("[data-dubx]").addEventListener("click", ()=>o.classList.remove("open"));
   }
   const s=DUBS_STATE;
-  o.querySelector(".dubCaseList").innerHTML=DUB_DEFS.map(d=>{
+  const rowHtml=d=>{
     const t=DUB_TIERS[d.tier], un=!!s.unlocked[d.id];
     let g=null; try{ g=d.goal(s); }catch(e){}
     return `<div class="dubRow ${un?"got":""}"><div class="dubDisc sm" style="background:${t.grad}">W</div><div class="dubRowT"><b>${esc(d.name)}</b><span>${esc(d.sub)}</span>${(!un&&g)?`<div class="dubBar sm"><i style="width:${Math.round(Math.min(g.cur/g.target,1)*100)}%"></i></div><span class="dubProg">${dubGoalText(g)}</span>`:""}</div><div class="dubRowR"><span class="dubTier" style="color:${t.color}">${t.label}</span><span class="dubRowCoins">${un?"EARNED · +":"+"}${d.coins} coins</span></div></div>`;
+  };
+  o.querySelector(".dubCaseList").innerHTML=[["games","GAMES"],["watch","WATCHING"],["likes","LIKES"],["saves","SAVES"]].map(([cat,lab])=>{
+    const rows=DUB_DEFS.filter(d=>d.cat===cat).map(rowHtml).join("");
+    return rows?`<div class="dubCaseSec">${lab}</div>`+rows:"";
   }).join("");
   o.classList.add("open");
 }
@@ -492,4 +515,52 @@ async function dubsFounder(){
   }catch(e){}
 }
 setInterval(()=>{ try{ dubsFounder(); }catch(e){} }, 5000);
-window.Dubs={defs:DUB_DEFS,state:()=>DUBS_STATE,check:dubsCheck,paint:dubsPaint,openCase:dubCaseOpen,start:dubsStart,stop:dubsStop};
+/* Dubs Everywhere event API — the app's own watch/like/save funnels
+   call these; every call re-checks the whole board. */
+function dubEvWatchPlay(){ DUBS_STATE.watchPlays=(DUBS_STATE.watchPlays||0)+1; dubsSave(); try{ dubsCheck(); }catch(e){} }
+function dubEvWatchSecs(n){ if(n>0){ DUBS_STATE.watchSecs=(DUBS_STATE.watchSecs||0)+n; dubsSave(); } }
+function dubEvWatchFinish(vidKey,titleId,epKey,epCount){
+  const s=DUBS_STATE; if(!vidKey) return;
+  s.finVids=s.finVids||{}; s.finEps=s.finEps||{}; s.finSeries=s.finSeries||{}; s.finSeriesEp=s.finSeriesEp||{};
+  s.finVids[vidKey]=1;
+  if(titleId&&epKey&&epCount>1){
+    const m=(s.finEps[titleId]=s.finEps[titleId]||{}); m[epKey]=1;
+    if(Object.keys(m).length>=epCount){ s.finSeries[titleId]=1; s.finSeriesEp[titleId]=epCount; }
+  }
+  dubsSave(); try{ dubsCheck(); }catch(e){}
+}
+function dubEvLike(id,on){ const s=DUBS_STATE; s.likes=s.likes||{}; if(!id) return; if(on===false) delete s.likes[id]; else s.likes[id]=1; dubsSave(); try{ dubsCheck(); }catch(e){} }
+function dubEvSave(id,on){ const s=DUBS_STATE; s.saves=s.saves||{}; if(!id) return; if(on===false) delete s.saves[id]; else s.saves[id]=1; dubsSave(); try{ dubsCheck(); }catch(e){} }
+window.Dubs={defs:DUB_DEFS,state:()=>DUBS_STATE,check:dubsCheck,paint:dubsPaint,openCase:dubCaseOpen,start:dubsStart,stop:dubsStop,watchPlay:dubEvWatchPlay,watchSecs:dubEvWatchSecs,watchFinish:dubEvWatchFinish,like:dubEvLike,save:dubEvSave};
+/* finish hook: the stage player's verified ENDED points call this
+   with a video id; identity resolves through the app's own byVid /
+   epIdxOf, so a finish credits the right title + episode. */
+window.dubFinHook=function(vid){
+  try{
+    if(!vid||typeof byVid!=="function") return;
+    const t=byVid(vid); if(!t||!t.id) return;
+    const eps=t.episodes||[];
+    const idx=(typeof epIdxOf==="function")?epIdxOf(eps,vid):-1;
+    dubEvWatchFinish(vid, t.id, idx>=0?("e"+idx):vid, eps.length);
+  }catch(e){}
+};
+function dubEvSyncSaves(ids){
+  const s=DUBS_STATE; s.saves=s.saves||{}; let grew=false;
+  (ids||[]).forEach(id=>{ if(id&&!s.saves[id]){ s.saves[id]=1; grew=true; } });
+  if(grew){ dubsSave(); try{ dubsCheck(); }catch(e){} }
+}
+window.Dubs.syncSaves=dubEvSyncSaves;
+/* boot reconcile: likes/saves made before Dubs Everywhere still count
+   (the app's own stores, shortztv_ prefixed — read-only union). */
+try{
+  const ml=JSON.parse(localStorage.getItem("shortztv_mylist")||"[]");
+  if(Array.isArray(ml)) ml.forEach(id=>{ if(id) DUBS_STATE.saves[id]=1; });
+  const lk=JSON.parse(localStorage.getItem("shortztv_likes")||"{}");
+  Object.keys(lk||{}).forEach(id=>{ if(lk[id]) DUBS_STATE.likes[id]=1; });
+  const li=JSON.parse(localStorage.getItem("shortztv_likes_intent")||"{}");
+  Object.keys(li||{}).forEach(id=>{ const v=li[id]; if(v&&(v.on===1||v.on===true)) DUBS_STATE.likes[id]=1; });
+  dubsSave();
+}catch(e){}
+/* the Dubs button by the hub arrows (his order 2026-10-17): one tap
+   from anywhere pops the Dub Case as a scrollable card. */
+try{ const db=document.getElementById("dubBtn"); if(db) db.addEventListener("click", e=>{ e.stopPropagation(); dubCaseOpen(); }); }catch(e){}
