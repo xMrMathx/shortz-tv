@@ -321,7 +321,6 @@ try{ renderGamesShelf(); }catch(e){}
 const DUB_TIERS={
   bronze:{label:"BRONZE DUB",color:"#eda96b",grad:"linear-gradient(145deg,#eda96b,#b06a2c)"},
   silver:{label:"SILVER DUB",color:"#d7dbe2",grad:"linear-gradient(145deg,#f2f4f8,#9aa3b2 60%,#6e7684)"},
-  gold:{label:"GOLD DUB",color:"#f6c945",grad:"linear-gradient(145deg,#ffe9a8,#f6c945 55%,#c9930a)"},
   crown:{label:"CROWN DUB",color:"#ffd968",grad:"linear-gradient(145deg,#fff3c4,#f6c945 50%,#a87b00)"}
 };
 function dubIsOnline(g){ return /ONLINE/.test((g&&g.sub)||"") || /ONLINE/.test((g&&g.cat)||""); }
@@ -335,9 +334,9 @@ const DUB_DEFS=[
  {id:"tag_team",tier:"silver",name:"Tag Team",sub:"Play an online multiplayer game",coins:25,goal:s=>({cur:Math.min(dubOnlineDistinct(s),1),target:1})},
  {id:"marathon",tier:"silver",name:"Marathon",sub:"Play 1 hour total",coins:25,goal:s=>({cur:Math.min(Math.floor(s.totalSecs/60),60),target:60,unit:"min"})},
  {id:"regular",tier:"silver",name:"The Regular",sub:"Play 3 days in a row",coins:25,goal:s=>({cur:Math.min(s.bestStreak,3),target:3,unit:"days"})},
- {id:"full_shelf",tier:"gold",name:"Full Shelf",sub:"Play every game on the shelf",coins:50,goal:s=>({cur:dubDistinct(s),target:GAMES.length,unit:"games"})},
- {id:"life_of_party",tier:"gold",name:"Life of the Party",sub:"Play 5 different online multiplayer games",coins:50,goal:s=>({cur:Math.min(dubOnlineDistinct(s),5),target:5})},
- {id:"iron_man",tier:"gold",name:"Iron Man",sub:"Play 5 hours total",coins:50,goal:s=>({cur:Math.min(Math.floor(s.totalSecs/60),300),target:300,unit:"min"})},
+ {id:"full_shelf",tier:"crown",name:"Full Shelf",sub:"Play every game on the shelf",coins:50,goal:s=>({cur:dubDistinct(s),target:GAMES.length,unit:"games"})},
+ {id:"life_of_party",tier:"crown",name:"Life of the Party",sub:"Play 5 different online multiplayer games",coins:50,goal:s=>({cur:Math.min(dubOnlineDistinct(s),5),target:5})},
+ {id:"iron_man",tier:"crown",name:"Iron Man",sub:"Play 5 hours total",coins:50,goal:s=>({cur:Math.min(Math.floor(s.totalSecs/60),300),target:300,unit:"min"})},
  {id:"no_days_off",tier:"crown",name:"No Days Off",sub:"Play 7 days in a row",coins:250,goal:s=>({cur:Math.min(s.bestStreak,7),target:7,unit:"days"})},
  {id:"completionist",tier:"crown",name:"The Completionist",sub:"Earn every other Dub",coins:250,goal:s=>({cur:Object.keys(s.unlocked).filter(k=>k!=="completionist").length,target:11,unit:"Dubs"})}
 ];
@@ -406,6 +405,19 @@ function dubsFlushCoins(){
   }catch(e){}
 }
 setInterval(()=>{ try{ dubsFlushCoins(); }catch(e){} }, 4000);
+/* Dub sounds (his crowns, 2026-10-17): the coin chime for bronze/silver;
+   his beat drop for the Crown tier only. Detached elements, created once;
+   every play() rejection is caught — a silent banner beats a broken one. */
+const DUB_SND_REG=new Audio("audio/dub-regular.mp3"), DUB_SND_CROWN=new Audio("audio/dub-crown.mp3");
+try{ DUB_SND_REG.preload="auto"; DUB_SND_CROWN.preload="auto"; }catch(e){}
+function dubSound(tier){
+  try{
+    const a=(tier==="crown")?DUB_SND_CROWN:DUB_SND_REG;
+    a.pause(); try{ a.currentTime=0; }catch(e){}
+    a.volume=(tier==="crown")?0.9:0.6;
+    const p=a.play(); if(p&&p.catch) p.catch(function(){});
+  }catch(e){}
+}
 /* the unlock banner — his crowned mockup, v2 (payout in frame) */
 let dubPopQueue=[], dubPopBusy=false;
 function dubQueuePopup(d){ dubPopQueue.push(d); if(!dubPopBusy) dubPopNext(); }
@@ -414,6 +426,7 @@ function dubPopNext(){
   dubPopBusy=true; dubShowPop(d); setTimeout(dubPopNext, 4700);
 }
 function dubShowPop(d){
+  dubSound(d.tier);
   const t=DUB_TIERS[d.tier]||DUB_TIERS.bronze;
   let el=document.getElementById("dubPop");
   if(!el){ el=document.createElement("div"); el.id="dubPop"; document.body.appendChild(el); }
