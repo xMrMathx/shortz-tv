@@ -201,7 +201,7 @@ function gamePosterHTML(g){
 function renderGames(){
   const v=document.getElementById("view-games");
   if(!v)return;
-  if(gamesBuilt&&v.querySelector(".gcards"))return;
+  if(gamesBuilt&&v.querySelector(".gcards")){ try{dubsPaint()}catch(e){} return; }
   gamesBuilt=true;
   v.innerHTML=`<div class="gcards">`
     +GAMES.map((g,i)=>`<article class="gcard" data-gcard="${i}">
@@ -213,6 +213,7 @@ function renderGames(){
     const card=b.closest(".gcard");
     gameMount(card,GAMES[+card.dataset.gcard]);
   }));
+  try{dubsPaint()}catch(e){}
 }
 function gamePlayerEl(){
   let p = document.getElementById("gamePlayer");
@@ -232,6 +233,7 @@ function gameMount(card, g){
   if(!g) return;
   gameStop();
   gamesActiveCard = card || null;
+  try{ dubsStart(g); }catch(e){}
   const p = gamePlayerEl();
   p.querySelectorAll("iframe").forEach(f => f.remove());
   const ifr = document.createElement("iframe");
@@ -256,6 +258,7 @@ function gameMount(card, g){
   }catch(e){}
 }
 function gameStop(){
+  try{ dubsStop(); }catch(e){}
   document.body.classList.remove("playing-game");
   if(document.fullscreenElement){ try{ document.exitFullscreen().catch(() => {}); }catch(e){} }
   const p = document.getElementById("gamePlayer");
@@ -297,3 +300,183 @@ function gamePresent(title){
 }
 window.Games={stop:gameStop,list:()=>GAMES,present:gamePresent,renderShelf:renderGamesShelf};
 try{ renderGamesShelf(); }catch(e){}
+
+/* ============================================================
+   SHORTZ DUBS (his order 2026-10-17) — the app's own award
+   system for the Games shelf. Not "trophies" (PlayStation),
+   not "achievements" (Xbox) — DUBS, his crowned name: wins
+   you collect by playing. Every Dub pays Stake Coins through
+   the existing Stake path (Stake.coins + saveCoins, only after
+   Stake has loaded the real balance — the Brain audit's race
+   warning). Shelf games are third-party embeds that report
+   nothing back, so Dubs are earned by PLAY: launches, variety,
+   time in game, day streaks, multiplayer sessions. Real win
+   Dubs belong to our own games only (a later piece).
+   State: localStorage "shortztv_dubs"; unlocks mirrored to
+   RTDB directory/{uid}/trophies (same store as coins/likes).
+   The unlock banner is his crowned mockup: Xbox rise-and-
+   expand wearing PlayStation dark glass, gold on charcoal,
+   payout plate always fully in frame.
+   ============================================================ */
+const DUB_TIERS={
+  bronze:{label:"BRONZE DUB",color:"#eda96b",grad:"linear-gradient(145deg,#eda96b,#b06a2c)"},
+  silver:{label:"SILVER DUB",color:"#d7dbe2",grad:"linear-gradient(145deg,#f2f4f8,#9aa3b2 60%,#6e7684)"},
+  gold:{label:"GOLD DUB",color:"#f6c945",grad:"linear-gradient(145deg,#ffe9a8,#f6c945 55%,#c9930a)"},
+  crown:{label:"CROWN DUB",color:"#ffd968",grad:"linear-gradient(145deg,#fff3c4,#f6c945 50%,#a87b00)"}
+};
+function dubIsOnline(g){ return /ONLINE/.test((g&&g.sub)||"") || /ONLINE/.test((g&&g.cat)||""); }
+function dubDistinct(s){ return Object.keys(s.plays||{}).length; }
+function dubOnlineDistinct(s){ return Object.keys(s.onlinePlays||{}).length; }
+const DUB_DEFS=[
+ {id:"first_bell",tier:"bronze",name:"First Bell",sub:"Play your first game",coins:10,goal:s=>({cur:Math.min(s.totalPlays,1),target:1})},
+ {id:"getting_around",tier:"bronze",name:"Getting Around",sub:"Play 3 different games",coins:10,goal:s=>({cur:Math.min(dubDistinct(s),3),target:3})},
+ {id:"warm_up",tier:"bronze",name:"Warm-Up",sub:"Play 15 minutes total",coins:10,goal:s=>({cur:Math.min(Math.floor(s.totalSecs/60),15),target:15,unit:"min"})},
+ {id:"explorer",tier:"silver",name:"Shelf Explorer",sub:"Play 10 different games",coins:25,goal:s=>({cur:Math.min(dubDistinct(s),10),target:10})},
+ {id:"tag_team",tier:"silver",name:"Tag Team",sub:"Play an online multiplayer game",coins:25,goal:s=>({cur:Math.min(dubOnlineDistinct(s),1),target:1})},
+ {id:"marathon",tier:"silver",name:"Marathon",sub:"Play 1 hour total",coins:25,goal:s=>({cur:Math.min(Math.floor(s.totalSecs/60),60),target:60,unit:"min"})},
+ {id:"regular",tier:"silver",name:"The Regular",sub:"Play 3 days in a row",coins:25,goal:s=>({cur:Math.min(s.bestStreak,3),target:3,unit:"days"})},
+ {id:"full_shelf",tier:"gold",name:"Full Shelf",sub:"Play every game on the shelf",coins:50,goal:s=>({cur:dubDistinct(s),target:GAMES.length,unit:"games"})},
+ {id:"life_of_party",tier:"gold",name:"Life of the Party",sub:"Play 5 different online multiplayer games",coins:50,goal:s=>({cur:Math.min(dubOnlineDistinct(s),5),target:5})},
+ {id:"iron_man",tier:"gold",name:"Iron Man",sub:"Play 5 hours total",coins:50,goal:s=>({cur:Math.min(Math.floor(s.totalSecs/60),300),target:300,unit:"min"})},
+ {id:"no_days_off",tier:"crown",name:"No Days Off",sub:"Play 7 days in a row",coins:250,goal:s=>({cur:Math.min(s.bestStreak,7),target:7,unit:"days"})},
+ {id:"completionist",tier:"crown",name:"The Completionist",sub:"Earn every other Dub",coins:250,goal:s=>({cur:Object.keys(s.unlocked).filter(k=>k!=="completionist").length,target:11,unit:"Dubs"})}
+];
+function dubsDefaults(){ return {plays:{},onlinePlays:{},totalPlays:0,totalSecs:0,days:{},lastDay:"",streak:0,bestStreak:0,unlocked:{},pendingCoins:0,dubCoins:0}; }
+function dubsLoad(){ try{ const d=JSON.parse(localStorage.getItem("shortztv_dubs")||"null"); if(d&&typeof d==="object") return Object.assign(dubsDefaults(),d); }catch(e){} return dubsDefaults(); }
+let DUBS_STATE=dubsLoad();
+function dubsSave(){ try{ localStorage.setItem("shortztv_dubs",JSON.stringify(DUBS_STATE)); }catch(e){} }
+let dubSession=null;
+function dubsDayTouch(){
+  const s=DUBS_STATE, today=new Date().toISOString().slice(0,10);
+  if(s.lastDay===today) return;
+  const yest=new Date(Date.now()-864e5).toISOString().slice(0,10);
+  s.streak=(s.lastDay===yest)?(s.streak||0)+1:1;
+  s.bestStreak=Math.max(s.bestStreak||0,s.streak);
+  s.lastDay=today; s.days[today]=1;
+}
+function dubsStart(g){
+  if(!g) return;
+  dubsDayTouch();
+  const s=DUBS_STATE;
+  s.totalPlays++;
+  s.plays[g.title]=(s.plays[g.title]||0)+1;
+  if(dubIsOnline(g)) s.onlinePlays[g.title]=(s.onlinePlays[g.title]||0)+1;
+  dubSession={title:g.title,start:Date.now()};
+  dubsSave();
+  setTimeout(()=>{ try{ dubsCheck(); }catch(e){} }, 900);
+}
+function dubsStop(){
+  if(!dubSession) return;
+  const secs=Math.min(Math.floor((Date.now()-dubSession.start)/1000), 4*3600);
+  dubSession=null;
+  if(secs>0){ DUBS_STATE.totalSecs+=secs; dubsSave(); }
+  try{ dubsCheck(); }catch(e){}
+  try{ dubsPaint(); }catch(e){}
+}
+function dubsCheck(){
+  const s=DUBS_STATE; let changed=false;
+  for(const d of DUB_DEFS){
+    if(s.unlocked[d.id]) continue;
+    let g=null; try{ g=d.goal(s); }catch(e){}
+    if(g&&g.cur>=g.target){
+      s.unlocked[d.id]=Date.now();
+      s.pendingCoins+=d.coins; s.dubCoins+=d.coins; changed=true;
+      dubQueuePopup(d);
+      dubMirror(d);
+    }
+  }
+  if(changed){ dubsSave(); dubsFlushCoins(); try{ dubsPaint(); }catch(e){} }
+}
+function dubMirror(d){
+  try{
+    if(window.Live&&Live.authed&&Live.db&&Live.uid){
+      Live.db.ref("directory/"+Live.uid+"/trophies/"+d.id).set({ts:Date.now(),coins:d.coins});
+      Live.db.ref("directory/"+Live.uid+"/trophiesMeta").update({count:Object.keys(DUBS_STATE.unlocked).length,dubCoins:DUBS_STATE.dubCoins});
+    }
+  }catch(e){}
+}
+function dubsFlushCoins(){
+  const s=DUBS_STATE;
+  if(!(s.pendingCoins>0)) return;
+  try{
+    if(window.Stake&&Stake._coinsLoaded&&Stake.uid){
+      Stake.coins+=s.pendingCoins; s.pendingCoins=0; dubsSave();
+      Stake.saveCoins();
+    }
+  }catch(e){}
+}
+setInterval(()=>{ try{ dubsFlushCoins(); }catch(e){} }, 4000);
+/* the unlock banner — his crowned mockup, v2 (payout in frame) */
+let dubPopQueue=[], dubPopBusy=false;
+function dubQueuePopup(d){ dubPopQueue.push(d); if(!dubPopBusy) dubPopNext(); }
+function dubPopNext(){
+  const d=dubPopQueue.shift(); if(!d){ dubPopBusy=false; return; }
+  dubPopBusy=true; dubShowPop(d); setTimeout(dubPopNext, 4700);
+}
+function dubShowPop(d){
+  const t=DUB_TIERS[d.tier]||DUB_TIERS.bronze;
+  let el=document.getElementById("dubPop");
+  if(!el){ el=document.createElement("div"); el.id="dubPop"; document.body.appendChild(el); }
+  el.className=""; void el.offsetWidth;
+  el.innerHTML=`<div class="dubMed"><div class="dubDisc" style="background:${t.grad}">W</div>${d.tier==="crown"?'<svg class="dubCrown" viewBox="0 0 24 24"><path d="M3 17 L2 7 L8 11 L12 4 L16 11 L22 7 L21 17 Z" fill="#f6c945" stroke="#8a6400"/></svg>':""}</div>`
+    +`<div class="dubTxt"><div class="dubKick" style="color:${t.color}">${t.label} — DUB EARNED</div><div class="dubName">${esc(d.name)}</div><div class="dubSub">${esc(d.sub)}</div></div>`
+    +`<div class="dubChip"><span class="dubCoin">S</span><span class="dubAmt"><b>+${Number(d.coins).toLocaleString()}</b><span>STAKE COINS</span></span></div>`;
+  if(d.tier==="crown") el.classList.add("crown");
+  requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ el.classList.add("in"); }); });
+  setTimeout(()=>{ el.classList.remove("in"); el.classList.add("out"); }, 3900);
+  setTimeout(()=>{ el.classList.remove("out"); }, 4450);
+}
+/* the Games-view panel + My Dubs case */
+function dubGoalText(g){ return g.cur+" / "+g.target+(g.unit?" "+g.unit:""); }
+function dubsPaint(){
+  const v=document.getElementById("view-games"); if(!v) return;
+  let p=document.getElementById("dubsPanel");
+  if(!p){ p=document.createElement("div"); p.id="dubsPanel"; v.insertBefore(p, v.firstChild); }
+  const s=DUBS_STATE, earned=Object.keys(s.unlocked).length;
+  let next=null;
+  for(const d of DUB_DEFS){ if(s.unlocked[d.id]) continue; let g=null; try{ g=d.goal(s); }catch(e){} if(!g) continue; const frac=g.target?Math.min(g.cur/g.target,1):0; if(!next||frac>next.frac) next={d,g,frac}; }
+  p.innerHTML=`<div class="dubPanelHead"><span class="dubPanelW">W</span><div class="dubPanelT"><b>SHORTZ DUBS</b><span>${earned} of ${DUB_DEFS.length} earned · ${s.dubCoins} Stake Coins won</span></div><button class="dubPanelBtn" id="dubCaseBtn">MY DUBS</button></div>`
+    +(next?`<div class="dubNext"><span>NEXT: <b>${esc(next.d.name)}</b> — ${dubGoalText(next.g)}</span><div class="dubBar"><i style="width:${Math.round(next.frac*100)}%"></i></div></div>`:`<div class="dubNext"><span>Every Dub earned. You run this shelf.</span></div>`);
+  const b=document.getElementById("dubCaseBtn"); if(b) b.addEventListener("click", dubCaseOpen);
+}
+function dubCaseOpen(){
+  let o=document.getElementById("dubCase");
+  if(!o){
+    o=document.createElement("div"); o.id="dubCase";
+    o.innerHTML=`<div class="dubCaseHead"><b>MY DUBS</b><button class="dubCaseX" data-dubx>✕ Close</button></div><div class="dubCaseList"></div>`;
+    document.body.appendChild(o);
+    o.querySelector("[data-dubx]").addEventListener("click", ()=>o.classList.remove("open"));
+  }
+  const s=DUBS_STATE;
+  o.querySelector(".dubCaseList").innerHTML=DUB_DEFS.map(d=>{
+    const t=DUB_TIERS[d.tier], un=!!s.unlocked[d.id];
+    let g=null; try{ g=d.goal(s); }catch(e){}
+    return `<div class="dubRow ${un?"got":""}"><div class="dubDisc sm" style="background:${t.grad}">W</div><div class="dubRowT"><b>${esc(d.name)}</b><span>${esc(d.sub)}</span>${(!un&&g)?`<div class="dubBar sm"><i style="width:${Math.round(Math.min(g.cur/g.target,1)*100)}%"></i></div><span class="dubProg">${dubGoalText(g)}</span>`:""}</div><div class="dubRowR"><span class="dubTier" style="color:${t.color}">${t.label}</span><span class="dubRowCoins">${un?"EARNED · +":"+"}${d.coins} coins</span></div></div>`;
+  }).join("");
+  o.classList.add("open");
+}
+/* FOUNDER ACTIVATION (his order 2026-10-17): the owner's own
+   account starts on top — a one-time grant to 1,000,000 Stake
+   Coins, keyed to his sign-in, recorded so it never repeats. */
+const DUB_FOUNDER_EMAIL="craigjrbb@gmail.com";
+let dubFounderDone=false;
+async function dubsFounder(){
+  if(dubFounderDone) return;
+  try{
+    const a=(window.Live&&Live.auth)||(window.firebase&&firebase.auth?firebase.auth():null);
+    const u=a&&a.currentUser;
+    if(!u||(u.email||"").toLowerCase()!==DUB_FOUNDER_EMAIL) return;
+    if(!(window.Stake&&Stake._coinsLoaded&&Stake.uid&&window.Live&&Live.db)) return;
+    const ref=Live.db.ref("directory/"+Stake.uid+"/coins");
+    const snap=await ref.once("value"); const c=snap.val()||{};
+    if(c.founderGrant){ dubFounderDone=true; return; }
+    const GRANT=1000000;
+    if((Stake.coins||0)<GRANT) Stake.coins=GRANT;
+    await ref.update({balance:Math.round(Stake.coins),founderGrant:Date.now()});
+    try{ Stake.paintPill(); }catch(e){}
+    dubFounderDone=true;
+    dubQueuePopup({tier:"crown",name:"The Vault",sub:"Founder activation — welcome home, Mr. Math",coins:GRANT});
+  }catch(e){}
+}
+setInterval(()=>{ try{ dubsFounder(); }catch(e){} }, 5000);
+window.Dubs={defs:DUB_DEFS,state:()=>DUBS_STATE,check:dubsCheck,paint:dubsPaint,openCase:dubCaseOpen,start:dubsStart,stop:dubsStop};
