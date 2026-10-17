@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shortz VS — phone check</title>
+<style>
+body{background:#0b0b0e;color:#fff;font-family:system-ui,sans-serif;margin:0;padding:22px;font-size:19px;line-height:1.5}
+h1{font-size:24px;margin:0 0 14px;color:#f6c945}
+.k{color:#9a9aa5;font-size:14px;text-transform:uppercase;letter-spacing:.06em;margin-top:16px}
+.v{font-size:22px;font-weight:700;word-break:break-all}
+.box{border:2px solid #f6c945;height:60px;margin-top:18px;position:relative}
+.box span{position:absolute;left:8px;top:16px;font-size:14px;color:#f6c945}
+.full{width:100%;background:#2563eb}
+.half{width:50%;background:#7c3aed}
+</style></head><body>
+<h1>Phone check — screenshot this whole page</h1>
+<div class="k">Browser</div><div class="v" id="ua"></div>
+<div class="k">Screen width × height</div><div class="v" id="sw"></div>
+<div class="k">Window inner width × height</div><div class="v" id="iw"></div>
+<div class="k">Device pixel ratio</div><div class="v" id="dpr"></div>
+<div class="k">Visual viewport width / scale</div><div class="v" id="vv"></div>
+<div class="k">Touch points</div><div class="v" id="tp"></div>
+<div class="k">This blue bar should span edge to edge</div>
+<div class="box full"><span>100% width</span></div>
+<div class="k">This purple bar should span exactly half</div>
+<div class="box half"><span>50%</span></div>
+<script>
+function fill(){
+  document.getElementById('ua').textContent = navigator.userAgent;
+  document.getElementById('sw').textContent = screen.width + ' x ' + screen.height;
+  document.getElementById('iw').textContent = window.innerWidth + ' x ' + window.innerHeight;
+  document.getElementById('dpr').textContent = window.devicePixelRatio;
+  var v = window.visualViewport;
+  document.getElementById('vv').textContent = v ? (Math.round(v.width) + ' / ' + v.scale) : 'n/a';
+  document.getElementById('tp').textContent = navigator.maxTouchPoints;
+}
+fill();
+window.addEventListener('resize', fill);
+</script>
+</body></html>
