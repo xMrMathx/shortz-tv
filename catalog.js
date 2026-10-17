@@ -1483043,5 +1483043,97 @@ window.SHORTZ_CATALOG = [
     "rights_basis": "Distributor-posted full feature — WATCH Western Movies NOW official YouTube upload, public embed",
     "source_channel": "WATCH Western Movies NOW",
     "award_verified": false
+  },
+  {
+    "id": "stv-55085",
+    "title": "Journey to the Center of the Earth",
+    "genre": "Adventure",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Journey to the Center of the Earth",
+        "url": "https://www.youtube.com/embed/7ADFx1Mhqtg",
+        "video_id": "7ADFx1Mhqtg",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/7ADFx1Mhqtg",
+    "eps": "1 ep",
+    "desc": "",
+    "rights_basis": "Distributor-posted — Movie Central",
+    "source_channel": "Movie Central",
+    "award_verified": false
+  },
+  {
+    "id": "stv-55086",
+    "title": "Sleeping Beauty",
+    "genre": "Fantasy",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Sleeping Beauty",
+        "url": "https://www.youtube.com/embed/HLNWkSUTD30",
+        "video_id": "HLNWkSUTD30",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/HLNWkSUTD30",
+    "eps": "1 ep",
+    "desc": "",
+    "rights_basis": "Distributor-posted — Movie Central",
+    "source_channel": "Movie Central",
+    "award_verified": false
+  },
+  {
+    "id": "stv-55087",
+    "title": "Airliner Sky Battle",
+    "genre": "Action",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Airliner Sky Battle",
+        "url": "https://www.youtube.com/embed/TYyA8R9tp2w",
+        "video_id": "TYyA8R9tp2w",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/TYyA8R9tp2w",
+    "eps": "1 ep",
+    "desc": "",
+    "rights_basis": "Distributor-posted — Movie Central",
+    "source_channel": "Movie Central",
+    "award_verified": false
+  },
+  {
+    "id": "stv-55088",
+    "title": "Triassic Hunt",
+    "genre": "Action",
+    "verified": true,
+    "dateAdded": "2026-10-16",
+    "episodes": [
+      {
+        "n": 1,
+        "title": "Triassic Hunt",
+        "url": "https://www.youtube.com/embed/lPo7YunuAcY",
+        "video_id": "lPo7YunuAcY",
+        "platform": "youtube",
+        "verified": true
+      }
+    ],
+    "url": "https://www.youtube.com/embed/lPo7YunuAcY",
+    "eps": "1 ep",
+    "desc": "",
+    "rights_basis": "Distributor-posted — Movie Central",
+    "source_channel": "Movie Central",
+    "award_verified": false
   }
 ];
