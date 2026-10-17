@@ -166,7 +166,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #cfBack{position:absolute;top:calc(60px + env(safe-area-inset-top));left:12px;z-index:60;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(0,0,0,.6);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center}
 #cfBack.on{display:flex}
 @media(min-width:1024px){
-  #cfeedInner{max-width:1180px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
+  #cfeedInner{max-width:1500px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
 }
 /* ---------- SCOUT-GUIDED BROWSE: landing blocks + Home-style card lists ---------- */
 .bcf-list{max-width:640px;margin:0 auto;padding:0 12px;display:flex;flex-direction:column;gap:14px}
@@ -189,7 +189,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .btt-tx{position:absolute;left:104px;right:16px;bottom:0;padding-bottom:13px;min-width:0}
 .btt-t{font-size:19px;font-weight:800;color:#fff;margin:3px 0 5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .btt-d{font-size:12.5px;color:#d7d7de;line-height:1.45;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-@media(min-width:1024px){ .btt-wrap{max-width:1180px;padding-left:24px;padding-right:24px} }
+@media(min-width:1024px){ .btt-wrap{max-width:1500px;padding-left:24px;padding-right:24px} }
 .gtile-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 .gtile{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#101013;border:1px solid #232328;border-radius:14px;padding:16px 14px;color:var(--txt);font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;text-align:left}
 .gtile.games{border-color:rgba(229,9,20,.55);background:linear-gradient(135deg,rgba(229,9,20,.20),rgba(229,9,20,.05))}
@@ -198,9 +198,9 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .gtile.all{border-color:rgba(229,9,20,.55)}
 #view-genre .gfull-cflist{max-width:640px;margin:0 auto;padding:16px 12px calc(96px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
 @media(min-width:1024px){
-  .bcf-list{max-width:1180px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
+  .bcf-list{max-width:1500px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
   .gtile-grid{grid-template-columns:repeat(4,1fr)}
-  #view-genre .gfull-cflist{max-width:1180px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
+  #view-genre .gfull-cflist{max-width:1500px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:24px;padding-right:24px}
 }
 /* error card: shown instead of auto-advancing on playback failure */
 .errcard{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(8,8,12,.92);z-index:40;text-align:center;padding:24px}
@@ -1046,62 +1046,19 @@ body:has(:is(#scoutSheet,#stkSheet,#isheet,#lvsheet,#lnsheet,#ccsheet,#cdraw,#ed
 
 @media(min-width:760px){
   .vcard{width:140px}.vthumb{width:140px;height:248px}
-  .feedstage{max-width:520px;margin:0 auto}
-  /* DESKTOP: constrain fixed chrome to the phone column, not full viewport */
-  #tabbar{max-width:520px;left:50%;right:auto;width:100%;transform:translateX(-50%)}
-  #topbar{max-width:520px;left:50%;right:auto;width:100%;transform:translateX(-50%)}
-  #hudHint{left:50%;transform:translateX(-50%)}
-  /* Splash: base inset:0 already full-screen — no constraints needed */
-
+  /* WIDE SCREENS (his order 2026-10-17): the web version wears the APP layout
+     scaled full-bleed — no phone column, no side caps. Stage, top bar and
+     tab bar run the full width of the screen, like the app on a big tablet. */
 }
-/* ===== DESKTOP >=1024px: TikTok-web BLUEPRINT (Shortz VS branding kept) =====
-   Fixed 240px left sidebar + main area shifted right. Feed engine untouched:
-   home stays a centered vertical-video column (rail right, info bottom),
-   grids go full-width in the remaining space. */
+/* ===== WIDE >=1024px (his order 2026-10-17): APP LAYOUT, FULL-BLEED =====
+   The TikTok-web sidebar blueprint is gone. One look at every size: the
+   mobile app layout scaled to fill the screen — app chrome (top bar +
+   bottom tabs) at all widths, #views at zero offset so the Everything
+   hub's full-viewport swipe math is untouched, grids kept wide below. */
 @media(min-width:1024px){
-  /* --- left sidebar --- */
-  #sideBar{display:flex;position:fixed;top:0;left:0;bottom:0;width:240px;z-index:200;
-    flex-direction:column;background:#0a0a10;border-right:1px solid var(--line);
-    padding:22px 12px;gap:2px}
-  #sideBar .slogo{font-weight:900;font-size:22px;letter-spacing:1.5px;color:#fff;padding:4px 12px 18px}
-  #sideBar .slogo b{color:#e50914}
-  #sideBar .snav{display:flex;flex-direction:column;gap:2px}
-  #sideBar .snav button{display:flex;align-items:center;gap:14px;width:100%;
-    background:none;border:0;color:#cfcfd8;font-size:16px;font-weight:700;
-    padding:13px 14px;border-radius:12px;cursor:pointer;text-align:left;
-    transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
-  #sideBar .snav button:hover{background:rgba(255,255,255,.06);color:#fff}
-  #sideBar .snav button.on{color:#fff;background:rgba(229,9,20,.14)}
-  #sideBar .sico{font-size:22px;width:28px;text-align:center;flex:none}
-  #sideBar .slab{flex:1}
-  #sideBar .sfoot{margin-top:auto;padding:14px 12px 4px;border-top:1px solid var(--line)}
-  #sideBar .sfoot .free-tag{display:inline-block}
-  /* --- kill mobile chrome + old desktop top nav --- */
+  /* the app tab bar is the navigation at every width — no sidebar, and
+     the old desktop top nav never appears */
   #deskNav{display:none !important}
-  #tabbar{display:none !important}
-  #viewpad{display:none !important}
-  /* --- main area sits right of the sidebar --- */
-  #views{margin-left:240px}
-  #topbar{margin-left:240px;max-width:none;left:auto;right:0;width:auto;transform:none;
-    padding-left:32px;padding-right:32px}
-  body.feedfull #topbar{left:240px}
-  /* --- HOME: TikTok-style centered vertical video column --- */
-  #view-home .feedstage{max-width:520px;margin:0 auto;width:100%}
-  #hudHint{left:calc(50% + 120px)}
-  #voicePop{left:calc(50% + 120px)}
-  /* mic dot is a mobile watch-surface affordance — not needed with the desktop sidebar */
-  #micDot{display:none!important}
-  #evPrev,#evNext,#dubBtn{display:none!important}
-  /* everything toggle on desktop: bottom-right corner cluster — clear of
-     #toTop (bottom:86px) and of the topbar; no tabbar/mic chrome exists on
-     desktop. It sits LEFT of the updates TV button in the pair. */
-  #evToggle{left:auto;right:64px;top:auto;bottom:18px;transform:none}
-  #evToggle:active{transform:scale(.92)}
-  /* updates TV on desktop: button pairs RIGHT of the All button in the
-     bottom-right corner; the TV window anchors above #toTop (bottom:86px,
-     ~40px tall) so the corner stack never overlaps */
-  #tvBtn{left:auto;right:18px;top:auto;bottom:20px}
-  #tvBox{top:auto;bottom:140px;right:18px}
   /* --- SPLASH: laptop gets a full cinematic intro — reels span the screen --- */
   #splashLogo{width:min(44vw,520px)}
   .splashReel img{width:200px;height:112px}
@@ -1114,6 +1071,12 @@ body:has(:is(#scoutSheet,#stkSheet,#isheet,#lvsheet,#lnsheet,#ccsheet,#cdraw,#ed
     padding-left:36px;padding-right:36px}
   .sgrid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
   .mg-grid{grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px}
+  /* card feeds scale up wide too: games go two-across (tap-to-play, no
+     settle pick to disturb); streaming stays one column — its settle
+     activation picks the centered card — just a wider column of big cards */
+  .gcards{max-width:1500px;display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-left:36px;padding-right:36px}
+  .sscards{max-width:1080px}
+  .bcf-door{max-width:1500px;padding-left:36px;padding-right:36px}
   #view-genre .gfull-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
     max-width:1500px;margin:0 auto;gap:20px;padding:24px 36px}
   #view-genre .gfull-head{padding-left:36px;padding-right:36px}
@@ -2102,7 +2065,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792221969";
+window.__SZ_BUILD = "1792222615";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5224,7 +5187,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792221969";
+const BUILD="1792222615";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8852,10 +8815,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792221969"></script>
+<script src="js/folders.js?v=1792222615"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792221969"></script>
+<script src="js/guide.js?v=1792222615"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9663,9 +9626,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792221969"></script>
-<script src="js/shortz-live.js?v=1792221969"></script>
-<script src="js/games.js?v=1792221969"></script>
+<script src="js/streaming.js?v=1792222615"></script>
+<script src="js/shortz-live.js?v=1792222615"></script>
+<script src="js/games.js?v=1792222615"></script>
 <script>
 
 
@@ -10183,7 +10146,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792221969"></script>
+<script src="js/swipe.js?v=1792222615"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12404,6 +12367,6 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792221969"></script>
+<script src="js/live-sports.js?v=1792222615"></script>
 </body>
 </html>
