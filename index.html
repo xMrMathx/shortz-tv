@@ -344,7 +344,7 @@ body.pip .scrub{display:none!important}
    arrows, Dubs W, All, TV). Tap or scroll brings it all back. */
 #view-home .feed-rail,#view-home .feed-bottom,#view-home .soundprompt,
 #topbar,#tabbar,
-#evToggle,#tvBtn,#evPrev,#evNext,#dubBtn,
+#evToggle,#tvBtn,#evPrev,#evNext,#dubBtn,#palBtn,
 .scrub,
 .sreel-rail,.sreel-cap,.sreel-sport,.sreel-back,.sreel-sound,
 .sstream-top,.sstream-bot,.sstream-sound{transition:opacity .4s}
@@ -368,6 +368,7 @@ body.hud-hidden #tvBtn,
 body.hud-hidden #evPrev,
 body.hud-hidden #evNext,
 body.hud-hidden #dubBtn,
+body.hud-hidden #palBtn,
 body.hud-hidden #micDot,
 body.hud-hidden #hudHint{opacity:0!important;pointer-events:none!important}
 /* css-land: in-app 90° rotation — video fills screen, no OS rotation needed */
@@ -729,10 +730,12 @@ body.pip #micDot{display:none}
 #evPrev{left:calc(50% - 93px)}
 #dubBtn{position:fixed;bottom:calc(11px + env(safe-area-inset-bottom));left:calc(50% - 153px);z-index:61;width:52px;height:52px;border-radius:50%;padding:0;cursor:pointer;background:radial-gradient(circle at 35% 30%,#ffe9a8,#f6c945 55%,#c9930a);border:1px solid rgba(246,201,69,.7);color:#4a3200;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.45);-webkit-tap-highlight-color:transparent}
 #dubBtn:active{transform:scale(.92)}
+#palBtn{position:fixed;bottom:calc(11px + env(safe-area-inset-bottom));left:calc(50% + 101px);z-index:61;width:52px;height:52px;border-radius:50%;padding:0;cursor:pointer;background:radial-gradient(circle at 35% 30%,#ffe9a8,#f6c945 55%,#c9930a);border:1px solid rgba(246,201,69,.7);font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.45);-webkit-tap-highlight-color:transparent}
+#palBtn:active{transform:scale(.92)}
 #evNext{left:calc(50% + 41px)}
 #evPrev:active,#evNext:active{background:rgba(246,201,69,.25)}
-body.hud-hidden.feedfull #evPrev,body.hud-hidden.feedfull #evNext,body.hud-hidden.feedfull #dubBtn{bottom:calc(24px + env(safe-area-inset-bottom))}
-body.pip #evPrev,body.pip #evNext,body.pip #dubBtn{display:none}
+body.hud-hidden.feedfull #evPrev,body.hud-hidden.feedfull #evNext,body.hud-hidden.feedfull #dubBtn,body.hud-hidden.feedfull #palBtn{bottom:calc(24px + env(safe-area-inset-bottom))}
+body.pip #evPrev,body.pip #evNext,body.pip #dubBtn,body.pip #palBtn{display:none}
 
 /* EVERYTHING: swipeable hub — grid button in HUD, header bar in ev-mode */
 #evHeader{position:fixed;top:0;left:0;right:0;z-index:9500;display:none;align-items:center;gap:12px;
@@ -1281,8 +1284,8 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 #gamePlayer iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 /* while a game is open, the floating top chrome steps off the screen
    (his order 2026-10-14) and returns when the game closes */
-body.playing-game #evToggle,body.playing-game #tvBtn,body.playing-game #evHeader,body.playing-game #evHint,body.playing-game #tvBox,body.playing-game #evPrev,body.playing-game #evNext,body.playing-game #dubBtn{display:none!important}
-body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #evHint,body.sz-open #tvBox,body.sz-open #evPrev,body.sz-open #evNext,body.sz-open #dubBtn{display:none!important}
+body.playing-game #evToggle,body.playing-game #tvBtn,body.playing-game #evHeader,body.playing-game #evHint,body.playing-game #tvBox,body.playing-game #evPrev,body.playing-game #evNext,body.playing-game #dubBtn,body.playing-game #palBtn{display:none!important}
+body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #evHint,body.sz-open #tvBox,body.sz-open #evPrev,body.sz-open #evNext,body.sz-open #dubBtn,body.sz-open #palBtn{display:none!important}
 #gamePlayer .gclose{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));right:10px;z-index:5;background:rgba(10,10,16,.82);color:#fff;border:1px solid #2c2c38;border-radius:9px;padding:9px 14px;font-weight:800;cursor:pointer}
 /* SHORTZ DUBS (his order 2026-10-17): the unlock banner fuses Xbox's
    bottom rise-and-expand with PlayStation's dark glass — gold on
@@ -1929,6 +1932,7 @@ try{
   }
   function safeToReload(){
     if(window.__csUploading)return false; /* Creator Space upload in flight — a reload would kill it */
+    if(window.__palOpen)return false; /* Scout Pal card open — never reload out from under him */
     if(playbackActive())return false;
     if(Date.now()-lastTouch<3*60*1000)return false; // user active in last 3 min
     return true;
@@ -2041,6 +2045,7 @@ try{
   <button id="evPrev" aria-label="Previous section"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 4.5L8 12l7.5 7.5 1.8-1.8L11.6 12l5.7-5.7z"/></svg></button>
   <button id="evNext" aria-label="Next section"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.5 4.5L16 12l-7.5 7.5-1.8-1.8L12.4 12 6.7 6.3z"/></svg></button>
   <button id="dubBtn" aria-label="My Dubs — see your Dubs">W</button>
+  <button id="palBtn" aria-label="Scout Pal — your pet">🐾</button>
   <!-- EVERYTHING toggle: persistent — tap to enter/exit the swipeable section hub (restored 2026-10-16, his word: the All button stays) -->
   <button id="evToggle" aria-label="All sections">⊞</button>
   <!-- UPDATES TV button: sits right of the All button — tap to summon the little
@@ -2206,7 +2211,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792268764";
+window.__SZ_BUILD = "1792269766";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5330,7 +5335,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792268764";
+const BUILD="1792269766";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9052,10 +9057,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792268764"></script>
+<script src="js/folders.js?v=1792269766"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792268764"></script>
+<script src="js/guide.js?v=1792269766"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9865,9 +9870,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792268764"></script>
-<script src="js/shortz-live.js?v=1792268764"></script>
-<script src="js/games.js?v=1792268764"></script>
+<script src="js/streaming.js?v=1792269766"></script>
+<script src="js/shortz-live.js?v=1792269766"></script>
+<script src="js/games.js?v=1792269766"></script>
 <script>
 
 
@@ -10385,7 +10390,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792268764"></script>
+<script src="js/swipe.js?v=1792269766"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12617,7 +12622,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792268764"></script>
+<script src="js/live-sports.js?v=1792269766"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13093,6 +13098,215 @@ function csVidCard(pid,p){
 window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard,buildPost:csBuildPost,state:function(){return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember,up:!!CS.upUrl,uploading:!!CS.uploading,vidposN:Object.keys(CS.vidPos||{}).length};}};
 })();
 
+</script>
+<style>
+#palView{position:fixed;inset:0;z-index:9770;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55)}
+#palView.open{display:flex}
+.pal-card{position:relative;width:min(92vw,400px);max-height:82vh;overflow-y:auto;background:#1f1f22;border:1px solid rgba(246,201,69,.28);border-radius:20px;padding:18px 16px 16px;color:#f2f2f2;box-shadow:0 18px 50px rgba(0,0,0,.6);overscroll-behavior:contain}
+.pal-x{position:absolute;top:10px;left:10px;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:#151517;color:#fff;font-size:15px;cursor:pointer;z-index:3}
+.pal-ttl{text-align:center;font-weight:900;letter-spacing:.14em;font-size:12px;color:#f6c945}
+.pal-stage{position:relative;margin-top:8px;background:#151517;border-radius:16px;padding:12px 0 4px;overflow:hidden;text-align:center}
+.pal-badge{position:absolute;top:8px;font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:99px;background:rgba(246,201,69,.14);color:#f6c945;border:1px solid rgba(246,201,69,.35);z-index:2}
+.pal-badge.l{left:8px}.pal-badge.r{right:8px;color:#ddd;border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.06)}
+.pal-name{text-align:center;font-weight:900;font-size:20px;margin-top:8px}
+.pal-status{text-align:center;color:#bdbdc4;font-size:13px;margin-top:2px;min-height:18px;padding:0 6px}
+.pal-meters{display:flex;gap:8px;margin-top:12px}
+.pal-meter{flex:1;background:#151517;border-radius:12px;padding:7px 8px}
+.pal-meter .pm-t{font-size:10px;font-weight:800;letter-spacing:.05em;color:#bdbdc4}
+.pal-meter .pm-v{font-size:12px;font-weight:900;margin-top:1px}
+.pal-bar{height:5px;border-radius:99px;background:#2c2c31;margin-top:5px;overflow:hidden}
+.pal-bar i{display:block;height:100%;background:#f6c945;border-radius:99px}
+.pal-actions{display:flex;gap:8px;margin-top:12px}
+.pal-btn{flex:1;padding:12px 0;border-radius:99px;border:1px solid rgba(246,201,69,.6);font-weight:900;font-size:14px;cursor:pointer;font-family:inherit}
+.pal-btn.gold{background:linear-gradient(180deg,#ffd964,#f6c945);color:#4a3200}
+.pal-btn.ghost{background:transparent;color:#f6c945}
+.pal-btn:disabled{opacity:.45;cursor:default}
+.pal-row2{display:flex;gap:8px;margin-top:8px}
+.pal-mini{flex:1;padding:9px 0;border-radius:99px;border:1px solid rgba(255,255,255,.16);background:transparent;color:#ddd;font-weight:800;font-size:12px;cursor:pointer;font-family:inherit}
+.pal-mini span{color:#f6c945}
+.pal-note{margin-top:12px;background:#151517;border-radius:12px;padding:10px 12px;font-size:12px;color:#bdbdc4;line-height:1.55}
+.pal-note b{color:#f2f2f2}
+.pal-heart{position:absolute;font-size:18px;pointer-events:none;animation:palHeart 1s ease-out forwards;z-index:2}
+@keyframes palHeart{0%{opacity:0;transform:translateY(6px) scale(.7)}25%{opacity:1}100%{opacity:0;transform:translateY(-44px) scale(1.15)}}
+.pal-bob{animation:palBob 2.6s ease-in-out infinite}
+@keyframes palBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.pal-excited{animation:palExcite .55s ease}
+@keyframes palExcite{0%{transform:translateY(0)}30%{transform:translateY(-16px) scale(1.04)}60%{transform:translateY(0)}80%{transform:translateY(-8px)}}
+.pal-eyes{transform-box:fill-box;transform-origin:center;animation:palBlink 4.6s infinite}
+@keyframes palBlink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.08)}}
+.pal-zzz{animation:palZ 2.2s ease-in-out infinite;font-weight:900;fill:#f6c945}
+@keyframes palZ{0%,100%{opacity:.35}50%{opacity:1}}
+.pal-namein{width:100%;box-sizing:border-box;background:#151517;border:1px solid rgba(246,201,69,.4);border-radius:12px;color:#fff;padding:11px 12px;font-size:15px;margin-top:10px;font-family:inherit}
+</style>
+<div id="palView" aria-hidden="true"><div class="pal-card" id="palCard"></div></div>
+<script>
+/* SCOUT PAL — his virtual pet (crowned 2026-10-17). Everybody gets a Scout
+   Pal: he lives in a Home-card-sized card off the bottom-right paw button.
+   Care = using Shortz: Feed costs Stake Coins when the wallet is live,
+   Dubs feed his growth, and he NEVER dies — worst case he naps. State:
+   localStorage shortztv_pal, lazy decay on open (capped, gentle). */
+(function(){
+"use strict";
+var KEY="shortztv_pal";
+var P={hatched:false,name:"",born:0,hunger:80,happy:80,energy:80,care:0,feeds:0,plays:0,lastSeen:0,napping:false,dubsSeen:0};
+var flashMsg="",flashUntil=0,tick=null;
+function load(){try{var d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&typeof d==="object")P=Object.assign({},P,d);}catch(e){}}
+function save(){try{P.lastSeen=Date.now();localStorage.setItem(KEY,JSON.stringify(P));}catch(e){}}
+function pesc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function dubsTotal(){try{var d=JSON.parse(localStorage.getItem("shortztv_dubs")||"null");if(d&&d.unlocked)return Object.keys(d.unlocked).length;}catch(e){}return 0;}
+function stage(){if(P.care>=150)return{n:"Adult",i:4};if(P.care>=75)return{n:"Teen",i:3};if(P.care>=25)return{n:"Kid",i:2};return{n:"Baby",i:1};}
+function clamp(v){return Math.max(5,Math.min(100,Math.round(v)));}
+function decay(){
+  var now=Date.now();if(!P.lastSeen){P.lastSeen=now;return;}
+  var hrs=(now-P.lastSeen)/3600000;if(hrs<=0)return;
+  var cap=Math.min(hrs,24);
+  if(P.napping){P.energy=clamp(P.energy+10*cap);P.hunger=clamp(P.hunger-3*cap);P.happy=clamp(P.happy-2*cap);}
+  else{P.hunger=clamp(P.hunger-6*cap);P.happy=clamp(P.happy-4*cap);P.energy=clamp(P.energy-5*cap);}
+  P.lastSeen=now;
+}
+function mood(){
+  if(P.napping)return "sleep";
+  if(P.hunger<35)return "hungry";
+  if(P.energy<25)return "sleepy";
+  if(P.happy<35)return "bored";
+  if(P.happy>75&&P.hunger>55)return "happy";
+  return "ok";
+}
+var IDLE=["scouting what's new for you","watching the door for new drops","polishing his Dubs","humming the Shortz theme"];
+function statusLine(){
+  if(Date.now()<flashUntil)return flashMsg;
+  var m=mood();
+  if(m==="sleep")return P.name+" is napping — recharging.";
+  if(m==="hungry")return P.name+" is hungry. Feed him!";
+  if(m==="sleepy")return P.name+" is sleepy — nap time?";
+  if(m==="bored")return P.name+" is bored. Play with him!";
+  if(m==="happy")return P.name+" is living his best life.";
+  return P.name+" is "+IDLE[Math.floor(Date.now()/30000)%IDLE.length]+".";
+}
+function flash(t){flashMsg=t;flashUntil=Date.now()+2600;}
+function petSVG(){
+  var m=mood(),st=stage();
+  if(!P.hatched){
+    return '<svg viewBox="0 0 200 200" width="150" height="150" class="pal-bob"><ellipse cx="100" cy="112" rx="52" ry="64" fill="#2c2c31" stroke="#f6c945" stroke-width="2"/><path d="M52 108 L72 96 L88 110 L104 94 L120 110 L136 96 L148 106" fill="none" stroke="#f6c945" stroke-width="3" stroke-linejoin="round"/><text x="100" y="148" text-anchor="middle" font-size="17" fill="#f6c945">★</text></svg>';
+  }
+  var eyes,mouth;
+  if(m==="sleep"){
+    eyes='<g stroke="#f2f2f2" stroke-width="4" stroke-linecap="round"><line x1="66" y1="100" x2="84" y2="100"/><line x1="116" y1="100" x2="134" y2="100"/></g>';
+    mouth='<line x1="94" y1="122" x2="106" y2="122" stroke="#151517" stroke-width="3" stroke-linecap="round"/>';
+  }else if(m==="happy"){
+    eyes='<g fill="none" stroke="#f2f2f2" stroke-width="4" stroke-linecap="round"><path d="M64 102 Q75 90 86 102"/><path d="M114 102 Q125 90 136 102"/></g>';
+    mouth='<path d="M86 116 Q100 130 114 116" fill="none" stroke="#151517" stroke-width="4" stroke-linecap="round"/>';
+  }else if(m==="hungry"){
+    eyes='<g class="pal-eyes"><ellipse cx="75" cy="99" rx="8" ry="10" fill="#fff"/><ellipse cx="125" cy="99" rx="8" ry="10" fill="#fff"/><circle cx="75" cy="101" r="4" fill="#151517"/><circle cx="125" cy="101" r="4" fill="#151517"/></g>';
+    mouth='<ellipse cx="100" cy="121" rx="6" ry="8" fill="#151517"/>';
+  }else{
+    eyes='<g class="pal-eyes"><ellipse cx="75" cy="99" rx="8" ry="10" fill="#fff"/><ellipse cx="125" cy="99" rx="8" ry="10" fill="#fff"/><circle cx="75" cy="101" r="4" fill="#151517"/><circle cx="125" cy="101" r="4" fill="#151517"/></g>';
+    mouth=(m==="bored"||m==="sleepy")?'<line x1="90" y1="122" x2="110" y2="122" stroke="#151517" stroke-width="3" stroke-linecap="round"/>':'<path d="M88 117 Q100 126 112 117" fill="none" stroke="#151517" stroke-width="4" stroke-linecap="round"/>';
+  }
+  var acc="";
+  if(st.i===2)acc='<text x="141" y="88" font-size="15" fill="#f6c945">★</text>';
+  if(st.i===3)acc='<path d="M62 52 Q100 26 138 52 L138 60 Q100 40 62 60 Z" fill="#f6c945"/><rect x="126" y="50" width="27" height="8" rx="4" fill="#f6c945"/>';
+  if(st.i===4)acc='<polygon points="66,50 80,28 94,44 100,24 106,44 120,28 134,50" fill="#f6c945" stroke="#c9930a" stroke-width="2"/>';
+  var zzz=(m==="sleep")?'<text class="pal-zzz" x="140" y="66" font-size="17">Z</text><text class="pal-zzz" x="153" y="50" font-size="13">z</text>':"";
+  return '<svg viewBox="0 0 200 200" width="150" height="150" class="pal-bob" id="palSvg">'
+   +'<ellipse cx="72" cy="168" rx="16" ry="7" fill="#232329"/><ellipse cx="128" cy="168" rx="16" ry="7" fill="#232329"/>'
+   +'<circle cx="50" cy="60" r="15" fill="#34343b"/><circle cx="150" cy="60" r="15" fill="#34343b"/><circle cx="50" cy="60" r="6" fill="#f6c945"/><circle cx="150" cy="60" r="6" fill="#f6c945"/>'
+   +acc
+   +'<circle cx="100" cy="106" r="57" fill="#34343b"/>'
+   +'<ellipse cx="100" cy="130" rx="33" ry="26" fill="#f6c945" opacity="0.92"/>'
+   +eyes+mouth
+   +'<ellipse cx="56" cy="118" rx="8" ry="5" fill="#ff9db0" opacity="0.55"/><ellipse cx="144" cy="118" rx="8" ry="5" fill="#ff9db0" opacity="0.55"/>'
+   +zzz+'</svg>';
+}
+function meter(t,v){return '<div class="pal-meter"><div class="pm-t">'+t+'</div><div class="pm-v">'+v+'</div><div class="pal-bar"><i style="width:'+v+'%"></i></div></div>';}
+function coinsLive(){return !!(window.Stake&&Stake._coinsLoaded&&Stake.uid);}
+function hearts(){
+  var st=document.querySelector(".pal-stage");if(!st)return;
+  for(var i=0;i<3;i++){var h=document.createElement("span");h.className="pal-heart";h.textContent="♥";h.style.color="#f6c945";h.style.left=(38+i*12)+"%";h.style.top="48%";h.style.animationDelay=(i*0.12)+"s";st.appendChild(h);(function(el){setTimeout(function(){el.remove();},1500);})(h);}
+}
+function excite(){var s=document.getElementById("palSvg");if(s){s.classList.remove("pal-bob");s.classList.add("pal-excited");setTimeout(function(){s.classList.remove("pal-excited");s.classList.add("pal-bob");},600);}}
+function paint(){
+  var card=document.getElementById("palCard");if(!card)return;
+  decay();
+  var dt=dubsTotal();if(dt>P.dubsSeen){P.care+=dt-P.dubsSeen;P.dubsSeen=dt;}
+  var x='<button class="pal-x" id="palX" aria-label="Close">✕</button>';
+  if(!P.hatched){
+    var draft="";try{draft=localStorage.getItem("shortztv_pal_draft")||"";}catch(e){}
+    card.innerHTML=x+'<div class="pal-ttl">SCOUT PAL</div>'
+     +'<div class="pal-stage">'+petSVG()+'</div>'
+     +'<div class="pal-name">A Pal is waiting</div>'
+     +'<div class="pal-status">Everybody gets a Scout Pal. Name him, hatch him — he lives right here with you.</div>'
+     +'<input class="pal-namein" id="palNameIn" maxlength="16" placeholder="Name your Pal" value="'+pesc(draft)+'">'
+     +'<div class="pal-actions"><button class="pal-btn gold" id="palHatch">Hatch my Pal 🐾</button></div>'
+     +'<div class="pal-note">Watching <b>feeds him</b>. Playing keeps him <b>happy</b>. His meals cost <b>Stake Coins</b>, and every <b>Dub</b> you earn helps him grow. He never dies — worst case, he naps.</div>';
+    wireX();
+    var inp=document.getElementById("palNameIn");
+    if(inp)inp.oninput=function(){try{localStorage.setItem("shortztv_pal_draft",inp.value);}catch(e){}};
+    var hb=document.getElementById("palHatch");
+    if(hb)hb.onclick=function(){
+      var nm=((inp&&inp.value)||"").trim().slice(0,16)||"Scout";
+      P.name=nm;P.hatched=true;P.born=Date.now();P.lastSeen=Date.now();
+      try{localStorage.removeItem("shortztv_pal_draft");}catch(e){}
+      save();paint();hearts();
+    };
+    return;
+  }
+  var st=stage(),age=Math.max(1,Math.floor((Date.now()-P.born)/86400000)+1);
+  var nextAt=st.i===1?25:st.i===2?75:st.i===3?150:null;
+  var grow=nextAt?("Care <b>"+P.care+"</b> — "+(nextAt-P.care)+" more to "+(st.i===1?"Kid":st.i===2?"Teen":"Adult")+". Dubs count too: <b>"+P.dubsSeen+" Dubs</b> banked into his growth."):"<b>Fully grown.</b> A crown Pal — "+P.care+" care, "+P.dubsSeen+" Dubs banked. He runs this app with you.";
+  card.innerHTML=x+'<div class="pal-ttl">SCOUT PAL</div>'
+   +'<div class="pal-stage"><span class="pal-badge l">'+st.n.toUpperCase()+'</span><span class="pal-badge r">DAY '+age+'</span>'+petSVG()+'</div>'
+   +'<div class="pal-name">'+pesc(P.name)+'</div>'
+   +'<div class="pal-status" id="palStatus">'+pesc(statusLine())+'</div>'
+   +'<div class="pal-meters">'+meter("🍗 HUNGER",P.hunger)+meter("😄 HAPPY",P.happy)+meter("⚡ ENERGY",P.energy)+'</div>'
+   +'<div class="pal-actions"><button class="pal-btn gold" id="palFeed"'+(P.napping?" disabled":"")+'>🍗 Feed · 5 🪙</button><button class="pal-btn ghost" id="palPlay"'+(P.napping?" disabled":"")+'>🎾 Play</button></div>'
+   +'<div class="pal-row2"><button class="pal-mini" id="palNap">'+(P.napping?"☀️ Wake him up":"🌙 Nap time")+'</button><button class="pal-mini" disabled>Care <span>❤ '+P.care+'</span></button></div>'
+   +'<div class="pal-note">'+grow+(coinsLive()?"":"<br>Meals are <b>on the house</b> until your Stake wallet is live.")+'</div>';
+  wireX();
+  var fb=document.getElementById("palFeed");if(fb)fb.onclick=doFeed;
+  var pb=document.getElementById("palPlay");if(pb)pb.onclick=doPlay;
+  var nb=document.getElementById("palNap");if(nb)nb.onclick=function(){P.napping=!P.napping;flash(P.napping?P.name+" is down for a nap.":P.name+" is up!");save();paint();};
+}
+function wireX(){var b=document.getElementById("palX");if(b)b.onclick=palClose;}
+function doFeed(){
+  if(P.napping)return;
+  var paid=false;
+  if(coinsLive()&&window.Stake.coins>=5){window.Stake.coins-=5;try{window.Stake.saveCoins();}catch(e){}paid=true;}
+  P.hunger=clamp(P.hunger+30);P.happy=clamp(P.happy+4);P.feeds++;P.care+=1;
+  flash(paid?"Yum! −5 Stake Coins.":"Yum! On the house.");
+  save();paint();hearts();
+}
+function doPlay(){
+  if(P.napping)return;
+  P.happy=clamp(P.happy+22);P.energy=clamp(P.energy-6);P.plays++;if(P.plays%3===0)P.care+=1;
+  flash(P.name+" had a blast!");
+  save();paint();excite();hearts();
+}
+function palOpen(){
+  load();decay();
+  window.__palOpen=true;
+  var v=document.getElementById("palView");if(!v)return;
+  v.classList.add("open");v.setAttribute("aria-hidden","false");
+  paint();save();
+  clearInterval(tick);
+  tick=setInterval(function(){
+    if(!v.classList.contains("open")){clearInterval(tick);return;}
+    if(P.hatched){decay();paint();save();}
+  },30000);
+}
+function palClose(){
+  window.__palOpen=false;save();
+  var v=document.getElementById("palView");if(!v)return;
+  v.classList.remove("open");v.setAttribute("aria-hidden","true");
+  clearInterval(tick);
+}
+load();
+var btn=document.getElementById("palBtn");
+if(btn)btn.addEventListener("click",function(e){e.stopPropagation();palOpen();});
+var view=document.getElementById("palView");
+if(view)view.addEventListener("click",function(e){if(e.target===view)palClose();});
+window.ScoutPal={open:palOpen,close:palClose,state:function(){return {open:!!window.__palOpen,hatched:P.hatched,name:P.name,care:P.care,hunger:P.hunger,happy:P.happy,energy:P.energy,stage:P.hatched?stage().n:"Egg",napping:P.napping};}};
+})();
 </script>
 </body>
 </html>
