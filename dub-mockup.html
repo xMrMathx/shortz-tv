@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Shortz Dubs — Sound Mockup</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { background:#0b0b0e radial-gradient(120% 90% at 50% 0%, #17171d 0%, #0b0b0e 60%); color:#fff; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; min-height:100vh; overflow-x:hidden; }
+  .wrap { max-width:430px; margin:0 auto; padding:22px 16px 140px; }
+  .kick { color:#8b8b96; font-size:11px; font-weight:800; letter-spacing:2.5px; }
+  h1 { font-size:30px; font-weight:900; margin:5px 0 3px; }
+  .sub { color:#9a9aa5; font-size:14px; }
+  .head { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .bal { display:flex; align-items:center; gap:7px; background:#0e0e12; border:1.5px solid rgba(246,201,69,.55); color:#ffd968; font-weight:800; font-size:15px; padding:8px 13px; border-radius:999px; white-space:nowrap; transition:transform .18s; }
+  .bal.bump { transform:scale(1.13); }
+  .coin { background:linear-gradient(145deg,#ffe9a8,#f6c945 55%,#c9930a); color:#4a3200; width:20px; height:20px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:12px; font-weight:900; }
+  .stage { margin-top:26px; background:#131318; border:1px solid rgba(255,255,255,.07); border-radius:16px; padding:18px; }
+  .stage .kick { color:#6d6d78; }
+  .fake { margin-top:12px; height:120px; border-radius:12px; background:linear-gradient(140deg,#23232e,#191922 55%,#101016); position:relative; overflow:hidden; }
+  .fake:before { content:""; position:absolute; right:-30px; top:-30px; width:130px; height:130px; border-radius:50%; background:rgba(246,201,69,.10); }
+  .fake span { position:absolute; left:12px; bottom:10px; color:#55555f; font-size:12px; font-weight:700; letter-spacing:1px; }
+  .btns { margin-top:22px; display:grid; gap:10px; }
+  button.tier { border:0; border-radius:14px; padding:16px; font-size:16px; font-weight:900; letter-spacing:.4px; cursor:pointer; color:#17130a; text-align:left; display:flex; justify-content:space-between; align-items:center; }
+  button.tier small { font-weight:700; opacity:.75; font-size:12px; letter-spacing:.2px; }
+  .b-bronze { background:linear-gradient(145deg,#eda96b,#b06a2c); color:#2a1802; }
+  .b-silver { background:linear-gradient(145deg,#f2f4f8,#9aa3b2 60%,#6e7684); color:#23262c; }
+  .b-crown { background:linear-gradient(145deg,#fff3c4,#f6c945 50%,#a87b00); color:#3a2a00; box-shadow:0 0 22px rgba(246,201,69,.35); }
+  .note { margin-top:14px; color:#77777f; font-size:12px; text-align:center; }
+  /* ======== the Dub banner — same build as the app ======== */
+  #dubPop { position:fixed; left:50%; bottom:calc(16px + env(safe-area-inset-bottom)); width:calc(100% - 24px); max-width:430px; height:66px; transform:translate(-50%,140px); display:flex; align-items:center; gap:11px; padding:8px 12px 8px 8px; background:rgba(13,13,16,.92); border:1px solid rgba(255,255,255,.16); border-radius:999px; box-shadow:0 14px 44px rgba(0,0,0,.6); z-index:50; opacity:0; pointer-events:none; }
+  #dubPop.in { animation:dubRise .38s cubic-bezier(.2,1.4,.4,1) forwards, dubGrow .5s .22s cubic-bezier(.2,1,.3,1) forwards; }
+  #dubPop.out { transition:transform .45s ease-in, opacity .4s; transform:translate(-50%,140px) !important; width:60px; opacity:0; }
+  @keyframes dubRise { from { transform:translate(-50%,140px); width:60px; opacity:0; } 60% { opacity:1; } to { transform:translate(-50%,0); width:60px; opacity:1; } }
+  @keyframes dubGrow { from { width:60px; } to { width:calc(100% - 24px); } }
+  .dubMed { position:relative; flex:0 0 auto; }
+  .dubDisc { width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:20px; color:#17130a; box-shadow:inset 0 0 0 2px rgba(0,0,0,.22), 0 2px 10px rgba(0,0,0,.45); }
+  #dubPop.in .dubDisc { animation:dubDisc .45s .22s cubic-bezier(.2,1.4,.4,1) both; }
+  @keyframes dubDisc { from { transform:scale(.6) rotate(-30deg); } to { transform:scale(1) rotate(0); } }
+  .dubCrown { position:absolute; top:-13px; left:50%; transform:translateX(-50%) rotate(-8deg); width:24px; height:24px; filter:drop-shadow(0 2px 4px rgba(0,0,0,.5)); }
+  .dubTxt { flex:1 1 auto; min-width:0; opacity:0; }
+  #dubPop.in .dubTxt { animation:dubFade .3s .5s both; }
+  @keyframes dubFade { from { opacity:0; transform:translateX(8px); } to { opacity:1; transform:none; } }
+  .dubKick { font-size:10px; font-weight:900; letter-spacing:1.6px; }
+  .dubName { font-size:17.5px; font-weight:900; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .dubSub { font-size:12px; color:#9a9aa5; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .dubChip { flex:0 0 auto; display:flex; align-items:center; gap:7px; background:rgba(246,201,69,.12); border:1px solid rgba(246,201,69,.45); border-radius:13px; padding:6px 9px; opacity:0; }
+  #dubPop.in .dubChip { animation:dubFade .3s .68s both; }
+  .dubCoin { background:linear-gradient(145deg,#ffe9a8,#f6c945 55%,#c9930a); color:#4a3200; width:19px; height:19px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; }
+  .dubAmt { display:flex; flex-direction:column; line-height:1; }
+  .dubAmt b { color:#ffd968; font-size:16.5px; font-weight:900; }
+  .dubAmt span { color:rgba(255,217,104,.75); font-size:7.5px; font-weight:800; letter-spacing:.8px; margin-top:2.5px; }
+  #dubPop.crown { border-color:rgba(246,201,69,.75); box-shadow:0 0 34px rgba(246,201,69,.45), 0 14px 44px rgba(0,0,0,.6); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div>
+      <div class="kick">NOW PLAYING</div>
+      <h1>Hazmob FPS</h1>
+      <div class="sub">First-person shooter · ONLINE</div>
+    </div>
+    <div class="bal" id="bal"><span class="coin">S</span><span id="balNum">1,000,000</span></div>
+  </div>
+  <div class="stage">
+    <div class="kick">THE GAME IS RUNNING</div>
+    <div class="fake"><span>HAZMOB — IN MATCH</span></div>
+  </div>
+  <div class="btns">
+    <button class="tier b-bronze" id="btnBronze">BRONZE DUB <small>First Bell · +10</small></button>
+    <button class="tier b-silver" id="btnSilver">SILVER DUB <small>Shelf Explorer · +25</small></button>
+    <button class="tier b-crown" id="btnCrown">CROWN DUB <small>No Days Off · +250</small></button>
+  </div>
+  <div class="note">Tap a tier — the banner pops and the sound plays, just like in the app.</div>
+</div>
+
+<script>
+  var bal = 1000000;
+  var sndReg = new Audio('https://xmrmathx.github.io/shortz-tv/audio/dub-regular.mp3');
+  var sndCrown = new Audio('https://xmrmathx.github.io/shortz-tv/audio/dub-crown.mp3');
+  sndReg.preload = 'auto'; sndCrown.preload = 'auto';
+  window.__lastSnd = null;
+  var TIERS = {
+    bronze: { label:'BRONZE DUB', color:'#eda96b', grad:'linear-gradient(145deg,#eda96b,#b06a2c)', name:'First Bell', sub:'Play your first game', coins:10, snd:'reg', crown:false },
+    silver: { label:'SILVER DUB', color:'#d7dbe2', grad:'linear-gradient(145deg,#f2f4f8,#9aa3b2 60%,#6e7684)', name:'Shelf Explorer', sub:'Play 10 different games', coins:25, snd:'reg', crown:false },
+    crown:  { label:'CROWN DUB', color:'#ffd968', grad:'linear-gradient(145deg,#fff3c4,#f6c945 50%,#a87b00)', name:'No Days Off', sub:'Play 7 days in a row', coins:250, snd:'crown', crown:true }
+  };
+  var hideT = null, outT = null;
+  function playSnd(which) {
+    var a = which === 'crown' ? sndCrown : sndReg;
+    try {
+      a.pause(); a.currentTime = 0;
+      a.volume = which === 'crown' ? 0.9 : 0.6;
+      window.__lastSnd = a;
+      var p = a.play(); if (p && p.catch) p.catch(function(){});
+    } catch (e) {}
+  }
+  function fmt(n) { return n.toLocaleString('en-US'); }
+  function pop(tierKey) {
+    var d = TIERS[tierKey];
+    playSnd(d.snd);
+    var el = document.getElementById('dubPop');
+    if (!el) { el = document.createElement('div'); el.id = 'dubPop'; document.body.appendChild(el); }
+    el.className = ''; void el.offsetWidth;
+    el.innerHTML = '<div class="dubMed"><div class="dubDisc" style="background:' + d.grad + '">W</div>'
+      + (d.crown ? '<svg class="dubCrown" viewBox="0 0 24 24"><path d="M3 17 L2 7 L8 11 L12 4 L16 11 L22 7 L21 17 Z" fill="#f6c945" stroke="#8a6400"/></svg>' : '')
+      + '</div>'
+      + '<div class="dubTxt"><div class="dubKick" style="color:' + d.color + '">' + d.label + ' — DUB EARNED</div><div class="dubName">' + d.name + '</div><div class="dubSub">' + d.sub + '</div></div>'
+      + '<div class="dubChip"><span class="dubCoin">S</span><span class="dubAmt"><b>+' + d.coins + '</b><span>STAKE COINS</span></span></div>';
+    if (d.crown) el.classList.add('crown');
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ el.classList.add('in'); }); });
+    clearTimeout(hideT); clearTimeout(outT);
+    hideT = setTimeout(function(){ el.classList.remove('in'); el.classList.add('out'); }, 3900);
+    outT = setTimeout(function(){ el.classList.remove('out'); }, 4450);
+    var from = bal; bal += d.coins;
+    var pill = document.getElementById('bal'), num = document.getElementById('balNum');
+    setTimeout(function(){
+      pill.classList.add('bump');
+      var t0 = null;
+      function tick(ts) {
+        if (!t0) t0 = ts;
+        var k = Math.min((ts - t0) / 600, 1);
+        num.textContent = fmt(Math.round(from + (bal - from) * k));
+        if (k < 1) requestAnimationFrame(tick); else setTimeout(function(){ pill.classList.remove('bump'); }, 120);
+      }
+      requestAnimationFrame(tick);
+    }, 950);
+  }
+  document.getElementById('btnBronze').addEventListener('click', function(){ pop('bronze'); });
+  document.getElementById('btnSilver').addEventListener('click', function(){ pop('silver'); });
+  document.getElementById('btnCrown').addEventListener('click', function(){ pop('crown'); });
+</script>
+</body>
+</html>
