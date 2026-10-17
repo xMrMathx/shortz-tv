@@ -1396,6 +1396,8 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .cs-cbody{flex:1;background:#151517;border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:8px 11px}
 .cs-tc{font-size:11px;font-weight:900;color:#151310;background:#f6c945;border-radius:5px;padding:1px 6px;margin-left:7px}
 .cs-ctext{font-size:13.5px;color:#e8e8ec;line-height:1.45;margin-top:2px}
+.cs-autopin{font-size:12.5px;font-weight:700;color:#f6c945;background:rgba(246,201,69,.08);border:1px solid rgba(246,201,69,.3);border-radius:10px;padding:9px 12px;line-height:1.45}
+.cs-autopin.dim{color:#8f8f98;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)}
 .cs-tcrow input,.cs-crow input{background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:9px;color:#fff;padding:9px 11px;font-size:13px;width:100%}
 .cs-crow{display:flex;gap:8px}
 .cs-crow input{flex:1}
@@ -2192,7 +2194,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792251561";
+window.__SZ_BUILD = "1792254855";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5316,7 +5318,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792251561";
+const BUILD="1792254855";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9038,10 +9040,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792251561"></script>
+<script src="js/folders.js?v=1792254855"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792251561"></script>
+<script src="js/guide.js?v=1792254855"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9851,9 +9853,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792251561"></script>
-<script src="js/shortz-live.js?v=1792251561"></script>
-<script src="js/games.js?v=1792251561"></script>
+<script src="js/streaming.js?v=1792254855"></script>
+<script src="js/shortz-live.js?v=1792254855"></script>
+<script src="js/games.js?v=1792254855"></script>
 <script>
 
 
@@ -10371,7 +10373,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792251561"></script>
+<script src="js/swipe.js?v=1792254855"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12603,7 +12605,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792251561"></script>
+<script src="js/live-sports.js?v=1792254855"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -12618,29 +12620,78 @@ var CS={db:null,uid:null,name:"",email:"",isFounder:false,isMember:false,request
 try{CS.blocked=JSON.parse(localStorage.getItem("cs_blocked")||"{}")||{};}catch(e){CS.blocked={};}
 try{CS.draft=localStorage.getItem("cs_draft")||"";}catch(e){}
 var FOUNDER_EMAIL="craigjrbb@gmail.com";
+var FOUNDER_UID="4d6Znpeu8DdVgNGQOq9CJfPQQ413"; /* his verified session uid — the key on his own 2026-10-17 access request */
 var FLAIRS={update:"📣 Update",casting:"🎬 Casting Call",feedback:"🛠 Feedback Wanted",collab:"🤝 Collab Wanted"};
 var FOUNDING=["ShowBizz The Adult","GriffPierre","Deen The Great","Mr. Ballin","Kane Pixels","P. Royal Lit","Unghetto","Miaouwai"];
 var $cs=function(s){return document.querySelector(s);};
 function ago(ts){var s=Math.max(1,(Date.now()-ts)/1000);if(s<60)return "now";var m=s/60;if(m<60)return Math.floor(m)+"m";var h=m/60;if(h<24)return Math.floor(h)+"h";return Math.floor(h/24)+"d";}
 function initials(n){return String(n||"?").split(/\s+/).map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"C";}
 function tcFmt(sec){sec=Math.max(0,Math.floor(sec||0));var m=Math.floor(sec/60),s=sec%60;return m+":"+(s<10?"0":"")+s;}
-function tcParse(v){v=String(v||"").trim();if(!v)return null;if(/^\d+$/.test(v))return parseInt(v,10);var m=v.match(/^(\d+):([0-5]?\d)$/);if(m)return parseInt(m[1],10)*60+parseInt(m[2],10);return null;}
+function csAutoTc(tid){
+  var t=null;try{t=byId(tid);}catch(e){return null;}
+  if(!t)return null;
+  var eps=t.episodes||[];var best=null;
+  for(var i=0;i<eps.length;i++){
+    var ep=eps[i];if(!ep)continue;
+    var keys=[];if(ep.video_id)keys.push(ep.video_id);
+    try{var vo=vidOf(ep.url||"");if(vo&&keys.indexOf(vo)<0)keys.push(vo);}catch(e){}
+    for(var k=0;k<keys.length;k++){
+      var pos=0,when=0;
+      try{pos=+((typeof prog!=="undefined"&&prog[keys[k]])||0);when=+((typeof progTime!=="undefined"&&progTime[keys[k]])||0);}catch(e){}
+      if(pos>0&&(!best||when>best.when))best={sec:Math.floor(pos),ep:i+1,when:when};
+    }
+  }
+  return best?{sec:best.sec,ep:best.ep}:null;
+}
 function toast(msg){var t=$cs("#csToast");if(!t)return;t.textContent=msg;t.classList.add("show");setTimeout(function(){t.classList.remove("show");},2600);}
 function art(title){try{return artBg(title)||"";}catch(e){return "";}}
 async function csEnsure(){
-  if(CS.ensured)return;
+  /* No latch: re-evaluate on EVERY open. Founder lockout fix
+     (2026-10-17): his live session can be an anonymous guest session
+     (email="") while his account stamp says founder — a verdict
+     sampled once and latched locked him out of his own room. */
   CS.ensured=true;
   try{var gc=JSON.parse(localStorage.getItem("cs_gate")||"null");if(gc&&(gc.member||gc.founder)){CS.isMember=!!gc.member;CS.isFounder=!!gc.founder;}}catch(e){}
+  /* Account-stamp recognition runs FIRST — before the SDK guard —
+     the founder must be known even while Firebase is still loading.
+     finishAuth stamps auth_email at sign-in and the app already
+     trusts that stamp (sessionRepair, isSignedIn). Recognition is
+     by stamp, by session email, or by his known session uid. Rules
+     still gate every read/write by the real token — this only
+     opens the UI. */
+  var stampEmail="",acctUid=null;
+  try{
+    if(window.ShortzAuth&&ShortzAuth.isSignedIn()){
+      stampEmail=String(store.get("auth_email")||"").toLowerCase();
+      acctUid=store.get("auth_uid")||null;
+    }
+  }catch(e){}
+  if(stampEmail===FOUNDER_EMAIL)CS.isFounder=true;
+  if(acctUid&&!CS.uid)CS.uid=acctUid;
   try{
     if(!window.firebase||typeof authEnsureUser!=="function")return;
-    var user=await authEnsureUser(firebase.auth(),{anon:false});
-    if(!user)return;
+    var user=null;
+    try{user=firebase.auth().currentUser||null;}catch(e){}
+    if(!user)user=await authEnsureUser(firebase.auth(),{anon:false});
+    if(!user){
+      if(acctUid)CS.uid=acctUid;
+      if(CS.isFounder){CS.db=null;try{var p0=(typeof getProfile==="function")?getProfile():null;if(p0&&p0.name)CS.name=p0.name;}catch(e){}}
+      return;
+    }
     CS.uid=user.uid;CS.email=(user.email||"").toLowerCase();
-    CS.isFounder=CS.email===FOUNDER_EMAIL;
+    if(CS.email===FOUNDER_EMAIL||user.uid===FOUNDER_UID)CS.isFounder=true;
     try{var p=(typeof getProfile==="function")?getProfile():null;CS.name=(p&&p.name)||(typeof likesMyName==="function"?likesMyName():"")||user.displayName||"Creator";}catch(e){CS.name="Creator";}
     CS.db=firebase.database();
     var ms=await CS.db.ref("creatorSpace/members/"+CS.uid).once("value");
     CS.isMember=!!(ms&&ms.val());
+    if(!CS.isMember&&acctUid&&acctUid!==CS.uid){
+      var ms2=await CS.db.ref("creatorSpace/members/"+acctUid).once("value");
+      CS.isMember=!!(ms2&&ms2.val());
+    }
+    if(CS.isFounder){
+      try{var wp=CS.db.ref("creatorSpace/members/"+CS.uid).set({name:CS.name||"Mr Math",ts:Date.now()});if(wp&&wp.catch)wp.catch(function(){});}catch(e){}
+      try{var rp=CS.db.ref("creatorSpace/requests/"+CS.uid).remove();if(rp&&rp.catch)rp.catch(function(){});CS.requested=false;}catch(e){}
+    }
     if(!CS.isMember&&!CS.isFounder){
       var rq=await CS.db.ref("creatorSpace/requests/"+CS.uid).once("value");
       CS.requested=!!(rq&&rq.val());
@@ -12858,15 +12909,17 @@ function csOpenComments(pid){
   var p=CS.posts[pid];if(!p)return;
   CS.commentsFor=pid;
   var sh=$cs("#csSheet");if(!sh)return;
-  var hasT=!!p.tid;
+  var atc=p.tid?csAutoTc(p.tid):null;
+  var multi=false;try{var _t=byId(p.tid);multi=((_t&&_t.episodes)||[]).length>1;}catch(e){}
   sh.innerHTML='<div class="cs-sheetcard tall"><div class="cs-sheet-t">Feedback</div>'+
    '<div class="cs-ptext sm">'+esc(p.text||"")+"</div>"+
    '<div class="cs-clist" id="csClist"><div class="cs-hint">Loading\u2026</div></div>'+
-   (hasT?'<div class="cs-tcrow"><input id="csTc" placeholder="Timecode (e.g. 1:24) — pin your note to the moment" inputmode="numeric"></div>':"")+
+   (p.tid?(atc?'<div class="cs-autopin" id="csAutopin">⏱ Your note pins at '+tcFmt(atc.sec)+(multi?" · Ep "+atc.ep:"")+' — where you left off. Automatic, nothing to type.</div>':'<div class="cs-autopin dim" id="csAutopin">Watch the episode first — your notes will pin to the moment automatically.</div>'):"")+
    '<div class="cs-crow"><input id="csCText" placeholder="Give real feedback\u2026"><button class="cs-smallbtn gold" id="csCSend">Send</button></div>'+
    '<button class="cs-sheetbtn" id="csSheetX">Close</button></div>';
   sh.style.display="flex";
   $cs("#csSheetX").onclick=function(){sh.style.display="none";CS.commentsFor=null;unlistenComments();};
+  CS.openPid=pid;
   $cs("#csCSend").onclick=function(){csSendComment(pid);};
   listenComments(pid);
 }
@@ -12879,23 +12932,33 @@ function listenComments(pid){
   _cRef.on("value",_cCb);
 }
 function unlistenComments(){if(_cRef&&_cCb){try{_cRef.off("value",_cCb);}catch(e){}}_cRef=null;_cCb=null;}
+function csAutopinPaint(){
+  var el=$cs("#csAutopin");if(!el)return;
+  var p=CS.posts[CS.openPid];if(!p||!p.tid)return;
+  var a=csAutoTc(p.tid);var multi=false;
+  try{var _t=byId(p.tid);multi=((_t&&_t.episodes)||[]).length>1;}catch(e){}
+  if(a){el.className="cs-autopin";el.textContent="⏱ Your note pins at "+tcFmt(a.sec)+(multi?" · Ep "+a.ep:"")+" — where you left off. Automatic, nothing to type.";}
+  else{el.className="cs-autopin dim";el.textContent="Watch the episode first — your notes will pin to the moment automatically.";}
+}
 function paintComments(){
+  try{csAutopinPaint();}catch(e){}
   var el=$cs("#csClist");if(!el)return;
   var ids=Object.keys(CS.comments||{});
   ids.sort(function(a,b){return (CS.comments[a].ts||0)-(CS.comments[b].ts||0);});
   if(!ids.length){el.innerHTML='<div class="cs-hint">No feedback yet — be the first creator to weigh in.</div>';return;}
-  el.innerHTML=ids.map(function(cid){var c=CS.comments[cid];return '<div class="cs-comment"><span class="cs-av sm">'+esc(initials(c.name))+'</span><div class="cs-cbody"><span class="cs-pname sm">'+esc(c.name||"Creator")+"</span>"+(c.tc!=null?'<span class="cs-tc">⏱ '+tcFmt(c.tc)+"</span>":"")+'<div class="cs-ctext">'+esc(c.text||"")+"</div></div></div>";}).join("");
+  el.innerHTML=ids.map(function(cid){var c=CS.comments[cid];return '<div class="cs-comment"><span class="cs-av sm">'+esc(initials(c.name))+'</span><div class="cs-cbody"><span class="cs-pname sm">'+esc(c.name||"Creator")+"</span>"+(c.tc!=null?'<span class="cs-tc">⏱ '+tcFmt(c.tc)+((c.tcEp&&c.tcEp>1)?" · Ep "+c.tcEp:"")+"</span>":"")+'<div class="cs-ctext">'+esc(c.text||"")+"</div></div></div>";}).join("");
   el.scrollTop=el.scrollHeight;
 }
 async function csSendComment(pid){
   var inp=$cs("#csCText");if(!inp)return;
   var text=(inp.value||"").trim();if(!text)return;
-  var tcEl=$cs("#csTc");var tc=tcEl?tcParse(tcEl.value):null;
+  var p=CS.posts[pid]||{};
+  var atc2=p.tid?csAutoTc(p.tid):null;
   var c={uid:CS.uid,name:CS.name,text:text.slice(0,600),ts:Date.now()};
-  if(tc!=null)c.tc=tc;
+  if(atc2){c.tc=atc2.sec;if(atc2.ep>1)c.tcEp=atc2.ep;}
   try{
     await CS.db.ref("creatorSpace/comments/"+pid).push(c);
-    inp.value="";if(tcEl)tcEl.value="";
+    inp.value="";
   }catch(e){toast("Couldn\u2019t send — try again");}
 }
 function csMembers(){
@@ -12916,7 +12979,7 @@ document.addEventListener("DOMContentLoaded",function(){
   var back=$cs("#csBack");if(back)back.onclick=csClose;
   var mb=$cs("#csMembersBtn");if(mb)mb.onclick=csMembers;
 });
-window.CreatorSpace={open:csOpen,close:csClose,state:function(){return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember};}};
+window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,state:function(){return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember};}};
 })();
 
 </script>
