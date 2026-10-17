@@ -257,6 +257,10 @@ function lsStop(){
   if(f){ try{ f.src="about:blank"; }catch(e){} }
   LS_ACTIVE=null;
 }
+/* one-audio law (his report 2026-10-17: audios mixed across pages): the
+   sports stage had no hidden-tab stopper — it kept sounding under
+   whatever he opened next. Hidden = not watching = silent. */
+document.addEventListener("visibilitychange",()=>{ if(document.hidden){ try{lsStop();}catch(e){} } });
 /* ---------- sticky stage: follow the scroll like the TV Guide preview ----------
    Same pattern as tgStickInit/tgStickCheck: once the stage's natural spot
    scrolls past, a same-height placeholder holds its place in the flow and
@@ -268,8 +272,8 @@ function lsStickInit(){
   const ph=$("#lsStickPh"); if(ph)ph.remove();
 }
 function lsStickPane(el){ if(document.body.classList.contains("ev-mode")&&el&&el.closest){ const p=el.closest(".view"); if(p)return p; } return null; }
-function lsStickY(el){ const p=lsStickPane(el); return p?p.scrollTop:(window.scrollY||0); }
-function lsStickTop(el){ const p=lsStickPane(el); const r=el.getBoundingClientRect(); return p?(r.top-p.getBoundingClientRect().top+p.scrollTop):(r.top+(window.scrollY||0)); }
+function lsStickY(el){ const p=lsStickPane(el); return p?p.scrollTop:((window.SZ_SY?SZ_SY():(window.scrollY||0))); }
+function lsStickTop(el){ const p=lsStickPane(el); const r=el.getBoundingClientRect(); const k=(window.__SZ_ON&&window.__SZ_K)?window.__SZ_K:1; return p?((r.top-p.getBoundingClientRect().top)/k+p.scrollTop):(r.top/k+((window.SZ_SY?SZ_SY():(window.scrollY||0)))); }
 function lsStickCheck(){
   const st=$("#lsStage"); if(!st||typeof curView==="undefined"||curView!=="live"||typeof Live==="undefined"||Live.tab!=="sports")return;
   const stuck=st.classList.contains("stuck");

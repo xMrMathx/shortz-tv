@@ -114,6 +114,11 @@ function tgPause(){
   tgWatchEnd();
   tgHideUnmute();
 }
+/* one-audio law (his report 2026-10-17: guide audio layered under other
+   pages after a tab switch): the guide preview plays WITH SOUND by his
+   order, so it must cut when the tab hides — same stop/recompute pair
+   the Home feed uses (cfStopPreview/cfRecompute). */
+document.addEventListener("visibilitychange",()=>{ if(document.hidden){ try{tgPause();}catch(e){} } else if(typeof curView!=="undefined"&&curView==="profile"){ try{ if(window.__tgStartGuide)window.__tgStartGuide(); }catch(e){} } });
 /* ---------- guide sound: previews play WITH SOUND (his order) ----------
    tgEmbed requests an audible start; the APK shell permits it
    (setMediaPlaybackRequiresUserGesture(false) in MainActivity). If a browser
@@ -339,8 +344,8 @@ function tgRefreshGuideData(){
    2026-10-16: the guide stopped following in Profile AND Live; both
    stick checks read the document scroll the hub never produces). */
 function tgStickPane(el){ if(document.body.classList.contains("ev-mode")&&el&&el.closest){ const p=el.closest(".view"); if(p)return p; } return null; }
-function tgStickY(el){ const p=tgStickPane(el); return p?p.scrollTop:(window.scrollY||0); }
-function tgStickTop(el){ const p=tgStickPane(el); const r=el.getBoundingClientRect(); return p?(r.top-p.getBoundingClientRect().top+p.scrollTop):(r.top+(window.scrollY||0)); }
+function tgStickY(el){ const p=tgStickPane(el); return p?p.scrollTop:((window.SZ_SY?SZ_SY():(window.scrollY||0))); }
+function tgStickTop(el){ const p=tgStickPane(el); const r=el.getBoundingClientRect(); const k=(window.__SZ_ON&&window.__SZ_K)?window.__SZ_K:1; return p?((r.top-p.getBoundingClientRect().top)/k+p.scrollTop):(r.top/k+((window.SZ_SY?SZ_SY():(window.scrollY||0)))); }
 function tgStickInit(){
   const pv=$("#tgPreviewBox"); if(!pv)return;
   pv.classList.remove("stuck");
