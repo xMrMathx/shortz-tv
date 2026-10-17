@@ -2211,7 +2211,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792269766";
+window.__SZ_BUILD = "1792272496";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5335,7 +5335,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792269766";
+const BUILD="1792272496";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5891,6 +5891,15 @@ setInterval(()=>{try{
 }catch(e){}},500);
 function unmuteFrame(){
   if(curView!=="home"&&!piaActive)return; // never restart audio from another tab (iframe reload race) — except PIA
+  /* archive.org stage videos are <video> elements driven by the slide's
+     shim player, not iframes — postMessage can never reach them (the
+     2026-10-17 dead-sound bug). Drive the slide's player object first,
+     the same order resumeFeedVideo already uses; if that throws, the
+     iframe path below still runs. */
+  try{
+    const _s=curSlide(); const _pl=_s&&_s._player;
+    if(_pl&&_pl.unMute){ _pl.unMute(); if(_pl.setVolume)_pl.setVolume(100); if(_pl.playVideo)_pl.playVideo(); return; }
+  }catch(e){}
   const fr=piaActive?document.querySelector("#piaFrame [data-frame]"):curSlide().querySelector("[data-frame]");
   if(!fr||!fr.contentWindow||!feed.cur)return;
   try{
@@ -6795,6 +6804,7 @@ function showCardFeed(fresh){
    this: its shell plays sound from the start. */
 if(WEBCTX){
   const cfFirstSound=()=>{
+    if(cfFirstSound._busy)return; cfFirstSound._busy=true;
     let gateUp=false;
     try{
       ["authGate","tutGate"].forEach(id=>{
@@ -6802,24 +6812,36 @@ if(WEBCTX){
         if(el&&getComputedStyle(el).display!=="none"&&el.getBoundingClientRect().height>0)gateUp=true;
       });
     }catch(e){}
-    if(gateUp)return; // stay armed; a gate tap is not a content interaction
-    window.removeEventListener("pointerdown",cfFirstSound,true);
-    window.removeEventListener("touchend",cfFirstSound,true);
+    if(gateUp){ cfFirstSound._busy=false; return; } // stay armed; a gate tap is not a content interaction
+    /* The arm stays armed until the upgrade actually LANDS on whatever is
+       playing (2026-10-17 fix): the old one-shot version removed itself on
+       the first pointerdown anywhere — a tab tap before the preview armed,
+       or a preview kind it had no branch for (archive), consumed it and
+       Home stayed silent for the whole session. */
+    let needRetry=false;
     try{
       if(cfPlayer&&cfActive){
-        if(cfPlayerKind==="yt"){ try{ cfPlayer.unMute(); cfPlayer.setVolume(100); if(cfPlayer.getPlayerState&&cfPlayer.getPlayerState()!==1)cfPlayer.playVideo(); }catch(e){} }
-        else if(cfPlayerKind==="vm"){ try{ cfPlayer.setVolume(1); const p=cfPlayer.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){} }
+        let hit=false;
+        if(cfPlayerKind==="yt"){ try{ cfPlayer.unMute(); cfPlayer.setVolume(100); if(cfPlayer.getPlayerState&&cfPlayer.getPlayerState()!==1)cfPlayer.playVideo(); hit=true; }catch(e){} }
+        else if(cfPlayerKind==="vm"){ try{ if(cfPlayer.setMuted)cfPlayer.setMuted(false); cfPlayer.setVolume(1); const p=cfPlayer.play(); if(p&&p.catch)p.catch(()=>{}); hit=true; }catch(e){} }
+        else if(cfPlayerKind==="archive"){ try{ cfPlayer.unMute(); cfPlayer.setVolume(100); cfPlayer.playVideo(); hit=true; }catch(e){} }
+        if(!hit)needRetry=true;
       }
     }catch(e){}
     try{
       const s=curSlide();
-      if(s&&s._player&&s._player.unMute){ s._player.unMute(); if(s._player.setVolume)s._player.setVolume(100); }
+      if(s&&s._player&&s._player.unMute){ s._player.unMute(); if(s._player.setVolume)s._player.setVolume(100); if(s._player.playVideo)s._player.playVideo(); }
       else unmuteFrame();
     }catch(e){}
     try{
       soundOn=true;
       const s2=curSlide(); const sp=s2&&s2.querySelector("[data-sound]"); if(sp)sp.style.display="none";
     }catch(e){}
+    cfFirstSound._busy=false;
+    if(soundOn&&!needRetry){
+      window.removeEventListener("pointerdown",cfFirstSound,true);
+      window.removeEventListener("touchend",cfFirstSound,true);
+    }
   };
   window.addEventListener("pointerdown",cfFirstSound,true);
   window.addEventListener("touchend",cfFirstSound,true);
@@ -9057,10 +9079,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792269766"></script>
+<script src="js/folders.js?v=1792272496"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792269766"></script>
+<script src="js/guide.js?v=1792272496"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9870,9 +9892,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792269766"></script>
-<script src="js/shortz-live.js?v=1792269766"></script>
-<script src="js/games.js?v=1792269766"></script>
+<script src="js/streaming.js?v=1792272496"></script>
+<script src="js/shortz-live.js?v=1792272496"></script>
+<script src="js/games.js?v=1792272496"></script>
 <script>
 
 
@@ -10390,7 +10412,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792269766"></script>
+<script src="js/swipe.js?v=1792272496"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12622,7 +12644,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792269766"></script>
+<script src="js/live-sports.js?v=1792272496"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
