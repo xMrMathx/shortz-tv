@@ -339,9 +339,12 @@ body.pip .scrub{display:none!important}
 .ai-chip{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.6px;color:#cfe3ff;
   background:rgba(120,170,255,.14);border:1px solid rgba(140,180,255,.35);padding:4px 10px;border-radius:12px;margin-top:10px}
 
-/* HUD LAW: 3s idle on ANY watch surface -> every UI over the video fades. Tap brings it back. */
+/* HUD LAW (updated his order 2026-10-17): 2s idle on ANY watch surface -> EVERY
+   UI over the video fades, the whole floating cluster included (mic, hub
+   arrows, Dubs W, All, TV). Tap or scroll brings it all back. */
 #view-home .feed-rail,#view-home .feed-bottom,#view-home .soundprompt,
 #topbar,#tabbar,
+#evToggle,#tvBtn,#evPrev,#evNext,#dubBtn,
 .scrub,
 .sreel-rail,.sreel-cap,.sreel-sport,.sreel-back,.sreel-sound,
 .sstream-top,.sstream-bot,.sstream-sound{transition:opacity .4s}
@@ -359,7 +362,14 @@ body.hud-hidden .sreel-back,
 body.hud-hidden .sreel-sound,
 body.hud-hidden .sstream-top,
 body.hud-hidden .sstream-bot,
-body.hud-hidden .sstream-sound{opacity:0!important;pointer-events:none!important}
+body.hud-hidden .sstream-sound,
+body.hud-hidden #evToggle,
+body.hud-hidden #tvBtn,
+body.hud-hidden #evPrev,
+body.hud-hidden #evNext,
+body.hud-hidden #dubBtn,
+body.hud-hidden #micDot,
+body.hud-hidden #hudHint{opacity:0!important;pointer-events:none!important}
 /* css-land: in-app 90° rotation — video fills screen, no OS rotation needed */
 body.css-land #view-home .feed-rail,
 body.css-land #view-home .feed-bottom,
@@ -676,7 +686,7 @@ body.pip #hudHint{display:none}
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent}
 body.hud-hidden.feedfull #micDot{opacity:1;pointer-events:auto}
 body.pip #micDot{display:none}
-#evPrev,#evNext{position:fixed;bottom:calc(11px + env(safe-area-inset-bottom));z-index:61;width:52px;height:52px;border-radius:50%;padding:0;cursor:pointer;background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#f6c945;display:flex;align-items:center;justify-content:center;transition:background .2s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent}
+#evPrev,#evNext{position:fixed;bottom:calc(11px + env(safe-area-inset-bottom));z-index:61;width:52px;height:52px;border-radius:50%;padding:0;cursor:pointer;background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#f6c945;display:flex;align-items:center;justify-content:center;transition:background .2s,opacity .4s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent}
 #evPrev{left:calc(50% - 93px)}
 #dubBtn{position:fixed;bottom:calc(11px + env(safe-area-inset-bottom));left:calc(50% - 153px);z-index:61;width:52px;height:52px;border-radius:50%;padding:0;cursor:pointer;background:radial-gradient(circle at 35% 30%,#ffe9a8,#f6c945 55%,#c9930a);border:1px solid rgba(246,201,69,.7);color:#4a3200;font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.45);-webkit-tap-highlight-color:transparent}
 #dubBtn:active{transform:scale(.92)}
@@ -747,7 +757,7 @@ body.swiping .avwrap.live .avatar{animation:none!important}
   background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
   font-size:18px;line-height:1;display:flex;align-items:center;justify-content:center;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent;
-  transition:background .2s,border-color .2s,box-shadow .2s,color .2s,transform .1s}
+  transition:background .2s,border-color .2s,box-shadow .2s,color .2s,transform .1s,opacity .4s}
 #evToggle:active{transform:translateX(-50%) scale(.92)}
 body.ev-mode #evToggle{background:rgba(229,9,20,.88);border-color:#ff6b6b;color:#fff;
   box-shadow:0 0 16px rgba(229,9,20,.65)}
@@ -782,7 +792,7 @@ body.pip #evToggle{display:none}
   background:rgba(18,18,26,.55);border:1px solid rgba(255,255,255,.22);color:#cfcfd8;
   line-height:1;display:flex;align-items:center;justify-content:center;
   backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent;
-  transition:background .2s,border-color .2s,box-shadow .2s,color .2s,transform .1s}
+  transition:background .2s,border-color .2s,box-shadow .2s,color .2s,transform .1s,opacity .4s}
 #tvBtn:active{transform:scale(.92)}
 #tvBtn svg{display:block}
 body.tv-on #tvBtn{background:rgba(229,9,20,.88);border-color:#ff6b6b;color:#fff;
@@ -2065,7 +2075,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792222615";
+window.__SZ_BUILD = "1792224493";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4413,7 +4423,7 @@ function makeArchivePlayer(v){
     destroy(){ try{this._v.pause(); this._v.removeAttribute("src"); this._v.load();}catch(e){} try{this._v.remove();}catch(e){} }
   };
 }
-/* HUD auto-hide: 3s no touch → UI fades, tap → back */
+/* HUD auto-hide: 2s no touch/scroll → ALL UI over the video fades, tap/scroll → back */
 let _hudT=null;
 function hudWake(){
   document.body.classList.remove("hud-hidden");
@@ -4421,6 +4431,7 @@ function hudWake(){
   _hudT=setTimeout(()=>{
     // don't hide while a drawer/menu/sheet is open or while rotated-full
     if(document.querySelector("#cdraw.open,#edraw.open,.gdrop.open,.ric-more.open")){hudWake();return;}
+    if(document.body.classList.contains("ev-mode")){hudWake();return;} // hub open = navigating, not watching: the arrows must stay live
     const _cs=curSlide(); if(_cs&&_cs._scrubDrag){hudWake();return;} // never fade mid-scrub-drag
     // HUD LAW: only auto-hide on a full-screen watch surface (home feed,
     // streaming, sports reel) - never on browse/profile/detail
@@ -4428,11 +4439,12 @@ function hudWake(){
     const watching=document.body.classList.contains("feedfull")||(reel&&reel.classList.contains("open"));
     if(!watching)return;
     document.body.classList.add("hud-hidden");
-  },3000);
+  },2000);
 }
 ["touchstart","mousedown"].forEach(ev=>document.addEventListener(ev,()=>{ 
   if(document.body.classList.contains("hud-hidden"))hudWake(); else hudWake();
 },{passive:true}));
+["wheel","scroll"].forEach(ev=>document.addEventListener(ev,()=>{hudWake();},{passive:true,capture:true}));
 /* rotate: pure CSS in-app rotation — works regardless of phone's auto-rotate setting */
 let _rotated=false;
 function toggleRotate(){
@@ -5187,7 +5199,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792222615";
+const BUILD="1792224493";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8815,10 +8827,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792222615"></script>
+<script src="js/folders.js?v=1792224493"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792222615"></script>
+<script src="js/guide.js?v=1792224493"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9626,9 +9638,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792222615"></script>
-<script src="js/shortz-live.js?v=1792222615"></script>
-<script src="js/games.js?v=1792222615"></script>
+<script src="js/streaming.js?v=1792224493"></script>
+<script src="js/shortz-live.js?v=1792224493"></script>
+<script src="js/games.js?v=1792224493"></script>
 <script>
 
 
@@ -10146,7 +10158,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792222615"></script>
+<script src="js/swipe.js?v=1792224493"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12367,6 +12379,6 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792222615"></script>
+<script src="js/live-sports.js?v=1792224493"></script>
 </body>
 </html>
