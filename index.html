@@ -434,6 +434,45 @@ body.rot-full #rotexit{display:block}
 .award-head h3{font-size:17px;font-weight:800;color:#fff;margin:0}
 .award-row{display:flex;gap:10px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .award-row::-webkit-scrollbar{display:none}
+/* ===== BROWSE REWORK (his mockups, 2026-10-17): header + chips, inset
+   FEATURED hero with Play, Continue Watching ep/progress cards, gold
+   Top 10 numerals, and the Genres directory page ===== */
+.br-head{display:flex;align-items:center;gap:14px;padding:16px 16px 0}
+.br-head h1{font-size:27px;font-weight:800;color:#fff;margin:0;letter-spacing:.2px}
+.br-head .searchbar{flex:1;margin:0}
+.br-chips{display:flex;gap:8px;overflow-x:auto;padding:12px 16px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.br-chips::-webkit-scrollbar{display:none}
+.br-chip{flex:0 0 auto;padding:9px 17px;border-radius:999px;background:#17171c;border:1px solid #26262c;color:#e8e8ec;font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+.br-chip.on{background:#f6c945;border-color:#f6c945;color:#141414;font-weight:800}
+#browseLanding .feat-hero{margin:10px 16px 4px;border-radius:18px;height:216px}
+.fh-meta{font-size:12.5px;color:#d8d8de;margin-top:3px;font-weight:600}
+.fh-play{display:inline-flex;align-items:center;gap:7px;margin-top:11px;background:#f6c945;color:#141414;font-weight:800;font-size:14.5px;padding:10px 22px;border-radius:10px}
+#browseLanding .top10-num{color:transparent;-webkit-text-stroke:3px #f6c945}
+#browseLanding .top10-v{display:none}
+.cw-card .vthumb{aspect-ratio:16/9;height:auto}
+.cw-ep{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.78);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;z-index:3}
+.cw-bar{height:4px;background:#2b2b31;border-radius:2px;margin:7px 1px 0;overflow:hidden}
+.cw-bar i{display:block;height:100%;background:#f6c945;border-radius:2px}
+.cw-t{font-size:13px;font-weight:600;color:#eee;margin-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gp-head{display:flex;align-items:center;gap:13px;padding:16px 16px 2px}
+.gp-head h1{font-size:25px;font-weight:800;color:#fff;margin:0}
+#gpBack{width:38px;height:38px;flex:0 0 auto;border-radius:50%;background:#17171c;border:1px solid #26262c;color:#fff;font-size:21px;line-height:1;cursor:pointer;font-family:inherit}
+.gp-filter{margin:12px 16px 0}
+.gp-sec{padding:0 16px}
+.gp-sec h4{letter-spacing:1.7px;color:#8b8b93;font-size:12px;font-weight:800;margin:22px 0 10px}
+.gpop-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gtile.gpop{height:94px;border-radius:16px;padding:13px 14px;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:1px;border:0;text-align:left}
+.gtile.gpop .gp-name{font-size:16.5px;font-weight:800;color:#fff}
+.gtile.gpop .gp-cnt2{font-size:12.5px;color:rgba(255,255,255,.78);font-weight:600}
+.gpop-0{background:linear-gradient(135deg,#6b4423,#2a1a08)}
+.gpop-1{background:linear-gradient(135deg,#14586e,#0a2530)}
+.gpop-2{background:linear-gradient(135deg,#5e1f36,#220a14)}
+.gpop-3{background:linear-gradient(135deg,#4b2a74,#1a0e2e)}
+.gp-pills{display:flex;flex-wrap:wrap;gap:8px}
+.gp-pill{display:inline-flex;align-items:baseline;gap:7px;background:#141419;border:1px solid #26262c;color:#eee;padding:10px 15px;border-radius:999px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.gp-pill:active{transform:scale(.97)}
+.gp-cnt{color:#9a9aa2;font-size:12.5px;font-weight:600}
+.fh-tag{display:inline-block;background:#e50914;color:#fff;font-size:10.5px;font-weight:800;letter-spacing:1.2px;padding:4px 9px;border-radius:5px}
 .award-item{position:relative;flex:0 0 auto;width:120px;cursor:pointer}
 .award-item img{display:block;width:120px;height:170px;object-fit:cover;border-radius:8px;background:#1a1a1a;box-shadow:0 6px 18px rgba(0,0,0,.55)}
 .award-t{font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -2075,7 +2114,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792224493";
+window.__SZ_BUILD = "1792249262";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4263,7 +4302,7 @@ function renderView(v){
     // only opens when a title is actually played (playSeries).
     if(feedMounted&&!piaActive){ try{ showCardFeed(true); }catch(e){} }
   }
-  if(v==="browse"){browseWall=false;renderBrowse(browseGenre);}
+  if(v==="browse"){browseWall=false;browseKind="";renderBrowse(browseGenre);}
   if(v==="live"){ if(curView!=="live")Live.tab="sports"; renderLive(); } // every fresh entry lands on Sports (his order)
   if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
   if(v==="manga")renderManga();
@@ -5199,7 +5238,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792224493";
+const BUILD="1792249262";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5773,6 +5812,7 @@ function updateRail(t){const s=curSlide();if(s)updateRailIn(s,t)}
 /* ---------- resume playback: per-video progress ---------- */
 let prog={}; try{prog=store.get("progress",{})||{}}catch(e){prog={}}
 let progTime={}; try{progTime=store.get("progressTime",{})||{}}catch(e){progTime={}}
+let progDur={}; try{progDur=store.get("progressDur",{})||{}}catch(e){progDur={}}
 function vidOf(u){
   const s=String(u||"");
   let m=s.match(/embed\/([A-Za-z0-9_-]+)/);
@@ -5796,12 +5836,12 @@ function saveProg(node){
   if(!node||!node._vid||!node._player||!node._player.getCurrentTime)return;
   try{
     const s=Math.floor(node._player.getCurrentTime());
-    if(s>5){prog[node._vid]=s;progTime[node._vid]=Date.now();}
-    else{delete prog[node._vid];delete progTime[node._vid];}
-    store.set("progress",prog); store.set("progressTime",progTime);
+    if(s>5){prog[node._vid]=s;progTime[node._vid]=Date.now(); try{const d=Math.floor(node._player.getDuration?node._player.getDuration():0); if(d>0)progDur[node._vid]=d;}catch(e){}}
+    else{delete prog[node._vid];delete progTime[node._vid];delete progDur[node._vid];}
+    store.set("progress",prog); store.set("progressTime",progTime); store.set("progressDur",progDur);
   }catch(e){}
 }
-function clearProg(node){if(node&&node._vid){delete prog[node._vid];delete progTime[node._vid];store.set("progress",prog);store.set("progressTime",progTime)}}
+function clearProg(node){if(node&&node._vid){delete prog[node._vid];delete progTime[node._vid];delete progDur[node._vid];store.set("progress",prog);store.set("progressTime",progTime);store.set("progressDur",progDur)}}
 function maybeResume(node,player){
   const vid=node._vid; if(!vid||node._seekDone)return;
   const s=prog[vid]||0;
@@ -6022,9 +6062,9 @@ window.addEventListener("message",e=>{
         const fr=n.querySelector("[data-frame]");
         if(n._vid&&fr&&fr.contentWindow===e.source){
           const s=Math.floor(d.value);
-          if(s>5){prog[n._vid]=s;progTime[n._vid]=Date.now();}
-          else{delete prog[n._vid];delete progTime[n._vid];}
-          store.set("progress",prog); store.set("progressTime",progTime);
+          if(s>5){prog[n._vid]=s;progTime[n._vid]=Date.now(); if(n._dur>0)progDur[n._vid]=Math.floor(n._dur);}
+          else{delete prog[n._vid];delete progTime[n._vid];delete progDur[n._vid];}
+          store.set("progress",prog); store.set("progressTime",progTime); store.set("progressDur",progDur);
         }
       });
     }
@@ -7419,6 +7459,7 @@ function openDetail(id){
 let browseGenre=ALL; // always start Browse on All (everything) — user filters after
 let browseWall=false; // Scout-guided Browse: the landing shows unless he explicitly opened the All wall (All tile / search flip)
 let browseQuery=""; // search text; filters across all series regardless of pill
+let browseKind=""; // landing chip filter ("" = everything, "series" = multi-episode only)
 let sportsSport=null; // selected sport in Sports genre; null = picker view
 /* ---------- search matching: spelled the way people type ---------- */
 // Query and catalog text go through the SAME normalizer: case folded,
@@ -7644,9 +7685,10 @@ function featSlideHTML(id,label){
   const src=thumb(t,"hq");
   const bg=artBg(t.title); // gradient cover UNDER the art: if the art is missing or 404s, the slide shows the cover, never a black spot
   const style=src?`background-image:url('${String(src).replace(/'/g,"%27")}'),${bg}`:`background-image:${bg}`;
+  const meta=[t.eps||"",t.genre||""].filter(Boolean).join(" · ")+(t.award_verified?" · 🏆 Award winner":"");
   return `<div class="feat-slide" data-id="${id}" style="${style}">`
-    +`<div class="fh-in"><div class="fh-k">${label}</div><div class="fh-t">${esc(featTitle(t))}</div>`
-    +`<div class="fh-s">Tap to watch</div></div></div>`;
+    +`<div class="fh-in"><div class="fh-k"><span class="fh-tag">FEATURED</span></div><div class="fh-t">${esc(featTitle(t))}</div>`
+    +`<div class="fh-meta">${esc(meta)}</div><span class="fh-play">▶ Play</span></div></div>`;
 }
 function featLabel(i){ return i<2?"★ Featured":"★ Featured · Award-Winning"; }
 /* 3-slide window: [prev][current][next] — track rests at -100% (current) */
@@ -7844,11 +7886,31 @@ function discRow(secId,rowId,list,genre){
   const b=sec.querySelector("[data-all]");
   if(b)b.onclick=()=>{ if(genre==="__all__"){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); } else if(genre) renderBrowse(genre); };
 }
+function discCwRow(list){
+  const sec=document.getElementById("discCwSec"), row=document.getElementById("discCwRow");
+  if(!sec||!row||!list||!list.length)return;
+  row.innerHTML=list.map(t=>{
+    const eps=t.episodes||[]; let epN=0, frac=-1;
+    if(eps.length>1){ let best=-1; eps.forEach((e,i)=>{ const tm=progTime[e.video_id]||0; if(tm>best){best=tm;epN=i+1;
+      const p=prog[e.video_id]||0, d=progDur[e.video_id]||0; frac=(p>0&&d>0)?Math.min(1,p/d):-1; } }); }
+    else if(eps.length===1){ const p=prog[eps[0].video_id]||0, d=progDur[eps[0].video_id]||0; frac=(p>0&&d>0)?Math.min(1,p/d):-1; }
+    return `<div class="vcard cw-card" data-id="${t.id}">
+      <div class="vthumb" style="background:${artBg(t.title)}">
+        <img decoding="async" src="${esc(thumb(t,"mq"))}" alt="" loading="lazy" onerror="this.style.display='none'">
+        ${epN?`<span class="cw-ep">Ep ${epN}</span>`:""}
+      </div>
+      ${frac>=0?`<div class="cw-bar"><i style="width:${Math.round(frac*100)}%"></i></div>`:""}
+      <div class="cw-t">${esc(t.title)}</div>
+    </div>`;}).join("");
+  bindCards(row);
+  sec.style.display="";
+  const b=sec.querySelector("[data-all]"); if(b)b.onclick=()=>{ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); };
+}
 function paintDiscovery(){
   try{ // Continue Watching — his own history, most recent first
     const seen=new Set(), cw=[];
     for(const h of (history||[])){ const t=h&&byId(h.id); if(t&&!seen.has(t.id)){ seen.add(t.id); cw.push(t); } if(cw.length>=12)break; }
-    discRow("discCwSec","discCwRow",cw,"__all__");
+    discCwRow(cw);
   }catch(e){}
   try{ // New on Shortz VS
     const nw=C.filter(t=>t.dateAdded).sort((a,b)=>String(b.dateAdded).localeCompare(String(a.dateAdded))).slice(0,12);
@@ -7885,18 +7947,35 @@ function renderBrowseLanding(){
   const cc=catalogCounts();
   const signed=!!(window.ShortzAuth&&window.ShortzAuth.isSignedIn());
   const cnt=g=>g==="Rebirth"?cc.rebirth:g==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[g]||0);
-  const tiles=[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"}));
-  { const ki=tiles.indexOf("Kane Pixels"); if(ki>0){ tiles.splice(ki,1); tiles.unshift("Kane Pixels"); } } // featured creator pinned first (his order 2026-10-15)
+  const POPULAR=["Comedy","Action","Horror","Thriller"]; // mockup Popular four — counts stay live via cnt()
   $("#view-browse").innerHTML=`
     <div id="browseLanding">
-    <div class="wrap" style="padding-top:18px">
+    <div class="br-head"><h1>Browse</h1>
       <div class="searchbar">
-        <input id="bsearch" type="text" placeholder="🔍 Search shows, genres, creators..." value="" autocomplete="off" enterkeyhint="search">
+        <input id="bsearch" type="text" placeholder="Search shows, creators, genres" value="" autocomplete="off" enterkeyhint="search">
         <button id="bsearchx" aria-label="Clear search" style="display:none">✕</button>
         <div id="recentSrch"></div>
       </div>
     </div>
+    <div class="br-chips">
+      <button class="br-chip on" data-chip="foryou">For you</button>
+      <button class="br-chip" data-chip="series">Series</button>
+      <button class="br-chip" data-chip="awards">Award winners</button>
+      <button class="br-chip" data-chip="creators">Creators</button>
+    </div>
     <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
+    <div class="wrap"><div class="award-sec" id="discCwSec" style="display:none">
+      <div class="award-head"><h3>Continue watching</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">See all</button></div>
+      <div class="award-row" id="discCwRow"></div>
+    </div></div>
+    <div class="wrap"><div class="top10-sec" id="top10sec" style="display:none">
+      <div class="top10-head"><h3>Top 10 today</h3></div>
+      <div class="top10-row" id="top10row"></div>
+    </div></div>
+    <div class="wrap"><div class="award-sec" id="awardWinSec" style="display:none">
+      <div class="award-head"><h3>Award winners</h3><button id="awardWinAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">See all</button></div>
+      <div class="award-row" id="awardWinRow"></div>
+    </div></div>
     <div class="btt-wrap" id="browseTopTenWrap">
       <div class="btt-head"><h2>🤖 Scout's Top Ten</h2><span>Fresh every visit — swipe</span></div>
       <div class="btt-win" id="browseTopTen"><div class="btt-track" id="browseTopTenTrack"></div></div>
@@ -7904,10 +7983,6 @@ function renderBrowseLanding(){
     <div class="bcf-door" id="browseScoutDoor"></div>
     <div class="wrap"><div class="rowlabel" style="margin-top:10px"><h2>🤖 Scout's Picks</h2></div></div>
     <div class="bcf-list" id="browseScoutPicks"></div>
-    <div class="wrap"><div class="award-sec" id="discCwSec" style="display:none">
-      <div class="award-head"><h3>▶ Continue Watching</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
-      <div class="award-row" id="discCwRow"></div>
-    </div></div>
     <div class="wrap"><div class="award-sec" id="kaneSpotSec" style="display:none">
       <div class="award-head"><h3>🚪 Kane Pixels</h3><span style="margin-left:10px;color:#9a9aa2;font-size:12px;font-weight:700">Creator spotlight</span><button id="kaneSpotAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
       <div class="award-row" id="kaneSpotRow"></div>
@@ -7915,14 +7990,6 @@ function renderBrowseLanding(){
     <div class="wrap"><div class="award-sec" id="discLiveSec" style="display:none">
       <div class="award-head"><h3>🔴 Live Now</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">All streamers ›</button></div>
       <div class="award-row" id="discLiveRow"></div>
-    </div></div>
-    <div class="wrap"><div class="top10-sec" id="top10sec" style="display:none">
-      <div class="top10-head"><h3>Top 10</h3><span>Most watched</span></div>
-      <div class="top10-row" id="top10row"></div>
-    </div></div>
-    <div class="wrap"><div class="award-sec" id="awardWinSec" style="display:none">
-      <div class="award-head"><h3>🏆 Award Winners</h3><button id="awardWinAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
-      <div class="award-row" id="awardWinRow"></div>
     </div></div>
     <div class="wrap"><div class="award-sec" id="discNewSec" style="display:none">
       <div class="award-head"><h3>New on Shortz VS</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
@@ -7937,11 +8004,13 @@ function renderBrowseLanding(){
       <div class="award-row" id="discHoodRow"></div>
     </div></div>
     <div class="wrap">
-      <div class="rowlabel" style="margin-top:14px"><h2>Genres</h2><span>${GENRES.length} genres</span></div>
-      <div class="gtile-grid">
+      <div class="rowlabel" style="margin-top:14px"><h2>Genres</h2><button id="genresAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">See all ›</button></div>
+      <div class="gpop-grid">
+        ${POPULAR.map((g,i)=>`<button class="gtile gpop gpop-${i}" data-gtile="${esc(g)}"><span class="gp-name">${esc(g)}</span><span class="gp-cnt2">${cnt(g)} shows</span></button>`).join("")}
+      </div>
+      <div class="gtile-grid" style="margin-top:10px">
         <button class="gtile all" data-gtile="${ALL}"><span>All</span><span class="gtile-cnt">${C.length} shows</span></button>
         ${(window.Games&&Games.list&&Games.list().length)?`<button class="gtile games" data-gtile="__games"><span>🎮 Games</span><span class="gtile-cnt">${Games.list().length} to play</span></button>`:""}
-        ${tiles.map(g=>`<button class="gtile" data-gtile="${esc(g)}"><span>${esc(g)}</span><span class="gtile-cnt">${cnt(g)}</span></button>`).join("")}
       </div>
     </div>
     </div>`;
@@ -7960,6 +8029,17 @@ function renderBrowseLanding(){
     if(g==="Sports"){ renderBrowse("Sports"); window.scrollTo(0,0); return; } // phase-1 exception: Sports opens its picker
     openGenreView(g,"browse");
   };});
+  // Landing chips (his mockup): Series = wall filtered to multi-episode
+  // titles; Award winners = the award wall; Creators = the Genres page
+  // opened at its creators section. For you is this landing itself.
+  document.querySelectorAll("#view-browse [data-chip]").forEach(b=>{ b.onclick=()=>{
+    const c=b.dataset.chip;
+    if(c==="series"){ browseKind="series"; browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); }
+    else if(c==="awards"){ renderBrowse(AWARD); window.scrollTo(0,0); }
+    else if(c==="creators"){ renderGenresPage("creators"); }
+    else{ window.scrollTo(0,0); }
+  };});
+  const ga2=$("#genresAll"); if(ga2)ga2.onclick=()=>renderGenresPage();
   // Search entry: the first focus or keystroke flips to the full Browse
   // wall, whose own search machinery (results takeover + recents) takes
   // over from there — the same behavior as typing in Browse today.
@@ -7978,6 +8058,51 @@ function renderBrowseLanding(){
     si.addEventListener("input",flip);
   }
 }
+
+/* GENRES PAGE (his mockup, 2026-10-17): the full genre directory as its own
+   page inside Browse — filter box, Popular big four, Formats, Creators &
+   Communities, More Genres. Every count is live from the catalog. Tapping
+   anything routes exactly like the old landing tiles did. */
+function renderGenresPage(anchor){
+  const cc=catalogCounts();
+  const cnt=g=>g==="Rebirth"?cc.rebirth:g==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[g]||0);
+  const POP=["Comedy","Action","Horror","Thriller"];
+  const FMT=["Short Films","Animation","Anime","Body Cam"];
+  const CRE=["Kane Pixels","Hood","Mr. Ballin","Ray WJ","Faith"];
+  const used=new Set([...POP,...FMT,...CRE]);
+  const more=GENRES.filter(g=>!used.has(g)).sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"}));
+  const gamesN=(window.Games&&Games.list)?Games.list().length:0;
+  const pill=g=>`<button class="gp-pill" data-gtile="${esc(g)}"><span>${esc(g)}</span><span class="gp-cnt">${cnt(g)}</span></button>`;
+  $("#view-browse").innerHTML=`
+   <div id="genresPage">
+    <div class="gp-head"><button id="gpBack" aria-label="Back to Browse">‹</button><h1>Genres</h1></div>
+    <div class="searchbar gp-filter"><input id="gpFilter" type="text" placeholder="Filter ${GENRES.length} genres" autocomplete="off"></div>
+    <div class="gp-sec"><h4>POPULAR</h4><div class="gpop-grid">
+      ${POP.map((g,i)=>`<button class="gtile gpop gpop-${i}" data-gtile="${esc(g)}"><span class="gp-name">${esc(g)}</span><span class="gp-cnt2">${cnt(g)} shows</span></button>`).join("")}
+    </div></div>
+    <div class="gp-sec"><h4>FORMATS</h4><div class="gp-pills">
+      ${FMT.map(pill).join("")}
+      ${gamesN?`<button class="gp-pill" data-gtile="__games"><span>Games</span><span class="gp-cnt">${gamesN} to play</span></button>`:""}
+    </div></div>
+    <div class="gp-sec" id="gpCreators"><h4>CREATORS &amp; COMMUNITIES</h4><div class="gp-pills">${CRE.map(pill).join("")}</div></div>
+    <div class="gp-sec" style="padding-bottom:calc(96px + env(safe-area-inset-bottom))"><h4>MORE GENRES</h4><div class="gp-pills">${more.map(pill).join("")}</div></div>
+   </div>`;
+  window.scrollTo(0,0);
+  const back=$("#gpBack"); if(back)back.onclick=()=>{ renderBrowseLanding(); window.scrollTo(0,0); };
+  document.querySelectorAll("#genresPage [data-gtile]").forEach(b=>{ b.onclick=()=>{
+    const g=b.dataset.gtile;
+    if(g==="__games"){ try{ renderView("games"); }catch(e){} try{ go("games"); }catch(e){} return; }
+    if(g===ALL){ browseWall=true; renderBrowse(ALL); window.scrollTo(0,0); return; }
+    if(g==="Sports"){ renderBrowse("Sports"); window.scrollTo(0,0); return; }
+    openGenreView(g,"browse");
+  };});
+  const fi=$("#gpFilter");
+  if(fi)fi.addEventListener("input",()=>{ const q=fi.value.trim().toLowerCase();
+    document.querySelectorAll("#genresPage [data-gtile]").forEach(el=>{ const n=(el.dataset.gtile||"").toLowerCase(); el.style.display=(!q||n.indexOf(q)>=0)?"":"none"; });
+    document.querySelectorAll("#genresPage .gp-sec").forEach(sec=>{ const any=[...sec.querySelectorAll("[data-gtile]")].some(el=>el.style.display!=="none"); sec.style.display=any?"":"none"; });
+  });
+  if(anchor==="creators"){ const el=document.getElementById("gpCreators"); if(el)setTimeout(()=>{ try{ el.scrollIntoView({block:"start"}); }catch(e){} },60); }
+}
 function renderBrowse(g){
   browseGenre=g||browseGenre;
   // SCOUT-GUIDED BROWSE (his approved redesign): opening Browse on All
@@ -7985,7 +8110,8 @@ function renderBrowse(g){
   // Picks, genre tiles, search + All). The full catalog wall below is
   // one tap away (All tile / typing in search) and otherwise untouched.
   if(browseGenre===ALL&&!browseQuery.trim()&&!browseWall){ renderBrowseLanding(); return; }
-  const list=browseList();
+  let list=browseList();
+  if(browseKind==="series"&&!browseQuery.trim())list=list.filter(t=>(t.episodes||[]).length>1); // landing Series chip: multi-episode only
   // SPEED: dropdown counts come from the one-pass cache — the shell paints immediately.
   // (Cache is idle-precomputed after boot, so the first Browse tap is warm.)
   const cc=catalogCounts();
@@ -8031,7 +8157,7 @@ function renderBrowse(g){
       <div class="cs-row" id="comingSoonRow"></div>
     </div></div>
     <div class="wrap" style="padding-top:0">
-      <div class="rowlabel" style="margin-top:0"><h2 id="browseHead">${browseQuery.trim()?`${list.length} result${list.length===1?"":"s"} for &ldquo;${esc(browseQuery.trim())}&rdquo;`:`Browse ${C.length} series`}</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
+      <div class="rowlabel" style="margin-top:0"><h2 id="browseHead">${browseQuery.trim()?`${list.length} result${list.length===1?"":"s"} for &ldquo;${esc(browseQuery.trim())}&rdquo;`:(browseKind==="series"?(list.length+" series"):("Browse "+C.length+" series"))}</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
       <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
       <div class="prev-spot" id="prevSpot">
         <div class="prev-spot-tx">
@@ -8180,6 +8306,7 @@ function renderBrowse(g){
   gm.querySelectorAll(".gitem").forEach(p=>{
     p.onclick=()=>{
       gd.classList.remove("open");
+      browseKind=""; // a genre-menu pick always leaves the landing chip filter behind
       const wasSearching=!!si.value.trim();
       if(wasSearching){si.value="";browseQuery="";} // selecting a genre clears the search
       if(p.dataset.g===browseGenre&&!wasSearching)return;
@@ -8827,10 +8954,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792224493"></script>
+<script src="js/folders.js?v=1792249262"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792224493"></script>
+<script src="js/guide.js?v=1792249262"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9638,9 +9765,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792224493"></script>
-<script src="js/shortz-live.js?v=1792224493"></script>
-<script src="js/games.js?v=1792224493"></script>
+<script src="js/streaming.js?v=1792249262"></script>
+<script src="js/shortz-live.js?v=1792249262"></script>
+<script src="js/games.js?v=1792249262"></script>
 <script>
 
 
@@ -10158,7 +10285,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792224493"></script>
+<script src="js/swipe.js?v=1792249262"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12379,6 +12506,6 @@ else setTimeout(boot,6000);
 window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun:maybeRun,syncPublic:syncPublic,pullRemote:pullRemote,moodHunt:moodHunt,turbo:turbo,greetingHTML:greetingHTML,getInbox:getInbox,MOODS:MOODS,msgLine:msgLine,browseFreshVisit:browseFreshVisit,browseFreshCache:browseFreshCache};
 })();
 </script>
-<script src="js/live-sports.js?v=1792224493"></script>
+<script src="js/live-sports.js?v=1792249262"></script>
 </body>
 </html>
