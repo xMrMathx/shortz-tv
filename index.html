@@ -2291,7 +2291,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792280159";
+window.__SZ_BUILD = "1792284205";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5415,7 +5415,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792280159";
+const BUILD="1792284205";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9159,10 +9159,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792280159"></script>
+<script src="js/folders.js?v=1792284205"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792280159"></script>
+<script src="js/guide.js?v=1792284205"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9972,9 +9972,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792280159"></script>
-<script src="js/shortz-live.js?v=1792280159"></script>
-<script src="js/games.js?v=1792280159"></script>
+<script src="js/streaming.js?v=1792284205"></script>
+<script src="js/shortz-live.js?v=1792284205"></script>
+<script src="js/games.js?v=1792284205"></script>
 <script>
 
 
@@ -10492,7 +10492,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792280159"></script>
+<script src="js/swipe.js?v=1792284205"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12724,7 +12724,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792280159"></script>
+<script src="js/live-sports.js?v=1792284205"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13240,175 +13240,410 @@ window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard
 @keyframes palZ{0%,100%{opacity:.35}50%{opacity:1}}
 .pal-namein{width:100%;box-sizing:border-box;background:#151517;border:1px solid rgba(246,201,69,.4);border-radius:12px;color:#fff;padding:11px 12px;font-size:15px;margin-top:10px;font-family:inherit}
 </style>
+<style>
+@font-face{font-family:'PS2P';src:url(data:font/woff2;base64,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) format('woff2');}
+.sc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:12px}
+.sc-mini{position:relative;background:#151517;border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:0 0 8px;overflow:hidden;cursor:pointer;color:#f2f2f2;font-family:inherit;text-align:left}
+.sc-mini img{width:100%;height:104px;object-fit:cover;object-position:top;display:block}
+.sc-mini-nm{display:block;font-size:10.5px;font-weight:900;letter-spacing:.03em;padding:7px 8px 0;line-height:1.35}
+.sc-mini-sub{display:block;font-size:10px;color:#bdbdc4;padding:2px 8px 0}
+.sc-star{color:#f6c945}
+.sc-mini-lv{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.72);color:#f6c945;font-size:10px;font-weight:900;padding:2px 7px;border-radius:99px;border:1px solid rgba(246,201,69,.5)}
+.sc-ghost{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:150px;cursor:default}
+.sc-ghost-q{font-size:34px;font-weight:900;color:#3d3d44}
+.sc-bigart{width:100%;border-radius:14px;display:block;margin-top:10px;border:1px solid rgba(246,201,69,.3)}
+.sc-namerow{margin-top:11px}
+.sc-nm{font-size:19px;font-weight:900;letter-spacing:.02em;line-height:1.3}
+.sc-typerow{color:#f6c945;font-size:12px;letter-spacing:.08em;margin-top:3px}
+.sc-xp{margin-top:11px}
+.sc-xp-t{font-size:11px;color:#bdbdc4;font-weight:800;letter-spacing:.04em}
+.sc-rep{background:#151517;border-radius:12px;padding:9px 11px;font-size:12.5px;line-height:1.55;color:#e8e8e8;margin-top:8px}
+.sc-rep-t{color:#f6c945;font-weight:900;font-size:10.5px;margin-right:7px;letter-spacing:.03em}
+/* ---- battle scene (inside the card) ---- */
+.bt-scene{position:relative;width:100%;aspect-ratio:900/815;background:#f8f6ef;border-radius:12px;overflow:hidden;color:#101010;font-family:'PS2P','Courier New',monospace;margin-top:26px}
+.bt-eplate{position:absolute;left:4.5%;top:4%;width:47%;display:flex}
+.bt-bar{width:7px;background:#101010;margin-right:8px}
+.bt-nm{font-size:9.5px;line-height:1.5}
+.bt-lv{font-size:9.5px;margin-top:5px}
+.bt-hprow{display:flex;align-items:center;gap:5px;margin-top:7px}
+.bt-hpl{font-size:8px}
+.bt-hpbar{flex:1;height:9px;background:#3d3d3d;border:2px solid #101010;border-radius:5px;overflow:hidden}
+.bt-hpfill{height:100%;background:#4ecb46;transition:width .7s ease}
+.bt-etail{height:5px;background:#101010;margin-top:4px;width:104%;clip-path:polygon(0 0,93% 0,100% 100%,0 100%)}
+.bt-enemy{position:absolute;right:5%;top:3%;width:31%;transition:transform .18s;-webkit-mask-image:radial-gradient(88% 88% at 50% 50%,#000 82%,transparent 99%);mask-image:radial-gradient(88% 88% at 50% 50%,#000 82%,transparent 99%)}
+.bt-mine{position:absolute;left:2%;top:35.5%;width:34.5%;transition:transform .18s;-webkit-mask-image:radial-gradient(88% 88% at 50% 50%,#000 84%,transparent 99%);mask-image:radial-gradient(88% 88% at 50% 50%,#000 84%,transparent 99%)}
+.bt-flip{transform:scaleX(-1)}
+.bt-lungeR{transform:translateX(13px)}.bt-lungeL{transform:translateX(-13px)}
+.bt-enemy.bt-flip.bt-lungeL{transform:scaleX(-1) translateX(13px)}
+.bt-shake{animation:btshk .3s}@keyframes btshk{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.bt-mplate{position:absolute;right:2.5%;top:47.5%;width:52%;background:#f8f6ef;border:3.5px solid #101010;border-radius:9px;padding:9px 10px 7px}
+.bt-hpnum{font-size:10px;text-align:right;margin-top:5px}
+.bt-tail{position:absolute;left:-3.5px;bottom:-15px;width:34%;height:12px;background:#101010;clip-path:polygon(0 0,100% 0,82% 100%,10% 100%)}
+.bt-band{position:absolute;left:1.2%;right:1.2%;bottom:1.6%;height:24.5%;display:flex;gap:1.2%}
+.bt-gbox{position:relative;background:#f8f6ef;border:3.5px solid #101010;border-radius:9px}
+.bt-gbox:after{content:'';position:absolute;inset:4px;border:2px solid #101010;border-radius:5px;pointer-events:none}
+.bt-cnr{position:absolute;width:10px;height:10px;background:#f8f6ef;border:3px solid #101010;border-radius:50%;z-index:3}
+.bt-cnr.tl{top:-6px;left:-6px}.bt-cnr.tr{top:-6px;right:-6px}.bt-cnr.bl{bottom:-6px;left:-6px}.bt-cnr.br{bottom:-6px;right:-6px}
+.bt-dlg{flex:1.14;padding:5% 6%;font-size:9px;line-height:1.9}
+.bt-menu{flex:1;padding:4% 5% 4% 8%;display:grid;grid-template-columns:1.15fr 1fr;align-content:center;gap:13% 3%;font-size:10px}
+.bt-moves{flex:1;padding:4% 5% 4% 7%;display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:11% 3%;font-size:8px;line-height:1.5}
+.bt-menu div,.bt-moves div{cursor:pointer}
+.bt-dmg{position:absolute;font-family:'PS2P',monospace;color:#d42a1e;font-size:15px;z-index:5;opacity:0;pointer-events:none}
+.bt-dmg.pop{animation:btpop 1s ease forwards}@keyframes btpop{15%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
+</style>
+
 <div id="palView" aria-hidden="true"><div class="pal-card" id="palCard"></div></div>
 <script>
-/* SCOUT PAL — his virtual pet (crowned 2026-10-17). Everybody gets a Scout
-   Pal: he lives in a Home-card-sized card off the bottom-right paw button.
-   Care = using Shortz: Feed costs Stake Coins when the wallet is live,
-   Dubs feed his growth, and he NEVER dies — worst case he naps. State:
-   localStorage shortztv_pal, lazy decay on open (capped, gentle). */
+/* SCOUT BATTLES — the new Scout Pal (his order 2026-10-17). The old SVG pet
+   is retired: the Pal is now one of 12 real scouts (10 Phantom Foundry cards
+   + The Hollow Conductor + Obsidian Jotuun). Tap a card -> the scout pops up
+   in card form -> BATTLE fights right inside this same card screen (pixel
+   form, classic layout). While the app is open the active scout goes out
+   hunting on its own: simulated fights vs wild scouts, XP, and captures that
+   grow the collection. Reports wait under the paw. State: shortztv_scouts. */
 (function(){
 "use strict";
-var KEY="shortztv_pal";
-var P={hatched:false,name:"",born:0,hunger:80,happy:80,energy:80,care:0,feeds:0,plays:0,lastSeen:0,napping:false,dubsSeen:0};
-var flashMsg="",flashUntil=0,tick=null;
-function load(){try{var d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&typeof d==="object")P=Object.assign({},P,d);}catch(e){}}
-function save(){try{P.lastSeen=Date.now();localStorage.setItem(KEY,JSON.stringify(P));}catch(e){}}
+var KEY="shortztv_scouts";
+var ROSTER=[
+ {id:"hobb",name:"CINDER-CHOIR HOBB",type:"BLAZE",metal:"Silver",stars:2,hp:150,atk:22,card:"assets/scouts/pf-01-cinder-choir-hobb-sealed.jpg",sprite:"assets/scouts/sprites/hobb.jpg",ability:"DIRGE",skill:"burn",skillTxt:"A funeral song that sets the enemy burning.",moves:[["Ember Note",1.0,""],["Choir Screech",0.8,""],["Funeral Pyre",1.7,"burn"]]},
+ {id:"nox",name:"VESSEL NOX",type:"FROST",metal:"Rhodium",stars:4,hp:228,atk:44,card:"assets/scouts/pf-02-vessel-nox-sealed.jpg",sprite:"assets/scouts/sprites/nox.jpg",ability:"HOLLOW",skill:"freeze",skillTxt:"The ice that came out of the vault with him. Freezes the enemy solid.",moves:[["Frost Vein",1.0,""],["Hollow Gaze",0.85,""],["Vault Chill",1.6,"freeze"]]},
+ {id:"voice",name:"VOICE OF THE VAULT",type:"FROST",metal:"Rhodium",stars:4,hp:244,atk:38,card:"assets/scouts/pf-03-voice-of-the-vault-sealed.jpg",sprite:"assets/scouts/sprites/voice.jpg",ability:"THE LISTENING",skill:"freeze",skillTxt:"It hears the crack before the ice breaks. Freezes the enemy.",moves:[["Scribe's Cut",0.95,""],["Whisper Tax",0.8,""],["Word Refused",1.6,"freeze"]]},
+ {id:"named",name:"THE NAMED MAN",type:"SHADE",metal:"Rhodium",stars:3,hp:206,atk:38,card:"assets/scouts/pf-04-the-named-man-sealed.jpg",sprite:"assets/scouts/sprites/named.jpg",ability:"SOME READINGS",skill:"nuke",skillTxt:"One reading names you. It is never kind.",moves:[["Margin Note",1.0,""],["Unspoken Name",0.85,""],["Final Reading",1.8,""]]},
+ {id:"witness",name:"THE PALE WITNESS",type:"FROST",metal:"Rhodium",stars:3,hp:206,atk:38,card:"assets/scouts/pf-05-pale-witness-sealed.jpg",sprite:"assets/scouts/sprites/witness.jpg",ability:"WITNESS",skill:"heal",skillTxt:"She has never blinked. Restores HP and steadies the line.",moves:[["Cold Stare",0.95,""],["Sealed Testimony",0.85,""],["Unblinking",1.5,"leech"]]},
+ {id:"core",name:"THE CORE",type:"FROST",metal:"Master",stars:3,hp:274,atk:16,card:"assets/scouts/pf-06-the-core-iceglass-sealed.jpg",sprite:"assets/scouts/sprites/core.jpg",ability:"FROZEN HEART",skill:"freeze",skillTxt:"The specimen freezes what it touches. Freezes the enemy.",moves:[["Frost Creep",0.8,""],["Shatter Tap",0.7,""],["Deep Freeze",1.2,"freeze"]]},
+ {id:"keeper",name:"THE CORE KEEPER",type:"FROST",metal:"Rhodium",stars:3,hp:254,atk:48,card:"assets/scouts/pf-07-core-keeper-rhodium-shrouded-sealed.jpg",sprite:"assets/scouts/sprites/keeper.jpg",ability:"DEEP FREEZE",skill:"freeze",skillTxt:"It was left out in the cold. It shares. Freezes the enemy.",moves:[["Glacial Spike",1.05,""],["Aura of Cold",0.85,""],["Keeper's Grasp",1.65,"freeze"]]},
+ {id:"corekeeper",name:"THE CORE AND THE KEEPER",type:"FROST",metal:"Master",stars:5,hp:304,atk:56,card:"assets/scouts/pf-08-core-and-keeper-master-sealed.jpg",sprite:"assets/scouts/sprites/corekeeper.jpg",ability:"REUNION",skill:"buff",skillTxt:"Two made one. Raises its own ATK and heals a little.",moves:[["Frost Branch",1.05,""],["Prison Bloom",0.9,""],["Reunion Strike",1.8,""]]},
+ {id:"keeper2",name:"THE CORE AND THE KEEPER",type:"FROST",metal:"Rhodium",stars:3,hp:254,atk:48,card:"assets/scouts/pf-09-core-and-keeper-rhodium-sealed.jpg",sprite:"assets/scouts/sprites/keeper2.jpg",ability:"DEEP FREEZE",skill:"freeze",skillTxt:"What the Rhodium keeps, the ice remembers. Freezes the enemy.",moves:[["Cracked Visage",1.0,""],["Swirl Current",0.9,""],["Load-Bearing Wall",1.65,"freeze"]]},
+ {id:"hierophant",name:"THE PALE HIEROPHANT",type:"FROST",metal:"Rhodium",stars:4,hp:250,atk:48,card:"assets/scouts/pf-10-pale-hierophant-sealed.jpg",sprite:"assets/scouts/sprites/hierophant.jpg",ability:"REVELATION",skill:"buff",skillTxt:"Now she sees only one thing. Raises ATK sharply.",moves:[["Shard Blessing",1.0,""],["Crack Communion",0.9,""],["Revelation Bolt",1.75,""]]},
+ {id:"conductor",name:"THE HOLLOW CONDUCTOR",type:"VOLT",metal:"Original",stars:5,hp:210,atk:56,card:"assets/scouts/conductor-card.jpg",sprite:"assets/scouts/sprites/conductor.jpg",ability:"TEMPEST SCORE",skill:"nuke",skillTxt:"Every third note is lightning. A huge strike.",moves:[["Static Baton",1.0,""],["Chain Arc",0.9,""],["Tempest Finale",1.85,""]]},
+ {id:"jotun",name:"OBSIDIAN JOTUUN",type:"STONE",metal:"Original",stars:3,hp:300,atk:44,card:"assets/scouts/jotuun-card.jpg",sprite:"assets/scouts/sprites/jotuun.jpg",ability:"GATESKIN",skill:"heal",skillTxt:"The gate on his back takes the hit. Restores HP.",moves:[["Gate Crash",1.05,""],["Crystal Spikes",0.85,""],["Quake Slam",1.8,""]]}
+];
+var BYID={};ROSTER.forEach(function(r){BYID[r.id]=r;});
+var CHART={VOLT:{FROST:1.35,STONE:0.75},BLAZE:{FROST:1.35},FROST:{STONE:1.35,BLAZE:0.75},STONE:{VOLT:1.35,FROST:0.75},SHADE:{VOLT:1.35}};
+var S={active:null,owned:{},reports:[],unread:0,lastHunt:0,huntNext:0,totW:0,totL:0};
+var view="home",pickId=null,B=null;
+function load(){try{var d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&typeof d==="object")S=Object.assign({},S,d);}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 function pesc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
-function dubsTotal(){try{var d=JSON.parse(localStorage.getItem("shortztv_dubs")||"null");if(d&&d.unlocked)return Object.keys(d.unlocked).length;}catch(e){}return 0;}
-function stage(){if(P.care>=150)return{n:"Adult",i:4};if(P.care>=75)return{n:"Teen",i:3};if(P.care>=25)return{n:"Kid",i:2};return{n:"Baby",i:1};}
-function clamp(v){return Math.max(5,Math.min(100,Math.round(v)));}
-function decay(){
-  var now=Date.now();if(!P.lastSeen){P.lastSeen=now;return;}
-  var hrs=(now-P.lastSeen)/3600000;if(hrs<=0)return;
-  var cap=Math.min(hrs,24);
-  if(P.napping){P.energy=clamp(P.energy+10*cap);P.hunger=clamp(P.hunger-3*cap);P.happy=clamp(P.happy-2*cap);}
-  else{P.hunger=clamp(P.hunger-6*cap);P.happy=clamp(P.happy-4*cap);P.energy=clamp(P.energy-5*cap);}
-  P.lastSeen=now;
-}
-function mood(){
-  if(P.napping)return "sleep";
-  if(P.hunger<35)return "hungry";
-  if(P.energy<25)return "sleepy";
-  if(P.happy<35)return "bored";
-  if(P.happy>75&&P.hunger>55)return "happy";
-  return "ok";
-}
-var IDLE=["scouting what's new for you","watching the door for new drops","polishing his Dubs","humming the Shortz theme"];
-function statusLine(){
-  if(Date.now()<flashUntil)return flashMsg;
-  var m=mood();
-  if(m==="sleep")return P.name+" is napping — recharging.";
-  if(m==="hungry")return P.name+" is hungry. Feed him!";
-  if(m==="sleepy")return P.name+" is sleepy — nap time?";
-  if(m==="bored")return P.name+" is bored. Play with him!";
-  if(m==="happy")return P.name+" is living his best life.";
-  return P.name+" is "+IDLE[Math.floor(Date.now()/30000)%IDLE.length]+".";
-}
-function flash(t){flashMsg=t;flashUntil=Date.now()+2600;}
-function petSVG(){
-  var m=mood(),st=stage();
-  if(!P.hatched){
-    return '<svg viewBox="0 0 200 200" width="150" height="150" class="pal-bob"><ellipse cx="100" cy="112" rx="52" ry="64" fill="#2c2c31" stroke="#f6c945" stroke-width="2"/><path d="M52 108 L72 96 L88 110 L104 94 L120 110 L136 96 L148 106" fill="none" stroke="#f6c945" stroke-width="3" stroke-linejoin="round"/><text x="100" y="148" text-anchor="middle" font-size="17" fill="#f6c945">★</text></svg>';
-  }
-  var eyes,mouth;
-  if(m==="sleep"){
-    eyes='<g stroke="#f2f2f2" stroke-width="4" stroke-linecap="round"><line x1="66" y1="100" x2="84" y2="100"/><line x1="116" y1="100" x2="134" y2="100"/></g>';
-    mouth='<line x1="94" y1="122" x2="106" y2="122" stroke="#151517" stroke-width="3" stroke-linecap="round"/>';
-  }else if(m==="happy"){
-    eyes='<g fill="none" stroke="#f2f2f2" stroke-width="4" stroke-linecap="round"><path d="M64 102 Q75 90 86 102"/><path d="M114 102 Q125 90 136 102"/></g>';
-    mouth='<path d="M86 116 Q100 130 114 116" fill="none" stroke="#151517" stroke-width="4" stroke-linecap="round"/>';
-  }else if(m==="hungry"){
-    eyes='<g class="pal-eyes"><ellipse cx="75" cy="99" rx="8" ry="10" fill="#fff"/><ellipse cx="125" cy="99" rx="8" ry="10" fill="#fff"/><circle cx="75" cy="101" r="4" fill="#151517"/><circle cx="125" cy="101" r="4" fill="#151517"/></g>';
-    mouth='<ellipse cx="100" cy="121" rx="6" ry="8" fill="#151517"/>';
+function own(id){return S.owned[id]||null;}
+function actScout(){return S.active?BYID[S.active]:null;}
+function actRec(){return S.active?S.owned[S.active]:null;}
+function stars(n){var s="";for(var i=0;i<5;i++)s+=i<n?"★":"☆";return s;}
+function typeMul(a,d){var m=CHART[a];return (m&&m[d])||1;}
+function hpAt(r,lv){return Math.round(r.hp*(1+0.06*(lv-1)));}
+function atkAt(r,lv){return Math.round(r.atk*(1+0.05*(lv-1)));}
+function gainXp(rec,amt){rec.xp+=amt;var ups=[];while(rec.xp>=rec.lv*100){rec.xp-=rec.lv*100;rec.lv++;ups.push(rec.lv);}return ups;}
+function coins(n){try{if(window.Stake&&Stake._coinsLoaded){window.Stake.coins+=n;window.Stake.saveCoins();return true;}}catch(e){}return false;}
+/* ---------------- HUNTING (idle) ---------------- */
+function power(r,lv){return hpAt(r,lv)*0.5+atkAt(r,lv)*6+lv*8;}
+function addReport(txt){S.reports.unshift({t:Date.now(),txt:txt});if(S.reports.length>30)S.reports.length=30;S.unread++;badge();}
+function resolveHunt(){
+  var me=actScout(),rec=actRec();if(!me||!rec)return;
+  var pool=ROSTER.filter(function(r){return r.id!==me.id;});
+  var foe=pool[Math.floor(Math.random()*pool.length)];
+  var flv=Math.max(1,rec.lv+Math.floor(Math.random()*3)-1);
+  var p=0.5+(power(me,rec.lv)-power(foe,flv))/700;p=Math.max(0.22,Math.min(0.8,p));
+  var win=Math.random()<p;
+  var fin=me.moves[Math.floor(Math.random()*3)][0].toUpperCase();
+  if(win){
+    rec.w++;S.totW++;var ups=gainXp(rec,14);
+    var line="⚔ "+me.name+" beat a wild "+foe.name+" (Lv "+flv+") — "+fin+" finished it. +14 XP"+(ups.length?" — LEVEL "+ups[ups.length-1]+"!":"");
+    var unowned=ROSTER.filter(function(r){return !S.owned[r.id];});
+    if(unowned.length&&Math.random()<0.24){
+      var cap=unowned[Math.floor(Math.random()*unowned.length)];
+      S.owned[cap.id]={lv:Math.max(1,rec.lv-1),xp:0,w:0,l:0};
+      line+=" 🐾 And brought back "+cap.name+" — NEW SCOUT in your collection!";
+    }
+    addReport(line);
   }else{
-    eyes='<g class="pal-eyes"><ellipse cx="75" cy="99" rx="8" ry="10" fill="#fff"/><ellipse cx="125" cy="99" rx="8" ry="10" fill="#fff"/><circle cx="75" cy="101" r="4" fill="#151517"/><circle cx="125" cy="101" r="4" fill="#151517"/></g>';
-    mouth=(m==="bored"||m==="sleepy")?'<line x1="90" y1="122" x2="110" y2="122" stroke="#151517" stroke-width="3" stroke-linecap="round"/>':'<path d="M88 117 Q100 126 112 117" fill="none" stroke="#151517" stroke-width="4" stroke-linecap="round"/>';
+    rec.l++;S.totL++;gainXp(rec,5);
+    addReport("⚔ "+me.name+" lost to a wild "+foe.name+" (Lv "+flv+"). Came home scuffed. +5 XP");
   }
-  var acc="";
-  if(st.i===2)acc='<text x="141" y="88" font-size="15" fill="#f6c945">★</text>';
-  if(st.i===3)acc='<path d="M62 52 Q100 26 138 52 L138 60 Q100 40 62 60 Z" fill="#f6c945"/><rect x="126" y="50" width="27" height="8" rx="4" fill="#f6c945"/>';
-  if(st.i===4)acc='<polygon points="66,50 80,28 94,44 100,24 106,44 120,28 134,50" fill="#f6c945" stroke="#c9930a" stroke-width="2"/>';
-  var zzz=(m==="sleep")?'<text class="pal-zzz" x="140" y="66" font-size="17">Z</text><text class="pal-zzz" x="153" y="50" font-size="13">z</text>':"";
-  return '<svg viewBox="0 0 200 200" width="150" height="150" class="pal-bob" id="palSvg">'
-   +'<ellipse cx="72" cy="168" rx="16" ry="7" fill="#232329"/><ellipse cx="128" cy="168" rx="16" ry="7" fill="#232329"/>'
-   +'<circle cx="50" cy="60" r="15" fill="#34343b"/><circle cx="150" cy="60" r="15" fill="#34343b"/><circle cx="50" cy="60" r="6" fill="#f6c945"/><circle cx="150" cy="60" r="6" fill="#f6c945"/>'
-   +acc
-   +'<circle cx="100" cy="106" r="57" fill="#34343b"/>'
-   +'<ellipse cx="100" cy="130" rx="33" ry="26" fill="#f6c945" opacity="0.92"/>'
-   +eyes+mouth
-   +'<ellipse cx="56" cy="118" rx="8" ry="5" fill="#ff9db0" opacity="0.55"/><ellipse cx="144" cy="118" rx="8" ry="5" fill="#ff9db0" opacity="0.55"/>'
-   +zzz+'</svg>';
+  S.lastHunt=Date.now();save();
+  if(view==="home"&&window.__palOpen)paint();
+  if(view==="reports"&&window.__palOpen)paint();
 }
-function meter(t,v){return '<div class="pal-meter"><div class="pm-t">'+t+'</div><div class="pm-v">'+v+'</div><div class="pal-bar"><i style="width:'+v+'%"></i></div></div>';}
-function coinsLive(){return !!(window.Stake&&Stake._coinsLoaded&&Stake.uid);}
-function hearts(){
-  var st=document.querySelector(".pal-stage");if(!st)return;
-  for(var i=0;i<3;i++){var h=document.createElement("span");h.className="pal-heart";h.textContent="♥";h.style.color="#f6c945";h.style.left=(38+i*12)+"%";h.style.top="48%";h.style.animationDelay=(i*0.12)+"s";st.appendChild(h);(function(el){setTimeout(function(){el.remove();},1500);})(h);}
+function huntPump(){
+  if(!S.active)return;
+  var now=Date.now();
+  if(!S.huntNext){S.huntNext=now+120000;save();return;}
+  if(B)return; /* never mid-battle */
+  if(now>=S.huntNext){resolveHunt();S.huntNext=Date.now()+150000+Math.floor(Math.random()*90000);save();}
 }
-function excite(){var s=document.getElementById("palSvg");if(s){s.classList.remove("pal-bob");s.classList.add("pal-excited");setTimeout(function(){s.classList.remove("pal-excited");s.classList.add("pal-bob");},600);}}
+function catchUp(){
+  if(!S.active)return;
+  var last=S.lastHunt||0;if(!last){S.lastHunt=Date.now();save();return;}
+  var legs=Math.min(3,Math.floor((Date.now()-last)/240000));
+  for(var i=0;i<legs;i++)resolveHunt();
+}
+/* ---------------- VIEWS ---------------- */
+function badge(){
+  var b=document.getElementById("palBtn");if(!b)return;
+  var el=document.getElementById("palBadge");
+  if(S.unread>0){
+    if(!el){el=document.createElement("span");el.id="palBadge";el.style.cssText="position:absolute;top:-4px;right:-4px;min-width:20px;height:20px;border-radius:99px;background:#d42a1e;color:#fff;font-size:11px;font-weight:900;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #17181a";b.style.position="fixed";b.appendChild(el);}
+    el.textContent=S.unread>9?"9+":S.unread;el.style.display="flex";
+  }else if(el){el.style.display="none";}
+}
+function head(t){return '<button class="pal-x" id="palX" aria-label="Close">✕</button><div class="pal-ttl">'+t+'</div>';}
 function paint(){
   var card=document.getElementById("palCard");if(!card)return;
-  decay();
-  var dt=dubsTotal();if(dt>P.dubsSeen){P.care+=dt-P.dubsSeen;P.dubsSeen=dt;}
-  var x='<button class="pal-x" id="palX" aria-label="Close">✕</button>';
-  if(!P.hatched){
-    var draft="";try{draft=localStorage.getItem("shortztv_pal_draft")||"";}catch(e){}
-    card.innerHTML=x+'<div class="pal-ttl">SCOUT PAL</div>'
-     +'<div class="pal-stage">'+petSVG()+'</div>'
-     +'<div class="pal-name">A Pal is waiting</div>'
-     +'<div class="pal-status">Everybody gets a Scout Pal. Name him, hatch him — he lives right here with you.</div>'
-     +'<input class="pal-namein" id="palNameIn" maxlength="16" placeholder="Name your Pal" value="'+pesc(draft)+'">'
-     +'<div class="pal-actions"><button class="pal-btn gold" id="palHatch">Hatch my Pal 🐾</button></div>'
-     +'<div class="pal-note">Watching <b>feeds him</b>. Playing keeps him <b>happy</b>. His meals cost <b>Stake Coins</b>, and every <b>Dub</b> you earn helps him grow. He never dies — worst case, he naps.</div>';
-    wireX();
-    var inp=document.getElementById("palNameIn");
-    if(inp)inp.oninput=function(){try{localStorage.setItem("shortztv_pal_draft",inp.value);}catch(e){}};
-    var hb=document.getElementById("palHatch");
-    if(hb)hb.onclick=function(){
-      var nm=((inp&&inp.value)||"").trim().slice(0,16)||"Scout";
-      P.name=nm;P.hatched=true;P.born=Date.now();P.lastSeen=Date.now();
-      try{localStorage.removeItem("shortztv_pal_draft");}catch(e){}
-      save();paint();hearts();
-    };
-    return;
-  }
-  var st=stage(),age=Math.max(1,Math.floor((Date.now()-P.born)/86400000)+1);
-  var nextAt=st.i===1?25:st.i===2?75:st.i===3?150:null;
-  var grow=nextAt?("Care <b>"+P.care+"</b> — "+(nextAt-P.care)+" more to "+(st.i===1?"Kid":st.i===2?"Teen":"Adult")+". Dubs count too: <b>"+P.dubsSeen+" Dubs</b> banked into his growth."):"<b>Fully grown.</b> A crown Pal — "+P.care+" care, "+P.dubsSeen+" Dubs banked. He runs this app with you.";
-  card.innerHTML=x+'<div class="pal-ttl">SCOUT PAL</div>'
-   +'<div class="pal-stage"><span class="pal-badge l">'+st.n.toUpperCase()+'</span><span class="pal-badge r">DAY '+age+'</span>'+petSVG()+'</div>'
-   +'<div class="pal-name">'+pesc(P.name)+'</div>'
-   +'<div class="pal-status" id="palStatus">'+pesc(statusLine())+'</div>'
-   +'<div class="pal-meters">'+meter("🍗 HUNGER",P.hunger)+meter("😄 HAPPY",P.happy)+meter("⚡ ENERGY",P.energy)+'</div>'
-   +'<div class="pal-actions"><button class="pal-btn gold" id="palFeed"'+(P.napping?" disabled":"")+'>🍗 Feed · 5 🪙</button><button class="pal-btn ghost" id="palPlay"'+(P.napping?" disabled":"")+'>🎾 Play</button></div>'
-   +'<div class="pal-row2"><button class="pal-mini" id="palNap">'+(P.napping?"☀️ Wake him up":"🌙 Nap time")+'</button><button class="pal-mini" disabled>Care <span>❤ '+P.care+'</span></button></div>'
-   +'<div class="pal-note">'+grow+(coinsLive()?"":"<br>Meals are <b>on the house</b> until your Stake wallet is live.")+'</div>';
+  if(view==="pick")return paintPick(card);
+  if(view==="confirm")return paintConfirm(card);
+  if(view==="battle")return paintBattle(card);
+  if(view==="squad")return paintSquad(card);
+  if(view==="reports")return paintReports(card);
+  return paintHome(card);
+}
+function miniCard(r,ownedRec){
+  return '<button class="sc-mini" data-pick="'+r.id+'"><img src="'+r.card+'" alt="'+pesc(r.name)+'" loading="lazy">'
+   +'<span class="sc-mini-nm">'+pesc(r.name)+'</span><span class="sc-mini-sub">'+r.type+' · <span class="sc-star">'+stars(r.stars)+'</span></span>'
+   +(ownedRec?'<span class="sc-mini-lv">Lv '+ownedRec.lv+'</span>':'')+'</button>';
+}
+function paintPick(card){
+  var g=ROSTER.map(function(r){return miniCard(r,null);}).join("");
+  card.innerHTML=head("CHOOSE YOUR SCOUT")
+   +'<div class="pal-status" style="margin-top:8px">The new cast: ten Phantom Foundry cards and two originals. Pick your first scout — he hunts, battles and levels up with you. More join when he captures them out hunting.</div>'
+   +'<div class="sc-grid">'+g+'</div>';
   wireX();
-  var fb=document.getElementById("palFeed");if(fb)fb.onclick=doFeed;
-  var pb=document.getElementById("palPlay");if(pb)pb.onclick=doPlay;
-  var nb=document.getElementById("palNap");if(nb)nb.onclick=function(){P.napping=!P.napping;flash(P.napping?P.name+" is down for a nap.":P.name+" is up!");save();paint();};
+  card.querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){pickId=b.getAttribute("data-pick");view="confirm";paint();};});
 }
+function bigCard(r,rec){
+  var pf=r.metal!=="Original";
+  var art='<img class="sc-bigart" src="'+r.card+'" alt="'+pesc(r.name)+'">';
+  var stats='<div class="sc-namerow"><span class="sc-nm">'+pesc(r.name)+'</span></div>'
+   +'<div class="sc-typerow">'+r.type+' · '+pesc(r.metal).toUpperCase()+' · <span class="sc-star">'+stars(r.stars)+'</span></div>'
+   +'<div class="pal-meters"><div class="pal-meter"><div class="pm-t">HP</div><div class="pm-v">'+hpAt(r,rec?rec.lv:1)+'</div></div>'
+   +'<div class="pal-meter"><div class="pm-t">ATK</div><div class="pm-v">'+atkAt(r,rec?rec.lv:1)+'</div></div>'
+   +'<div class="pal-meter"><div class="pm-t">LEVEL</div><div class="pm-v">'+(rec?rec.lv:1)+'</div></div></div>'
+   +'<div class="pal-note"><b>'+r.ability+'</b> — '+pesc(r.skillTxt)+'</div>';
+  return art+stats;
+}
+function paintConfirm(card){
+  var r=BYID[pickId];if(!r){view="pick";return paint();}
+  card.innerHTML=head("YOUR FIRST SCOUT")+bigCard(r,null)
+   +'<div class="pal-actions"><button class="pal-btn gold" id="scStart">MAKE MY SCOUT 🐾</button></div>'
+   +'<div class="pal-row2"><button class="pal-mini" id="scBack">← Back to the cast</button></div>';
+  wireX();
+  document.getElementById("scBack").onclick=function(){view="pick";paint();};
+  document.getElementById("scStart").onclick=function(){
+    S.owned[r.id]={lv:1,xp:0,w:0,l:0};S.active=r.id;S.lastHunt=Date.now();S.huntNext=Date.now()+150000;
+    addReport("🐾 "+r.name+" joined you. Send him into battle, and he hunts on his own while the app is open.");
+    S.unread=0;save();view="home";paint();
+  };
+}
+function paintHome(card){
+  var r=actScout(),rec=actRec();
+  if(!r){view="pick";return paint();}
+  var xpPct=Math.min(100,Math.round(rec.xp/(rec.lv*100)*100));
+  var huntLine=S.unread>0?("Your scout has news — "+S.unread+" hunt report"+(S.unread>1?"s":"")+" waiting.")
+    :"Out hunting between battles. Reports land here on their own.";
+  card.innerHTML=head("SCOUT PAL")+bigCard(r,rec)
+   +'<div class="sc-xp"><div class="sc-xp-t">XP — Level '+rec.lv+' · '+rec.xp+' / '+(rec.lv*100)+'</div><div class="pal-bar"><i style="width:'+xpPct+'%"></i></div></div>'
+   +'<div class="pal-status">Record: <b>'+rec.w+'</b> wins · <b>'+rec.l+'</b> losses · Collection: <b>'+Object.keys(S.owned).length+' / 12</b></div>'
+   +'<div class="pal-actions"><button class="pal-btn gold" id="scBattle">⚔ BATTLE</button><button class="pal-btn ghost" id="scReports">🐾 Reports'+(S.unread?' ('+S.unread+')':'')+'</button></div>'
+   +'<div class="pal-row2"><button class="pal-mini" id="scSquad">👥 My Scouts ('+Object.keys(S.owned).length+')</button></div>'
+   +'<div class="pal-note">'+pesc(huntLine)+'</div>';
+  wireX();
+  document.getElementById("scBattle").onclick=function(){startBattle();};
+  document.getElementById("scReports").onclick=function(){view="reports";paint();};
+  document.getElementById("scSquad").onclick=function(){view="squad";paint();};
+}
+function paintSquad(card){
+  var g=ROSTER.map(function(r){
+    var rec=own(r.id);
+    if(rec)return miniCard(r,rec);
+    return '<div class="sc-mini sc-ghost"><div class="sc-ghost-q">?</div><span class="sc-mini-nm">UNKNOWN</span><span class="sc-mini-sub">Found out hunting</span></div>';
+  }).join("");
+  card.innerHTML=head("MY SCOUTS")
+   +'<div class="pal-status" style="margin-top:8px">Tap a scout to make him your active fighter. Wild scouts join when your hunter captures them.</div>'
+   +'<div class="sc-grid">'+g+'</div>'
+   +'<div class="pal-row2"><button class="pal-mini" id="scHome">← Back</button></div>';
+  wireX();
+  document.getElementById("scHome").onclick=function(){view="home";paint();};
+  card.querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){S.active=b.getAttribute("data-pick");save();view="home";paint();};});
+}
+function paintReports(card){
+  var rows=S.reports.length?S.reports.map(function(rp){
+    var d=new Date(rp.t);var hh=d.getHours()%12||12,mm=("0"+d.getMinutes()).slice(-2),ap=d.getHours()>=12?"PM":"AM";
+    return '<div class="sc-rep"><span class="sc-rep-t">'+hh+":"+mm+" "+ap+'</span>'+pesc(rp.txt)+'</div>';
+  }).join(""):'<div class="pal-status">No hunts yet. Your scout heads out on his own while the app is open — check back soon.</div>';
+  card.innerHTML=head("HUNT REPORTS")+rows
+   +'<div class="pal-row2"><button class="pal-mini" id="scHome">← Back</button></div>';
+  wireX();S.unread=0;save();badge();
+  document.getElementById("scHome").onclick=function(){view="home";paint();};
+}
+/* ---------------- BATTLE (inside the card) ---------------- */
+function cnr(){return '<span class="bt-cnr tl"></span><span class="bt-cnr tr"></span><span class="bt-cnr bl"></span><span class="bt-cnr br"></span>';}
+function startBattle(){
+  var me=actScout(),rec=actRec();if(!me)return;
+  var pool=ROSTER.filter(function(r){return r.id!==me.id;});
+  var foe=pool[Math.floor(Math.random()*pool.length)];
+  var flv=Math.max(1,rec.lv+Math.floor(Math.random()*3)-1);
+  B={me:{r:me,lv:rec.lv,hp:hpAt(me,rec.lv),max:hpAt(me,rec.lv),en:2,frozen:false,burn:0,buff:1,skillUsed:false},
+     foe:{r:foe,lv:flv,hp:hpAt(foe,flv),max:hpAt(foe,flv),en:2,frozen:false,burn:0,buff:1,skillUsed:false},
+     busy:false,over:false,potions:2,turn:0};
+  view="battle";paint();
+  setTimeout(function(){if(B&&!B.over)bsay("What will "+me.name.split(" ").pop()+" do?");},1300);
+}
+function paintBattle(card){
+  var me=B.me,foe=B.foe;
+  card.innerHTML='<button class="pal-x" id="palX" aria-label="Close">✕</button>'
+   +'<div class="bt-scene" id="btScene">'
+   +'<div class="bt-eplate"><div class="bt-bar"></div><div style="flex:1"><div class="bt-nm">'+pesc(foe.r.name)+'</div><div class="bt-lv">:L'+foe.lv+'</div>'
+   +'<div class="bt-hprow"><span class="bt-hpl">HP:</span><div class="bt-hpbar"><div class="bt-hpfill" id="btEF" style="width:100%"></div></div></div><div class="bt-etail"></div></div></div>'
+   +'<img class="bt-enemy'+(foe.r.id==="jotun"?" bt-flip":"")+'" id="btES" src="'+foe.r.sprite+'" alt="'+pesc(foe.r.name)+'">'
+   +'<img class="bt-mine" id="btMS" src="'+me.r.sprite+'" alt="'+pesc(me.r.name)+'">'
+   +'<div class="bt-dmg" id="btDE" style="right:15%;top:24%"></div><div class="bt-dmg" id="btDM" style="left:12%;top:50%"></div>'
+   +'<div class="bt-mplate"><div class="bt-nm">'+pesc(me.r.name)+'</div><div class="bt-lv" style="text-align:right">:L'+me.lv+'</div>'
+   +'<div class="bt-hprow"><span class="bt-hpl">HP:</span><div class="bt-hpbar"><div class="bt-hpfill" id="btMF" style="width:100%"></div></div></div>'
+   +'<div class="bt-hpnum"><span id="btMN">'+me.hp+'</span> / '+me.max+'</div><div class="bt-tail"></div></div>'
+   +'<div class="bt-band"><div class="bt-gbox bt-dlg">'+cnr()+'<span id="btTxt">A wild '+pesc(foe.r.name)+' appeared!</span></div>'
+   +'<div class="bt-gbox bt-menu" id="btMenu">'+cnr()+'<div id="btFight">▶ FIGHT</div><div id="btSkill">SKILL</div><div id="btItem">ITEM</div><div id="btRun">RUN</div></div>'
+   +'<div class="bt-gbox bt-moves" id="btMoves" style="display:none">'+cnr()
+   +'<div data-mv="0">'+pesc(me.r.moves[0][0].toUpperCase())+'</div><div data-mv="1">'+pesc(me.r.moves[1][0].toUpperCase())+'</div><div data-mv="2">'+pesc(me.r.moves[2][0].toUpperCase())+' ⚡2</div><div data-mv="3">◀ BACK</div></div>'
+   +'</div></div>';
+  wireX();
+  document.getElementById("btFight").onclick=function(){
+    if(B.over){view="home";B=null;paint();return;}
+    if(B.busy)return;
+    document.getElementById("btMenu").style.display="none";document.getElementById("btMoves").style.display="grid";
+  };
+  document.getElementById("btSkill").onclick=function(){useSkill(B.me,B.foe,true);};
+  document.getElementById("btItem").onclick=function(){
+    if(B.busy||B.over)return;
+    if(B.potions<=0){bsay("No Frost Tonics left!");return;}
+    B.potions--;B.me.hp=Math.min(B.me.max,B.me.hp+45);bbars();
+    bsay("Used a FROST TONIC! +45 HP. ("+B.potions+" left)");
+    B.busy=true;setTimeout(function(){if(!bend())bfoeTurn();},900);
+  };
+  document.getElementById("btRun").onclick=function(){if(B.busy)return;B=null;view="home";paint();};
+  card.querySelectorAll("#btMoves [data-mv]").forEach(function(d){
+    d.onclick=function(){var i=+d.getAttribute("data-mv");
+      if(i===3){document.getElementById("btMoves").style.display="none";document.getElementById("btMenu").style.display="grid";return;}
+      useMove(B.me,B.foe,i,true);};
+  });
+  bbars();
+}
+function $(id){return document.getElementById(id);}
+function bsay(t){var el=$("btTxt");if(el)el.textContent=t;}
+function bbars(){
+  if(!B)return;
+  var mf=$("btMF"),ef=$("btEF"),mn=$("btMN");if(!mf)return;
+  var col=function(f){return f>50?"#4ecb46":(f>22?"#e8b93b":"#d42a1e");};
+  mf.style.width=Math.max(0,B.me.hp/B.me.max*100)+"%";mf.style.background=col(B.me.hp/B.me.max*100);
+  ef.style.width=Math.max(0,B.foe.hp/B.foe.max*100)+"%";ef.style.background=col(B.foe.hp/B.foe.max*100);
+  mn.textContent=Math.max(0,B.me.hp);
+}
+function bpop(el,txt){if(!el)return;el.textContent=txt;el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");}
+function bhit(def,dmg,isFoe){
+  def.hp-=dmg;
+  var spr=$(isFoe?"btES":"btMS");if(spr){spr.classList.add("bt-shake");setTimeout(function(){spr.classList.remove("bt-shake");},320);}
+  bpop($(isFoe?"btDE":"btDM"),"-"+dmg);bbars();
+}
+function bend(){
+  if(!B||B.over)return B?B.over:false;
+  var rec=actRec();
+  if(B.foe.hp<=0){
+    B.over=true;rec.w++;S.totW++;
+    var xp=40+B.foe.lv*4;var ups=gainXp(rec,xp);
+    var paid=coins(20);
+    bsay(B.foe.r.name+" fainted! +"+xp+" XP"+(paid?", +20 Stake Coins":"")+(ups.length?" — LEVEL "+ups[ups.length-1]+"!":""));
+    save();bendMenu();return true;
+  }
+  if(B.me.hp<=0){
+    B.over=true;rec.l++;S.totL++;gainXp(rec,10);
+    bsay(B.me.r.name+" fainted... "+B.foe.r.name+" takes this one. +10 XP");
+    save();bendMenu();return true;
+  }
+  return false;
+}
+function bendMenu(){
+  var m=$("btMenu"),mv=$("btMoves");if(mv)mv.style.display="none";if(m)m.style.display="grid";
+  var f=$("btFight");if(f)f.textContent="▶ CARD";
+  ["btSkill","btItem","btRun"].forEach(function(id){var e=$(id);if(e)e.textContent="—";});
+}
+function statusTick(u){
+  if(u.burn>0){u.burn--;u.hp-=9;bpop($(u===B.foe?"btDE":"btDM"),"🔥9");bbars();}
+}
+function useMove(att,def,idx,isPlayer){
+  if(!B||B.busy||B.over)return;
+  var mv=att.r.moves[idx];
+  if(idx===2&&att.en<2){if(isPlayer)bsay("Not enough energy for "+mv[0].toUpperCase()+"!");return;}
+  B.busy=true;
+  var mvBox=$("btMoves"),mnBox=$("btMenu");if(mvBox)mvBox.style.display="none";if(mnBox)mnBox.style.display="grid";
+  if(att.frozen){att.frozen=false;bsay(att.r.name+" is FROZEN solid! It can't move!");setTimeout(function(){B.busy=false;if(isPlayer)bfoeTurn();else bplayerTurn();},900);return;}
+  statusTick(att);if(bend())return;
+  if(idx===2)att.en-=2;
+  var base=atkAt(att.r,att.lv)*0.55*mv[1]*typeMul(att.r.type,def.r.type)*att.buff*(0.88+Math.random()*0.24);
+  var dmg=Math.max(4,Math.round(base));
+  var eff=typeMul(att.r.type,def.r.type);
+  bsay(att.r.name+" used "+mv[0].toUpperCase()+"!"+(eff>1?" It's super effective!":eff<1?" Not very effective...":""));
+  var spr=$(isPlayer?"btMS":"btES");if(spr){spr.classList.add(isPlayer?"bt-lungeR":"bt-lungeL");setTimeout(function(){spr.classList.remove("bt-lungeR");spr.classList.remove("bt-lungeL");},200);}
+  setTimeout(function(){
+    bhit(def,dmg,!isPlayer);
+    if(mv[2]==="freeze"&&def.hp>0&&Math.random()<0.45){def.frozen=true;bsay(def.r.name+" was FROZEN!");}
+    if(mv[2]==="burn"&&def.hp>0){def.burn=2;bsay(def.r.name+" is BURNING!");}
+    if(mv[2]==="leech"&&att.hp>0){att.hp=Math.min(att.max,att.hp+Math.round(dmg*0.4));bbars();}
+    att.en=Math.min(5,att.en+1);
+    if(!bend()){B.busy=false;if(isPlayer)setTimeout(bfoeTurn,650);else bplayerTurn();}
+    else B.busy=false;
+  },380);
+}
+function useSkill(att,def,isPlayer){
+  if(!B||B.busy||B.over||att.skillUsed)return;
+  if(att.frozen){att.frozen=false;B.busy=true;bsay(att.r.name+" is FROZEN solid! It can't move!");setTimeout(function(){B.busy=false;if(isPlayer)bfoeTurn();else bplayerTurn();},900);return;}
+  B.busy=true;att.skillUsed=true;
+  var mvBox=$("btMoves"),mnBox=$("btMenu");if(mvBox)mvBox.style.display="none";if(mnBox)mnBox.style.display="grid";
+  var kind=att.r.skill;
+  bsay(att.r.name+" — "+att.r.ability+"!");
+  setTimeout(function(){
+    if(kind==="heal"){att.hp=Math.min(att.max,att.hp+Math.round(att.max*0.22));bbars();bsay(att.r.name+" recovered HP!");}
+    else if(kind==="freeze"){def.frozen=true;var d=Math.round(atkAt(att.r,att.lv)*0.5);bhit(def,d,!isPlayer);bsay(def.r.name+" was FROZEN solid!");}
+    else if(kind==="nuke"){var d2=Math.round(atkAt(att.r,att.lv)*0.95*typeMul(att.r.type,def.r.type));bhit(def,d2,!isPlayer);}
+    else if(kind==="buff"){att.buff=1.3;att.hp=Math.min(att.max,att.hp+Math.round(att.max*0.08));bbars();bsay(att.r.name+"'s ATK rose!");}
+    att.en=Math.min(5,att.en+1);
+    if(!bend()){B.busy=false;if(isPlayer)setTimeout(bfoeTurn,650);else bplayerTurn();}
+    else B.busy=false;
+  },420);
+}
+function bfoeTurn(){
+  if(!B||B.over)return;
+  B.turn++;
+  var f=B.foe;
+  if(f.frozen){f.frozen=false;bsay(f.r.name+" is FROZEN solid! It can't move!");setTimeout(bplayerTurn,900);return;}
+  if(!f.skillUsed&&(B.turn>=3||f.hp<f.max*0.4)&&Math.random()<0.55){useSkill(f,B.me,false);return;}
+  var idx=0;
+  if(f.en>=2&&Math.random()<0.55)idx=2;else idx=Math.random()<0.6?0:1;
+  useMove(f,B.me,idx,false);
+}
+function bplayerTurn(){ if(B&&!B.over)bsay("What will "+B.me.r.name.split(" ").pop()+" do?"); }
+/* ---------------- OPEN / CLOSE / API ---------------- */
 function wireX(){var b=document.getElementById("palX");if(b)b.onclick=palClose;}
-function doFeed(){
-  if(P.napping)return;
-  var paid=false;
-  if(coinsLive()&&window.Stake.coins>=5){window.Stake.coins-=5;try{window.Stake.saveCoins();}catch(e){}paid=true;}
-  P.hunger=clamp(P.hunger+30);P.happy=clamp(P.happy+4);P.feeds++;P.care+=1;
-  flash(paid?"Yum! −5 Stake Coins.":"Yum! On the house.");
-  save();paint();hearts();
-}
-function doPlay(){
-  if(P.napping)return;
-  P.happy=clamp(P.happy+22);P.energy=clamp(P.energy-6);P.plays++;if(P.plays%3===0)P.care+=1;
-  flash(P.name+" had a blast!");
-  save();paint();excite();hearts();
-}
 function palOpen(){
-  load();decay();
+  load();
   window.__palOpen=true;
   var v=document.getElementById("palView");if(!v)return;
   v.classList.add("open");v.setAttribute("aria-hidden","false");
+  if(!S.active)view="pick";else if(view==="battle")view="home";
   paint();save();
-  clearInterval(tick);
-  tick=setInterval(function(){
-    if(!v.classList.contains("open")){clearInterval(tick);return;}
-    if(P.hatched){decay();paint();save();}
-  },30000);
 }
 function palClose(){
   window.__palOpen=false;save();
   var v=document.getElementById("palView");if(!v)return;
   v.classList.remove("open");v.setAttribute("aria-hidden","true");
-  clearInterval(tick);
+  if(B){B=null;view="home";}
 }
-load();
+load();catchUp();badge();
+setInterval(huntPump,30000);
 var btn=document.getElementById("palBtn");
 if(btn)btn.addEventListener("click",function(e){e.stopPropagation();palOpen();});
-var view=document.getElementById("palView");
-if(view)view.addEventListener("click",function(e){if(e.target===view)palClose();});
-window.ScoutPal={open:palOpen,close:palClose,state:function(){return {open:!!window.__palOpen,hatched:P.hatched,name:P.name,care:P.care,hunger:P.hunger,happy:P.happy,energy:P.energy,stage:P.hatched?stage().n:"Egg",napping:P.napping};}};
+var view_el=document.getElementById("palView");
+if(view_el)view_el.addEventListener("click",function(e){if(e.target===view_el)palClose();});
+window.ScoutPal={open:palOpen,close:palClose,state:function(){var r=actScout(),rec=actRec();return {open:!!window.__palOpen,hatched:!!S.active,name:r?r.name:"",lv:rec?rec.lv:0,xp:rec?rec.xp:0,owned:Object.keys(S.owned).length,unread:S.unread,totW:S.totW,totL:S.totL,view:view,battling:!!B};}};
+window.ScoutBattles={roster:ROSTER.map(function(r){return r.id;}),state:window.ScoutPal.state};
 })();
+
 </script>
 </body>
 </html>
