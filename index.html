@@ -2291,7 +2291,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792284205";
+window.__SZ_BUILD = "1792285131";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5415,7 +5415,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792284205";
+const BUILD="1792285131";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9159,10 +9159,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792284205"></script>
+<script src="js/folders.js?v=1792285131"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792284205"></script>
+<script src="js/guide.js?v=1792285131"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9972,9 +9972,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792284205"></script>
-<script src="js/shortz-live.js?v=1792284205"></script>
-<script src="js/games.js?v=1792284205"></script>
+<script src="js/streaming.js?v=1792285131"></script>
+<script src="js/shortz-live.js?v=1792285131"></script>
+<script src="js/games.js?v=1792285131"></script>
 <script>
 
 
@@ -10492,7 +10492,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792284205"></script>
+<script src="js/swipe.js?v=1792285131"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12724,7 +12724,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792284205"></script>
+<script src="js/live-sports.js?v=1792285131"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13263,10 +13263,10 @@ window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard
 .bt-scene{position:relative;width:100%;aspect-ratio:900/815;background:#f8f6ef;border-radius:12px;overflow:hidden;color:#101010;font-family:'PS2P','Courier New',monospace;margin-top:26px}
 .bt-eplate{position:absolute;left:4.5%;top:4%;width:47%;display:flex}
 .bt-bar{width:7px;background:#101010;margin-right:8px}
-.bt-nm{font-size:9.5px;line-height:1.5}
-.bt-lv{font-size:9.5px;margin-top:5px}
+.bt-nm{font-size:13px;line-height:1.45}
+.bt-lv{font-size:12.5px;margin-top:5px}
 .bt-hprow{display:flex;align-items:center;gap:5px;margin-top:7px}
-.bt-hpl{font-size:8px}
+.bt-hpl{font-size:11px}
 .bt-hpbar{flex:1;height:9px;background:#3d3d3d;border:2px solid #101010;border-radius:5px;overflow:hidden}
 .bt-hpfill{height:100%;background:#4ecb46;transition:width .7s ease}
 .bt-etail{height:5px;background:#101010;margin-top:4px;width:104%;clip-path:polygon(0 0,93% 0,100% 100%,0 100%)}
@@ -13276,19 +13276,19 @@ window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard
 .bt-lungeR{transform:translateX(13px)}.bt-lungeL{transform:translateX(-13px)}
 .bt-enemy.bt-flip.bt-lungeL{transform:scaleX(-1) translateX(13px)}
 .bt-shake{animation:btshk .3s}@keyframes btshk{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-.bt-mplate{position:absolute;right:2.5%;top:47.5%;width:52%;background:#f8f6ef;border:3.5px solid #101010;border-radius:9px;padding:9px 10px 7px}
-.bt-hpnum{font-size:10px;text-align:right;margin-top:5px}
+.bt-mplate{position:absolute;right:2.5%;top:45.5%;width:52%;background:#f8f6ef;border:3.5px solid #101010;border-radius:9px;padding:9px 10px 7px}
+.bt-hpnum{font-size:13px;text-align:right;margin-top:5px}
 .bt-tail{position:absolute;left:-3.5px;bottom:-15px;width:34%;height:12px;background:#101010;clip-path:polygon(0 0,100% 0,82% 100%,10% 100%)}
-.bt-band{position:absolute;left:1.2%;right:1.2%;bottom:1.6%;height:24.5%;display:flex;gap:1.2%}
+.bt-band{position:absolute;left:1.2%;right:1.2%;bottom:1.6%;height:28%;display:flex;gap:1.2%}
 .bt-gbox{position:relative;background:#f8f6ef;border:3.5px solid #101010;border-radius:9px}
 .bt-gbox:after{content:'';position:absolute;inset:4px;border:2px solid #101010;border-radius:5px;pointer-events:none}
 .bt-cnr{position:absolute;width:10px;height:10px;background:#f8f6ef;border:3px solid #101010;border-radius:50%;z-index:3}
 .bt-cnr.tl{top:-6px;left:-6px}.bt-cnr.tr{top:-6px;right:-6px}.bt-cnr.bl{bottom:-6px;left:-6px}.bt-cnr.br{bottom:-6px;right:-6px}
-.bt-dlg{flex:1.14;padding:5% 6%;font-size:9px;line-height:1.9}
-.bt-menu{flex:1;padding:4% 5% 4% 8%;display:grid;grid-template-columns:1.15fr 1fr;align-content:center;gap:13% 3%;font-size:10px}
-.bt-moves{flex:1;padding:4% 5% 4% 7%;display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:11% 3%;font-size:8px;line-height:1.5}
+.bt-dlg{flex:1.14;padding:4% 5%;font-size:12px;line-height:1.65}
+.bt-menu{flex:1;padding:4% 5% 4% 5%;display:grid;grid-template-columns:1.15fr 1fr;align-content:center;gap:13% 3%;font-size:14px}
+.bt-moves{flex:1;padding:4% 5% 4% 7%;display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:6% 3%;font-size:11px;line-height:1.5}
 .bt-menu div,.bt-moves div{cursor:pointer}
-.bt-dmg{position:absolute;font-family:'PS2P',monospace;color:#d42a1e;font-size:15px;z-index:5;opacity:0;pointer-events:none}
+.bt-dmg{position:absolute;font-family:'PS2P',monospace;color:#d42a1e;font-size:18px;z-index:5;opacity:0;pointer-events:none}
 .bt-dmg.pop{animation:btpop 1s ease forwards}@keyframes btpop{15%{opacity:1}100%{opacity:0;transform:translateY(-22px)}}
 </style>
 
@@ -13320,7 +13320,7 @@ var ROSTER=[
 ];
 var BYID={};ROSTER.forEach(function(r){BYID[r.id]=r;});
 var CHART={VOLT:{FROST:1.35,STONE:0.75},BLAZE:{FROST:1.35},FROST:{STONE:1.35,BLAZE:0.75},STONE:{VOLT:1.35,FROST:0.75},SHADE:{VOLT:1.35}};
-var S={active:null,owned:{},reports:[],unread:0,lastHunt:0,huntNext:0,totW:0,totL:0};
+var S={active:null,owned:{},reports:[],unread:0,lastHunt:0,huntNext:0,totW:0,totL:0,alerts:true};
 var view="home",pickId=null,B=null;
 function load(){try{var d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&typeof d==="object")S=Object.assign({},S,d);}catch(e){}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
@@ -13336,7 +13336,20 @@ function gainXp(rec,amt){rec.xp+=amt;var ups=[];while(rec.xp>=rec.lv*100){rec.xp
 function coins(n){try{if(window.Stake&&Stake._coinsLoaded){window.Stake.coins+=n;window.Stake.saveCoins();return true;}}catch(e){}return false;}
 /* ---------------- HUNTING (idle) ---------------- */
 function power(r,lv){return hpAt(r,lv)*0.5+atkAt(r,lv)*6+lv*8;}
-function addReport(txt){S.reports.unshift({t:Date.now(),txt:txt});if(S.reports.length>30)S.reports.length=30;S.unread++;badge();}
+function scoutPing(txt){
+  try{if(window.Android&&Android.postScoutNotification){return !!Android.postScoutNotification("\uD83D\uDC3E Scout Pal",txt,"");}}catch(e){}
+  try{if(window.Notification&&Notification.permission==="granted"){new Notification("\uD83D\uDC3E Scout Pal",{body:txt});return true;}}catch(e){}
+  return false;
+}
+function scoutNotifyTest(){var me=actScout();scoutPing("Hunt alerts are ON. "+(me?me.name+" will":"Your scout will")+" check in from the hunt.");}
+function scoutNotify(txt){
+  if(S.alerts===false)return;
+  if(window.__palOpen)return;
+  if(!document.hidden)return; /* he is in the app — the paw badge + Reports carry it */ /* he is looking at the pal — the report shows here */
+  try{if(window.Android&&Android.postScoutNotification){if(Android.postScoutNotification("\uD83D\uDC3E Scout Pal",txt,""))return;}}catch(e){}
+  try{if(window.Notification&&Notification.permission==="granted")new Notification("\uD83D\uDC3E Scout Pal",{body:txt});}catch(e){}
+}
+function addReport(txt){S.reports.unshift({t:Date.now(),txt:txt});if(S.reports.length>30)S.reports.length=30;S.unread++;badge();scoutNotify(txt);}
 function resolveHunt(){
   var me=actScout(),rec=actRec();if(!me||!rec)return;
   var pool=ROSTER.filter(function(r){return r.id!==me.id;});
@@ -13442,12 +13455,15 @@ function paintHome(card){
    +'<div class="sc-xp"><div class="sc-xp-t">XP — Level '+rec.lv+' · '+rec.xp+' / '+(rec.lv*100)+'</div><div class="pal-bar"><i style="width:'+xpPct+'%"></i></div></div>'
    +'<div class="pal-status">Record: <b>'+rec.w+'</b> wins · <b>'+rec.l+'</b> losses · Collection: <b>'+Object.keys(S.owned).length+' / 12</b></div>'
    +'<div class="pal-actions"><button class="pal-btn gold" id="scBattle">⚔ BATTLE</button><button class="pal-btn ghost" id="scReports">🐾 Reports'+(S.unread?' ('+S.unread+')':'')+'</button></div>'
-   +'<div class="pal-row2"><button class="pal-mini" id="scSquad">👥 My Scouts ('+Object.keys(S.owned).length+')</button></div>'
+   +'<div class="pal-row2"><button class="pal-mini" id="scSquad">👥 My Scouts ('+Object.keys(S.owned).length+')</button><button class="pal-mini" id="scAlerts">🔔 Hunt alerts <span>'+(S.alerts===false?"OFF":"ON")+'</span></button></div>'
    +'<div class="pal-note">'+pesc(huntLine)+'</div>';
   wireX();
   document.getElementById("scBattle").onclick=function(){startBattle();};
   document.getElementById("scReports").onclick=function(){view="reports";paint();};
   document.getElementById("scSquad").onclick=function(){view="squad";paint();};
+  document.getElementById("scAlerts").onclick=function(){S.alerts=(S.alerts===false);save();
+    if(S.alerts&&!(window.Android&&Android.postScoutNotification)&&window.Notification&&Notification.permission==="default"){try{Notification.requestPermission();}catch(e){}}
+    if(S.alerts)scoutNotifyTest();paint();};
 }
 function paintSquad(card){
   var g=ROSTER.map(function(r){
@@ -13515,7 +13531,7 @@ function paintBattle(card){
     if(B.potions<=0){bsay("No Frost Tonics left!");return;}
     B.potions--;B.me.hp=Math.min(B.me.max,B.me.hp+45);bbars();
     bsay("Used a FROST TONIC! +45 HP. ("+B.potions+" left)");
-    B.busy=true;setTimeout(function(){if(!bend())bfoeTurn();},900);
+    B.busy=true;setTimeout(function(){B.busy=false;if(!bend())bfoeTurn();},900);
   };
   document.getElementById("btRun").onclick=function(){if(B.busy)return;B=null;view="home";paint();};
   card.querySelectorAll("#btMoves [data-mv]").forEach(function(d){
@@ -13572,8 +13588,8 @@ function useMove(att,def,idx,isPlayer){
   if(idx===2&&att.en<2){if(isPlayer)bsay("Not enough energy for "+mv[0].toUpperCase()+"!");return;}
   B.busy=true;
   var mvBox=$("btMoves"),mnBox=$("btMenu");if(mvBox)mvBox.style.display="none";if(mnBox)mnBox.style.display="grid";
-  if(att.frozen){att.frozen=false;bsay(att.r.name+" is FROZEN solid! It can't move!");setTimeout(function(){B.busy=false;if(isPlayer)bfoeTurn();else bplayerTurn();},900);return;}
-  statusTick(att);if(bend())return;
+  if(att.frozen){att.frozen=false;bsay(att.r.name+" is FROZEN solid! It can't move!");var BB=B;setTimeout(function(){if(B!==BB)return;B.busy=false;if(isPlayer)bfoeTurn();else bplayerTurn();},900);return;}
+  statusTick(att);if(bend()){B.busy=false;return;}
   if(idx===2)att.en-=2;
   var base=atkAt(att.r,att.lv)*0.55*mv[1]*typeMul(att.r.type,def.r.type)*att.buff*(0.88+Math.random()*0.24);
   var dmg=Math.max(4,Math.round(base));
@@ -13591,8 +13607,9 @@ function useMove(att,def,idx,isPlayer){
   },380);
 }
 function useSkill(att,def,isPlayer){
-  if(!B||B.busy||B.over||att.skillUsed)return;
-  if(att.frozen){att.frozen=false;B.busy=true;bsay(att.r.name+" is FROZEN solid! It can't move!");setTimeout(function(){B.busy=false;if(isPlayer)bfoeTurn();else bplayerTurn();},900);return;}
+  if(!B||B.busy||B.over)return;
+  if(att.skillUsed){if(isPlayer)bsay(att.r.ability+" was already used this battle!");return;}
+  if(att.frozen){att.frozen=false;B.busy=true;bsay(att.r.name+" is FROZEN solid! It can't move!");var BB=B;setTimeout(function(){if(B!==BB)return;B.busy=false;if(isPlayer)bfoeTurn();else bplayerTurn();},900);return;}
   B.busy=true;att.skillUsed=true;
   var mvBox=$("btMoves"),mnBox=$("btMenu");if(mvBox)mvBox.style.display="none";if(mnBox)mnBox.style.display="grid";
   var kind=att.r.skill;
@@ -13609,6 +13626,7 @@ function useSkill(att,def,isPlayer){
 }
 function bfoeTurn(){
   if(!B||B.over)return;
+  B.busy=false;
   B.turn++;
   var f=B.foe;
   if(f.frozen){f.frozen=false;bsay(f.r.name+" is FROZEN solid! It can't move!");setTimeout(bplayerTurn,900);return;}
