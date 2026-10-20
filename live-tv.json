@@ -1,0 +1,76 @@
+{
+ "channels": [
+  {
+   "name": "ABC News Live",
+   "channelId": "UCBi2mrWuNuyYy4gbM6fU18Q",
+   "handle": "@ABCNews",
+   "cat": "News",
+   "blurb": "Breaking news and live events, around the clock.",
+   "avatar": "https://yt3.ggpht.com/GJ8V0NX6NddGh9bf4zED4tsjPjjBK2hdp5FWHMy09pV7sdSkkE3yEhCRSch4waEb9ZavyUrWfw=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "CBS News 24/7",
+   "channelId": "UC8p1vwvWtl6T73JiExfWs1g",
+   "handle": "@CBSNews",
+   "cat": "News",
+   "blurb": "National news, live as it happens.",
+   "avatar": "https://yt3.ggpht.com/ytc/AIdro_niBFv49gSx4rr1afMZU_Pv7SeuPKO2SMHvv0Ar7OKxM4o=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "NBC News NOW",
+   "channelId": "UCeY0bbntWzzVIaj2z3QigXg",
+   "handle": "@NBCNews",
+   "cat": "News",
+   "blurb": "NBC's free streaming news channel.",
+   "avatar": "https://yt3.ggpht.com/PJj5jtuEOi5UmkFy4IBonj5WcabNcnJAIJe-jZMd1ArwIuVyQxFH_2zryBHwvfv6mJujwRpWDCM=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Sky News",
+   "channelId": "UCoMdktPbSTixAyNGwb-UYkQ",
+   "handle": "@SkyNews",
+   "cat": "World",
+   "blurb": "Live news from the UK and around the world.",
+   "avatar": "https://yt3.ggpht.com/dGnkztdrLtXRlzkdqReeL-NES2761xxmNVcJhGKqFpR0vQBoP9XaxnXF95FDpwrjyFr2iJvV8Es=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "FOX Weather",
+   "channelId": "UC1FbPiXx59_ltnFVx7IxWow",
+   "handle": "@FoxWeather",
+   "cat": "Weather",
+   "blurb": "Weather coverage and storm tracking, 24/7.",
+   "avatar": "https://yt3.ggpht.com/FHKYcMhA4RzdNNTMU1Jxqi_UPWZns3f5rgVjHXHUi_STHQ-MuoGlGoHUccsVkFZnTbIBEX90=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Bloomberg TV",
+   "channelId": "UCIALMKvObZNtJ6AmdCLP7Lg",
+   "handle": "@markets",
+   "cat": "Business",
+   "blurb": "Business and markets news, live all day.",
+   "avatar": "https://yt3.ggpht.com/4-w44catDebzaDSUWgereql0G5_z5o7VpJXuIYL_eZ3H1vXy0lTmrole9V500jTUXCnQPZ5CuKQ=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Euronews English",
+   "channelId": "UCSrZ3UV4jOidv8ppoVuvW9Q",
+   "handle": "@euronews",
+   "cat": "World",
+   "blurb": "European and world news in English.",
+   "avatar": "https://yt3.ggpht.com/8MyE7rxMBfLZOpYkJVJFm1C8I9jxbceBbOJS9OhrepZMVGxGV-OEJU-UdLOew_qR_l-knETWeu4=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "DW News",
+   "channelId": "UCknLrEdhRCp1aegoMqRaCZg",
+   "handle": "@DWNews",
+   "cat": "World",
+   "blurb": "Germany's international news channel.",
+   "avatar": "https://yt3.ggpht.com/NSOdTQTWlqMy8O_j32dx-ftfTCHMOt04Hm7KZ4pfAK6-eQzQSZMWvvss90kG8KQfJ7iNP3phyA=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Al Jazeera English",
+   "channelId": "UCNye-wNBqNL5ZzHSJj3l8Bg",
+   "handle": "@AlJazeeraEnglish",
+   "cat": "World",
+   "blurb": "Global news with a worldwide view.",
+   "avatar": "https://yt3.ggpht.com/XsTga3Nsfc1E6ZgC6HfHfzTG_3zhuZleOnsKxSK2aILMjwkkIm-0vdALFaU-yt0Lw07iLtbSifk=s800-c-k-c0x00ffffff-no-rj"
+  }
+ ]
+}

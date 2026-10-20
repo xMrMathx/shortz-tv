@@ -5,7 +5,7 @@
    "channelId": "UCtInrnU3QbWqFGsdKT1GZtg",
    "handle": "@FIBA",
    "sport": "Basketball",
-   "blurb": "World basketball \u2014 qualifiers, 3x3 & youth championships live.",
+   "blurb": "World basketball — qualifiers, 3x3 & youth championships live.",
    "avatar": "https://yt3.ggpht.com/J09pwEf655991JjUDUvEqBb24t5oYoLeihQ0FL9AP06KEo-w58J8v8AgxiCVIky_I5J4Ly19=s240-c-k-c0x00ffffff-no-rj"
   },
   {
@@ -53,7 +53,7 @@
    "channelId": "UCPrONRG9hO1f-OrxW-WH-xg",
    "handle": "@PFLMMA",
    "sport": "MMA",
-   "blurb": "Full PFL events \u2014 international & tournament cards live.",
+   "blurb": "Full PFL events — international & tournament cards live.",
    "avatar": "https://yt3.ggpht.com/PMIaWJqNWPZHQnPOHPuw8FNbjAzACHA_HvhrFjekU_5dMZqlp7UQr4m7EFH9nzbAJnNjT2yfMA=s240-c-k-c0x00ffffff-no-rj"
   },
   {
@@ -95,6 +95,30 @@
    "sport": "Boxing",
    "blurb": "Live undercards, prelims & fight-week events.",
    "avatar": "https://yt3.ggpht.com/U4KDjaD7b8IE_OcKHH2Y8HGrKmHJgmk43GTYeiT-tKz8uhaqtkWTGuG17fvL4HOf-d_XIqTeYQ=s240-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Kings League",
+   "channelId": "UC883mT70XlbN-22D4EE-2zw",
+   "handle": "@KingsLeague",
+   "sport": "Football",
+   "blurb": "Kings League — the 7-a-side league's full match weeks, live.",
+   "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYuYlCtaZiPJcS6EAqjWAfpd2xbIxxZVbVDzJyi-9DbaQ=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Olympics",
+   "channelId": "UCTl3QQTvqHFjurroKxexy2Q",
+   "handle": "@Olympics",
+   "sport": "Multi-sport",
+   "blurb": "The Olympic Channel — qualifiers, live events and classic replays.",
+   "avatar": "https://yt3.ggpht.com/ytc/AIdro_mgqNPYKqnE7FG3Pk1zbi0hpKihVPbWSk-Rfsbr0ki0bFPK=s800-c-k-c0x00ffffff-no-rj"
+  },
+  {
+   "name": "Red Bull",
+   "channelId": "UCblfuW_4rakIf2h6aqANefA",
+   "handle": "@RedBull",
+   "sport": "Extreme Sports",
+   "blurb": "Red Bull live events — racing, bike, surf, snow and more.",
+   "avatar": "https://yt3.ggpht.com/ytc/AIdro_k94J7kkxpmlJe3c2iDFJpHk8SAADPpf49cN7XjomXSzEE=s800-c-k-c0x00ffffff-no-rj"
   }
  ]
 }
