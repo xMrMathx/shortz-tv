@@ -2291,7 +2291,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792463571";
+window.__SZ_BUILD = "1792465794";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5415,7 +5415,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792463571";
+const BUILD="1792465794";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9159,10 +9159,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792463571"></script>
+<script src="js/folders.js?v=1792465794"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792463571"></script>
+<script src="js/guide.js?v=1792465794"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9972,9 +9972,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792463571"></script>
-<script src="js/shortz-live.js?v=1792463571"></script>
-<script src="js/games.js?v=1792463571"></script>
+<script src="js/streaming.js?v=1792465794"></script>
+<script src="js/shortz-live.js?v=1792465794"></script>
+<script src="js/games.js?v=1792465794"></script>
 <script>
 
 
@@ -10492,7 +10492,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792463571"></script>
+<script src="js/swipe.js?v=1792465794"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12724,7 +12724,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792463571"></script>
+<script src="js/live-sports.js?v=1792465794"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13295,7 +13295,7 @@ window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard
 <div id="palView" aria-hidden="true"><div class="pal-card" id="palCard"></div></div>
 <script>
 /* SCOUT BATTLES — the Scout Pal (his order 2026-10-17; creature cast his
-   order 2026-10-19). The Pal is one of 10 ORIGINAL creatures (hand-drawn,
+   order 2026-10-19). The Pal is one of 20 ORIGINAL creatures (hand-drawn,
    his crowned cast) — the Phantom Foundry cards are OUT. Every creature has
    3 forms and evolves as it levels (stage from level: 1 / 8 / 16). Tap a
    card -> the scout pops up in card form -> BATTLE fights right inside this
@@ -13316,7 +13316,17 @@ var ROSTER=[
  {id:"terrafort",name:"TERRAFORT",type:"STONE",metal:"Original",stars:4,hp:296,atk:40,card:"assets/scouts/terrafort.jpg",sprite:"assets/scouts/sprites/terrafort.jpg",ability:"BEDROCK BODY",skill:"heal",skillTxt:"Granite knits itself whole. Restores HP.",moves:[["Rock Ram",1.0,""],["Granite Stomp",1.3,""],["Fortress Quake",1.8,""]],forms:[["GRITLET","assets/scouts/gritlet.jpg","assets/scouts/sprites/gritlet.jpg"],["RHINOSTONE","assets/scouts/rhinostone.jpg","assets/scouts/sprites/rhinostone.jpg"],["TERRAFORT","assets/scouts/terrafort.jpg","assets/scouts/sprites/terrafort.jpg"]]},
  {id:"primolith",name:"PRIMOLITH",type:"STONE",metal:"Original",stars:5,hp:268,atk:54,card:"assets/scouts/primolith.jpg",sprite:"assets/scouts/sprites/primolith.jpg",ability:"RESONANCE",skill:"nuke",skillTxt:"The obelisk rings like a bell. One huge strike.",moves:[["Shard Tap",1.0,""],["Crystal Lance",1.35,""],["Obelisk Judgment",2.0,""]],forms:[["SHARDLET","assets/scouts/shardlet.jpg","assets/scouts/sprites/shardlet.jpg"],["CRYSTAGOLEM","assets/scouts/crystagolem.jpg","assets/scouts/sprites/crystagolem.jpg"],["PRIMOLITH","assets/scouts/primolith.jpg","assets/scouts/sprites/primolith.jpg"]]},
  {id:"voidlynx",name:"VOIDLYNX",type:"SHADE",metal:"Original",stars:4,hp:212,atk:54,card:"assets/scouts/voidlynx.jpg",sprite:"assets/scouts/sprites/voidlynx.jpg",ability:"AMBUSH",skill:"nuke",skillTxt:"It was already behind you. One huge strike.",moves:[["Shadow Claw",1.0,""],["Void Step",1.35,""],["Umbral Maul",1.9,""]],forms:[["SHADEKIT","assets/scouts/shadekit.jpg","assets/scouts/sprites/shadekit.jpg"],["UMBRALYNX","assets/scouts/umbralynx.jpg","assets/scouts/sprites/umbralynx.jpg"],["VOIDLYNX","assets/scouts/voidlynx.jpg","assets/scouts/sprites/voidlynx.jpg"]]},
- {id:"duskkeeper",name:"DUSKKEEPER",type:"SHADE",metal:"Original",stars:3,hp:226,atk:44,card:"assets/scouts/duskkeeper.jpg",sprite:"assets/scouts/sprites/duskkeeper.jpg",ability:"SOUL LANTERN",skill:"heal",skillTxt:"The lantern drinks deep. Restores HP.",moves:[["Ember Wisp",1.0,""],["Soul Siphon",1.3,"leech"],["Lantern Requiem",1.8,"leech"]],forms:[["WISPLET","assets/scouts/wisplet.jpg","assets/scouts/sprites/wisplet.jpg"],["GLOOMLAMP","assets/scouts/gloomlamp.jpg","assets/scouts/sprites/gloomlamp.jpg"],["DUSKKEEPER","assets/scouts/duskkeeper.jpg","assets/scouts/sprites/duskkeeper.jpg"]]}
+ {id:"duskkeeper",name:"DUSKKEEPER",type:"SHADE",metal:"Original",stars:3,hp:226,atk:44,card:"assets/scouts/duskkeeper.jpg",sprite:"assets/scouts/sprites/duskkeeper.jpg",ability:"SOUL LANTERN",skill:"heal",skillTxt:"The lantern drinks deep. Restores HP.",moves:[["Ember Wisp",1.0,""],["Soul Siphon",1.3,"leech"],["Lantern Requiem",1.8,"leech"]],forms:[["WISPLET","assets/scouts/wisplet.jpg","assets/scouts/sprites/wisplet.jpg"],["GLOOMLAMP","assets/scouts/gloomlamp.jpg","assets/scouts/sprites/gloomlamp.jpg"],["DUSKKEEPER","assets/scouts/duskkeeper.jpg","assets/scouts/sprites/duskkeeper.jpg"]]},
+ {id:"solhound",name:"SOLHOUND",type:"BLAZE",metal:"Original",stars:4,hp:232,atk:50,card:"assets/scouts/solhound.jpg",sprite:"assets/scouts/sprites/solhound.jpg",ability:"SOLAR MANE",skill:"heal",skillTxt:"Basks in its own sun. Restores HP.",moves:[["Sun Fang",1.0,""],["Solar Flare",1.3,"burn"],["Corona Rush",1.85,""]],forms:[["EMBARK","assets/scouts/embark.jpg","assets/scouts/sprites/embark.jpg"],["COALHOUND","assets/scouts/coalhound.jpg","assets/scouts/sprites/coalhound.jpg"],["SOLHOUND","assets/scouts/solhound.jpg","assets/scouts/sprites/solhound.jpg"]]},
+ {id:"kilntort",name:"KILNTORT",type:"BLAZE",metal:"Original",stars:5,hp:258,atk:52,card:"assets/scouts/kilntort.jpg",sprite:"assets/scouts/sprites/kilntort.jpg",ability:"KILN HEART",skill:"nuke",skillTxt:"The kiln blows its top. One huge strike.",moves:[["Ember Stomp",1.0,""],["Lava Spit",1.3,"burn"],["Eruption",2.0,""]],forms:[["EMBERTOT","assets/scouts/embertot.jpg","assets/scouts/sprites/embertot.jpg"],["SLAGTOISE","assets/scouts/slagtoise.jpg","assets/scouts/sprites/slagtoise.jpg"],["KILNTORT","assets/scouts/kilntort.jpg","assets/scouts/sprites/kilntort.jpg"]]},
+ {id:"niveowl",name:"NIVEOWL",type:"FROST",metal:"Original",stars:3,hp:208,atk:54,card:"assets/scouts/niveowl.jpg",sprite:"assets/scouts/sprites/niveowl.jpg",ability:"SILENT SNOW",skill:"nuke",skillTxt:"Death on silent wings. One huge strike.",moves:[["Frost Peck",1.0,""],["Icicle Wing",1.35,""],["Whiteout Dive",1.95,""]],forms:[["POWDLET","assets/scouts/powdlet.jpg","assets/scouts/sprites/powdlet.jpg"],["DRIFTOWL","assets/scouts/driftowl.jpg","assets/scouts/sprites/driftowl.jpg"],["NIVEOWL","assets/scouts/niveowl.jpg","assets/scouts/sprites/niveowl.jpg"]]},
+ {id:"frosthart",name:"FROSTHART",type:"FROST",metal:"Original",stars:4,hp:272,atk:44,card:"assets/scouts/frosthart.jpg",sprite:"assets/scouts/sprites/frosthart.jpg",ability:"WINTER MERCY",skill:"heal",skillTxt:"Aurora light knits wounds closed. Restores HP.",moves:[["Antler Jab",1.0,""],["Crystal Charge",1.3,""],["Glacier Ram",1.8,""]],forms:[["FAWINTER","assets/scouts/fawinter.jpg","assets/scouts/sprites/fawinter.jpg"],["CRYSTAG","assets/scouts/crystag.jpg","assets/scouts/sprites/crystag.jpg"],["FROSTHART","assets/scouts/frosthart.jpg","assets/scouts/sprites/frosthart.jpg"]]},
+ {id:"tempesting",name:"TEMPESTING",type:"VOLT",metal:"Original",stars:4,hp:222,atk:48,card:"assets/scouts/tempesting.jpg",sprite:"assets/scouts/sprites/tempesting.jpg",ability:"STORM BELL",skill:"burn",skillTxt:"Its sting leaves the enemy burning.",moves:[["Sting Zap",1.0,""],["Tendril Lash",1.3,""],["Tempest Surge",1.85,"burn"]],forms:[["JELLET","assets/scouts/jellet.jpg","assets/scouts/sprites/jellet.jpg"],["VOLTAJEL","assets/scouts/voltajel.jpg","assets/scouts/sprites/voltajel.jpg"],["TEMPESTING","assets/scouts/tempesting.jpg","assets/scouts/sprites/tempesting.jpg"]]},
+ {id:"voltrunner",name:"VOLTRUNNER",type:"VOLT",metal:"Original",stars:3,hp:214,atk:55,card:"assets/scouts/voltrunner.jpg",sprite:"assets/scouts/sprites/voltrunner.jpg",ability:"STATIC HUNT",skill:"buff",skillTxt:"Faster than thunder. ATK up, and a little HP back.",moves:[["Volt Tackle",1.0,""],["Arc Fang",1.35,""],["Lightning Run",1.9,""]],forms:[["AMPUP","assets/scouts/ampup.jpg","assets/scouts/sprites/ampup.jpg"],["STRICHEET","assets/scouts/stricheet.jpg","assets/scouts/sprites/stricheet.jpg"],["VOLTRUNNER","assets/scouts/voltrunner.jpg","assets/scouts/sprites/voltrunner.jpg"]]},
+ {id:"dunesphinx",name:"DUNESPHINX",type:"STONE",metal:"Original",stars:5,hp:244,atk:50,card:"assets/scouts/dunesphinx.jpg",sprite:"assets/scouts/sprites/dunesphinx.jpg",ability:"PETRIFYING GAZE",skill:"freeze",skillTxt:"Meet its eyes and turn to stone. Freezes the enemy solid.",moves:[["Sand Paw",1.0,""],["Tomb Slam",1.35,""],["Gaze of Ages",1.85,"freeze"]],forms:[["SANDCUB","assets/scouts/sandcub.jpg","assets/scouts/sprites/sandcub.jpg"],["PYRAMIDON","assets/scouts/pyramidon.jpg","assets/scouts/sprites/pyramidon.jpg"],["DUNESPHINX","assets/scouts/dunesphinx.jpg","assets/scouts/sprites/dunesphinx.jpg"]]},
+ {id:"granibex",name:"GRANIBEX",type:"STONE",metal:"Original",stars:3,hp:252,atk:46,card:"assets/scouts/granibex.jpg",sprite:"assets/scouts/sprites/granibex.jpg",ability:"TEMPLE BELL",skill:"buff",skillTxt:"The bell tolls and it charges harder. ATK up, and a little HP back.",moves:[["Horn Jab",1.0,""],["Cliff Charge",1.35,""],["Bell Toll Slam",1.8,""]],forms:[["BELLGOAT","assets/scouts/bellgoat.jpg","assets/scouts/sprites/bellgoat.jpg"],["CLIFFBELL","assets/scouts/cliffbell.jpg","assets/scouts/sprites/cliffbell.jpg"],["GRANIBEX","assets/scouts/granibex.jpg","assets/scouts/sprites/granibex.jpg"]]},
+ {id:"lunamoth",name:"LUNAMOTH",type:"SHADE",metal:"Original",stars:3,hp:218,atk:47,card:"assets/scouts/lunamoth.jpg",sprite:"assets/scouts/sprites/lunamoth.jpg",ability:"SLEEP DUST",skill:"freeze",skillTxt:"Moon-dust settles and the enemy sleeps. Freezes the enemy solid.",moves:[["Wing Gust",1.0,""],["Moon Dust",1.3,""],["Lunar Veil",1.8,"freeze"]],forms:[["DUSKMOTE","assets/scouts/duskmote.jpg","assets/scouts/sprites/duskmote.jpg"],["MOONMOTH","assets/scouts/moonmoth.jpg","assets/scouts/sprites/moonmoth.jpg"],["LUNAMOTH","assets/scouts/lunamoth.jpg","assets/scouts/sprites/lunamoth.jpg"]]},
+ {id:"nullknight",name:"NULLKNIGHT",type:"SHADE",metal:"Original",stars:5,hp:240,atk:53,card:"assets/scouts/nullknight.jpg",sprite:"assets/scouts/sprites/nullknight.jpg",ability:"EMPTY OATH",skill:"buff",skillTxt:"An oath sworn by no one still binds. ATK up, and a little HP back.",moves:[["Iron Slash",1.0,""],["Void Cleave",1.35,""],["Oathbreaker",1.95,""]],forms:[["SQUIRELESS","assets/scouts/squireless.jpg","assets/scouts/sprites/squireless.jpg"],["PALEWARDEN","assets/scouts/palewarden.jpg","assets/scouts/sprites/palewarden.jpg"],["NULLKNIGHT","assets/scouts/nullknight.jpg","assets/scouts/sprites/nullknight.jpg"]]}
 ];
 var BYID={};ROSTER.forEach(function(r){BYID[r.id]=r;});
 var CHART={VOLT:{FROST:1.35,STONE:0.75},BLAZE:{FROST:1.35},FROST:{STONE:1.35,BLAZE:0.75},STONE:{VOLT:1.35,FROST:0.75},SHADE:{VOLT:1.35}};
@@ -13422,7 +13432,7 @@ function miniCard(r,ownedRec){
 function paintPick(card){
   var g=ROSTER.map(function(r){return miniCard(r,null);}).join("");
   card.innerHTML=head("CHOOSE YOUR SCOUT")
-   +'<div class="pal-status" style="margin-top:8px">Ten original creatures, all yours. Pick your first scout — he hunts, battles, levels up and EVOLVES (Lv 8 and Lv 16). More join when he captures them out hunting.</div>'
+   +'<div class="pal-status" style="margin-top:8px">Twenty original creatures, all yours. Pick your first scout — he hunts, battles, levels up and EVOLVES (Lv 8 and Lv 16). More join when he captures them out hunting.</div>'
    +'<div class="sc-grid">'+g+'</div>';
   wireX();
   card.querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){pickId=b.getAttribute("data-pick");view="confirm";paint();};});
