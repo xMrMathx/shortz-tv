@@ -6,12 +6,12 @@
    (embed/live_stream?channel=<id>) so it always lands on the channel's
    CURRENT broadcast — never a hardcoded video id that goes stale.
    These channels never go dark, so there is no replay fallback and no
-   live-state file: every row is LIVE. If a stream ever errors or fails
-   to reach playing, the stage skips to the next channel (no dead
-   screens, his standing rule). Sound-first autoplay with the same
-   patient unmute discipline as Free Live Sports; hidden = silent. */
-let LT_CHANS=[], LT_ACTIVE=null, LT_TOKEN=0, LT_PLAYER=null, LT_OKPLAY=false;
-let LT_DEAD=new Set();
+   live-state file: every row is LIVE. What he taps is what plays — the
+   stage NEVER skips on its own (his order 2026-10-20): no watchdog, no
+   error-skip, no ended-skip. It changes only when he taps another
+   channel or leaves. Sound-first autoplay with the same patient unmute
+   discipline as Free Live Sports; hidden = silent. */
+let LT_CHANS=[], LT_ACTIVE=null, LT_TOKEN=0, LT_PLAYER=null;
 function ltEnsureStyle(){
   if(document.getElementById("ltStyle"))return;
   const st=document.createElement("style"); st.id="ltStyle";
@@ -25,7 +25,6 @@ function ltEnsureStyle(){
   ".lt-chip{position:absolute;top:10px;left:10px;background:rgba(5,5,10,.82);color:#fff;font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:999px;pointer-events:none;max-width:88%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}"+
   ".lt-chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff2d55;margin-right:6px;animation:ltPulse 1.2s infinite}"+
   "@keyframes ltPulse{0%,100%{opacity:1}50%{opacity:.25}}"+
-  ".lt-unmute{position:absolute;right:10px;bottom:10px;z-index:3;background:rgba(5,5,10,.85);color:#fff;border:1px solid rgba(255,255,255,.35);font-size:12.5px;font-weight:800;padding:8px 14px;border-radius:999px;cursor:pointer}"+
   ".lt-rows{display:flex;flex-direction:column;gap:2px}"+
   ".lt-row{display:flex;align-items:center;gap:12px;padding:10px;border-radius:12px;cursor:pointer;border:1px solid transparent;background:transparent;width:100%;text-align:left;color:inherit;font:inherit}"+
   ".lt-row.on{background:#15151c;border-color:var(--red)}"+
@@ -68,28 +67,10 @@ function ltPlay(cid,keep){
   LT_ACTIVE=cid; LT_TOKEN++;
   const stage=$("#ltStage"); if(!stage)return;
   stage.innerHTML='<iframe id="ltFrame" src="'+ltEmbed(ch)+'" frameborder="0" allowfullscreen allow="autoplay; fullscreen; encrypted-media; picture-in-picture"></iframe>'
-    +'<div class="lt-chip"><span class="dot"></span>LIVE · '+esc(ch.name)+'</div>'
-    +'<button class="lt-unmute" id="ltUnmute" style="display:none">🔊 Unmute</button>';
-  const ub=$("#ltUnmute");
-  if(ub)ub.onclick=(e)=>{ e.stopPropagation(); ltUnmute(); };
+    +'<div class="lt-chip"><span class="dot"></span>LIVE · '+esc(ch.name)+'</div>';
   document.querySelectorAll("[data-lt-ch]").forEach(b=>b.classList.toggle("on",b.dataset.ltCh===cid));
   if(!keep){ try{ stage.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e){} }
-  LT_OKPLAY=false;
   ltArmSound(LT_TOKEN);
-  const tk=LT_TOKEN;
-  setTimeout(()=>{ if(tk===LT_TOKEN&&LT_ACTIVE===cid&&!LT_OKPLAY)ltFail(); },12000);
-}
-/* a stream that errors, ends or never reaches playing skips to the next
-   channel — never a dead screen. A channel dead this visit stays dead
-   until the next visit. */
-function ltFail(){
-  const cid=LT_ACTIVE; if(!cid)return;
-  LT_DEAD.add(cid);
-  const chans=LT_CHANS.filter(c=>!LT_DEAD.has(c.channelId));
-  if(!chans.length){ LT_ACTIVE=null; ltRender(); return; }
-  const i=LT_CHANS.findIndex(c=>c.channelId===cid);
-  const nxt=chans.find(c=>LT_CHANS.indexOf(c)>i)||chans[0];
-  ltPlay(nxt.channelId,true);
 }
 function ltArmSound(token){
   const fr=$("#ltFrame"); if(!fr)return;
@@ -109,40 +90,19 @@ function ltArmSound(token){
           if(st===1){
             if(muted){
               try{ e.target.unMute(); e.target.setVolume(100); }catch(_){}
-              let still=true; try{ still=e.target.isMuted(); }catch(_){}
-              if(still){ const ub=$("#ltUnmute"); if(ub)ub.style.display=""; }
             }
             clearInterval(iv); return;
           }
           if(st===3){ if(tries>=10){ clearInterval(iv); } return; } // buffering is alive — leave it alone
           try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(_){}
-          if(tries>=6){ // ~9s and still not playing/buffering: last-resort muted start
+          if(tries>=6){ // ~9s and still not playing/buffering: last-resort muted start (invisible — no button, his order)
             clearInterval(iv);
             try{ e.target.mute(); e.target.playVideo(); }catch(_){}
-            const ub=$("#ltUnmute"); if(ub)ub.style.display="";
           }
         },1500);
-      },onStateChange:(e)=>{
-        if(token!==LT_TOKEN)return;
-        if(e.data===1)LT_OKPLAY=true;
-        if(e.data===0)ltFail(); // a 24/7 stream "ending" means it broke — move on
-      },onError:(e)=>{
-        if(token!==LT_TOKEN)return;
-        ltFail();
       }}});
     }catch(_){}
   });
-}
-function ltUnmute(){
-  const ub=$("#ltUnmute"); if(ub)ub.style.display="none";
-  try{ if(LT_PLAYER){ LT_PLAYER.unMute(); LT_PLAYER.setVolume(100); LT_PLAYER.playVideo(); return; } }catch(_){}
-  const fr=$("#ltFrame");
-  if(fr&&fr.contentWindow){
-    try{
-      const msg=(func,args)=>fr.contentWindow.postMessage(JSON.stringify({event:"command",func,args:args||""}),"*");
-      msg("setVolume",[100]); msg("unMute"); msg("playVideo");
-    }catch(_){}
-  }
 }
 function ltStop(){
   LT_TOKEN++; LT_PLAYER=null;
@@ -203,7 +163,7 @@ async function liveTV(){
     body.innerHTML=ltHeadHTML()+'<div style="color:var(--mut);font-size:13px;padding:8px 0">Channels are on their way — check back soon.</div>';
     return;
   }
-  LT_ACTIVE=null; LT_DEAD=new Set();
+  LT_ACTIVE=null;
   ltRender();
   const first=LT_CHANS[0];
   if(first)ltPlay(first.channelId,true); // opens on ABC News Live, with sound

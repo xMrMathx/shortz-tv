@@ -2,8 +2,8 @@
    Tap a row → it plays in the preview box. Tap the preview → fullscreen.
    Scrolling the list plays the row most in view in the (sticky) preview box —
    WITH SOUND (his order). Sound-on is the design default everywhere in the
-   guide; a muted start + Unmute button appears ONLY if the platform refuses
-   an audible start. */
+   guide, and there is NO Unmute button — the sound arm retries patiently
+   until the preview plays audibly (his order 2026-10-20). */
 let tgList=null, tgShown=0, tgQuery="";
 const TG_CHUNK=60;
 /* Fisher-Yates shuffle (in place, returns the array) */
@@ -57,7 +57,6 @@ function tgMore(){
 }
 function tgPreview(id,_skip){
   const t=byId(id); if(!t)return;
-  tgHideUnmute();
   document.querySelectorAll("#tgList .tg-row").forEach(r=>r.classList.toggle("sel",r.dataset.id===id));
   const fr=$("#tgFrame"); if(!fr)return;
   const url=tgEmbed(t);
@@ -94,7 +93,7 @@ function tgPreview(id,_skip){
       const pv2=$("#tgPreviewBox"); if(!pv2||pv2._tid!==tok)return;
       const now=Date.now(); if(now-tgAdvanceAt<5000)return; tgAdvanceAt=now; tgNext();
     });
-    try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{ try{ v.muted=true; const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{}); tgShowUnmute(); }catch(e){} }); }catch(e){}
+    try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{ try{ const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{ try{ v.muted=true; const p3=v.play(); if(p3&&p3.catch)p3.catch(()=>{}); }catch(e){} }); }catch(e){} }); }catch(e){}
   }
   else if((_skip||0)<8&&tgList&&tgList.length>1){
     // no playable source at all — never leave a dead black box:
@@ -112,7 +111,6 @@ function tgPause(){
   const fr=$("#tgFrame");
   if(fr){fr.innerHTML="";fr._tid=null;}
   tgWatchEnd();
-  tgHideUnmute();
 }
 /* one-audio law (his report 2026-10-17: guide audio layered under other
    pages after a tab switch): the guide preview plays WITH SOUND by his
@@ -121,47 +119,39 @@ function tgPause(){
 document.addEventListener("visibilitychange",()=>{ if(document.hidden){ try{tgPause();}catch(e){} } else if(typeof curView!=="undefined"&&curView==="profile"){ try{ if(window.__tgStartGuide)window.__tgStartGuide(); }catch(e){} } });
 /* ---------- guide sound: previews play WITH SOUND (his order) ----------
    tgEmbed requests an audible start; the APK shell permits it
-   (setMediaPlaybackRequiresUserGesture(false) in MainActivity). If a browser
-   still refuses, the preview starts muted and the Unmute button shows —
-   never a dead/paused preview. */
-function tgShowUnmute(){ const b=$("#tgUnmute"); if(b)b.style.display=""; }
-function tgHideUnmute(){ const b=$("#tgUnmute"); if(b)b.style.display="none"; }
-function tgUnmuteNow(){
-  tgHideUnmute();
-  try{
-    if(tgPlayerKind==="yt"&&tgPlayer){ tgPlayer.unMute(); tgPlayer.setVolume(100); tgPlayer.playVideo(); return; }
-    if(tgPlayerKind==="vm"&&tgPlayer){ tgPlayer.setVolume(1); tgPlayer.play(); return; }
-    if(tgPlayerKind==="archive"&&tgPlayer){ tgPlayer.unMute(); tgPlayer.setVolume(100); tgPlayer.playVideo(); return; }
-  }catch(e){}
-  const fr=document.querySelector("#tgFrame iframe");
-  if(fr&&fr.contentWindow){
-    try{
-      fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"setVolume",args:[100]}),"*");
-      fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"unMute",args:""}),"*");
-      fr.contentWindow.postMessage(JSON.stringify({event:"command",func:"playVideo",args:""}),"*");
-    }catch(e){}
-  }
-}
+   (setMediaPlaybackRequiresUserGesture(false) in MainActivity). SOUND-FIRST,
+   PATIENT (his order 2026-10-20): a slow-starting preview is NOT a refused
+   one, so the arm keeps retrying the audible start instead of judging once
+   and muting. There is NO Unmute button anywhere in the guide — he ordered
+   it gone. Muted is only the invisible last resort that keeps the video
+   itself playing if a platform truly refuses an audible start. */
 function tgSoundArm(kind,player,token){
-  tgHideUnmute();
   const stillMine=()=>{ const pv=$("#tgPreviewBox"); return pv&&pv._tid===token; };
   try{
     if(kind==="yt"){ player.unMute(); player.setVolume(100); player.playVideo(); }
     else if(kind==="vm"){ player.setVolume(1); const p=player.play(); if(p&&p.catch)p.catch(()=>{}); }
   }catch(e){}
-  setTimeout(()=>{
-    if(!stillMine())return;
+  let tries=0;
+  const iv=setInterval(()=>{
+    if(!stillMine()){ clearInterval(iv); return; }
+    tries++;
     try{
       if(kind==="yt"){
         const st=player.getPlayerState();
-        if(st!==1&&st!==3){ try{ player.mute(); player.playVideo(); }catch(e){} tgShowUnmute(); }
+        if(st===1&&!player.isMuted()){ clearInterval(iv); return; } // playing WITH sound — done
+        if(st===3&&tries<=14)return; // buffering: a slow start is not a refusal — stay patient
+        if(tries>10){ clearInterval(iv); try{ player.mute(); player.playVideo(); }catch(e){} return; } // last resort: keep it playing, never a button
+        player.unMute(); player.setVolume(100); player.playVideo();
       }else if(kind==="vm"){
         player.getPaused().then(paused=>{
-          if(paused&&stillMine()){ try{ player.setVolume(0); const p2=player.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} tgShowUnmute(); }
+          if(!stillMine()){ clearInterval(iv); return; }
+          if(!paused){ try{ player.setVolume(1); }catch(e){} clearInterval(iv); return; }
+          if(tries>10){ clearInterval(iv); try{ player.setVolume(0); const p2=player.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} return; }
+          try{ player.setVolume(1); const p=player.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){}
         }).catch(()=>{});
-      }
-    }catch(e){}
-  },1800);
+      }else{ clearInterval(iv); }
+    }catch(e){ clearInterval(iv); }
+  },1500);
 }
 /* ---------- guide preview switching: CLICK or natural END only (his law) ----------
    Scrolling the guide must NEVER start, switch or re-arm the preview. An
@@ -244,7 +234,6 @@ function renderTvGuide(){
         <div class="tg-ph" id="tgPh"><span style="font-size:30px">📺</span><span>Tap a show below to preview it here</span></div>
         <div class="uprog"><i id="tgProg"></i></div>
       </div>
-      <button id="tgUnmute" style="display:none;position:absolute;top:10px;right:10px;z-index:6;background:rgba(5,5,10,.85);color:#fff;border:1px solid rgba(255,255,255,.35);font-size:12.5px;font-weight:800;padding:8px 14px;border-radius:999px;cursor:pointer">🔊 Unmute</button>
       <div class="tg-meta">
         <img class="tg-thumb" id="tgThumb" alt="" style="display:none" onerror="this.style.display='none'">
         <div style="flex:1;min-width:0"><div class="tg-title" id="tgTitle">Shortz VS Guide</div>
@@ -271,7 +260,6 @@ function renderTvGuide(){
   const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); go("home"); playSeries(t);};
   pb.onclick=goFull;
   const wb=$("#tgWatch"); if(wb){wb.style.display="";wb.onclick=(e)=>{e.stopPropagation();goFull();};}
-  const ub2=$("#tgUnmute"); if(ub2){ub2.onclick=(e)=>{e.stopPropagation();tgUnmuteNow();};}
   const si=$("#tgSearch");
   si.addEventListener("input",()=>{
     tgQuery=si.value; tgShown=0; tgList=tgFiltered();
