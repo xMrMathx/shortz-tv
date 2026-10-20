@@ -93,7 +93,14 @@ function tgPreview(id,_skip){
       const pv2=$("#tgPreviewBox"); if(!pv2||pv2._tid!==tok)return;
       const now=Date.now(); if(now-tgAdvanceAt<5000)return; tgAdvanceAt=now; tgNext();
     });
-    try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{ try{ const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{ try{ v.muted=true; const p3=v.play(); if(p3&&p3.catch)p3.catch(()=>{}); }catch(e){} }); }catch(e){} }); }catch(e){}
+    // stall rescue: a slow/dead MP4 must not sit as a permanent black box —
+    // step to the next title (same bounded skip as a source-less title)
+    let vPlaying=false;
+    v.addEventListener("playing",()=>{ vPlaying=true; });
+    const vSkip=()=>{ const pv3=$("#tgPreviewBox"); if(!pv3||pv3._tid!==tok)return; if((_skip||0)<8&&tgList&&tgList.length>1){ const i=tgList.findIndex(x=>x.id===t.id); if(i>=0)tgPreview(tgList[(i+1)%tgList.length].id,(_skip||0)+1); } };
+    v.addEventListener("error",vSkip);
+    setTimeout(()=>{ if(!vPlaying&&v.isConnected&&v.currentTime===0)vSkip(); },6000);
+    try{ const p=v.play(); if(p&&p.catch)p.catch(()=>{ try{ v.muted=true; const p2=v.play(); if(p2&&p2.catch)p2.catch(()=>{}); const un=()=>{ if(v.isConnected){ v.muted=false; v.volume=1; } document.removeEventListener("pointerdown",un,true); }; document.addEventListener("pointerdown",un,true); }catch(e){} }); }catch(e){}
   }
   else if((_skip||0)<8&&tgList&&tgList.length>1){
     // no playable source at all — never leave a dead black box:
@@ -119,39 +126,52 @@ function tgPause(){
 document.addEventListener("visibilitychange",()=>{ if(document.hidden){ try{tgPause();}catch(e){} } else if(typeof curView!=="undefined"&&curView==="profile"){ try{ if(window.__tgStartGuide)window.__tgStartGuide(); }catch(e){} } });
 /* ---------- guide sound: previews play WITH SOUND (his order) ----------
    tgEmbed requests an audible start; the APK shell permits it
-   (setMediaPlaybackRequiresUserGesture(false) in MainActivity). SOUND-FIRST,
-   PATIENT (his order 2026-10-20): a slow-starting preview is NOT a refused
-   one, so the arm keeps retrying the audible start instead of judging once
-   and muting. There is NO Unmute button anywhere in the guide — he ordered
-   it gone. Muted is only the invisible last resort that keeps the video
-   itself playing if a platform truly refuses an audible start. */
+   (setMediaPlaybackRequiresUserGesture(false) in MainActivity). PLAYBACK
+   FIRST, SOUND THE INSTANT IT'S ALLOWED (his reports 2026-10-20): the
+   preview must START PLAYING within a couple of seconds no matter what —
+   a long patient wait for sound reads as a dead box. So: ask for the
+   audible start; if the player is not actually playing almost at once
+   (a browser that refuses sound-autoplay before any tap holds it
+   paused), start it muted IMMEDIATELY — silently, never a button — and
+   keep asking for sound: on a retry tick and on his very next tap
+   anywhere, which is what unlocks audio on those browsers. In the app
+   the audible start simply lands and none of the fallback runs. There
+   is NO Unmute button anywhere in the guide — he ordered it gone. */
 function tgSoundArm(kind,player,token){
   const stillMine=()=>{ const pv=$("#tgPreviewBox"); return pv&&pv._tid===token; };
-  try{
-    if(kind==="yt"){ player.unMute(); player.setVolume(100); player.playVideo(); }
-    else if(kind==="vm"){ player.setVolume(1); const p=player.play(); if(p&&p.catch)p.catch(()=>{}); }
-  }catch(e){}
-  let tries=0;
+  const audible=()=>{ try{ if(kind==="yt"){ player.unMute(); player.setVolume(100); } else if(kind==="vm"){ player.setVolume(1); } }catch(e){} };
+  const playIt=()=>{ try{ if(kind==="yt")player.playVideo(); else if(kind==="vm"){ const p=player.play(); if(p&&p.catch)p.catch(()=>{}); } }catch(e){} };
+  audible(); playIt();
+  let checks=0, fellBack=false, done=false;
+  const finish=()=>{ if(done)return; done=true; clearInterval(iv); document.removeEventListener("pointerdown",onTap,true); };
+  const onTap=()=>{ if(!stillMine()){ finish(); return; } audible(); playIt(); };
+  document.addEventListener("pointerdown",onTap,true);
   const iv=setInterval(()=>{
-    if(!stillMine()){ clearInterval(iv); return; }
-    tries++;
+    if(!stillMine()){ finish(); return; }
+    checks++;
     try{
       if(kind==="yt"){
-        const st=player.getPlayerState();
-        if(st===1&&!player.isMuted()){ clearInterval(iv); return; } // playing WITH sound — done
-        if(st===3&&tries<=14)return; // buffering: a slow start is not a refusal — stay patient
-        if(tries>10){ clearInterval(iv); try{ player.mute(); player.playVideo(); }catch(e){} return; } // last resort: keep it playing, never a button
-        player.unMute(); player.setVolume(100); player.playVideo();
+        let st=-1, muted=true;
+        try{ st=player.getPlayerState(); }catch(e){}
+        try{ muted=player.isMuted(); }catch(e){}
+        if(st===1){
+          if(!muted){ finish(); return; } // playing WITH sound — done
+          audible(); return; // playing but platform-muted: keep asking; his next tap lands it via onTap
+        }
+        if(st===3&&checks<=2)return; // a genuine start gets a short grace
+        if(!fellBack){ fellBack=true; try{ player.mute(); }catch(e){} playIt(); return; } // refused/paused: PLAY it now (muted), sound follows
+        audible(); playIt();
       }else if(kind==="vm"){
         player.getPaused().then(paused=>{
-          if(!stillMine()){ clearInterval(iv); return; }
-          if(!paused){ try{ player.setVolume(1); }catch(e){} clearInterval(iv); return; }
-          if(tries>10){ clearInterval(iv); try{ player.setVolume(0); const p2=player.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} return; }
-          try{ player.setVolume(1); const p=player.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){}
+          if(!stillMine()||done)return;
+          if(!paused){ try{ player.setVolume(1); }catch(e){} finish(); return; }
+          if(checks<=2)return;
+          if(!fellBack){ fellBack=true; try{ player.setVolume(0); const p=player.play(); if(p&&p.catch)p.catch(()=>{}); }catch(e){} return; }
+          audible(); playIt();
         }).catch(()=>{});
-      }else{ clearInterval(iv); }
-    }catch(e){ clearInterval(iv); }
-  },1500);
+      }else{ finish(); }
+    }catch(e){ /* a bad tick never kills the arm — staleness still ends it */ }
+  },1200);
 }
 /* ---------- guide preview switching: CLICK or natural END only (his law) ----------
    Scrolling the guide must NEVER start, switch or re-arm the preview. An
@@ -188,7 +208,7 @@ function tgNext(){
     }
   }catch(e){}
 }
-function tgArmEnd(t){
+function tgArmEnd(t,_retry){
   tgWatchEnd();
   const fr=$("#tgFrame"); if(!fr)return;
   const iframe=fr.querySelector("iframe"); if(!iframe)return;
@@ -215,12 +235,26 @@ function tgArmEnd(t){
       tgSoundArm("vm",tgPlayer,token);
     }catch(e){}}).catch(()=>{});
   }else{
+    let apiLive=false;
     const mk=()=>{try{
       if(token!==($("#tgPreviewBox")||{})._tid)return;
       tgPlayerKind="yt";
-      tgPlayer=new YT.Player(iframe,{events:{onReady:(e)=>{ tgSoundArm("yt",e.target,token); },onStateChange:(e)=>{if(e.data===0)fire();}}});
+      tgPlayer=new YT.Player(iframe,{events:{onReady:(e)=>{ apiLive=true; tgSoundArm("yt",e.target,token); },onStateChange:(e)=>{if(e.data===0)fire();}}});
     }catch(e){}};
     if(window.YT&&window.YT.Player)mk(); else ensureYT(mk);
+    if(!_retry){
+      // no-API rescue: if the player API never comes live for this preview
+      // (blocked/slow script, constructor failure), the raw audible embed
+      // can sit refused forever — reload it as a MUTED embed, which every
+      // platform allows to start, and arm once more against the new frame.
+      setTimeout(()=>{
+        if(apiLive)return;
+        const pv4=$("#tgPreviewBox"); if(!pv4||pv4._tid!==token)return;
+        const fr4=$("#tgFrame"); if(!fr4||!fr4.querySelector("iframe"))return;
+        fr4.innerHTML=`<iframe src="${tgEmbed(t,true)}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+        tgArmEnd(t,true);
+      },6000);
+    }
   }
 }
 function renderTvGuide(){
