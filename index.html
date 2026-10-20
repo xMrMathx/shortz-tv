@@ -1478,6 +1478,55 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .cs-audknob{position:absolute;top:50%;left:0;width:13px;height:13px;border-radius:50%;background:#f6c945;transform:translate(-50%,-50%);box-shadow:0 1px 5px rgba(0,0,0,.5)}
 .cs-audtimes{display:flex;margin-top:6px;font-size:11.5px;color:#9a9aa0}
 .cs-aud{display:none}
+/* ---------- Podcasts (2026-10-19): page, show card, floating player ---------- */
+.pod-wrap{max-width:680px;margin:0 auto;padding:20px 14px calc(120px + env(safe-area-inset-bottom))}
+body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
+.pod-h{font-size:24px;font-weight:900;color:#f2f2f4}
+.pod-sub{color:#9a9aa2;font-size:12.5px;margin-top:3px}
+.pod-sec{color:#f2f2f4;font-size:12px;font-weight:800;letter-spacing:.09em;margin:20px 0 9px}
+.pod-cont{display:flex;gap:11px;align-items:center;background:#1f1f22;border:1px solid #2c2c31;border-radius:15px;padding:11px;width:100%;text-align:left;cursor:pointer}
+.pod-cont-art{width:54px;height:54px;border-radius:11px;flex:none;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:20px}
+.pod-cont-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pod-cont b{color:#f2f2f4;font-size:13.5px;display:block}
+.pod-cont span{color:#9a9aa2;font-size:11px}
+.pod-bar{height:5px;background:#34343a;border-radius:3px;margin-top:7px;position:relative}
+.pod-fill{position:absolute;left:0;top:0;bottom:0;background:#f6c945;border-radius:3px}
+.pod-knob{position:absolute;top:50%;width:11px;height:11px;background:#f6c945;border-radius:50%;transform:translate(-50%,-50%)}
+.pod-play-sm{width:36px;height:36px;flex:none;background:#f6c945;color:#191407;border:0;border-radius:50%;font-size:13px;font-weight:900;cursor:pointer}
+.pod-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.pod-cov{background:#1f1f22;border:1px solid #2c2c31;border-radius:15px;padding:9px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:7px}
+.pod-cov-art{position:relative;width:100%;aspect-ratio:1;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:44px}
+.pod-cov-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pod-cov b{color:#f2f2f4;font-size:13.5px;line-height:1.25}
+.pod-cov span{color:#9a9aa2;font-size:11px}
+.pod-g0{background:linear-gradient(150deg,#5c4514,#191407)}.pod-g1{background:linear-gradient(150deg,#274b63,#0d1a24)}.pod-g2{background:linear-gradient(150deg,#5f2430,#1c0d10)}.pod-g3{background:linear-gradient(150deg,#3b2d5c,#14101f)}.pod-g4{background:linear-gradient(150deg,#1f4d3a,#0a1a13)}.pod-g5{background:linear-gradient(150deg,#63432a,#1d130a)}
+.pod-back{background:none;border:0;color:#f6c945;font-weight:800;font-size:14px;cursor:pointer;padding:2px 0 10px}
+.pod-hero{border-radius:17px;overflow:hidden;position:relative;background:#1f1f22;border:1px solid #2c2c31}
+.pod-hero-art{position:relative;width:100%;aspect-ratio:1.6;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:84px}
+.pod-hero-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pod-hero-meta{padding:13px 14px}
+.pod-hero-meta b{color:#f2f2f4;font-size:20px;display:block;line-height:1.2}
+.pod-hero-meta span{color:#9a9aa2;font-size:12px}
+.pod-play-big{margin-top:13px;background:#f6c945;color:#191407;font-weight:900;font-size:14.5px;text-align:center;padding:14px;border-radius:13px;border:0;width:100%;cursor:pointer;letter-spacing:.02em}
+.pod-ep{display:flex;gap:11px;align-items:center;width:100%;background:none;border:0;border-bottom:1px solid #232328;padding:12px 2px;text-align:left;cursor:pointer}
+.pod-ep-ico{width:32px;height:32px;flex:none;border-radius:50%;border:1.5px solid #3a3a41;color:#f6c945;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900}
+.pod-ep.on .pod-ep-ico{background:#f6c945;color:#191407;border-color:#f6c945}
+.pod-ep b{color:#ececf0;font-size:13.5px;display:block;line-height:1.3}
+.pod-ep span{color:#8b8b93;font-size:11px}
+.pod-ep .pod-bar{margin-top:6px}
+#podMini{display:none;position:fixed;left:8px;right:8px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:65;background:#232327;border:1px solid #3a3a41;border-radius:16px;padding:10px 11px 8px;box-shadow:0 12px 30px rgba(0,0,0,.6)}
+.pod-mini-row{display:flex;gap:10px;align-items:center}
+.pod-mini-art{width:44px;height:44px;border-radius:9px;flex:none;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:17px}
+.pod-mini-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pod-mini-meta{flex:1;min-width:0;cursor:pointer}
+.pod-mini-meta b{color:#f2f2f4;font-size:12.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pod-mini-meta span{color:#9a9aa2;font-size:10.5px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pod-mini-btn{width:39px;height:39px;flex:none;background:#f6c945;color:#191407;border:0;border-radius:50%;font-size:14px;font-weight:900;cursor:pointer}
+.pod-mini-x{background:none;border:0;color:#9a9aa2;font-size:15px;flex:none;cursor:pointer;padding:4px}
+.pod-mini-bar{height:5px;background:#34343a;border-radius:3px;margin-top:9px;position:relative;cursor:pointer}
+.pod-mini-fill{position:absolute;left:0;top:0;bottom:0;background:#f6c945;border-radius:3px}
+.pod-mini-knob{position:absolute;top:50%;width:11px;height:11px;background:#f6c945;border-radius:50%;transform:translate(-50%,-50%)}
+.pod-mini-times{display:flex;justify-content:space-between;color:#9a9aa2;font-size:9.5px;margin-top:4px}
 .cs-tcrow input,.cs-crow input{background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:9px;color:#fff;padding:9px 11px;font-size:13px;width:100%}
 .cs-crow{display:flex;gap:8px}
 .cs-crow input{flex:1}
@@ -2073,6 +2122,7 @@ try{
       <button data-nav="live">Live</button>
       <button data-nav="streaming">Streaming</button>
       <button data-nav="manga">Manga</button>
+      <button data-nav="podcasts">Podcasts</button>
       <button data-nav="profile">My List</button>
     </nav>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
@@ -2091,6 +2141,7 @@ try{
       <button data-nav="live"><span class="sico">🔴</span><span class="slab">Live</span></button>
       <button data-nav="streaming"><span class="sico">📡</span><span class="slab">Streaming</span></button>
       <button data-nav="manga"><span class="sico">📖</span><span class="slab">Manga</span></button>
+      <button data-nav="podcasts"><span class="sico">🎧</span><span class="slab">Podcasts</span></button>
       <button data-nav="profile"><span class="sico">⭐</span><span class="slab">My List</span></button>
       <button data-nav="stakes"><span class="sico">🪙</span><span class="slab">Stakes</span></button>
     </div>
@@ -2119,6 +2170,7 @@ try{
     <section class="view" id="view-manga"></section>
     <section class="view" id="view-games"></section>
     <section class="view" id="view-profile"></section>
+    <section class="view" id="view-podcasts"></section>
     <section class="view" id="view-detail"></section>
     <section class="view" id="view-genre"></section>
   </main>
@@ -2301,7 +2353,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792469815";
+window.__SZ_BUILD = "1792472771";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3559,6 +3611,11 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       try{try{renderView("browse")}catch(e){}go("browse");setTimeout(()=>{const b=document.getElementById("gdropbtn");if(b)b.click();},200);}catch(e){}
       return true;
     }
+    // --- podcasts: "take me to podcasts" ---
+    if(target.includes("podcast")){
+      try{try{renderView("podcasts")}catch(e){}go("podcasts");}catch(e){}
+      return true;
+    }
     // --- stakes ---
     if(target.includes("stake")||target.includes("bet")){
       try{if(window.Stake&&Stake.openSheet)Stake.openSheet();}catch(e){}
@@ -4494,6 +4551,7 @@ function renderView(v){
   if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
   if(v==="manga")renderManga();
   if(v==="games")renderGames();
+  if(v==="podcasts"&&window.Podcasts)Podcasts.paint();
   if(v==="profile")renderProfile();
 }
 
@@ -5425,7 +5483,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792469815";
+const BUILD="1792472771";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9063,9 +9121,15 @@ function renderProfile(){
     <div class="secttl">📺 Shortz VS Guide</div>
     <div id="tvGuide"></div>
     <button id="installAppBtn" class="btn-play installbtn" style="display:none;margin-top:16px">📲 Install App</button>
+    <div class="cs-door" id="podDoor">
+      <div style="font-size:14px;font-weight:800">🎧 Podcasts</div>
+      <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">Every show in one place — true stories, sports, comedy, money and more. Press play and the player follows you around the app while you listen.</div>
+      <button class="pbtn sm" id="podDoorBtn" style="margin-top:9px;background:#f6c945;color:#151310;border-color:#f6c945;font-weight:800">Open Podcasts</button>
+    </div>
   </div>`;
   $("#profEdit").onclick=()=>renderProfileEdit();
   const _csdb=$("#csDoorBtn"); if(_csdb)_csdb.onclick=()=>{ if(window.CreatorSpace) CreatorSpace.open(); };
+  const _podd=$("#podDoorBtn"); if(_podd)_podd.onclick=()=>{ try{renderView("podcasts")}catch(e){} go("podcasts"); };
   bindPrevSpot(document.getElementById("view-profile"));
   renderTvGuide();
   paintYtSignInRows();
@@ -9169,10 +9233,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792469815"></script>
+<script src="js/folders.js?v=1792472771"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792469815"></script>
+<script src="js/guide.js?v=1792472771"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9982,9 +10046,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792469815"></script>
-<script src="js/shortz-live.js?v=1792469815"></script>
-<script src="js/games.js?v=1792469815"></script>
+<script src="js/streaming.js?v=1792472771"></script>
+<script src="js/shortz-live.js?v=1792472771"></script>
+<script src="js/games.js?v=1792472771"></script>
+<script src="js/podcasts.js?v=1792472771"></script>
 <script>
 
 
@@ -10502,7 +10567,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792469815"></script>
+<script src="js/swipe.js?v=1792472771"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12734,7 +12799,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792469815"></script>
+<script src="js/live-sports.js?v=1792472771"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13252,6 +13317,176 @@ function csAudPaint(pid){
   },true);
 })();
 window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard,audCard:csAudCard,buildPost:csBuildPost,state:function(){return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember,up:!!CS.upUrl,uploading:!!CS.uploading,vidposN:Object.keys(CS.vidPos||{}).length};}};
+})();
+
+</script>
+<script>
+/* ---------- PODCASTS (2026-10-19): page + show card + floating player ----------
+   His spec: a Podcasts page (cover wall + Continue Listening), each show opens
+   its own card (Home-card layout), Play launches a player that FOLLOWS the
+   listener across the whole app until pause or ✕. One-audio law: this player
+   silences everything else when it starts, and anything else starting
+   silences it (document capture-phase play listener). Positions bank per
+   episode in localStorage (sz_podpos) — resume, never autoplay on boot.
+   Episodes stream straight from each publisher's own CDN (js/podcasts.js). */
+(function(){
+"use strict";
+var DATA=(window.PODCASTS||[]);
+var byId={}; DATA.forEach(function(s){byId[s.id]=s;});
+var bank={}; try{bank=JSON.parse(localStorage.getItem("sz_podpos")||"{}")||{};}catch(e){bank={};}
+var cur=null;            // {show, idx}
+var openShow=null;       // show id shown as a card, null = wall
+var audio=null, mini=null, lastBank=0;
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function fmtT(sec){sec=Math.max(0,Math.floor(sec||0));var h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return (h>0?(h+":"+(m<10?"0":"")+m):m)+":"+(s<10?"0":"")+s;}
+function fmtDur(sec){sec=Math.floor(sec||0);if(sec>=3600)return Math.floor(sec/3600)+"h "+Math.floor(sec%3600/60)+"m";if(sec>=60)return Math.floor(sec/60)+"m";return sec+"s";}
+function saveBank(){try{localStorage.setItem("sz_podpos",JSON.stringify(bank));}catch(e){}}
+function epKey(show,ep){return show.id+"|"+ep.u;}
+function bankOf(show,ep){return bank[epKey(show,ep)]||null;}
+function grad(i){return "pod-g"+(i%6);}
+function letter(name){return esc(String(name||"P").replace(/^The /,"").charAt(0).toUpperCase()||"P");}
+
+function lastPlayed(){
+  var best=null,bk=null;
+  Object.keys(bank).forEach(function(k){var b=bank[k];if(b&&b.t>10&&b.d&&b.t<b.d-10&&(!best||b.ts>best.ts)){best=b;bk=k;}});
+  if(!best)return null;
+  var show=byId[best.show]; if(!show)return null;
+  var idx=show.eps.findIndex(function(e){return e.u===best.u;});
+  if(idx<0)return null;
+  return {show:show,idx:idx,b:best};
+}
+
+function paint(){
+  var v=$("view-podcasts"); if(!v)return;
+  if(openShow&&byId[openShow])paintCard(v,byId[openShow]); else paintWall(v);
+  try{v.scrollTop=0;}catch(e){}
+}
+function paintWall(v){
+  var h='<div class="pod-wrap"><div class="pod-h">Podcasts</div><div class="pod-sub">Every show, one tap from playing. Press play and the player follows you around the app.</div>';
+  var lp=lastPlayed();
+  if(lp){
+    var pct=Math.min(100,Math.round(lp.b.t/lp.b.d*100));
+    h+='<div class="pod-sec">CONTINUE LISTENING</div><button class="pod-cont" data-podresume="1"><span class="pod-cont-art '+grad(DATA.indexOf(lp.show))+'">'+letter(lp.show.name)+'<img src="'+esc(lp.show.art)+'" alt="" loading="lazy" onerror="this.remove()"></span><span style="flex:1;min-width:0"><b>'+esc(lp.show.name)+'</b><span>'+esc(lp.show.eps[lp.idx].t)+' — '+fmtDur(lp.b.d-lp.b.t)+' left</span><span class="pod-bar"><span class="pod-fill" style="width:'+pct+'%"></span><span class="pod-knob" style="left:'+pct+'%"></span></span></span><span class="pod-play-sm">▶</span></button>';
+  }
+  h+='<div class="pod-sec">ALL SHOWS</div><div class="pod-grid">';
+  DATA.forEach(function(s,i){
+    h+='<button class="pod-cov" data-podshow="'+esc(s.id)+'"><span class="pod-cov-art '+grad(i)+'">'+letter(s.name)+'<img src="'+esc(s.art)+'" alt="" loading="lazy" onerror="this.remove()"></span><b>'+esc(s.name)+'</b><span>'+esc(s.genre||"Podcast")+' · '+esc(s.host||"")+'</span></button>';
+  });
+  h+='</div></div>';
+  v.innerHTML=h;
+  v.querySelectorAll("[data-podshow]").forEach(function(b){b.onclick=function(){openShow=b.getAttribute("data-podshow");paint();};});
+  var r=v.querySelector("[data-podresume]"); if(r)r.onclick=function(){var l2=lastPlayed(); if(l2)play(l2.show,l2.idx);};
+}
+function paintCard(v,show){
+  var i=DATA.indexOf(show);
+  var tot=show.total&&show.total>show.eps.length?show.total:show.eps.length;
+  var h='<div class="pod-wrap"><button class="pod-back" id="podBack">‹ All shows</button><div class="pod-hero"><div class="pod-hero-art '+grad(i)+'">'+letter(show.name)+'<img src="'+esc(show.art)+'" alt="" onerror="this.remove()"></div><div class="pod-hero-meta"><b>'+esc(show.name)+'</b><span>'+esc(show.host||"")+(show.genre?(" · "+esc(show.genre)):"")+' · '+tot+' episodes</span><button class="pod-play-big" data-podplay="0">▶ &nbsp;PLAY LATEST EPISODE</button></div></div><div class="pod-sec">LATEST EPISODES</div>';
+  show.eps.forEach(function(ep,idx){
+    var isCur=cur&&cur.show===show&&cur.idx===idx;
+    var b=bankOf(show,ep);
+    var pct=b&&b.d?Math.min(100,Math.round(b.t/b.d*100)):0;
+    h+='<button class="pod-ep'+(isCur?" on":"")+'" data-podplay="'+idx+'"><span class="pod-ep-ico">'+(isCur&&audio&&!audio.paused?"❚❚":"▶")+'</span><span style="flex:1;min-width:0"><b>'+esc(ep.t)+'</b><span>'+esc(ep.date||"")+(ep.d?(" · "+fmtDur(ep.d)):"")+'</span>'+(b&&b.t>10&&pct<97?'<span class="pod-bar"><span class="pod-fill" style="width:'+pct+'%"></span></span>':"")+'</span></button>';
+  });
+  h+='</div>';
+  v.innerHTML=h;
+  var bk=$("podBack"); if(bk)bk.onclick=function(){openShow=null;paint();};
+  v.querySelectorAll("[data-podplay]").forEach(function(b){b.onclick=function(){play(show,+b.getAttribute("data-podplay"));};});
+}
+
+function ensurePlayer(){
+  if(audio)return;
+  audio=document.createElement("audio");
+  audio.id="podAudio"; audio.preload="metadata";
+  document.body.appendChild(audio);
+  mini=document.createElement("div");
+  mini.id="podMini";
+  mini.innerHTML='<div class="pod-mini-row"><span class="pod-mini-art" id="podMiniArt"></span><div class="pod-mini-meta" id="podMiniMeta"><b id="podMiniShow"></b><span id="podMiniEp"></span></div><button class="pod-mini-btn" id="podMiniBtn" aria-label="Play or pause">▶</button><button class="pod-mini-x" id="podMiniX" aria-label="Close player">✕</button></div><div class="pod-mini-bar" id="podMiniBar"><div class="pod-mini-fill" id="podMiniFill"></div><div class="pod-mini-knob" id="podMiniKnob"></div></div><div class="pod-mini-times"><span id="podMiniCur">0:00</span><span style="margin-left:auto" id="podMiniTot">0:00</span></div>';
+  document.body.appendChild(mini);
+  $("podMiniBtn").onclick=function(ev){ev.stopPropagation();toggle();};
+  $("podMiniX").onclick=function(ev){ev.stopPropagation();closePlayer();};
+  $("podMiniMeta").onclick=function(){if(!cur)return;openShow=cur.show.id;try{renderView("podcasts");}catch(e){}try{go("podcasts");}catch(e){}paint();};
+  $("podMiniBar").onclick=function(ev){if(!audio||!audio.duration)return;var r=this.getBoundingClientRect();var pc=Math.max(0,Math.min(1,(ev.clientX-r.left)/r.width));try{audio.currentTime=pc*audio.duration;}catch(e){}paintMini();};
+  audio.addEventListener("loadedmetadata",function(){
+    if(audio._resume>0){try{audio.currentTime=audio._resume;}catch(e){} audio._resume=0;}
+    paintMini();
+  });
+  audio.addEventListener("timeupdate",function(){
+    paintMini();
+    var now=Date.now(); if(now-lastBank>5000){lastBank=now;bankPos();}
+  });
+  audio.addEventListener("pause",function(){bankPos();paintMini();});
+  audio.addEventListener("play",function(){paintMini();});
+  audio.addEventListener("ended",function(){
+    if(cur){var k=epKey(cur.show,cur.show.eps[cur.idx]);delete bank[k];saveBank();
+      if(cur.idx+1<cur.show.eps.length){play(cur.show,cur.idx+1);return;}}
+    paintMini();
+  });
+  // ONE-AUDIO LAW (inbound): anything else starting silences the podcast.
+  document.addEventListener("play",function(e){
+    if(!audio||audio.paused)return;
+    var t=e.target;
+    if(t&&t!==audio&&(t.tagName==="VIDEO"||t.tagName==="AUDIO")){try{audio.pause();}catch(x){}}
+  },true);
+  document.addEventListener("visibilitychange",function(){
+    if(document.hidden&&audio){try{audio.pause();}catch(e){}}
+  });
+}
+function bankPos(){
+  if(!cur||!audio||!audio.duration)return;
+  var ep=cur.show.eps[cur.idx]; if(!ep)return;
+  var t=Math.floor(audio.currentTime||0);
+  if(t<=0)return;
+  bank[epKey(cur.show,ep)]={t:t,d:Math.floor(audio.duration||ep.d||0),ts:Date.now(),show:cur.show.id,u:ep.u};
+  saveBank();
+}
+function play(show,idx){
+  ensurePlayer();
+  var ep=show.eps[idx]; if(!ep)return;
+  var same=cur&&cur.show===show&&cur.idx===idx&&audio.src;
+  if(same&&audio.paused){var pr0=audio.play();if(pr0&&pr0.catch)pr0.catch(function(){});paintMini();return;}
+  if(!same){
+    // ONE-AUDIO LAW (outbound): the podcast silences the room before it starts.
+    try{if(typeof cfStopPreview==="function")cfStopPreview();}catch(e){}
+    try{if(typeof pauseFeedVideo==="function"&&!window.piaActive)pauseFeedVideo();}catch(e){}
+    document.querySelectorAll("#csView video,#csView audio").forEach(function(m){try{m.pause();}catch(e){}});
+    cur={show:show,idx:idx};
+    audio.src=ep.u;
+    var b=bankOf(show,ep);
+    audio._resume=(b&&b.t>10&&b.d&&b.t<b.d-10)?b.t:0;
+  }
+  var pr=audio.play(); if(pr&&pr.catch)pr.catch(function(){});
+  document.body.classList.add("pod-on");
+  mini.style.display="block";
+  paintMini();
+  try{if(typeof curView!=="undefined"&&curView==="podcasts")paint();}catch(e){}
+}
+function toggle(){
+  if(!cur||!audio)return;
+  if(audio.paused)play(cur.show,cur.idx); else audio.pause();
+}
+function closePlayer(){
+  if(audio){try{audio.pause();}catch(e){} try{audio.removeAttribute("src");audio.load();}catch(e){}}
+  cur=null;
+  if(mini)mini.style.display="none";
+  document.body.classList.remove("pod-on");
+  try{if(typeof curView!=="undefined"&&curView==="podcasts")paint();}catch(e){}
+}
+function paintMini(){
+  if(!audio||!mini||!cur)return;
+  var show=cur.show,ep=show.eps[cur.idx];
+  var art=$("podMiniArt");
+  if(art&&art.getAttribute("data-show")!==show.id){art.setAttribute("data-show",show.id);art.className="pod-mini-art "+grad(DATA.indexOf(show));art.innerHTML=letter(show.name)+'<img src="'+esc(show.art)+'" alt="" onerror="this.remove()">';}
+  var sEl=$("podMiniShow"); if(sEl)sEl.textContent=show.name;
+  var eEl=$("podMiniEp"); if(eEl)eEl.textContent=ep.t;
+  var d=audio.duration||ep.d||0,t=audio.currentTime||0,pct=d>0?(t/d*100):0;
+  var f=$("podMiniFill"); if(f)f.style.width=pct+"%";
+  var k=$("podMiniKnob"); if(k)k.style.left=pct+"%";
+  var c=$("podMiniCur"); if(c)c.textContent=fmtT(t);
+  var tt=$("podMiniTot"); if(tt)tt.textContent=fmtT(d);
+  var b=$("podMiniBtn"); if(b)b.textContent=audio.paused?"▶":"❚❚";
+}
+window.Podcasts={paint:paint,play:play,toggle:toggle,close:closePlayer,state:function(){return {shows:DATA.length,open:openShow,cur:cur?{show:cur.show.id,idx:cur.idx}:null,playing:!!(audio&&!audio.paused),mini:!!(mini&&mini.style.display!=="none"),bankN:Object.keys(bank).length};}};
 })();
 
 </script>
