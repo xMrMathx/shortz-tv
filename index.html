@@ -2353,7 +2353,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792528078";
+window.__SZ_BUILD = "1792531000";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3387,7 +3387,6 @@ function go(v){
   if(curView==="streaming"&&v!=="streaming")stopStreamFeed();
   if(curView==="games"&&v!=="games"&&window.Games)Games.stop(); // leaving Games unmounts the playing game
   if(curView==="live"&&v!=="live"&&typeof lsStop==="function")lsStop(); // stop Free Live Sports stage
-  if(curView==="live"&&v!=="live"&&typeof ltStop==="function")ltStop(); // stop Live TV stage
   if(curView==="live"&&v!=="live"){try{liveRoomPause();}catch(e){}} // silence a watch-party room left open — its audio never follows him to another tab
   if(curView==="browse"&&v!=="browse")likesDetach(); // drop social-like listeners off-screen
   if(curView==="manga"&&v!=="manga")likesDetach(); // same for manga likes
@@ -5484,7 +5483,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792528078";
+const BUILD="1792531000";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9234,10 +9233,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792528078"></script>
+<script src="js/folders.js?v=1792531000"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792528078"></script>
+<script src="js/guide.js?v=1792531000"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10039,7 +10038,6 @@ function liveShellHTML(){
   return `<div class="wrap" style="padding-top:14px">
     <div class="liveseg">
       <button data-lt="sports" class="${Live.tab==="sports"?"on":""}">📺 Sports</button>
-      <button data-lt="tv" class="${Live.tab==="tv"?"on":""}">📡 Live TV</button>
       <button data-lt="lobby" class="${Live.tab==="lobby"?"on":""}">🔴 Live</button>
       <button data-lt="friends" class="${Live.tab==="friends"?"on":""}">👥 Friends</button>
       <button data-lt="plan" class="${Live.tab==="plan"?"on":""}">📅 Plan</button>
@@ -10048,10 +10046,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792528078"></script>
-<script src="js/shortz-live.js?v=1792528078"></script>
-<script src="js/games.js?v=1792528078"></script>
-<script src="js/podcasts.js?v=1792528078"></script>
+<script src="js/streaming.js?v=1792531000"></script>
+<script src="js/shortz-live.js?v=1792531000"></script>
+<script src="js/games.js?v=1792531000"></script>
+<script src="js/podcasts.js?v=1792531000"></script>
 <script>
 
 
@@ -10062,9 +10060,8 @@ async function renderLive(){
   if(Live.roomId){ renderLiveRoom(); return; }
   if(!FIREBASE_READY){ v.innerHTML=liveSetupHTML(); return; }
   v.innerHTML=liveShellHTML();
-  v.querySelectorAll("[data-lt]").forEach(b=>b.onclick=()=>{ if(Live.tab==="sports"&&b.dataset.lt!=="sports"&&typeof lsStop==="function")lsStop(); if(Live.tab==="tv"&&b.dataset.lt!=="tv"&&typeof ltStop==="function")ltStop(); Live.tab=b.dataset.lt; renderLive(); });
+  v.querySelectorAll("[data-lt]").forEach(b=>b.onclick=()=>{ if(Live.tab==="sports"&&b.dataset.lt!=="sports"&&typeof lsStop==="function")lsStop(); Live.tab=b.dataset.lt; renderLive(); });
   if(Live.tab==="sports"){ if(typeof liveSports==="function")liveSports(); return; } // public channels — no Firebase sign-in needed
-  if(Live.tab==="tv"){ if(typeof liveTV==="function")liveTV(); return; } // public channels — no Firebase sign-in needed
   const ok=await liveEnsure();
   if(!ok){ v.innerHTML=liveSetupHTML(); return; }
   if(Live.tab==="lobby") liveLobby();
@@ -10570,7 +10567,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792528078"></script>
+<script src="js/swipe.js?v=1792531000"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12802,8 +12799,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792528078"></script>
-<script src="js/live-tv.js?v=1792528078"></script>
+<script src="js/live-sports.js?v=1792531000"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
