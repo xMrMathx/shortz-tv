@@ -2291,7 +2291,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792349300";
+window.__SZ_BUILD = "1792463571";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5415,7 +5415,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792349300";
+const BUILD="1792463571";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9159,10 +9159,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792349300"></script>
+<script src="js/folders.js?v=1792463571"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792349300"></script>
+<script src="js/guide.js?v=1792463571"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9972,9 +9972,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792349300"></script>
-<script src="js/shortz-live.js?v=1792349300"></script>
-<script src="js/games.js?v=1792349300"></script>
+<script src="js/streaming.js?v=1792463571"></script>
+<script src="js/shortz-live.js?v=1792463571"></script>
+<script src="js/games.js?v=1792463571"></script>
 <script>
 
 
@@ -10492,7 +10492,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792349300"></script>
+<script src="js/swipe.js?v=1792463571"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12724,7 +12724,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792349300"></script>
+<script src="js/live-sports.js?v=1792463571"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13294,35 +13294,36 @@ window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard
 
 <div id="palView" aria-hidden="true"><div class="pal-card" id="palCard"></div></div>
 <script>
-/* SCOUT BATTLES — the new Scout Pal (his order 2026-10-17). The old SVG pet
-   is retired: the Pal is now one of 12 real scouts (10 Phantom Foundry cards
-   + The Hollow Conductor + Obsidian Jotuun). Tap a card -> the scout pops up
-   in card form -> BATTLE fights right inside this same card screen (pixel
-   form, classic layout). While the app is open the active scout goes out
-   hunting on its own: simulated fights vs wild scouts, XP, and captures that
-   grow the collection. Reports wait under the paw. State: shortztv_scouts. */
+/* SCOUT BATTLES — the Scout Pal (his order 2026-10-17; creature cast his
+   order 2026-10-19). The Pal is one of 10 ORIGINAL creatures (hand-drawn,
+   his crowned cast) — the Phantom Foundry cards are OUT. Every creature has
+   3 forms and evolves as it levels (stage from level: 1 / 8 / 16). Tap a
+   card -> the scout pops up in card form -> BATTLE fights right inside this
+   same card screen (pixel form, classic layout). While the app is open the
+   active scout hunts on its own: simulated fights vs wild scouts, XP, and
+   captures that grow the collection. Reports wait under the paw.
+   State: shortztv_scouts (v2 sanitize drops the retired cast on load). */
 (function(){
 "use strict";
 var KEY="shortztv_scouts";
 var ROSTER=[
- {id:"hobb",name:"CINDER-CHOIR HOBB",type:"BLAZE",metal:"Silver",stars:2,hp:150,atk:22,card:"assets/scouts/pf-01-cinder-choir-hobb-sealed.jpg",sprite:"assets/scouts/sprites/hobb.jpg",ability:"DIRGE",skill:"burn",skillTxt:"A funeral song that sets the enemy burning.",moves:[["Ember Note",1.0,""],["Choir Screech",0.8,""],["Funeral Pyre",1.7,"burn"]]},
- {id:"nox",name:"VESSEL NOX",type:"FROST",metal:"Rhodium",stars:4,hp:228,atk:44,card:"assets/scouts/pf-02-vessel-nox-sealed.jpg",sprite:"assets/scouts/sprites/nox.jpg",ability:"HOLLOW",skill:"freeze",skillTxt:"The ice that came out of the vault with him. Freezes the enemy solid.",moves:[["Frost Vein",1.0,""],["Hollow Gaze",0.85,""],["Vault Chill",1.6,"freeze"]]},
- {id:"voice",name:"VOICE OF THE VAULT",type:"FROST",metal:"Rhodium",stars:4,hp:244,atk:38,card:"assets/scouts/pf-03-voice-of-the-vault-sealed.jpg",sprite:"assets/scouts/sprites/voice.jpg",ability:"THE LISTENING",skill:"freeze",skillTxt:"It hears the crack before the ice breaks. Freezes the enemy.",moves:[["Scribe's Cut",0.95,""],["Whisper Tax",0.8,""],["Word Refused",1.6,"freeze"]]},
- {id:"named",name:"THE NAMED MAN",type:"SHADE",metal:"Rhodium",stars:3,hp:206,atk:38,card:"assets/scouts/pf-04-the-named-man-sealed.jpg",sprite:"assets/scouts/sprites/named.jpg",ability:"SOME READINGS",skill:"nuke",skillTxt:"One reading names you. It is never kind.",moves:[["Margin Note",1.0,""],["Unspoken Name",0.85,""],["Final Reading",1.8,""]]},
- {id:"witness",name:"THE PALE WITNESS",type:"FROST",metal:"Rhodium",stars:3,hp:206,atk:38,card:"assets/scouts/pf-05-pale-witness-sealed.jpg",sprite:"assets/scouts/sprites/witness.jpg",ability:"WITNESS",skill:"heal",skillTxt:"She has never blinked. Restores HP and steadies the line.",moves:[["Cold Stare",0.95,""],["Sealed Testimony",0.85,""],["Unblinking",1.5,"leech"]]},
- {id:"core",name:"THE CORE",type:"FROST",metal:"Master",stars:3,hp:274,atk:16,card:"assets/scouts/pf-06-the-core-iceglass-sealed.jpg",sprite:"assets/scouts/sprites/core.jpg",ability:"FROZEN HEART",skill:"freeze",skillTxt:"The specimen freezes what it touches. Freezes the enemy.",moves:[["Frost Creep",0.8,""],["Shatter Tap",0.7,""],["Deep Freeze",1.2,"freeze"]]},
- {id:"keeper",name:"THE CORE KEEPER",type:"FROST",metal:"Rhodium",stars:3,hp:254,atk:48,card:"assets/scouts/pf-07-core-keeper-rhodium-shrouded-sealed.jpg",sprite:"assets/scouts/sprites/keeper.jpg",ability:"DEEP FREEZE",skill:"freeze",skillTxt:"It was left out in the cold. It shares. Freezes the enemy.",moves:[["Glacial Spike",1.05,""],["Aura of Cold",0.85,""],["Keeper's Grasp",1.65,"freeze"]]},
- {id:"corekeeper",name:"THE CORE AND THE KEEPER",type:"FROST",metal:"Master",stars:5,hp:304,atk:56,card:"assets/scouts/pf-08-core-and-keeper-master-sealed.jpg",sprite:"assets/scouts/sprites/corekeeper.jpg",ability:"REUNION",skill:"buff",skillTxt:"Two made one. Raises its own ATK and heals a little.",moves:[["Frost Branch",1.05,""],["Prison Bloom",0.9,""],["Reunion Strike",1.8,""]]},
- {id:"keeper2",name:"THE CORE AND THE KEEPER",type:"FROST",metal:"Rhodium",stars:3,hp:254,atk:48,card:"assets/scouts/pf-09-core-and-keeper-rhodium-sealed.jpg",sprite:"assets/scouts/sprites/keeper2.jpg",ability:"DEEP FREEZE",skill:"freeze",skillTxt:"What the Rhodium keeps, the ice remembers. Freezes the enemy.",moves:[["Cracked Visage",1.0,""],["Swirl Current",0.9,""],["Load-Bearing Wall",1.65,"freeze"]]},
- {id:"hierophant",name:"THE PALE HIEROPHANT",type:"FROST",metal:"Rhodium",stars:4,hp:250,atk:48,card:"assets/scouts/pf-10-pale-hierophant-sealed.jpg",sprite:"assets/scouts/sprites/hierophant.jpg",ability:"REVELATION",skill:"buff",skillTxt:"Now she sees only one thing. Raises ATK sharply.",moves:[["Shard Blessing",1.0,""],["Crack Communion",0.9,""],["Revelation Bolt",1.75,""]]},
- {id:"conductor",name:"THE HOLLOW CONDUCTOR",type:"VOLT",metal:"Original",stars:5,hp:210,atk:56,card:"assets/scouts/conductor-card.jpg",sprite:"assets/scouts/sprites/conductor.jpg",ability:"TEMPEST SCORE",skill:"nuke",skillTxt:"Every third note is lightning. A huge strike.",moves:[["Static Baton",1.0,""],["Chain Arc",0.9,""],["Tempest Finale",1.85,""]]},
- {id:"jotun",name:"OBSIDIAN JOTUUN",type:"STONE",metal:"Original",stars:3,hp:300,atk:44,card:"assets/scouts/jotuun-card.jpg",sprite:"assets/scouts/sprites/jotuun.jpg",ability:"GATESKIN",skill:"heal",skillTxt:"The gate on his back takes the hit. Restores HP.",moves:[["Gate Crash",1.05,""],["Crystal Spikes",0.85,""],["Quake Slam",1.8,""]]}
+ {id:"brandulon",name:"BRANDULON",type:"BLAZE",metal:"Original",stars:4,hp:262,atk:46,card:"assets/scouts/brandulon.jpg",sprite:"assets/scouts/sprites/brandulon.jpg",ability:"FURNACE HEART",skill:"buff",skillTxt:"Stokes the furnace in its chest. ATK up, and a little HP back.",moves:[["Ember Hoof",1.0,""],["Iron Charge",1.3,"burn"],["Furnace Overdrive",1.9,""]],forms:[["KINDLIX","assets/scouts/kindlix.jpg","assets/scouts/sprites/kindlix.jpg"],["FORGELING","assets/scouts/forgeling.jpg","assets/scouts/sprites/forgeling.jpg"],["BRANDULON","assets/scouts/brandulon.jpg","assets/scouts/sprites/brandulon.jpg"]]},
+ {id:"cindrake",name:"CINDRAKE",type:"BLAZE",metal:"Original",stars:3,hp:218,atk:50,card:"assets/scouts/cindrake.jpg",sprite:"assets/scouts/sprites/cindrake.jpg",ability:"EMBER TRAIL",skill:"burn",skillTxt:"Leaves the enemy burning in its wake.",moves:[["Ash Bite",1.0,""],["Slag Lash",1.3,"burn"],["Magma Dive",1.9,""]],forms:[["SOOTLET","assets/scouts/sootlet.jpg","assets/scouts/sprites/sootlet.jpg"],["ASHCOIL","assets/scouts/ashcoil.jpg","assets/scouts/sprites/ashcoil.jpg"],["CINDRAKE","assets/scouts/cindrake.jpg","assets/scouts/sprites/cindrake.jpg"]]},
+ {id:"glacimaw",name:"GLACIMAW",type:"FROST",metal:"Original",stars:3,hp:246,atk:42,card:"assets/scouts/glacimaw.jpg",sprite:"assets/scouts/sprites/glacimaw.jpg",ability:"PERMAFROST",skill:"freeze",skillTxt:"Cold that does not let go. Freezes the enemy solid.",moves:[["Frost Tusk",1.0,""],["Glacier Dig",1.3,""],["Deep Freeze",1.75,"freeze"]],forms:[["CHILLBUR","assets/scouts/chillbur.jpg","assets/scouts/sprites/chillbur.jpg"],["FROSTDIG","assets/scouts/frostdig.jpg","assets/scouts/sprites/frostdig.jpg"],["GLACIMAW","assets/scouts/glacimaw.jpg","assets/scouts/sprites/glacimaw.jpg"]]},
+ {id:"boreawolf",name:"BOREAWOLF",type:"FROST",metal:"Original",stars:4,hp:238,atk:48,card:"assets/scouts/boreawolf.jpg",sprite:"assets/scouts/sprites/boreawolf.jpg",ability:"NORTHERN HOWL",skill:"buff",skillTxt:"A howl under the aurora. ATK up, and a little HP back.",moves:[["Ice Fang",1.0,""],["Aurora Slash",1.35,""],["Blizzard Maw",1.85,""]],forms:[["FROSTPUP","assets/scouts/frostpup.jpg","assets/scouts/sprites/frostpup.jpg"],["SHIVERFANG","assets/scouts/shiverfang.jpg","assets/scouts/sprites/shiverfang.jpg"],["BOREAWOLF","assets/scouts/boreawolf.jpg","assets/scouts/sprites/boreawolf.jpg"]]},
+ {id:"galvaneel",name:"GALVANEEL",type:"VOLT",metal:"Original",stars:3,hp:204,atk:52,card:"assets/scouts/galvaneel.jpg",sprite:"assets/scouts/sprites/galvaneel.jpg",ability:"LIVE WIRE",skill:"freeze",skillTxt:"Live current in every coil. Stuns the enemy solid.",moves:[["Spark Bite",1.0,""],["Arc Whip",1.35,""],["Storm Coil",1.8,"freeze"]],forms:[["ZAPLET","assets/scouts/zaplet.jpg","assets/scouts/sprites/zaplet.jpg"],["GALVEEL","assets/scouts/galveel.jpg","assets/scouts/sprites/galveel.jpg"],["GALVANEEL","assets/scouts/galvaneel.jpg","assets/scouts/sprites/galvaneel.jpg"]]},
+ {id:"thundraven",name:"THUNDRAVEN",type:"VOLT",metal:"Original",stars:5,hp:196,atk:56,card:"assets/scouts/thundraven.jpg",sprite:"assets/scouts/sprites/thundraven.jpg",ability:"STORMCALLER",skill:"nuke",skillTxt:"Calls the storm down. One huge strike.",moves:[["Bolt Peck",1.0,""],["Wing Arc",1.3,""],["Thunderfall",2.0,""]],forms:[["RAVLET","assets/scouts/ravlet.jpg","assets/scouts/sprites/ravlet.jpg"],["STORMRAVEN","assets/scouts/stormraven.jpg","assets/scouts/sprites/stormraven.jpg"],["THUNDRAVEN","assets/scouts/thundraven.jpg","assets/scouts/sprites/thundraven.jpg"]]},
+ {id:"terrafort",name:"TERRAFORT",type:"STONE",metal:"Original",stars:4,hp:296,atk:40,card:"assets/scouts/terrafort.jpg",sprite:"assets/scouts/sprites/terrafort.jpg",ability:"BEDROCK BODY",skill:"heal",skillTxt:"Granite knits itself whole. Restores HP.",moves:[["Rock Ram",1.0,""],["Granite Stomp",1.3,""],["Fortress Quake",1.8,""]],forms:[["GRITLET","assets/scouts/gritlet.jpg","assets/scouts/sprites/gritlet.jpg"],["RHINOSTONE","assets/scouts/rhinostone.jpg","assets/scouts/sprites/rhinostone.jpg"],["TERRAFORT","assets/scouts/terrafort.jpg","assets/scouts/sprites/terrafort.jpg"]]},
+ {id:"primolith",name:"PRIMOLITH",type:"STONE",metal:"Original",stars:5,hp:268,atk:54,card:"assets/scouts/primolith.jpg",sprite:"assets/scouts/sprites/primolith.jpg",ability:"RESONANCE",skill:"nuke",skillTxt:"The obelisk rings like a bell. One huge strike.",moves:[["Shard Tap",1.0,""],["Crystal Lance",1.35,""],["Obelisk Judgment",2.0,""]],forms:[["SHARDLET","assets/scouts/shardlet.jpg","assets/scouts/sprites/shardlet.jpg"],["CRYSTAGOLEM","assets/scouts/crystagolem.jpg","assets/scouts/sprites/crystagolem.jpg"],["PRIMOLITH","assets/scouts/primolith.jpg","assets/scouts/sprites/primolith.jpg"]]},
+ {id:"voidlynx",name:"VOIDLYNX",type:"SHADE",metal:"Original",stars:4,hp:212,atk:54,card:"assets/scouts/voidlynx.jpg",sprite:"assets/scouts/sprites/voidlynx.jpg",ability:"AMBUSH",skill:"nuke",skillTxt:"It was already behind you. One huge strike.",moves:[["Shadow Claw",1.0,""],["Void Step",1.35,""],["Umbral Maul",1.9,""]],forms:[["SHADEKIT","assets/scouts/shadekit.jpg","assets/scouts/sprites/shadekit.jpg"],["UMBRALYNX","assets/scouts/umbralynx.jpg","assets/scouts/sprites/umbralynx.jpg"],["VOIDLYNX","assets/scouts/voidlynx.jpg","assets/scouts/sprites/voidlynx.jpg"]]},
+ {id:"duskkeeper",name:"DUSKKEEPER",type:"SHADE",metal:"Original",stars:3,hp:226,atk:44,card:"assets/scouts/duskkeeper.jpg",sprite:"assets/scouts/sprites/duskkeeper.jpg",ability:"SOUL LANTERN",skill:"heal",skillTxt:"The lantern drinks deep. Restores HP.",moves:[["Ember Wisp",1.0,""],["Soul Siphon",1.3,"leech"],["Lantern Requiem",1.8,"leech"]],forms:[["WISPLET","assets/scouts/wisplet.jpg","assets/scouts/sprites/wisplet.jpg"],["GLOOMLAMP","assets/scouts/gloomlamp.jpg","assets/scouts/sprites/gloomlamp.jpg"],["DUSKKEEPER","assets/scouts/duskkeeper.jpg","assets/scouts/sprites/duskkeeper.jpg"]]}
 ];
 var BYID={};ROSTER.forEach(function(r){BYID[r.id]=r;});
 var CHART={VOLT:{FROST:1.35,STONE:0.75},BLAZE:{FROST:1.35},FROST:{STONE:1.35,BLAZE:0.75},STONE:{VOLT:1.35,FROST:0.75},SHADE:{VOLT:1.35}};
-var S={active:null,owned:{},reports:[],unread:0,lastHunt:0,huntNext:0,totW:0,totL:0,alerts:true};
+var S={active:null,owned:{},reports:[],unread:0,lastHunt:0,huntNext:0,totW:0,totL:0,alerts:true,v:0};
 var view="home",pickId=null,B=null;
-function load(){try{var d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&typeof d==="object")S=Object.assign({},S,d);}catch(e){}}
+function load(){try{var d=JSON.parse(localStorage.getItem(KEY)||"null");if(d&&typeof d==="object")S=Object.assign({},S,d);}catch(e){}
+  if(S.v!==2){var clean={};Object.keys(S.owned||{}).forEach(function(k){if(BYID[k])clean[k]=S.owned[k];});S.owned=clean;if(S.active&&!BYID[S.active])S.active=null;S.v=2;save();}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
 function pesc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
 function own(id){return S.owned[id]||null;}
@@ -13330,8 +13331,11 @@ function actScout(){return S.active?BYID[S.active]:null;}
 function actRec(){return S.active?S.owned[S.active]:null;}
 function stars(n){var s="";for(var i=0;i<5;i++)s+=i<n?"★":"☆";return s;}
 function typeMul(a,d){var m=CHART[a];return (m&&m[d])||1;}
-function hpAt(r,lv){return Math.round(r.hp*(1+0.06*(lv-1)));}
-function atkAt(r,lv){return Math.round(r.atk*(1+0.05*(lv-1)));}
+var STAGEM=[0.55,0.8,1];
+function stageOf(lv){lv=lv||1;return lv>=16?2:(lv>=8?1:0);}
+function formOf(r,lv){var f=r.forms[stageOf(lv)];return {name:f[0],card:f[1],sprite:f[2]};}
+function hpAt(r,lv){return Math.round(r.hp*(1+0.06*(lv-1))*STAGEM[stageOf(lv)]);}
+function atkAt(r,lv){return Math.round(r.atk*(1+0.05*(lv-1))*STAGEM[stageOf(lv)]);}
 function gainXp(rec,amt){rec.xp+=amt;var ups=[];while(rec.xp>=rec.lv*100){rec.xp-=rec.lv*100;rec.lv++;ups.push(rec.lv);}return ups;}
 function coins(n){try{if(window.Stake&&Stake._coinsLoaded){window.Stake.coins+=n;window.Stake.saveCoins();return true;}}catch(e){}return false;}
 /* ---------------- HUNTING (idle) ---------------- */
@@ -13352,6 +13356,7 @@ function scoutNotify(txt){
 function addReport(txt){S.reports.unshift({t:Date.now(),txt:txt});if(S.reports.length>30)S.reports.length=30;S.unread++;badge();scoutNotify(txt);}
 function resolveHunt(){
   var me=actScout(),rec=actRec();if(!me||!rec)return;
+  var meN=formOf(me,rec.lv).name, st0=stageOf(rec.lv);
   var pool=ROSTER.filter(function(r){return r.id!==me.id;});
   var foe=pool[Math.floor(Math.random()*pool.length)];
   var flv=Math.max(1,rec.lv+Math.floor(Math.random()*3)-1);
@@ -13360,17 +13365,17 @@ function resolveHunt(){
   var fin=me.moves[Math.floor(Math.random()*3)][0].toUpperCase();
   if(win){
     rec.w++;S.totW++;var ups=gainXp(rec,14);
-    var line="⚔ "+me.name+" beat a wild "+foe.name+" (Lv "+flv+") — "+fin+" finished it. +14 XP"+(ups.length?" — LEVEL "+ups[ups.length-1]+"!":"");
+    var line="⚔ "+meN+" beat a wild "+formOf(foe,flv).name+" (Lv "+flv+") — "+fin+" finished it. +14 XP"+(ups.length?" — LEVEL "+ups[ups.length-1]+"!":"")+(stageOf(rec.lv)>st0?" ✨ "+meN+" EVOLVED into "+formOf(me,rec.lv).name+"!":"");
     var unowned=ROSTER.filter(function(r){return !S.owned[r.id];});
     if(unowned.length&&Math.random()<0.24){
       var cap=unowned[Math.floor(Math.random()*unowned.length)];
       S.owned[cap.id]={lv:Math.max(1,rec.lv-1),xp:0,w:0,l:0};
-      line+=" 🐾 And brought back "+cap.name+" — NEW SCOUT in your collection!";
+      line+=" 🐾 And brought back "+formOf(cap,S.owned[cap.id].lv).name+" — NEW SCOUT in your collection!";
     }
     addReport(line);
   }else{
     rec.l++;S.totL++;gainXp(rec,5);
-    addReport("⚔ "+me.name+" lost to a wild "+foe.name+" (Lv "+flv+"). Came home scuffed. +5 XP");
+    addReport("⚔ "+meN+" lost to a wild "+formOf(foe,flv).name+" (Lv "+flv+"). Came home scuffed. +5 XP"+(stageOf(rec.lv)>st0?" ✨ And EVOLVED into "+formOf(me,rec.lv).name+"!":""));
   }
   S.lastHunt=Date.now();save();
   if(view==="home"&&window.__palOpen)paint();
@@ -13409,22 +13414,23 @@ function paint(){
   return paintHome(card);
 }
 function miniCard(r,ownedRec){
-  return '<button class="sc-mini" data-pick="'+r.id+'"><img src="'+r.card+'" alt="'+pesc(r.name)+'" loading="lazy">'
-   +'<span class="sc-mini-nm">'+pesc(r.name)+'</span><span class="sc-mini-sub">'+r.type+' · <span class="sc-star">'+stars(r.stars)+'</span></span>'
+  var f=formOf(r,ownedRec?ownedRec.lv:1);
+  return '<button class="sc-mini" data-pick="'+r.id+'"><img src="'+f.card+'" alt="'+pesc(f.name)+'" loading="lazy">'
+   +'<span class="sc-mini-nm">'+pesc(f.name)+'</span><span class="sc-mini-sub">'+r.type+' · <span class="sc-star">'+stars(r.stars)+'</span></span>'
    +(ownedRec?'<span class="sc-mini-lv">Lv '+ownedRec.lv+'</span>':'')+'</button>';
 }
 function paintPick(card){
   var g=ROSTER.map(function(r){return miniCard(r,null);}).join("");
   card.innerHTML=head("CHOOSE YOUR SCOUT")
-   +'<div class="pal-status" style="margin-top:8px">The new cast: ten Phantom Foundry cards and two originals. Pick your first scout — he hunts, battles and levels up with you. More join when he captures them out hunting.</div>'
+   +'<div class="pal-status" style="margin-top:8px">Ten original creatures, all yours. Pick your first scout — he hunts, battles, levels up and EVOLVES (Lv 8 and Lv 16). More join when he captures them out hunting.</div>'
    +'<div class="sc-grid">'+g+'</div>';
   wireX();
   card.querySelectorAll("[data-pick]").forEach(function(b){b.onclick=function(){pickId=b.getAttribute("data-pick");view="confirm";paint();};});
 }
 function bigCard(r,rec){
-  var pf=r.metal!=="Original";
-  var art='<img class="sc-bigart" src="'+r.card+'" alt="'+pesc(r.name)+'">';
-  var stats='<div class="sc-namerow"><span class="sc-nm">'+pesc(r.name)+'</span></div>'
+  var f=formOf(r,rec?rec.lv:1);
+  var art='<img class="sc-bigart" src="'+f.card+'" alt="'+pesc(f.name)+'">';
+  var stats='<div class="sc-namerow"><span class="sc-nm">'+pesc(f.name)+'</span></div>'
    +'<div class="sc-typerow">'+r.type+' · '+pesc(r.metal).toUpperCase()+' · <span class="sc-star">'+stars(r.stars)+'</span></div>'
    +'<div class="pal-meters"><div class="pal-meter"><div class="pm-t">HP</div><div class="pm-v">'+hpAt(r,rec?rec.lv:1)+'</div></div>'
    +'<div class="pal-meter"><div class="pm-t">ATK</div><div class="pm-v">'+atkAt(r,rec?rec.lv:1)+'</div></div>'
@@ -13441,7 +13447,7 @@ function paintConfirm(card){
   document.getElementById("scBack").onclick=function(){view="pick";paint();};
   document.getElementById("scStart").onclick=function(){
     S.owned[r.id]={lv:1,xp:0,w:0,l:0};S.active=r.id;S.lastHunt=Date.now();S.huntNext=Date.now()+150000;
-    addReport("🐾 "+r.name+" joined you. Send him into battle, and he hunts on his own while the app is open.");
+    addReport("🐾 "+formOf(r,1).name+" joined you. Send him into battle, and he hunts on his own while the app is open.");
     S.unread=0;save();view="home";paint();
   };
 }
@@ -13453,7 +13459,7 @@ function paintHome(card){
     :"Out hunting between battles. Reports land here on their own.";
   card.innerHTML=head("SCOUT PAL")+bigCard(r,rec)
    +'<div class="sc-xp"><div class="sc-xp-t">XP — Level '+rec.lv+' · '+rec.xp+' / '+(rec.lv*100)+'</div><div class="pal-bar"><i style="width:'+xpPct+'%"></i></div></div>'
-   +'<div class="pal-status">Record: <b>'+rec.w+'</b> wins · <b>'+rec.l+'</b> losses · Collection: <b>'+Object.keys(S.owned).length+' / 12</b></div>'
+   +'<div class="pal-status">Record: <b>'+rec.w+'</b> wins · <b>'+rec.l+'</b> losses · Collection: <b>'+Object.keys(S.owned).length+' / '+ROSTER.length+'</b></div>'
    +'<div class="pal-actions"><button class="pal-btn gold" id="scBattle">⚔ BATTLE</button><button class="pal-btn ghost" id="scReports">🐾 Reports'+(S.unread?' ('+S.unread+')':'')+'</button></div>'
    +'<div class="pal-row2"><button class="pal-mini" id="scSquad">👥 My Scouts ('+Object.keys(S.owned).length+')</button><button class="pal-mini" id="scAlerts">🔔 Hunt alerts <span>'+(S.alerts===false?"OFF":"ON")+'</span></button></div>'
    +'<div class="pal-note">'+pesc(huntLine)+'</div>';
@@ -13496,11 +13502,12 @@ function startBattle(){
   var pool=ROSTER.filter(function(r){return r.id!==me.id;});
   var foe=pool[Math.floor(Math.random()*pool.length)];
   var flv=Math.max(1,rec.lv+Math.floor(Math.random()*3)-1);
-  B={me:{r:me,lv:rec.lv,hp:hpAt(me,rec.lv),max:hpAt(me,rec.lv),en:2,frozen:false,burn:0,buff:1,skillUsed:false},
-     foe:{r:foe,lv:flv,hp:hpAt(foe,flv),max:hpAt(foe,flv),en:2,frozen:false,burn:0,buff:1,skillUsed:false},
+  var meD=Object.assign({},me,formOf(me,rec.lv)), foeD=Object.assign({},foe,formOf(foe,flv));
+  B={me:{r:meD,lv:rec.lv,hp:hpAt(me,rec.lv),max:hpAt(me,rec.lv),en:2,frozen:false,burn:0,buff:1,skillUsed:false},
+     foe:{r:foeD,lv:flv,hp:hpAt(foe,flv),max:hpAt(foe,flv),en:2,frozen:false,burn:0,buff:1,skillUsed:false},
      busy:false,over:false,potions:2,turn:0};
   view="battle";paint();
-  setTimeout(function(){if(B&&!B.over)bsay("What will "+me.name.split(" ").pop()+" do?");},1300);
+  setTimeout(function(){if(B&&!B.over)bsay("What will "+meD.name.split(" ").pop()+" do?");},1300);
 }
 function paintBattle(card){
   var me=B.me,foe=B.foe;
@@ -13508,7 +13515,7 @@ function paintBattle(card){
    +'<div class="bt-scene" id="btScene">'
    +'<div class="bt-eplate"><div class="bt-bar"></div><div style="flex:1"><div class="bt-nm">'+pesc(foe.r.name)+'</div><div class="bt-lv">:L'+foe.lv+'</div>'
    +'<div class="bt-hprow"><span class="bt-hpl">HP:</span><div class="bt-hpbar"><div class="bt-hpfill" id="btEF" style="width:100%"></div></div></div><div class="bt-etail"></div></div></div>'
-   +'<img class="bt-enemy'+(foe.r.id==="jotun"?" bt-flip":"")+'" id="btES" src="'+foe.r.sprite+'" alt="'+pesc(foe.r.name)+'">'
+   +'<img class="bt-enemy bt-flip" id="btES" src="'+foe.r.sprite+'" alt="'+pesc(foe.r.name)+'">'
    +'<img class="bt-mine" id="btMS" src="'+me.r.sprite+'" alt="'+pesc(me.r.name)+'">'
    +'<div class="bt-dmg" id="btDE" style="right:15%;top:24%"></div><div class="bt-dmg" id="btDM" style="left:12%;top:50%"></div>'
    +'<div class="bt-mplate"><div class="bt-nm">'+pesc(me.r.name)+'</div><div class="bt-lv" style="text-align:right">:L'+me.lv+'</div>'
@@ -13562,9 +13569,10 @@ function bend(){
   var rec=actRec();
   if(B.foe.hp<=0){
     B.over=true;rec.w++;S.totW++;
+    var stB=stageOf(rec.lv);
     var xp=40+B.foe.lv*4;var ups=gainXp(rec,xp);
     var paid=coins(20);
-    bsay(B.foe.r.name+" fainted! +"+xp+" XP"+(paid?", +20 Stake Coins":"")+(ups.length?" — LEVEL "+ups[ups.length-1]+"!":""));
+    bsay(B.foe.r.name+" fainted! +"+xp+" XP"+(paid?", +20 Stake Coins":"")+(ups.length?" — LEVEL "+ups[ups.length-1]+"!":"")+(stageOf(rec.lv)>stB?" ✨ EVOLVED into "+formOf(B.me.r,rec.lv).name+"!":""));
     save();bendMenu();return true;
   }
   if(B.me.hp<=0){
@@ -13617,6 +13625,7 @@ function useSkill(att,def,isPlayer){
   setTimeout(function(){
     if(kind==="heal"){att.hp=Math.min(att.max,att.hp+Math.round(att.max*0.22));bbars();bsay(att.r.name+" recovered HP!");}
     else if(kind==="freeze"){def.frozen=true;var d=Math.round(atkAt(att.r,att.lv)*0.5);bhit(def,d,!isPlayer);bsay(def.r.name+" was FROZEN solid!");}
+    else if(kind==="burn"){var d3=Math.round(atkAt(att.r,att.lv)*0.45);bhit(def,d3,!isPlayer);if(def.hp>0){def.burn=2;bsay(def.r.name+" is BURNING!");}}
     else if(kind==="nuke"){var d2=Math.round(atkAt(att.r,att.lv)*0.95*typeMul(att.r.type,def.r.type));bhit(def,d2,!isPlayer);}
     else if(kind==="buff"){att.buff=1.3;att.hp=Math.min(att.max,att.hp+Math.round(att.max*0.08));bbars();bsay(att.r.name+"'s ATK rose!");}
     att.en=Math.min(5,att.en+1);
@@ -13658,7 +13667,7 @@ var btn=document.getElementById("palBtn");
 if(btn)btn.addEventListener("click",function(e){e.stopPropagation();palOpen();});
 var view_el=document.getElementById("palView");
 if(view_el)view_el.addEventListener("click",function(e){if(e.target===view_el)palClose();});
-window.ScoutPal={open:palOpen,close:palClose,state:function(){var r=actScout(),rec=actRec();return {open:!!window.__palOpen,hatched:!!S.active,name:r?r.name:"",lv:rec?rec.lv:0,xp:rec?rec.xp:0,owned:Object.keys(S.owned).length,unread:S.unread,totW:S.totW,totL:S.totL,view:view,battling:!!B};}};
+window.ScoutPal={open:palOpen,close:palClose,state:function(){var r=actScout(),rec=actRec();return {open:!!window.__palOpen,hatched:!!S.active,name:r?formOf(r,rec?rec.lv:1).name:"",lv:rec?rec.lv:0,xp:rec?rec.xp:0,owned:Object.keys(S.owned).length,unread:S.unread,totW:S.totW,totL:S.totL,view:view,battling:!!B};}};
 window.ScoutBattles={roster:ROSTER.map(function(r){return r.id;}),state:window.ScoutPal.state};
 })();
 
