@@ -2353,7 +2353,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792521530";
+window.__SZ_BUILD = "1792522136";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5484,7 +5484,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792521530";
+const BUILD="1792522136";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7939,7 +7939,7 @@ function browseMore(grid){
   fresh.forEach(bindOneCard);
   try{ likesWatchAdd(fresh); }catch(e){}
 }
-const FEAT_IDS=["stv-678", "stv-690", "stv-4401", "stv-4443", "stv-4472", "stv-4473", "stv-4474", "stv-4475", "stv-4476", "stv-4477", "stv-4478", "stv-4479", "stv-4480", "stv-4481", "stv-4482", "stv-4483", "stv-4484", "stv-4485", "stv-4486", "stv-4487", "stv-4488", "stv-4489", "stv-4490", "stv-4491", "stv-4492", "stv-4493", "stv-4494", "stv-4495", "stv-4496", "stv-4497", "stv-4498", "stv-4499", "stv-4500", "stv-4501", "stv-4502", "stv-4503", "stv-4504", "stv-4505", "stv-4506", "stv-4507", "stv-4508", "stv-4509", "stv-4510", "stv-4511", "stv-4512", "stv-401", "stv-2959", "stv-2376", "stv-2382", "stv-1971", "stv-3688", "stv-483", "stv-500", "stv-2110", "stv-2338", "stv-2957", "stv-3039", "stv-3426", "stv-685", "stv-705", "stv-3010", "stv-686", "stv-2214", "stv-3427", "stv-1822", "stv-3555", "stv-2430", "stv-1745", "stv-3490", "stv-3976", "stv-4258", "stv-2372", "stv-1823", "stv-2650", "stv-3034", "stv-2217", "stv-1571", "stv-3253", "stv-2111", "stv-693", "stv-2958", "stv-3020", "stv-2112", "stv-3927", "stv-683", "stv-3004", "stv-698", "stv-2969", "stv-4000", "stv-2464", "stv-688", "stv-3019", "stv-692", "stv-3031", "stv-3916", "stv-2113", "stv-3032", "stv-3209", "stv-1775", "stv-689", "stv-684", "stv-1744", "stv-681", "stv-699", "stv-4009", "stv-691", "stv-1738", "stv-1842", "stv-682", "stv-680", "stv-694", "stv-4245", "stv-2354", "stv-749", "stv-013", "stv-054", "stv-3648", "stv-2739", "stv-1834", "stv-3422", "stv-3774", "stv-2353", "stv-687", "stv-1778", "stv-2355", "stv-3021", "stv-2352", "stv-706", "stv-1593", "stv-3038", "stv-2973", "stv-011", "stv-624", "stv-711", "stv-714", "stv-718", "stv-724", "stv-765", "stv-2941", "stv-2946", "stv-4381", "stv-4383", "stv-4384", "stv-4412", "stv-4413", "stv-4418", "stv-4431", "stv-4440", "stv-4446", "stv-4449", "stv-4458", "stv-4461", "stv-4463", "stv-4464", "stv-4469"];
+const FEAT_IDS=["stv-73070", "stv-73069", "stv-73068", "stv-1679", "stv-678", "stv-690", "stv-4401", "stv-4443", "stv-4472", "stv-4473", "stv-4474", "stv-4475", "stv-4476", "stv-4477", "stv-4478", "stv-4479", "stv-4480", "stv-4481", "stv-4482", "stv-4483", "stv-4484", "stv-4485", "stv-4486", "stv-4487", "stv-4488", "stv-4489", "stv-4490", "stv-4491", "stv-4492", "stv-4493", "stv-4494", "stv-4495", "stv-4496", "stv-4497", "stv-4498", "stv-4499", "stv-4500", "stv-4501", "stv-4502", "stv-4503", "stv-4504", "stv-4505", "stv-4506", "stv-4507", "stv-4508", "stv-4509", "stv-4510", "stv-4511", "stv-4512", "stv-401", "stv-2959", "stv-2376", "stv-2382", "stv-1971", "stv-3688", "stv-483", "stv-500", "stv-2110", "stv-2338", "stv-2957", "stv-3039", "stv-3426", "stv-685", "stv-705", "stv-3010", "stv-686", "stv-2214", "stv-3427", "stv-1822", "stv-3555", "stv-2430", "stv-1745", "stv-3490", "stv-3976", "stv-4258", "stv-2372", "stv-1823", "stv-2650", "stv-3034", "stv-2217", "stv-1571", "stv-3253", "stv-2111", "stv-693", "stv-2958", "stv-3020", "stv-2112", "stv-3927", "stv-683", "stv-3004", "stv-698", "stv-2969", "stv-4000", "stv-2464", "stv-688", "stv-3019", "stv-692", "stv-3031", "stv-3916", "stv-2113", "stv-3032", "stv-3209", "stv-1775", "stv-689", "stv-684", "stv-1744", "stv-681", "stv-699", "stv-4009", "stv-691", "stv-1738", "stv-1842", "stv-682", "stv-680", "stv-694", "stv-4245", "stv-2354", "stv-749", "stv-013", "stv-054", "stv-3648", "stv-2739", "stv-1834", "stv-3422", "stv-3774", "stv-2353", "stv-687", "stv-1778", "stv-2355", "stv-3021", "stv-2352", "stv-706", "stv-1593", "stv-3038", "stv-2973", "stv-011", "stv-624", "stv-711", "stv-714", "stv-718", "stv-724", "stv-765", "stv-2941", "stv-2946", "stv-4381", "stv-4383", "stv-4384", "stv-4412", "stv-4413", "stv-4418", "stv-4431", "stv-4440", "stv-4446", "stv-4449", "stv-4458", "stv-4461", "stv-4463", "stv-4464", "stv-4469"];
 /* Featured hero carousel: drag it with your finger — the card follows, next one
    slides in. Auto-rotates every 3s. Tap (no drag) opens the film. */
 let featIdx=0, featTimer=null;
@@ -8211,7 +8211,7 @@ function paintDiscovery(){
   }catch(e){}
 }
 function renderBrowseLanding(){
-  if(FEAT_IDS[0]!=="stv-1679")FEAT_IDS.unshift("stv-1679"); // Discovery hero leads with the crowned Kane spotlight (his crown 2026-10-15)
+  // Discovery hero order lives in FEAT_IDS itself: Leverage, The Listener, Mutant X lead (his order 2026-10-20), then the crowned Kane spotlight stv-1679 (his crown 2026-10-15)
   const cc=catalogCounts();
   const signed=!!(window.ShortzAuth&&window.ShortzAuth.isSignedIn());
   const cnt=g=>g==="Rebirth"?cc.rebirth:g==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[g]||0);
@@ -9234,10 +9234,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792521530"></script>
+<script src="js/folders.js?v=1792522136"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792521530"></script>
+<script src="js/guide.js?v=1792522136"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10048,10 +10048,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792521530"></script>
-<script src="js/shortz-live.js?v=1792521530"></script>
-<script src="js/games.js?v=1792521530"></script>
-<script src="js/podcasts.js?v=1792521530"></script>
+<script src="js/streaming.js?v=1792522136"></script>
+<script src="js/shortz-live.js?v=1792522136"></script>
+<script src="js/games.js?v=1792522136"></script>
+<script src="js/podcasts.js?v=1792522136"></script>
 <script>
 
 
@@ -10570,7 +10570,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792521530"></script>
+<script src="js/swipe.js?v=1792522136"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12802,8 +12802,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792521530"></script>
-<script src="js/live-tv.js?v=1792521530"></script>
+<script src="js/live-sports.js?v=1792522136"></script>
+<script src="js/live-tv.js?v=1792522136"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
