@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Muse 101 — A Beginner's Guide</title>
+    <style>
+      :root {
+        --bg: #fbfaf7;
+        --surface: #ffffff;
+        --surface-2: #f0f4ef;
+        --ink: #1c2420;
+        --ink-soft: #43514a;
+        --line: #dde3dc;
+        --accent: #1d5c4d;
+        --accent-ink: #ffffff;
+        --accent-soft: #e3efe9;
+        --gold: #b07d2b;
+        --gold-soft: #f7ecd7;
+        --code-bg: #eef2ee;
+        --shadow: 0 1px 2px rgba(28, 36, 32, .06), 0 8px 24px rgba(28, 36, 32, .06);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #121714;
+          --surface: #1a211d;
+          --surface-2: #1e2721;
+          --ink: #eef2ee;
+          --ink-soft: #a9b8ae;
+          --line: #2e3a33;
+          --accent: #4cc39a;
+          --accent-ink: #0d1512;
+          --accent-soft: #1d2f28;
+          --gold: #d9a44a;
+          --gold-soft: #2c2517;
+          --code-bg: #232d27;
+          --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .25);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px 72px; }
+
+      /* ---------- Lead ---------- */
+      .lead { padding: 44px 0 8px; }
+      .for-line {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: .02em;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border-radius: 999px;
+        padding: 5px 14px;
+        margin: 0 0 18px;
+      }
+      h1 {
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        font-weight: 800;
+        font-size: clamp(40px, 8vw, 58px);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        margin: 0 0 14px;
+      }
+      .lead p { font-size: 19px; color: var(--ink-soft); margin: 0; max-width: 34em; }
+      .lead p strong { color: var(--ink); }
+
+      /* ---------- Send panel ---------- */
+      .send-panel {
+        background: var(--accent-soft);
+        border: 1.5px solid var(--accent);
+        border-radius: 14px;
+        padding: 20px 22px 8px;
+        margin: 28px 0 4px;
+      }
+      .send-title {
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        font-weight: 650; font-size: 24px; line-height: 1.2;
+        margin: 0 0 4px;
+      }
+      .send-panel p { margin: 6px 0; }
+      .send-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 6px; }
+      .send-btn {
+        font: inherit; font-size: 15.5px; font-weight: 700;
+        color: var(--accent-ink); background: var(--accent);
+        border: 1.5px solid var(--accent); border-radius: 9px;
+        padding: 10px 18px; cursor: pointer; min-height: 44px;
+      }
+      .send-btn-alt { background: var(--surface); color: var(--accent); }
+      .send-btn:active { transform: translateY(1px); }
+      .send-note { font-weight: 700; color: var(--accent); min-height: 1.2em; }
+      .send-list { margin-bottom: 12px; }
+      body.prep-copy .copy-row, body.prep-copy .send-panel { display: none; }
+      @media print {
+        .send-panel, .copy-row, .contents { display: none !important; }
+        body { background: #fff; }
+      }
+
+      /* ---------- Contents ---------- */
+      .contents {
+        display: flex; flex-wrap: wrap; gap: 8px;
+        margin: 30px 0 6px;
+      }
+      .contents a {
+        color: var(--ink);
+        text-decoration: none;
+        font-size: 15px; font-weight: 700;
+        border: 1.5px solid var(--line);
+        background: var(--surface);
+        border-radius: 999px;
+        padding: 7px 15px;
+      }
+      .contents a:hover, .contents a:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+      /* ---------- Sections ---------- */
+      section { margin-top: 52px; scroll-margin-top: 20px; }
+      .sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 6px; }
+      .sec-num {
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        font-weight: 800; font-size: 30px;
+        color: var(--gold);
+        line-height: 1;
+        flex: none;
+      }
+      h2 {
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        font-weight: 650;
+        font-size: clamp(26px, 5vw, 33px);
+        line-height: 1.15;
+        margin: 0;
+      }
+      h3 {
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        font-weight: 650; font-size: 21px;
+        margin: 26px 0 6px;
+      }
+      p { margin: 10px 0; }
+      .lede { color: var(--ink-soft); font-size: 17.5px; margin-top: 4px; }
+
+      /* ---------- Capability list ---------- */
+      .can-list {
+        list-style: none; margin: 18px 0 0; padding: 0;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+      }
+      @media (max-width: 560px) { .can-list { grid-template-columns: 1fr; } }
+      .can-list li {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 13px 16px;
+        box-shadow: var(--shadow);
+      }
+      .can-list b { display: block; font-size: 16.5px; }
+      .can-list span { color: var(--ink-soft); font-size: 15px; line-height: 1.45; display: block; margin-top: 2px; }
+
+      /* ---------- Plain lists ---------- */
+      ul.plain { margin: 10px 0; padding-left: 22px; }
+      ul.plain li { margin: 7px 0; }
+      ul.plain li::marker { color: var(--accent); }
+
+      /* ---------- Prompt cards ---------- */
+      .prompt {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        padding: 16px 18px;
+        margin: 14px 0;
+      }
+      .prompt .say {
+        font-size: 14px; font-weight: 700; color: var(--accent);
+        margin: 0 0 6px;
+      }
+      .prompt blockquote {
+        margin: 0;
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        font-size: 19px; font-style: italic; line-height: 1.45;
+      }
+      .prompt .why { color: var(--ink-soft); font-size: 15px; margin: 8px 0 0; }
+      .copy-row { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+      .copy-btn {
+        font: inherit; font-size: 14.5px; font-weight: 700;
+        color: var(--accent-ink); background: var(--accent);
+        border: none; border-radius: 8px;
+        padding: 8px 16px; cursor: pointer;
+        min-height: 40px;
+      }
+      .copy-btn:active { transform: translateY(1px); }
+      .copied { font-size: 14.5px; font-weight: 700; color: var(--accent); opacity: 0; transition: opacity .2s; }
+      .copied.show { opacity: 1; }
+
+      /* ---------- Callout ---------- */
+      .callout {
+        background: var(--gold-soft);
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin: 20px 0;
+      }
+      .callout p { margin: 4px 0; }
+      .callout .callout-title { font-weight: 700; font-size: 16.5px; margin: 0 0 4px; }
+
+      /* ---------- Author section ---------- */
+      .author-band {
+        background: var(--surface-2);
+        border-radius: 16px;
+        padding: 6px 22px 22px;
+        margin-top: 18px;
+      }
+      @media (max-width: 560px) { .author-band { padding: 4px 16px 18px; } }
+      .author-band h3:first-of-type { margin-top: 20px; }
+
+      /* ---------- Good to know ---------- */
+      .know { display: grid; gap: 12px; margin-top: 18px; }
+      .know .item {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 16px 18px;
+        box-shadow: var(--shadow);
+      }
+      .know .item b { display: block; font-size: 16.5px; margin-bottom: 3px; }
+      .know .item p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
+
+      footer {
+        margin-top: 60px; padding-top: 22px;
+        border-top: 1px solid var(--line);
+        color: var(--ink-soft); font-size: 15px;
+      }
+      footer .sign {
+        font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+        font-style: italic; font-size: 18px; color: var(--ink);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <div class="lead">
+        <p class="for-line">Made for Ernest — welcome aboard</p>
+        <h1>Muse 101</h1>
+        <p>Everything you need to get started with <strong>Muse</strong> — your personal AI assistant — explained in plain words. No tech experience needed. Read it top to bottom once, then just start talking to it.</p>
+      </div>
+
+      <div class="send-panel" id="send">
+        <h2 class="send-title">Send this guide to Ernest</h2>
+        <p>No publishing needed — this page travels on its own. Pick whichever way is easier:</p>
+        <div class="send-actions">
+          <button class="send-btn" id="downloadBtn" type="button">Download the guide as one file</button>
+          <button class="send-btn send-btn-alt" id="copyAllBtn" type="button">Copy the whole guide as text</button>
+        </div>
+        <p class="send-note" id="sendNote" aria-live="polite"></p>
+        <ul class="plain send-list">
+          <li><strong>Download</strong> saves one file, <em>muse-101-guide.html</em>. Attach it to a text or email to Ernest — it opens in any browser, on any phone or computer, no account or app needed.</li>
+          <li><strong>Copy as text</strong> puts the whole guide on your clipboard, ready to paste straight into a message or email.</li>
+        </ul>
+      </div>
+
+      <nav class="contents" aria-label="On this page">
+        <a href="#send">Send this guide</a>
+        <a href="#what">What Muse is</a>
+        <a href="#can">What you can do</a>
+        <a href="#talk">How to talk to it</a>
+        <a href="#first">Your first five tries</a>
+        <a href="#author">For authors</a>
+        <a href="#know">Good to know</a>
+      </nav>
+
+      <section id="what">
+        <div class="sec-head"><span class="sec-num">1</span><h2>What Muse is, in plain words</h2></div>
+        <p class="lede">Muse is a personal assistant that lives in an app on your phone or computer. You type (or say) what you need in normal, everyday language — and it answers, writes, searches, builds, and plans for you.</p>
+        <p>Think of it like a very capable helper sitting next to you: one who has read a whole lot, writes well, never gets tired, and is happy to start over as many times as you like. You don't need commands, codes, or special words. If you can explain it to a person, you can explain it to Muse.</p>
+        <p>Your Muse is <strong>yours</strong>. It learns how <em>you</em> like things done, remembers your preferences, and keeps your stuff separate from everybody else's.</p>
+      </section>
+
+      <section id="can">
+        <div class="sec-head"><span class="sec-num">2</span><h2>Exactly what you can do</h2></div>
+        <p class="lede">Here's the honest, plain list. If it's on here, you can just ask.</p>
+        <ul class="can-list">
+          <li><b>Ask questions, get answers</b><span>Explanations in plain language — ask "explain that simpler" any time.</span></li>
+          <li><b>Search the web</b><span>It looks things up for you and sums up what it finds.</span></li>
+          <li><b>Write things</b><span>Messages, letters, emails, stories — even whole books.</span></li>
+          <li><b>Build websites &amp; simple apps</b><span>Real pages you can send people a link to — like this one.</span></li>
+          <li><b>Make pictures</b><span>Describe what you picture in your head; it creates the image.</span></li>
+          <li><b>Plan trips &amp; projects</b><span>Itineraries, checklists, step-by-step plans that actually fit your days.</span></li>
+          <li><b>Set reminders</b><span>"Remind me Friday at 9" — it keeps track so you don't have to.</span></li>
+          <li><b>Connect your email &amp; calendar</b><span>With your permission, it can read your inbox and schedule, and help you stay on top of both.</span></li>
+          <li><b>Remember your preferences</b><span>Tell it once how you like things; it remembers for next time.</span></li>
+          <li><b>Help with everyday decisions</b><span>Compare prices, weigh options, draft a tough message — a second brain on call.</span></li>
+        </ul>
+      </section>
+
+      <section id="talk">
+        <div class="sec-head"><span class="sec-num">3</span><h2>How to talk to Muse</h2></div>
+        <p class="lede">There's no wrong way to start. Talk to it the way you'd talk to a helpful person.</p>
+        <ul class="plain">
+          <li><strong>Just say what you want.</strong> "Write a birthday message for my sister" works fine. So does a half-formed idea — Muse will help you shape it.</li>
+          <li><strong>Give a little background.</strong> Who it's for, what it's about, how long — the more it knows, the better the result.</li>
+          <li><strong>Ask for changes, out loud.</strong> "Make it shorter." "Make it funnier." "Too formal — soften it." Nothing is final until you say it is.</li>
+          <li><strong>Ask it to explain itself.</strong> "Why did you do it that way?" or "Explain that like I'm brand new" — it will, gladly.</li>
+          <li><strong>Say when it's wrong.</strong> Correct it plainly. It adjusts, and it remembers the correction.</li>
+          <li><strong>One thing at a time is fine.</strong> You don't have to bundle everything into one big request.</li>
+        </ul>
+        <div class="callout">
+          <p class="callout-title">The one habit that changes everything</p>
+          <p>When an answer isn't quite right, don't start over — just reply and say what to fix. Muse works best as a back-and-forth conversation, not a one-shot vending machine.</p>
+        </div>
+      </section>
+
+      <section id="first">
+        <div class="sec-head"><span class="sec-num">4</span><h2>Your first five things to try</h2></div>
+        <p class="lede">Copy any of these into Muse and press send. They're small on purpose — each one teaches you something about how it works.</p>
+
+        <div class="prompt">
+          <p class="say">Try 1 — Get a plain-language answer</p>
+          <blockquote>“Explain how a mortgage works like I've never heard of one before. Keep it short.”</blockquote>
+          <p class="why">Teaches you: Muse explains anything at your level. Follow up with “simpler” or “give me an example” whenever you want.</p>
+          <div class="copy-row">
+            <button class="copy-btn" data-copy="Explain how a mortgage works like I've never heard of one before. Keep it short.">Copy this prompt</button>
+            <span class="copied" aria-live="polite">Copied — paste it into Muse</span>
+          </div>
+        </div>
+
+        <div class="prompt">
+          <p class="say">Try 2 — Have it write something for you</p>
+          <blockquote>“Write a friendly text message to a friend I haven't talked to in a while, asking how they've been.”</blockquote>
+          <p class="why">Teaches you: it drafts, you approve. Then try “make it shorter” or “make it warmer” and watch it revise.</p>
+          <div class="copy-row">
+            <button class="copy-btn" data-copy="Write a friendly text message to a friend I haven't talked to in a while, asking how they've been.">Copy this prompt</button>
+            <span class="copied" aria-live="polite">Copied — paste it into Muse</span>
+          </div>
+        </div>
+
+        <div class="prompt">
+          <p class="say">Try 3 — Plan something</p>
+          <blockquote>“Plan a relaxed weekend in Chicago for two people who like good food and live music. Give me a simple day-by-day plan.”</blockquote>
+          <p class="why">Teaches you: it can plan trips, projects, meals, and schedules — and adjust when you say “too busy” or “cheaper.”</p>
+          <div class="copy-row">
+            <button class="copy-btn" data-copy="Plan a relaxed weekend in Chicago for two people who like good food and live music. Give me a simple day-by-day plan.">Copy this prompt</button>
+            <span class="copied" aria-live="polite">Copied — paste it into Muse</span>
+          </div>
+        </div>
+
+        <div class="prompt">
+          <p class="say">Try 4 — Make a picture</p>
+          <blockquote>“Make a picture of a cozy cabin by a lake at sunset, with smoke coming out of the chimney.”</blockquote>
+          <p class="why">Teaches you: describe a scene in words, get an image back. Change any detail and ask again.</p>
+          <div class="copy-row">
+            <button class="copy-btn" data-copy="Make a picture of a cozy cabin by a lake at sunset, with smoke coming out of the chimney.">Copy this prompt</button>
+            <span class="copied" aria-live="polite">Copied — paste it into Muse</span>
+          </div>
+        </div>
+
+        <div class="prompt">
+          <p class="say">Try 5 — Teach it something about you</p>
+          <blockquote>“Remember this about me: I like short, plain answers with no jargon. From now on, explain things that way.”</blockquote>
+          <p class="why">Teaches you: Muse remembers your preferences, so it gets more “yours” the more you use it.</p>
+          <div class="copy-row">
+            <button class="copy-btn" data-copy="Remember this about me: I like short, plain answers with no jargon. From now on, explain things that way.">Copy this prompt</button>
+            <span class="copied" aria-live="polite">Copied — paste it into Muse</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="author">
+        <div class="sec-head"><span class="sec-num">5</span><h2>For Ernest the author</h2></div>
+        <p class="lede">Ernest, you write books — so here's the part written for you. Muse isn't just a question-answerer. For an author, it can be your writing partner, your designer, your publisher's assistant, and your storefront, all in one place. Here's exactly what that means, piece by piece.</p>
+
+        <div class="author-band">
+          <h3>1. A home on the web for your books</h3>
+          <p>Muse can build you a real author page — a website with your name on it where readers can:</p>
+          <ul class="plain">
+            <li>See all your books in one place, with their covers</li>
+            <li>Read what each book is about before they commit</li>
+            <li>Open a book to read, or follow a link to buy it</li>
+            <li>Read about you — who you are and why you write</li>
+          </ul>
+          <p>You just describe what you want. Muse builds the page, shows it to you, and you ask for changes until it looks right. The page you're reading right now was made exactly this way — somebody asked, Muse built it.</p>
+
+          <h3>2. Help writing — and finishing — your books</h3>
+          <ul class="plain">
+            <li><strong>Brainstorm:</strong> stuck on an idea, a title, a character, a plot twist? Talk it out and get fresh angles.</li>
+            <li><strong>Outline:</strong> turn a loose idea into a chapter-by-chapter plan before you write a word.</li>
+            <li><strong>Draft:</strong> write pages together — you give the direction, Muse helps get words on the page.</li>
+            <li><strong>Edit &amp; polish:</strong> paste in what you already wrote and ask for a cleanup — grammar, flow, tighter sentences — while keeping your voice yours.</li>
+            <li><strong>Format:</strong> when the book is done, Muse can help shape it into a clean, finished manuscript.</li>
+          </ul>
+          <p>Your words stay your words. Muse is the assistant at the desk next to yours — you make every final call.</p>
+
+          <h3>3. The extras every book needs</h3>
+          <ul class="plain">
+            <li><strong>Cover art:</strong> describe the cover you see in your head — the scene, the mood, the style — and Muse creates it. Don't like it? Say what to change.</li>
+            <li><strong>The blurb:</strong> that short description on the back of the book that makes a stranger pick it up. Muse can draft several versions so you can pick the strongest.</li>
+            <li><strong>Your author bio:</strong> a short page about you that sounds like you — for the back of the book and your website.</li>
+          </ul>
+
+          <h3>4. Getting your books in front of people</h3>
+          <ul class="plain">
+            <li>Muse can make <strong>shareable pages and posts</strong> about each book — something good-looking you can send to friends, post online, or text to someone in one tap.</li>
+            <li>It can help you <strong>write the words</strong> for those posts, too — announcements, "my new book is out" messages, short teasers that pull readers in.</li>
+            <li>Finished a new book? Muse can add it to your author page and make the announcement to go with it.</li>
+          </ul>
+
+          <h3>5. Your books, run like a small business</h3>
+          <p>Put it all together and your writing stops being a pile of files and becomes a small business with a front door:</p>
+          <ul class="plain">
+            <li><strong>A home page</strong> — your name, your story, your books</li>
+            <li><strong>Book listings</strong> — every title presented properly, with cover, description, and a way to read or buy</li>
+            <li><strong>A way for readers to find and follow you</strong> — one link you can share anywhere that brings people back to everything you've written</li>
+          </ul>
+          <p>You don't need to hire a web designer or learn any of that yourself. You describe your books; Muse builds the storefront around them.</p>
+
+          <div class="prompt">
+            <p class="say">A good first prompt for your author page</p>
+            <blockquote>“I write books. Build me an author page with my name at the top, a short spot for my bio, and a section for each of my books with room for a cover, a description, and a link to read or buy. Ask me what you need to know first.”</blockquote>
+            <p class="why">Notice the last line — asking Muse to ask <em>you</em> questions first is a great trick whenever you're starting something big.</p>
+            <div class="copy-row">
+              <button class="copy-btn" data-copy="I write books. Build me an author page with my name at the top, a short spot for my bio, and a section for each of my books with room for a cover, a description, and a link to read or buy. Ask me what you need to know first.">Copy this prompt</button>
+              <span class="copied" aria-live="polite">Copied — paste it into Muse</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="know">
+        <div class="sec-head"><span class="sec-num">6</span><h2>Good to know</h2></div>
+        <div class="know">
+          <div class="item">
+            <b>Your Muse is yours alone</b>
+            <p>Nobody shares one Muse. Your conversations, your books, your preferences — they're in your account, separate from everyone else's, including the friend who sent you this guide.</p>
+          </div>
+          <div class="item">
+            <b>Muse can be wrong</b>
+            <p>It's smart, but it's not perfect, and it can sound sure while being wrong. For anything important — money, health, legal matters, facts you're going to repeat — double-check before you rely on it. Asking “how sure are you?” is always fair game.</p>
+          </div>
+          <div class="item">
+            <b>Free to start, more if you want it</b>
+            <p>There's a free plan with a usage limit — plenty to learn on. Paid plans exist if you find yourself using it heavily and want more room. No pressure either way; start free and see.</p>
+          </div>
+          <div class="item">
+            <b>It asks before big moves</b>
+            <p>For things that matter — sending something, spending money, changing something you can't undo — Muse checks with you first. You're always the one in charge.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p class="sign">That's it, Ernest. Open Muse, pick one prompt from this page, and send it. That's the whole first lesson.</p>
+        <p>Muse 101 — a beginner's guide, made with Muse.</p>
+      </footer>
+
+    </div>
+
+    <script>
+      (function () {
+        var buttons = document.querySelectorAll('.copy-btn');
+        buttons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var text = btn.getAttribute('data-copy');
+            var note = btn.parentElement.querySelector('.copied');
+            function done() {
+              if (note) {
+                note.classList.add('show');
+                setTimeout(function () { note.classList.remove('show'); }, 2600);
+              }
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+            } else {
+              fallback();
+            }
+            function fallback() {
+              var ta = document.createElement('textarea');
+              ta.value = text;
+              ta.style.position = 'fixed';
+              ta.style.opacity = '0';
+              document.body.appendChild(ta);
+              ta.select();
+              try { document.execCommand('copy'); } catch (e) {}
+              document.body.removeChild(ta);
+              done();
+            }
+          });
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var note = document.getElementById('sendNote');
+        function say(msg) { if (note) { note.textContent = msg; } }
+
+        var dl = document.getElementById('downloadBtn');
+        if (dl) {
+          dl.addEventListener('click', function () {
+            var html = '<!doctype html>\n' + document.documentElement.outerHTML;
+            var blob = new Blob([html], { type: 'text/html' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'muse-101-guide.html';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+            say('Downloaded — now attach that file to a text or email to Ernest.');
+          });
+        }
+
+        var cp = document.getElementById('copyAllBtn');
+        if (cp) {
+          cp.addEventListener('click', function () {
+            document.body.classList.add('prep-copy');
+            var parts = [];
+            var lead = document.querySelector('.lead');
+            if (lead) { parts.push(lead.innerText); }
+            document.querySelectorAll('section').forEach(function (s) { parts.push(s.innerText); });
+            var foot = document.querySelector('footer');
+            if (foot) { parts.push(foot.innerText); }
+            document.body.classList.remove('prep-copy');
+            var text = parts.join('\n\n');
+            function done() { say('Copied — paste it into a text or email to Ernest.'); }
+            function fallback() {
+              var ta = document.createElement('textarea');
+              ta.value = text;
+              ta.style.position = 'fixed';
+              ta.style.opacity = '0';
+              document.body.appendChild(ta);
+              ta.select();
+              try { document.execCommand('copy'); } catch (e) {}
+              document.body.removeChild(ta);
+              done();
+            }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(done, fallback);
+            } else {
+              fallback();
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>
