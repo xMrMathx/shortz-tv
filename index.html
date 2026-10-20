@@ -1468,6 +1468,16 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .cs-vidwrap{margin-top:10px}
 .cs-vid{width:100%;border-radius:16px;background:#000;display:block;max-height:420px}
 .cs-vidname{font-size:12px;color:#b9b9c0;margin-top:6px}
+.cs-audwrap{margin-top:10px;background:#17171a;border:1px solid rgba(255,255,255,.07);border-radius:13px;padding:12px 13px}
+.cs-audrow{display:flex;align-items:center;gap:12px}
+.cs-audbtn{width:46px;height:46px;flex:0 0 46px;border-radius:50%;border:none;background:#f6c945;color:#151310;font-size:16px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+.cs-audttl{font-weight:900;font-size:14px;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cs-audsub{font-size:12px;color:#9a9aa0;margin-top:1px}
+.cs-audbar{height:6px;border-radius:99px;background:rgba(255,255,255,.12);margin-top:12px;position:relative;cursor:pointer}
+.cs-audfill{height:100%;width:0;background:#f6c945;border-radius:99px}
+.cs-audknob{position:absolute;top:50%;left:0;width:13px;height:13px;border-radius:50%;background:#f6c945;transform:translate(-50%,-50%);box-shadow:0 1px 5px rgba(0,0,0,.5)}
+.cs-audtimes{display:flex;margin-top:6px;font-size:11.5px;color:#9a9aa0}
+.cs-aud{display:none}
 .cs-tcrow input,.cs-crow input{background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:9px;color:#fff;padding:9px 11px;font-size:13px;width:100%}
 .cs-crow{display:flex;gap:8px}
 .cs-crow input{flex:1}
@@ -2291,7 +2301,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792468156";
+window.__SZ_BUILD = "1792469815";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5415,7 +5425,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792468156";
+const BUILD="1792469815";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9159,10 +9169,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792468156"></script>
+<script src="js/folders.js?v=1792469815"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792468156"></script>
+<script src="js/guide.js?v=1792469815"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -9972,9 +9982,9 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792468156"></script>
-<script src="js/shortz-live.js?v=1792468156"></script>
-<script src="js/games.js?v=1792468156"></script>
+<script src="js/streaming.js?v=1792469815"></script>
+<script src="js/shortz-live.js?v=1792469815"></script>
+<script src="js/games.js?v=1792469815"></script>
 <script>
 
 
@@ -10492,7 +10502,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792468156"></script>
+<script src="js/swipe.js?v=1792469815"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12724,7 +12734,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792468156"></script>
+<script src="js/live-sports.js?v=1792469815"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -12736,14 +12746,14 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
 var CS={db:null,uid:null,name:"",email:"",isFounder:false,isMember:false,requested:false,
   posts:{},members:{},requests:{},open:false,draft:"",flair:"update",filter:"all",
   attachId:"",attachLabel:"",blocked:{},commentsFor:null,comments:{},dirtyFeed:false,ensured:false,
-  upUrl:"",upName:"",upSize:0,upPct:0,uploading:false,upTask:null,upPub:"",vidPos:{}};
+  upUrl:"",upName:"",upSize:0,upPct:0,uploading:false,upTask:null,upPub:"",upKind:"",upDur:0,vidPos:{}};
 try{CS.blocked=JSON.parse(localStorage.getItem("cs_blocked")||"{}")||{};}catch(e){CS.blocked={};}
 try{CS.draft=localStorage.getItem("cs_draft")||"";}catch(e){}
-try{var _at=JSON.parse(localStorage.getItem("cs_attach")||"null");if(_at){if(_at.tid){CS.attachId=_at.tid;CS.attachLabel=_at.label||"";}if(_at.vid&&_at.vid.u){CS.upUrl=_at.vid.u;CS.upName=_at.vid.n||"";CS.upPub=_at.vid.p||"";}}}catch(e){}
+try{var _at=JSON.parse(localStorage.getItem("cs_attach")||"null");if(_at){if(_at.tid){CS.attachId=_at.tid;CS.attachLabel=_at.label||"";}if(_at.vid&&_at.vid.u){CS.upUrl=_at.vid.u;CS.upName=_at.vid.n||"";CS.upPub=_at.vid.p||"";CS.upKind="vid";}if(_at.aud&&_at.aud.u){CS.upUrl=_at.aud.u;CS.upName=_at.aud.n||"";CS.upPub="";CS.upKind="aud";CS.upDur=_at.aud.d||0;}}}catch(e){}
 try{CS.vidPos=JSON.parse(localStorage.getItem("cs_vidpos")||"{}")||{};}catch(e){CS.vidPos={};}
 var FOUNDER_EMAIL="craigjrbb@gmail.com";
 var FOUNDER_UID="4d6Znpeu8DdVgNGQOq9CJfPQQ413"; /* his verified session uid — the key on his own 2026-10-17 access request */
-var FLAIRS={update:"📣 Update",casting:"🎬 Casting Call",feedback:"🛠 Feedback Wanted",collab:"🤝 Collab Wanted"};
+var FLAIRS={update:"📣 Update",casting:"🎬 Casting Call",feedback:"🛠 Feedback Wanted",collab:"🤝 Collab Wanted",music:"🎵 Music"};
 var FOUNDING=["ShowBizz The Adult","GriffPierre","Deen The Great","Mr. Ballin","Kane Pixels","P. Royal Lit","Unghetto","Miaouwai"];
 var $cs=function(s){return document.querySelector(s);};
 function ago(ts){var s=Math.max(1,(Date.now()-ts)/1000);if(s<60)return "now";var m=s/60;if(m<60)return Math.floor(m)+"m";var h=m/60;if(h<24)return Math.floor(h)+"h";return Math.floor(h/24)+"d";}
@@ -12848,7 +12858,7 @@ function csOpen(){
 function csClose(){
   var v=$cs("#csView");if(!v)return;
   CS.open=false;CS.commentsFor=null;unlistenAll();
-  document.querySelectorAll("video.cs-vid").forEach(function(v2){try{v2.pause();}catch(e){}});
+  document.querySelectorAll("video.cs-vid,audio.cs-aud").forEach(function(v2){try{v2.pause();}catch(e){}});
   v.classList.remove("open");v.setAttribute("aria-hidden","true");
   var sh=$cs("#csSheet");if(sh)sh.style.display="none";
 }
@@ -12879,11 +12889,11 @@ function paintShell(){
   body.innerHTML='<div id="csAdmin"></div>'+
    '<div class="cs-composer"><div class="cs-flairs" id="csFlairs">'+
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.flair===k?" on":"")+'" data-flair="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
-   '<textarea id="csText" rows="3" placeholder="Share with creators\u2026 a drop, a question, a call for collabs">'+esc(CS.draft)+"</textarea>"+
+   '<textarea id="csText" rows="3" placeholder="'+(CS.flair==="music"?"Drop a track, ask for real ears on a mix\u2026":"Share with creators\u2026 a drop, a question, a call for collabs")+'">'+esc(CS.draft)+"</textarea>"+
    '<div class="cs-attachrow"><input id="csAttach" placeholder="Attach a title (optional) \u2014 type a name, tap Resolve" value="'+esc(CS.attachLabel)+'"><button class="cs-smallbtn" id="csResolve">Resolve</button></div>'+
    '<div class="cs-attachlbl" id="csAttachLbl">'+(CS.attachId?("Attached: "+esc(CS.attachLabel)):"")+"</div>"+
-   '<div class="cs-uprow"><button class="cs-smallbtn gold" id="csUploadBtn">⬆ Upload a video</button><span class="cs-uplbl">straight off your phone</span></div>'+
-   '<div id="csUpBox"></div><input type="file" id="csFile" accept="video/*" style="display:none">'+
+   '<div class="cs-uprow"><button class="cs-smallbtn gold" id="csUploadBtn">'+(CS.flair==="music"?"⬆ Upload a track":"⬆ Upload a video")+'</button><span class="cs-uplbl">straight off your phone</span></div>'+
+   '<div id="csUpBox"></div><input type="file" id="csFile" accept="'+(CS.flair==="music"?"audio/*":"video/*")+'" style="display:none">'+
    '<div class="cs-compfoot"><span class="cs-hint">Creators only in here. Keep it about the work.</span><button class="cs-bigbtn sm" id="csPost">Post</button></div></div>'+
    '<div class="cs-filters" id="csFilters"><button class="cs-flair'+(CS.filter==="all"?" on":"")+'" data-filter="all">All</button>'+
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.filter===k?" on":"")+'" data-filter="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
@@ -12952,7 +12962,7 @@ function csResolveAttach(){
 function csBuildPost(text){
   var post={uid:CS.uid,name:CS.name,flair:CS.flair,text:String(text||"").slice(0,1200),ts:Date.now()};
   if(CS.attachId)post.tid=CS.attachId;
-  if(CS.upUrl){post.vid={u:CS.upUrl,n:CS.upName||"Uploaded video"};if(CS.upPub)post.vid.p=CS.upPub;}
+  if(CS.upUrl){if(CS.upKind==="aud"){post.aud={u:CS.upUrl,n:CS.upName||"Uploaded track"};if(CS.upDur)post.aud.d=Math.round(CS.upDur);}else{post.vid={u:CS.upUrl,n:CS.upName||"Uploaded video"};if(CS.upPub)post.vid.p=CS.upPub;}}
   if(CS.isFounder)post.founder=true;
   return post;
 }
@@ -12964,7 +12974,7 @@ async function csPost(){
   var post=csBuildPost(text);
   try{
     await CS.db.ref("creatorSpace/posts").push(post);
-    CS.draft="";try{localStorage.removeItem("cs_draft");}catch(e){}CS.attachId="";CS.attachLabel="";CS.upUrl="";CS.upName="";CS.upSize=0;CS.upPub="";try{localStorage.removeItem("cs_attach");}catch(e){}CS.dirtyFeed=false;
+    CS.draft="";try{localStorage.removeItem("cs_draft");}catch(e){}CS.attachId="";CS.attachLabel="";CS.upUrl="";CS.upName="";CS.upSize=0;CS.upPub="";CS.upKind="";CS.upDur=0;try{localStorage.removeItem("cs_attach");}catch(e){}CS.dirtyFeed=false;
     paintShell();toast("Posted to Creator Space");
   }catch(e){toast("Couldn\u2019t post — connection or permissions");}
 }
@@ -12981,6 +12991,7 @@ function postCard(pid,p){
     h+='<button class="cs-attach" data-watch="'+esc(t.id)+'"><span class="cs-athumb" style="background:'+art(t.title)+'">▶</span><span class="cs-atitle">'+esc(t.title)+'</span><span class="cs-awatch">Watch</span></button>';
   }
   h+=csVidCard(pid,p);
+  h+=csAudCard(pid,p);
   h+='<div class="cs-acts"><button class="cs-act'+(mine?" on":"")+'" data-applaud="'+pid+'">♥ Applaud · '+nAp+'</button>'+
      '<button class="cs-act" data-comments="'+pid+'">💬 Feedback<span data-ccount="'+pid+'"></span></button>'+
      '<button class="cs-act" data-boost="'+pid+'">🔁 Boost</button>'+
@@ -12991,7 +13002,7 @@ function postCard(pid,p){
 function paintFeed(){
   var el=$cs("#csFeed");if(!el)return;
   var keep=null;
-  el.querySelectorAll("video.cs-vid").forEach(function(v){if(!v.paused&&!v.ended)keep={pid:v.getAttribute("data-vidpid"),t:v.currentTime||0};});
+  el.querySelectorAll("video.cs-vid,audio.cs-aud").forEach(function(v){if(!v.paused&&!v.ended)keep={pid:v.getAttribute("data-vidpid"),t:v.currentTime||0};});
   var ids=Object.keys(CS.posts||{});
   ids=ids.filter(function(pid){var p=CS.posts[pid];return p&&!CS.blocked[p.uid]&&(CS.filter==="all"||p.flair===CS.filter);});
   ids.sort(function(a,b){return (CS.posts[b].ts||0)-(CS.posts[a].ts||0);});
@@ -13005,13 +13016,15 @@ function paintFeed(){
   el.querySelectorAll("[data-boost]").forEach(function(b){b.onclick=function(){csBoost(b.getAttribute("data-boost"));};});
   el.querySelectorAll("[data-menu]").forEach(function(b){b.onclick=function(){csMenu(b.getAttribute("data-menu"));};});
   el.querySelectorAll("[data-watch]").forEach(function(b){b.onclick=function(){var t=null;try{t=byId(b.getAttribute("data-watch"));}catch(e){}if(t){csClose();try{cfPresentTitle(t);}catch(e){}}};});
+  el.querySelectorAll("[data-audbtn]").forEach(function(b){b.onclick=function(){var pid=b.getAttribute("data-audbtn");var a=el.querySelector('audio.cs-aud[data-vidpid="'+pid+'"]');if(!a)return;if(a.paused){var pr=a.play();if(pr&&pr.catch)pr.catch(function(){});}else a.pause();};});
+  el.querySelectorAll("[data-audbar]").forEach(function(bar){bar.onclick=function(ev){var pid=bar.getAttribute("data-audbar");var a=el.querySelector('audio.cs-aud[data-vidpid="'+pid+'"]');if(!a||!a.duration)return;var r=bar.getBoundingClientRect();var pc=Math.max(0,Math.min(1,(ev.clientX-r.left)/r.width));try{a.currentTime=pc*a.duration;}catch(e){}csAudPaint(pid);};});
   if(CS.db)ids.forEach(function(pid){
     CS.db.ref("creatorSpace/comments/"+pid).once("value").then(function(sn){
       var n=sn?sn.numChildren():0;var sp=el.querySelector('[data-ccount="'+pid+'"]');
       if(sp)sp.textContent=n>0?(" · "+n):"";
     }).catch(function(){});
   });
-  if(keep){var nv=el.querySelector('video.cs-vid[data-vidpid="'+keep.pid+'"]');if(nv){try{nv.currentTime=keep.t;}catch(e){}var pr=nv.play();if(pr&&pr.catch)pr.catch(function(){});}}
+  if(keep){var nv=el.querySelector('[data-vidpid="'+keep.pid+'"]');if(nv&&(nv.classList.contains("cs-vid")||nv.classList.contains("cs-aud"))){try{nv.currentTime=keep.t;}catch(e){}var pr=nv.play();if(pr&&pr.catch)pr.catch(function(){});}}
 }
 async function csApplaud(pid){
   if(!CS.db||!CS.uid)return;
@@ -13029,6 +13042,8 @@ async function csBoost(pid){
   var post={uid:CS.uid,name:CS.name,flair:"update",text:"Boosting this — more creators need eyes on it.",ts:Date.now(),
     boostOf:srcPid,boostName:src.name||"a creator",boostText:String(src.text||"").slice(0,220)};
   if(src.tid)post.tid=src.tid;
+  if(src.vid)post.vid=src.vid;
+  if(src.aud)post.aud=src.aud;
   if(CS.isFounder)post.founder=true;
   try{await CS.db.ref("creatorSpace/posts").push(post);toast("Boosted — credit\u2019s attached");}
   catch(e){toast("Couldn\u2019t boost — try again");}
@@ -13056,7 +13071,7 @@ function csOpenComments(pid){
   sh.innerHTML='<div class="cs-sheetcard tall"><div class="cs-sheet-t">Feedback</div>'+
    '<div class="cs-ptext sm">'+esc(p.text||"")+"</div>"+
    '<div class="cs-clist" id="csClist"><div class="cs-hint">Loading\u2026</div></div>'+
-   ((p.tid||p.vid)?'<div class="cs-autopin dim" id="csAutopin">Notes pin to the moment automatically.</div>':"")+
+   ((p.tid||p.vid||p.aud)?'<div class="cs-autopin dim" id="csAutopin">Notes pin to the moment automatically.</div>':"")+
    '<div class="cs-crow"><input id="csCText" placeholder="Give real feedback\u2026"><button class="cs-smallbtn gold" id="csCSend">Send</button></div>'+
    '<button class="cs-sheetbtn" id="csSheetX">Close</button></div>';
   sh.style.display="flex";
@@ -13083,10 +13098,11 @@ function csAutopinPaint(){
     try{var _t=byId(p.tid);multi=((_t&&_t.episodes)||[]).length>1;}catch(e){}
     if(a){el.className="cs-autopin";el.textContent="⏱ Your note pins at "+tcFmt(a.sec)+(multi?" · Ep "+a.ep:"")+" — where you left off. Automatic, nothing to type.";}
     else{el.className="cs-autopin dim";el.textContent="Watch the episode first — your notes will pin to the moment automatically.";}
-  }else if(p.vid){
+  }else if(p.vid||p.aud){
     var vp=CS.vidPos[CS.openPid]||0;
-    if(vp>0){el.className="cs-autopin";el.textContent="⏱ Your note pins at "+tcFmt(vp)+" — where you are in this video. Automatic, nothing to type.";}
-    else{el.className="cs-autopin dim";el.textContent="Watch the video — your notes will pin to the moment automatically.";}
+    var kind=p.aud?"track":"video";
+    if(vp>0){el.className="cs-autopin";el.textContent="⏱ Your note pins at "+tcFmt(vp)+" — where you are in this "+kind+". Automatic, nothing to type.";}
+    else{el.className="cs-autopin dim";el.textContent=(p.aud?"Play the track":"Watch the video")+" — your notes will pin to the moment automatically.";}
   }
 }
 function paintComments(){
@@ -13103,7 +13119,7 @@ async function csSendComment(pid){
   var text=(inp.value||"").trim();if(!text)return;
   var p=CS.posts[pid]||{};
   var atc2=p.tid?csAutoTc(p.tid):null;
-  if(!atc2&&p.vid){var vp2=CS.vidPos[pid]||0;if(vp2>0)atc2={sec:Math.floor(vp2),ep:0};}
+  if(!atc2&&(p.vid||p.aud)){var vp2=CS.vidPos[pid]||0;if(vp2>0)atc2={sec:Math.floor(vp2),ep:0};}
   var c={uid:CS.uid,name:CS.name,text:text.slice(0,600),ts:Date.now()};
   if(atc2){c.tc=atc2.sec;if(atc2.ep>1)c.tcEp=atc2.ep;}
   try{
@@ -13130,23 +13146,26 @@ document.addEventListener("DOMContentLoaded",function(){
   var mb=$cs("#csMembersBtn");if(mb)mb.onclick=csMembers;
 });
 function csMB(b){if(!b)return "0 KB";if(b<1048576)return Math.max(1,Math.round(b/1024))+" KB";return (b/1048576).toFixed(1)+" MB";}
-function csSaveAttach(){try{localStorage.setItem("cs_attach",JSON.stringify({tid:CS.attachId||"",label:CS.attachLabel||"",vid:CS.upUrl?{u:CS.upUrl,n:CS.upName||"",p:CS.upPub||""}:null}));}catch(e){}}
+function csSaveAttach(){try{localStorage.setItem("cs_attach",JSON.stringify({tid:CS.attachId||"",label:CS.attachLabel||"",vid:(CS.upUrl&&CS.upKind!=="aud")?{u:CS.upUrl,n:CS.upName||"",p:CS.upPub||""}:null,aud:(CS.upUrl&&CS.upKind==="aud")?{u:CS.upUrl,n:CS.upName||"",d:CS.upDur||0}:null}));}catch(e){}}
 function csSaveVidPos(){try{var ks=Object.keys(CS.vidPos);if(ks.length>200)ks.slice(0,ks.length-200).forEach(function(k){delete CS.vidPos[k];});localStorage.setItem("cs_vidpos",JSON.stringify(CS.vidPos));}catch(e){}}
 function paintUp(){
   var box=$cs("#csUpBox");if(!box)return;
   if(CS.uploading){
-    box.innerHTML='<div class="cs-upfile"><div style="display:flex;align-items:center;gap:8px"><div class="cs-upname">🎬 '+esc(CS.upName||"video")+'</div><button class="cs-upx" id="csUpCancel" aria-label="Cancel upload">✕</button></div><div class="cs-upmeta">Uploading · '+csMB(CS.upSize)+" · "+(CS.upPct||0)+'%</div><div class="cs-upbar"><div class="cs-upfill" style="width:'+(CS.upPct||0)+'%"></div></div></div>';
+    box.innerHTML='<div class="cs-upfile"><div style="display:flex;align-items:center;gap:8px"><div class="cs-upname">'+(CS.upKind==="aud"?"🎵 ":"🎬 ")+esc(CS.upName||"video")+'</div><button class="cs-upx" id="csUpCancel" aria-label="Cancel upload">✕</button></div><div class="cs-upmeta">Uploading · '+csMB(CS.upSize)+" · "+(CS.upPct||0)+'%</div><div class="cs-upbar"><div class="cs-upfill" style="width:'+(CS.upPct||0)+'%"></div></div></div>';
     var c=$cs("#csUpCancel");if(c)c.onclick=csCancelUpload;
   }else if(CS.upUrl){
-    box.innerHTML='<div class="cs-upfile"><div style="display:flex;align-items:center;gap:8px"><div class="cs-upname">🎬 '+esc(CS.upName||"Uploaded video")+'</div><button class="cs-upx" id="csUpRemove" aria-label="Remove video">✕</button></div><div class="cs-upmeta">Attached — it posts with your words</div></div>';
+    box.innerHTML='<div class="cs-upfile"><div style="display:flex;align-items:center;gap:8px"><div class="cs-upname">'+(CS.upKind==="aud"?"🎵 ":"🎬 ")+esc(CS.upName||"Uploaded video")+'</div><button class="cs-upx" id="csUpRemove" aria-label="Remove video">✕</button></div><div class="cs-upmeta">Attached — it posts with your words</div></div>';
     var r=$cs("#csUpRemove");if(r)r.onclick=csRemoveUp;
   }else box.innerHTML="";
 }
 function csStartUpload(file){
   if(!file)return;
   if(CS.uploading){toast("An upload is already going");return;}
-  if(!/^video\//.test(file.type||"")){toast("That\u2019s not a video file");return;}
-  if(file.size>100*1024*1024){toast("That video is over the 100 MB limit");return;}
+  var isAud=/^audio\//.test(file.type||"")||/\.(mp3|m4a|wav|ogg|oga|aac|flac)$/i.test(file.name||"");
+  var isVid=/^video\//.test(file.type||"")||/\.(mp4|mov|webm|m4v)$/i.test(file.name||"");
+  if(!isAud&&!isVid){toast("That\u2019s not a video or audio file");return;}
+  if(file.size>100*1024*1024){toast("That file is over the 100 MB limit");return;}
+  CS.upKind=isAud?"aud":"vid";CS.upDur=0;
   CS.uploading=true;CS.upName=file.name||"video";CS.upSize=file.size||0;CS.upPct=0;CS.upUrl="";CS.upPub="";
   try{window.__csUploading=true;}catch(e){}
   var fd=new FormData();
@@ -13161,17 +13180,37 @@ function csStartUpload(file){
   xhr.onload=function(){
     if(xhr.status<200||xhr.status>=300){upDone();toast("Upload failed — check your connection and try again");paintUp();return;}
     var res=null;try{res=JSON.parse(xhr.responseText||"");}catch(e){}
-    if(res&&res.secure_url){CS.upUrl=res.secure_url;CS.upPub=res.public_id||"";upDone();csSaveAttach();paintUp();toast("Video attached — ready to post");}
+    if(res&&res.secure_url){CS.upUrl=res.secure_url;CS.upPub=res.public_id||"";if(res.duration)CS.upDur=+res.duration||0;upDone();csSaveAttach();paintUp();toast(CS.upKind==="aud"?"Track attached — ready to post":"Video attached — ready to post");}
     else{upDone();toast("Upload finished but the link failed — try again");paintUp();}
   };
   xhr.open("POST","https://api.cloudinary.com/v1_1/fkmsaiyr/video/upload");
   xhr.send(fd);
 }
 function csCancelUpload(){if(CS.upTask){try{CS.upTask.abort();}catch(e){}}CS.uploading=false;CS.upTask=null;try{window.__csUploading=false;}catch(e){}paintUp();}
-function csRemoveUp(){CS.upUrl="";CS.upName="";CS.upSize=0;CS.upPub="";csSaveAttach();paintUp();}
+function csRemoveUp(){CS.upUrl="";CS.upName="";CS.upSize=0;CS.upPub="";CS.upKind="";CS.upDur=0;csSaveAttach();paintUp();}
 function csVidCard(pid,p){
   if(!p||!p.vid||!p.vid.u)return "";
   return '<div class="cs-vidwrap"><video class="cs-vid" controls playsinline preload="metadata" src="'+esc(p.vid.u)+'" data-vidpid="'+pid+'"></video><div class="cs-vidname">🎬 '+esc(p.vid.n||"Uploaded video")+"</div></div>";
+}
+function csAudCard(pid,p){
+  if(!p||!p.aud||!p.aud.u)return "";
+  var ttl=String(p.aud.n||"Uploaded track").replace(/\.(mp3|m4a|wav|ogg|oga|aac|flac)$/i,"");
+  var dur=p.aud.d?+p.aud.d:0;
+  return '<div class="cs-audwrap"><audio class="cs-aud" preload="metadata" src="'+esc(p.aud.u)+'" data-vidpid="'+pid+'"></audio>'+
+   '<div class="cs-audrow"><button class="cs-audbtn" data-audbtn="'+pid+'" aria-label="Play track">▶</button>'+
+   '<div style="min-width:0;flex:1"><div class="cs-audttl">'+esc(ttl)+'</div><div class="cs-audsub">'+esc(p.name||"Creator")+(dur?(" · "+tcFmt(dur)):"")+"</div></div></div>"+
+   '<div class="cs-audbar" data-audbar="'+pid+'"><div class="cs-audfill" data-audfill="'+pid+'"></div><div class="cs-audknob" data-audknob="'+pid+'"></div></div>'+
+   '<div class="cs-audtimes"><span data-audcur="'+pid+'">0:00</span><span style="margin-left:auto" data-audtot="'+pid+'">'+(dur?tcFmt(dur):"0:00")+"</span></div></div>";
+}
+function csAudPaint(pid){
+  var vw=$cs("#csView");if(!vw)return;
+  var a=vw.querySelector('audio.cs-aud[data-vidpid="'+pid+'"]');if(!a)return;
+  var d=a.duration||0,t=a.currentTime||0,pct=d>0?(t/d*100):0;
+  var f=vw.querySelector('[data-audfill="'+pid+'"]');if(f)f.style.width=pct+"%";
+  var k=vw.querySelector('[data-audknob="'+pid+'"]');if(k)k.style.left=pct+"%";
+  var c=vw.querySelector('[data-audcur="'+pid+'"]');if(c)c.textContent=tcFmt(t);
+  var tt=vw.querySelector('[data-audtot="'+pid+'"]');if(tt&&d>0)tt.textContent=tcFmt(d);
+  var b=vw.querySelector('[data-audbtn="'+pid+'"]');if(b)b.textContent=a.paused?"▶":"❚❚";
 }
 /* one capture-phase ear on the whole room: post videos never stack
    audio, never fight the Home card, and bank their positions for
@@ -13180,24 +13219,39 @@ function csVidCard(pid,p){
 (function(){
   var vw=$cs("#csView");if(!vw)return;
   vw.addEventListener("play",function(e){
-    var v=e.target;if(!v||!v.classList||!v.classList.contains("cs-vid"))return;
-    document.querySelectorAll("video.cs-vid").forEach(function(o){if(o!==v){try{o.pause();}catch(x){}}});
+    var v=e.target;if(!v||!v.classList||!(v.classList.contains("cs-vid")||v.classList.contains("cs-aud")))return;
+    document.querySelectorAll("video.cs-vid,audio.cs-aud").forEach(function(o){if(o!==v){try{o.pause();}catch(x){}}});
     try{if(typeof cfStopPreview==="function")cfStopPreview();}catch(x){}
+    if(v.classList.contains("cs-aud"))csAudPaint(v.getAttribute("data-vidpid"));
   },true);
+  document.addEventListener("visibilitychange",function(){
+    if(!document.hidden)return;
+    vw.querySelectorAll("video.cs-vid,audio.cs-aud").forEach(function(o){try{o.pause();}catch(x){}});
+  });
   var lastSave=0;
   vw.addEventListener("timeupdate",function(e){
-    var v=e.target;if(!v||!v.classList||!v.classList.contains("cs-vid"))return;
+    var v=e.target;if(!v||!v.classList||!(v.classList.contains("cs-vid")||v.classList.contains("cs-aud")))return;
+    if(v.classList.contains("cs-aud"))csAudPaint(v.getAttribute("data-vidpid"));
     var pid=v.getAttribute("data-vidpid");if(!pid)return;
     CS.vidPos[pid]=Math.floor(v.currentTime||0);
     var now=Date.now();if(now-lastSave>4000){lastSave=now;csSaveVidPos();}
   },true);
   vw.addEventListener("pause",function(e){
-    var v=e.target;if(!v||!v.classList||!v.classList.contains("cs-vid"))return;
+    var v=e.target;if(!v||!v.classList||!(v.classList.contains("cs-vid")||v.classList.contains("cs-aud")))return;
+    if(v.classList.contains("cs-aud"))csAudPaint(v.getAttribute("data-vidpid"));
     var pid=v.getAttribute("data-vidpid");if(!pid)return;
     CS.vidPos[pid]=Math.floor(v.currentTime||0);csSaveVidPos();
   },true);
+  vw.addEventListener("ended",function(e){
+    var v=e.target;if(!v||!v.classList||!v.classList.contains("cs-aud"))return;
+    var pid=v.getAttribute("data-vidpid");if(pid){CS.vidPos[pid]=0;csAudPaint(pid);}
+  },true);
+  vw.addEventListener("loadedmetadata",function(e){
+    var v=e.target;if(!v||!v.classList||!v.classList.contains("cs-aud"))return;
+    csAudPaint(v.getAttribute("data-vidpid"));
+  },true);
 })();
-window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard,buildPost:csBuildPost,state:function(){return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember,up:!!CS.upUrl,uploading:!!CS.uploading,vidposN:Object.keys(CS.vidPos||{}).length};}};
+window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard,audCard:csAudCard,buildPost:csBuildPost,state:function(){return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember,up:!!CS.upUrl,uploading:!!CS.uploading,vidposN:Object.keys(CS.vidPos||{}).length};}};
 })();
 
 </script>
