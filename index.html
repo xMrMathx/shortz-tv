@@ -2180,7 +2180,7 @@ try{
   <div id="evHeader" aria-hidden="true">
     <button id="evClose" aria-label="Close">✕</button>
     <div id="evTitle">Home</div>
-    <div id="evDots"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div id="evDots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </div>
   <div id="evHint" aria-hidden="true">Tap the arrows to explore sections</div>
   <button id="micDot" aria-label="Tap for voice">🎙</button>
@@ -2353,7 +2353,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792472771";
+window.__SZ_BUILD = "1792474666";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4207,8 +4207,8 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
    through Home → Browse → Live → Streaming → Manga → Profile. Up/down works normally inside
    each section. Close button or tapping the grid button again exits. */
 (function(){
-  const SECTIONS=["home","browse","live","streaming","manga","games","profile"];
-  const TITLES={home:"Home",browse:"Discovery",live:"Live",streaming:"Streaming",manga:"Manga",games:"Games",profile:"Profile"};
+  const SECTIONS=["home","browse","live","streaming","manga","games","profile","podcasts"];
+  const TITLES={home:"Home",browse:"Discovery",live:"Live",streaming:"Streaming",manga:"Manga",games:"Games",profile:"Profile",podcasts:"Podcasts"};
   let evMode=false, evIdx=0, tx0=0, ty0=0, swiped=false;
   const $=id=>document.getElementById(id);
   function updateHeader(){
@@ -5483,7 +5483,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792472771";
+const BUILD="1792474666";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9233,10 +9233,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792472771"></script>
+<script src="js/folders.js?v=1792474666"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792472771"></script>
+<script src="js/guide.js?v=1792474666"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10046,10 +10046,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792472771"></script>
-<script src="js/shortz-live.js?v=1792472771"></script>
-<script src="js/games.js?v=1792472771"></script>
-<script src="js/podcasts.js?v=1792472771"></script>
+<script src="js/streaming.js?v=1792474666"></script>
+<script src="js/shortz-live.js?v=1792474666"></script>
+<script src="js/games.js?v=1792474666"></script>
+<script src="js/podcasts.js?v=1792474666"></script>
 <script>
 
 
@@ -10567,7 +10567,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792472771"></script>
+<script src="js/swipe.js?v=1792474666"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12799,7 +12799,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792472771"></script>
+<script src="js/live-sports.js?v=1792474666"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
