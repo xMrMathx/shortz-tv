@@ -1948680,5 +1948680,92 @@ window.SHORTZ_CATALOG = [
   "source_channel": "Stash - Thrills and Chills",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/KQFr1w-XQjU"
+ },
+ {
+  "id": "stv-73107",
+  "title": "Earth: Final Conflict",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Decision",
+    "url": "https://www.youtube.com/embed/ty0BwOT9O3k",
+    "video_id": "ty0BwOT9O3k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Truth",
+    "url": "https://www.youtube.com/embed/xEjvYSs6NiQ",
+    "video_id": "xEjvYSs6NiQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Miracle",
+    "url": "https://www.youtube.com/embed/tP5RfeuW18w",
+    "video_id": "tP5RfeuW18w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Avatar",
+    "url": "https://www.youtube.com/embed/hVTymL6LAiE",
+    "video_id": "hVTymL6LAiE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Old Flame",
+    "url": "https://www.youtube.com/embed/bFWMEV80iKM",
+    "video_id": "bFWMEV80iKM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Float Like a Butterfly",
+    "url": "https://www.youtube.com/embed/lio1t5FrB7M",
+    "video_id": "lio1t5FrB7M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Resurrection",
+    "url": "https://www.youtube.com/embed/02uSj2CaNmg",
+    "video_id": "02uSj2CaNmg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Horizon Zero",
+    "url": "https://www.youtube.com/embed/_8Dy-_sTBRQ",
+    "video_id": "_8Dy-_sTBRQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "8 eps",
+  "desc": "Gene Roddenberry's mystery series: the Taelons land on Earth promising peace and miraculous technology, but a resistance forms as their true agenda surfaces piece by piece. Season 1, episodes 1–8 — the pilot arc, from Lionsgate's official channel.",
+  "rights_basis": "Rights-holder (Lionsgate official channel)",
+  "source_channel": "LionsgateTV",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ty0BwOT9O3k"
  }
 ];
