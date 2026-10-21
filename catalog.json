@@ -1948356,5 +1948356,29 @@
   "source_channel": "The Bill (Official)",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/C3v4LF16QEE"
+ },
+ {
+  "id": "stv-73094",
+  "title": "The Tunnel (2011)",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Tunnel (2011)",
+    "url": "https://archive.org/download/the-tunnel-2011_202602/The%20Tunnel%20%282011%29.mp4",
+    "video_id": "archive:the-tunnel-2011_202602",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "url": "https://archive.org/download/the-tunnel-2011_202602/The%20Tunnel%20%282011%29.mp4",
+  "eps": "1 ep",
+  "desc": "A Sydney TV news crew investigating why the government sealed the city's abandoned underground tunnels takes its cameras below — and finds something in the dark that hunts by sound. The Australian found-footage sensation (dir. Carlo Ledesma) its makers famously gave away free.",
+  "rights_basis": "Creative Commons BY-NC-ND 4.0 (archive.org); filmmakers' free online release",
+  "source_channel": "archive.org — Distracted Media",
+  "award_verified": false
  }
 ]
