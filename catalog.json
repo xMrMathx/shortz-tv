@@ -1948380,5 +1948380,305 @@
   "rights_basis": "Creative Commons BY-NC-ND 4.0 (archive.org); filmmakers' free online release",
   "source_channel": "archive.org — Distracted Media",
   "award_verified": false
+ },
+ {
+  "id": "stv-73095",
+  "title": "Exhibit A",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Exhibit A (2007) — Full Movie",
+    "url": "https://archive.org/download/exhibit.a.2007.hq.x-264-vodo/Exhibit.A.2007.HQ.x264-VODO.mp4",
+    "video_id": "archive:exhibit.a.2007.hq.x-264-vodo",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Found-footage horror: a suburban father's own camcorder chronicles his family's slow unraveling into obsession and violence. The filmmakers' official free release.",
+  "rights_basis": "Creative Commons BY-NC-ND 4.0 (archive.org metadata); official VODO free release — item credits the filmmakers (Dom Rotheroe, Darren Bender) and links the original vodo.net release page",
+  "source_channel": "archive.org — VODO",
+  "award_verified": false,
+  "url": "https://archive.org/download/exhibit.a.2007.hq.x-264-vodo/Exhibit.A.2007.HQ.x264-VODO.mp4"
+ },
+ {
+  "id": "stv-73096",
+  "title": "Let's Not Meet in the Woods",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Let's Not Meet in the Woods — Full Movie",
+    "url": "https://www.youtube.com/embed/JB4UT6bCBj4",
+    "video_id": "JB4UT6bCBj4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "99 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/JB4UT6bCBj4"
+ },
+ {
+  "id": "stv-73097",
+  "title": "Chest",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Chest (2022) — Full Movie",
+    "url": "https://www.youtube.com/embed/-AvIg7szxj4",
+    "video_id": "-AvIg7szxj4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "Found-footage horror feature: what a group of friends finds sealed away was locked up for a reason.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/-AvIg7szxj4"
+ },
+ {
+  "id": "stv-73098",
+  "title": "The Goetia Diaries",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Goetia Diaries — Full Movie",
+    "url": "https://www.youtube.com/embed/PnTRr9bPvew",
+    "video_id": "PnTRr9bPvew",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/PnTRr9bPvew"
+ },
+ {
+  "id": "stv-73099",
+  "title": "Her Cry: La Llorona Investigation",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Her Cry: La Llorona Investigation — Full Movie",
+    "url": "https://www.youtube.com/embed/PV0XvCYeG3I",
+    "video_id": "PV0XvCYeG3I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/PV0XvCYeG3I"
+ },
+ {
+  "id": "stv-73100",
+  "title": "Something Walks in the Woods",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Something Walks in the Woods — Full Movie",
+    "url": "https://www.youtube.com/embed/1oC0d_gAsuY",
+    "video_id": "1oC0d_gAsuY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/1oC0d_gAsuY"
+ },
+ {
+  "id": "stv-73101",
+  "title": "Evil Things",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Evil Things (2009) — Full Movie",
+    "url": "https://www.youtube.com/embed/zPqANGFU8Cc",
+    "video_id": "zPqANGFU8Cc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "Found-footage horror: five friends film a birthday weekend at a remote house — and something films them back.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/zPqANGFU8Cc"
+ },
+ {
+  "id": "stv-73102",
+  "title": "Ouija Blood Ritual",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ouija Blood Ritual — Full Movie",
+    "url": "https://www.youtube.com/embed/XBrdfoAZ1RU",
+    "video_id": "XBrdfoAZ1RU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/XBrdfoAZ1RU"
+ },
+ {
+  "id": "stv-73103",
+  "title": "Brew House",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Brew House — Full Movie",
+    "url": "https://www.youtube.com/embed/UHSmlVCGP6k",
+    "video_id": "UHSmlVCGP6k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "68 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/UHSmlVCGP6k"
+ },
+ {
+  "id": "stv-73104",
+  "title": "Legend of Paul Pry",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Legend of Paul Pry — Full Movie",
+    "url": "https://www.youtube.com/embed/YjzIuzFFu38",
+    "video_id": "YjzIuzFFu38",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "66 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/YjzIuzFFu38"
+ },
+ {
+  "id": "stv-73105",
+  "title": "The Spirit Board Sessions",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Spirit Board Sessions — Full Movie",
+    "url": "https://www.youtube.com/embed/VGBPJ4W9Naw",
+    "video_id": "VGBPJ4W9Naw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "61 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/VGBPJ4W9Naw"
+ },
+ {
+  "id": "stv-73106",
+  "title": "The Last Five Days: The Freak Building",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Last Five Days: The Freak Building — Full Movie",
+    "url": "https://www.youtube.com/embed/KQFr1w-XQjU",
+    "video_id": "KQFr1w-XQjU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "runtime": "61 min",
+  "desc": "Found-footage horror feature, presented by Stash - Thrills and Chills.",
+  "rights_basis": "Official distributor channel (rights-holder free upload); API-verified embeddable, no ytRating, US not blocked",
+  "source_channel": "Stash - Thrills and Chills",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/KQFr1w-XQjU"
  }
 ]
