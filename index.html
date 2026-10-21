@@ -2353,7 +2353,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792597489";
+window.__SZ_BUILD = "1792599657";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3600,8 +3600,14 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     }
 
     // --- genres: full-screen genre view — "take me to westerns", "open up sci-fi" ---
+    // EXACT ONLY (his order 2026-10-21): this was a loose includes() —
+    // "find reborn titanic" contains the alias "reborn", so it opened
+    // the Rebirth genre wall and never searched at all. A genre opens
+    // when the target IS the genre (bare, plural, or genre + a generic
+    // noun); anything longer is a search wearing a genre word and
+    // falls through to the search below.
     for(const alias in GENRE_ALIASES){
-      if(target.includes(alias)){
+      if(target===alias||target===alias+"s"||target===alias+" genre"||target===alias+" genres"||target===alias+" movies"||target===alias+" shows"){
         const g=GENRE_ALIASES[alias];
         try{openGenreView(g);voiceCtx.lastGenre=g;saveCtx();}catch(e){}
         return true;
@@ -5491,7 +5497,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792597489";
+const BUILD="1792599657";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7762,6 +7768,25 @@ function searchMatch(hay,q,qf){
   if(q&&hn.indexOf(q)>=0)return true;
   return !!qf&&hn.replace(/ /g,"").indexOf(qf)>=0;
 }
+/* bounded edit distance for the fuzzy search tier: bails with cap+1
+   as soon as the distance provably exceeds the cap */
+function searchDist(a,b,cap){
+  const m=a.length,n=b.length;
+  if(Math.abs(m-n)>cap)return cap+1;
+  let prev=[],cur=[];
+  for(let j=0;j<=n;j++)prev[j]=j;
+  for(let i=1;i<=m;i++){
+    cur[0]=i;let rowMin=i;
+    for(let j=1;j<=n;j++){
+      const c=a[i-1]===b[j-1]?0:1;
+      cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+c);
+      if(cur[j]<rowMin)rowMin=cur[j];
+    }
+    if(rowMin>cap)return cap+1;
+    const tmp=prev;prev=cur;cur=tmp;
+  }
+  return prev[n];
+}
 function browseListFiltered(){
   if(!browseQuery.trim())return null;
   const q=searchNorm(browseQuery), qf=q.replace(/ /g,"");
@@ -7782,6 +7807,59 @@ function browseListFiltered(){
     else if(searchNorm(t.genre||"").indexOf(q)>=0)sc=20;
     return {t,sc};
   });
+  /* WORD + FUZZY TIERS (his order 2026-10-21: search has to understand
+     what he MEANS — "reborn titanic" brought back NOTHING because the
+     matcher above only accepts the whole query as one consecutive
+     phrase, and those words sit six apart in the real title). When the
+     phrase net comes up short, match word by word — every query word
+     in the title beats some of them — and when even that is thin,
+     allow a mis-heard letter or two. Every new tier scores BELOW all
+     the phrase tiers, so the crowned exact/prefix order never moves. */
+  if(scored.length<10){
+    const STOPW={the:1,a:1,an:1,of:1,to:1,and:1,in:1,on:1,at:1,for:1,it:1,is:1,my:1};
+    const words=q.split(" ").filter(w=>w&&!STOPW[w]);
+    const seen=new Set(scored.map(x=>x.t.id));
+    if(words.length>1){
+      const wHits=[];
+      for(const t of C){
+        if(seen.has(t.id))continue;
+        const nt=searchNorm(t.title||"");
+        let m=0,pos=-1;
+        for(const w of words){ const p=nt.indexOf(w); if(p>=0){ m++; if(pos<0||p<pos)pos=p; } }
+        if(m===words.length)wHits.push({t,sc:45,pos:pos,len:nt.length});
+        else if(m>0)wHits.push({t,sc:30+m,pos:pos,len:nt.length});
+      }
+      /* CLOSEST FIRST (his order 2026-10-21: whatever is closest to
+         what he said is #1) — inside a tier: his words landing
+         earliest in the title wins, then the shorter title (his
+         words cover more of it). */
+      wHits.sort((a,b)=>(b.sc-a.sc)||(a.pos-b.pos)||(a.len-b.len));
+      for(const h of wHits){ scored.push(h); seen.add(h.t.id); }
+    }
+    if(scored.length<3&&words.length){
+      const fHits=[];
+      for(const t of C){
+        if(seen.has(t.id))continue;
+        const nt=searchNorm(t.title||"");
+        const tw=nt.split(" ").filter(w=>w.length>=3);
+        if(!tw.length)continue;
+        let bd=99,bp=-1;
+        for(const w of words){
+          if(w.length<4)continue;
+          const maxD=w.length>=8?2:1;
+          for(const x of tw){
+            if(Math.abs(x.length-w.length)>maxD)continue;
+            if(x.charAt(0)!==w.charAt(0)&&x.charAt(1)!==w.charAt(1))continue;
+            const d=searchDist(w,x,maxD);
+            if(d<=maxD&&d<bd){ bd=d; bp=nt.indexOf(x); }
+          }
+        }
+        if(bd<=2)fHits.push({t,sc:15,d:bd,pos:bp<0?999:bp,len:nt.length});
+      }
+      fHits.sort((a,b)=>(a.d-b.d)||(a.pos-b.pos)||(a.len-b.len));
+      for(const h of fHits)scored.push(h);
+    }
+  }
   scored.sort((a,b)=>b.sc-a.sc);
   return scored.map(x=>x.t);
 }
@@ -9250,10 +9328,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792597489"></script>
+<script src="js/folders.js?v=1792599657"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792597489"></script>
+<script src="js/guide.js?v=1792599657"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10063,10 +10141,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792597489"></script>
-<script src="js/shortz-live.js?v=1792597489"></script>
-<script src="js/games.js?v=1792597489"></script>
-<script src="js/podcasts.js?v=1792597489"></script>
+<script src="js/streaming.js?v=1792599657"></script>
+<script src="js/shortz-live.js?v=1792599657"></script>
+<script src="js/games.js?v=1792599657"></script>
+<script src="js/podcasts.js?v=1792599657"></script>
 <script>
 
 
@@ -10584,7 +10662,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792597489"></script>
+<script src="js/swipe.js?v=1792599657"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12816,7 +12894,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792597489"></script>
+<script src="js/live-sports.js?v=1792599657"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
