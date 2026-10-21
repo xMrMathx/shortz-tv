@@ -117,6 +117,13 @@ window.__tgStartGuide=function(){ try{ const fr=$("#tgFrame"); if(fr&&!fr.queryS
 function tgPause(){
   const fr=$("#tgFrame");
   if(fr){fr.innerHTML="";fr._tid=null;}
+  /* the stuck box is position:fixed — pausing alone left a black box
+     glued to the viewport that followed him around the app (his report
+     + screenshot 2026-10-21). Losing the room ALWAYS unsticks: the box
+     goes back into the Profile flow and the spacer goes away. */
+  const pv=$("#tgPreviewBox");
+  if(pv){ pv.classList.remove("stuck"); pv._stickTop=null; }
+  const ph=$("#tgStickPh"); if(ph)ph.remove();
   tgWatchEnd();
 }
 /* one-audio law (his report 2026-10-17: guide audio layered under other
@@ -291,7 +298,7 @@ function renderTvGuide(){
   renderTgScoreboard(true);
   tgRefreshGuideData(); // guide opens on live data, same as Home — see below
   const pb=$("#tgPreviewBox");
-  const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); go("home"); playSeries(t);};
+  const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); cfPresentTitle(t);};
   pb.onclick=goFull;
   const wb=$("#tgWatch"); if(wb){wb.style.display="";wb.onclick=(e)=>{e.stopPropagation();goFull();};}
   const si=$("#tgSearch");
