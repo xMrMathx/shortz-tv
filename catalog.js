@@ -1936047,5 +1936047,506 @@ window.SHORTZ_CATALOG = [
   "source_channel": "Power543 Fan Films",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/OTcft3bj_M0"
+ },
+ {
+  "id": "stv-73072",
+  "title": "Cold Case Files",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-10-20",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E05 · The Night Shift.",
+    "url": "https://www.youtube.com/embed/iqhCHXANJLA",
+    "video_id": "iqhCHXANJLA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E06 · Officer Down.",
+    "url": "https://www.youtube.com/embed/_SemS3O2pGU",
+    "video_id": "_SemS3O2pGU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E07 · Circle of Friends.",
+    "url": "https://www.youtube.com/embed/_PE3TqwvAMU",
+    "video_id": "_PE3TqwvAMU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E10 · A Killer Slips Away.",
+    "url": "https://www.youtube.com/embed/PGEc-2hVH0g",
+    "video_id": "PGEc-2hVH0g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E13 · Reconstructing Murder/Fire Flicks.",
+    "url": "https://www.youtube.com/embed/73_9JwOdzGc",
+    "video_id": "73_9JwOdzGc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E14 · Reconstructing Murder/Fire Flicks.",
+    "url": "https://www.youtube.com/embed/K793z9wwJ2E",
+    "video_id": "K793z9wwJ2E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S02E01 · The Voice In The Lake.",
+    "url": "https://www.youtube.com/embed/v7kaBKyYShU",
+    "video_id": "v7kaBKyYShU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S02E02 · Devil At The Door.",
+    "url": "https://www.youtube.com/embed/GrTaQgd3O4Q",
+    "video_id": "GrTaQgd3O4Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S02E03 · Missing in Altoona.",
+    "url": "https://www.youtube.com/embed/bUgjCqIcVQI",
+    "video_id": "bUgjCqIcVQI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S02E05 · The Heartland Killer.",
+    "url": "https://www.youtube.com/embed/FeFa_e_KXoA",
+    "video_id": "FeFa_e_KXoA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S02E08 · Ice Cold in Denver.",
+    "url": "https://www.youtube.com/embed/_DLq8ogaLsA",
+    "video_id": "_DLq8ogaLsA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S02E11 · A Lesson in Homicide.",
+    "url": "https://www.youtube.com/embed/3lyZR3AlCPM",
+    "video_id": "3lyZR3AlCPM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S02E13 · Eyes of a Killer.",
+    "url": "https://www.youtube.com/embed/of66zv8zdQA",
+    "video_id": "of66zv8zdQA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S02E14 · Dark Angel.",
+    "url": "https://www.youtube.com/embed/uT0IITYfB34",
+    "video_id": "uT0IITYfB34",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S02E19 · Suspicious Minds.",
+    "url": "https://www.youtube.com/embed/aIzdzMsNo-4",
+    "video_id": "aIzdzMsNo-4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S02E20 · Cold Ashes.",
+    "url": "https://www.youtube.com/embed/6LZ8jkxy6iY",
+    "video_id": "6LZ8jkxy6iY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S02E23 · A is for Arson.",
+    "url": "https://www.youtube.com/embed/RDvLEn6_s1M",
+    "video_id": "RDvLEn6_s1M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S02E24 · Til Death Do Us Part.",
+    "url": "https://www.youtube.com/embed/HMOr-1BbWjU",
+    "video_id": "HMOr-1BbWjU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S03E01 · 11,000 Leads Later, Police Finally Find a Suspect",
+    "url": "https://www.youtube.com/embed/0vZX9ToV7FA",
+    "video_id": "0vZX9ToV7FA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S03E02 · The Zodiac Killer.",
+    "url": "https://www.youtube.com/embed/jOd93UP6K3I",
+    "video_id": "jOd93UP6K3I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S03E03 · A Map To Murder/Life On The Run.",
+    "url": "https://www.youtube.com/embed/rG32ZZ-Gl4I",
+    "video_id": "rG32ZZ-Gl4I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S03E04 · License To Kill/The Tell-Tale Mark.",
+    "url": "https://www.youtube.com/embed/xAyBN-NDZD8",
+    "video_id": "xAyBN-NDZD8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S03E05 · Vanished In Virginia.",
+    "url": "https://www.youtube.com/embed/wywzN7P9tCw",
+    "video_id": "wywzN7P9tCw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S03E06 · Cold Hit/Silent Kill.",
+    "url": "https://www.youtube.com/embed/QzX_I0QP0ao",
+    "video_id": "QzX_I0QP0ao",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S03E07 · Mommy's Rules.",
+    "url": "https://www.youtube.com/embed/Q2lQcZnGs5E",
+    "video_id": "Q2lQcZnGs5E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S03E08 · Cop Killer/Evil Twin / License To Kill.",
+    "url": "https://www.youtube.com/embed/fApZGYErUMk",
+    "video_id": "fApZGYErUMk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S03E10 · The Accidental Killer / Traces Of Murder.",
+    "url": "https://www.youtube.com/embed/6mN15yuOBlU",
+    "video_id": "6mN15yuOBlU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S03E11 · The Merry Widow / The Missing Informant.",
+    "url": "https://www.youtube.com/embed/Xs9Q_mlD3zM",
+    "video_id": "Xs9Q_mlD3zM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S03E13 · Green River Killer / Missing And The Dead.",
+    "url": "https://www.youtube.com/embed/eK2bM8e6U70",
+    "video_id": "eK2bM8e6U70",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S03E14 · The Killer's Tattoo / The Perfect Murder.",
+    "url": "https://www.youtube.com/embed/SeHtGiTsmSo",
+    "video_id": "SeHtGiTsmSo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S03E16 · The DNA Link/Widow And The Wolf.",
+    "url": "https://www.youtube.com/embed/fTqjG6GqZ0o",
+    "video_id": "fTqjG6GqZ0o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S03E18 · Blood Money / Operation Jambalaya.",
+    "url": "https://www.youtube.com/embed/B2qlwRV-ToU",
+    "video_id": "B2qlwRV-ToU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S03E19 · Unholy Bible / The Answer In The Box.",
+    "url": "https://www.youtube.com/embed/XMSkmpwydAQ",
+    "video_id": "XMSkmpwydAQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S03E23 · Weepy-Voiced Killer/The DNA Link.",
+    "url": "https://www.youtube.com/embed/Ofe_j8AIrxQ",
+    "video_id": "Ofe_j8AIrxQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S03E24 · Bump in the Night/Hitchhike to Murder.",
+    "url": "https://www.youtube.com/embed/wtjMF4COezM",
+    "video_id": "wtjMF4COezM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S03E27 · Mistaken for a Killer / The Boy and the Monster.",
+    "url": "https://www.youtube.com/embed/jXzYGqGg74A",
+    "video_id": "jXzYGqGg74A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S04E01 · A Killer Confession.",
+    "url": "https://www.youtube.com/embed/GNeWMla9Ncs",
+    "video_id": "GNeWMla9Ncs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S04E02 · Good Girl Gone.",
+    "url": "https://www.youtube.com/embed/vpZO5YrwnXY",
+    "video_id": "vpZO5YrwnXY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S04E03 · Who Killed My Father.",
+    "url": "https://www.youtube.com/embed/mQk8IlO8yhQ",
+    "video_id": "mQk8IlO8yhQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S04E04 · Damn His Soul To Hell.",
+    "url": "https://www.youtube.com/embed/jZj_Ri9_PNk",
+    "video_id": "jZj_Ri9_PNk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S04E05 · Money Moguls and Murder.",
+    "url": "https://www.youtube.com/embed/l87LtzDoXnk",
+    "video_id": "l87LtzDoXnk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S04E06 · Evil in Huntington Beach.",
+    "url": "https://www.youtube.com/embed/JInYTKEYvI8",
+    "video_id": "JInYTKEYvI8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S04E07 · Smoking Gun.",
+    "url": "https://www.youtube.com/embed/IhLl-0HI1-4",
+    "video_id": "IhLl-0HI1-4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S04E08 · A Bullet to the Heart.",
+    "url": "https://www.youtube.com/embed/CSmZEHowiS4",
+    "video_id": "CSmZEHowiS4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S04E09 · Viciously Murdered.",
+    "url": "https://www.youtube.com/embed/_h_GrivOKyE",
+    "video_id": "_h_GrivOKyE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S04E10 · Death of a Baseball Mom.",
+    "url": "https://www.youtube.com/embed/n7lVHBpCmt0",
+    "video_id": "n7lVHBpCmt0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S04E11 · Sooner State Nightmare.",
+    "url": "https://www.youtube.com/embed/l0ESUm-SqNU",
+    "video_id": "l0ESUm-SqNU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S04E12 · Blood Red Snow.",
+    "url": "https://www.youtube.com/embed/ZME2vaDBKSM",
+    "video_id": "ZME2vaDBKSM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S04E14 · No Known Enemies.",
+    "url": "https://www.youtube.com/embed/KQfa933NcLY",
+    "video_id": "KQfa933NcLY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "S04E15 · Contracted To Kill.",
+    "url": "https://www.youtube.com/embed/0eRS7TDTQ9Q",
+    "video_id": "0eRS7TDTQ9Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "S05E13 · Caught on Tape / A Son Remembers.",
+    "url": "https://www.youtube.com/embed/a6eJXqmGj_o",
+    "video_id": "a6eJXqmGj_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "S05E19 · Daddy Dearest / A Pastor's Wife.",
+    "url": "https://www.youtube.com/embed/QOrxVSntpYE",
+    "video_id": "QOrxVSntpYE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 53,
+    "title": "S06E05 · On the Case: A Child Remembers.",
+    "url": "https://www.youtube.com/embed/f_0LcVNo1SA",
+    "video_id": "f_0LcVNo1SA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 54,
+    "title": "S07E01 · The Execution of Michael Johnson.",
+    "url": "https://www.youtube.com/embed/FgKoO8LfxzQ",
+    "video_id": "FgKoO8LfxzQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "54 eps",
+  "desc": "A&E's classic true-crime procedural, narrated by Bill Kurtis: detectives reopen long-dead murder cases and close them with new forensic evidence. Official free episodes from A&E's channels, spanning seasons 1-7 (partial - the full run is larger).",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Crime 360 by A&E / A&E",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/iqhCHXANJLA"
  }
 ];
