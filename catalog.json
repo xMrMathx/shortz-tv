@@ -1936014,5 +1936014,38 @@
     "verified": true
    }
   ]
+ },
+ {
+  "id": "stv-73071",
+  "title": "Broken Reality (2023)",
+  "genre": "Space",
+  "verified": true,
+  "dateAdded": "2026-10-20",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Part 1 · Broken Reality (2023)",
+    "url": "https://www.youtube.com/embed/OTcft3bj_M0",
+    "video_id": "OTcft3bj_M0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Part 2 · Reality Burns (2024)",
+    "url": "https://www.youtube.com/embed/no7-FtKDaWc",
+    "video_id": "no7-FtKDaWc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "2 eps",
+  "desc": "Samuel Cockings' Star Trek/Stargate crossover fan-film trilogy, parts 1 and 2: Ensign Laura Reed's story, picking up the 'Ba'al is back' thread from Stargate SG-1: New Mission. Part 3, 'Shattered Reality,' was announced in 2023 but has never been released.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Power543 Fan Films",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/OTcft3bj_M0"
  }
 ]
