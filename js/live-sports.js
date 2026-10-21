@@ -256,6 +256,10 @@ function lsStop(){
   const f=$("#lsFrame");
   if(f){ try{ f.src="about:blank"; }catch(e){} }
   LS_ACTIVE=null;
+  /* same escape trap as the TV Guide (his report 2026-10-21): the stage
+     is position:fixed while stuck; blanking the frame alone left a
+     black box glued over every screen. Stopping ALWAYS unsticks. */
+  lsStickInit();
 }
 /* one-audio law (his report 2026-10-17: audios mixed across pages): the
    sports stage had no hidden-tab stopper — it kept sounding under
