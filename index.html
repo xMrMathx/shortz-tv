@@ -2353,7 +2353,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792594807";
+window.__SZ_BUILD = "1792595969";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5483,7 +5483,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792594807";
+const BUILD="1792595969";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6665,6 +6665,11 @@ function cfActivate(card){
 function cfArmSound(card,t,fr){
   const u=cfEpUrl(t);
   const stillMine=()=>cfActive===card&&fr.isConnected;
+  /* If the player object never materializes (the API script was blocked
+     or failed, onReady never fires), cfPlayer stays null and nothing can
+     ever drive this card — one re-arm (rate-limited per card) so a dead
+     API load doesn't kill the open. */
+  setTimeout(()=>{ try{ if(stillMine()&&!cfPlayer&&(Date.now()-(card._cfRearmAt||0)>30000)){ card._cfRearmAt=Date.now(); cfArmSound(card,t,fr); } }catch(e){} },3500);
   if(u.indexOf("vimeo.com")>=0){
     const ready=(window.Vimeo&&window.Vimeo.Player)
       ? Promise.resolve()
@@ -6705,34 +6710,38 @@ function cfSoundArm(kind,player,card){
       }
     }catch(e){}
   },1800);
-  /* WEB-ONLY rescue watchdog: the single check above can be consumed while
-     the player is still BUFFERING (state 3) — when buffering then settles
-     into the browser's refused-audible state, nothing ever retries and the
-     card never moves (Mr. Moore, 2026-10-13: "videos don't play when you
-     first get on the website"). On web, keep rescuing for a few seconds:
-     not playing -> muted play (the start the platform allows); playing ->
-     stop (sound is the first-touch arm's job). APK never runs this. */
-  if(WEBCTX){
-    let cfTries=0;
-    const cfTick=()=>{
-      if(!stillMine()||cfTries>=8)return;
-      cfTries++;
-      let done=false;
-      try{
-        if(kind==="yt"){
-          const st=player.getPlayerState();
-          if(st===1)done=true;
-          else if(st!==3){ try{ player.mute(); player.playVideo(); }catch(e){} }
-        }else if(kind==="vm"){
-          player.getPaused().then(paused=>{
-            if(paused&&stillMine()){ try{ player.setVolume(0); const p3=player.play(); if(p3&&p3.catch)p3.catch(()=>{}); }catch(e){} }
-          }).catch(()=>{});
-        }
-      }catch(e){}
-      if(!done)setTimeout(cfTick,900);
-    };
-    setTimeout(cfTick,900);
-  }
+  /* Rescue watchdog — EVERY context (was web-only; that gate is the bug).
+     The single check above can be consumed while the player is still
+     BUFFERING (state 3); when buffering then settles into a paused or
+     refused state, nothing ever retries and the card never moves (web
+     report 2026-10-13; APK report 2026-10-21: "videos don't play when
+     you first open the app" — the app never ran this tick at all, and
+     re-activation is a no-op on the already-active card, so only his
+     scroll away and back ever revived it). The drive matches the
+     context: the app asked for sound in the embed (mute=0) and sound
+     is on from boot, so it re-drives AUDIBLE — unMute + volume + play;
+     the web keeps its muted-start rescue (the only start the browser
+     allows; sound there is the first-touch arm's job). Stops the
+     moment the player is PLAYING. */
+  let cfTries=0;
+  const cfTick=()=>{
+    if(!stillMine()||cfTries>=10)return;
+    cfTries++;
+    let done=false;
+    try{
+      if(kind==="yt"){
+        const st=player.getPlayerState();
+        if(st===1)done=true;
+        else if(st!==3){ try{ if(WEBCTX){ player.mute(); }else{ player.unMute(); player.setVolume(100); } player.playVideo(); }catch(e){} }
+      }else if(kind==="vm"){
+        player.getPaused().then(paused=>{
+          if(paused&&stillMine()){ try{ player.setVolume(WEBCTX?0:1); const p3=player.play(); if(p3&&p3.catch)p3.catch(()=>{}); }catch(e){} }
+        }).catch(()=>{});
+      }
+    }catch(e){}
+    if(!done)setTimeout(cfTick,900);
+  };
+  setTimeout(cfTick,900);
 }
 let cfWatchTimer=0;
 /* WATCH CREDIT (his order 2026-10-14): watching happens in CARDS
@@ -9233,10 +9242,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792594807"></script>
+<script src="js/folders.js?v=1792595969"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792594807"></script>
+<script src="js/guide.js?v=1792595969"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10046,10 +10055,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792594807"></script>
-<script src="js/shortz-live.js?v=1792594807"></script>
-<script src="js/games.js?v=1792594807"></script>
-<script src="js/podcasts.js?v=1792594807"></script>
+<script src="js/streaming.js?v=1792595969"></script>
+<script src="js/shortz-live.js?v=1792595969"></script>
+<script src="js/games.js?v=1792595969"></script>
+<script src="js/podcasts.js?v=1792595969"></script>
 <script>
 
 
@@ -10567,7 +10576,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792594807"></script>
+<script src="js/swipe.js?v=1792595969"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12799,7 +12808,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792594807"></script>
+<script src="js/live-sports.js?v=1792595969"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
