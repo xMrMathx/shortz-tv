@@ -433,6 +433,35 @@
       "streamerB": "HusKerrs",
       "versus_key": "Aydan|HusKerrs",
       "resolvedAt": 1792649360
+    },
+    {
+      "id": "auto-huskerrs-1792691659-ms",
+      "title": "HusKerrs is LIVE \u2014 hits 100 viewers?",
+      "sub": "Warzone \u00b7 currently at 6 watching",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "milestone",
+      "streamer": "HusKerrs",
+      "target": 100
+    },
+    {
+      "id": "auto-huskerrs-1792691659-mar",
+      "title": "HusKerrs just went live \u2014 3+ hour stream?",
+      "sub": "Warzone",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "2.0",
+      "oddsB": "1.8",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "marathon",
+      "streamer": "HusKerrs"
     }
   ]
 }
