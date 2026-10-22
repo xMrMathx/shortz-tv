@@ -1264243,10 +1264243,28 @@ window.SHORTZ_CATALOG = [
     "video_id": "archive:secret-agent-1943",
     "platform": "archive",
     "verified": true
+   },
+   {
+    "n": 15,
+    "title": "Eleventh Hour",
+    "url": "https://archive.org/download/superman.-1941.-s-01-e-12.-eleventh.-hour/Superman.(1941).S01E12.Eleventh.Hour.mp4",
+    "video_id": "archive:superman.-1941.-s-01-e-12.-eleventh.-hour",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Jungle Drums",
+    "url": "https://archive.org/download/superman.-1941.-s-01-e-15.-jungle.-drums/Superman.(1941).S01E15.Jungle.Drums.mp4",
+    "video_id": "archive:superman.-1941.-s-01-e-15.-jungle.-drums",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://archive.org/download/superman_the_mad_scientist/Superman-01-The_Mad_Scientist.mp4",
-  "eps": "14 eps",
+  "eps": "16 eps",
   "desc": "The Fleischer/Famous Studios Superman cartoons (1941-43) — public-domain classics in release order.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Superman",
@@ -1956292,5 +1956310,299 @@ window.SHORTZ_CATALOG = [
   "source_channel": "FilmRise Kids",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/FEDXbfnw7W0"
+ },
+ {
+  "id": "stv-73145",
+  "title": "The Cisco Kid",
+  "genre": "Western",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Season 1, Episode 1",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e01.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Season 1, Episode 3",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e03.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Season 1, Episode 4",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e04.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Season 1, Episode 5",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e05.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Season 1, Episode 6",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e06.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Season 1, Episode 7",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e07.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Season 1, Episode 8",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e08.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Season 1, Episode 9",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e09.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Season 1, Episode 10",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e10.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Season 1, Episode 12",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e12.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Season 1, Episode 15",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e15.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Season 1, Episode 16",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e16.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Season 1, Episode 17",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e17.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Season 1, Episode 18",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e18.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "Season 1, Episode 19",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e19.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Season 1, Episode 20",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e20.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Season 1, Episode 21",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e21.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "Season 1, Episode 22",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e22.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Season 1, Episode 23",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e23.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Season 1, Episode 24",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e24.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Season 1, Episode 26",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e26.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Season 2, Episode 1",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e01.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "Season 2, Episode 2",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e02.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "Season 2, Episode 7",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e07.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "Season 2, Episode 11",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e11.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Season 2, Episode 14",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e14.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "Season 2, Episode 15",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e15.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "Season 2, Episode 21",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e21.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "Season 2, Episode 22",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e22.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "Season 2, Episode 23",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e23.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "Season 2, Episode 24",
+    "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s02e24.mp4",
+    "video_id": "archive:TheCiscoKidpublicdomain",
+    "platform": "archive",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "31 eps",
+  "desc": "The classic TV western (1950) — Duncan Renaldo as Cisco and Leo Carrillo as Pancho. These 31 episodes are the public-domain run of the series, streaming from archive.org.",
+  "rights_basis": "Public Domain Mark 1.0 on the item (uploader wimztv@gmail.com; opensource_movies). The Cisco Kid (Ziv, 1950-56) was filmed in color; its un-renewed episodes are the canonical public-domain TV western set — these 31 episodes are that PD subset of the 156-episode run.",
+  "source_channel": "archive.org",
+  "award_verified": false,
+  "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e01.mp4"
  }
 ];
