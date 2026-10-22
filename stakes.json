@@ -458,11 +458,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "marathon",
-      "streamer": "HusKerrs"
+      "streamer": "HusKerrs",
+      "resolvedAt": 1792693458
     }
   ]
 }
