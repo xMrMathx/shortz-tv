@@ -1956604,5 +1956604,6341 @@
   "source_channel": "archive.org",
   "award_verified": false,
   "url": "https://archive.org/download/TheCiscoKidpublicdomain/The_Cisco_Kid_s01e01.mp4"
+ },
+ {
+  "id": "stv-73146",
+  "title": "Sonic X",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Chaos Control Freaks",
+    "url": "https://www.youtube.com/embed/9CGih4gMRlk",
+    "video_id": "9CGih4gMRlk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Sonic to the Rescue",
+    "url": "https://www.youtube.com/embed/aBgPO32-ka0",
+    "video_id": "aBgPO32-ka0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Missile Wrist Rampage",
+    "url": "https://www.youtube.com/embed/PzifMBqaEvU",
+    "video_id": "PzifMBqaEvU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Chaos Emerald Chaos",
+    "url": "https://www.youtube.com/embed/BNi7ZoeJOOE",
+    "video_id": "BNi7ZoeJOOE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Cracking Knuckles",
+    "url": "https://www.youtube.com/embed/qBsRxGQhDKs",
+    "video_id": "qBsRxGQhDKs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Techno Teacher",
+    "url": "https://www.youtube.com/embed/ZDygQeO9jzo",
+    "video_id": "ZDygQeO9jzo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Party Hardly",
+    "url": "https://www.youtube.com/embed/7tB2LgOx8fA",
+    "video_id": "7tB2LgOx8fA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Satellite Swindle",
+    "url": "https://www.youtube.com/embed/9KYeihPwS7Q",
+    "video_id": "9KYeihPwS7Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "The Last Resort",
+    "url": "https://www.youtube.com/embed/ZcYxdLTcGvA",
+    "video_id": "ZcYxdLTcGvA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Unfair Ball",
+    "url": "https://www.youtube.com/embed/VwYQ0DnPjWI",
+    "video_id": "VwYQ0DnPjWI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Fly Spy",
+    "url": "https://www.youtube.com/embed/FTMUZlg7WEg",
+    "video_id": "FTMUZlg7WEg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Beating Eggman Part 1",
+    "url": "https://www.youtube.com/embed/EbmRA75fF6Y",
+    "video_id": "EbmRA75fF6Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Beating Eggman Part 2",
+    "url": "https://www.youtube.com/embed/WurTQwB-j-U",
+    "video_id": "WurTQwB-j-U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "That's What Friends Are for",
+    "url": "https://www.youtube.com/embed/uNqSxwLTjG4",
+    "video_id": "uNqSxwLTjG4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "Skirmish in the Sky",
+    "url": "https://www.youtube.com/embed/w0uuhC6LlFM",
+    "video_id": "w0uuhC6LlFM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Depth of Danger",
+    "url": "https://www.youtube.com/embed/B_uTFBTNI7o",
+    "video_id": "B_uTFBTNI7o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "The Adventures of Knuckles and Hawk",
+    "url": "https://www.youtube.com/embed/Vc1z6_nBWKA",
+    "video_id": "Vc1z6_nBWKA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "The Dam Scam",
+    "url": "https://www.youtube.com/embed/hnUYv2VhcY8",
+    "video_id": "hnUYv2VhcY8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Sonic's Scream Test",
+    "url": "https://www.youtube.com/embed/cE7WXrzkKrI",
+    "video_id": "cE7WXrzkKrI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Cruise Blues",
+    "url": "https://www.youtube.com/embed/c8W-VVZtiyk",
+    "video_id": "c8W-VVZtiyk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Fast Friends",
+    "url": "https://www.youtube.com/embed/z8QGrmRQsqw",
+    "video_id": "z8QGrmRQsqw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Little Chao Lost",
+    "url": "https://www.youtube.com/embed/nMJG40ht_sw",
+    "video_id": "nMJG40ht_sw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "Emerald Anniversary",
+    "url": "https://www.youtube.com/embed/1TAE09a_nwE",
+    "video_id": "1TAE09a_nwE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "How to Catch a Hedgehog",
+    "url": "https://www.youtube.com/embed/039J77RlR5M",
+    "video_id": "039J77RlR5M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "A Dastardly Deed",
+    "url": "https://www.youtube.com/embed/gyUnw0KCDT0",
+    "video_id": "gyUnw0KCDT0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Countdown to Chaos",
+    "url": "https://www.youtube.com/embed/Lj6TQAJaj4s",
+    "video_id": "Lj6TQAJaj4s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "Pure Chaos",
+    "url": "https://www.youtube.com/embed/WkRmNHUgIVk",
+    "video_id": "WkRmNHUgIVk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "A Chaotic Day",
+    "url": "https://www.youtube.com/embed/PnDHLNS58FY",
+    "video_id": "PnDHLNS58FY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "A Robot Rebels",
+    "url": "https://www.youtube.com/embed/gbn7h1VqKIU",
+    "video_id": "gbn7h1VqKIU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "Head's up, Tail",
+    "url": "https://www.youtube.com/embed/V26oyi5GDVw",
+    "video_id": "V26oyi5GDVw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "Revenge of the Robot",
+    "url": "https://www.youtube.com/embed/kEOn7Y6wE5c",
+    "video_id": "kEOn7Y6wE5c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "Flood Fight",
+    "url": "https://www.youtube.com/embed/OwYJkhG6xNc",
+    "video_id": "OwYJkhG6xNc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "Project Shadow",
+    "url": "https://www.youtube.com/embed/eqyhH0FaBgc",
+    "video_id": "eqyhH0FaBgc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "Shadow Knows",
+    "url": "https://www.youtube.com/embed/NqrXRFdb684",
+    "video_id": "NqrXRFdb684",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "Sonic's Big Break",
+    "url": "https://www.youtube.com/embed/NEypfVRripI",
+    "video_id": "NEypfVRripI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "Shadow World",
+    "url": "https://www.youtube.com/embed/CoDKAOsd7Uc",
+    "video_id": "CoDKAOsd7Uc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "Robotnik's Revenge",
+    "url": "https://www.youtube.com/embed/pR7I8loqsC8",
+    "video_id": "pR7I8loqsC8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "Showdown in Space",
+    "url": "https://www.youtube.com/embed/5d0m3UcNnWs",
+    "video_id": "5d0m3UcNnWs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "Defective Detectives",
+    "url": "https://www.youtube.com/embed/s32IbFff9i0",
+    "video_id": "s32IbFff9i0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "Sunblock Solution",
+    "url": "https://www.youtube.com/embed/XliSh3Ar0AQ",
+    "video_id": "XliSh3Ar0AQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "Eggman for President",
+    "url": "https://www.youtube.com/embed/vIz7_2tjcOU",
+    "video_id": "vIz7_2tjcOU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "A Robot Rebels",
+    "url": "https://www.youtube.com/embed/2M9mpXbnK30",
+    "video_id": "2M9mpXbnK30",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "Mean Machines",
+    "url": "https://www.youtube.com/embed/GxZnyfL9xFw",
+    "video_id": "GxZnyfL9xFw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "Sewer Search",
+    "url": "https://www.youtube.com/embed/Gb7GBxRTRr0",
+    "video_id": "Gb7GBxRTRr0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "Prize Fights",
+    "url": "https://www.youtube.com/embed/fQXfRxizraE",
+    "video_id": "fQXfRxizraE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "A Wild Win",
+    "url": "https://www.youtube.com/embed/b-qHbNGKnYE",
+    "video_id": "b-qHbNGKnYE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "Map of Mayhem",
+    "url": "https://www.youtube.com/embed/AcYkCcRdCLo",
+    "video_id": "AcYkCcRdCLo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "The Volcanic Venture",
+    "url": "https://www.youtube.com/embed/bmjLqrc8ugQ",
+    "video_id": "bmjLqrc8ugQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "The Beginning of the End",
+    "url": "https://www.youtube.com/embed/rpb3jpNSyDI",
+    "video_id": "rpb3jpNSyDI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "Running out of Time",
+    "url": "https://www.youtube.com/embed/-INdp_kaWAc",
+    "video_id": "-INdp_kaWAc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "Friends 'Til the End",
+    "url": "https://www.youtube.com/embed/bAo4Tiifwjk",
+    "video_id": "bAo4Tiifwjk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "A New Start",
+    "url": "https://www.youtube.com/embed/qAtidd45kzI",
+    "video_id": "qAtidd45kzI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 53,
+    "title": "A Cosmic Call",
+    "url": "https://www.youtube.com/embed/7blfEcxZ_U8",
+    "video_id": "7blfEcxZ_U8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 54,
+    "title": "Cosmic Crisis",
+    "url": "https://www.youtube.com/embed/30b-BHrYDms",
+    "video_id": "30b-BHrYDms",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 55,
+    "title": "H2 Whoa",
+    "url": "https://www.youtube.com/embed/a8QEVZIFypY",
+    "video_id": "a8QEVZIFypY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 56,
+    "title": "An Enemy in Need",
+    "url": "https://www.youtube.com/embed/S6TgUS3H7M8",
+    "video_id": "S6TgUS3H7M8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 57,
+    "title": "Chilling Discovery",
+    "url": "https://www.youtube.com/embed/0T_If4pEFRc",
+    "video_id": "0T_If4pEFRc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 58,
+    "title": "Desperately Seeking Sonic",
+    "url": "https://www.youtube.com/embed/yCAwN9HPSlY",
+    "video_id": "yCAwN9HPSlY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 59,
+    "title": "Galactic Gumshoes",
+    "url": "https://www.youtube.com/embed/lBH6JASM4dk",
+    "video_id": "lBH6JASM4dk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 60,
+    "title": "Trick Sand",
+    "url": "https://www.youtube.com/embed/-b2KKXXHJPs",
+    "video_id": "-b2KKXXHJPs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 61,
+    "title": "Ship of Doom",
+    "url": "https://www.youtube.com/embed/SKHF26ZySME",
+    "video_id": "SKHF26ZySME",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 62,
+    "title": "An Underground Odyssey",
+    "url": "https://www.youtube.com/embed/_KiEP2atRwU",
+    "video_id": "_KiEP2atRwU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 63,
+    "title": "Station Break-In",
+    "url": "https://www.youtube.com/embed/N9nr9uqgN9I",
+    "video_id": "N9nr9uqgN9I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 64,
+    "title": "A Materex Melee",
+    "url": "https://www.youtube.com/embed/hq9LlgTLmP0",
+    "video_id": "hq9LlgTLmP0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 65,
+    "title": "Mission: Match Up",
+    "url": "https://www.youtube.com/embed/uv3Jdfkymc8",
+    "video_id": "uv3Jdfkymc8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 66,
+    "title": "Clash in the Cloister",
+    "url": "https://www.youtube.com/embed/We3UBNdfbnM",
+    "video_id": "We3UBNdfbnM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 67,
+    "title": "Testing Time",
+    "url": "https://www.youtube.com/embed/8ykblfGXgcI",
+    "video_id": "8ykblfGXgcI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 68,
+    "title": "A Revolutionary Tale",
+    "url": "https://www.youtube.com/embed/CL9tRwaOIzU",
+    "video_id": "CL9tRwaOIzU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 69,
+    "title": "The Planet of Misfortune",
+    "url": "https://www.youtube.com/embed/QbzRj1lHeP8",
+    "video_id": "QbzRj1lHeP8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 70,
+    "title": "Terror On the Typhoon",
+    "url": "https://www.youtube.com/embed/1pZpQ9lfrJA",
+    "video_id": "1pZpQ9lfrJA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 71,
+    "title": "Hedgehog Hunt",
+    "url": "https://www.youtube.com/embed/SOHgRGpqd8Y",
+    "video_id": "SOHgRGpqd8Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 72,
+    "title": "Zelkova Strikes Back",
+    "url": "https://www.youtube.com/embed/0LGDfZngevs",
+    "video_id": "0LGDfZngevs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 73,
+    "title": "The Cosmo Conspiracy",
+    "url": "https://www.youtube.com/embed/CkI-2j6V7sQ",
+    "video_id": "CkI-2j6V7sQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 74,
+    "title": "Eye Spy",
+    "url": "https://www.youtube.com/embed/Y_GBzuo-T6g",
+    "video_id": "Y_GBzuo-T6g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 75,
+    "title": "Agent of Mischief",
+    "url": "https://www.youtube.com/embed/MRPAoi0PjU8",
+    "video_id": "MRPAoi0PjU8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 76,
+    "title": "The Light in the Darkness",
+    "url": "https://www.youtube.com/embed/7lTR0Ys6k7o",
+    "video_id": "7lTR0Ys6k7o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 77,
+    "title": "A Fearless Friend",
+    "url": "https://www.youtube.com/embed/rU_nFxK4iek",
+    "video_id": "rU_nFxK4iek",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 78,
+    "title": "So Long Sonic",
+    "url": "https://www.youtube.com/embed/WszPVaOgfR8",
+    "video_id": "WszPVaOgfR8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "78 eps",
+  "desc": "Sonic the Hedgehog's anime series (2003) — the complete 78-episode English dub, from TMS's official channel.",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/9CGih4gMRlk"
+ },
+ {
+  "id": "stv-73147",
+  "title": "Zinba",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "First Contact",
+    "url": "https://www.youtube.com/embed/NMRZI4CSC7o",
+    "video_id": "NMRZI4CSC7o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The DUX",
+    "url": "https://www.youtube.com/embed/t1UsQFnpUg0",
+    "video_id": "t1UsQFnpUg0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Nine O'clock Team",
+    "url": "https://www.youtube.com/embed/quQgMM7ObpA",
+    "video_id": "quQgMM7ObpA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "The Second Strike",
+    "url": "https://www.youtube.com/embed/m0Ka0dR1ThM",
+    "video_id": "m0Ka0dR1ThM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Rescue Mission",
+    "url": "https://www.youtube.com/embed/je8ibNA67s0",
+    "video_id": "je8ibNA67s0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "What A Foe",
+    "url": "https://www.youtube.com/embed/Cs1Ukgs_nZQ",
+    "video_id": "Cs1Ukgs_nZQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Prince Charming?",
+    "url": "https://www.youtube.com/embed/d9ThOp1VOIg",
+    "video_id": "d9ThOp1VOIg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Mysterious Uranus",
+    "url": "https://www.youtube.com/embed/hJFpnMdFoG8",
+    "video_id": "hJFpnMdFoG8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Double ZINBA",
+    "url": "https://www.youtube.com/embed/X_fprHM0LD4",
+    "video_id": "X_fprHM0LD4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "ZINBA Forbidden Zone",
+    "url": "https://www.youtube.com/embed/lSUoNq_TVzY",
+    "video_id": "lSUoNq_TVzY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Lord of the Sea",
+    "url": "https://www.youtube.com/embed/GTM_Y42G638",
+    "video_id": "GTM_Y42G638",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Behind the Mask",
+    "url": "https://www.youtube.com/embed/x_NIAroLuww",
+    "video_id": "x_NIAroLuww",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "DUX's Cover",
+    "url": "https://www.youtube.com/embed/uoKEFGR2Gt4",
+    "video_id": "uoKEFGR2Gt4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Get into Beldorado",
+    "url": "https://www.youtube.com/embed/SWaGpLj55PM",
+    "video_id": "SWaGpLj55PM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "ZINBA Circus",
+    "url": "https://www.youtube.com/embed/A-7YHIKvtQw",
+    "video_id": "A-7YHIKvtQw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "The Super \"Tito\"",
+    "url": "https://www.youtube.com/embed/ltib-IAAb2s",
+    "video_id": "ltib-IAAb2s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Giant Crab ZINBA",
+    "url": "https://www.youtube.com/embed/NqK1asfXq8A",
+    "video_id": "NqK1asfXq8A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "Kan's Second ZINBA",
+    "url": "https://www.youtube.com/embed/gMzLHuD4uAs",
+    "video_id": "gMzLHuD4uAs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Fierce Sea Battle",
+    "url": "https://www.youtube.com/embed/MWtMVpV4_l8",
+    "video_id": "MWtMVpV4_l8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Hot Spring Holiday",
+    "url": "https://www.youtube.com/embed/pThoag8NdIM",
+    "video_id": "pThoag8NdIM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Battle Royal",
+    "url": "https://www.youtube.com/embed/DQVCCJFPN_4",
+    "video_id": "DQVCCJFPN_4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Conspiracy Roll Out",
+    "url": "https://www.youtube.com/embed/6TBoILB1Ozo",
+    "video_id": "6TBoILB1Ozo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "Precious Pearl",
+    "url": "https://www.youtube.com/embed/Uy07pHLN_ME",
+    "video_id": "Uy07pHLN_ME",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "Night Before Battle",
+    "url": "https://www.youtube.com/embed/NXptA0Pa_jM",
+    "video_id": "NXptA0Pa_jM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "Breaking Out",
+    "url": "https://www.youtube.com/embed/SIWZEX_W-uQ",
+    "video_id": "SIWZEX_W-uQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Face Off",
+    "url": "https://www.youtube.com/embed/fkii8iLI8C8",
+    "video_id": "fkii8iLI8C8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "Get into Rupeas",
+    "url": "https://www.youtube.com/embed/wRslZ2c4Swg",
+    "video_id": "wRslZ2c4Swg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "ZINBA Race",
+    "url": "https://www.youtube.com/embed/QeNhXm1KWkk",
+    "video_id": "QeNhXm1KWkk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "Keeyo Fight!",
+    "url": "https://www.youtube.com/embed/rP5y-L3nfCQ",
+    "video_id": "rP5y-L3nfCQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "Reunion",
+    "url": "https://www.youtube.com/embed/a0i2QMrJiFY",
+    "video_id": "a0i2QMrJiFY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "Shadow of Tabo",
+    "url": "https://www.youtube.com/embed/ucOGvaZDlEc",
+    "video_id": "ucOGvaZDlEc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "The Chasing",
+    "url": "https://www.youtube.com/embed/OVrJAYDHAVE",
+    "video_id": "OVrJAYDHAVE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "ZINBA Town",
+    "url": "https://www.youtube.com/embed/d-agD3H3VOI",
+    "video_id": "d-agD3H3VOI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "Windy's Brother",
+    "url": "https://www.youtube.com/embed/7t6ymxawALk",
+    "video_id": "7t6ymxawALk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "The Legendary Linker",
+    "url": "https://www.youtube.com/embed/1BW-CwFEQcU",
+    "video_id": "1BW-CwFEQcU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "DUX Reunion",
+    "url": "https://www.youtube.com/embed/Hs2jjOWZ054",
+    "video_id": "Hs2jjOWZ054",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "The Fruit of Strength",
+    "url": "https://www.youtube.com/embed/bTVtFqMkv-8",
+    "video_id": "bTVtFqMkv-8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "The Fake DUX",
+    "url": "https://www.youtube.com/embed/x5UhJmxEdf0",
+    "video_id": "x5UhJmxEdf0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "Father and Son",
+    "url": "https://www.youtube.com/embed/V9MIw2Ni2EA",
+    "video_id": "V9MIw2Ni2EA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "Crazy Gorilla",
+    "url": "https://www.youtube.com/embed/ePO1faluAiE",
+    "video_id": "ePO1faluAiE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "One Day Friendship",
+    "url": "https://www.youtube.com/embed/G9UtG9JfNw4",
+    "video_id": "G9UtG9JfNw4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "Man-made ZINBA",
+    "url": "https://www.youtube.com/embed/EZm0T1yX9UA",
+    "video_id": "EZm0T1yX9UA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "Linker's Feast",
+    "url": "https://www.youtube.com/embed/hA1VouqE5MA",
+    "video_id": "hA1VouqE5MA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "Taste of Goodbye",
+    "url": "https://www.youtube.com/embed/6vpuBpgvP1A",
+    "video_id": "6vpuBpgvP1A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "Majure's ZINBA",
+    "url": "https://www.youtube.com/embed/-Hth6wC6noE",
+    "video_id": "-Hth6wC6noE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "The Legendary ZINBA",
+    "url": "https://www.youtube.com/embed/TAcUh9Qp788",
+    "video_id": "TAcUh9Qp788",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "ZINBA Flute",
+    "url": "https://www.youtube.com/embed/tRIXYrnry6M",
+    "video_id": "tRIXYrnry6M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "The Tower",
+    "url": "https://www.youtube.com/embed/4QgZmd8NI9U",
+    "video_id": "4QgZmd8NI9U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "Tough Battle",
+    "url": "https://www.youtube.com/embed/LL5kcnCgMZY",
+    "video_id": "LL5kcnCgMZY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "The Last Battle",
+    "url": "https://www.youtube.com/embed/STdl5EwstJQ",
+    "video_id": "STdl5EwstJQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "Reverse Linking",
+    "url": "https://www.youtube.com/embed/n6Kh4FpfVrs",
+    "video_id": "n6Kh4FpfVrs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "ZINBA, Human and Machine",
+    "url": "https://www.youtube.com/embed/Dw2XOhISI1U",
+    "video_id": "Dw2XOhISI1U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "52 eps",
+  "desc": "Zinba (2009) — 52 episodes from Anime! on TMS Official Channel.",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/NMRZI4CSC7o"
+ },
+ {
+  "id": "stv-73148",
+  "title": "KenIchi: The Mightiest Disciple",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ryozanpaku: Where the Powerful Gather!",
+    "url": "https://www.youtube.com/embed/mKHOTHRtACA",
+    "video_id": "mKHOTHRtACA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The Beginning of the Fight!",
+    "url": "https://www.youtube.com/embed/1TwBMJ6VxFo",
+    "video_id": "1TwBMJ6VxFo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Strength and Courage!",
+    "url": "https://www.youtube.com/embed/_GjNAwzI5dM",
+    "video_id": "_GjNAwzI5dM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Fight to Survive! It's Whether You Do It or You Don't!",
+    "url": "https://www.youtube.com/embed/8r1C5KEk64w",
+    "video_id": "8r1C5KEk64w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "A Date?! You'd Better Score!",
+    "url": "https://www.youtube.com/embed/WoyENnti3L8",
+    "video_id": "WoyENnti3L8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "A Day at Ryozanpaku! The Rooftop Dream!",
+    "url": "https://www.youtube.com/embed/JVGPMjb75QE",
+    "video_id": "JVGPMjb75QE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Hot Battle at the Gardening Club! A Return Match!",
+    "url": "https://www.youtube.com/embed/ZqsJ0ilmaSs",
+    "video_id": "ZqsJ0ilmaSs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Amazing Bodies! The Mysterious Masters!",
+    "url": "https://www.youtube.com/embed/j0aTHNptlcY",
+    "video_id": "j0aTHNptlcY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Apapapa! Apachai's Training!",
+    "url": "https://www.youtube.com/embed/-3wSCp4t8O8",
+    "video_id": "-3wSCp4t8O8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Go, Kenichi! A Boxer's Weakness!",
+    "url": "https://www.youtube.com/embed/ALtdbfcarO4",
+    "video_id": "ALtdbfcarO4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "The Fists of Betrayal! Takeda's Sorrowful Past!",
+    "url": "https://www.youtube.com/embed/806dds8Y9SI",
+    "video_id": "806dds8Y9SI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "A New Enemy! Shinnosuke Tsuji!",
+    "url": "https://www.youtube.com/embed/kaEM1CsjV6g",
+    "video_id": "kaEM1CsjV6g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "The Way of the Fight! The Rules of the Real Fight!",
+    "url": "https://www.youtube.com/embed/4Q1ORC4h9Rg",
+    "video_id": "4Q1ORC4h9Rg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Dedicated Training! Nearby Hot Spring Bath",
+    "url": "https://www.youtube.com/embed/uUYYdmrQ-Vw",
+    "video_id": "uUYYdmrQ-Vw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "Honoka Infiltrates Ryozanpaku!",
+    "url": "https://www.youtube.com/embed/Hj4f3b0_YQk",
+    "video_id": "Hj4f3b0_YQk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Ryōzanpaku Faces the Biggest Crisis!?",
+    "url": "https://www.youtube.com/embed/4fuseuEgt2E",
+    "video_id": "4fuseuEgt2E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Protect the Name! Attack of the Dojo Challengers!",
+    "url": "https://www.youtube.com/embed/wgqPolpBKgo",
+    "video_id": "wgqPolpBKgo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "Paradise? To the Mysterious Furinji Island!",
+    "url": "https://www.youtube.com/embed/SoNUERBQ67c",
+    "video_id": "SoNUERBQ67c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "The Strongest of the Ragnarok! Eight Greatest Fists!",
+    "url": "https://www.youtube.com/embed/4E6mNAz08lo",
+    "video_id": "4E6mNAz08lo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Takeda in Danger! The Rules of Revenge!",
+    "url": "https://www.youtube.com/embed/4d3s9vNtUZU",
+    "video_id": "4d3s9vNtUZU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Unforgivable! Kenichi's Fists of Fury!",
+    "url": "https://www.youtube.com/embed/CNTPfC0tTCE",
+    "video_id": "CNTPfC0tTCE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Gather, Young Men! The New Shinpaku Alliance!",
+    "url": "https://www.youtube.com/embed/FrWHCrdatQo",
+    "video_id": "FrWHCrdatQo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "Assault! The Next Door Ryozanpaku!",
+    "url": "https://www.youtube.com/embed/_b0mpCXVJ8A",
+    "video_id": "_b0mpCXVJ8A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "The Captured Heart! Miu's Juliet!",
+    "url": "https://www.youtube.com/embed/thNjnEyxeVM",
+    "video_id": "thNjnEyxeVM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "Stand Strong Kenichi! Miu's Kiss!",
+    "url": "https://www.youtube.com/embed/5PqXuBYMxS0",
+    "video_id": "5PqXuBYMxS0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "The Stripped Mask! Hermit's True Identity!",
+    "url": "https://www.youtube.com/embed/W7fg0Mj8lwg",
+    "video_id": "W7fg0Mj8lwg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "Hard Vs. Soft! Once-in-a-lifetime Quarrel Between Brothers!",
+    "url": "https://www.youtube.com/embed/mMVAb2WzpdE",
+    "video_id": "mMVAb2WzpdE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "Here Comes the Shock Troop Commander!",
+    "url": "https://www.youtube.com/embed/sK_0TXtPSE0",
+    "video_id": "sK_0TXtPSE0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "The Fearsome Seigfreid! Prelude of Destruction!",
+    "url": "https://www.youtube.com/embed/EeVJ0625q6c",
+    "video_id": "EeVJ0625q6c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "The Results of Training! Align Forward Half!",
+    "url": "https://www.youtube.com/embed/FW_nQ4yfRKg",
+    "video_id": "FW_nQ4yfRKg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "Honoka Will Help You!",
+    "url": "https://www.youtube.com/embed/yZV9Y0w0_NM",
+    "video_id": "yZV9Y0w0_NM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "Honoka's in Danger! Loki's Plot!",
+    "url": "https://www.youtube.com/embed/DCq7KYqGJ5c",
+    "video_id": "DCq7KYqGJ5c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "Strike Kenichi! Fists Do the Talking!",
+    "url": "https://www.youtube.com/embed/nC4CuPt6BU8",
+    "video_id": "nC4CuPt6BU8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "Don't Give In! The Words Left by a Loved One!",
+    "url": "https://www.youtube.com/embed/pAieo7wVtCc",
+    "video_id": "pAieo7wVtCc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "Now Is the Time To Settle the Fight!",
+    "url": "https://www.youtube.com/embed/3S7x7tZgcRQ",
+    "video_id": "3S7x7tZgcRQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "Miu Vs. Renka! The Love Triangle Creates A Storm!",
+    "url": "https://www.youtube.com/embed/QNBiDWkKt2E",
+    "video_id": "QNBiDWkKt2E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "Dangerous Trap! Let's Have Sumo Chanko Stew",
+    "url": "https://www.youtube.com/embed/i2UWLiF70Wo",
+    "video_id": "i2UWLiF70Wo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "Cute Kitten! Hand-to-Hand Battle Among Women!",
+    "url": "https://www.youtube.com/embed/oseaNdWgqb8",
+    "video_id": "oseaNdWgqb8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "Shigure's Personal... Lesson!",
+    "url": "https://www.youtube.com/embed/wCYfXVzn13M",
+    "video_id": "wCYfXVzn13M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "The Promise, Made! Everything Started Here!",
+    "url": "https://www.youtube.com/embed/l4H1nz3Qcpw",
+    "video_id": "l4H1nz3Qcpw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "Terror Of The Sphere Of Control! A Dragon Descends!",
+    "url": "https://www.youtube.com/embed/YKRmTvi7rLc",
+    "video_id": "YKRmTvi7rLc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "Do-or-Die Secluded Tour in the Mountains!",
+    "url": "https://www.youtube.com/embed/H6NZ13sJFKc",
+    "video_id": "H6NZ13sJFKc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "Limiter! Invitation to the World of Bloodshed!",
+    "url": "https://www.youtube.com/embed/TS3VkWRKSvU",
+    "video_id": "TS3VkWRKSvU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "Collapse of the Shinpaku Federation!",
+    "url": "https://www.youtube.com/embed/DF3SAoh7M1o",
+    "video_id": "DF3SAoh7M1o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "The Decisive Attack! Kisara Dances!",
+    "url": "https://www.youtube.com/embed/9VP6xn5wHl8",
+    "video_id": "9VP6xn5wHl8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "Farewell! A Determined Niijima Joins the Fray!",
+    "url": "https://www.youtube.com/embed/PrxhwgY-GMI",
+    "video_id": "PrxhwgY-GMI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "The Weakness of the Genius! Effort Surpases Talent!",
+    "url": "https://www.youtube.com/embed/IGVwr_WFSBU",
+    "video_id": "IGVwr_WFSBU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "Showdown Between the Leaders!",
+    "url": "https://www.youtube.com/embed/KNPdT4K6770",
+    "video_id": "KNPdT4K6770",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "The Mightiest Transformation!",
+    "url": "https://www.youtube.com/embed/bmI9fUWPPP4",
+    "video_id": "bmI9fUWPPP4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "The Mightiest Disciple, Kenichi!",
+    "url": "https://www.youtube.com/embed/k0T6ZY4clX0",
+    "video_id": "k0T6ZY4clX0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "50 eps",
+  "desc": "KenIchi: The Mightiest Disciple (2006) — 50 episodes from Anime! on TMS Official Channel.",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/mKHOTHRtACA"
+ },
+ {
+  "id": "stv-73149",
+  "title": "Saint Seiya: The Lost Canvas",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Promise",
+    "url": "https://www.youtube.com/embed/CHjrTHd1Ru4",
+    "video_id": "CHjrTHd1Ru4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The Awakening of Hades",
+    "url": "https://www.youtube.com/embed/pUBdibiBY9c",
+    "video_id": "pUBdibiBY9c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "The Holy War Begins",
+    "url": "https://www.youtube.com/embed/_87OkwHpa6w",
+    "video_id": "_87OkwHpa6w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "The Prayer Wreaths",
+    "url": "https://www.youtube.com/embed/bHcuA1fB_ZY",
+    "video_id": "bHcuA1fB_ZY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "The Poison Rose",
+    "url": "https://www.youtube.com/embed/aFAEH_BWUfw",
+    "video_id": "aFAEH_BWUfw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Floral Funeral Procession",
+    "url": "https://www.youtube.com/embed/a1B2QuA8kBQ",
+    "video_id": "a1B2QuA8kBQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Golden Rain",
+    "url": "https://www.youtube.com/embed/v8HNOoUO7to",
+    "video_id": "v8HNOoUO7to",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "A Favorable Wind",
+    "url": "https://www.youtube.com/embed/Gwt7aCCoO6E",
+    "video_id": "Gwt7aCCoO6E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Giant Star",
+    "url": "https://www.youtube.com/embed/T-gp4W48KT0",
+    "video_id": "T-gp4W48KT0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "The Avent",
+    "url": "https://www.youtube.com/embed/6DZuiREaTFI",
+    "video_id": "6DZuiREaTFI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Unreachable",
+    "url": "https://www.youtube.com/embed/1GHubGw19YY",
+    "video_id": "1GHubGw19YY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Relentless Sacrifice",
+    "url": "https://www.youtube.com/embed/mYl44TXYXJg",
+    "video_id": "mYl44TXYXJg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "The Departure",
+    "url": "https://www.youtube.com/embed/_8OmWkiEDxc",
+    "video_id": "_8OmWkiEDxc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "The Forest of Death",
+    "url": "https://www.youtube.com/embed/bdOsnCuiYjM",
+    "video_id": "bdOsnCuiYjM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "If I Could Return to that Day",
+    "url": "https://www.youtube.com/embed/zzrqKu5Lah4",
+    "video_id": "zzrqKu5Lah4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Gods and Pawns",
+    "url": "https://www.youtube.com/embed/fpOSRfDWGVY",
+    "video_id": "fpOSRfDWGVY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Trash",
+    "url": "https://www.youtube.com/embed/jp-zDWkecJY",
+    "video_id": "jp-zDWkecJY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "I Only Want You to Live",
+    "url": "https://www.youtube.com/embed/iJeyp7TKWCk",
+    "video_id": "iJeyp7TKWCk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Lonely Blade",
+    "url": "https://www.youtube.com/embed/vMSnHXkHTgs",
+    "video_id": "vMSnHXkHTgs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Prison of Dreams",
+    "url": "https://www.youtube.com/embed/VMvbTqJMXVk",
+    "video_id": "VMvbTqJMXVk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Beyond the Dream",
+    "url": "https://www.youtube.com/embed/U5DBAkpt4SE",
+    "video_id": "U5DBAkpt4SE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "The Path of Righteousness",
+    "url": "https://www.youtube.com/embed/4vjTxh44FrQ",
+    "video_id": "4vjTxh44FrQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "Excalibur",
+    "url": "https://www.youtube.com/embed/IGAKlI4-BdA",
+    "video_id": "IGAKlI4-BdA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "Hour of the Final Battle",
+    "url": "https://www.youtube.com/embed/HhZRomQXoUA",
+    "video_id": "HhZRomQXoUA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "The Many, Many Years",
+    "url": "https://www.youtube.com/embed/rl6P6gZfSPY",
+    "video_id": "rl6P6gZfSPY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Be Yourself",
+    "url": "https://www.youtube.com/embed/DBo5d7CVBR4",
+    "video_id": "DBo5d7CVBR4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "26 eps",
+  "desc": "Saint Seiya: The Lost Canvas (2009) — 26 episodes from Anime! on TMS Official Channel.",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/CHjrTHd1Ru4"
+ },
+ {
+  "id": "stv-73150",
+  "title": "Lupin the 3rd Part 4",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Wedding of Lupin III",
+    "url": "https://www.youtube.com/embed/K8LrLO_omys",
+    "video_id": "K8LrLO_omys",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The Fake Fantasista",
+    "url": "https://www.youtube.com/embed/ct1hezcIHW0",
+    "video_id": "ct1hezcIHW0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "0.2% Chance of Survival",
+    "url": "https://www.youtube.com/embed/rEvMcDeepxQ",
+    "video_id": "rEvMcDeepxQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "With a Gun in My Hand",
+    "url": "https://www.youtube.com/embed/y2ieKagfuyc",
+    "video_id": "y2ieKagfuyc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "The Magician’s Left Hand",
+    "url": "https://www.youtube.com/embed/udgyWxC-7zA",
+    "video_id": "udgyWxC-7zA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Until the Full Moon Passes",
+    "url": "https://www.youtube.com/embed/AhMRH1zWs20",
+    "video_id": "AhMRH1zWs20",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "The Zapping Operation with Introduction from Richard Epcar",
+    "url": "https://www.youtube.com/embed/WWgdnNXA8RA",
+    "video_id": "WWgdnNXA8RA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Welcome to the Haunted Hotel",
+    "url": "https://www.youtube.com/embed/2r3xpJ_sbRM",
+    "video_id": "2r3xpJ_sbRM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Requiem for the Assassins",
+    "url": "https://www.youtube.com/embed/a6BrK-dbmUU",
+    "video_id": "a6BrK-dbmUU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "The Lovesick Pig",
+    "url": "https://www.youtube.com/embed/_QhGX4_TUnU",
+    "video_id": "_QhGX4_TUnU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "The Dream of Italy, Part 1",
+    "url": "https://www.youtube.com/embed/Tl2fQsLVWQQ",
+    "video_id": "Tl2fQsLVWQQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "The Dream of Italy, Part 2",
+    "url": "https://www.youtube.com/embed/CJc2EcaQWyA",
+    "video_id": "CJc2EcaQWyA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "The End of Lupin III",
+    "url": "https://www.youtube.com/embed/koAYxuarg8k",
+    "video_id": "koAYxuarg8k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Don't Move the Mona Lisa",
+    "url": "https://www.youtube.com/embed/ow3tQ7NzGH4",
+    "video_id": "ow3tQ7NzGH4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "High School Undercover!",
+    "url": "https://www.youtube.com/embed/fvSkqL_-iW4",
+    "video_id": "fvSkqL_-iW4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Lupin's Day Off",
+    "url": "https://www.youtube.com/embed/19iQFH6cYao",
+    "video_id": "19iQFH6cYao",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "The Murdering Marionette",
+    "url": "https://www.youtube.com/embed/sQMaMBAy4BY",
+    "video_id": "sQMaMBAy4BY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "The First Supper",
+    "url": "https://www.youtube.com/embed/BE_UM_eFVHo",
+    "video_id": "BE_UM_eFVHo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Dragons Sleep Soundly",
+    "url": "https://www.youtube.com/embed/BtL6gtcbmCw",
+    "video_id": "BtL6gtcbmCw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "To Hear You Sing Again",
+    "url": "https://www.youtube.com/embed/e6_2ENzuTpw",
+    "video_id": "e6_2ENzuTpw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "From Japan with Love",
+    "url": "https://www.youtube.com/embed/gkgxXd0Szi0",
+    "video_id": "gkgxXd0Szi0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "I'm Going to Get You, Lupin",
+    "url": "https://www.youtube.com/embed/03q3_GsaYaw",
+    "video_id": "03q3_GsaYaw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "World Dissection Part 1",
+    "url": "https://www.youtube.com/embed/7Y_0dz-b-uU",
+    "video_id": "7Y_0dz-b-uU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "World Dissection Part 2",
+    "url": "https://www.youtube.com/embed/ndpzgalQT1Q",
+    "video_id": "ndpzgalQT1Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Nonstop Rendezvous",
+    "url": "https://www.youtube.com/embed/iq1DempDm8o",
+    "video_id": "iq1DempDm8o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "25 eps",
+  "desc": "Lupin III's Italian adventure (2015) — 25 of the 26 episodes, from TMS's official channel (one episode is not posted free).",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/K8LrLO_omys"
+ },
+ {
+  "id": "stv-73151",
+  "title": "Actually, I Am...",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "I'll Confess!",
+    "url": "https://www.youtube.com/embed/NLJ4bnj11Wc",
+    "video_id": "NLJ4bnj11Wc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "I'll Keep This Secret!",
+    "url": "https://www.youtube.com/embed/VvFIgUbw8Ko",
+    "video_id": "VvFIgUbw8Ko",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Beware Childhood Friends!",
+    "url": "https://www.youtube.com/embed/LNNIG5hZTxY",
+    "video_id": "LNNIG5hZTxY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Help the Class Rep!",
+    "url": "https://www.youtube.com/embed/sC4w0l44cB4",
+    "video_id": "sC4w0l44cB4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Let's Go on a... Date?",
+    "url": "https://www.youtube.com/embed/l1cz2ihDtt8",
+    "video_id": "l1cz2ihDtt8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Beware of the Wolf Man!",
+    "url": "https://www.youtube.com/embed/idkj474ZAf4",
+    "video_id": "idkj474ZAf4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Let's Get Sexy!",
+    "url": "https://www.youtube.com/embed/wnUKwHMnEp0",
+    "video_id": "wnUKwHMnEp0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Let's Save the World!",
+    "url": "https://www.youtube.com/embed/a3aBG9mtb4Q",
+    "video_id": "a3aBG9mtb4Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Let's Put On Our Swimsuits!",
+    "url": "https://www.youtube.com/embed/z9O22Ch-6Ms",
+    "video_id": "z9O22Ch-6Ms",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Let's Be Honest!",
+    "url": "https://www.youtube.com/embed/L6If0MNhHh8",
+    "video_id": "L6If0MNhHh8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Let's Go to the Summer Festival!",
+    "url": "https://www.youtube.com/embed/TrfYmz806AE",
+    "video_id": "TrfYmz806AE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Let's Stop This Confession!",
+    "url": "https://www.youtube.com/embed/vzb6iyMtGS4",
+    "video_id": "vzb6iyMtGS4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Let's Go Home Together!",
+    "url": "https://www.youtube.com/embed/IAzvfAzDKHU",
+    "video_id": "IAzvfAzDKHU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "13 eps",
+  "desc": "Actually, I Am... (2015) — 13 episodes from Anime! on TMS Official Channel.",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/NLJ4bnj11Wc"
+ },
+ {
+  "id": "stv-73152",
+  "title": "We Rent Tsukumogami",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Rikyu-nezumi",
+    "url": "https://www.youtube.com/embed/uz8z67RqyPI",
+    "video_id": "uz8z67RqyPI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Kuchinashi",
+    "url": "https://www.youtube.com/embed/DsKJEoMaa_8",
+    "video_id": "DsKJEoMaa_8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Nadeshiko",
+    "url": "https://www.youtube.com/embed/HjOkfRhZSVo",
+    "video_id": "HjOkfRhZSVo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Kogare-kou",
+    "url": "https://www.youtube.com/embed/qkkNUA_NDtQ",
+    "video_id": "qkkNUA_NDtQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Fukagawa-nezumi",
+    "url": "https://www.youtube.com/embed/GE_OzPiKgJg",
+    "video_id": "GE_OzPiKgJg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Heki-ruri",
+    "url": "https://www.youtube.com/embed/zsv5ig3sfg8",
+    "video_id": "zsv5ig3sfg8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Uraha-yanagi",
+    "url": "https://www.youtube.com/embed/lZTWxBhvmdU",
+    "video_id": "lZTWxBhvmdU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Edo-murasaki",
+    "url": "https://www.youtube.com/embed/aZ_Nq0XlElU",
+    "video_id": "aZ_Nq0XlElU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Hisoku",
+    "url": "https://www.youtube.com/embed/5aWjL-oaBGs",
+    "video_id": "5aWjL-oaBGs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Binrouji-zome",
+    "url": "https://www.youtube.com/embed/bjAfzkhom30",
+    "video_id": "bjAfzkhom30",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Nise-murasaki",
+    "url": "https://www.youtube.com/embed/N8gE1WrIW4A",
+    "video_id": "N8gE1WrIW4A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Suou",
+    "url": "https://www.youtube.com/embed/PJ2MB4TXr34",
+    "video_id": "PJ2MB4TXr34",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "12 eps",
+  "desc": "We Rent Tsukumogami (2018) — 12 episodes from Anime! on TMS Official Channel.",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/uz8z67RqyPI"
+ },
+ {
+  "id": "stv-73153",
+  "title": "BRAVE 10",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Fateful Two",
+    "url": "https://www.youtube.com/embed/P7k8OrgUkFw",
+    "video_id": "P7k8OrgUkFw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Dark and Light",
+    "url": "https://www.youtube.com/embed/c_CpDA59xRc",
+    "video_id": "c_CpDA59xRc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Valley of the Whirlwinds",
+    "url": "https://www.youtube.com/embed/BmksNsBPfi8",
+    "video_id": "BmksNsBPfi8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "The Souls of the Gods",
+    "url": "https://www.youtube.com/embed/Wj52TlvUsTs",
+    "video_id": "Wj52TlvUsTs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "The Heart of the Dragon",
+    "url": "https://www.youtube.com/embed/EQOBXgy5djw",
+    "video_id": "EQOBXgy5djw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Taizan Meido",
+    "url": "https://www.youtube.com/embed/pbBsFws_7aU",
+    "video_id": "pbBsFws_7aU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Sword and Fan",
+    "url": "https://www.youtube.com/embed/1Kh4zZEY4SE",
+    "video_id": "1Kh4zZEY4SE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "The Birth of a Warrior",
+    "url": "https://www.youtube.com/embed/FOH20bbYDJg",
+    "video_id": "FOH20bbYDJg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "The True Face of Ice",
+    "url": "https://www.youtube.com/embed/dOyXrUQmYJ0",
+    "video_id": "dOyXrUQmYJ0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "The Start of a Tradegy",
+    "url": "https://www.youtube.com/embed/VbLtE7Vm-hs",
+    "video_id": "VbLtE7Vm-hs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "The Wall of Darkness",
+    "url": "https://www.youtube.com/embed/Qk7_-jzDM_A",
+    "video_id": "Qk7_-jzDM_A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "The Warrior of Light",
+    "url": "https://www.youtube.com/embed/LEaFCtB4Z-M",
+    "video_id": "LEaFCtB4Z-M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "12 eps",
+  "desc": "BRAVE 10 (2012) — 12 episodes from Anime! on TMS Official Channel.",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/P7k8OrgUkFw"
+ },
+ {
+  "id": "stv-73154",
+  "title": "Cardfight!! Vanguard",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Vanguard of Destiny!",
+    "url": "https://www.youtube.com/embed/BgMllBwSKzM",
+    "video_id": "BgMllBwSKzM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Ride to Victory!",
+    "url": "https://www.youtube.com/embed/Xj1XDxKpzpg",
+    "video_id": "Xj1XDxKpzpg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Welcome to Card Capital",
+    "url": "https://www.youtube.com/embed/apxQ3H80jPo",
+    "video_id": "apxQ3H80jPo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Assault! Twin Drive!",
+    "url": "https://www.youtube.com/embed/g2LRXbunIx4",
+    "video_id": "g2LRXbunIx4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Whirlwind! Kamui, the Grade-School Fighter!",
+    "url": "https://www.youtube.com/embed/Sgebk58WbgQ",
+    "video_id": "Sgebk58WbgQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "The Mysterious Card Shop!",
+    "url": "https://www.youtube.com/embed/THOcIlPV2GU",
+    "video_id": "THOcIlPV2GU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "The Fearsome Soulblast!",
+    "url": "https://www.youtube.com/embed/bkGE58F_Luk",
+    "video_id": "bkGE58F_Luk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "The King of Knights Enters the Fray!",
+    "url": "https://www.youtube.com/embed/EtsRO47fObg",
+    "video_id": "EtsRO47fObg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "The Shop Tournament Begins!",
+    "url": "https://www.youtube.com/embed/rx1EzaO48D4",
+    "video_id": "rx1EzaO48D4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Enter the Ninja Fighter!",
+    "url": "https://www.youtube.com/embed/Lx2fH3jf3To",
+    "video_id": "Lx2fH3jf3To",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Ninja Fighter Withdraws!",
+    "url": "https://www.youtube.com/embed/kNgeiYmtunM",
+    "video_id": "kNgeiYmtunM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Aichi vs. Kamui",
+    "url": "https://www.youtube.com/embed/iopmGr0KyRE",
+    "video_id": "iopmGr0KyRE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Shop Tournament Winner Crowned!",
+    "url": "https://www.youtube.com/embed/2kqi2T7cipg",
+    "video_id": "2kqi2T7cipg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "The Fearsome Undead! The Granblue Deck!",
+    "url": "https://www.youtube.com/embed/YR8oidHbjyU",
+    "video_id": "YR8oidHbjyU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "Thrilling! Emi's First Fight!",
+    "url": "https://www.youtube.com/embed/-eai084tsok",
+    "video_id": "-eai084tsok",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Team Q4 Heads for the Regional Tournament!",
+    "url": "https://www.youtube.com/embed/4Bn3h6twLvo",
+    "video_id": "4Bn3h6twLvo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "New Allies",
+    "url": "https://www.youtube.com/embed/9uLokLvXL1A",
+    "video_id": "9uLokLvXL1A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "White-Hot Tournament!",
+    "url": "https://www.youtube.com/embed/Mmpqs9mi0Og",
+    "video_id": "Mmpqs9mi0Og",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Showdown! Nova Grappler!",
+    "url": "https://www.youtube.com/embed/KxlaTKVv8FQ",
+    "video_id": "KxlaTKVv8FQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Hidden Message",
+    "url": "https://www.youtube.com/embed/zENuxBqExVc",
+    "video_id": "zENuxBqExVc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Rematch in the Final Match!",
+    "url": "https://www.youtube.com/embed/OG7vC6vdNCA",
+    "video_id": "OG7vC6vdNCA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "The Holy Dragon Descends",
+    "url": "https://www.youtube.com/embed/2XbbQMddU-k",
+    "video_id": "2XbbQMddU-k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "22 eps",
+  "desc": "Cardfight!! Vanguard (2011) — 22 episodes from Anime! on TMS Official Channel.",
+  "rights_basis": "TMS Entertainment's own official YouTube channel posting its catalog series (English dub/sub)",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/BgMllBwSKzM"
+ },
+ {
+  "id": "stv-73155",
+  "title": "G.I. Joe Renegades",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Descent, Part 1",
+    "url": "https://www.youtube.com/embed/1V_jkAt7LXo",
+    "video_id": "1V_jkAt7LXo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The Descent, Part 2",
+    "url": "https://www.youtube.com/embed/lMYzb7Kcfh8",
+    "video_id": "lMYzb7Kcfh8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Rage",
+    "url": "https://www.youtube.com/embed/0yIKlnX2xXo",
+    "video_id": "0yIKlnX2xXo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Dreadnoks Rising",
+    "url": "https://www.youtube.com/embed/Lm7Dfe2y1Y8",
+    "video_id": "Lm7Dfe2y1Y8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "The Package",
+    "url": "https://www.youtube.com/embed/-gim0DaV5c0",
+    "video_id": "-gim0DaV5c0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Return of the Arashikage, Part 1",
+    "url": "https://www.youtube.com/embed/CCcd54dH1BQ",
+    "video_id": "CCcd54dH1BQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Return of the Arashikage, Part 2",
+    "url": "https://www.youtube.com/embed/5Z7MadcRL7k",
+    "video_id": "5Z7MadcRL7k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Busted",
+    "url": "https://www.youtube.com/embed/YvD517GZ5Ic",
+    "video_id": "YvD517GZ5Ic",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "The Enemy of My Enemy",
+    "url": "https://www.youtube.com/embed/8hMFaKj5DfY",
+    "video_id": "8hMFaKj5DfY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Fire Fight",
+    "url": "https://www.youtube.com/embed/CFU_WW2mcic",
+    "video_id": "CFU_WW2mcic",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Homecoming, Part 1",
+    "url": "https://www.youtube.com/embed/xiG3gOHchOk",
+    "video_id": "xiG3gOHchOk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Homecoming, Part 2",
+    "url": "https://www.youtube.com/embed/A3tlboiOyDs",
+    "video_id": "A3tlboiOyDs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Brothers of Light",
+    "url": "https://www.youtube.com/embed/5Yjk5OnpsZg",
+    "video_id": "5Yjk5OnpsZg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Knockoffs",
+    "url": "https://www.youtube.com/embed/X2DQRcNlpds",
+    "video_id": "X2DQRcNlpds",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "White Out",
+    "url": "https://www.youtube.com/embed/Ll9Upq7d_-w",
+    "video_id": "Ll9Upq7d_-w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Shipwrecked",
+    "url": "https://www.youtube.com/embed/XqtiF5_yIuQ",
+    "video_id": "XqtiF5_yIuQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Castle Destro",
+    "url": "https://www.youtube.com/embed/93ya7OUnfAM",
+    "video_id": "93ya7OUnfAM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "Union of the Snake",
+    "url": "https://www.youtube.com/embed/AVmnoj3ur3I",
+    "video_id": "AVmnoj3ur3I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "The Anaconda Strain",
+    "url": "https://www.youtube.com/embed/uOZQTRajiGc",
+    "video_id": "uOZQTRajiGc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Prodigal",
+    "url": "https://www.youtube.com/embed/VnHrWeLxGzI",
+    "video_id": "VnHrWeLxGzI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "The Anomaly",
+    "url": "https://www.youtube.com/embed/-_rv_L8zG5I",
+    "video_id": "-_rv_L8zG5I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Cutting Edge",
+    "url": "https://www.youtube.com/embed/vUZ9btwX5B0",
+    "video_id": "vUZ9btwX5B0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "Cousins",
+    "url": "https://www.youtube.com/embed/aflL9nScNJA",
+    "video_id": "aflL9nScNJA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "Going Underground",
+    "url": "https://www.youtube.com/embed/4V2gMpcB4I0",
+    "video_id": "4V2gMpcB4I0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "Revelations, Part 1",
+    "url": "https://www.youtube.com/embed/fVvDNb7p8lk",
+    "video_id": "fVvDNb7p8lk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Revelations, Part 2",
+    "url": "https://www.youtube.com/embed/zAMBdpME664",
+    "video_id": "zAMBdpME664",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "26 eps",
+  "desc": "G.I. Joe Renegades (2010) — 26 episodes from G.I. JOE - Official Channel.",
+  "rights_basis": "Hasbro's official G.I. Joe YouTube channel posting its own series",
+  "source_channel": "G.I. JOE - Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/1V_jkAt7LXo"
+ },
+ {
+  "id": "stv-73156",
+  "title": "G.I. Joe: Sigma 6",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cobra Strike 🐍 G.I. JOE Sigma 6",
+    "url": "https://www.youtube.com/embed/2UhrWzo9x_o",
+    "video_id": "2UhrWzo9x_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Escape 🏃 G.I. JOE Sigma 6",
+    "url": "https://www.youtube.com/embed/Uj2bQHHqqzc",
+    "video_id": "Uj2bQHHqqzc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Capture 🔒 G.I. JOE Sigma 6",
+    "url": "https://www.youtube.com/embed/Vhds9g67uEs",
+    "video_id": "Vhds9g67uEs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Reveal 👀 G.I. JOE Sigma 6",
+    "url": "https://www.youtube.com/embed/7xUoSIAz57c",
+    "video_id": "7xUoSIAz57c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Sigma ⏰ G.I. JOE Sigma 6",
+    "url": "https://www.youtube.com/embed/KaqmoSKghn4",
+    "video_id": "KaqmoSKghn4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Race 🏁 G.I. JOE Sigma 6",
+    "url": "https://www.youtube.com/embed/Ts2oz9g8WR8",
+    "video_id": "Ts2oz9g8WR8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Jungle 🦁 G.I. JOE Sigma 6",
+    "url": "https://www.youtube.com/embed/GOo_Fbk4QkE",
+    "video_id": "GOo_Fbk4QkE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Vacation 🏖️ G.I. JOE Sigma 6",
+    "url": "https://www.youtube.com/embed/xNxbsY0aNSg",
+    "video_id": "xNxbsY0aNSg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Polar",
+    "url": "https://www.youtube.com/embed/XKZ9F7mH954",
+    "video_id": "XKZ9F7mH954",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Honor 🏆 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/A-mAdlpM-OY",
+    "video_id": "A-mAdlpM-OY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Space 🚀 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/9lpu_7KUZbw",
+    "video_id": "9lpu_7KUZbw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Zeus - Part 1 ⚡ G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/-BandngUYqE",
+    "video_id": "-BandngUYqE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Zeus - Part 2 ⚡ G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/mHxyPvWVvDI",
+    "video_id": "mHxyPvWVvDI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Hidden 👀 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/xIlJ2nNawws",
+    "video_id": "xIlJ2nNawws",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "Invasion ⚔️ G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/noPXThq-ZkY",
+    "video_id": "noPXThq-ZkY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Search 🔭 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/_N7K_OsRFPE",
+    "video_id": "_N7K_OsRFPE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Showdown 🔫 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/ChxISXEO0Ic",
+    "video_id": "ChxISXEO0Ic",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "Challenge 🗡️ G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/BqFPRnLnEL0",
+    "video_id": "BqFPRnLnEL0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Trap 🕸️ G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/zbpoDbaUg_w",
+    "video_id": "zbpoDbaUg_w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Revelations 👁️ G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/dtra-VRJ6CY",
+    "video_id": "dtra-VRJ6CY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Duel 🤺 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/BM8DImtHvLg",
+    "video_id": "BM8DImtHvLg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Awards 🏆 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/0CAR4roKdAI",
+    "video_id": "0CAR4roKdAI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "Balance ⚖️ G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/qsayABaP8nc",
+    "video_id": "qsayABaP8nc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "Giant 🗿 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/2jUGhS16ggo",
+    "video_id": "2jUGhS16ggo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "Ice 🧊 G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/9khnNjwsCes",
+    "video_id": "9khnNjwsCes",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Assault ⚔️ G.I. JOE SIGMA 6",
+    "url": "https://www.youtube.com/embed/SkUggL-8Og8",
+    "video_id": "SkUggL-8Og8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "26 eps",
+  "desc": "G.I. Joe: Sigma 6 (2005) — 26 episodes from G.I. JOE - Official Channel.",
+  "rights_basis": "Hasbro's official G.I. Joe YouTube channel posting its own series",
+  "source_channel": "G.I. JOE - Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/2UhrWzo9x_o"
+ },
+ {
+  "id": "stv-73157",
+  "title": "G.I. Joe: A Real American Hero",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The M.A.S.S. Device, Part 1: The Cobra Strikes",
+    "url": "https://www.youtube.com/embed/u4zwZYae72Q",
+    "video_id": "u4zwZYae72Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The M.A.S.S. Device, Part 2: Slave of the Cobra Master",
+    "url": "https://www.youtube.com/embed/lkvo9kDIrGw",
+    "video_id": "lkvo9kDIrGw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "The M.A.S.S. Device, Part 3: The Worms of Death",
+    "url": "https://www.youtube.com/embed/Sq21D9pzd1A",
+    "video_id": "Sq21D9pzd1A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "3 eps",
+  "desc": "The original 1983 G.I. Joe cartoon — 3 episodes available on Hasbro's official channel.",
+  "rights_basis": "Hasbro's official G.I. Joe YouTube channel posting its own series",
+  "source_channel": "G.I. JOE - Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/u4zwZYae72Q"
+ },
+ {
+  "id": "stv-73158",
+  "title": "My Little Pony: Friendship Is Magic",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S1E13 Fall Weather Friends",
+    "url": "https://www.youtube.com/embed/bdJdH-jVKTs",
+    "video_id": "bdJdH-jVKTs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S2E01 The Return of Harmony Part 1",
+    "url": "https://www.youtube.com/embed/XXUufVe40eU",
+    "video_id": "XXUufVe40eU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S2E02 The Return of Harmony Part 2",
+    "url": "https://www.youtube.com/embed/UxldkqbO_Vg",
+    "video_id": "UxldkqbO_Vg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S2E03 Lesson Zero",
+    "url": "https://www.youtube.com/embed/XwV4A3vpYlc",
+    "video_id": "XwV4A3vpYlc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S2E04 Luna Eclipsed",
+    "url": "https://www.youtube.com/embed/cKS7520vc5Y",
+    "video_id": "cKS7520vc5Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S2E05 Sisterhooves Social",
+    "url": "https://www.youtube.com/embed/c_XSw-QWlO0",
+    "video_id": "c_XSw-QWlO0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S2E06 The Cutie Pox",
+    "url": "https://www.youtube.com/embed/LbwtKQdjqP0",
+    "video_id": "LbwtKQdjqP0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S2E07 May the Best Pet Win!",
+    "url": "https://www.youtube.com/embed/lYmOZdEgXbg",
+    "video_id": "lYmOZdEgXbg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S2E08 The Mysterious Mare Do Well",
+    "url": "https://www.youtube.com/embed/R6C0FptWzLw",
+    "video_id": "R6C0FptWzLw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S2E09 Sweet and Elite",
+    "url": "https://www.youtube.com/embed/iH4qUal4Ujo",
+    "video_id": "iH4qUal4Ujo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S2E10 Secret of My Excess",
+    "url": "https://www.youtube.com/embed/_1TmNaGOoU4",
+    "video_id": "_1TmNaGOoU4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S2E11 CHRISTMAS EPISODE Hearth's Warming Eve",
+    "url": "https://www.youtube.com/embed/LzX8V5UErsQ",
+    "video_id": "LzX8V5UErsQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S2E12 Family Appreciation Day",
+    "url": "https://www.youtube.com/embed/1ZMMWJfbsyc",
+    "video_id": "1ZMMWJfbsyc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S2E13 Baby Cakes",
+    "url": "https://www.youtube.com/embed/6riERjkctHY",
+    "video_id": "6riERjkctHY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S2E14 The Last Roundup",
+    "url": "https://www.youtube.com/embed/91ErHtfXApU",
+    "video_id": "91ErHtfXApU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S2E15 The Super Speedy Cider Squeezy 6000",
+    "url": "https://www.youtube.com/embed/EP4skrjnyeg",
+    "video_id": "EP4skrjnyeg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S2E16 Read it and Weep",
+    "url": "https://www.youtube.com/embed/zstxk_7PrDk",
+    "video_id": "zstxk_7PrDk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S2E17 Hearts and Hooves Day",
+    "url": "https://www.youtube.com/embed/q2htht1TouE",
+    "video_id": "q2htht1TouE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S2E18 A Friend in Deed",
+    "url": "https://www.youtube.com/embed/U8LDhmjfZwc",
+    "video_id": "U8LDhmjfZwc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S2E19 Putting Your Hoof Down",
+    "url": "https://www.youtube.com/embed/y4yVh2EXR40",
+    "video_id": "y4yVh2EXR40",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S2E20 It’s About Time",
+    "url": "https://www.youtube.com/embed/y4gpBXHix-o",
+    "video_id": "y4gpBXHix-o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S2E21 Dragon Quest",
+    "url": "https://www.youtube.com/embed/bJVWM5XVGQo",
+    "video_id": "bJVWM5XVGQo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S2E22 Hurricane Fluttershy",
+    "url": "https://www.youtube.com/embed/-xvjii3M6iM",
+    "video_id": "-xvjii3M6iM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S2E23 Ponyville Confidential",
+    "url": "https://www.youtube.com/embed/7mM4tJOuxvg",
+    "video_id": "7mM4tJOuxvg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S2E24 MMMystery on the Friendship Express",
+    "url": "https://www.youtube.com/embed/mztLduCZY6I",
+    "video_id": "mztLduCZY6I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S2E25 A Canterlot Wedding – Part 1",
+    "url": "https://www.youtube.com/embed/Ann10qpcgPg",
+    "video_id": "Ann10qpcgPg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S2E26 A Canterlot Wedding – Part 2",
+    "url": "https://www.youtube.com/embed/7bGAsIoKh_o",
+    "video_id": "7bGAsIoKh_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S3E01 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/MN-gZvjwQ8I",
+    "video_id": "MN-gZvjwQ8I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S3E02 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/He2kGpSG6yo",
+    "video_id": "He2kGpSG6yo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S3E03 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/t8PNXM7MoQM",
+    "video_id": "t8PNXM7MoQM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S3E05 My Little Pony: Friendship is Magic",
+    "url": "https://www.youtube.com/embed/NGdRqp-nLhg",
+    "video_id": "NGdRqp-nLhg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S3E06 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/KcY8-BHoLtg",
+    "video_id": "KcY8-BHoLtg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S3E07 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/B2BzJ92-KCw",
+    "video_id": "B2BzJ92-KCw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S3E08 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/CMPEUmBVmu4",
+    "video_id": "CMPEUmBVmu4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S3E09 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/SPL_nHLo4jg",
+    "video_id": "SPL_nHLo4jg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S3E10 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/K22_9_S1VM4",
+    "video_id": "K22_9_S1VM4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S3E11 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/lUXyrnKddtg",
+    "video_id": "lUXyrnKddtg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S3E12 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/qvjgba3OmVE",
+    "video_id": "qvjgba3OmVE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S3E13 My Little Pony: Friendship is magic",
+    "url": "https://www.youtube.com/embed/j4kSQtS8f1s",
+    "video_id": "j4kSQtS8f1s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S4E01 Princess Twilight Sparkle - Part 1",
+    "url": "https://www.youtube.com/embed/oIQVRs3GG7E",
+    "video_id": "oIQVRs3GG7E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S4E02 Princess Twilight Sparkle - Part 2",
+    "url": "https://www.youtube.com/embed/hXBH9FeLhB0",
+    "video_id": "hXBH9FeLhB0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S4E03 Castle Mane-ia",
+    "url": "https://www.youtube.com/embed/Og20VaIywkA",
+    "video_id": "Og20VaIywkA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S4E04 Daring Don't",
+    "url": "https://www.youtube.com/embed/wq1xKPs2-80",
+    "video_id": "wq1xKPs2-80",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S4E05 Flight to the Finish",
+    "url": "https://www.youtube.com/embed/Rr1Urbz_sBk",
+    "video_id": "Rr1Urbz_sBk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S4E06 Power Ponies",
+    "url": "https://www.youtube.com/embed/wNG7jmYu-NY",
+    "video_id": "wNG7jmYu-NY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S4E07 Bats!",
+    "url": "https://www.youtube.com/embed/0imOmFjP36I",
+    "video_id": "0imOmFjP36I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S4E08 Rarity Takes Manehattan",
+    "url": "https://www.youtube.com/embed/rvByZJTV9uA",
+    "video_id": "rvByZJTV9uA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S4E09 Pinkie Apple Pie",
+    "url": "https://www.youtube.com/embed/ijSbKPRoC5o",
+    "video_id": "ijSbKPRoC5o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S4E10 Rainbow Falls",
+    "url": "https://www.youtube.com/embed/5Vfb3EgzETQ",
+    "video_id": "5Vfb3EgzETQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "S4E11 Pinkie Pride",
+    "url": "https://www.youtube.com/embed/RAiNnDv8yV8",
+    "video_id": "RAiNnDv8yV8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "S4E12 Three's a Crowd",
+    "url": "https://www.youtube.com/embed/fxer5sDxUiA",
+    "video_id": "fxer5sDxUiA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "S4E13 Simple Ways",
+    "url": "https://www.youtube.com/embed/laspjRIJtrQ",
+    "video_id": "laspjRIJtrQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 53,
+    "title": "S4E14 Filli Vanilli",
+    "url": "https://www.youtube.com/embed/NTGIcy_K8lI",
+    "video_id": "NTGIcy_K8lI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 54,
+    "title": "S4E15 Twilight Time",
+    "url": "https://www.youtube.com/embed/TmNr7h6mblI",
+    "video_id": "TmNr7h6mblI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 55,
+    "title": "S4E16 It Ain't Easy Being Breezies",
+    "url": "https://www.youtube.com/embed/hjWuxTpOct4",
+    "video_id": "hjWuxTpOct4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 56,
+    "title": "S4E17 Somepony to Watch Over Me",
+    "url": "https://www.youtube.com/embed/3SrYlQKAUuo",
+    "video_id": "3SrYlQKAUuo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 57,
+    "title": "S4E18 Trade Ya!",
+    "url": "https://www.youtube.com/embed/Fz5Ls2LEv98",
+    "video_id": "Fz5Ls2LEv98",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 58,
+    "title": "S4E19 Maud Pie",
+    "url": "https://www.youtube.com/embed/3QyTjZ2V8k0",
+    "video_id": "3QyTjZ2V8k0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 59,
+    "title": "S4E20 For Whom the Sweetie Bell Toils",
+    "url": "https://www.youtube.com/embed/T13jDO5XcnM",
+    "video_id": "T13jDO5XcnM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 60,
+    "title": "S5E09 Slice of Life",
+    "url": "https://www.youtube.com/embed/MsZvx0uU_rQ",
+    "video_id": "MsZvx0uU_rQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 61,
+    "title": "S6E01 The Crystalling - Part 1",
+    "url": "https://www.youtube.com/embed/jhGRiw2kYkc",
+    "video_id": "jhGRiw2kYkc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 62,
+    "title": "S6E02 The Crystalling - Part 2",
+    "url": "https://www.youtube.com/embed/SCbeNMoY7xc",
+    "video_id": "SCbeNMoY7xc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 63,
+    "title": "S6E03 The Gift of the Maud Pie",
+    "url": "https://www.youtube.com/embed/0m6WWvzoF6E",
+    "video_id": "0m6WWvzoF6E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 64,
+    "title": "S6E04 On Your Marks",
+    "url": "https://www.youtube.com/embed/SRwvOOwdt-4",
+    "video_id": "SRwvOOwdt-4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 65,
+    "title": "S6E05 Gauntlet of Fire",
+    "url": "https://www.youtube.com/embed/tVF2S5vBt08",
+    "video_id": "tVF2S5vBt08",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 66,
+    "title": "S6E06 No Second Prances",
+    "url": "https://www.youtube.com/embed/bp7Nr0o911A",
+    "video_id": "bp7Nr0o911A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 67,
+    "title": "S6E07 Newbie Dash",
+    "url": "https://www.youtube.com/embed/nwVhhmZxY80",
+    "video_id": "nwVhhmZxY80",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 68,
+    "title": "S6E08 A Hearth's Warming Tail",
+    "url": "https://www.youtube.com/embed/jJobc5VsK2s",
+    "video_id": "jJobc5VsK2s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 69,
+    "title": "S6E09 The Saddle Row Review",
+    "url": "https://www.youtube.com/embed/YHp6wHBGUjk",
+    "video_id": "YHp6wHBGUjk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 70,
+    "title": "S6E10 Applejack's Day Off",
+    "url": "https://www.youtube.com/embed/UrR9l7IFkME",
+    "video_id": "UrR9l7IFkME",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 71,
+    "title": "S6E11 Flutter Brutter",
+    "url": "https://www.youtube.com/embed/Qy194L3Cvpg",
+    "video_id": "Qy194L3Cvpg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 72,
+    "title": "S6E12 Spice Up Your Life",
+    "url": "https://www.youtube.com/embed/wHWvZaqx_ls",
+    "video_id": "wHWvZaqx_ls",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 73,
+    "title": "S6E13 Stranger Than Fan Fiction",
+    "url": "https://www.youtube.com/embed/wG_zgilo5ws",
+    "video_id": "wG_zgilo5ws",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 74,
+    "title": "S6E14 The Cart Before the Ponies",
+    "url": "https://www.youtube.com/embed/NLDHnIXBsRM",
+    "video_id": "NLDHnIXBsRM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 75,
+    "title": "S6E15 HALLOWEEN EPISODE 28 Pranks Later",
+    "url": "https://www.youtube.com/embed/SY8KPiCgJn0",
+    "video_id": "SY8KPiCgJn0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 76,
+    "title": "S6E16 The Times They are Changeling",
+    "url": "https://www.youtube.com/embed/SD5tj76Bzu0",
+    "video_id": "SD5tj76Bzu0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 77,
+    "title": "S6E17 Dungeons & Discords",
+    "url": "https://www.youtube.com/embed/KZ-h2ULXguQ",
+    "video_id": "KZ-h2ULXguQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 78,
+    "title": "S6E18 Buckball Season",
+    "url": "https://www.youtube.com/embed/8-L-vGYWiwA",
+    "video_id": "8-L-vGYWiwA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 79,
+    "title": "S6E19 The Fault in Our Cutie Marks",
+    "url": "https://www.youtube.com/embed/IecaL6I3pGA",
+    "video_id": "IecaL6I3pGA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 80,
+    "title": "S6E20 Viva Las Pegasus",
+    "url": "https://www.youtube.com/embed/UHt6F0q2qPU",
+    "video_id": "UHt6F0q2qPU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 81,
+    "title": "S6E21 Every Little Thing She Does",
+    "url": "https://www.youtube.com/embed/G4IKt5YTTq0",
+    "video_id": "G4IKt5YTTq0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 82,
+    "title": "S6E22 P.P.O.V. Pony Point of View",
+    "url": "https://www.youtube.com/embed/NyYGG4P4TCU",
+    "video_id": "NyYGG4P4TCU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 83,
+    "title": "S6E23 Where The Apple Lies",
+    "url": "https://www.youtube.com/embed/B81vN2359fo",
+    "video_id": "B81vN2359fo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 84,
+    "title": "S6E24 Top Bolt",
+    "url": "https://www.youtube.com/embed/oTWH1fR9EwQ",
+    "video_id": "oTWH1fR9EwQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 85,
+    "title": "S6E25 To Where and Back Again - Part 1",
+    "url": "https://www.youtube.com/embed/9imfloegg-o",
+    "video_id": "9imfloegg-o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 86,
+    "title": "S6E26 To Where and Back Again - Part 2",
+    "url": "https://www.youtube.com/embed/Xau6Cf7VoXA",
+    "video_id": "Xau6Cf7VoXA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "86 eps",
+  "desc": "The beloved Hasbro series (2010) — 86 episodes from the official channel, including the complete second and sixth seasons.",
+  "rights_basis": "Hasbro's official My Little Pony YouTube channel posting its own series",
+  "source_channel": "My Little Pony - Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/bdJdH-jVKTs"
+ },
+ {
+  "id": "stv-73159",
+  "title": "Busytown Mysteries",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 2,
+    "title": "The Mystery Wheel / Busytown Blue-Bottoms",
+    "url": "https://www.youtube.com/embed/qscGURkUlLI",
+    "video_id": "qscGURkUlLI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "The Mystery of the Lost Parrot / The Monster Mystery",
+    "url": "https://www.youtube.com/embed/MDtyNvLoHVg",
+    "video_id": "MDtyNvLoHVg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "The Trouble With Bubbles / Little Orphan Egg",
+    "url": "https://www.youtube.com/embed/4Z5N8VeZz6M",
+    "video_id": "4Z5N8VeZz6M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "The Lighthouse Ghost Mystery / Cornfield Confusion",
+    "url": "https://www.youtube.com/embed/zWBEAwFb41w",
+    "video_id": "zWBEAwFb41w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "The Sticky Stuff Mystery / Up, Up and Away",
+    "url": "https://www.youtube.com/embed/9U-ImrjBo-A",
+    "video_id": "9U-ImrjBo-A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Six Little Muffins / The Crashing Cans Mystery",
+    "url": "https://www.youtube.com/embed/GwN1TikUrok",
+    "video_id": "GwN1TikUrok",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "The Invisible Cake Snatcher / On the Move",
+    "url": "https://www.youtube.com/embed/Zo5ESTkuodM",
+    "video_id": "Zo5ESTkuodM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Litterbug Busters / There Might Be Giants",
+    "url": "https://www.youtube.com/embed/MdMJ8vGZ0GQ",
+    "video_id": "MdMJ8vGZ0GQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Where's Junior? / The Secret Club Mystery",
+    "url": "https://www.youtube.com/embed/fCMFFIRNX-U",
+    "video_id": "fCMFFIRNX-U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "The Playground Mystery/The Crazy Clock Mix-Up Mystery",
+    "url": "https://www.youtube.com/embed/caYOyP-BaTE",
+    "video_id": "caYOyP-BaTE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "The Cheese Car Chomp Mystery / Where's the Hero?",
+    "url": "https://www.youtube.com/embed/TzZxFm7_BUY",
+    "video_id": "TzZxFm7_BUY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "The Mystery of the Unbreakable Bread / The Twisty Line Mystery",
+    "url": "https://www.youtube.com/embed/n9AxK4dChyo",
+    "video_id": "n9AxK4dChyo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Chain of Mysteries / The Mystery of the Unfinished Painting",
+    "url": "https://www.youtube.com/embed/ZDi1sVhPU9Q",
+    "video_id": "ZDi1sVhPU9Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "13 eps",
+  "desc": "Busytown Mysteries (2009) — 13 episodes from WildBrain Kids.",
+  "rights_basis": "WildBrain's flagship official channel; WildBrain (incl. the DHX/Cookie Jar library) is the rights holder/distributor for these series",
+  "source_channel": "WildBrain Kids",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/qscGURkUlLI"
+ },
+ {
+  "id": "stv-73160",
+  "title": "The Country Mouse and the City Mouse Adventures",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Mouse-tache Marauder",
+    "url": "https://www.youtube.com/embed/oue_a_mB5yA",
+    "video_id": "oue_a_mB5yA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The Case of the Disappearing Diamond",
+    "url": "https://www.youtube.com/embed/dgcbqgU1Dic",
+    "video_id": "dgcbqgU1Dic",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Strauss Mauss",
+    "url": "https://www.youtube.com/embed/AjW8-aTDEME",
+    "video_id": "AjW8-aTDEME",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Those Amazing Mice in their Flying Machines",
+    "url": "https://www.youtube.com/embed/TeuhuQJpUw8",
+    "video_id": "TeuhuQJpUw8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Frisco Rumble",
+    "url": "https://www.youtube.com/embed/eGBKEpuAB6o",
+    "video_id": "eGBKEpuAB6o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "To Catch a Tiger by the Tail",
+    "url": "https://www.youtube.com/embed/7oOUCeAi-7w",
+    "video_id": "7oOUCeAi-7w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "The Mouse-o-taur",
+    "url": "https://www.youtube.com/embed/cLCxEwZ_E3k",
+    "video_id": "cLCxEwZ_E3k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Adventure on the Orient Express!",
+    "url": "https://www.youtube.com/embed/AkTppqj9kxM",
+    "video_id": "AkTppqj9kxM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Swiss Chocolate Mouse",
+    "url": "https://www.youtube.com/embed/DN_hF3fmJss",
+    "video_id": "DN_hF3fmJss",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "9 eps",
+  "desc": "The Country Mouse and the City Mouse Adventures (1997) — 9 episodes from WildBrain Kids.",
+  "rights_basis": "WildBrain's flagship official channel; WildBrain (incl. the DHX/Cookie Jar library) is the rights holder/distributor for these series",
+  "source_channel": "WildBrain Kids",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/oue_a_mB5yA"
+ },
+ {
+  "id": "stv-73161",
+  "title": "Rev & Roll",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Green Phantom / Over Easy Does It",
+    "url": "https://www.youtube.com/embed/HQTDHP8Dm18",
+    "video_id": "HQTDHP8Dm18",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The Crystal Cavern / Monster Truck",
+    "url": "https://www.youtube.com/embed/13QwntDEf2w",
+    "video_id": "13QwntDEf2w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Anything You Can Do /A Very Avery Day",
+    "url": "https://www.youtube.com/embed/JfUTSpETxfA",
+    "video_id": "JfUTSpETxfA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Winter Bestival/The Mystery of the Missing Trees",
+    "url": "https://www.youtube.com/embed/ny7FRVL3sRA",
+    "video_id": "ny7FRVL3sRA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "The Wild Wheelin’ Stunt Park",
+    "url": "https://www.youtube.com/embed/NCqMTGigsig",
+    "video_id": "NCqMTGigsig",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Bad Luck Truck / Rev it to the Max",
+    "url": "https://www.youtube.com/embed/RHCGrifRkM8",
+    "video_id": "RHCGrifRkM8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Puppy Love /Fair Weather Ferry",
+    "url": "https://www.youtube.com/embed/XnMINvuRhZU",
+    "video_id": "XnMINvuRhZU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Bumper Ball - Vroom with a View",
+    "url": "https://www.youtube.com/embed/S6tmv5Zw9QA",
+    "video_id": "S6tmv5Zw9QA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Tuff McTruck Trail - Lori’s Talent",
+    "url": "https://www.youtube.com/embed/oi2IsqXy3_g",
+    "video_id": "oi2IsqXy3_g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "The Camping Trip - Like Father Like Son",
+    "url": "https://www.youtube.com/embed/ViSMcvYXmvA",
+    "video_id": "ViSMcvYXmvA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Operation Rescue - Colossal Fossil",
+    "url": "https://www.youtube.com/embed/gm2Yk7bZ75I",
+    "video_id": "gm2Yk7bZ75I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "A Gift for Molly - Lights, Camera, Action!",
+    "url": "https://www.youtube.com/embed/oyTw3hGMqCU",
+    "video_id": "oyTw3hGMqCU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Hide & Go Bentley - T’was the Trek Before Christmas",
+    "url": "https://www.youtube.com/embed/3LQTYw_zadc",
+    "video_id": "3LQTYw_zadc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "",
+    "url": "https://www.youtube.com/embed/7fR8nwRJO6Q",
+    "video_id": "7fR8nwRJO6Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "",
+    "url": "https://www.youtube.com/embed/MBdSLWVDU04",
+    "video_id": "MBdSLWVDU04",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "",
+    "url": "https://www.youtube.com/embed/ASWpjHBPgS0",
+    "video_id": "ASWpjHBPgS0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "",
+    "url": "https://www.youtube.com/embed/j_DfNCByzl4",
+    "video_id": "j_DfNCByzl4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "",
+    "url": "https://www.youtube.com/embed/RHrDrgwHVb4",
+    "video_id": "RHrDrgwHVb4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "",
+    "url": "https://www.youtube.com/embed/_KWWQ7QqxPk",
+    "video_id": "_KWWQ7QqxPk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "",
+    "url": "https://www.youtube.com/embed/PIgDUc3j_KM",
+    "video_id": "PIgDUc3j_KM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "20 eps",
+  "desc": "Rev & Roll (2019) — 20 episodes from WildBrain Kids.",
+  "rights_basis": "WildBrain's flagship official channel; WildBrain (incl. the DHX/Cookie Jar library) is the rights holder/distributor for these series",
+  "source_channel": "WildBrain Kids",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/HQTDHP8Dm18"
+ },
+ {
+  "id": "stv-73162",
+  "title": "Space Ranger Roger",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Roger's Shoe Business and Roger",
+    "url": "https://www.youtube.com/embed/aInaTutClTQ",
+    "video_id": "aInaTutClTQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "The Runaway Drum Bot",
+    "url": "https://www.youtube.com/embed/LRZiEKNEjNA",
+    "video_id": "LRZiEKNEjNA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Roger Sticks the Landing",
+    "url": "https://www.youtube.com/embed/Z0VRYcAzC7s",
+    "video_id": "Z0VRYcAzC7s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Roger's Soccer Shock",
+    "url": "https://www.youtube.com/embed/zSmoPDVVPgQ",
+    "video_id": "zSmoPDVVPgQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Roger Horses Around",
+    "url": "https://www.youtube.com/embed/VmH5bhr0ECg",
+    "video_id": "VmH5bhr0ECg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Roger's Dinosaur Disorder",
+    "url": "https://www.youtube.com/embed/N8_Y5G2LC1c",
+    "video_id": "N8_Y5G2LC1c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Roger's Bubble Trouble",
+    "url": "https://www.youtube.com/embed/qAmDjf5B7EE",
+    "video_id": "qAmDjf5B7EE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Roger's Ranger Rescue",
+    "url": "https://www.youtube.com/embed/fl4baYd0kbI",
+    "video_id": "fl4baYd0kbI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Sky High Roger",
+    "url": "https://www.youtube.com/embed/AOAjSE6KOt8",
+    "video_id": "AOAjSE6KOt8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Roger's Mouse Bot Mayhem",
+    "url": "https://www.youtube.com/embed/5-3CGOlBFcA",
+    "video_id": "5-3CGOlBFcA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Roger and the Beanstalk",
+    "url": "https://www.youtube.com/embed/mX8QU5r4dS0",
+    "video_id": "mX8QU5r4dS0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "11 eps",
+  "desc": "Space Ranger Roger (2017) — 11 episodes from WildBrain Kids.",
+  "rights_basis": "WildBrain's flagship official channel; WildBrain (incl. the DHX/Cookie Jar library) is the rights holder/distributor for these series",
+  "source_channel": "WildBrain Kids",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/aInaTutClTQ"
+ },
+ {
+  "id": "stv-73163",
+  "title": "Mr Bean: The Animated Series",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "In The Wild",
+    "url": "https://www.youtube.com/embed/tbfP0eMQfSE",
+    "video_id": "tbfP0eMQfSE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Missing Teddy",
+    "url": "https://www.youtube.com/embed/cQP-UZbRMFk",
+    "video_id": "cQP-UZbRMFk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "No Parking",
+    "url": "https://www.youtube.com/embed/8hwBnTOpqZw",
+    "video_id": "8hwBnTOpqZw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Bean's Bounty",
+    "url": "https://www.youtube.com/embed/GZ2rJ6aNQaI",
+    "video_id": "GZ2rJ6aNQaI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Mime Games",
+    "url": "https://www.youtube.com/embed/SOItwtXxP-E",
+    "video_id": "SOItwtXxP-E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Mr Bean Spring Clean",
+    "url": "https://www.youtube.com/embed/NDCXpcO-MQ4",
+    "video_id": "NDCXpcO-MQ4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Birthday Bear",
+    "url": "https://www.youtube.com/embed/LDgKMX9U1tg",
+    "video_id": "LDgKMX9U1tg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "The Mole",
+    "url": "https://www.youtube.com/embed/ty_ReyZAK_0",
+    "video_id": "ty_ReyZAK_0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "The Sofa",
+    "url": "https://www.youtube.com/embed/GQY79pcMJnE",
+    "video_id": "GQY79pcMJnE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Roadworks",
+    "url": "https://www.youtube.com/embed/W9suBMVysz8",
+    "video_id": "W9suBMVysz8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Treasure",
+    "url": "https://www.youtube.com/embed/gxQWaeI91l0",
+    "video_id": "gxQWaeI91l0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Homeless",
+    "url": "https://www.youtube.com/embed/XKQUK4HhMSk",
+    "video_id": "XKQUK4HhMSk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Nurse Videos For Kids",
+    "url": "https://www.youtube.com/embed/OsbBsMG8IkA",
+    "video_id": "OsbBsMG8IkA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Dead Cat",
+    "url": "https://www.youtube.com/embed/Qgc4eHoYakU",
+    "video_id": "Qgc4eHoYakU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "Super Trolley",
+    "url": "https://www.youtube.com/embed/kJN6gQOJ7-Y",
+    "video_id": "kJN6gQOJ7-Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Magpie",
+    "url": "https://www.youtube.com/embed/ttO-ioMgrFY",
+    "video_id": "ttO-ioMgrFY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Cat-Sitting",
+    "url": "https://www.youtube.com/embed/oJg5KTMQ8E4",
+    "video_id": "oJg5KTMQ8E4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "Bottle",
+    "url": "https://www.youtube.com/embed/Z7V59jzAhXg",
+    "video_id": "Z7V59jzAhXg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Goldfish",
+    "url": "https://www.youtube.com/embed/9tb4tKbJR5k",
+    "video_id": "9tb4tKbJR5k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Inventor",
+    "url": "https://www.youtube.com/embed/Hy6BkxX_Y-A",
+    "video_id": "Hy6BkxX_Y-A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Royal Bean",
+    "url": "https://www.youtube.com/embed/9y4YQnTpANI",
+    "video_id": "9y4YQnTpANI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Young Bean",
+    "url": "https://www.youtube.com/embed/IdcUFBZ5Dfw",
+    "video_id": "IdcUFBZ5Dfw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "In The Pink",
+    "url": "https://www.youtube.com/embed/NFXKjNwPtyo",
+    "video_id": "NFXKjNwPtyo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "Dinner for Two",
+    "url": "https://www.youtube.com/embed/3Fcvd6dbJ7o",
+    "video_id": "3Fcvd6dbJ7o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "The Ball",
+    "url": "https://www.youtube.com/embed/VnDtxs-9A60",
+    "video_id": "VnDtxs-9A60",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Toothache",
+    "url": "https://www.youtube.com/embed/5H-o6aQhPek",
+    "video_id": "5H-o6aQhPek",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "Haircut",
+    "url": "https://www.youtube.com/embed/OM9hR5Vb-zY",
+    "video_id": "OM9hR5Vb-zY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "Neighbourly Bean",
+    "url": "https://www.youtube.com/embed/6dXo_d-gJfY",
+    "video_id": "6dXo_d-gJfY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "Car Trouble",
+    "url": "https://www.youtube.com/embed/eU5FdpX0oiM",
+    "video_id": "eU5FdpX0oiM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "Restaurant",
+    "url": "https://www.youtube.com/embed/fFezZmXDrQg",
+    "video_id": "fFezZmXDrQg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "Art Thief",
+    "url": "https://www.youtube.com/embed/d0NBUGFUkB0",
+    "video_id": "d0NBUGFUkB0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "Scaredy Bean",
+    "url": "https://www.youtube.com/embed/PRlf7jqm57o",
+    "video_id": "PRlf7jqm57o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "Hot Date",
+    "url": "https://www.youtube.com/embed/hpssIOVUikM",
+    "video_id": "hpssIOVUikM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "Gadget Kid",
+    "url": "https://www.youtube.com/embed/yrLqhCWR908",
+    "video_id": "yrLqhCWR908",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "The Visitor",
+    "url": "https://www.youtube.com/embed/gISS_LtEhGI",
+    "video_id": "gISS_LtEhGI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "Big Tv",
+    "url": "https://www.youtube.com/embed/rTzNzJTwzWk",
+    "video_id": "rTzNzJTwzWk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "Keyboard Capers",
+    "url": "https://www.youtube.com/embed/qspggHKR_4Y",
+    "video_id": "qspggHKR_4Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "Artful Bean",
+    "url": "https://www.youtube.com/embed/EJlds3xRwYI",
+    "video_id": "EJlds3xRwYI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "The Fly",
+    "url": "https://www.youtube.com/embed/l4CUAKsHOlo",
+    "video_id": "l4CUAKsHOlo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "A Royal Makeover",
+    "url": "https://www.youtube.com/embed/KjSbaXppJ2w",
+    "video_id": "KjSbaXppJ2w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "Super Marrow",
+    "url": "https://www.youtube.com/embed/FLrYNVAgqSU",
+    "video_id": "FLrYNVAgqSU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "A Running Battle",
+    "url": "https://www.youtube.com/embed/7-cmxYckBuE",
+    "video_id": "7-cmxYckBuE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "Egg And Bean",
+    "url": "https://www.youtube.com/embed/eYC-SW7LiJE",
+    "video_id": "eYC-SW7LiJE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "Camping",
+    "url": "https://www.youtube.com/embed/e2namaT9khI",
+    "video_id": "e2namaT9khI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "Chocks Away",
+    "url": "https://www.youtube.com/embed/DlMeZG8YDec",
+    "video_id": "DlMeZG8YDec",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "Hopping Mad",
+    "url": "https://www.youtube.com/embed/Q-iM0n631Hc",
+    "video_id": "Q-iM0n631Hc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "A Grand Invitation",
+    "url": "https://www.youtube.com/embed/-uTces_mAwU",
+    "video_id": "-uTces_mAwU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "No Pets",
+    "url": "https://www.youtube.com/embed/7EY6AQCtt9I",
+    "video_id": "7EY6AQCtt9I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "Ray Of Sunshine",
+    "url": "https://www.youtube.com/embed/pRelS_IXQCw",
+    "video_id": "pRelS_IXQCw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "Bean In Love",
+    "url": "https://www.youtube.com/embed/ZgwZa5X-pe0",
+    "video_id": "ZgwZa5X-pe0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "Double Trouble",
+    "url": "https://www.youtube.com/embed/KehlqRhYTbI",
+    "video_id": "KehlqRhYTbI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "Bored Bean",
+    "url": "https://www.youtube.com/embed/IyhSSMQQ2eo",
+    "video_id": "IyhSSMQQ2eo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 53,
+    "title": "Stolen Teddy",
+    "url": "https://www.youtube.com/embed/dqJyBE96dX0",
+    "video_id": "dqJyBE96dX0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 54,
+    "title": "Ticket For Bean",
+    "url": "https://www.youtube.com/embed/TnAgoiUdVA8",
+    "video_id": "TnAgoiUdVA8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 55,
+    "title": "Home Movie",
+    "url": "https://www.youtube.com/embed/o33bF_iI8_4",
+    "video_id": "o33bF_iI8_4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 56,
+    "title": "Fish Sitting",
+    "url": "https://www.youtube.com/embed/Zs-Iiqu3rk0",
+    "video_id": "Zs-Iiqu3rk0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 57,
+    "title": "The Cruise",
+    "url": "https://www.youtube.com/embed/B9O20gNc5x8",
+    "video_id": "B9O20gNc5x8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 58,
+    "title": "Coconut Shy",
+    "url": "https://www.youtube.com/embed/kH9suLm01Sk",
+    "video_id": "kH9suLm01Sk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 59,
+    "title": "Holiday For Teddy",
+    "url": "https://www.youtube.com/embed/eAg1E4-0KsE",
+    "video_id": "eAg1E4-0KsE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 60,
+    "title": "Green Bean",
+    "url": "https://www.youtube.com/embed/EB_RAIfyu3o",
+    "video_id": "EB_RAIfyu3o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 61,
+    "title": "Cash Machine",
+    "url": "https://www.youtube.com/embed/PHStuIj6HsI",
+    "video_id": "PHStuIj6HsI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 62,
+    "title": "Litterbugs",
+    "url": "https://www.youtube.com/embed/eAM_1EDAr38",
+    "video_id": "eAM_1EDAr38",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 63,
+    "title": "Rat Trap",
+    "url": "https://www.youtube.com/embed/HWt4QFeFY_o",
+    "video_id": "HWt4QFeFY_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 64,
+    "title": "Valentine's Bean",
+    "url": "https://www.youtube.com/embed/OU9ypub5pm8",
+    "video_id": "OU9ypub5pm8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 65,
+    "title": "All You Can Eat",
+    "url": "https://www.youtube.com/embed/TPUIrhiCBQM",
+    "video_id": "TPUIrhiCBQM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 66,
+    "title": "Flat Pack",
+    "url": "https://www.youtube.com/embed/d6SMUK-LAME",
+    "video_id": "d6SMUK-LAME",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 67,
+    "title": "The Newspaper",
+    "url": "https://www.youtube.com/embed/lSP5hg7H7XI",
+    "video_id": "lSP5hg7H7XI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 68,
+    "title": "Viral Bean",
+    "url": "https://www.youtube.com/embed/XZ5JOufli0U",
+    "video_id": "XZ5JOufli0U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 69,
+    "title": "Bean Makes New Friends",
+    "url": "https://www.youtube.com/embed/t0RLk9xqFcc",
+    "video_id": "t0RLk9xqFcc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 70,
+    "title": "Cruise Trip",
+    "url": "https://www.youtube.com/embed/KZp_EP6tg_k",
+    "video_id": "KZp_EP6tg_k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 71,
+    "title": "Gardening Competition",
+    "url": "https://www.youtube.com/embed/Y9N-NLqthqQ",
+    "video_id": "Y9N-NLqthqQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 72,
+    "title": "Mighty Bean",
+    "url": "https://www.youtube.com/embed/KZczJkBEEQY",
+    "video_id": "KZczJkBEEQY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "72 eps",
+  "desc": "Rowan Atkinson's Mr Bean in animated form (2002) — 72 episodes via WildBrain's official channel.",
+  "rights_basis": "Posted on WildBrain's flagship channel (WildBrain handles the series' YouTube distribution); Mr Bean IP: Tiger Aspect / Banijay",
+  "source_channel": "WildBrain Kids",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/tbfP0eMQfSE"
+ },
+ {
+  "id": "stv-73164",
+  "title": "Joe 90",
+  "genre": "Family",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Most Special Agent",
+    "url": "https://www.youtube.com/embed/z3Jkx_4irMg",
+    "video_id": "z3Jkx_4irMg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Most Special Astronaut",
+    "url": "https://www.youtube.com/embed/rtZj5wINLHc",
+    "video_id": "rtZj5wINLHc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Project 90",
+    "url": "https://www.youtube.com/embed/o2DZTDiYWXY",
+    "video_id": "o2DZTDiYWXY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Hi-Jacked",
+    "url": "https://www.youtube.com/embed/pSFEJRWm-nY",
+    "video_id": "pSFEJRWm-nY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Colonel McClaine",
+    "url": "https://www.youtube.com/embed/4eMFSe8OOo0",
+    "video_id": "4eMFSe8OOo0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "The Fortress",
+    "url": "https://www.youtube.com/embed/8F4PK-GLBXk",
+    "video_id": "8F4PK-GLBXk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "King For A Day",
+    "url": "https://www.youtube.com/embed/68-zQDWktd8",
+    "video_id": "68-zQDWktd8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "International Concerto",
+    "url": "https://www.youtube.com/embed/tpCEL5XkJ20",
+    "video_id": "tpCEL5XkJ20",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Splashdown",
+    "url": "https://www.youtube.com/embed/5EX65Z7oVyg",
+    "video_id": "5EX65Z7oVyg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Big Fish",
+    "url": "https://www.youtube.com/embed/5aWkaG_fHu8",
+    "video_id": "5aWkaG_fHu8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Relative Danger",
+    "url": "https://www.youtube.com/embed/_sHO8I7wIqY",
+    "video_id": "_sHO8I7wIqY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "Operation McClaine",
+    "url": "https://www.youtube.com/embed/1PvWp5t9Wj0",
+    "video_id": "1PvWp5t9Wj0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "The Unorthodox Shepherd",
+    "url": "https://www.youtube.com/embed/ruy6aBqz3IE",
+    "video_id": "ruy6aBqz3IE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Business Holiday",
+    "url": "https://www.youtube.com/embed/awyc_Sdc8hE",
+    "video_id": "awyc_Sdc8hE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "Arctic Adventure",
+    "url": "https://www.youtube.com/embed/Yx8OpM2uKsE",
+    "video_id": "Yx8OpM2uKsE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Double Agent",
+    "url": "https://www.youtube.com/embed/pMRNKMrrgy0",
+    "video_id": "pMRNKMrrgy0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Three's A Crowd",
+    "url": "https://www.youtube.com/embed/9GeYQEzDw6U",
+    "video_id": "9GeYQEzDw6U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "The Professional",
+    "url": "https://www.youtube.com/embed/1HhvR7kxyqc",
+    "video_id": "1HhvR7kxyqc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "The Race",
+    "url": "https://www.youtube.com/embed/KDmeZ15TbOY",
+    "video_id": "KDmeZ15TbOY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "Talkdown",
+    "url": "https://www.youtube.com/embed/ZrSx4F56f4s",
+    "video_id": "ZrSx4F56f4s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Breakout",
+    "url": "https://www.youtube.com/embed/o-Zb64kJse4",
+    "video_id": "o-Zb64kJse4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Child Of The Sun God",
+    "url": "https://www.youtube.com/embed/8esEgYkzRc0",
+    "video_id": "8esEgYkzRc0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "See You Down There",
+    "url": "https://www.youtube.com/embed/khZpugM5ww0",
+    "video_id": "khZpugM5ww0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "Lone-Handed 90",
+    "url": "https://www.youtube.com/embed/jDUBFtgrvjQ",
+    "video_id": "jDUBFtgrvjQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "Attack Of The Tiger",
+    "url": "https://www.youtube.com/embed/9ZDRVHjb4bo",
+    "video_id": "9ZDRVHjb4bo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Viva Cordova",
+    "url": "https://www.youtube.com/embed/EQZltsMA2ik",
+    "video_id": "EQZltsMA2ik",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "Mission X-41",
+    "url": "https://www.youtube.com/embed/YeeTFFdn93I",
+    "video_id": "YeeTFFdn93I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "Test Flight",
+    "url": "https://www.youtube.com/embed/Xbrx3CV3-yU",
+    "video_id": "Xbrx3CV3-yU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "Trial At Sea",
+    "url": "https://www.youtube.com/embed/IdKiLxkxK7k",
+    "video_id": "IdKiLxkxK7k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "The Birthday",
+    "url": "https://www.youtube.com/embed/0px7w8PYbYU",
+    "video_id": "0px7w8PYbYU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "30 eps",
+  "desc": "Gerry Anderson's Supermarionation adventure (1968) — the complete 30-episode series, from Shout! Studios.",
+  "rights_basis": "Shout! Studios (Shout! Factory) official channel; licensed Gerry Anderson / ITV catalog distributor",
+  "source_channel": "Shout! Studios",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/z3Jkx_4irMg"
+ },
+ {
+  "id": "stv-73165",
+  "title": "Bartender",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bartender",
+    "url": "https://www.youtube.com/embed/j9G0Vb-mdtI",
+    "video_id": "j9G0Vb-mdtI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Menu Of The Heart",
+    "url": "https://www.youtube.com/embed/pqBV4Cak6Q8",
+    "video_id": "pqBV4Cak6Q8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Glass Of Regret",
+    "url": "https://www.youtube.com/embed/7PFhK34ItI4",
+    "video_id": "7PFhK34ItI4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Amber Dream",
+    "url": "https://www.youtube.com/embed/7yv1a2f7vhw",
+    "video_id": "7yv1a2f7vhw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Things Forgotten In A Bar",
+    "url": "https://www.youtube.com/embed/WYO5-haNEL8",
+    "video_id": "WYO5-haNEL8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "The Story Inside The Glass",
+    "url": "https://www.youtube.com/embed/Kxsf7363ELc",
+    "video_id": "Kxsf7363ELc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "Closed Day For The Bar",
+    "url": "https://www.youtube.com/embed/4hQJLyMAuS4",
+    "video_id": "4hQJLyMAuS4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "The Lie At The Counter",
+    "url": "https://www.youtube.com/embed/KFm6zowWyBk",
+    "video_id": "KFm6zowWyBk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "The Bar's Face",
+    "url": "https://www.youtube.com/embed/CgzpYletAJo",
+    "video_id": "CgzpYletAJo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "Christmas Miracle",
+    "url": "https://www.youtube.com/embed/BpMihvHofUg",
+    "video_id": "BpMihvHofUg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Water Of Life",
+    "url": "https://www.youtube.com/embed/Lys_JdZi8GQ",
+    "video_id": "Lys_JdZi8GQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "11 eps",
+  "desc": "Bartender (2006) — 11 episodes from Shout! Studios.",
+  "rights_basis": "Shout! Studios (Shout! Factory) official channel; North American home-video licensor of the series",
+  "source_channel": "Shout! Studios",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/j9G0Vb-mdtI"
+ },
+ {
+  "id": "stv-73166",
+  "title": "Fearless (2017)",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Episode 1",
+    "url": "https://www.youtube.com/embed/RStwoePiJkI",
+    "video_id": "RStwoePiJkI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Episode 2",
+    "url": "https://www.youtube.com/embed/vx7Zh5x7smw",
+    "video_id": "vx7Zh5x7smw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Episode 3",
+    "url": "https://www.youtube.com/embed/LzwwsNr6r28",
+    "video_id": "LzwwsNr6r28",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Episode 4",
+    "url": "https://www.youtube.com/embed/4t0suABWCOM",
+    "video_id": "4t0suABWCOM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Episode 5",
+    "url": "https://www.youtube.com/embed/X8j1skbul4A",
+    "video_id": "X8j1skbul4A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Episode 6",
+    "url": "https://www.youtube.com/embed/Yk5tzEBLlMY",
+    "video_id": "Yk5tzEBLlMY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "6 eps",
+  "desc": "Fearless (2017) — 6 episodes from Shout! Studios.",
+  "rights_basis": "Shout! Studios (Shout! Factory) official channel; licensed distributor (ITV Studios drama)",
+  "source_channel": "Shout! Studios",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/RStwoePiJkI"
+ },
+ {
+  "id": "stv-73167",
+  "title": "Pee-wee's Playhouse",
+  "genre": "Family",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ice Cream Soup",
+    "url": "https://www.youtube.com/embed/3KIvxIQA9jk",
+    "video_id": "3KIvxIQA9jk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Luau For Two",
+    "url": "https://www.youtube.com/embed/qrxCNWC-E3E",
+    "video_id": "qrxCNWC-E3E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Rainy Day",
+    "url": "https://www.youtube.com/embed/5twfZCshGIk",
+    "video_id": "5twfZCshGIk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Now You See Me, Now You Don't",
+    "url": "https://www.youtube.com/embed/vl78aBrswQk",
+    "video_id": "vl78aBrswQk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Just Another Day",
+    "url": "https://www.youtube.com/embed/IHiiwxwIvik",
+    "video_id": "IHiiwxwIvik",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Beauty Makeover",
+    "url": "https://www.youtube.com/embed/ZQn198Xfpdc",
+    "video_id": "ZQn198Xfpdc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "The Restaurant",
+    "url": "https://www.youtube.com/embed/vkm9AEaY6Lg",
+    "video_id": "vkm9AEaY6Lg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "Ants In Your Pants",
+    "url": "https://www.youtube.com/embed/Ta2Ux223qPI",
+    "video_id": "Ta2Ux223qPI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Monster In The Playhouse",
+    "url": "https://www.youtube.com/embed/5Z9MZzChS24",
+    "video_id": "5Z9MZzChS24",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "The Cowboy And The Cowntess",
+    "url": "https://www.youtube.com/embed/5r62iD7RXc8",
+    "video_id": "5r62iD7RXc8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "Stolen Apples",
+    "url": "https://www.youtube.com/embed/lLD2d3jrQn0",
+    "video_id": "lLD2d3jrQn0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "The Gang's All Here",
+    "url": "https://www.youtube.com/embed/yWQNtJen70c",
+    "video_id": "yWQNtJen70c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "Party",
+    "url": "https://www.youtube.com/embed/q3k0DmSsWaE",
+    "video_id": "q3k0DmSsWaE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "Open House",
+    "url": "https://www.youtube.com/embed/_JM8QptHsk4",
+    "video_id": "_JM8QptHsk4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "Puppy In The Playhouse",
+    "url": "https://www.youtube.com/embed/iEgv1K7nPCM",
+    "video_id": "iEgv1K7nPCM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "Store",
+    "url": "https://www.youtube.com/embed/yxzfs7SgyLY",
+    "video_id": "yxzfs7SgyLY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "Pee-wee Catches A Cold",
+    "url": "https://www.youtube.com/embed/DmoEZgildEM",
+    "video_id": "DmoEZgildEM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "Why Wasn't I Invited?",
+    "url": "https://www.youtube.com/embed/S-1ZCb2qrZU",
+    "video_id": "S-1ZCb2qrZU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "Tons Of Fun",
+    "url": "https://www.youtube.com/embed/n3B8UxwsWUw",
+    "video_id": "n3B8UxwsWUw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "School",
+    "url": "https://www.youtube.com/embed/W8MiloZRPzw",
+    "video_id": "W8MiloZRPzw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "Spring",
+    "url": "https://www.youtube.com/embed/uisPgrcLOGA",
+    "video_id": "uisPgrcLOGA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "Playhouse In Outer Space",
+    "url": "https://www.youtube.com/embed/BBQRM3vZJto",
+    "video_id": "BBQRM3vZJto",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "Pajama Party",
+    "url": "https://www.youtube.com/embed/yw5Zm9tIE-M",
+    "video_id": "yw5Zm9tIE-M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "Reba Eats And Pterri Runs",
+    "url": "https://www.youtube.com/embed/5eOGgxEw2y0",
+    "video_id": "5eOGgxEw2y0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "To Tell The Tooth",
+    "url": "https://www.youtube.com/embed/gukyRP9yKj0",
+    "video_id": "gukyRP9yKj0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "Dr. Pee-wee And The Del Rubios",
+    "url": "https://www.youtube.com/embed/5PmK4wYfaUI",
+    "video_id": "5PmK4wYfaUI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "Fire In The Playhouse",
+    "url": "https://www.youtube.com/embed/EMLll1qpfFI",
+    "video_id": "EMLll1qpfFI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "Love That Story",
+    "url": "https://www.youtube.com/embed/_ZZq8-ZgEcM",
+    "video_id": "_ZZq8-ZgEcM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "Sick, Did Somebody Say Sick?",
+    "url": "https://www.youtube.com/embed/t3l4AgCYXDA",
+    "video_id": "t3l4AgCYXDA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "Miss Yvonne's Visit",
+    "url": "https://www.youtube.com/embed/-EPjdUbJq28",
+    "video_id": "-EPjdUbJq28",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "Rebarella",
+    "url": "https://www.youtube.com/embed/nmN9gbkJul4",
+    "video_id": "nmN9gbkJul4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "Heat Wave",
+    "url": "https://www.youtube.com/embed/J_Dy9CIXlpQ",
+    "video_id": "J_Dy9CIXlpQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "Chairry-Tee Drive",
+    "url": "https://www.youtube.com/embed/UrUqF1IjUR8",
+    "video_id": "UrUqF1IjUR8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "Let's Play Office",
+    "url": "https://www.youtube.com/embed/5pZB6zU7lqg",
+    "video_id": "5pZB6zU7lqg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "I Remember Curtis",
+    "url": "https://www.youtube.com/embed/EdOJ9N5X22Q",
+    "video_id": "EdOJ9N5X22Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "Conky's Breakdown",
+    "url": "https://www.youtube.com/embed/hUxYitgcD4Q",
+    "video_id": "hUxYitgcD4Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "Mystery",
+    "url": "https://www.youtube.com/embed/7uGAoqbFWy8",
+    "video_id": "7uGAoqbFWy8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "Front Page Pee-wee",
+    "url": "https://www.youtube.com/embed/9uXVAoY6wTw",
+    "video_id": "9uXVAoY6wTw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "Tango Time",
+    "url": "https://www.youtube.com/embed/Hp0ZA4dSChM",
+    "video_id": "Hp0ZA4dSChM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "Playhouse Day",
+    "url": "https://www.youtube.com/embed/Vs7ZShcv07A",
+    "video_id": "Vs7ZShcv07A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "Accidental Playhouse",
+    "url": "https://www.youtube.com/embed/r_s7990fftM",
+    "video_id": "r_s7990fftM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "Fun, Fun, Fun",
+    "url": "https://www.youtube.com/embed/ms1BIbNKeuE",
+    "video_id": "ms1BIbNKeuE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "Camping Out",
+    "url": "https://www.youtube.com/embed/UsIjN1aCKVI",
+    "video_id": "UsIjN1aCKVI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "Something To Do",
+    "url": "https://www.youtube.com/embed/mIlt8Ry8IxE",
+    "video_id": "mIlt8Ry8IxE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "Playhouse For Sale",
+    "url": "https://www.youtube.com/embed/HAtWO8EMOwE",
+    "video_id": "HAtWO8EMOwE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "45 eps",
+  "desc": "Paul Reubens' classic Saturday-morning show (1986) — the complete 45-episode run, from Shout! Studios.",
+  "rights_basis": "Shout! Studios (Shout! Factory) official channel; licensed distributor of the series",
+  "source_channel": "Shout! Studios",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/3KIvxIQA9jk"
+ },
+ {
+  "id": "stv-73168",
+  "title": "Sapphire & Steel",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Escape Through A Crack In Time – Part 1",
+    "url": "https://www.youtube.com/embed/sLfoObSZ7jU",
+    "video_id": "sLfoObSZ7jU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Escape Through A Crack In Time – Part 2",
+    "url": "https://www.youtube.com/embed/JZ7i1vSxQpI",
+    "video_id": "JZ7i1vSxQpI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Escape Through A Crack In Time – Part 3",
+    "url": "https://www.youtube.com/embed/R2FyaxmlPMw",
+    "video_id": "R2FyaxmlPMw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Escape Through A Crack In Time – Part 4",
+    "url": "https://www.youtube.com/embed/_9Mjx20SV44",
+    "video_id": "_9Mjx20SV44",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "Escape Through A Crack In Time – Part 5",
+    "url": "https://www.youtube.com/embed/AqiVCLXkYRs",
+    "video_id": "AqiVCLXkYRs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "Escape Through A Crack In Time – Part 6",
+    "url": "https://www.youtube.com/embed/ZP2DSI4e9cY",
+    "video_id": "ZP2DSI4e9cY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "The Railway Station – Part 1",
+    "url": "https://www.youtube.com/embed/9EnEpMQz9oc",
+    "video_id": "9EnEpMQz9oc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "The Railway Station – Part 2",
+    "url": "https://www.youtube.com/embed/J3jzOzPGOmQ",
+    "video_id": "J3jzOzPGOmQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "The Railway Station – Part 3",
+    "url": "https://www.youtube.com/embed/2NsGhx6jg-s",
+    "video_id": "2NsGhx6jg-s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "The Railway Station – Part 4",
+    "url": "https://www.youtube.com/embed/-ysoU44E-Kg",
+    "video_id": "-ysoU44E-Kg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "The Railway Station – Part 5",
+    "url": "https://www.youtube.com/embed/xd2y4VaW3rk",
+    "video_id": "xd2y4VaW3rk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "The Railway Station – Part 6",
+    "url": "https://www.youtube.com/embed/GSArmJPuV_Y",
+    "video_id": "GSArmJPuV_Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "12 eps",
+  "desc": "The British supernatural cult series (1979) — 12 episodes available from Shout! Studios.",
+  "rights_basis": "Shout! Studios (Shout! Factory) official channel; licensed distributor (ITV catalog)",
+  "source_channel": "Shout! Studios",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/sLfoObSZ7jU"
+ },
+ {
+  "id": "stv-73169",
+  "title": "The Prisoner",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-10-22",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Arrival",
+    "url": "https://www.youtube.com/embed/osNmf_zmSyE",
+    "video_id": "osNmf_zmSyE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "The General",
+    "url": "https://www.youtube.com/embed/lfMRnTmCsj8",
+    "video_id": "lfMRnTmCsj8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "Checkmate",
+    "url": "https://www.youtube.com/embed/MPsjid2XPsE",
+    "video_id": "MPsjid2XPsE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "The Girl Who Was Death",
+    "url": "https://www.youtube.com/embed/854GdBFNVY8",
+    "video_id": "854GdBFNVY8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "4 eps",
+  "desc": "Patrick McGoohan's cult classic (1967) — 4 episodes available free from Shout! Studios.",
+  "rights_basis": "Shout! Studios (Shout! Factory) official channel; licensed distributor (ITV catalog)",
+  "source_channel": "Shout! Studios",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/osNmf_zmSyE"
  }
 ]
