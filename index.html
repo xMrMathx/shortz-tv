@@ -1406,6 +1406,7 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .cs-mems{display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
 .cs-mem{font-size:12px;font-weight:700;color:#eee;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:5px 11px}
 .cs-composer{background:#1f1f22;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px}
+.cs-viewbar{background:#1f1f22;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px;margin-bottom:12px}
 .cs-flairs{display:flex;flex-wrap:wrap;gap:7px}
 .cs-flair{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);color:#ddd;border-radius:999px;padding:6px 12px;font-size:12px;font-weight:800;cursor:pointer}
 .cs-flair.on{background:#f6c945;color:#151310;border-color:#f6c945}
@@ -2353,7 +2354,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792628955";
+window.__SZ_BUILD = "1792631162";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5497,7 +5498,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792628955";
+const BUILD="1792631162";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9188,8 +9189,8 @@ function renderProfile(){
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
     </div>
     <div class="cs-door" id="csDoor">
-      <div style="font-size:14px;font-weight:800">🎨 Creator Space <span class="cs-badge">CREATORS ONLY</span></div>
-      <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">The backstage room for Shortz VS creators — collab, post casting calls, and get real feedback on your episodes. If you stream or upload a series here, you&rsquo;re in. Everybody else stays out.</div>
+      <div style="font-size:14px;font-weight:800">🎨 Creator Space <span class="cs-badge">OPEN TO ALL</span></div>
+      <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">The backstage room for Shortz VS creators — collab, post casting calls, and get real feedback on your episodes. Everyone on Shortz VS can come in and look around. Posting belongs to the creators who stream or upload a series here.</div>
       <button class="pbtn sm" id="csDoorBtn" style="margin-top:9px;background:#f6c945;color:#151310;border-color:#f6c945;font-weight:800">Enter Creator Space</button>
     </div>
     <div id="profAuth" style="margin-top:12px"></div>
@@ -9328,10 +9329,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792628955"></script>
+<script src="js/folders.js?v=1792631162"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792628955"></script>
+<script src="js/guide.js?v=1792631162"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10141,10 +10142,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792628955"></script>
-<script src="js/shortz-live.js?v=1792628955"></script>
-<script src="js/games.js?v=1792628955"></script>
-<script src="js/podcasts.js?v=1792628955"></script>
+<script src="js/streaming.js?v=1792631162"></script>
+<script src="js/shortz-live.js?v=1792631162"></script>
+<script src="js/games.js?v=1792631162"></script>
+<script src="js/podcasts.js?v=1792631162"></script>
 <script>
 
 
@@ -10662,7 +10663,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792628955"></script>
+<script src="js/swipe.js?v=1792631162"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12894,7 +12895,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792628955"></script>
+<script src="js/live-sports.js?v=1792631162"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13007,10 +13008,10 @@ function csOpen(){
   paintShell();
   csEnsure().then(function(){
     paintShell();
-    if((CS.isMember||CS.isFounder)&&CS.db){
+    if(CS.db&&CS.uid){
       var r=csRefs();
       listen(r.posts.orderByChild("ts").limitToLast(50),"value",function(s){CS.posts=s.val()||{};if(document.activeElement&&document.activeElement.id==="csText"){CS.dirtyFeed=true;paintDirty();}else paintFeed();});
-      listen(r.members,"value",function(s){CS.members=s.val()||{};paintPulse();});
+      if(CS.isMember||CS.isFounder)listen(r.members,"value",function(s){CS.members=s.val()||{};paintPulse();});
       if(CS.isFounder)listen(r.requests,"value",function(s){CS.requests=s.val()||{};paintAdmin();});
     }
   });
@@ -13022,7 +13023,7 @@ function csClose(){
   v.classList.remove("open");v.setAttribute("aria-hidden","true");
   var sh=$cs("#csSheet");if(sh)sh.style.display="none";
 }
-function gateState(){if(CS.isFounder||CS.isMember)return "in";if(CS.uid)return "locked";return "signedout";}
+function gateState(){if(CS.isFounder||CS.isMember)return "in";if(CS.uid)return "view";return "signedout";}
 function foundingHTML(){
   return '<div class="cs-memstrip"><div class="cs-memttl">FOUNDING CREATORS</div><div class="cs-mems">'+
     FOUNDING.map(function(n){return '<span class="cs-mem">'+esc(n)+'</span>';}).join("")+"</div></div>";
@@ -13032,7 +13033,7 @@ function paintShell(){
   var g=gateState();
   if(g==="signedout"){
     body.innerHTML='<div class="cs-gate"><div class="cs-gate-ic">🎨</div><div class="cs-gate-t">Creators only</div>'+
-    '<div class="cs-gate-b">Creator Space is the backstage room for people who stream or upload a series on Shortz VS. Sign in first — if you\u2019re a creator, the door opens. If you\u2019re not, it stays shut. That\u2019s the rule that keeps the room clean.</div>'+
+    '<div class="cs-gate-b">Creator Space is the backstage room for people who stream or upload a series on Shortz VS. Sign in first — everyone on the app can come in and look around. Posting belongs to creators; if that\u2019s you, the door opens all the way.</div>'+
     '<button class="cs-bigbtn" id="csSignIn">Sign in</button></div>'+foundingHTML();
     var b=$cs("#csSignIn");if(b)b.onclick=function(){csClose();try{go("profile");}catch(e){}};
     paintPulse();return;
@@ -13046,28 +13047,31 @@ function paintShell(){
     var r2=$cs("#csReqBtn");if(r2)r2.onclick=csRequest;
     paintPulse();return;
   }
+  var canPost=(CS.isMember||CS.isFounder);
   body.innerHTML='<div id="csAdmin"></div>'+
-   '<div class="cs-composer"><div class="cs-flairs" id="csFlairs">'+
+   (canPost?'<div class="cs-composer"><div class="cs-flairs" id="csFlairs">'+
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.flair===k?" on":"")+'" data-flair="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
    '<textarea id="csText" rows="3" placeholder="'+(CS.flair==="music"?"Drop a track, ask for real ears on a mix\u2026":"Share with creators\u2026 a drop, a question, a call for collabs")+'">'+esc(CS.draft)+"</textarea>"+
    '<div class="cs-attachrow"><input id="csAttach" placeholder="Attach a title (optional) \u2014 type a name, tap Resolve" value="'+esc(CS.attachLabel)+'"><button class="cs-smallbtn" id="csResolve">Resolve</button></div>'+
    '<div class="cs-attachlbl" id="csAttachLbl">'+(CS.attachId?("Attached: "+esc(CS.attachLabel)):"")+"</div>"+
    '<div class="cs-uprow"><button class="cs-smallbtn gold" id="csUploadBtn">'+(CS.flair==="music"?"⬆ Upload a track":"⬆ Upload a video")+'</button><span class="cs-uplbl">straight off your phone</span></div>'+
    '<div id="csUpBox"></div><input type="file" id="csFile" accept="'+(CS.flair==="music"?"audio/*":"video/*")+'" style="display:none">'+
-   '<div class="cs-compfoot"><span class="cs-hint">Creators only in here. Keep it about the work.</span><button class="cs-bigbtn sm" id="csPost">Post</button></div></div>'+
+   '<div class="cs-compfoot"><span class="cs-hint">Everyone on Shortz VS can watch this room now — posting stays creators-only. Keep it about the work.</span><button class="cs-bigbtn sm" id="csPost">Post</button></div></div>'
+   :'<div class="cs-viewbar"><div class="cs-gate-b" style="margin:0">👀 You\u2019re watching the room — everyone on Shortz VS can look around in here. Posting belongs to flagged creators.</div>'+(CS.requested?'<div class="cs-sent" style="margin-top:8px">Request sent — you\u2019re in line. Mr. Math reviews these personally.</div>':'<button class="cs-bigbtn sm" id="csReqBtn" style="margin-top:8px">Request creator access</button>')+'</div>')+
    '<div class="cs-filters" id="csFilters"><button class="cs-flair'+(CS.filter==="all"?" on":"")+'" data-filter="all">All</button>'+
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.filter===k?" on":"")+'" data-filter="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
    '<div class="cs-dirty" id="csDirty" style="display:none">New posts landed \u2014 tap to refresh</div>'+
    '<div id="csFeed"></div>';
   var ta=$cs("#csText");
   if(ta)ta.addEventListener("input",function(){CS.draft=ta.value;try{localStorage.setItem("cs_draft",CS.draft);}catch(e){}});
-  $cs("#csFlairs").addEventListener("click",function(e){var b=e.target.closest("[data-flair]");if(!b)return;CS.flair=b.getAttribute("data-flair");paintShell();var t2=$cs("#csText");if(t2)t2.focus();});
+  var fl0=$cs("#csFlairs");if(fl0)fl0.addEventListener("click",function(e){var b=e.target.closest("[data-flair]");if(!b)return;CS.flair=b.getAttribute("data-flair");paintShell();var t2=$cs("#csText");if(t2)t2.focus();});
   $cs("#csFilters").addEventListener("click",function(e){var b=e.target.closest("[data-filter]");if(!b)return;CS.filter=b.getAttribute("data-filter");paintShell();});
-  $cs("#csResolve").onclick=csResolveAttach;
-  $cs("#csPost").onclick=csPost;
+  var rs0=$cs("#csResolve");if(rs0)rs0.onclick=csResolveAttach;
+  var pb0=$cs("#csPost");if(pb0)pb0.onclick=csPost;
+  var rq0=$cs("#csReqBtn");if(rq0)rq0.onclick=csRequest;
   var ub=$cs("#csUploadBtn");if(ub)ub.onclick=function(){var f=$cs("#csFile");if(f)f.click();};
   var fi=$cs("#csFile");if(fi)fi.onchange=function(){var fl=fi.files&&fi.files[0];try{fi.value="";}catch(e){}if(fl)csStartUpload(fl);};
-  paintUp();
+  if(canPost)paintUp();
   var dt=$cs("#csDirty");if(dt)dt.onclick=function(){CS.dirtyFeed=false;paintShell();};
   paintAdmin();paintFeed();paintPulse();
 }
@@ -13152,9 +13156,9 @@ function postCard(pid,p){
   }
   h+=csVidCard(pid,p);
   h+=csAudCard(pid,p);
-  h+='<div class="cs-acts"><button class="cs-act'+(mine?" on":"")+'" data-applaud="'+pid+'">♥ Applaud · '+nAp+'</button>'+
+  h+='<div class="cs-acts">'+((CS.isMember||CS.isFounder)?'<button class="cs-act'+(mine?" on":"")+'" data-applaud="'+pid+'">♥ Applaud · '+nAp+'</button>':'<span class="cs-act" style="cursor:default">♥ '+nAp+'</span>')+
      '<button class="cs-act" data-comments="'+pid+'">💬 Feedback<span data-ccount="'+pid+'"></span></button>'+
-     '<button class="cs-act" data-boost="'+pid+'">🔁 Boost</button>'+
+     ((CS.isMember||CS.isFounder)?'<button class="cs-act" data-boost="'+pid+'">🔁 Boost</button>':"")+
      '<button class="cs-act dots" data-menu="'+pid+'">•••</button></div>';
   h+="</div>";
   return h;
@@ -13167,7 +13171,7 @@ function paintFeed(){
   ids=ids.filter(function(pid){var p=CS.posts[pid];return p&&!CS.blocked[p.uid]&&(CS.filter==="all"||p.flair===CS.filter);});
   ids.sort(function(a,b){return (CS.posts[b].ts||0)-(CS.posts[a].ts||0);});
   if(!ids.length){
-    el.innerHTML='<div class="cs-empty"><div class="cs-gate-t">The room is open</div><div class="cs-gate-b">No posts yet'+(CS.filter==="all"?"":" in this lane")+'. Yours could be the first thing every creator on Shortz VS sees. Drop a trailer, call a casting, ask for real feedback.</div></div>'+foundingHTML();
+    el.innerHTML='<div class="cs-empty"><div class="cs-gate-t">The room is open</div><div class="cs-gate-b">No posts yet'+(CS.filter==="all"?"":" in this lane")+((CS.isMember||CS.isFounder)?'. Yours could be the first thing every creator on Shortz VS sees. Drop a trailer, call a casting, ask for real feedback.':'. When the creators post, it lands right here.')+'</div></div>'+foundingHTML();
     return;
   }
   el.innerHTML=ids.map(function(pid){return postCard(pid,CS.posts[pid]);}).join("");
@@ -13232,12 +13236,12 @@ function csOpenComments(pid){
    '<div class="cs-ptext sm">'+esc(p.text||"")+"</div>"+
    '<div class="cs-clist" id="csClist"><div class="cs-hint">Loading\u2026</div></div>'+
    ((p.tid||p.vid||p.aud)?'<div class="cs-autopin dim" id="csAutopin">Notes pin to the moment automatically.</div>':"")+
-   '<div class="cs-crow"><input id="csCText" placeholder="Give real feedback\u2026"><button class="cs-smallbtn gold" id="csCSend">Send</button></div>'+
+   ((CS.isMember||CS.isFounder)?'<div class="cs-crow"><input id="csCText" placeholder="Give real feedback\u2026"><button class="cs-smallbtn gold" id="csCSend">Send</button></div>':'<div class="cs-hint" style="padding:2px">Feedback in here is creator-to-creator — request access to join in.</div>')+
    '<button class="cs-sheetbtn" id="csSheetX">Close</button></div>';
   sh.style.display="flex";
   $cs("#csSheetX").onclick=function(){sh.style.display="none";CS.commentsFor=null;unlistenComments();};
   CS.openPid=pid;
-  $cs("#csCSend").onclick=function(){csSendComment(pid);};
+  var csb=$cs("#csCSend");if(csb)csb.onclick=function(){csSendComment(pid);};
   listenComments(pid);
   try{csAutopinPaint();}catch(e){}
 }
