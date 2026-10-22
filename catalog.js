@@ -1948767,5 +1948767,137 @@ window.SHORTZ_CATALOG = [
   "source_channel": "LionsgateTV",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/ty0BwOT9O3k"
+ },
+ {
+  "id": "stv-73108",
+  "title": "Andromeda (2000)",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Under The Night",
+    "url": "https://www.youtube.com/embed/hsBbpdEunI4",
+    "video_id": "hsBbpdEunI4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · An Affirming Flame",
+    "url": "https://www.youtube.com/embed/yZbERowhJss",
+    "video_id": "yZbERowhJss",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · To Loose the Fateful Lightning",
+    "url": "https://www.youtube.com/embed/LJ8BlOQERfk",
+    "video_id": "LJ8BlOQERfk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · D Minus Zero",
+    "url": "https://www.youtube.com/embed/YwOhskfYDSQ",
+    "video_id": "YwOhskfYDSQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Double Helix",
+    "url": "https://www.youtube.com/embed/A8eQRT-hsuM",
+    "video_id": "A8eQRT-hsuM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Angel Dark, Demon Bright",
+    "url": "https://www.youtube.com/embed/kIfLlxidHBY",
+    "video_id": "kIfLlxidHBY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · The Ties That Blind",
+    "url": "https://www.youtube.com/embed/kCEkBMV_MM8",
+    "video_id": "kCEkBMV_MM8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Reunited Through a Black Hole Experiment",
+    "url": "https://www.youtube.com/embed/9s7BN3T_DDk",
+    "video_id": "9s7BN3T_DDk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · A Rose In the Ashes",
+    "url": "https://www.youtube.com/embed/QSxDnKn2Pv8",
+    "video_id": "QSxDnKn2Pv8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Who Killed the Chancellor?",
+    "url": "https://www.youtube.com/embed/q2P_OOyx-xM",
+    "video_id": "q2P_OOyx-xM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · The Pearls That Were His Eyes",
+    "url": "https://www.youtube.com/embed/5040iLRLq30",
+    "video_id": "5040iLRLq30",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · The Mystery of Pax Magellanic",
+    "url": "https://www.youtube.com/embed/JlP3kW7S8j8",
+    "video_id": "JlP3kW7S8j8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Music From A Distant Drum",
+    "url": "https://www.youtube.com/embed/0yljQEtnbLA",
+    "video_id": "0yljQEtnbLA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "13 eps",
+  "desc": "Gene Roddenberry's Andromeda: Captain Dylan Hunt and the Andromeda Ascendant are frozen at the edge of a black hole for 300 years — and wake to find the Commonwealth fallen. Their mission: rebuild it, one world at a time. Season 1, episodes 1–13, from Lionsgate's official channel.",
+  "rights_basis": "Rights-holder (Lionsgate official channel)",
+  "source_channel": "LionsgateTV",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/hsBbpdEunI4"
  }
 ];
