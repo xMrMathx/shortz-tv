@@ -1318,6 +1318,21 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 /* GAMES (his order 2026-10-14): a card feed like Home/Streaming,
    section between Manga and Profile in the ring */
 .gcards{max-width:720px;margin:0 auto;padding:14px 12px 90px;display:flex;flex-direction:column;gap:18px}
+/* EMULATOR ARCADE stage (his design, 2026-10-22): the picked console
+   stands on a light stage above the shelf; chips pick the system */
+.arcade-stage{max-width:720px;margin:0 auto;padding:18px 12px 0}
+.arc-head{font-size:19px;font-weight:900;letter-spacing:.02em}
+.arc-head span{display:block;font-size:12px;font-weight:600;color:#9a97a3;letter-spacing:.06em;margin-top:3px;text-transform:uppercase}
+.arc-chips{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 4px;scrollbar-width:none}
+.arc-chips::-webkit-scrollbar{display:none}
+.arc-chip{flex:0 0 auto;background:#17171d;border:1px solid #2c2c34;color:#e8e6df;border-radius:999px;padding:8px 13px;font-size:13px;font-weight:700;cursor:pointer}
+.arc-chip.on{background:#f6c945;color:#141419;border-color:#f6c945}
+.arc-stagebox{background:#f4f1ea;border-radius:18px;margin-top:10px;padding:22px 26px 16px;box-shadow:inset 0 0 0 1px #e3ded2}
+.arc-stagebox img{display:block;width:100%;max-height:300px;object-fit:contain}
+.arc-note{color:#c9c6cd;font-size:13.5px;line-height:1.5;padding:12px 2px 0}
+.arc-credits{color:#6d6a75;font-size:11px;line-height:1.5;padding:8px 2px 2px}
+.arc-door{display:block;margin-top:14px;background:#17171d;border:1px solid #f6c945;border-radius:14px;color:#f6c945;font-weight:800;font-size:15px;padding:13px 15px;text-decoration:none}
+.arc-door span{display:block;color:#9a97a3;font-weight:600;font-size:12px;margin-top:3px}
 .gcard{background:#101013;border:1px solid #232328;border-radius:16px;overflow:hidden}
 .gcard-stage{position:relative;background:#000}
 .gstage-land{aspect-ratio:16/9}
@@ -2354,7 +2369,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792684461";
+window.__SZ_BUILD = "1792694770";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5498,7 +5513,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792684461";
+const BUILD="1792694770";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5581,7 +5596,12 @@ function _armFreshWatcher(){
     // updates took so long to reach the app that fixes looked broken.
     let _stage=false;
     try{ const _s=(typeof curSlide==="function")?curSlide():null; if(_s&&_s._vid&&!_s._paused)_stage=true; }catch(e){}
-    const heldLong=_fresh.pendingAt&&(Date.now()-_fresh.pendingAt>25000)&&!_stage;
+    // Games are a natural-break-only surface, same as the stage player
+    // (Emulator Arcade, 2026-10-22): a held update must never force a
+    // reload over an open game — the session and its saves would die.
+    let _game=false;
+    try{ const _gp=document.getElementById("gamePlayer"); if(_gp&&_gp.classList&&_gp.classList.contains("open")&&_gp.querySelector("iframe"))_game=true; }catch(e){}
+    const heldLong=_fresh.pendingAt&&(Date.now()-_fresh.pendingAt>25000)&&!_stage&&!_game;
     if((document.hidden&&!pip)||!_videoPlaying()||heldLong){
       _fresh.pending=false; _fresh.pendingAt=0;
       clearInterval(_freshWatch);_freshWatch=null;
@@ -9329,10 +9349,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792684461"></script>
+<script src="js/folders.js?v=1792694770"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792684461"></script>
+<script src="js/guide.js?v=1792694770"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10142,10 +10162,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792684461"></script>
-<script src="js/shortz-live.js?v=1792684461"></script>
-<script src="js/games.js?v=1792684461"></script>
-<script src="js/podcasts.js?v=1792684461"></script>
+<script src="js/streaming.js?v=1792694770"></script>
+<script src="js/shortz-live.js?v=1792694770"></script>
+<script src="js/games.js?v=1792694770"></script>
+<script src="js/podcasts.js?v=1792694770"></script>
 <script>
 
 
@@ -10663,7 +10683,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792684461"></script>
+<script src="js/swipe.js?v=1792694770"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12895,7 +12915,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792684461"></script>
+<script src="js/live-sports.js?v=1792694770"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a

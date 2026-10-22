@@ -1,0 +1,50 @@
+SHORTZ VS — EMULATOR ARCADE CREDITS
+====================================
+
+ENGINE
+EmulatorJS 4.2.3 — open source (GPL), https://emulatorjs.org
+License text: data-4.2.3/EMULATORJS-LICENSE.txt
+Cores are the unmodified EmulatorJS builds (libretro cores: gambatte,
+fceumm, snes9x [non-commercial license terms], genesis_plus_gx
+[non-commercial license terms], mgba, stella2014, mednafen family,
+mupen64plus_next, desmume, pcsx_rearmed, handy). Shortz VS is free;
+no core is modified. No BIOS files are used or distributed.
+
+GAMES
+Every game in roms/ is freeware or open source, harvested title by
+title under a written license gate. Per-game author, source, and
+license basis: the harvest manifests in the project records
+(emulator-harvest/MANIFEST.md, emulator-harvest-2/MANIFEST.md).
+Each game's maker is also credited on its card in the Games tab.
+
+CONSOLE & CARTRIDGE PHOTOGRAPHS
+All via Wikimedia Commons; resized only.
+- Game Boy console — "Game-Boy-Original.jpg" — Public domain
+- Game Boy cartridge — "Nintendo-Game-Boy-Cartridge.jpg" — Public domain
+- Game Boy Color console — "Nintendo-Game-Boy-Color-FL.jpg" — Public domain
+- Game Boy Advance console — "Nintendo-Game-Boy-Advance-Milky-Blue-FL.jpg" — Public domain
+- Game Boy Advance cartridge — "Nintendo-Game-Boy-Advance-Cartridge.jpg" — Public domain
+- NES console — "NES-Console-Set.jpg" — Public domain
+- SNES console — "SNES-Mod1-Console-Set.png" by Evan-Amos — CC BY-SA 3.0
+- SNES cartridges — "SNES-SFAM-Cartridges.jpg" — Public domain
+- Genesis console — "Sega-Genesis-Mk2-6button.jpg" — CC BY-SA 3.0
+- Master System console — "Sega-Master-System-Set.jpg" — Public domain
+- Master System cartridge — "Casino Games cartridge for Sega Master
+  System" — CC BY 2.0
+- Game Gear console — "Game-Gear-Handheld.jpg" — Public domain
+- Neo Geo Pocket Color console — "Neo-Geo-Pocket-Color-Anthra-Left.png" — CC0
+- Neo Geo Pocket cartridge — "NeoGeoPocketColorFaseleiCart.jpg" — CC BY-SA 3.0
+- Atari Lynx console — "Atari-Lynx-II-Handheld-Angled.jpg" — Public domain
+- TurboGrafx-16 console — "NEC-TurboGrafx-16-CD-FL.jpg" — Public domain
+- TurboGrafx HuCards — "TurboGrafx HuCard adapters.png" — Public domain
+- Atari 2600 console — "Atari-2600-Wood-4Sw-Set.jpg" — Public domain
+- Atari 2600 cartridge — "Slot Machine for Atari 2600 video game
+  cartridge" — CC BY 2.0
+- Nintendo 64 console — "N64-Console-Set.png" — Public domain
+- Nintendo 64 cartridge — "N64-Game-Cartridge.jpg" — Public domain
+- Nintendo DS console — "Nintendo-DS-Lite-Black-Open.jpg" — CC BY-SA 3.0
+- Nintendo DS case & cards — "Nintendo DS game case (Euro type)
+  (inside filled).jpg" — CC BY-SA 4.0
+- PlayStation console — "PSX-Console-wController.png" — Public domain
+
+CC BY-SA / CC BY license texts: https://creativecommons.org/licenses/

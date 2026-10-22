@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Shortz VS — Emulator Arcade</title>
+<style>
+  html, body { margin:0; padding:0; width:100%; height:100%; background:#0b0b10; overflow:hidden; }
+  #game { width:100%; height:100%; }
+  #err { color:#f6c945; font-family:system-ui, sans-serif; font-size:15px; padding:24px; display:none; }
+  /* Boot stage (his design, 2026-10-22): while the engine loads, the
+     console stands on a light stage and the cartridge drops into it —
+     then the stage fades and the game is already running. */
+  #boot { position:fixed; inset:0; background:#0b0b10; z-index:50; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; transition:opacity .5s ease; }
+  #boot.gone { opacity:0; pointer-events:none; }
+  #stage { position:relative; background:#f4f1ea; border-radius:18px; padding:26px 30px 20px; box-shadow:0 18px 50px rgba(0,0,0,.55); max-width:min(78vw, 430px); }
+  #stage img.console { display:block; width:100%; height:auto; max-height:44vh; object-fit:contain; }
+  #stage img.cart { position:absolute; left:50%; top:-8px; width:34%; transform:translate(-50%,-46%); opacity:0; filter:drop-shadow(0 10px 14px rgba(0,0,0,.35)); animation:slotin 1.1s ease .25s forwards; }
+  @keyframes slotin { 0% { transform:translate(-50%,-46%); opacity:0; } 25% { opacity:1; } 100% { transform:translate(-50%,-13%); opacity:1; } }
+  #gname { color:#f6c945; font-family:system-ui, sans-serif; font-weight:800; font-size:19px; text-align:center; padding:0 16px; }
+  #gsys { color:#9a97a3; font-family:system-ui, sans-serif; font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<div id="boot">
+  <div id="stage"><img class="console" id="bconsole" alt=""><img class="cart" id="bcart" alt=""></div>
+  <div id="gname"></div>
+  <div id="gsys">loading…</div>
+</div>
+<div id="err"></div>
+<script>
+  // Emulator Arcade player (2026-10-22). Same-origin page loaded by the
+  // Games tab's existing #gamePlayer iframe. Emulator: EmulatorJS 4.2.3
+  // (open source, GPL — license in data-4.2.3/EMULATORJS-LICENSE.txt),
+  // threads OFF (GitHub Pages cannot send COOP/COEP headers), no BIOS
+  // files — every core on the shelf boots its games without one.
+  var q = new URLSearchParams(location.search);
+  var core = q.get("core") || "";
+  var rom = q.get("rom") || "";
+  var name = q.get("name") || "Arcade";
+  var gid = parseInt(q.get("gid") || "0", 10);
+  var CORES = { gb:1, nes:1, snes:1, gba:1, segaMD:1, segaMS:1, segaGG:1,
+                atari2600:1, atari7800:1, atari5200:1, ngp:1, ws:1, pce:1, vb:1,
+                n64:1, nds:1, psx:1, lynx:1 };
+  var SYSART = { gb:["gb","gb"], gbc:["gbc","gbc"], gba:["gba","gba"], nes:["nes",null],
+                 snes:["snes","snes"], genesis:["genesis",null], sms:["sms","sms"],
+                 gg:["gg",null], ngpc:["ngpc","ngpc"], lynx:["lynx",null],
+                 pce:["pce","pce"], atari2600:["atari2600","atari2600"],
+                 n64:["n64","n64"], nds:["nds","nds"], psx:["psx",null] };
+  var SYSLABEL = { gb:"Game Boy", gbc:"Game Boy Color", gba:"Game Boy Advance", nes:"NES",
+                   snes:"Super Nintendo", genesis:"Sega Genesis", sms:"Master System",
+                   gg:"Game Gear", ngpc:"Neo Geo Pocket Color", lynx:"Atari Lynx",
+                   pce:"TurboGrafx-16", atari2600:"Atari 2600", n64:"Nintendo 64",
+                   nds:"Nintendo DS", psx:"PlayStation" };
+  var CONSOLE_EXT = { snes:"png", psx:"png" };
+  var sys = q.get("sys") || "";
+  if (!CORES[core] || !/^[A-Za-z0-9._-]+$/.test(rom)) {
+    document.getElementById("err").style.display = "block";
+    document.getElementById("err").textContent = "This arcade game is not available.";
+    document.getElementById("boot").style.display = "none";
+  } else {
+    document.title = name + " — Shortz VS Arcade";
+    // Boot stage (his design): console + cartridge art while it loads.
+    var art = SYSART[sys];
+    if (art) {
+      document.getElementById("bconsole").src = "art/" + art[0] + "-console." + (CONSOLE_EXT[art[0]] || "jpg");
+      var cartEl = document.getElementById("bcart");
+      if (art[1]) { cartEl.src = "art/" + art[1] + "-cart.jpg"; }
+      else { cartEl.style.display = "none"; }
+    } else {
+      document.getElementById("stage").style.display = "none";
+    }
+    document.getElementById("gname").textContent = name;
+    document.getElementById("gsys").textContent = (SYSLABEL[sys] || "Arcade") + " · loading";
+    var booted = false;
+    window.bootDone = function () {
+      if (booted) return; booted = true;
+      document.getElementById("boot").classList.add("gone");
+      setTimeout(function () { var b = document.getElementById("boot"); if (b) b.style.display = "none"; }, 700);
+    };
+    window.EJS_onGameStart = function () { window.bootDone(); };
+    setTimeout(window.bootDone, 12000); // never trap the player behind the stage
+    window.EJS_player = "#game";
+    window.EJS_core = core;
+    window.EJS_gameUrl = "roms/" + rom;
+    window.EJS_gameName = name;
+    window.EJS_pathtodata = "data-4.2.3/";
+    window.EJS_color = "#f6c945";
+    window.EJS_backgroundColor = "#0b0b10";
+    window.EJS_threads = false;
+    window.EJS_startOnLoaded = true;
+    if (gid > 0) window.EJS_gameID = gid;
+    var s = document.createElement("script");
+    s.src = "data-4.2.3/loader.js";
+    document.body.appendChild(s);
+  }
+</script>
+</body>
+</html>
