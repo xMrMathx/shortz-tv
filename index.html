@@ -228,6 +228,18 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .bcf-list{max-width:640px;margin:0 auto;padding:0 12px;display:flex;flex-direction:column;gap:14px}
 .bcf-door{max-width:640px;margin:0 auto;padding:0 12px}
 .bpick-reason{font-size:12.5px;color:#ffb02e;font-weight:600;line-height:1.4;padding:0 4px}
+/* Scout's Picks window (his crown 2026-10-22): the picks stack folded into
+   ONE swipe window — a scroll-snap row one card wide. The cards, their
+   order and their taps are untouched; only the container changed. */
+.bcf-list.bcf-windowed{display:block}
+.bsp-win{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:16px}
+.bsp-win::-webkit-scrollbar{display:none}
+.bsp-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always}
+.bsp-nav{display:flex;align-items:center;justify-content:space-between;padding:8px 4px 0}
+.bsp-dots{display:flex;gap:6px}
+.bsp-dot{width:7px;height:7px;border-radius:50%;background:#3a3a44}
+.bsp-dot.on{background:#f6c945}
+.bsp-cnt{font-size:12px;color:var(--mut);font-weight:700}
 /* Scout's Top Ten: ONE pick at a time in a window sized like the old
    featured hero — swipe-driven (no auto-rotation), rank number big at
    the left, cover art behind, title + a little description. */
@@ -2369,7 +2381,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792694770";
+window.__SZ_BUILD = "1792707518";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5513,7 +5525,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792694770";
+const BUILD="1792707518";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8169,7 +8181,27 @@ function paintBrowseScout(){
   const S=window.Scout; if(!S)return;
   paintBrowseDoor();
   const pk=$("#browseScoutPicks");
-  if(pk){ pk.innerHTML=browseScoutPicksHTML(); try{ likesWatch($("#view-browse")); }catch(e){} }
+  if(pk){ pk.innerHTML=browseScoutPicksHTML(); try{ likesWatch($("#view-browse")); }catch(e){} try{ bindBrowseScoutPicks(); }catch(e){} }
+}
+/* Scout's Picks window wrapper (his crown 2026-10-22): folds whatever the
+   picks paint produced (.bpick blocks) into ONE swipe window — slides in
+   a scroll-snap row with dots + counter under it. Cards are MOVED, never
+   rebuilt: same nodes, same order, same handlers. The lone .empty
+   message stays a plain block (no window around zero picks). */
+function bindBrowseScoutPicks(){
+  const pk=$("#browseScoutPicks");
+  if(!pk)return;
+  const picks=[...pk.children].filter(el=>el.classList&&el.classList.contains("bpick"));
+  if(!picks.length){ pk.classList.remove("bcf-windowed"); return; }
+  const win=document.createElement("div"); win.className="bsp-win";
+  picks.forEach(p=>{ const s=document.createElement("div"); s.className="bsp-slide"; s.appendChild(p); win.appendChild(s); });
+  const nav=document.createElement("div"); nav.className="bsp-nav";
+  nav.innerHTML=`<div class="bsp-dots">${picks.map((_,i)=>`<span class="bsp-dot${i===0?" on":""}"></span>`).join("")}</div><div class="bsp-cnt">1 of ${picks.length} — swipe</div>`;
+  pk.classList.add("bcf-windowed");
+  pk.appendChild(win); pk.appendChild(nav);
+  const dots=nav.querySelectorAll(".bsp-dot"), cnt=nav.querySelector(".bsp-cnt");
+  win.addEventListener("scroll",()=>{ const i=Math.max(0,Math.min(picks.length-1,Math.round(win.scrollLeft/Math.max(1,win.clientWidth))));
+    dots.forEach((d,j)=>d.classList.toggle("on",j===i)); if(cnt)cnt.textContent=(i+1)+" of "+picks.length+" — swipe"; },{passive:true});
 }
 let _bMoodBusy=false;
 function browseMoodTap(k){
@@ -8246,7 +8278,7 @@ function paintBrowseFresh(){
     bindBrowseTopTen();
   } else if(tw){ tw.style.display="none"; }
   const pk=$("#browseScoutPicks");
-  if(pk){ pk.innerHTML=browseFreshHTML(visit); try{ likesWatch($("#view-browse")); }catch(e){} }
+  if(pk){ pk.innerHTML=browseFreshHTML(visit); try{ likesWatch($("#view-browse")); }catch(e){} try{ bindBrowseScoutPicks(); }catch(e){} }
 }
 function openExtUrl(u){
   let w=null;
@@ -9349,10 +9381,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792694770"></script>
+<script src="js/folders.js?v=1792707518"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792694770"></script>
+<script src="js/guide.js?v=1792707518"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10162,10 +10194,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792694770"></script>
-<script src="js/shortz-live.js?v=1792694770"></script>
-<script src="js/games.js?v=1792694770"></script>
-<script src="js/podcasts.js?v=1792694770"></script>
+<script src="js/streaming.js?v=1792707518"></script>
+<script src="js/shortz-live.js?v=1792707518"></script>
+<script src="js/games.js?v=1792707518"></script>
+<script src="js/podcasts.js?v=1792707518"></script>
 <script>
 
 
@@ -10683,7 +10715,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792694770"></script>
+<script src="js/swipe.js?v=1792707518"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12915,7 +12947,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet"></div>
   <div id="csToast"></div>
 </div>
-<script src="js/live-sports.js?v=1792694770"></script>
+<script src="js/live-sports.js?v=1792707518"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
