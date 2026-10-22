@@ -416,6 +416,22 @@
       "kind": "marathon",
       "streamer": "Aydan",
       "resolvedAt": 1792228157
+    },
+    {
+      "id": "auto-vs-1792634064-aydan-huskerrs",
+      "title": "\u2694\ufe0f Aydan vs HusKerrs \u2014 who peaks higher?",
+      "sub": "Warzone \u00b7 both live now",
+      "optA": "Aydan",
+      "optB": "HusKerrs",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "versus",
+      "streamer": "Aydan",
+      "streamerB": "HusKerrs",
+      "versus_key": "Aydan|HusKerrs"
     }
   ]
 }
