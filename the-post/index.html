@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Post — Your people. Your circles.</title>
+<meta name="description" content="The Post — a social organizer for your people. Your people, in your circles, all organized.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
+:root{--gold:#e8c469;--ink:#0b0a16;--card:#17142a;--card2:#1e1a36;--mut:#9a94b8;--tx:#f2f0fa;--bd:rgba(255,255,255,.09)}
+body{background:#080713;color:var(--tx);min-height:100vh}
+.phone{max-width:430px;margin:0 auto;padding:14px 14px 30px;min-height:100vh;display:flex;flex-direction:column}
+.logo{font-family:Georgia,'Times New Roman',serif;font-size:27px;font-weight:700;background:linear-gradient(90deg,#f3d98b,#e8c469 45%,#c9a24b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tag{font-size:10px;color:var(--mut);letter-spacing:1.6px;text-transform:uppercase;margin-top:2px}
+.me{font-size:12px;color:var(--mut);text-align:right;line-height:1.5}
+.me b{color:var(--tx);font-size:13px}
+.field{position:relative;flex:1;min-height:520px;border-radius:28px;overflow:hidden;background:radial-gradient(120% 100% at 50% 0%,#221b36 0%,#131024 52%,#0a0914 100%);border:1px solid rgba(232,196,105,.22);margin-top:12px;box-shadow:inset 0 0 80px rgba(0,0,0,.6)}
+.field svg.web{position:absolute;inset:0;width:100%;height:100%}
+.glow{position:absolute;border-radius:50%;filter:blur(30px);opacity:.35;pointer-events:none}
+.cshadow{position:absolute;border-radius:50%;background:radial-gradient(ellipse at center,rgba(0,0,0,.55),rgba(0,0,0,0) 70%);filter:blur(6px);pointer-events:none}
+.bub{position:absolute;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;cursor:pointer;padding:10px;border:0;color:#fff}
+.bub:before{content:'';position:absolute;top:6%;left:12%;width:52%;height:28%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(255,255,255,.7),rgba(255,255,255,0) 68%);transform:rotate(-16deg);filter:blur(1.5px);pointer-events:none}
+.bub:after{content:'';position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 12px 24px rgba(255,255,255,.16),inset 0 -34px 44px rgba(0,0,0,.42);pointer-events:none}
+.bub .eye{font-size:8.5px;letter-spacing:2px;font-weight:700;opacity:.85;text-transform:uppercase}
+.bub .bn{font-family:Georgia,'Times New Roman',serif;font-weight:600;line-height:1.1;margin-top:2px;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.bub .bs{font-size:10.5px;opacity:.95;margin-top:3px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.bub .mem{display:flex;margin-top:7px;z-index:2}
+.bub .mem span{width:21px;height:21px;border-radius:50%;border:1.5px solid rgba(255,255,255,.65);display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;margin-left:-6px;color:#fff}
+.bub .mem span:first-child{margin-left:0}
+.gold{box-shadow:0 0 0 2px rgba(232,196,105,.9),0 0 0 7px rgba(232,196,105,.12),0 24px 55px rgba(0,0,0,.4)}
+.glass{box-shadow:0 0 0 1.5px rgba(255,255,255,.45),0 0 0 6px rgba(255,255,255,.06),0 22px 50px rgba(0,0,0,.35)}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(9px,-12px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(-11px,9px)}}
+@keyframes drift3{0%,100%{transform:translate(0,0)}50%{transform:translate(7px,11px)}}
+@keyframes drift4{0%,100%{transform:translate(0,0)}50%{transform:translate(-8px,-10px)}}
+.a1{animation:drift1 7.5s ease-in-out infinite}.a2{animation:drift2 9.5s ease-in-out infinite}.a3{animation:drift3 8.5s ease-in-out infinite}.a4{animation:drift4 10.5s ease-in-out infinite}
+.frost{background:rgba(255,255,255,.06)!important;border:1.5px dashed rgba(232,196,105,.8);backdrop-filter:blur(6px);box-shadow:0 20px 44px rgba(0,0,0,.4),inset 0 8px 20px rgba(255,255,255,.07)}
+.plusbub{position:absolute;border-radius:50%;border:1.5px solid rgba(232,196,105,.85);color:#f3d98b;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:rgba(255,255,255,.04);box-shadow:0 16px 36px rgba(0,0,0,.45);width:62px;height:62px;right:26px;bottom:52px}
+.fieldnote{position:absolute;left:0;right:0;bottom:12px;text-align:center;color:rgba(255,255,255,.42);font-size:10px;letter-spacing:2px;text-transform:uppercase;pointer-events:none}
+.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;color:var(--mut)}
+.empty .big{font-family:Georgia,serif;font-size:21px;color:var(--tx);margin-bottom:8px}
+.doors{display:flex;gap:8px;justify-content:center;margin-top:12px}
+.doors button{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:10px 20px;font-size:13.5px;font-weight:700;cursor:pointer}
+.doors button.main{background:linear-gradient(90deg,#c9a24b,#e8c469);color:#191408;border:0}
+.foot{margin-top:14px;text-align:center;font-size:11px;color:var(--mut)}
+.foot a{color:var(--mut);text-decoration:underline;cursor:pointer}
+.view{display:none}.view.on{display:block}
+.back{background:none;border:0;color:var(--gold);font-weight:700;font-size:14px;cursor:pointer;padding:6px 0}
+.hero{border-radius:22px;padding:18px;color:#fff;margin:8px 0 12px}
+.hero .hn{font-family:Georgia,serif;font-size:25px;font-weight:600}
+.hero .hs{font-size:12.5px;opacity:.93;margin-top:3px;line-height:1.5}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:15px;margin-bottom:10px}
+.card h3{font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+.prow2{display:flex;align-items:center;gap:10px;padding:8px 0;border-top:1px dashed var(--bd)}
+.prow2:first-of-type{border-top:0}
+.pav{width:36px;height:36px;border-radius:50%;flex:0 0 36px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:12px}
+.pname2{font-weight:700;font-size:14.5px;flex:1}
+.psub{font-size:11px;color:var(--mut)}
+.xbtn{background:none;border:1px solid var(--bd);color:var(--mut);border-radius:999px;padding:5px 11px;font-size:12px;font-weight:700;cursor:pointer}
+.tgl2{margin-left:auto;width:48px;height:28px;border-radius:999px;background:#332e52;position:relative;cursor:pointer;flex:0 0 48px;border:0}
+.tgl2:after{content:'';position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .2s}
+.tgl2.on{background:#43a047}
+.tgl2.on:after{left:23px}
+input[type=text]{width:100%;background:var(--card2);border:1px solid var(--bd);border-radius:12px;color:var(--tx);padding:12px 13px;font-size:15px;outline:none}
+.btn{border:0;border-radius:999px;padding:11px 18px;font-size:14px;font-weight:700;cursor:pointer;width:100%}
+.btn-go{background:linear-gradient(90deg,#c9a24b,#e8c469);color:#191408}
+.btn-ppl{background:linear-gradient(90deg,#7c4dff,#ff7a59);color:#fff}
+.btn-ghost{background:none;border:1px solid var(--bd);color:var(--tx)}
+.sheetwrap{position:fixed;inset:0;background:rgba(4,3,10,.72);display:none;align-items:flex-end;justify-content:center;z-index:50}
+.sheetwrap.on{display:flex}
+.sheet{background:#141128;border:1px solid var(--bd);border-radius:24px 24px 0 0;width:100%;max-width:430px;padding:20px 18px 26px;max-height:86vh;overflow:auto}
+.sheet h2{font-family:Georgia,serif;font-size:20px;margin-bottom:4px}
+.sheet .ss{font-size:12.5px;color:var(--mut);margin-bottom:14px;line-height:1.5}
+.sheet .row{margin-bottom:12px}
+.note{border:1px dashed var(--bd);border-radius:14px;padding:12px 13px;font-size:12.5px;color:var(--mut);line-height:1.55;margin-bottom:10px;background:var(--card)}
+.note b{color:var(--tx)}
+.danger{color:#ff8a80;border-color:rgba(255,138,128,.4)}
+</style>
+</head>
+<body>
+<div class="phone">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+    <div><div class="logo">The Post</div><div class="tag">Your people · Your circles</div></div>
+    <div class="me" id="mebox"></div>
+  </div>
+
+  <div class="view on" id="v-field">
+    <div class="field" id="field"></div>
+    <div class="doors">
+      <button id="door-people">People</button>
+      <button class="main" id="door-new">+ New Circle</button>
+    </div>
+    <div class="foot">Piece 1 — the Field and your circles. Your circles live on this phone.<br><a id="reset">Start over</a></div>
+  </div>
+
+  <div class="view" id="v-circle">
+    <button class="back" id="c-back">&larr; Back to my circles</button>
+    <div id="circlebody"></div>
+  </div>
+
+  <div class="view" id="v-people">
+    <button class="back" id="p-back">&larr; Back to my circles</button>
+    <div class="card">
+      <h3>Add a person</h3>
+      <div class="row" style="display:flex;gap:8px"><input type="text" id="newperson" placeholder="Their name"><button class="btn btn-ppl" id="addperson" style="width:auto;flex:0 0 auto">Add</button></div>
+      <div class="psub" style="margin-top:8px">Your people start here. Then drop them into circles — they'll never see the circles, only what you share with them.</div>
+    </div>
+    <div class="card"><h3>Your people</h3><div id="peoplelist"></div></div>
+  </div>
+</div>
+
+<div class="sheetwrap" id="setupwrap">
+  <div class="sheet">
+    <h2>Welcome to The Post</h2>
+    <div class="ss">Your people, in your circles, all organized. First — what should The Post call you?</div>
+    <div class="row"><input type="text" id="myname" placeholder="Your name"></div>
+    <button class="btn btn-go" id="setupgo">Start</button>
+  </div>
+</div>
+
+<div class="sheetwrap" id="circlewrap">
+  <div class="sheet">
+    <h2 id="cw-title">New circle</h2>
+    <div class="ss">Name it anything. Only you will ever see this name — the people in it never do.</div>
+    <div class="row"><input type="text" id="circlename" placeholder="Circle name — Family, Day Ones, Work..."></div>
+    <h3 style="font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px">Who's in it?</h3>
+    <div id="cw-people" style="margin-bottom:14px"></div>
+    <button class="btn btn-go" id="cw-create">Create circle</button>
+    <button class="btn btn-ghost" id="cw-cancel" style="margin-top:8px">Cancel</button>
+  </div>
+</div>
+
+<script>
+var KEY='thepost_v1';
+var PALETTE=[['#c9a7ff','#7c4dff','#5433b8'],['#ffb59d','#ff5f6d','#cf3549'],['#7fe3f0','#0097a7','#00606d'],['#e0b184','#96684a','#644539'],['#a5d6a7','#43a047','#2e6b30'],['#f48fb1','#c2185b','#8a1042'],['#90caf9','#1976d2','#0f4c8c'],['#ffe082','#f9a825','#b57f17']];
+var AV=['#7c4dff','#ff7a59','#00bfa5','#2196f3','#c98a3d','#c4457e','#43a047','#8d6e63'];
+var SLOTS=[{x:26,y:22},{x:70,y:19},{x:75,y:47},{x:22,y:55},{x:50,y:38},{x:48,y:70},{x:80,y:76},{x:18,y:82}];
+var S=null;
+function uid(){return 'id'+Math.random().toString(36).slice(2,9)}
+function save(){localStorage.setItem(KEY,JSON.stringify(S))}
+function load(){try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){S=null}
+ if(!S||!S.circles){S={me:null,people:[],circles:[{id:uid(),name:'Family',pal:0,members:[]},{id:uid(),name:'Day Ones',pal:1,members:[]},{id:uid(),name:'Everybody Else',pal:2,members:[]}],sugOff:0}}}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function initials(n){var p=n.trim().split(/\s+/);return (p[0][0]+(p[1]?p[1][0]:'')).toUpperCase()}
+function avColor(id){var h=0;for(var i=0;i<id.length;i++)h=(h*31+id.charCodeAt(i))>>>0;return AV[h%AV.length]}
+function person(id){return S.people.filter(function(p){return p.id===id})[0]}
+function unsorted(){return S.people.filter(function(p){return !S.circles.some(function(c){return c.members.indexOf(p.id)>=0})})}
+function show(v){document.querySelectorAll('.view').forEach(function(x){x.classList.remove('on')});document.getElementById('v-'+v).classList.add('on');window.scrollTo(0,0)}
+function renderMe(){document.getElementById('mebox').innerHTML=S.me?('Signed in as<br><b>'+esc(S.me)+'</b>'):''}
+function orbSize(c){return Math.max(96,Math.min(172,104+c.members.length*9))}
+function renderField(){
+ var f=document.getElementById('field');var items=[];
+ S.circles.forEach(function(c,i){items.push({type:'c',c:c,slot:SLOTS[i%SLOTS.length],i:i})});
+ var un=unsorted();
+ if(un.length>=2&&S.sugOff<un.length)items.push({type:'sug',slot:SLOTS[S.circles.length%SLOTS.length],un:un});
+ var html='<svg class="web" viewBox="0 0 100 100" preserveAspectRatio="none">';
+ for(var i=0;i<items.length-1;i++){html+='<line x1="'+items[i].slot.x+'" y1="'+items[i].slot.y+'" x2="'+items[i+1].slot.x+'" y2="'+items[i+1].slot.y+'" stroke="rgba(232,196,105,.30)" stroke-width="0.35"/>';}
+ html+='</svg>';
+ items.forEach(function(it){
+  var d=it.type==='c'?orbSize(it.c):112;
+  html+='<div class="glow" style="left:calc('+it.slot.x+'% - '+(d/2)+'px);top:calc('+it.slot.y+'% - '+(d/2)+'px);width:'+d+'px;height:'+d+'px;background:'+(it.type==='c'?PALETTE[it.c.pal%PALETTE.length][1]:'#e8c469')+'"></div>';
+  html+='<div class="cshadow" style="left:calc('+it.slot.x+'% - '+(d*0.38)+'px);top:calc('+it.slot.y+'% + '+(d*0.34)+'px);width:'+(d*0.76)+'px;height:'+(d*0.16)+'px"></div>';
+ });
+ if(S.circles.length===0&&items.length===0){html+='<div class="empty"><div class="big">No circles yet</div>Tap + New Circle and start organizing your people.</div>'}
+ items.forEach(function(it,idx){
+  var anim='a'+(idx%4+1);
+  if(it.type==='sug'){html+='<button class="bub frost '+anim+'" data-sug="1" style="left:calc('+it.slot.x+'% - 56px);top:calc('+it.slot.y+'% - 56px);width:112px;height:112px"><span class="eye" style="color:#f3d98b">Suggested</span><span class="bn" style="font-size:15px">New Circle?</span><span class="bs" style="opacity:.85">'+it.un.length+' people not in a circle yet</span></button>';return}
+  var c=it.c,p=PALETTE[c.pal%PALETTE.length],d=orbSize(c);
+  var mem=c.members.slice(0,4).map(function(id){var pp=person(id);return pp?'<span style="background:'+avColor(id)+'">'+esc(initials(pp.name))+'</span>':''}).join('');
+  var big=d>=130;
+  html+='<button class="bub '+anim+' '+(idx===0?'gold':'glass')+'" data-circle="'+c.id+'" style="left:calc('+it.slot.x+'% - '+(d/2)+'px);top:calc('+it.slot.y+'% - '+(d/2)+'px);width:'+d+'px;height:'+d+'px;background:radial-gradient(circle at 32% 26%,'+p[0]+','+p[1]+' 62%,'+p[2]+')">'
+   +(big?'<span class="eye">'+c.members.length+' people</span>':'')
+   +'<span class="bn" style="font-size:'+(d>=160?23:d>=130?19:d>=112?16:14.5)+'px">'+esc(c.name)+'</span>'
+   +(big&&c.members.length?'<span class="mem">'+mem+'</span>':'')
+   +'</button>';
+ });
+ html+='<div class="plusbub" id="plusbub"><span style="font-size:23px;font-weight:300;line-height:1">+</span><span style="font-size:8px;letter-spacing:1.6px">NEW</span></div>';
+ html+='<div class="fieldnote">'+(S.people.length?'Tap a circle — you\'re inside it':'Add your people to get started')+'</div>';
+ f.innerHTML=html;
+ f.querySelectorAll('[data-circle]').forEach(function(b){b.addEventListener('click',function(){openCircle(b.dataset.circle)})});
+ var sug=f.querySelector('[data-sug]');if(sug)sug.addEventListener('click',openCreate);
+ document.getElementById('plusbub').addEventListener('click',openCreate);
+}
+var curCircle=null;
+function openCircle(id){curCircle=S.circles.filter(function(c){return c.id===id})[0];if(!curCircle)return;renderCircle();show('circle')}
+function renderCircle(){
+ var c=curCircle,p=PALETTE[c.pal%PALETTE.length];
+ var memRows=c.members.length?c.members.map(function(id){var pp=person(id);if(!pp)return '';return '<div class="prow2"><div class="pav" style="background:'+avColor(id)+'">'+esc(initials(pp.name))+'</div><div class="pname2">'+esc(pp.name)+'</div><button class="xbtn" data-rem="'+id+'">Remove</button></div>'}).join(''):'<div class="psub">Nobody in this circle yet. Add people below — they will never know this circle exists.</div>';
+ var addRows=S.people.length?S.people.map(function(pp){var on=c.members.indexOf(pp.id)>=0;return '<div class="prow2"><div class="pav" style="background:'+avColor(pp.id)+'">'+esc(initials(pp.name))+'</div><div class="pname2">'+esc(pp.name)+'</div><button class="tgl2'+(on?' on':'')+'" data-tgl="'+pp.id+'" aria-label="toggle member"></button></div>'}).join(''):'<div class="psub">No people added yet — add them from the People page first.</div>';
+ document.getElementById('circlebody').innerHTML=
+ '<div class="hero" style="background:linear-gradient(135deg,'+p[1]+','+p[0]+')"><div class="hn">'+esc(c.name)+'</div><div class="hs">'+c.members.length+' people · This is your view of the circle. Members never see this name, this page, or who else is here — only what you share with them.</div></div>'
+ +'<div class="card"><h3>In this circle</h3>'+memRows+'</div>'
+ +'<div class="card"><h3>Add people</h3>'+addRows+'</div>'
+ +'<div class="note"><b>Posts, plans and updates live here.</b> They arrive piece by piece — posts are Piece 2, plans and Coming Up are Piece 3. This page is the circle\'s home, ready for them.</div>'
+ +'<div class="card"><h3>Circle settings</h3><div class="row" style="display:flex;gap:8px;margin-bottom:10px"><input type="text" id="rename" value="'+esc(c.name)+'"><button class="xbtn" id="doren" style="flex:0 0 auto">Rename</button></div><button class="btn btn-ghost danger" id="dodel">Delete this circle</button><div class="psub" style="margin-top:8px">Deleting a circle deletes only your filing — nobody is notified, nothing anyone received changes.</div></div>';
+ document.querySelectorAll('[data-rem]').forEach(function(b){b.addEventListener('click',function(){c.members=c.members.filter(function(x){return x!==b.dataset.rem});save();renderCircle();renderField()})});
+ document.querySelectorAll('[data-tgl]').forEach(function(b){b.addEventListener('click',function(){var id=b.dataset.tgl;if(c.members.indexOf(id)>=0)c.members=c.members.filter(function(x){return x!==id});else c.members.push(id);save();renderCircle();renderField()})});
+ document.getElementById('doren').addEventListener('click',function(){var v=document.getElementById('rename').value.trim();if(v){c.name=v;save();renderCircle();renderField()}});
+ document.getElementById('dodel').addEventListener('click',function(){S.circles=S.circles.filter(function(x){return x.id!==c.id});save();renderField();show('field')});
+}
+function renderPeople(){
+ var el=document.getElementById('peoplelist');
+ el.innerHTML=S.people.length?S.people.map(function(pp){
+  var cs=S.circles.filter(function(c){return c.members.indexOf(pp.id)>=0}).map(function(c){return c.name});
+  return '<div class="prow2"><div class="pav" style="background:'+avColor(pp.id)+'">'+esc(initials(pp.name))+'</div><div><div class="pname2">'+esc(pp.name)+'</div><div class="psub">'+(cs.length?('In your circles: '+esc(cs.join(', '))+' — invisible to them'):'Not in a circle yet')+'</div></div><button class="xbtn" data-pdel="'+pp.id+'">Remove</button></div>'}).join(''):'<div class="psub">Nobody yet. Add your first person above.</div>';
+ el.querySelectorAll('[data-pdel]').forEach(function(b){b.addEventListener('click',function(){var id=b.dataset.pdel;S.people=S.people.filter(function(p){return p.id!==id});S.circles.forEach(function(c){c.members=c.members.filter(function(x){return x!==id})});save();renderPeople();renderField()})});
+}
+var cwChecked={};
+function openCreate(){
+ cwChecked={};unsorted().forEach(function(p){cwChecked[p.id]=true});
+ document.getElementById('circlename').value='';
+ var list=document.getElementById('cw-people');
+ list.innerHTML=S.people.length?S.people.map(function(pp){return '<div class="prow2"><div class="pav" style="background:'+avColor(pp.id)+'">'+esc(initials(pp.name))+'</div><div class="pname2">'+esc(pp.name)+'</div><button class="tgl2'+(cwChecked[pp.id]?' on':'')+'" data-cw="'+pp.id+'"></button></div>'}).join(''):'<div class="psub">No people yet — create the circle now, add people after.</div>';
+ list.querySelectorAll('[data-cw]').forEach(function(b){b.addEventListener('click',function(){cwChecked[b.dataset.cw]=!cwChecked[b.dataset.cw];b.classList.toggle('on',cwChecked[b.dataset.cw])})});
+ document.getElementById('circlewrap').classList.add('on');
+}
+document.getElementById('cw-cancel').addEventListener('click',function(){document.getElementById('circlewrap').classList.remove('on')});
+document.getElementById('cw-create').addEventListener('click',function(){
+ var n=document.getElementById('circlename').value.trim()||'New Circle';
+ var mem=Object.keys(cwChecked).filter(function(k){return cwChecked[k]});
+ S.circles.push({id:uid(),name:n,pal:S.circles.length%PALETTE.length,members:mem});save();
+ document.getElementById('circlewrap').classList.remove('on');renderField();
+});
+document.getElementById('door-new').addEventListener('click',openCreate);
+document.getElementById('door-people').addEventListener('click',function(){renderPeople();show('people')});
+document.getElementById('c-back').addEventListener('click',function(){renderField();show('field')});
+document.getElementById('p-back').addEventListener('click',function(){renderField();show('field')});
+document.getElementById('addperson').addEventListener('click',function(){
+ var inp=document.getElementById('newperson');var n=inp.value.trim();if(!n)return;
+ S.people.push({id:uid(),name:n});inp.value='';save();renderPeople();renderField();
+});
+document.getElementById('newperson').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('addperson').click()});
+document.getElementById('reset').addEventListener('click',function(){localStorage.removeItem(KEY);location.reload()});
+document.getElementById('setupgo').addEventListener('click',function(){
+ var n=document.getElementById('myname').value.trim();if(!n){document.getElementById('myname').focus();return}
+ S.me=n;save();document.getElementById('setupwrap').classList.remove('on');renderMe();
+});
+load();renderMe();renderField();
+if(!S.me)document.getElementById('setupwrap').classList.add('on');
+</script>
+</body>
+</html>
