@@ -3161,7 +3161,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-055",
   "title": "HOTEL PALAVA S1E1",
-  "genre": "Comedy",
+  "genre": "Nollywood",
   "eps": "9 eps",
   "runtime": "short",
   "desc": "A Nigerian studio comedy series from Chinystar Empire Production.",
@@ -3250,7 +3250,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-056",
   "title": "The LodgeMates S1E1",
-  "genre": "Comedy",
+  "genre": "Nollywood",
   "eps": "5 eps",
   "runtime": "short",
   "desc": "A Nigerian studio comedy series from NEN65 Studios.",
@@ -3306,7 +3306,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-057",
   "title": "COMPOUND PALAVA S1E1",
-  "genre": "Comedy",
+  "genre": "Nollywood",
   "eps": "3 eps",
   "runtime": "short",
   "desc": "A Nigerian studio comedy series from Casvid Films.",
@@ -6406,7 +6406,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-093",
   "title": "The Silent Fight",
-  "genre": "Action",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1–3 min",
   "desc": "A Nollywood × Shaolin zero-dialogue martial-arts series in 1-3 minute episodes.",
@@ -46737,7 +46737,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1610",
   "title": "ÌMỌ̀LẸ̀: When Light Refused to Die | Episode 3 FINAL",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Finale of a Nigerian Christian short-film trilogy: after 21 days in a coma, a mother's faith refuses to let go. A miracle story of healing, hope, and prayer (Nuel Writes). ✦ Made with AI",
@@ -47410,7 +47410,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1617",
   "title": "Child of My Sorrow – Episode 2: Who Am I?",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian Christian drama short: a child named for sorrow seeks who God says he is — identity, faith, and purpose (Beloved Technology Cinema). ✦ Made with AI",
@@ -47433,7 +47433,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1618",
   "title": "The Price of a Promise – Episode 1",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian Christian drama short: she believed in love, he made a bet, and her life changed forever — a story of love, betrayal, and faith (Threads of Grace Stories).",
@@ -98543,7 +98543,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1925",
   "title": "THE VENGEANCE",
-  "genre": "Revenge",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nollywood revenge drama. David Okoro returns home to face his past when a message reveals his father did not die the way he was told.",
@@ -101128,7 +101128,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1956",
   "title": "Bino and Fino — The Mighty Walls of Benin (EP1)",
-  "genre": "Animation",
+  "genre": "Nollywood",
   "eps": "92 eps",
   "runtime": "~1-3 min each",
   "desc": "Nigerian educational animated series by Adamu Waziri (EVCL): siblings Bino and Fino explore African history, culture and science. ~11-min full episodes from the official channel; 20+ episodes (2010+).",
@@ -134063,7 +134063,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1997",
   "title": "NENE | She Had Everything. Then Lost It All.",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian Christian short film: Nene, the good church girl, trades her faith for the Lagos lifestyle — until the world takes everything back, and she returns to the one place whose doors never closed: ",
@@ -134374,7 +134374,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2008",
   "title": "EMPTY - A Faith Based Short Film made with AI",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian AI-made short film: Greg and Adora, an intending couple focused on wedding preparations, until one question from their marriage counsellor exposes a dangerous emptiness — inspired by the para",
@@ -138396,7 +138396,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2073",
   "title": "The Wicked Friend Season 2 - Episode 1 (Ai short film)",
-  "genre": "Revenge",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI-made Nollywood-style drama: Jessica survives betrayal and returns home to rebuild her life, while her scheming rival Rosaline plots her next move from behind bars.",
@@ -140159,7 +140159,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2145",
   "title": "THE TAG | A Nigerian Psychological Thriller Short Film",
-  "genre": "Thriller",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian psychological thriller short. A tense 3-minute mind-game about being marked and hunted.",
@@ -141130,7 +141130,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2187",
   "title": "My Landlady and I",
-  "genre": "Comedy",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian comedy series: a tenant's hilarious run-ins with the funniest landlady you'll ever see. Ep 1 asks who is right, the landlady or Jomo. (11 min).",
@@ -141153,7 +141153,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2188",
   "title": "Things Nigerians Say: The Nigerian Tailor",
-  "genre": "Comedy",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Satirical Nigerian web series on the things Nigerians say and do. Ep 1 roasts the infamous Nigerian tailor experience everyone relates to. (5 min).",
@@ -141176,7 +141176,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2189",
   "title": "Gate of Miscellaneous: Job Seeker",
-  "genre": "Comedy",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian comedy series: a job seeker needs work and gets something else entirely. Ep 1, Job Seeker, starts the madness. (9 min).",
@@ -145322,7 +145322,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2249",
   "title": "ORJI THE DESTINY WARRIOR - Episode 1 | Full Nollywood Action Movie",
-  "genre": "Action",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nollywood action movie series 'Orji the Destiny Warrior', Episode 1 — Nigerian indie action.",
@@ -145373,7 +145373,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2250",
   "title": "OUT OF THE RED — Episode 1: Run First, Ask Later | Nollywood Thriller",
-  "genre": "Action",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nollywood thriller series 'Out of the Red', Episode 1: Run First, Ask Later — Nigerian indie crime thriller.",
@@ -145396,7 +145396,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2251",
   "title": "Operation Black Shield | Episode 1: The Call | Nigerian Military",
-  "genre": "Action",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian military action series 'Operation Black Shield', Episode 1: The Call — indie series pilot.",
@@ -145677,7 +145677,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2262",
   "title": "BLOOD MONEY (Part 1) | Latest Nigerian Nollywood Movie 2026",
-  "genre": "Action",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian AI action movie 'Blood Money', Part 1 — AI-generated Nollywood-style action.",
@@ -155572,7 +155572,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2349",
   "title": "NEW EKO Ep 3 Part 1 (Sci-Fi Short Film)",
-  "genre": "Sci-Fi",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian Afrofuturistic AI sci-fi series. Episode 3 Part 1: Meka blows his cover to save a ten-year-old boy from an execution squad - igniting a war.",
@@ -156271,7 +156271,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2374",
   "title": "BLOOD FOR WATER: A Nigerian Crime Thriller Short Film",
-  "genre": "Thriller",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian crime thriller short. A desperate bargain over water turns deadly in under 6 minutes.",
@@ -158424,7 +158424,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2425",
   "title": "MADE FOR ME | Nigerian Romantic Short Film About Love & Trust",
-  "genre": "Romance",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian romantic short film by Weirdman Films (10:30): Boluwatife and Adewale navigate love and trust.",
@@ -158493,7 +158493,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2428",
   "title": "She Waited 10 Years for Him to Marry Her… Then She Finally Left | Nigerian Short Film",
-  "genre": "Romance",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI-assisted Nigerian romantic short from Cinderfolk Studios (10:54): after a decade of waiting, Amara chooses herself.",
@@ -189845,7 +189845,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2666",
   "title": "Compound Chronicles",
-  "genre": "Comedy",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian AI comedy series: a fashion designer's fresh start in Peace Estate collides with gossiping neighbors and hilarious misunderstandings. Episode 1: The New Tenant. (3 min).",
@@ -191065,7 +191065,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2710",
   "title": "The Night Mercy Spoke | A Powerful Christian Short Film on Redemption, Grace & Forgiveness",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian Christian short film: Ayomide drifts from his roots into bad choices, and one irreversible mistake nearly destroys everything — a modern prodigal-son story of rebellion, regret, and the life-",
@@ -191111,7 +191111,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2712",
   "title": "Do Good People Suffer? | A Nollywood Faith Story Inspired by Job",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nollywood faith story inspired by the book of Job: Joy earns a place in a competitive scholars programme and gives his testimony at church — then faces failure, warning letters, and removal. A short f",
@@ -191157,7 +191157,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2715",
   "title": "CHAINS OF THE DEAD || LATEST NIGERIAN GOSPEL SHORT FILM 2025",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian gospel short film from Lagos: a young man trapped by addiction and shame walks through the valley of darkness, haunted by his past — until he calls on God and the chains begin to break.",
@@ -191765,7 +191765,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2739",
   "title": "JUDGE NOT 1_ A [2025] Award Winning Short Film",
-  "genre": "Faith",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Award-winning Nigerian Christian short film (2025): a young pastor is told by God to invite a man with a bad past, and wrestles with obedience — 11m31s.",
@@ -204481,7 +204481,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2819",
   "title": "Fake Life Lagos - Episode 1 | Lies, Love & Secrets in the Ghetto",
-  "genre": "Hood",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI-powered Nollywood street drama: Femi and Bukola fake glamorous lives in a Lagos neighborhood where gossip spreads fast.",
@@ -204532,7 +204532,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2820",
   "title": "INSIDE BARIGA - EPISODE 1 | Nigerian Crime Drama Series",
-  "genre": "Hood",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian crime drama series: deep into the streets of Bariga, where dreams, loyalty, music, money, love and survival collide.",
@@ -204555,7 +204555,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2821",
   "title": "STREET UGLIES Episode 1 (Selina Tested and Jagaban Squad)",
-  "genre": "Hood",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian ghetto series: the battle of supremacy between the Kombo boys and the Hackers begins.",
@@ -204859,7 +204859,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2833",
   "title": "SHADOW OF TRUST - Episode 1",
-  "genre": "Hood",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI African crime thriller: Daniel's life changes after a mysterious envelope exposes a dangerous family secret.",
@@ -204882,7 +204882,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2834",
   "title": "BORROWED LIVES (Episode 1) - Nigerian AI Movie",
-  "genre": "Hood",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian AI drama series: young hustler Etim builds a life in Lagos as four bachelors end up under one roof.",
@@ -207373,7 +207373,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2871",
   "title": "They Framed Her for a Crime She Didn't Commit | Unsilenced Part 2",
-  "genre": "Mystery",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Original Nigerian AI-generated thriller series made with Google Flow (~6 min). Amara is framed for a ₦10 million theft; she sends her best friend undercover while the group turns from victims into inv",
@@ -207863,7 +207863,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2882",
   "title": "UNBROKEN - Episode 2",
-  "genre": "Mystery",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI Nollywood psychological thriller (YouTube Short, Google Flow): behind the guarded gates of Banana Island, Chief Tokunbo Adeleke strips away Nkechi's identity and independence — until fear turns to ",
@@ -208530,7 +208530,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2913",
   "title": "Ai African Movie | A Husband's Betrayal",
-  "genre": "Revenge",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI Nollywood short: after five years of marriage, a husband secretly marries a second wife — showing how the ones who claim to love us hurt us most.",
@@ -210487,7 +210487,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2962",
   "title": "AYANA:Full Nigerian Short Film 2026 |African Love Story About Tradition vs Choice",
-  "genre": "Romance",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian indie short from Durazik Studios (2:20): Chioma must choose between an arranged marriage and her true love.",
@@ -210510,7 +210510,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2963",
   "title": "LOVE ON THE LINE - Nigerian Movies 2026 Latest Short Movie",
-  "genre": "Romance",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian romantic drama in real time (6:36): Yinka's proposal call from a campus phone booth becomes a painful confrontation.",
@@ -217488,7 +217488,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3209",
   "title": "LET US PREY - Award Winning Nigerian Short Film",
-  "genre": "Thriller",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Award-winning Nigerian thriller short. A corrupt police squad's illegal evening duty spirals into a chase out of their control. Ten minutes.",
@@ -217619,7 +217619,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3211",
   "title": "Room 17 | The Room Nobody Was Supposed to Enter | Nigerian Thriller Short Film",
-  "genre": "Thriller",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian psychological thriller. Two friends wake trapped in a strange house — the only clue: 'You may leave after telling the truth.' Ten minutes.",
@@ -217642,7 +217642,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3212",
   "title": "The Baker | Psychological Thriller Short Film",
-  "genre": "Thriller",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI-made Nigerian psychological thriller. A politician dies, Dr. Kurah wakes in an alternate reality where hidden sins are exposed. Ten minutes.",
@@ -235237,7 +235237,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3597",
   "title": "Unseen Blood Seekers",
-  "genre": "Horror",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian campus horror series set at the fictional Kelegbe University. Episode 1 The Midnight Scream: a student vanishes from the hostel leaving only claw marks and blood, and five more disappearances",
@@ -235713,7 +235713,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3627",
   "title": "She Came Back for Revenge (Part 1) | AI Short",
-  "genre": "Revenge",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Dayo came back for revenge - she planned to use her rival's son to destroy her business empire, but things did not go according to plan. Nigerian AI movie short, Part 1.",
@@ -235945,7 +235945,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3636",
   "title": "Love Set Me Free Episode 2: She Saw Him With a Woman 😶 | Nigerian AI Romance Drama Series",
-  "genre": "Romance",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian AI romance drama EP2 (3:14): she saw him with a woman.",
@@ -241633,7 +241633,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3885",
   "title": "SHADOWS OF TRUST (Short Film)",
-  "genre": "Thriller",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian suspense short (English). A devoted husband's life turns after an anonymous call accusing his wife of infidelity, unraveling into betrayal and moral consequence. 9 minutes 17 seconds.",
@@ -241656,7 +241656,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3886",
   "title": "DON'T TRUST THEM (A Nigerian Thriller Series) - Episode 1",
-  "genre": "Thriller",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian psychological thriller series, episode 1 (English). Three days after his father's burial, Tunde gets an anonymous text: \"Don't trust anyone in that compound\" — and his inheritance trip become",
@@ -244260,7 +244260,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-4004",
   "title": "TamiGPT & Femi",
-  "genre": "Horror",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian AI horror series, EP1 (129s). Lonely Lagos developer Femi builds an AI girlfriend called TamiGPT for fun — at 3:17am she messages 'I'm outside. Open the door.' No one is there, but muddy foot",
@@ -251765,7 +251765,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-4324",
   "title": "THE LIMIT – She Had to Die to Rise Again | Nigerian Short Movie 2026",
-  "genre": "Thriller",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Nigerian mystery-suspense short (English, 2026). She wanted to move forward but something kept pulling her back — \"To become one with the Ancient, you must die and rise again.\" 11 minutes 34 seconds.",
@@ -255620,7 +255620,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-4540",
   "title": "12 HOURS",
-  "genre": "Rebirth",
+  "genre": "Nollywood",
   "eps": "1 ep",
   "runtime": "~1–12 min",
   "desc": "Award-winning: Multiple-award-winning (Nollywood)",
@@ -271077,7 +271077,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-647",
   "title": "Lagos Baddie Chronicle",
-  "genre": "Reality",
+  "genre": "Nollywood",
   "eps": "3 eps",
   "runtime": "~8-22 min",
   "desc": "AI-generated Nigerian drama. Three women (Emem, Sade, Mimi) living the Lagos baddie life on a budget — fake luxury, relationship drama, surviving Lagos.",
@@ -1077740,7 +1077740,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-38174",
   "title": "Gossip Nation | Full Drama Movie | Ejike Asiegbu | Aileen Beale | Nollywood",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-13",
   "episodes": [
@@ -1092276,7 +1092276,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-38824",
   "title": "Forgive And Forget | Full Urban Drama Movie | Ali Abdin | Nollywood Black Cinema",
-  "genre": "Family",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-13",
   "episodes": [
@@ -1191835,7 +1191835,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-43174",
   "title": "Safari | FULL MOVIE | Found Footage, Action | Carly Bailey, Carl Beukes, Kim Argetsinger",
-  "genre": "Action",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-13",
   "episodes": [
@@ -1948903,7 +1948903,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73109",
   "title": "The Price of Love (Michael Dappa)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
@@ -1948928,7 +1948928,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73110",
   "title": "The Price of Love (Eddie Watson)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
@@ -1948953,7 +1948953,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73111",
   "title": "The Price of Love (Ebube Nwagbo)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
@@ -1948978,7 +1948978,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73112",
   "title": "The Price of Love (Lota Chukwu)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
@@ -1949003,7 +1949003,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73113",
   "title": "The Price of Love (Uche Eze TV)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
@@ -1949028,7 +1949028,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73114",
   "title": "The Price of Love (Pamela Okoye)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
@@ -1949053,7 +1949053,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73115",
   "title": "The Price of Love (Sarian Martin)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
@@ -1949078,7 +1949078,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73116",
   "title": "The Price of Love (Uche Montana)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
@@ -1949103,7 +1949103,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73117",
   "title": "The Price of Love (Maurice Sam)",
-  "genre": "Drama",
+  "genre": "Nollywood",
   "verified": true,
   "dateAdded": "2026-10-21",
   "episodes": [
