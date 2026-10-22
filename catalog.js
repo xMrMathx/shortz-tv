@@ -956492,10 +956492,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "uVMZqGhRAm4",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 174,
+    "title": "S10 · Leslie Allen Williams",
+    "url": "https://www.youtube.com/embed/CFYy-ub1nWo",
+    "video_id": "CFYy-ub1nWo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/vZY1IYn8lxM",
-  "eps": "172 eps",
+  "eps": "173 eps",
   "desc": "World's Most Evil Killers — series from FilmRise True Crime (172 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -957096,10 +957105,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "5tbnV9Re1Yk",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 41,
+    "title": "Sade Robinson and Terry & Brenda Aultman",
+    "url": "https://www.youtube.com/embed/uqW2W_tX0R8",
+    "video_id": "uqW2W_tX0R8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/mg8MsrDxJTI",
-  "eps": "40 eps",
+  "eps": "39 eps",
   "desc": "Killers Caught On Camera — series from FilmRise True Crime (40 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -960871,10 +960889,37 @@ window.SHORTZ_CATALOG = [
     "video_id": "w1vVMoYGZeo",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 375,
+    "title": "S01E08 · The Wilson Murder",
+    "url": "https://www.youtube.com/embed/9aSINkdKNE4",
+    "video_id": "9aSINkdKNE4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 376,
+    "title": "S09E16 · Cries Unheard",
+    "url": "https://www.youtube.com/embed/GeIPSQjLZfw",
+    "video_id": "GeIPSQjLZfw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 377,
+    "title": "S09E27 · For Love or Money",
+    "url": "https://www.youtube.com/embed/61znxKSs6Jk",
+    "video_id": "61znxKSs6Jk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/Hoidr7HgYP0",
-  "eps": "374 eps",
+  "eps": "327 eps",
   "desc": "Forensic Files — series from FilmRise True Crime (374 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -961350,10 +961395,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "RgpuLPFcC7M",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 61,
+    "title": "S03 · The Most Baffling Jane Doe Case EVER",
+    "url": "https://www.youtube.com/embed/o9REoyCmBw0",
+    "video_id": "o9REoyCmBw0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/nAMY8Q181AI",
-  "eps": "60 eps",
+  "eps": "59 eps",
   "desc": "Bloodline Detectives with Nancy Grace — series from FilmRise True Crime (60 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -964221,10 +964275,28 @@ window.SHORTZ_CATALOG = [
     "video_id": "xhRy8ijQxYQ",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 232,
+    "title": "S04E25",
+    "url": "https://www.youtube.com/embed/zpvstYgBacY",
+    "video_id": "zpvstYgBacY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 233,
+    "title": "S08E03",
+    "url": "https://www.youtube.com/embed/WzTbGbpcuOM",
+    "video_id": "WzTbGbpcuOM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/eJwBtgPcma4",
-  "eps": "231 eps",
+  "eps": "225 eps",
   "desc": "Unsolved Mysteries with Robert Stack — series from FilmRise True Crime (231 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -965604,10 +965676,28 @@ window.SHORTZ_CATALOG = [
     "video_id": "wGNcIT_43DA",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 176,
+    "title": "S01E02",
+    "url": "https://www.youtube.com/embed/jKwKfqCt0S0",
+    "video_id": "jKwKfqCt0S0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 177,
+    "title": "S05E11",
+    "url": "https://www.youtube.com/embed/rbB_OS2yTgo",
+    "video_id": "rbB_OS2yTgo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/9Hab6Acyk3M",
-  "eps": "175 eps",
+  "eps": "173 eps",
   "desc": "Unsolved Mysteries with Dennis Farina — series from FilmRise True Crime (175 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -966011,10 +966101,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "fOqDRW5KwyY",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 52,
+    "title": "S01E03 · Infante",
+    "url": "https://www.youtube.com/embed/wiJ6lhapwoM",
+    "video_id": "wiJ6lhapwoM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/rtaLMKtwk3E",
-  "eps": "51 eps",
+  "eps": "50 eps",
   "desc": "Meet, Marry, Murder — series from FilmRise True Crime (51 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -967958,10 +968057,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "DBNeY_BpmAM",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 85,
+    "title": "S04E04 · Dangerous Games",
+    "url": "https://www.youtube.com/embed/K5X5CqjLec0",
+    "video_id": "K5X5CqjLec0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/7Es2_tU_FoM",
-  "eps": "84 eps",
+  "eps": "78 eps",
   "desc": "Dr. G: Medical Examiner — series from FilmRise True Crime (84 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -968994,10 +969102,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "vr2Bn6nfXK4",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 10,
+    "title": "S01E06 · The Welsh Child Killer",
+    "url": "https://www.youtube.com/embed/0E3OmnFQRaM",
+    "video_id": "0E3OmnFQRaM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/QQ5owPGsrkA",
-  "eps": "9 eps",
+  "eps": "10 eps",
   "desc": "Fred Dinenage: Murder Casebook — series from FilmRise True Crime (9 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -969168,10 +969285,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "5U5mBX7AKqw",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 8,
+    "title": "The Transient/Two Lost Old Men",
+    "url": "https://www.youtube.com/embed/2UlxBcoTIZI",
+    "video_id": "2UlxBcoTIZI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/EG4EuuUW6yU",
-  "eps": "7 eps",
+  "eps": "8 eps",
   "desc": "PSI Factor: Chronicles of the Paranormal — series from FilmRise Television (5 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Television",
@@ -970314,10 +970440,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "L24YAydhsbg",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 69,
+    "title": "S04 · Warren's Dream",
+    "url": "https://www.youtube.com/embed/-6dYdKZYJfg",
+    "video_id": "-6dYdKZYJfg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/8yT5cm8Q3Zk",
-  "eps": "68 eps",
+  "eps": "69 eps",
   "desc": "Z Nation — series from FilmRise Television (69 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Television",
@@ -1423632,10 +1423767,19 @@ window.SHORTZ_CATALOG = [
     "video_id": "yXqZesurNnQ",
     "platform": "youtube",
     "verified": true
+   },
+   {
+    "n": 43,
+    "title": "Cary Stayner - The Cedar Lodge Killings",
+    "url": "https://www.youtube.com/embed/fE4R9UWaTYI",
+    "video_id": "fE4R9UWaTYI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
    }
   ],
   "url": "https://www.youtube.com/embed/1prqEfQMDpg",
-  "eps": "42 eps",
+  "eps": "43 eps",
   "desc": "Mugshots — series from FilmRise True Crime (42 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -1955233,5 +1955377,920 @@ window.SHORTZ_CATALOG = [
   "source_channel": "Nozomi Entertainment",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/4d6fjMvAyMo"
+ },
+ {
+  "id": "stv-73144",
+  "title": "The Big Comfy Couch",
+  "genre": "Family",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Pie in the Sky",
+    "url": "https://www.youtube.com/embed/FEDXbfnw7W0",
+    "video_id": "FEDXbfnw7W0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Pinch to Grow an Inch",
+    "url": "https://www.youtube.com/embed/i_P4XjJVl9A",
+    "video_id": "i_P4XjJVl9A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · All Aboard for Bed",
+    "url": "https://www.youtube.com/embed/9nt5qnpVuNs",
+    "video_id": "9nt5qnpVuNs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Knit One Twirl Too",
+    "url": "https://www.youtube.com/embed/rzsoabJhn-g",
+    "video_id": "rzsoabJhn-g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Upsey Downsey Day",
+    "url": "https://www.youtube.com/embed/KCNi2BtSidk",
+    "video_id": "KCNi2BtSidk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Flippy Floppy Fun",
+    "url": "https://www.youtube.com/embed/0BDOr7f-3Qc",
+    "video_id": "0BDOr7f-3Qc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Something's Fishy Around Here",
+    "url": "https://www.youtube.com/embed/tk5V4Qt6fN4",
+    "video_id": "tk5V4Qt6fN4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Scrub-a-Dub",
+    "url": "https://www.youtube.com/embed/raMNJ-DpZCI",
+    "video_id": "raMNJ-DpZCI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · Red Light, Green Light",
+    "url": "https://www.youtube.com/embed/RqaV0aqUarc",
+    "video_id": "RqaV0aqUarc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Gesundheit",
+    "url": "https://www.youtube.com/embed/bIG6Nx1t7UA",
+    "video_id": "bIG6Nx1t7UA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Ping Pong Polka",
+    "url": "https://www.youtube.com/embed/0tmDjmSMGvY",
+    "video_id": "0tmDjmSMGvY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · Funny Faces",
+    "url": "https://www.youtube.com/embed/b__HiZJ3Skg",
+    "video_id": "b__HiZJ3Skg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Snug as a Bug",
+    "url": "https://www.youtube.com/embed/_MMgsOq0iZk",
+    "video_id": "_MMgsOq0iZk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S02E01 · Babs in Toyland",
+    "url": "https://www.youtube.com/embed/pfqcWuiNNIk",
+    "video_id": "pfqcWuiNNIk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S02E02 · 1-2-3 Dizzy Dizzy Me",
+    "url": "https://www.youtube.com/embed/jMEnGrQer28",
+    "video_id": "jMEnGrQer28",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S02E03 · Wobbly",
+    "url": "https://www.youtube.com/embed/hexFaZ1qs7k",
+    "video_id": "hexFaZ1qs7k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S02E04 · Jump Start",
+    "url": "https://www.youtube.com/embed/aS4vAFtYTpA",
+    "video_id": "aS4vAFtYTpA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S02E05 · This Little Piggy",
+    "url": "https://www.youtube.com/embed/qk5qOtYmqJo",
+    "video_id": "qk5qOtYmqJo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S02E06 · Juggling the Jitters",
+    "url": "https://www.youtube.com/embed/L2ExYuWYA0I",
+    "video_id": "L2ExYuWYA0I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S02E07 · Hoopla",
+    "url": "https://www.youtube.com/embed/hCk-QzsFl4Q",
+    "video_id": "hCk-QzsFl4Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S02E08 · Wrong Side of the Couch",
+    "url": "https://www.youtube.com/embed/pbgy0p4W0w8",
+    "video_id": "pbgy0p4W0w8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S02E09 · I Feel Good",
+    "url": "https://www.youtube.com/embed/HZzT2U5pNzo",
+    "video_id": "HZzT2U5pNzo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S02E10 · Boomerang",
+    "url": "https://www.youtube.com/embed/MEMOwbNEMEc",
+    "video_id": "MEMOwbNEMEc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S02E11 · Rude-I-Culous",
+    "url": "https://www.youtube.com/embed/FSOvpfWb9XE",
+    "video_id": "FSOvpfWb9XE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S02E12 · Make It Snappy",
+    "url": "https://www.youtube.com/embed/LTSwVSgHVYc",
+    "video_id": "LTSwVSgHVYc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S02E13 · Feast of Fools (Thanksgiving Special)",
+    "url": "https://www.youtube.com/embed/hq0gLvruycs",
+    "video_id": "hq0gLvruycs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S03E01 · Give Yer Head a Shake",
+    "url": "https://www.youtube.com/embed/IbqymmhIHRs",
+    "video_id": "IbqymmhIHRs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S03E02 · It's About Time",
+    "url": "https://www.youtube.com/embed/skzNTepwUOY",
+    "video_id": "skzNTepwUOY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S03E03 · Clownus Interruptus (Wait Your Turn)",
+    "url": "https://www.youtube.com/embed/ljcQRT7-azQ",
+    "video_id": "ljcQRT7-azQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S03E04 · Why?",
+    "url": "https://www.youtube.com/embed/2HWJRtQm44o",
+    "video_id": "2HWJRtQm44o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S03E05 · Monkey See Monkey Do",
+    "url": "https://www.youtube.com/embed/b2WgnkPu8vY",
+    "video_id": "b2WgnkPu8vY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S03E06 · Sticks and Stones",
+    "url": "https://www.youtube.com/embed/6eYy_HRLvi4",
+    "video_id": "6eYy_HRLvi4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S03E07 · Horsing Around",
+    "url": "https://www.youtube.com/embed/0zejJdxb7sY",
+    "video_id": "0zejJdxb7sY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S03E08 · All Over and Under",
+    "url": "https://www.youtube.com/embed/CMmdeXH2nNg",
+    "video_id": "CMmdeXH2nNg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S03E09 · Pants On Fire",
+    "url": "https://www.youtube.com/embed/727LkL_80A4",
+    "video_id": "727LkL_80A4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S03E10 · All Fall Down",
+    "url": "https://www.youtube.com/embed/w8vd5cwRlmA",
+    "video_id": "w8vd5cwRlmA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S03E11 · Traveling Papers",
+    "url": "https://www.youtube.com/embed/ICWGa5A_7U8",
+    "video_id": "ICWGa5A_7U8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S03E12 · Hiccups",
+    "url": "https://www.youtube.com/embed/aWb-Gp6FavI",
+    "video_id": "aWb-Gp6FavI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S03E13 · Full of Life",
+    "url": "https://www.youtube.com/embed/n6B7uGNsrGw",
+    "video_id": "n6B7uGNsrGw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S04E01 · Backwards",
+    "url": "https://www.youtube.com/embed/vVqOjn0k-uY",
+    "video_id": "vVqOjn0k-uY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S04E02 · Picky Eaters",
+    "url": "https://www.youtube.com/embed/ZV2wtKpCHSk",
+    "video_id": "ZV2wtKpCHSk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S04E03 · 40 Winks",
+    "url": "https://www.youtube.com/embed/KGCXlfz-stY",
+    "video_id": "KGCXlfz-stY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S04E04 · Swing-a-Ling",
+    "url": "https://www.youtube.com/embed/NpjAn_d8eF8",
+    "video_id": "NpjAn_d8eF8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S04E05 · Spare Some Change",
+    "url": "https://www.youtube.com/embed/8i-UEhMat_o",
+    "video_id": "8i-UEhMat_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S04E06 · Stuck in the Muck",
+    "url": "https://www.youtube.com/embed/DP9Vy2rJd7g",
+    "video_id": "DP9Vy2rJd7g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S04E07 · Gimme Gimme Never Gets",
+    "url": "https://www.youtube.com/embed/00IEOTLAtDc",
+    "video_id": "00IEOTLAtDc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S04E08 · One Step At a Time",
+    "url": "https://www.youtube.com/embed/s58dUeHIa9A",
+    "video_id": "s58dUeHIa9A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S04E09 · Enough Already",
+    "url": "https://www.youtube.com/embed/leMbynIt5TE",
+    "video_id": "leMbynIt5TE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S04E10 · Where Do Clowns Come From?",
+    "url": "https://www.youtube.com/embed/I1DOPUlb6gE",
+    "video_id": "I1DOPUlb6gE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "S04E11 · Are You Ready for School?",
+    "url": "https://www.youtube.com/embed/rFkAGh9wKbM",
+    "video_id": "rFkAGh9wKbM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "S04E12 · Hit Parade",
+    "url": "https://www.youtube.com/embed/PZSbTFZnbpg",
+    "video_id": "PZSbTFZnbpg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "S04E13 · Comfy and Joy (Christmas Special)",
+    "url": "https://www.youtube.com/embed/DK3DzLc_epc",
+    "video_id": "DK3DzLc_epc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 53,
+    "title": "S05E01 · Bad Hair Day",
+    "url": "https://www.youtube.com/embed/itSCqdfi3rQ",
+    "video_id": "itSCqdfi3rQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 54,
+    "title": "S05E02 · Clownvitations",
+    "url": "https://www.youtube.com/embed/1rLUio4hCpM",
+    "video_id": "1rLUio4hCpM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 55,
+    "title": "S05E03 · Nothing to Do",
+    "url": "https://www.youtube.com/embed/_j1l1C9x6T8",
+    "video_id": "_j1l1C9x6T8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 56,
+    "title": "S05E04 · The Big Brain Drain",
+    "url": "https://www.youtube.com/embed/OC_JcbJ21GM",
+    "video_id": "OC_JcbJ21GM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 57,
+    "title": "S05E05 · 1 Potato 2 Potato",
+    "url": "https://www.youtube.com/embed/SiLsE99PTo0",
+    "video_id": "SiLsE99PTo0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 58,
+    "title": "S05E06 · Earth to Loonette",
+    "url": "https://www.youtube.com/embed/oPlkL16Ot1o",
+    "video_id": "oPlkL16Ot1o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 59,
+    "title": "S05E07 · Lettuce, Turnip and Pea",
+    "url": "https://www.youtube.com/embed/4pRN1GO6jCc",
+    "video_id": "4pRN1GO6jCc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 60,
+    "title": "S05E08 · Time for Molly",
+    "url": "https://www.youtube.com/embed/RW3FG4Yo89s",
+    "video_id": "RW3FG4Yo89s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 61,
+    "title": "S05E09 · Gizmo, Schmizmo",
+    "url": "https://www.youtube.com/embed/gKt8eetFLdA",
+    "video_id": "gKt8eetFLdA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 62,
+    "title": "S05E10 · Clothes Make the Clown",
+    "url": "https://www.youtube.com/embed/KZPkwmYaaV8",
+    "video_id": "KZPkwmYaaV8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 63,
+    "title": "S05E11 · Don't Tell",
+    "url": "https://www.youtube.com/embed/1GEtS-BH77s",
+    "video_id": "1GEtS-BH77s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 64,
+    "title": "S05E12 · You're a Gem",
+    "url": "https://www.youtube.com/embed/z5zEjCtL1Kk",
+    "video_id": "z5zEjCtL1Kk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 65,
+    "title": "S05E13 · See Ya in My Dreams",
+    "url": "https://www.youtube.com/embed/DQ7OeLLFueo",
+    "video_id": "DQ7OeLLFueo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 66,
+    "title": "S06E01 · Clowning in the Rain",
+    "url": "https://www.youtube.com/embed/Cvrhm4WmqUI",
+    "video_id": "Cvrhm4WmqUI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 67,
+    "title": "S06E02 · Lost and Clowned",
+    "url": "https://www.youtube.com/embed/zGf4Fvk-W08",
+    "video_id": "zGf4Fvk-W08",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 68,
+    "title": "S06E03 · Button Up",
+    "url": "https://www.youtube.com/embed/MO_lfkXTZWM",
+    "video_id": "MO_lfkXTZWM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 69,
+    "title": "S06E04 · Scaredy Cat",
+    "url": "https://www.youtube.com/embed/pBaTUimU7k0",
+    "video_id": "pBaTUimU7k0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 70,
+    "title": "S06E05 · It's the Thought That Count",
+    "url": "https://www.youtube.com/embed/7o_fBym6JlE",
+    "video_id": "7o_fBym6JlE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 71,
+    "title": "S06E06 · Growing Pains",
+    "url": "https://www.youtube.com/embed/D8VKYQ0pNUk",
+    "video_id": "D8VKYQ0pNUk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 72,
+    "title": "S06E07 · Donut Let it Get You Down",
+    "url": "https://www.youtube.com/embed/12H3ibX3-Ts",
+    "video_id": "12H3ibX3-Ts",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 73,
+    "title": "S06E08 · Fancy Dancer",
+    "url": "https://www.youtube.com/embed/ZS5Cb52Az8M",
+    "video_id": "ZS5Cb52Az8M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 74,
+    "title": "S06E09 · The Big Bang Boom",
+    "url": "https://www.youtube.com/embed/7MbHRw91RQo",
+    "video_id": "7MbHRw91RQo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 75,
+    "title": "S06E10 · Ain't It Amazing, Gracie",
+    "url": "https://www.youtube.com/embed/munvWVfLD4A",
+    "video_id": "munvWVfLD4A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 76,
+    "title": "S06E11 · Between the Covers",
+    "url": "https://www.youtube.com/embed/iyfO43zzry4",
+    "video_id": "iyfO43zzry4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 77,
+    "title": "S06E12 · Going Up",
+    "url": "https://www.youtube.com/embed/PRnvH1KWq8M",
+    "video_id": "PRnvH1KWq8M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 78,
+    "title": "S06E13 · Cool It",
+    "url": "https://www.youtube.com/embed/6TOaWx6on2E",
+    "video_id": "6TOaWx6on2E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 79,
+    "title": "S07E01 · Apple of My Eye",
+    "url": "https://www.youtube.com/embed/hq2ujknRi8A",
+    "video_id": "hq2ujknRi8A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 80,
+    "title": "S07E02 · Dat's Da Law",
+    "url": "https://www.youtube.com/embed/Ov384aLoCGA",
+    "video_id": "Ov384aLoCGA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 81,
+    "title": "S07E03 · Fibberish Gibberish",
+    "url": "https://www.youtube.com/embed/FRq2cYy-R74",
+    "video_id": "FRq2cYy-R74",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 82,
+    "title": "S07E04 · Slow Down, Clown!",
+    "url": "https://www.youtube.com/embed/0gaxJc45TsY",
+    "video_id": "0gaxJc45TsY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 83,
+    "title": "S07E05 · Floppy!",
+    "url": "https://www.youtube.com/embed/64xr61i1ojs",
+    "video_id": "64xr61i1ojs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 84,
+    "title": "S07E06 · Clown with a Frown",
+    "url": "https://www.youtube.com/embed/2mzSNMu_7pI",
+    "video_id": "2mzSNMu_7pI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 85,
+    "title": "S07E07 · Rub-a-Dub",
+    "url": "https://www.youtube.com/embed/l92UV2sNu74",
+    "video_id": "l92UV2sNu74",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 86,
+    "title": "S07E08 · Upside Down Clown",
+    "url": "https://www.youtube.com/embed/qBecD7-jAbI",
+    "video_id": "qBecD7-jAbI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 87,
+    "title": "S07E09 · The Clown Promise",
+    "url": "https://www.youtube.com/embed/VSlye66lW_Y",
+    "video_id": "VSlye66lW_Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 88,
+    "title": "S07E10 · Lost and Found Clowns",
+    "url": "https://www.youtube.com/embed/ydxSlSiFyZ8",
+    "video_id": "ydxSlSiFyZ8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 89,
+    "title": "S07E11 · Phoney Baloney",
+    "url": "https://www.youtube.com/embed/1MoBAOnxcWk",
+    "video_id": "1MoBAOnxcWk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 90,
+    "title": "S07E12 · Ready, Steady, Go!",
+    "url": "https://www.youtube.com/embed/ICSkZ-lJ_bA",
+    "video_id": "ICSkZ-lJ_bA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 91,
+    "title": "S07E13 · Happy Mirthday, Granny!",
+    "url": "https://www.youtube.com/embed/EXGrX7fxxes",
+    "video_id": "EXGrX7fxxes",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 92,
+    "title": "S07E14 · Popcorn -Y",
+    "url": "https://www.youtube.com/embed/Qxj7WetkLY0",
+    "video_id": "Qxj7WetkLY0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 93,
+    "title": "S07E15 · Peek-a-Boo!",
+    "url": "https://www.youtube.com/embed/cds38oULJiQ",
+    "video_id": "cds38oULJiQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 94,
+    "title": "S07E16 · Ouch!",
+    "url": "https://www.youtube.com/embed/RxO9r1CM56s",
+    "video_id": "RxO9r1CM56s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 95,
+    "title": "S07E17 · Big Blow Hard",
+    "url": "https://www.youtube.com/embed/wezGTKzXURo",
+    "video_id": "wezGTKzXURo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 96,
+    "title": "S07E18 · Shh, Shh, Shh, Quiet!",
+    "url": "https://www.youtube.com/embed/kkkqRevpT0I",
+    "video_id": "kkkqRevpT0I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 97,
+    "title": "S07E19 · Freeze, Please!",
+    "url": "https://www.youtube.com/embed/Dza7UypgrlU",
+    "video_id": "Dza7UypgrlU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 98,
+    "title": "S07E20 · Clown in the Round",
+    "url": "https://www.youtube.com/embed/d7CWEj0u53s",
+    "video_id": "d7CWEj0u53s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 99,
+    "title": "S07E21 · Molly's Bellybutton",
+    "url": "https://www.youtube.com/embed/rHuqiIVlxgw",
+    "video_id": "rHuqiIVlxgw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 100,
+    "title": "S07E22 · Just Purrfect",
+    "url": "https://www.youtube.com/embed/Mp7HU9pQti4",
+    "video_id": "Mp7HU9pQti4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "100 eps",
+  "desc": "The complete classic kids' series (1992) — Loonette the clown and her doll Molly on the big comfy couch, all seven seasons, streaming free from FilmRise Kids, the official channel. (Plays in the US; the channel region-locks it there.)",
+  "rights_basis": "FilmRise official channel (operated by FilmRise / Radial Entertainment); episodes API gate-checked 2026-10-21; every episode API-verified embeddable, no ytRating, playable in the US",
+  "source_channel": "FilmRise Kids",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/FEDXbfnw7W0"
  }
 ];
