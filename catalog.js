@@ -1949124,5 +1949124,6114 @@ window.SHORTZ_CATALOG = [
   "source_channel": "247 Nollywood Tv",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/jJprQXgS4GA"
+ },
+ {
+  "id": "stv-73118",
+  "title": "Robot Carnival",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Robot Carnival — Full Movie",
+    "url": "https://www.youtube.com/embed/id1eRjO4p_0",
+    "video_id": "id1eRjO4p_0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Classic anime anthology film (1987) from Katsuhiro Otomo and friends, English-subtitled — streaming free from RetroCrush, the licensed classic-anime service.",
+  "rights_basis": "Licensed classic-anime service (RetroCrush / Cineverse) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "RetroCrush",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/id1eRjO4p_0",
+  "runtime": "91 min"
+ },
+ {
+  "id": "stv-73119",
+  "title": "The Gutsy Frog",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · The Birth of \"PYONKICHI\" / Flat-frog's Life is Tough",
+    "url": "https://www.youtube.com/embed/IvDdNVfI1a0",
+    "video_id": "IvDdNVfI1a0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Hiroshi's Date / Do you, Man, Cry for Sunglasses?",
+    "url": "https://www.youtube.com/embed/qYJtrWj4lGc",
+    "video_id": "qYJtrWj4lGc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Goro's First Love / The Duel of Yuhigahara",
+    "url": "https://www.youtube.com/embed/kg7X9noj4yk",
+    "video_id": "kg7X9noj4yk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Say, \"AAAAAAAHH\" / What a thing you borrowed!!",
+    "url": "https://www.youtube.com/embed/21EjjhmrMoY",
+    "video_id": "21EjjhmrMoY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Pyonkichi's Home Run / Kiss is a Token of Gratitude",
+    "url": "https://www.youtube.com/embed/5mAkSNjfnZQ",
+    "video_id": "5mAkSNjfnZQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · My Maria-chan / The Tearful, Great Special Training",
+    "url": "https://www.youtube.com/embed/PMuBvK8kJTE",
+    "video_id": "PMuBvK8kJTE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · The Great Teacher - Mr. Machida / Mariya's Strange Habit",
+    "url": "https://www.youtube.com/embed/SB3JJkSmyfE",
+    "video_id": "SB3JJkSmyfE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Mom, I Want to Eat Sushi!! / Bravo, Miss Yoshiko!",
+    "url": "https://www.youtube.com/embed/e23aezZxQfM",
+    "video_id": "e23aezZxQfM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · The Duel at the Public Bath House / Oh My Dear Dad!",
+    "url": "https://www.youtube.com/embed/xnZZhf5JwYY",
+    "video_id": "xnZZhf5JwYY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Darling Girl, She Is / Bravo, Ume-San",
+    "url": "https://www.youtube.com/embed/H9k9G5l0vy0",
+    "video_id": "H9k9G5l0vy0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Mom's Tears / Slip and Fall",
+    "url": "https://www.youtube.com/embed/8xgEVuSbJn0",
+    "video_id": "8xgEVuSbJn0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · Merry Christmas, Uncle Ume / Don't Cry, Ume",
+    "url": "https://www.youtube.com/embed/VWGOSH74fks",
+    "video_id": "VWGOSH74fks",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · How to Catch a Cold / Sushi for the New Year's Eve",
+    "url": "https://www.youtube.com/embed/2taKLLEYD-c",
+    "video_id": "2taKLLEYD-c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · Wonderful New Year's Gift / Sushi, Kiss, Ski",
+    "url": "https://www.youtube.com/embed/uuJivgc6yKM",
+    "video_id": "uuJivgc6yKM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · I'll do anything for my Love / The Perfect Combination's Gone A Stray",
+    "url": "https://www.youtube.com/embed/gw5Hlvll6xA",
+    "video_id": "gw5Hlvll6xA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · Good Bye, Kyoko / Who is the Most Clingy Fellow?",
+    "url": "https://www.youtube.com/embed/_BMsQR76tpk",
+    "video_id": "_BMsQR76tpk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · A Genius in Bowling / Midwinter Swimming Aieee…",
+    "url": "https://www.youtube.com/embed/m9QenUZy-sQ",
+    "video_id": "m9QenUZy-sQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · Daddy / Can't fall in love with me, Teacher",
+    "url": "https://www.youtube.com/embed/BSb5E1Mv32s",
+    "video_id": "BSb5E1Mv32s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · Shocking Mom / Delivery Boy Hiroshi",
+    "url": "https://www.youtube.com/embed/osD9iF7Mtpk",
+    "video_id": "osD9iF7Mtpk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · A Super Transformation / Boys and Girls",
+    "url": "https://www.youtube.com/embed/VOEMHTuCHPQ",
+    "video_id": "VOEMHTuCHPQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Hiroshi in Disgust / Find Maria!",
+    "url": "https://www.youtube.com/embed/IhtzbNLfpis",
+    "video_id": "IhtzbNLfpis",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · Argh! Flat Frog and Sold Frog / A Wanted Criminal Comes to Town",
+    "url": "https://www.youtube.com/embed/6x_UDuEwAm4",
+    "video_id": "6x_UDuEwAm4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · Let's Be Late for School / A Proposal with Guts",
+    "url": "https://www.youtube.com/embed/CulyQf_eH70",
+    "video_id": "CulyQf_eH70",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · Kiss! Smack Smack! / Gorilla-Imo's Great Transformation",
+    "url": "https://www.youtube.com/embed/vGgJOl8WwsA",
+    "video_id": "vGgJOl8WwsA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · Viva, Rain! / The Best Present",
+    "url": "https://www.youtube.com/embed/fL_FT3_ag7k",
+    "video_id": "fL_FT3_ag7k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S01E27 · Oh! Foolish Frog / Pyonkichi Runs Away from Home",
+    "url": "https://www.youtube.com/embed/ehQiVoWINHI",
+    "video_id": "ehQiVoWINHI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S01E28 · The Kingdom of Frogs / Blow Away the Cold",
+    "url": "https://www.youtube.com/embed/CZ_hDA1fljk",
+    "video_id": "CZ_hDA1fljk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S01E29 · Go! Go! Pyonkichi!! / Little Hiroshi",
+    "url": "https://www.youtube.com/embed/QfwmMNLgqos",
+    "video_id": "QfwmMNLgqos",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S01E30 · The Gorilla Escaped! / Who's the President of the Student Council!?",
+    "url": "https://www.youtube.com/embed/cW3ypdONc-8",
+    "video_id": "cW3ypdONc-8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S01E31 · Pyonkichi takes a Test / Pyonkichi Subdues a Robber",
+    "url": "https://www.youtube.com/embed/esRyranpPbU",
+    "video_id": "esRyranpPbU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S01E32 · I Love Babies / Just Because of Eating Ramen",
+    "url": "https://www.youtube.com/embed/QsdVeGHbtIg",
+    "video_id": "QsdVeGHbtIg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S01E33 · The Fish Bone / I'm in Love",
+    "url": "https://www.youtube.com/embed/qV361igMyj8",
+    "video_id": "qV361igMyj8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S01E34 · You Are a Dog / Drive Back Mr. Machida!",
+    "url": "https://www.youtube.com/embed/UU7WVKezSzs",
+    "video_id": "UU7WVKezSzs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S01E35 · Kujira Flies / The Home Run of Oath",
+    "url": "https://www.youtube.com/embed/3zQsWCBjnLA",
+    "video_id": "3zQsWCBjnLA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S01E36 · Together in the Rain / Kujira's Tears",
+    "url": "https://www.youtube.com/embed/mpaZrAiMQK0",
+    "video_id": "mpaZrAiMQK0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S01E37 · Is This a Guy's Way of Life? / Hiroshi, An Adopted Son?",
+    "url": "https://www.youtube.com/embed/4GMMixgmMhI",
+    "video_id": "4GMMixgmMhI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S01E38 · Kayoko of Suehiro Sushi / Don't Come to School, Pyonkichi",
+    "url": "https://www.youtube.com/embed/LGg0adrPzhc",
+    "video_id": "LGg0adrPzhc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S01E39 · Wanted a Wife from Takara Sushi / Life Saver is Hard",
+    "url": "https://www.youtube.com/embed/0uN7JvWAWX0",
+    "video_id": "0uN7JvWAWX0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S01E40 · Straight to Deliver / Ume's Propose",
+    "url": "https://www.youtube.com/embed/MnfnM4LdCb4",
+    "video_id": "MnfnM4LdCb4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S01E41 · Wow! Truck-Pool / Festival and Gorilla-Imo",
+    "url": "https://www.youtube.com/embed/ueieaU2LheE",
+    "video_id": "ueieaU2LheE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S01E42 · Horrible Room of Control / Summer House of Takara Sushi",
+    "url": "https://www.youtube.com/embed/meNlqqvdYDo",
+    "video_id": "meNlqqvdYDo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S01E43 · Funny Camp / Strange, Strange Sickness",
+    "url": "https://www.youtube.com/embed/moL1d6LErr4",
+    "video_id": "moL1d6LErr4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S01E44 · Handsome Looks! / Pyonkichi, Who was aimed at!",
+    "url": "https://www.youtube.com/embed/jfYETu1FlUI",
+    "video_id": "jfYETu1FlUI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S01E45 · Let's Get a Bicycle for Quiz / Ghost Comes Up When Bell Rings",
+    "url": "https://www.youtube.com/embed/0K-Rii2JYkQ",
+    "video_id": "0K-Rii2JYkQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S01E46 · It's a Sin, Kyoko / Rushing Homework",
+    "url": "https://www.youtube.com/embed/UtCAdeJxA5w",
+    "video_id": "UtCAdeJxA5w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S01E47 · Oh! Memorial Stone / Graffiti Battle",
+    "url": "https://www.youtube.com/embed/7dDkBKc2c0Y",
+    "video_id": "7dDkBKc2c0Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S01E48 · Reveal The Secret of Mr. Minami / Who I Am",
+    "url": "https://www.youtube.com/embed/Q7xh93Hvd0I",
+    "video_id": "Q7xh93Hvd0I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S01E49 · Hey, Ponkotsu! / Pyon-kichi has a Navel?",
+    "url": "https://www.youtube.com/embed/3c-tyUqtvw8",
+    "video_id": "3c-tyUqtvw8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "S01E50 · Nighter Birthday / Kyoko is My Girlfriend!",
+    "url": "https://www.youtube.com/embed/d7tzGrUOUl4",
+    "video_id": "d7tzGrUOUl4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "S01E51 · Ume's Mother in His Memory / Shinpachi Made His Appearance",
+    "url": "https://www.youtube.com/embed/7JWQblraN9g",
+    "video_id": "7JWQblraN9g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "S01E52 · It's Secret to Pyonkichi / Detestable, Shinpachi",
+    "url": "https://www.youtube.com/embed/mYX7HtJOB6g",
+    "video_id": "mYX7HtJOB6g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 53,
+    "title": "S01E53 · The Present Incident / The Show Down! Ume VS Shinpachi",
+    "url": "https://www.youtube.com/embed/aW1-rm02c6k",
+    "video_id": "aW1-rm02c6k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 54,
+    "title": "S01E54 · Festival Fracas / Goldfish Trouble",
+    "url": "https://www.youtube.com/embed/vVxSils-KSE",
+    "video_id": "vVxSils-KSE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 55,
+    "title": "S01E55 · Miss Yoshiko - Bride for a Day / Drunken Affair",
+    "url": "https://www.youtube.com/embed/ngvSyW8m6Io",
+    "video_id": "ngvSyW8m6Io",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 56,
+    "title": "S01E56 · Gyaah! Seriously Injured / Boy or Girl? A Baby is Born",
+    "url": "https://www.youtube.com/embed/i7yB0t8AEKI",
+    "video_id": "i7yB0t8AEKI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 57,
+    "title": "S01E57 · Don't Cry, Hanako / Smile! Shusaku",
+    "url": "https://www.youtube.com/embed/7dBVNHZqlTo",
+    "video_id": "7dBVNHZqlTo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 58,
+    "title": "S01E58 · Messed Up Class Visit / Toilet-Train the Baby",
+    "url": "https://www.youtube.com/embed/FPr40VaG6sQ",
+    "video_id": "FPr40VaG6sQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 59,
+    "title": "S01E59 · The Treasure Hunt / Slasher Gorilla-Imo",
+    "url": "https://www.youtube.com/embed/z4JeejxYSZI",
+    "video_id": "z4JeejxYSZI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 60,
+    "title": "S01E60 · Mr. Minami Returns Home / The Oden Vendor's Fire Scandal",
+    "url": "https://www.youtube.com/embed/qkoyIsoRVNc",
+    "video_id": "qkoyIsoRVNc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 61,
+    "title": "S01E61 · Love Letter Mistery / The Great Escape",
+    "url": "https://www.youtube.com/embed/sb1xyebAHmY",
+    "video_id": "sb1xyebAHmY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 62,
+    "title": "S01E62 · Hiroshi and Kyoko Pair Skates / Who's The Worst of All",
+    "url": "https://www.youtube.com/embed/ZQE1-vx-0xo",
+    "video_id": "ZQE1-vx-0xo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 63,
+    "title": "S01E63 · Break Up The Wedding / Ume's Secret on Christmas",
+    "url": "https://www.youtube.com/embed/2xuMbfIMqkA",
+    "video_id": "2xuMbfIMqkA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 64,
+    "title": "S01E64 · Mochi-Cake Making / Free Sushi on New Year's Eve",
+    "url": "https://www.youtube.com/embed/RpKbH2TDaI8",
+    "video_id": "RpKbH2TDaI8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 65,
+    "title": "S01E65 · The Flat Frog in Edo Period / The First Dreams of The Year",
+    "url": "https://www.youtube.com/embed/TTiBPPf8ZKA",
+    "video_id": "TTiBPPf8ZKA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 66,
+    "title": "S01E66 · Let's Have No Tests / A Confusing Kiss",
+    "url": "https://www.youtube.com/embed/FKkg6ztBGoA",
+    "video_id": "FKkg6ztBGoA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 67,
+    "title": "S01E67 · Ume with A Sword / Hiroshi is in Trouble",
+    "url": "https://www.youtube.com/embed/FUDYasBaxl0",
+    "video_id": "FUDYasBaxl0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 68,
+    "title": "S01E68 · A Bride Candidate / Pyonkichi's Great Hostage Rescue Operation",
+    "url": "https://www.youtube.com/embed/ws_S72WriAI",
+    "video_id": "ws_S72WriAI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 69,
+    "title": "S01E69 · Okay! It's Break Wind Time / The Girl Who Fell For Gorilla-Imo",
+    "url": "https://www.youtube.com/embed/t9C9OHmlErk",
+    "video_id": "t9C9OHmlErk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 70,
+    "title": "S01E70 · The Beautiful Snow Sculpture / A Public Lottery",
+    "url": "https://www.youtube.com/embed/rgu8zTcdl4g",
+    "video_id": "rgu8zTcdl4g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 71,
+    "title": "S01E71 · Lunch on Sale / Please Give Me Your Cold",
+    "url": "https://www.youtube.com/embed/tsh6cSMVIQk",
+    "video_id": "tsh6cSMVIQk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 72,
+    "title": "S01E72 · A Funny Free Loader / Poor Mr. Minami",
+    "url": "https://www.youtube.com/embed/yDcZjp_khG8",
+    "video_id": "yDcZjp_khG8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 73,
+    "title": "S01E73 · Gorilla-Imo Enters Kindergarten / Empty Can",
+    "url": "https://www.youtube.com/embed/DPfDHcHKD9o",
+    "video_id": "DPfDHcHKD9o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 74,
+    "title": "S01E74 · Kanpei, the Genious Cartoonist / The Secret of Shinpachi",
+    "url": "https://www.youtube.com/embed/6pHlF5-Ag4k",
+    "video_id": "6pHlF5-Ag4k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 75,
+    "title": "S01E75 · The Family Jar, Big One! / Goro Kindergarten in Nick of Time!",
+    "url": "https://www.youtube.com/embed/LhFto3GytXM",
+    "video_id": "LhFto3GytXM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 76,
+    "title": "S01E76 · Hiking in Strange Way / Transference of Mr. Machida",
+    "url": "https://www.youtube.com/embed/56sYSB3cMjY",
+    "video_id": "56sYSB3cMjY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 77,
+    "title": "S01E77 · Babysitting for Little Shusaku / Duel! Public Bath House!",
+    "url": "https://www.youtube.com/embed/4yfjZYFu_jw",
+    "video_id": "4yfjZYFu_jw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 78,
+    "title": "S01E78 · Oh, Miss Sunglasses! / Pyonkichi, 5 Minutes to Explosion!",
+    "url": "https://www.youtube.com/embed/lXwHu1yhdq4",
+    "video_id": "lXwHu1yhdq4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 79,
+    "title": "S01E79 · Kuniko, The Match-Maker of Love / Pyonkichi's Great Prediction",
+    "url": "https://www.youtube.com/embed/xnM0H1RH3XQ",
+    "video_id": "xnM0H1RH3XQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 80,
+    "title": "S01E80 · Mr. Minami is Much Sought After / Hot Relationship",
+    "url": "https://www.youtube.com/embed/63YekathGX4",
+    "video_id": "63YekathGX4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 81,
+    "title": "S01E81 · Biting Fingers One and Twice / Big Operation To Be A Good Son",
+    "url": "https://www.youtube.com/embed/fGA0RkB6NTU",
+    "video_id": "fGA0RkB6NTU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 82,
+    "title": "S01E82 · Who Is The School Thief? / Mom's Crazy Dance",
+    "url": "https://www.youtube.com/embed/jtGbloQZMw0",
+    "video_id": "jtGbloQZMw0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 83,
+    "title": "S01E83 · No Exit, Pyonkichi, Hiroshi! / Kuniko's Favorite Recipe",
+    "url": "https://www.youtube.com/embed/zJ21UDYSIqI",
+    "video_id": "zJ21UDYSIqI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 84,
+    "title": "S01E84 · A Love Letter / Ume, Tearful Karate-Chop!",
+    "url": "https://www.youtube.com/embed/rIC-41KVtsk",
+    "video_id": "rIC-41KVtsk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 85,
+    "title": "S01E85 · Elder Lady / Pyonkichi is the Pest",
+    "url": "https://www.youtube.com/embed/OLP3vIntdlk",
+    "video_id": "OLP3vIntdlk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 86,
+    "title": "S01E86 · Shinpachi Has a Pyonkichi?! / Fight Caused By Dried Sardine",
+    "url": "https://www.youtube.com/embed/MQofQ8OLERk",
+    "video_id": "MQofQ8OLERk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 87,
+    "title": "S01E87 · My Darling Ume / See You Later Alligator",
+    "url": "https://www.youtube.com/embed/Fr6BTuxzwOs",
+    "video_id": "Fr6BTuxzwOs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 88,
+    "title": "S01E88 · Weather Frog, Pyonkichi / Bad Boy, Shinpachi",
+    "url": "https://www.youtube.com/embed/tMwv3W95H0I",
+    "video_id": "tMwv3W95H0I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 89,
+    "title": "S01E89 · Oh, Good Son / Pyonkichi is Active in School Club",
+    "url": "https://www.youtube.com/embed/sDr8gauZx_I",
+    "video_id": "sDr8gauZx_I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 90,
+    "title": "S01E90 · A Dream Girl / Ah! Dear School Friend",
+    "url": "https://www.youtube.com/embed/x4jAWMr_A3s",
+    "video_id": "x4jAWMr_A3s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 91,
+    "title": "S01E91 · Mr. Minami, Uninvited Visitor / Cold War",
+    "url": "https://www.youtube.com/embed/-_Ts-8EqFEE",
+    "video_id": "-_Ts-8EqFEE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 92,
+    "title": "S01E92 · Getting Kyoko Back / The Hustling Frog With The Secret Potion",
+    "url": "https://www.youtube.com/embed/BkXXMc37vsY",
+    "video_id": "BkXXMc37vsY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 93,
+    "title": "S01E93 · Wonderful Summer Vacation / Mom, are you getting married?!",
+    "url": "https://www.youtube.com/embed/mtnCL2k7jH0",
+    "video_id": "mtnCL2k7jH0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 94,
+    "title": "S01E94 · Oh! The Buroran is Hi-jacked / Mr. Ume",
+    "url": "https://www.youtube.com/embed/W9GuSQBsnKk",
+    "video_id": "W9GuSQBsnKk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 95,
+    "title": "S01E95 · Night Duty of Terror / Ume Expect to Detain",
+    "url": "https://www.youtube.com/embed/4SBwWbkgOhY",
+    "video_id": "4SBwWbkgOhY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 96,
+    "title": "S01E96 · Hiccup Date / What a Dog!",
+    "url": "https://www.youtube.com/embed/lIm9v-aIcqU",
+    "video_id": "lIm9v-aIcqU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 97,
+    "title": "S01E97 · Go Go Beer Party! / Lost Pyonkichi",
+    "url": "https://www.youtube.com/embed/FJwh8NGTkpA",
+    "video_id": "FJwh8NGTkpA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 98,
+    "title": "S01E98 · Haunted Apartment / The Bait For Fishing Is Pyonkichi",
+    "url": "https://www.youtube.com/embed/MEyTC89aRNU",
+    "video_id": "MEyTC89aRNU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 99,
+    "title": "S01E99 · Astonishing! Insect Collecting / The Representative Battle of Goro and Mogura",
+    "url": "https://www.youtube.com/embed/Fse2-Y6TQGw",
+    "video_id": "Fse2-Y6TQGw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 100,
+    "title": "S01E100 · Love Festival and Pyonkichi",
+    "url": "https://www.youtube.com/embed/PpsPfvuTq4g",
+    "video_id": "PpsPfvuTq4g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 101,
+    "title": "S01E101 · Hiroshi's Secret Weapon / Energy Frog, Pyonkichi",
+    "url": "https://www.youtube.com/embed/yXJXTeMCwpo",
+    "video_id": "yXJXTeMCwpo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 102,
+    "title": "S01E102 · Who will be the PTA President? / It's Hard Being \"Mr. Hit Me\"",
+    "url": "https://www.youtube.com/embed/-q2urXDYZnI",
+    "video_id": "-q2urXDYZnI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 103,
+    "title": "S01E103 · A Balloon in the Sky / Hilarious Charity Talent Show",
+    "url": "https://www.youtube.com/embed/ZNF-PIcLZKw",
+    "video_id": "ZNF-PIcLZKw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "102 eps",
+  "desc": "Classic anime series (1972), streaming free from Anime! on TMS Official Channel, the official channel. 102 of 103 episodes — Episode 19 is not posted by the channel.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/IvDdNVfI1a0"
+ },
+ {
+  "id": "stv-73120",
+  "title": "Cat's Eye",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · You're a Sexy Thief",
+    "url": "https://www.youtube.com/embed/rhOIwmWvWMo",
+    "video_id": "rhOIwmWvWMo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Welcome to the Police",
+    "url": "https://www.youtube.com/embed/xOsHM-VmITI",
+    "video_id": "xOsHM-VmITI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Be Careful of the Mini-Devil",
+    "url": "https://www.youtube.com/embed/tRa6m_QQreI",
+    "video_id": "tRa6m_QQreI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · The Challenger Smells Like Paris",
+    "url": "https://www.youtube.com/embed/fxGXkJxK234",
+    "video_id": "fxGXkJxK234",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Night Flight Is a Dangerous Scent",
+    "url": "https://www.youtube.com/embed/sntnPPhcm5s",
+    "video_id": "sntnPPhcm5s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Feeling A Bit Like Lovers",
+    "url": "https://www.youtube.com/embed/OZKZw4o49Jo",
+    "video_id": "OZKZw4o49Jo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Make The Love Sign Glamorous",
+    "url": "https://www.youtube.com/embed/SvANQNsQ2Bs",
+    "video_id": "SvANQNsQ2Bs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Far and Away Tottoccino",
+    "url": "https://www.youtube.com/embed/NSvdEAugBxo",
+    "video_id": "NSvdEAugBxo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · A Very Strange Chase",
+    "url": "https://www.youtube.com/embed/ooamfp2AJnI",
+    "video_id": "ooamfp2AJnI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Do You Like Dog Food?",
+    "url": "https://www.youtube.com/embed/4ZZYzb0K-5U",
+    "video_id": "4ZZYzb0K-5U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · A Dangerous American Seduction",
+    "url": "https://www.youtube.com/embed/yGmj-JFe5w4",
+    "video_id": "yGmj-JFe5w4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · A Splendid European Seduction",
+    "url": "https://www.youtube.com/embed/8HlSadUmDbY",
+    "video_id": "8HlSadUmDbY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Don't Go, My Love",
+    "url": "https://www.youtube.com/embed/hndXaSHkpNg",
+    "video_id": "hndXaSHkpNg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · Cleopatra's Ransom",
+    "url": "https://www.youtube.com/embed/6eC_mgJ1Zjg",
+    "video_id": "6eC_mgJ1Zjg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · The Leotard Flies at Midnight",
+    "url": "https://www.youtube.com/embed/Q2Ho2UaTt1k",
+    "video_id": "Q2Ho2UaTt1k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · Monday is the Time to Smile",
+    "url": "https://www.youtube.com/embed/GHTF3l8fVMM",
+    "video_id": "GHTF3l8fVMM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · Bullets Suit the Death God",
+    "url": "https://www.youtube.com/embed/0zitqNccpuY",
+    "video_id": "0zitqNccpuY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · Cornered",
+    "url": "https://www.youtube.com/embed/wHNtlZ9wWkg",
+    "video_id": "wHNtlZ9wWkg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · Good Evening Just to You",
+    "url": "https://www.youtube.com/embed/O8e049mU1bA",
+    "video_id": "O8e049mU1bA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · Lovers' Holiday",
+    "url": "https://www.youtube.com/embed/l0m4TQDFds0",
+    "video_id": "l0m4TQDFds0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · I Want to Meet You Just Once",
+    "url": "https://www.youtube.com/embed/RNydDO4JvPQ",
+    "video_id": "RNydDO4JvPQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Visitor on a Snowy Day",
+    "url": "https://www.youtube.com/embed/j9CibiQngyg",
+    "video_id": "j9CibiQngyg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · Winter is Love's Warmth",
+    "url": "https://www.youtube.com/embed/pgPyJcBLLa0",
+    "video_id": "pgPyJcBLLa0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · Santa Came Falling From the Sky",
+    "url": "https://www.youtube.com/embed/A5CHHzUEGOw",
+    "video_id": "A5CHHzUEGOw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · When the Bell Tolls Twelve",
+    "url": "https://www.youtube.com/embed/PqQWCrMauvA",
+    "video_id": "PqQWCrMauvA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · From Runan Island With Love",
+    "url": "https://www.youtube.com/embed/Ox4LZpjZYXw",
+    "video_id": "Ox4LZpjZYXw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S01E27 · A Close Call in Runan",
+    "url": "https://www.youtube.com/embed/ReW-71qMJKI",
+    "video_id": "ReW-71qMJKI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S01E28 · Lost Memory",
+    "url": "https://www.youtube.com/embed/HExIq7P42VY",
+    "video_id": "HExIq7P42VY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S01E29 · Make the Show Magnificent",
+    "url": "https://www.youtube.com/embed/LgF-Wh4BoxE",
+    "video_id": "LgF-Wh4BoxE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S01E30 · The Athletic Club Smells of Death",
+    "url": "https://www.youtube.com/embed/5czvDXDMEXc",
+    "video_id": "5czvDXDMEXc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S01E31 · It Began With a Kiss",
+    "url": "https://www.youtube.com/embed/yP47g2XgIVI",
+    "video_id": "yP47g2XgIVI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S01E32 · The Art Museum is Full of Danger",
+    "url": "https://www.youtube.com/embed/XuWSXVqSc80",
+    "video_id": "XuWSXVqSc80",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S01E33 · The Target is a Proposal",
+    "url": "https://www.youtube.com/embed/bNZGq3mazu8",
+    "video_id": "bNZGq3mazu8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S01E34 · Have You Seen Heinz?",
+    "url": "https://www.youtube.com/embed/c6BGGDESf48",
+    "video_id": "c6BGGDESf48",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S01E35 · Unleash Cat's Secrets!",
+    "url": "https://www.youtube.com/embed/1GPSh_ls2_E",
+    "video_id": "1GPSh_ls2_E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S01E36 · A Man Who Knew Heinz",
+    "url": "https://www.youtube.com/embed/ryx5wOA-HDQ",
+    "video_id": "ryx5wOA-HDQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S01E37 · The She-Cat From France",
+    "url": "https://www.youtube.com/embed/X_gScJmr2zU",
+    "video_id": "X_gScJmr2zU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S01E38 · A Soaking Dance at Midnight",
+    "url": "https://www.youtube.com/embed/VLsLsU6PUgU",
+    "video_id": "VLsLsU6PUgU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S01E39 · Angels' Ransom",
+    "url": "https://www.youtube.com/embed/DhWlollVnlU",
+    "video_id": "DhWlollVnlU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S01E40 · A Scare in the Dark",
+    "url": "https://www.youtube.com/embed/6so1AlP2g80",
+    "video_id": "6so1AlP2g80",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S01E41 · The Hunter Wore a Badge",
+    "url": "https://www.youtube.com/embed/pKgpR3YRTFY",
+    "video_id": "pKgpR3YRTFY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S01E42 · The Stolen \"I Love You\"",
+    "url": "https://www.youtube.com/embed/y6HKlZ2T89I",
+    "video_id": "y6HKlZ2T89I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S01E43 · The Good Life",
+    "url": "https://www.youtube.com/embed/cfa9EDvxS_o",
+    "video_id": "cfa9EDvxS_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S01E44 · The Magnificent Trap",
+    "url": "https://www.youtube.com/embed/OLkqaklS2Uk",
+    "video_id": "OLkqaklS2Uk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S01E45 · Cap-race-io of Love",
+    "url": "https://www.youtube.com/embed/N1TnQztwzGY",
+    "video_id": "N1TnQztwzGY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S01E46 · The Most Dangerous Game",
+    "url": "https://www.youtube.com/embed/IRVLiHo8jKc",
+    "video_id": "IRVLiHo8jKc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S01E47 · The Gift is Dad's Wine",
+    "url": "https://www.youtube.com/embed/I9rtMdTCMdU",
+    "video_id": "I9rtMdTCMdU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S01E48 · A Mystery for a Winter Night",
+    "url": "https://www.youtube.com/embed/fC8G17H-QSk",
+    "video_id": "fC8G17H-QSk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S01E49 · Yokohama Bay Blues",
+    "url": "https://www.youtube.com/embed/MmZEi07aV3E",
+    "video_id": "MmZEi07aV3E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "S01E50 · For You, the Tear of the Stars",
+    "url": "https://www.youtube.com/embed/A6NvazEwhBQ",
+    "video_id": "A6NvazEwhBQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "S01E51 · Fake Wedding Bells",
+    "url": "https://www.youtube.com/embed/HHuD_WX4Jtw",
+    "video_id": "HHuD_WX4Jtw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "S01E52 · Beware of Sweet Invitations",
+    "url": "https://www.youtube.com/embed/PukuQNSjJKc",
+    "video_id": "PukuQNSjJKc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 53,
+    "title": "S01E53 · Farewell, Winter Seagull",
+    "url": "https://www.youtube.com/embed/IaY31uN77Pk",
+    "video_id": "IaY31uN77Pk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 54,
+    "title": "S01E54 · The Woman the Chief Fell For",
+    "url": "https://www.youtube.com/embed/l7kU2p6WMS4",
+    "video_id": "l7kU2p6WMS4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 55,
+    "title": "S01E55 · The Inunari Police Triumvirate",
+    "url": "https://www.youtube.com/embed/9rRdgqoBW1M",
+    "video_id": "9rRdgqoBW1M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 56,
+    "title": "S01E56 · Uneasy Feelings About a Transfer Student",
+    "url": "https://www.youtube.com/embed/SKX_mo_vKW4",
+    "video_id": "SKX_mo_vKW4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 57,
+    "title": "S01E57 · A Requiem for the Villains",
+    "url": "https://www.youtube.com/embed/otQ3siy0VG8",
+    "video_id": "otQ3siy0VG8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 58,
+    "title": "S01E58 · Toshio Falls in Love with a Phantom Woman",
+    "url": "https://www.youtube.com/embed/cBQjtIswGH0",
+    "video_id": "cBQjtIswGH0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 59,
+    "title": "S01E59 · Romance Out of the Blue",
+    "url": "https://www.youtube.com/embed/-_JTxQfqUx4",
+    "video_id": "-_JTxQfqUx4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 60,
+    "title": "S01E60 · Enthusiasm is a Must for April Fools'",
+    "url": "https://www.youtube.com/embed/3kEAQPRn5bE",
+    "video_id": "3kEAQPRn5bE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 61,
+    "title": "S01E61 · Capricious Scramble",
+    "url": "https://www.youtube.com/embed/zIm37yp1Ogw",
+    "video_id": "zIm37yp1Ogw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 62,
+    "title": "S01E62 · The Halftime of Love",
+    "url": "https://www.youtube.com/embed/mI3U4i5WQGI",
+    "video_id": "mI3U4i5WQGI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 63,
+    "title": "S01E63 · Don’t Cry, Inunari Trio",
+    "url": "https://www.youtube.com/embed/9nMVCkoER0A",
+    "video_id": "9nMVCkoER0A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 64,
+    "title": "S01E64 · Goodbye to My Mommies",
+    "url": "https://www.youtube.com/embed/qVo62Z8qG_8",
+    "video_id": "qVo62Z8qG_8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 65,
+    "title": "S01E65 · A Toast to Travel in the Golden Years",
+    "url": "https://www.youtube.com/embed/vzKZOF58SZk",
+    "video_id": "vzKZOF58SZk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 66,
+    "title": "S01E66 · Dancing Belongs in the Starry Skies",
+    "url": "https://www.youtube.com/embed/MEQRbRhMmHY",
+    "video_id": "MEQRbRhMmHY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 67,
+    "title": "S01E67 · The Splendid Leotard",
+    "url": "https://www.youtube.com/embed/Ba3D30imneE",
+    "video_id": "Ba3D30imneE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 68,
+    "title": "S01E68 · Head Over Heels for Hitomi",
+    "url": "https://www.youtube.com/embed/UnUC8DkTbm8",
+    "video_id": "UnUC8DkTbm8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 69,
+    "title": "S01E69 · Heartbreak Over Cat's",
+    "url": "https://www.youtube.com/embed/ru3-Py7PRu4",
+    "video_id": "ru3-Py7PRu4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 70,
+    "title": "S01E70 · To the Southern Cross, with Love",
+    "url": "https://www.youtube.com/embed/e1axdeyz6Zk",
+    "video_id": "e1axdeyz6Zk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 71,
+    "title": "S01E71 · Your True Face is a Silhouette",
+    "url": "https://www.youtube.com/embed/8V_jrXtq_9U",
+    "video_id": "8V_jrXtq_9U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 72,
+    "title": "S01E72 · Just One Chance to Steal",
+    "url": "https://www.youtube.com/embed/9GzD4NnObp4",
+    "video_id": "9GzD4NnObp4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 73,
+    "title": "S01E73 · Curtain Call of Love",
+    "url": "https://www.youtube.com/embed/Jfv1fO7gjR4",
+    "video_id": "Jfv1fO7gjR4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "73 eps",
+  "desc": "Classic anime series (1983), streaming free from Anime! on TMS Official Channel, the official channel. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/rhOIwmWvWMo"
+ },
+ {
+  "id": "stv-73121",
+  "title": "God Mars",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Who Am I?!",
+    "url": "https://www.youtube.com/embed/t-hDE2SCY2Y",
+    "video_id": "t-hDE2SCY2Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Behold! The Six God Combination",
+    "url": "https://www.youtube.com/embed/Jhw9Jv6BDI0",
+    "video_id": "Jhw9Jv6BDI0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · The Horrible Secret",
+    "url": "https://www.youtube.com/embed/ms2GkNcahuo",
+    "video_id": "ms2GkNcahuo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · The Lonely Esper Takeru",
+    "url": "https://www.youtube.com/embed/Gzxa2bfB8sM",
+    "video_id": "Gzxa2bfB8sM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Farewell! My Beloved Planet Earth",
+    "url": "https://www.youtube.com/embed/E1xCNk0EqSg",
+    "video_id": "E1xCNk0EqSg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · The Six Gods, Unable To Combine?!",
+    "url": "https://www.youtube.com/embed/BUrTjLalTfs",
+    "video_id": "BUrTjLalTfs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Pluto, The Planet Of Hell",
+    "url": "https://www.youtube.com/embed/CNa6jL-cJJI",
+    "video_id": "CNa6jL-cJJI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Takeru, the Bomber?!",
+    "url": "https://www.youtube.com/embed/h9a6kDEVa00",
+    "video_id": "h9a6kDEVa00",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · SOS! Tokyo is Sinking",
+    "url": "https://www.youtube.com/embed/wVQicHwoMsQ",
+    "video_id": "wVQicHwoMsQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · The Girl From Space!",
+    "url": "https://www.youtube.com/embed/RLGDeuMAmsU",
+    "video_id": "RLGDeuMAmsU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Who Does The Mysterious Voice Belong To?!",
+    "url": "https://www.youtube.com/embed/itEk3RVMBuY",
+    "video_id": "itEk3RVMBuY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · Showdown! Mars And Marg",
+    "url": "https://www.youtube.com/embed/Wfjlspa19eY",
+    "video_id": "Wfjlspa19eY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Defeat Emperor Zule!",
+    "url": "https://www.youtube.com/embed/QtQB-TTKyjA",
+    "video_id": "QtQB-TTKyjA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · Marg, The Tragic Warrior",
+    "url": "https://www.youtube.com/embed/-CX51-1IpQo",
+    "video_id": "-CX51-1IpQo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · The Six God Combination Comes Apart!",
+    "url": "https://www.youtube.com/embed/-VfNNVoIcsc",
+    "video_id": "-VfNNVoIcsc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · Mika, The Puppet!",
+    "url": "https://www.youtube.com/embed/UfQkcxFgl5E",
+    "video_id": "UfQkcxFgl5E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · Akira's Girlfriend Is A Warrior",
+    "url": "https://www.youtube.com/embed/usukAXKK4lA",
+    "video_id": "usukAXKK4lA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · The South Pole Will Be Takeru's Grave!",
+    "url": "https://www.youtube.com/embed/jJfrZpFcsH4",
+    "video_id": "jJfrZpFcsH4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · Marg Dies On Earth!",
+    "url": "https://www.youtube.com/embed/vau6ymPYESs",
+    "video_id": "vau6ymPYESs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · Burning For Revenge!",
+    "url": "https://www.youtube.com/embed/s1-dZSpgt0Q",
+    "video_id": "s1-dZSpgt0Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · Battle On The Slave Planet!",
+    "url": "https://www.youtube.com/embed/kfJcRmVSGqY",
+    "video_id": "kfJcRmVSGqY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Lozé, The Traitor!",
+    "url": "https://www.youtube.com/embed/d5Tj_i5e048",
+    "video_id": "d5Tj_i5e048",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · The Despicable Emperor Zule!!",
+    "url": "https://www.youtube.com/embed/jf1QzGw1fVg",
+    "video_id": "jf1QzGw1fVg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · Detonate The Antiproton Bomb?!",
+    "url": "https://www.youtube.com/embed/mZvCPY-lgNc",
+    "video_id": "mZvCPY-lgNc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · A New Bond, Separation And Departure!",
+    "url": "https://www.youtube.com/embed/IYVZdcXiNLA",
+    "video_id": "IYVZdcXiNLA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · The Escapee Who Beckons Danger",
+    "url": "https://www.youtube.com/embed/lBa6P5QaIuY",
+    "video_id": "lBa6P5QaIuY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S01E27 · The Fate Of The Positive Espers Versus The Negative Espers",
+    "url": "https://www.youtube.com/embed/CBIxX66tVy8",
+    "video_id": "CBIxX66tVy8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S01E28 · The Mysterious Space Pirate Ship",
+    "url": "https://www.youtube.com/embed/yDTjxjxjhc4",
+    "video_id": "yDTjxjxjhc4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S01E29 · Flore's Dangerous Espers",
+    "url": "https://www.youtube.com/embed/E6mbbTXBr3o",
+    "video_id": "E6mbbTXBr3o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S01E30 · Lonesome Flore",
+    "url": "https://www.youtube.com/embed/h1VB2BoN1zM",
+    "video_id": "h1VB2BoN1zM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S01E31 · Declaration of War",
+    "url": "https://www.youtube.com/embed/y5luA0bm1AA",
+    "video_id": "y5luA0bm1AA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S01E32 · Flore Is Kidnapped",
+    "url": "https://www.youtube.com/embed/oUGgsJ9mdvY",
+    "video_id": "oUGgsJ9mdvY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S01E33 · Takeru Versus Gash!",
+    "url": "https://www.youtube.com/embed/Gqe2HQQy5IY",
+    "video_id": "Gqe2HQQy5IY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S01E34 · Mars, It's Too Soon To Die!",
+    "url": "https://www.youtube.com/embed/Lj2NW8H3EpU",
+    "video_id": "Lj2NW8H3EpU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S01E35 · Takeru is Captured",
+    "url": "https://www.youtube.com/embed/n72JtBsuBhE",
+    "video_id": "n72JtBsuBhE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S01E36 · Space Cemetery",
+    "url": "https://www.youtube.com/embed/9woUPFIX_TY",
+    "video_id": "9woUPFIX_TY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S01E37 · A Mother Daughter Reunion",
+    "url": "https://www.youtube.com/embed/MXrsZ1jGvd8",
+    "video_id": "MXrsZ1jGvd8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S01E38 · An Encounter With Her Father, Gyron",
+    "url": "https://www.youtube.com/embed/k7ZfSZBJx1I",
+    "video_id": "k7ZfSZBJx1I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S01E39 · Takeru's Tragedy",
+    "url": "https://www.youtube.com/embed/C1SlM5I9VyY",
+    "video_id": "C1SlM5I9VyY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S01E40 · Marg, Resurrected",
+    "url": "https://www.youtube.com/embed/CODV9F_WLuo",
+    "video_id": "CODV9F_WLuo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S01E41 · A Friendship That Spans The Universe",
+    "url": "https://www.youtube.com/embed/qFjhwScxfu0",
+    "video_id": "qFjhwScxfu0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S01E42 · Rise Above The Fallen!",
+    "url": "https://www.youtube.com/embed/dnh4FRbaLaw",
+    "video_id": "dnh4FRbaLaw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S01E43 · Gash's Misjudgment",
+    "url": "https://www.youtube.com/embed/NPPn27-2GJo",
+    "video_id": "NPPn27-2GJo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S01E44 · Rest In Peace, Gash",
+    "url": "https://www.youtube.com/embed/IDBI874HwRY",
+    "video_id": "IDBI874HwRY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S01E45 · God Mars Is In Danger!",
+    "url": "https://www.youtube.com/embed/EtdjIQ_3cgg",
+    "video_id": "EtdjIQ_3cgg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S01E46 · Hell On Planet Marmelo",
+    "url": "https://www.youtube.com/embed/K_BEtD4_GGM",
+    "video_id": "K_BEtD4_GGM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S01E47 · Destiny! The Battle Between Father And Daughter",
+    "url": "https://www.youtube.com/embed/WhXfJ_jdqfI",
+    "video_id": "WhXfJ_jdqfI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S01E48 · Imminent Danger on Planet Marmelo!",
+    "url": "https://www.youtube.com/embed/XOfHDk33eHw",
+    "video_id": "XOfHDk33eHw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S01E49 · Gyron Targets Earth",
+    "url": "https://www.youtube.com/embed/DvXf8lXAQeE",
+    "video_id": "DvXf8lXAQeE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "S01E50 · The Fateful Battle Draws Near!",
+    "url": "https://www.youtube.com/embed/ANYwc0dDVfw",
+    "video_id": "ANYwc0dDVfw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "S01E51 · Zule Returns!",
+    "url": "https://www.youtube.com/embed/YJCYr-OT4iw",
+    "video_id": "YJCYr-OT4iw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 52,
+    "title": "S01E52 · Takeru's Life Is In Danger?!",
+    "url": "https://www.youtube.com/embed/7Wsvao1gobI",
+    "video_id": "7Wsvao1gobI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 53,
+    "title": "S01E53 · Limited Life",
+    "url": "https://www.youtube.com/embed/MxvRGXFNM_E",
+    "video_id": "MxvRGXFNM_E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 54,
+    "title": "S01E54 · Farewell! Takeru And Lozé",
+    "url": "https://www.youtube.com/embed/uWtyOUMOTDE",
+    "video_id": "uWtyOUMOTDE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 55,
+    "title": "S01E55 · Seeing Marg Through The Fire",
+    "url": "https://www.youtube.com/embed/RC6rC5gGLHI",
+    "video_id": "RC6rC5gGLHI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 56,
+    "title": "S01E56 · Banish The Enemy Within!",
+    "url": "https://www.youtube.com/embed/JubZy4ftZbA",
+    "video_id": "JubZy4ftZbA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 57,
+    "title": "S01E57 · Who Is The Rose Knight…?!",
+    "url": "https://www.youtube.com/embed/dIOD7mg5YBI",
+    "video_id": "dIOD7mg5YBI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 58,
+    "title": "S01E58 · When Will I Find Inner Peace?",
+    "url": "https://www.youtube.com/embed/mSQHozMrfNU",
+    "video_id": "mSQHozMrfNU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 59,
+    "title": "S01E59 · Noah's Rebellion",
+    "url": "https://www.youtube.com/embed/Jy7156shGoM",
+    "video_id": "Jy7156shGoM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 60,
+    "title": "S01E60 · Takeru And The Miracle Of Love",
+    "url": "https://www.youtube.com/embed/_2dzyl3fUHA",
+    "video_id": "_2dzyl3fUHA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 61,
+    "title": "S01E61 · Takeru's Last Birthday?",
+    "url": "https://www.youtube.com/embed/UcmiysT3tPs",
+    "video_id": "UcmiysT3tPs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 62,
+    "title": "S01E62 · The Fate Of The Rose Knight",
+    "url": "https://www.youtube.com/embed/gBplrYjEs4U",
+    "video_id": "gBplrYjEs4U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 63,
+    "title": "S01E63 · Life, Love And War",
+    "url": "https://www.youtube.com/embed/IuuNHNXeKHY",
+    "video_id": "IuuNHNXeKHY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 64,
+    "title": "S01E64 · A Smile For The Galaxy",
+    "url": "https://www.youtube.com/embed/-q8DilfLfj0",
+    "video_id": "-q8DilfLfj0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "64 eps",
+  "desc": "Classic anime series (1981), streaming free from Anime! on TMS Official Channel, the official channel. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/t-hDE2SCY2Y"
+ },
+ {
+  "id": "stv-73122",
+  "title": "New Tetsujin 28",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · The Plot to Steal the Sun",
+    "url": "https://www.youtube.com/embed/AuceLU556dU",
+    "video_id": "AuceLU556dU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Hands of the Enemy",
+    "url": "https://www.youtube.com/embed/N1_FSrnlnCY",
+    "video_id": "N1_FSrnlnCY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Deadly Doctor Doom",
+    "url": "https://www.youtube.com/embed/i_BH-ahKoJc",
+    "video_id": "i_BH-ahKoJc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · The Robot Birdman",
+    "url": "https://www.youtube.com/embed/-N5R3kQcL5U",
+    "video_id": "-N5R3kQcL5U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · The Phantom Robot",
+    "url": "https://www.youtube.com/embed/P_x59_nptiQ",
+    "video_id": "P_x59_nptiQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Monster of the Deep",
+    "url": "https://www.youtube.com/embed/BtknmAJyVLY",
+    "video_id": "BtknmAJyVLY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · The Crashing Satellite",
+    "url": "https://www.youtube.com/embed/nWSQnv6PkUY",
+    "video_id": "nWSQnv6PkUY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · The Dreaded Double Robot",
+    "url": "https://www.youtube.com/embed/kUxrFVWPXLw",
+    "video_id": "kUxrFVWPXLw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · Menace from Space",
+    "url": "https://www.youtube.com/embed/36-iZwEnGRI",
+    "video_id": "36-iZwEnGRI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Bitter Revenge",
+    "url": "https://www.youtube.com/embed/ATSKBOfQ8-o",
+    "video_id": "ATSKBOfQ8-o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · The Invisible Enemy",
+    "url": "https://www.youtube.com/embed/KpWQ023DK_Q",
+    "video_id": "KpWQ023DK_Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · The Robot Runners",
+    "url": "https://www.youtube.com/embed/Zki42BgivPk",
+    "video_id": "Zki42BgivPk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Will the Real Gigantor Please Stand Up?",
+    "url": "https://www.youtube.com/embed/FyLdVvmk7bk",
+    "video_id": "FyLdVvmk7bk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · The Abominable Iceman",
+    "url": "https://www.youtube.com/embed/wpIJ09dKsJI",
+    "video_id": "wpIJ09dKsJI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · The Dragon Master",
+    "url": "https://www.youtube.com/embed/gZwjcme9U98",
+    "video_id": "gZwjcme9U98",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · The Guardian of Evil",
+    "url": "https://www.youtube.com/embed/1IYIL_1ABgU",
+    "video_id": "1IYIL_1ABgU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · The Manta Marauders",
+    "url": "https://www.youtube.com/embed/zMGUGHhCtYo",
+    "video_id": "zMGUGHhCtYo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · The Pirate Submarine",
+    "url": "https://www.youtube.com/embed/KEa-owb89c4",
+    "video_id": "KEa-owb89c4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · The Sting of the Scorpion",
+    "url": "https://www.youtube.com/embed/KVsH5oE-IYQ",
+    "video_id": "KVsH5oE-IYQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · The Fearsome Pharaoh",
+    "url": "https://www.youtube.com/embed/9pf1Mw0IPCI",
+    "video_id": "9pf1Mw0IPCI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · The Shrinking Ray",
+    "url": "https://www.youtube.com/embed/UamiMWRYZJY",
+    "video_id": "UamiMWRYZJY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Kid Warriors",
+    "url": "https://www.youtube.com/embed/tBHV0FGgkf8",
+    "video_id": "tBHV0FGgkf8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · Red Devil",
+    "url": "https://www.youtube.com/embed/Hm17dIE29Mo",
+    "video_id": "Hm17dIE29Mo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · The Fiery Robosaurus",
+    "url": "https://www.youtube.com/embed/NJzi-niWhK8",
+    "video_id": "NJzi-niWhK8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · Invaders from Space",
+    "url": "https://www.youtube.com/embed/Fnsz0R4VjUM",
+    "video_id": "Fnsz0R4VjUM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · The Master of Space",
+    "url": "https://www.youtube.com/embed/UnldvfLNMLU",
+    "video_id": "UnldvfLNMLU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S01E27 · The Great Garkonga",
+    "url": "https://www.youtube.com/embed/26eT-aFICeI",
+    "video_id": "26eT-aFICeI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S01E28 · The Pritheum Plot",
+    "url": "https://www.youtube.com/embed/-UbU3tVOAVw",
+    "video_id": "-UbU3tVOAVw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S01E29 · The Crusader Robot",
+    "url": "https://www.youtube.com/embed/RJkn2VjtvxA",
+    "video_id": "RJkn2VjtvxA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S01E30 · The Scheme to Scorch the West",
+    "url": "https://www.youtube.com/embed/tDbkefUXPZ4",
+    "video_id": "tDbkefUXPZ4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S01E31 · The Doomsday Comet",
+    "url": "https://www.youtube.com/embed/SNKUrBSLk_c",
+    "video_id": "SNKUrBSLk_c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S01E32 · The Thunder God",
+    "url": "https://www.youtube.com/embed/fdolfJhabjY",
+    "video_id": "fdolfJhabjY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S01E33 · The Final Battle",
+    "url": "https://www.youtube.com/embed/MjbMiZFEY2A",
+    "video_id": "MjbMiZFEY2A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S01E34 · The Robot Who Could Think",
+    "url": "https://www.youtube.com/embed/gc5PXj1V5vU",
+    "video_id": "gc5PXj1V5vU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S01E35 · Blue Danger",
+    "url": "https://www.youtube.com/embed/iEQAusii-Qs",
+    "video_id": "iEQAusii-Qs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S01E36 · Robot on a Rampage",
+    "url": "https://www.youtube.com/embed/dSy3sbT34gY",
+    "video_id": "dSy3sbT34gY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S01E37 · Fall from the Sky",
+    "url": "https://www.youtube.com/embed/l7s6ySLdFE0",
+    "video_id": "l7s6ySLdFE0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S01E38 · The Awesome Alpha-Bot",
+    "url": "https://www.youtube.com/embed/myjPryOmcfw",
+    "video_id": "myjPryOmcfw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S01E39 · The Boy from Second Earth",
+    "url": "https://www.youtube.com/embed/Hg--Emu3hLM",
+    "video_id": "Hg--Emu3hLM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S01E40 · The Black Hole",
+    "url": "https://www.youtube.com/embed/KVm16EXaBp4",
+    "video_id": "KVm16EXaBp4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S01E41 · The Queen of Time",
+    "url": "https://www.youtube.com/embed/H9on-Sfehy8",
+    "video_id": "H9on-Sfehy8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S01E42 · The Curse of Dracula",
+    "url": "https://www.youtube.com/embed/-Oi4jxNkneE",
+    "video_id": "-Oi4jxNkneE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S01E43 · Z is for Zombie",
+    "url": "https://www.youtube.com/embed/l5PunyTG8Zs",
+    "video_id": "l5PunyTG8Zs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S01E44 · The Ghastly Ghost",
+    "url": "https://www.youtube.com/embed/3gjusFZ57GQ",
+    "video_id": "3gjusFZ57GQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S01E45 · Skeemer's Demons",
+    "url": "https://www.youtube.com/embed/PoKeazKbAlo",
+    "video_id": "PoKeazKbAlo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S01E46 · Trapped in the Past",
+    "url": "https://www.youtube.com/embed/V8OMl4197ek",
+    "video_id": "V8OMl4197ek",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S01E47 · Gigantor for Sale",
+    "url": "https://www.youtube.com/embed/onf9IZwR4xY",
+    "video_id": "onf9IZwR4xY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S01E48 · The Space Fortress",
+    "url": "https://www.youtube.com/embed/mHH7HTp2_-w",
+    "video_id": "mHH7HTp2_-w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S01E49 · Friend turned Enemy",
+    "url": "https://www.youtube.com/embed/mp0r-ZN4W5A",
+    "video_id": "mp0r-ZN4W5A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 50,
+    "title": "S01E50 · The Battle to Save the Earth",
+    "url": "https://www.youtube.com/embed/wP0ZcRtrR00",
+    "video_id": "wP0ZcRtrR00",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "S01E51 · The Sun That Never Shines",
+    "url": "https://www.youtube.com/embed/d-qaMtTCgGs",
+    "video_id": "d-qaMtTCgGs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "51 eps",
+  "desc": "Classic anime series (1980), streaming free from Anime! on TMS Official Channel, the official channel. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/AuceLU556dU"
+ },
+ {
+  "id": "stv-73123",
+  "title": "Nobody's Boy: Rémi",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/FJP4Nx6vzVM",
+    "video_id": "FJP4Nx6vzVM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/04KD3TnGvNE",
+    "video_id": "04KD3TnGvNE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/YzTicGdx6w4",
+    "video_id": "YzTicGdx6w4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/eby3G660bg4",
+    "video_id": "eby3G660bg4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/D_bExSmaeW8",
+    "video_id": "D_bExSmaeW8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/irBQO5xgk-c",
+    "video_id": "irBQO5xgk-c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/zQKTfpqmw2k",
+    "video_id": "zQKTfpqmw2k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/Dy999HPTjmg",
+    "video_id": "Dy999HPTjmg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/g6xPoyDzG_Q",
+    "video_id": "g6xPoyDzG_Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/y7dd5whXwyE",
+    "video_id": "y7dd5whXwyE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/Jo9Ux0gp5P4",
+    "video_id": "Jo9Ux0gp5P4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/BIxi12GO1ko",
+    "video_id": "BIxi12GO1ko",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/0sz32sCZve8",
+    "video_id": "0sz32sCZve8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/j8FrekuCru0",
+    "video_id": "j8FrekuCru0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/QyELw4v7BQc",
+    "video_id": "QyELw4v7BQc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/gmm3saVdXbY",
+    "video_id": "gmm3saVdXbY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/OtPfRA_tgfk",
+    "video_id": "OtPfRA_tgfk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/YJ5aS6mccoA",
+    "video_id": "YJ5aS6mccoA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/IYgKFnfq9tQ",
+    "video_id": "IYgKFnfq9tQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/tTetH0ZIq7k",
+    "video_id": "tTetH0ZIq7k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/mpU2JoMlVXY",
+    "video_id": "mpU2JoMlVXY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/d_1HhwUUafE",
+    "video_id": "d_1HhwUUafE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/Ew6rezkJDvA",
+    "video_id": "Ew6rezkJDvA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/0n9fCgILngw",
+    "video_id": "0n9fCgILngw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/C3nLjDnuyAE",
+    "video_id": "C3nLjDnuyAE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/AT7Kd9AUc-g",
+    "video_id": "AT7Kd9AUc-g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S01E27 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/NrHp8g_hfMI",
+    "video_id": "NrHp8g_hfMI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S01E29 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/7qNxv92hcO8",
+    "video_id": "7qNxv92hcO8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S01E30 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/liexX86WGQU",
+    "video_id": "liexX86WGQU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S01E31 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/GHqk7_1wACY",
+    "video_id": "GHqk7_1wACY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S01E32 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/VOrlWA5ndxw",
+    "video_id": "VOrlWA5ndxw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S01E33 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/HMIQLwcZN3s",
+    "video_id": "HMIQLwcZN3s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S01E34 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/OT3eNKz4Euc",
+    "video_id": "OT3eNKz4Euc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S01E35 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/cH1di6j-Fmk",
+    "video_id": "cH1di6j-Fmk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S01E36 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/sE_Bysopmio",
+    "video_id": "sE_Bysopmio",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S01E37 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/iBwEN0mGt5Y",
+    "video_id": "iBwEN0mGt5Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S01E38 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/pooLpxqRIHM",
+    "video_id": "pooLpxqRIHM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S01E39 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/oNzpsei7brs",
+    "video_id": "oNzpsei7brs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S01E40 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/1086mlVJiAc",
+    "video_id": "1086mlVJiAc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S01E41 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/FDH7y1WUnZc",
+    "video_id": "FDH7y1WUnZc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S01E42 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/HgIIzGKirug",
+    "video_id": "HgIIzGKirug",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S01E43 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/CZMPsIXOKRs",
+    "video_id": "CZMPsIXOKRs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S01E44 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/LeC607veX9Q",
+    "video_id": "LeC607veX9Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S01E45 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/dskQ3gbB-F0",
+    "video_id": "dskQ3gbB-F0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S01E46 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/AXFJ1RfwQHY",
+    "video_id": "AXFJ1RfwQHY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S01E47 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/fLqYvdEbMNk",
+    "video_id": "fLqYvdEbMNk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S01E48 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/CT-tma2x0C0",
+    "video_id": "CT-tma2x0C0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S01E49 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/lXMxI1ojs7s",
+    "video_id": "lXMxI1ojs7s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 51,
+    "title": "S01E51 · Rémi sans famille",
+    "url": "https://www.youtube.com/embed/trK-pmEpinE",
+    "video_id": "trK-pmEpinE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "49 eps",
+  "desc": "Classic anime series (1977), streaming free from Anime! on TMS Official Channel, the official channel. 49 of 51 episodes — Episodes 28 and 50 are not posted by the channel.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/FJP4Nx6vzVM"
+ },
+ {
+  "id": "stv-73124",
+  "title": "Magic Knight Rayearth",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · The Birth of the Legendary Magic Knights!",
+    "url": "https://www.youtube.com/embed/eutBzS30qhM",
+    "video_id": "eutBzS30qhM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Presea, The Master Smith In The Forest Of Silence",
+    "url": "https://www.youtube.com/embed/GhybZYP8KrA",
+    "video_id": "GhybZYP8KrA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Ferio, the Handsome, Mysterious Swordsman",
+    "url": "https://www.youtube.com/embed/o668yHA9E4M",
+    "video_id": "o668yHA9E4M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Alcyone, the Vengeful Sorceress",
+    "url": "https://www.youtube.com/embed/QwVyKWVRQNE",
+    "video_id": "QwVyKWVRQNE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Escudo, the Legendary Ore",
+    "url": "https://www.youtube.com/embed/Wo3q2svkKvI",
+    "video_id": "Wo3q2svkKvI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Lives at Stake - Presea's Weapons",
+    "url": "https://www.youtube.com/embed/6dK-554U-Rs",
+    "video_id": "6dK-554U-Rs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Ferio in Desperation - A Romance in the Desert",
+    "url": "https://www.youtube.com/embed/E6R2j2cablI",
+    "video_id": "E6R2j2cablI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · The Horrible Trap of Summoner Ascot",
+    "url": "https://www.youtube.com/embed/xpWDVjpQ-lw",
+    "video_id": "xpWDVjpQ-lw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · The Magic Knights' Greatest Crisis",
+    "url": "https://www.youtube.com/embed/K_NuYOEVU20",
+    "video_id": "K_NuYOEVU20",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Revival of Selece, the Legendary Rune-God",
+    "url": "https://www.youtube.com/embed/wWIkLCQohqM",
+    "video_id": "wWIkLCQohqM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · The Legend of the Rune-Gods - In Cephiro, Another World",
+    "url": "https://www.youtube.com/embed/2GNwAR5UvT4",
+    "video_id": "2GNwAR5UvT4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · The Fearsome Illusionist Caldina",
+    "url": "https://www.youtube.com/embed/12BbwAur5n4",
+    "video_id": "12BbwAur5n4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · The Most Valuable Thing in this World",
+    "url": "https://www.youtube.com/embed/bTa7Wlw8NHI",
+    "video_id": "bTa7Wlw8NHI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · Hikaru, Umi, and Fuu's Unyielding Wish",
+    "url": "https://www.youtube.com/embed/hqk4w7ZumYU",
+    "video_id": "hqk4w7ZumYU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · The Second Rune-God: Windam, the Lord of the Skies",
+    "url": "https://www.youtube.com/embed/5zHrefGARYA",
+    "video_id": "5zHrefGARYA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · A Powerful Foe! Lafarga the Swordmaster",
+    "url": "https://www.youtube.com/embed/WnJb9n_LKgU",
+    "video_id": "WnJb9n_LKgU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · The Truth About Inouva, and the Return of Memories",
+    "url": "https://www.youtube.com/embed/GfRk75E7-d0",
+    "video_id": "GfRk75E7-d0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · The Last Rune-God: Rayearth, the Lord of Fire",
+    "url": "https://www.youtube.com/embed/uZLKqE2w0tA",
+    "video_id": "uZLKqE2w0tA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · Showdown! The Magic Knights Versus Zagato",
+    "url": "https://www.youtube.com/embed/ZVrKwddgRbI",
+    "video_id": "ZVrKwddgRbI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · The Unbelievable Truth About the Legendary Magic Knights!",
+    "url": "https://www.youtube.com/embed/IN2J49YgecM",
+    "video_id": "IN2J49YgecM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · A Departure and New Ties",
+    "url": "https://www.youtube.com/embed/TNwMGvnpbKw",
+    "video_id": "TNwMGvnpbKw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Cephiro and the Three Countries",
+    "url": "https://www.youtube.com/embed/YM5kmIlkMHA",
+    "video_id": "YM5kmIlkMHA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · Autozam's Invasion and lantis",
+    "url": "https://www.youtube.com/embed/4T-635MtUdY",
+    "video_id": "4T-635MtUdY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · The Magic Knights and Battleship NSX",
+    "url": "https://www.youtube.com/embed/HgbT6QNUk9k",
+    "video_id": "HgbT6QNUk9k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · Hikaru and Nova in the Dream",
+    "url": "https://www.youtube.com/embed/YAdH5A5p9m4",
+    "video_id": "YAdH5A5p9m4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · The Magic Knights & Aska From Fahren",
+    "url": "https://www.youtube.com/embed/252ttrfybYc",
+    "video_id": "252ttrfybYc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S01E27 · The Secret of the Pillar of Cephiro",
+    "url": "https://www.youtube.com/embed/hQAhBycx5Xk",
+    "video_id": "hQAhBycx5Xk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S01E28 · Hikaru and Lantis' Dangerous Journey",
+    "url": "https://www.youtube.com/embed/scejPb4AnvU",
+    "video_id": "scejPb4AnvU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S01E29 · Eagle and a Captive Hikaru",
+    "url": "https://www.youtube.com/embed/O5Qtcg68Pc8",
+    "video_id": "O5Qtcg68Pc8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S01E30 · Nova and Regalia, Rune-God of the Devil",
+    "url": "https://www.youtube.com/embed/9ctdWxmCxeo",
+    "video_id": "9ctdWxmCxeo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S01E31 · Chizeta's Mobile Fortress and a Powerless Hikaru",
+    "url": "https://www.youtube.com/embed/alzuu1lILF4",
+    "video_id": "alzuu1lILF4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S01E32 · Umi and Fuu and Fahren and Chizeta",
+    "url": "https://www.youtube.com/embed/GSH11ftOeyw",
+    "video_id": "GSH11ftOeyw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S01E33 · Hikaru's Wish and Presea's Secret",
+    "url": "https://www.youtube.com/embed/kSykVwbQ4_o",
+    "video_id": "kSykVwbQ4_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S01E34 · Hikaru and Friendships Torn Apart",
+    "url": "https://www.youtube.com/embed/NVaeuoyAmLg",
+    "video_id": "NVaeuoyAmLg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S01E35 · Umi and the Ambition of Tarta and Tatra",
+    "url": "https://www.youtube.com/embed/9aQZ53uGu_I",
+    "video_id": "9aQZ53uGu_I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S01E36 · Fuu versus Aska!",
+    "url": "https://www.youtube.com/embed/eeUcROzDT_U",
+    "video_id": "eeUcROzDT_U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S01E37 · Revive, Hikaru's Sword!",
+    "url": "https://www.youtube.com/embed/CQCIwt9i-S4",
+    "video_id": "CQCIwt9i-S4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S01E38 · Eagle's All-out Attack on Cephiro Castle!",
+    "url": "https://www.youtube.com/embed/Zh29yaFJpj0",
+    "video_id": "Zh29yaFJpj0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S01E39 · Chaotic War at Cephiro Castle!",
+    "url": "https://www.youtube.com/embed/xWOX4Z3q4d4",
+    "video_id": "xWOX4Z3q4d4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S01E40 · The Magic Knights and the Calm After the Storm",
+    "url": "https://www.youtube.com/embed/0trmeSqWTJQ",
+    "video_id": "0trmeSqWTJQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S01E41 · Nova's Battle and the Monster's Identity",
+    "url": "https://www.youtube.com/embed/EzYdzX7oJDY",
+    "video_id": "EzYdzX7oJDY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S01E42 · Giant Sang Yung versus the NSX",
+    "url": "https://www.youtube.com/embed/rOAbH2JmK18",
+    "video_id": "rOAbH2JmK18",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S01E43 · The Crown Room and the Pillar's Memory",
+    "url": "https://www.youtube.com/embed/eOHIJHv0wf8",
+    "video_id": "eOHIJHv0wf8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S01E44 · A Serious Match - Umi vs. Tarta and Tatra!",
+    "url": "https://www.youtube.com/embed/C4pUlNThd5c",
+    "video_id": "C4pUlNThd5c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S01E45 · Desperate Situation: Crisis Upon Lantis",
+    "url": "https://www.youtube.com/embed/2TnC3yLB_Q8",
+    "video_id": "2TnC3yLB_Q8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 46,
+    "title": "S01E46 · Hikaru in Shock! The Truth About Nova",
+    "url": "https://www.youtube.com/embed/cHP1o97rZqc",
+    "video_id": "cHP1o97rZqc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 47,
+    "title": "S01E47 · The True Pillar is: Hikaru or Eagle!",
+    "url": "https://www.youtube.com/embed/ZjF1pkXGPGU",
+    "video_id": "ZjF1pkXGPGU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 48,
+    "title": "S01E48 · An Endless Battle!",
+    "url": "https://www.youtube.com/embed/dkZ9mdD6y-k",
+    "video_id": "dkZ9mdD6y-k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 49,
+    "title": "S01E49 · The Road to Victory: The Tomorrow that the Believing Heart Opens!",
+    "url": "https://www.youtube.com/embed/OUShAJUDvRk",
+    "video_id": "OUShAJUDvRk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "49 eps",
+  "desc": "Classic anime series (1994), streaming free from Anime! on TMS Official Channel, the official channel. English dub. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/eutBzS30qhM"
+ },
+ {
+  "id": "stv-73125",
+  "title": "Ghost Sweeper Mikami",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Here Comes the Super Sexy Exorcist",
+    "url": "https://www.youtube.com/embed/F0Q8qaMb0zs",
+    "video_id": "F0Q8qaMb0zs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Armed Robbers Have No Tomorrow!",
+    "url": "https://www.youtube.com/embed/qDzdbVL5Uco",
+    "video_id": "qDzdbVL5Uco",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · The Empire of Haunted Dolls!!",
+    "url": "https://www.youtube.com/embed/t0K44onJKMg",
+    "video_id": "t0K44onJKMg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Ghost Sweeper in Space!!",
+    "url": "https://www.youtube.com/embed/C_uPaBRjz2c",
+    "video_id": "C_uPaBRjz2c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · The Howling of the Haunted Mansion!",
+    "url": "https://www.youtube.com/embed/5qWyoOONyFM",
+    "video_id": "5qWyoOONyFM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · The Princess Exorcist!",
+    "url": "https://www.youtube.com/embed/VhiWCob81ys",
+    "video_id": "VhiWCob81ys",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Dr. Chaos' Challenge!",
+    "url": "https://www.youtube.com/embed/6bw4BKPwjKw",
+    "video_id": "6bw4BKPwjKw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Love Overcomes the Test of Time!",
+    "url": "https://www.youtube.com/embed/X2r0cmAUMYY",
+    "video_id": "X2r0cmAUMYY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · Please Kiss Me!!",
+    "url": "https://www.youtube.com/embed/QB3CBNW26X8",
+    "video_id": "QB3CBNW26X8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Find the Shikigami!!",
+    "url": "https://www.youtube.com/embed/MRPdK1Z1o8c",
+    "video_id": "MRPdK1Z1o8c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Let's Take the Ghost Train!!",
+    "url": "https://www.youtube.com/embed/e2-D1UGEDgA",
+    "video_id": "e2-D1UGEDgA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · Beware of Yakuchin-do1?",
+    "url": "https://www.youtube.com/embed/xCSSYYGEIHw",
+    "video_id": "xCSSYYGEIHw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Rival Emi Ogasawara!",
+    "url": "https://www.youtube.com/embed/ynA09WGuedc",
+    "video_id": "ynA09WGuedc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · Summer! Pool! Monsters!",
+    "url": "https://www.youtube.com/embed/x_lS3HUkXA0",
+    "video_id": "x_lS3HUkXA0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · Assemble at the Mediterranean Sea!",
+    "url": "https://www.youtube.com/embed/ZRPjHX8NNwI",
+    "video_id": "ZRPjHX8NNwI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · Put The Vampire To Sleep!",
+    "url": "https://www.youtube.com/embed/wXZYaCrtRok",
+    "video_id": "wXZYaCrtRok",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · Temptations on the Summer Beach",
+    "url": "https://www.youtube.com/embed/GHiViT90tcw",
+    "video_id": "GHiViT90tcw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · Shrinking Mikami!!",
+    "url": "https://www.youtube.com/embed/zIVBEnJgfJw",
+    "video_id": "zIVBEnJgfJw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · Chase the Ghost Submarine!",
+    "url": "https://www.youtube.com/embed/GHkTA0QF26Y",
+    "video_id": "GHkTA0QF26Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · Heavenly Smash!",
+    "url": "https://www.youtube.com/embed/JmfqAPTYWmY",
+    "video_id": "JmfqAPTYWmY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · Everyone, Turn Into A Kid!!",
+    "url": "https://www.youtube.com/embed/0jX0qR9KB2E",
+    "video_id": "0jX0qR9KB2E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Devil Piper's Revenge",
+    "url": "https://www.youtube.com/embed/rGBozBZPujg",
+    "video_id": "rGBozBZPujg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · The Path to the Dragon!!",
+    "url": "https://www.youtube.com/embed/MoPrkLSTaVw",
+    "video_id": "MoPrkLSTaVw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · Runaway Dragon in a Rage",
+    "url": "https://www.youtube.com/embed/BVU1ismImkU",
+    "video_id": "BVU1ismImkU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · Himiko of the Yamatai Kingdom",
+    "url": "https://www.youtube.com/embed/o4uDdTRCnDk",
+    "video_id": "o4uDdTRCnDk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · The Adventure of Heroine Mikami",
+    "url": "https://www.youtube.com/embed/gHpQulGgZww",
+    "video_id": "gHpQulGgZww",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S01E27 · Pure-Hearted Maria in Love!",
+    "url": "https://www.youtube.com/embed/Zh7dNaPOQv8",
+    "video_id": "Zh7dNaPOQv8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S01E28 · Dragon Prince!!",
+    "url": "https://www.youtube.com/embed/xzbzSwi92fY",
+    "video_id": "xzbzSwi92fY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S01E29 · Dragon in Imminent Danger!!",
+    "url": "https://www.youtube.com/embed/wlsbl6gpaXI",
+    "video_id": "wlsbl6gpaXI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S01E30 · Here Comes the Devilish Sword Shimesaba-Maru!",
+    "url": "https://www.youtube.com/embed/oWrpEt4uIKs",
+    "video_id": "oWrpEt4uIKs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S01E31 · Flying Magic Broom",
+    "url": "https://www.youtube.com/embed/9ZKJrXPIoaI",
+    "video_id": "9ZKJrXPIoaI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S01E32 · I, Reiko, Will Marry You!?",
+    "url": "https://www.youtube.com/embed/S7GMi5pHFzA",
+    "video_id": "S7GMi5pHFzA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S01E33 · Mannequins Are Calling You",
+    "url": "https://www.youtube.com/embed/5LOz1nG_o5Q",
+    "video_id": "5LOz1nG_o5Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S01E34 · Ghostly High School",
+    "url": "https://www.youtube.com/embed/HcbJTItAwig",
+    "video_id": "HcbJTItAwig",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S01E35 · The Santa Clause's Gift!",
+    "url": "https://www.youtube.com/embed/0eKg88VTHl0",
+    "video_id": "0eKg88VTHl0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S01E36 · Okinu's Christmas",
+    "url": "https://www.youtube.com/embed/0WFNJLGgw_E",
+    "video_id": "0WFNJLGgw_E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S01E37 · The Battle of the New Year!!",
+    "url": "https://www.youtube.com/embed/j4S0PMfP-j0",
+    "video_id": "j4S0PMfP-j0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S01E38 · The College Examinee's Blues",
+    "url": "https://www.youtube.com/embed/9JC3NK9Yikk",
+    "video_id": "9JC3NK9Yikk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S01E39 · Maris's Sister",
+    "url": "https://www.youtube.com/embed/j4RxsHJ5dag",
+    "video_id": "j4RxsHJ5dag",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S01E40 · Maria and Teresa",
+    "url": "https://www.youtube.com/embed/q0NkUUqCfms",
+    "video_id": "q0NkUUqCfms",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 41,
+    "title": "S01E41 · The Ferce Battle with The Snow Queen!",
+    "url": "https://www.youtube.com/embed/4uR_gsZnI2I",
+    "video_id": "4uR_gsZnI2I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 42,
+    "title": "S01E42 · Here's My Chocolate!!",
+    "url": "https://www.youtube.com/embed/iWrwz8eHAE8",
+    "video_id": "iWrwz8eHAE8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 43,
+    "title": "S01E43 · Into The Dream!",
+    "url": "https://www.youtube.com/embed/_jNWXNfzcfM",
+    "video_id": "_jNWXNfzcfM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 44,
+    "title": "S01E44 · The Hellish Nightmare",
+    "url": "https://www.youtube.com/embed/Z5Zv03qsGs8",
+    "video_id": "Z5Zv03qsGs8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 45,
+    "title": "S01E45 · With love From Ghost Sweepers",
+    "url": "https://www.youtube.com/embed/iWREPsuaY_g",
+    "video_id": "iWREPsuaY_g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "45 eps",
+  "desc": "Classic anime series (1993), streaming free from Toei Animation, the official channel. The complete series.",
+  "rights_basis": "Rights holder (Toei Animation) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Toei Animation",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/F0Q8qaMb0zs"
+ },
+ {
+  "id": "stv-73126",
+  "title": "The Rose of Versailles",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Oscar! The Destiny of the Rose",
+    "url": "https://www.youtube.com/embed/5KJSOa0vcpc",
+    "video_id": "5KJSOa0vcpc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Fly! The Butterfly of Austria",
+    "url": "https://www.youtube.com/embed/p_0HiC6CeMc",
+    "video_id": "p_0HiC6CeMc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Sparks Fly at Versailles",
+    "url": "https://www.youtube.com/embed/Vaq6pcuQa2Y",
+    "video_id": "Vaq6pcuQa2Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Roses, Wine and the Conspiracy…",
+    "url": "https://www.youtube.com/embed/8bKXJdnjqOA",
+    "video_id": "8bKXJdnjqOA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · With Tears of Dignity…",
+    "url": "https://www.youtube.com/embed/vL0bgHF0m2U",
+    "video_id": "vL0bgHF0m2U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · The Silk Dress and the Ragged Dress",
+    "url": "https://www.youtube.com/embed/r9TVwx_JUDc",
+    "video_id": "r9TVwx_JUDc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Who Wrote the Love Letter",
+    "url": "https://www.youtube.com/embed/hAnMiX0AFGo",
+    "video_id": "hAnMiX0AFGo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Oscar in My Heart",
+    "url": "https://www.youtube.com/embed/v2Fx3jg48Z4",
+    "video_id": "v2Fx3jg48Z4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · The Sun Sets, the Sun Rises",
+    "url": "https://www.youtube.com/embed/tE0J14jfhyU",
+    "video_id": "tE0J14jfhyU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · The Beautiful Devil, Jeanne",
+    "url": "https://www.youtube.com/embed/LhMfXjd0oHM",
+    "video_id": "LhMfXjd0oHM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Fersen Leaves for the Northern Lands",
+    "url": "https://www.youtube.com/embed/PZCC-3v81r4",
+    "video_id": "PZCC-3v81r4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · On the Morning of the Duel, Will Oscar…?",
+    "url": "https://www.youtube.com/embed/x3yvHaY3ABY",
+    "video_id": "x3yvHaY3ABY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Winds of Arras, Answer Me…",
+    "url": "https://www.youtube.com/embed/eXHXhpkW7mA",
+    "video_id": "eXHXhpkW7mA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · The Angel's Secret",
+    "url": "https://www.youtube.com/embed/0SsEQvZz08E",
+    "video_id": "0SsEQvZz08E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · The Countess of the Casino",
+    "url": "https://www.youtube.com/embed/nlUvu7ghQNA",
+    "video_id": "nlUvu7ghQNA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · Mother, Her Name is...?",
+    "url": "https://www.youtube.com/embed/wRS7uMA_dkU",
+    "video_id": "wRS7uMA_dkU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · Now, the Moment of Encounter",
+    "url": "https://www.youtube.com/embed/C-yWxQeOxdM",
+    "video_id": "C-yWxQeOxdM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · Suddenly, Like Icarus",
+    "url": "https://www.youtube.com/embed/EOlEYMJYo5M",
+    "video_id": "EOlEYMJYo5M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · Farewell, Little Sister!",
+    "url": "https://www.youtube.com/embed/UYxoEBTP9cs",
+    "video_id": "UYxoEBTP9cs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · Fersen, a Farewell Rondeau",
+    "url": "https://www.youtube.com/embed/CUnU5Jl14Ck",
+    "video_id": "CUnU5Jl14Ck",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · The Black Rose Blooms at Night",
+    "url": "https://www.youtube.com/embed/ck61iEePN1s",
+    "video_id": "ck61iEePN1s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · The Necklace Shines Ominously",
+    "url": "https://www.youtube.com/embed/4mM_rdVpjtc",
+    "video_id": "4mM_rdVpjtc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · Cunningly and Resiliently!",
+    "url": "https://www.youtube.com/embed/PfIwo3O-GaA",
+    "video_id": "PfIwo3O-GaA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · Adieu, My Youth",
+    "url": "https://www.youtube.com/embed/wVozSnHq8_o",
+    "video_id": "wVozSnHq8_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · Minuet of the Unrequited",
+    "url": "https://www.youtube.com/embed/xySePbwWISo",
+    "video_id": "xySePbwWISo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · A Sought Encounter with the Black Knight",
+    "url": "https://www.youtube.com/embed/UwZjQx11Tm8",
+    "video_id": "UwZjQx11Tm8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 27,
+    "title": "S01E27 · Even if I should Lose the Light",
+    "url": "https://www.youtube.com/embed/H2Cb79vdFj8",
+    "video_id": "H2Cb79vdFj8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 28,
+    "title": "S01E28 · André, a Green Lemon",
+    "url": "https://www.youtube.com/embed/cjYxZ3tbC_8",
+    "video_id": "cjYxZ3tbC_8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 29,
+    "title": "S01E29 · The Doll that Began to Walk",
+    "url": "https://www.youtube.com/embed/vr4IpQ3ecFw",
+    "video_id": "vr4IpQ3ecFw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 30,
+    "title": "S01E30 · You are the Light, I am the Shadow",
+    "url": "https://www.youtube.com/embed/7xZn2K7hzyE",
+    "video_id": "7xZn2K7hzyE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 31,
+    "title": "S01E31 · A Lilac Blooming in the Barracks",
+    "url": "https://www.youtube.com/embed/tfY6nCZbsng",
+    "video_id": "tfY6nCZbsng",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 32,
+    "title": "S01E32 · Prelude to the Storm",
+    "url": "https://www.youtube.com/embed/L0YRBreKdNM",
+    "video_id": "L0YRBreKdNM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 33,
+    "title": "S01E33 · The Funeral Bells Toll Amidst the Twilight",
+    "url": "https://www.youtube.com/embed/I3pekqfpo8Y",
+    "video_id": "I3pekqfpo8Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 34,
+    "title": "S01E34 · Now, the Moment of Encounter",
+    "url": "https://www.youtube.com/embed/bbgJkcBM7uw",
+    "video_id": "bbgJkcBM7uw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 35,
+    "title": "S01E35 · “Now, ‘The Tennis Court Oath'",
+    "url": "https://www.youtube.com/embed/LwOX6-BU4_o",
+    "video_id": "LwOX6-BU4_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 36,
+    "title": "S01E36 · The Watchword is ‘Au Revoir’",
+    "url": "https://www.youtube.com/embed/YjBnhBPxbhA",
+    "video_id": "YjBnhBPxbhA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 37,
+    "title": "S01E37 · On the Night of Their Passionate Vows",
+    "url": "https://www.youtube.com/embed/AAkXPbDT_W8",
+    "video_id": "AAkXPbDT_W8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 38,
+    "title": "S01E38 · Before the Door of Fate",
+    "url": "https://www.youtube.com/embed/id_7igI_ce4",
+    "video_id": "id_7igI_ce4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 39,
+    "title": "S01E39 · His Smile is Lost Forever!",
+    "url": "https://www.youtube.com/embed/Clw1r-TOYE8",
+    "video_id": "Clw1r-TOYE8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 40,
+    "title": "S01E40 · Adieu, My Beloved Oscar",
+    "url": "https://www.youtube.com/embed/uiSjgAcJBPw",
+    "video_id": "uiSjgAcJBPw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "40 eps",
+  "desc": "Classic anime series (1979), streaming free from Anime! on TMS Official Channel, the official channel. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/5KJSOa0vcpc"
+ },
+ {
+  "id": "stv-73127",
+  "title": "Devil Lady",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Beast",
+    "url": "https://www.youtube.com/embed/Jg2gJ3zKN3s",
+    "video_id": "Jg2gJ3zKN3s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Blood",
+    "url": "https://www.youtube.com/embed/Ygsl3lE1Kcs",
+    "video_id": "Ygsl3lE1Kcs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Wings",
+    "url": "https://www.youtube.com/embed/FmWPyVO_xNo",
+    "video_id": "FmWPyVO_xNo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Embryo",
+    "url": "https://www.youtube.com/embed/u1oqypcgX_c",
+    "video_id": "u1oqypcgX_c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Shark",
+    "url": "https://www.youtube.com/embed/_EmIc_9Zkhk",
+    "video_id": "_EmIc_9Zkhk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Cat",
+    "url": "https://www.youtube.com/embed/XpQSVoFkfbg",
+    "video_id": "XpQSVoFkfbg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Fog",
+    "url": "https://www.youtube.com/embed/AA10o7001jY",
+    "video_id": "AA10o7001jY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Enemy",
+    "url": "https://www.youtube.com/embed/N6gjGi8SfmA",
+    "video_id": "N6gjGi8SfmA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · Eyes",
+    "url": "https://www.youtube.com/embed/Ig_W-JdwRok",
+    "video_id": "Ig_W-JdwRok",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · Flames",
+    "url": "https://www.youtube.com/embed/exXOEz_ZHeQ",
+    "video_id": "exXOEz_ZHeQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Box",
+    "url": "https://www.youtube.com/embed/kP51hHUoKg8",
+    "video_id": "kP51hHUoKg8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · Faces",
+    "url": "https://www.youtube.com/embed/gMD00NuwQzk",
+    "video_id": "gMD00NuwQzk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Rope",
+    "url": "https://www.youtube.com/embed/VJ-4_xXuaG4",
+    "video_id": "VJ-4_xXuaG4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · Home",
+    "url": "https://www.youtube.com/embed/FECygPlX5zI",
+    "video_id": "FECygPlX5zI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · Crows",
+    "url": "https://www.youtube.com/embed/bGn0BLrvdwg",
+    "video_id": "bGn0BLrvdwg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · Voice",
+    "url": "https://www.youtube.com/embed/iD6bp8fmeGA",
+    "video_id": "iD6bp8fmeGA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · Hunger",
+    "url": "https://www.youtube.com/embed/hF0ExzXhy78",
+    "video_id": "hF0ExzXhy78",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · Body",
+    "url": "https://www.youtube.com/embed/nsZnNi1EEKo",
+    "video_id": "nsZnNi1EEKo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · Shakles",
+    "url": "https://www.youtube.com/embed/bjfP3TKRVVw",
+    "video_id": "bjfP3TKRVVw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · Corpses",
+    "url": "https://www.youtube.com/embed/Srh-mhT-mdI",
+    "video_id": "Srh-mhT-mdI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · Signs",
+    "url": "https://www.youtube.com/embed/9O_cNGkJEk4",
+    "video_id": "9O_cNGkJEk4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Wish",
+    "url": "https://www.youtube.com/embed/rgAdeKyUKgI",
+    "video_id": "rgAdeKyUKgI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · Life",
+    "url": "https://www.youtube.com/embed/SqphATiHgnQ",
+    "video_id": "SqphATiHgnQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · Heart",
+    "url": "https://www.youtube.com/embed/OpC6xWRITqg",
+    "video_id": "OpC6xWRITqg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · God",
+    "url": "https://www.youtube.com/embed/yWjQgNAf8Y8",
+    "video_id": "yWjQgNAf8Y8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · Man",
+    "url": "https://www.youtube.com/embed/qOwZVw35ODI",
+    "video_id": "qOwZVw35ODI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "26 eps",
+  "desc": "Classic anime series (1998), streaming free from Anime! on TMS Official Channel, the official channel. English dub. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Jg2gJ3zKN3s"
+ },
+ {
+  "id": "stv-73128",
+  "title": "Sherlock Hound",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · A Small Client",
+    "url": "https://www.youtube.com/embed/hRQSoaSZWpQ",
+    "video_id": "hRQSoaSZWpQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · The Adventure of the Blue Carbuncle",
+    "url": "https://www.youtube.com/embed/fzfCkUDxYKU",
+    "video_id": "fzfCkUDxYKU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Treasure under the Sea",
+    "url": "https://www.youtube.com/embed/9Y3ZkFn3fAc",
+    "video_id": "9Y3ZkFn3fAc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · The Sovereign Gold Coins",
+    "url": "https://www.youtube.com/embed/GNvPv3Ey0k0",
+    "video_id": "GNvPv3Ey0k0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Mrs. Hudson is Taken Hostage",
+    "url": "https://www.youtube.com/embed/O84beIAGl7c",
+    "video_id": "O84beIAGl7c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · The White Cliffs of Dover",
+    "url": "https://www.youtube.com/embed/SLjCNWSfl-s",
+    "video_id": "SLjCNWSfl-s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · A Sacred Image Disappears",
+    "url": "https://www.youtube.com/embed/7iHv_86VMnY",
+    "video_id": "7iHv_86VMnY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · The Green Balloon",
+    "url": "https://www.youtube.com/embed/2nGxNPTjOrc",
+    "video_id": "2nGxNPTjOrc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · The Stormy Getaway",
+    "url": "https://www.youtube.com/embed/B4VMJx_Jz9A",
+    "video_id": "B4VMJx_Jz9A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · The Crown of Mazalin",
+    "url": "https://www.youtube.com/embed/x-cjXHMNkr0",
+    "video_id": "x-cjXHMNkr0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · The Four Signatures",
+    "url": "https://www.youtube.com/embed/3Dx_YXg3L6c",
+    "video_id": "3Dx_YXg3L6c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · The Speckled Band",
+    "url": "https://www.youtube.com/embed/U6I59KjWOfg",
+    "video_id": "U6I59KjWOfg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · The White Silver Getaway!",
+    "url": "https://www.youtube.com/embed/lD7lP96Hjh8",
+    "video_id": "lD7lP96Hjh8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · The Coral Lobster",
+    "url": "https://www.youtube.com/embed/vS_SgspLawA",
+    "video_id": "vS_SgspLawA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · The Golden Statue of the Great Burglar",
+    "url": "https://www.youtube.com/embed/oCicaqN9kVY",
+    "video_id": "oCicaqN9kVY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · The Runaway Freight Car",
+    "url": "https://www.youtube.com/embed/w_Et-bcRBtw",
+    "video_id": "w_Et-bcRBtw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · The Secret of the Sacred Cross Sword",
+    "url": "https://www.youtube.com/embed/JXLDE3wAZe8",
+    "video_id": "JXLDE3wAZe8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · The Adventure of the Three Students",
+    "url": "https://www.youtube.com/embed/wpVdKuW9wAo",
+    "video_id": "wpVdKuW9wAo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · The Rosetta Stone",
+    "url": "https://www.youtube.com/embed/NRX6iHi63tc",
+    "video_id": "NRX6iHi63tc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · The Adventure of the Thames Monster",
+    "url": "https://www.youtube.com/embed/Xg-peBBPebE",
+    "video_id": "Xg-peBBPebE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · The Secret of the Parrot",
+    "url": "https://www.youtube.com/embed/iR12FKTeOoI",
+    "video_id": "iR12FKTeOoI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · The Priceless French Doll",
+    "url": "https://www.youtube.com/embed/v33CTI2PhEI",
+    "video_id": "v33CTI2PhEI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · The Bell of Big Ben",
+    "url": "https://www.youtube.com/embed/u8yo21muJvE",
+    "video_id": "u8yo21muJvE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 24,
+    "title": "S01E24 · The Disappearance of the Splendid Royal Horse",
+    "url": "https://www.youtube.com/embed/G05mq8NGmwE",
+    "video_id": "G05mq8NGmwE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 25,
+    "title": "S01E25 · Disturbance, The World Flight Championship!",
+    "url": "https://www.youtube.com/embed/e74orn9kToE",
+    "video_id": "e74orn9kToE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 26,
+    "title": "S01E26 · The Missing Bride Affair",
+    "url": "https://www.youtube.com/embed/ZeXgC8syEcY",
+    "video_id": "ZeXgC8syEcY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "26 eps",
+  "desc": "Classic anime series (1984), streaming free from Anime! on TMS Official Channel, the official channel. English dub. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/hRQSoaSZWpQ"
+ },
+ {
+  "id": "stv-73129",
+  "title": "God Mazinger",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Ressurection of the Legendary Giant",
+    "url": "https://www.youtube.com/embed/C7fiFtVrC7A",
+    "video_id": "C7fiFtVrC7A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Fate of the Chosen One",
+    "url": "https://www.youtube.com/embed/U1FhxfttbDg",
+    "video_id": "U1FhxfttbDg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Mystery of the Light Bearer",
+    "url": "https://www.youtube.com/embed/RbCkDO_hAEo",
+    "video_id": "RbCkDO_hAEo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Mazinger's Secret",
+    "url": "https://www.youtube.com/embed/ceJ2D5LgDXs",
+    "video_id": "ceJ2D5LgDXs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Prince Eld's Ambush",
+    "url": "https://www.youtube.com/embed/yKnK6F241z4",
+    "video_id": "yKnK6F241z4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Save Aira!",
+    "url": "https://www.youtube.com/embed/vcPn1ggXCm4",
+    "video_id": "vcPn1ggXCm4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Missing Mazinger",
+    "url": "https://www.youtube.com/embed/HprPE2pSJQM",
+    "video_id": "HprPE2pSJQM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Hurry, Warrior Yamato!",
+    "url": "https://www.youtube.com/embed/_mRguqIZdrw",
+    "video_id": "_mRguqIZdrw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · Discovery of the Dinosaur Factory!",
+    "url": "https://www.youtube.com/embed/Nnd-1lM8FWo",
+    "video_id": "Nnd-1lM8FWo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · The Terrible Secret",
+    "url": "https://www.youtube.com/embed/fY4722XUG1g",
+    "video_id": "fY4722XUG1g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · The Captive Aira",
+    "url": "https://www.youtube.com/embed/5p6rimZckHM",
+    "video_id": "5p6rimZckHM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · The Stolen Clue",
+    "url": "https://www.youtube.com/embed/IDDKdcvlTbQ",
+    "video_id": "IDDKdcvlTbQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · Mazinger in Peril",
+    "url": "https://www.youtube.com/embed/X3WX1MsGI20",
+    "video_id": "X3WX1MsGI20",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · The Terror of the Light Bearer",
+    "url": "https://www.youtube.com/embed/uQTmCbFrs1I",
+    "video_id": "uQTmCbFrs1I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 15,
+    "title": "S01E15 · The Wandering Muvians",
+    "url": "https://www.youtube.com/embed/hvO7CxB70A8",
+    "video_id": "hvO7CxB70A8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 16,
+    "title": "S01E16 · The Death of Muraji",
+    "url": "https://www.youtube.com/embed/C0UpPhzaT_k",
+    "video_id": "C0UpPhzaT_k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 17,
+    "title": "S01E17 · Eld's Secret Base",
+    "url": "https://www.youtube.com/embed/sLugJRddrRo",
+    "video_id": "sLugJRddrRo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 18,
+    "title": "S01E18 · The Miracle at the Bottom of the Sea",
+    "url": "https://www.youtube.com/embed/VGCwHCL2NVY",
+    "video_id": "VGCwHCL2NVY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 19,
+    "title": "S01E19 · Do-or-Die Investigation in the Depths",
+    "url": "https://www.youtube.com/embed/g4rz66bXY-Q",
+    "video_id": "g4rz66bXY-Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 20,
+    "title": "S01E20 · Dorado's Fury",
+    "url": "https://www.youtube.com/embed/XVyUrXrY5e8",
+    "video_id": "XVyUrXrY5e8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 21,
+    "title": "S01E21 · Yamato Versus Dorado!",
+    "url": "https://www.youtube.com/embed/Nh5ZgzhnIJ0",
+    "video_id": "Nh5ZgzhnIJ0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 22,
+    "title": "S01E22 · Yamato is Dead?!",
+    "url": "https://www.youtube.com/embed/w9W5UTqa0rk",
+    "video_id": "w9W5UTqa0rk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 23,
+    "title": "S01E23 · Yamato Versus Eld",
+    "url": "https://www.youtube.com/embed/Q5wfCUsYiUc",
+    "video_id": "Q5wfCUsYiUc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "23 eps",
+  "desc": "Classic anime series (1984), streaming free from Anime! on TMS Official Channel, the official channel. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/C7fiFtVrC7A"
+ },
+ {
+  "id": "stv-73130",
+  "title": "Space Adventure Cobra",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Resurrection! The Psycho-Gun",
+    "url": "https://www.youtube.com/embed/d3528gwZxDs",
+    "video_id": "d3528gwZxDs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Monstrosity! Zigova",
+    "url": "https://www.youtube.com/embed/B_-Hl-1icac",
+    "video_id": "B_-Hl-1icac",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Archenemy! Crystal Bowie",
+    "url": "https://www.youtube.com/embed/lYioaOK2Q5o",
+    "video_id": "lYioaOK2Q5o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Escape!! Sid Prison",
+    "url": "https://www.youtube.com/embed/YmLmex3ouu4",
+    "video_id": "YmLmex3ouu4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Mystery! Who is the Fearsome Sniper?",
+    "url": "https://www.youtube.com/embed/N80Escwl--U",
+    "video_id": "N80Escwl--U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · The Magician’s Identity!!",
+    "url": "https://www.youtube.com/embed/0JksZsVYJyw",
+    "video_id": "0JksZsVYJyw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Jane’s Revenge!",
+    "url": "https://www.youtube.com/embed/WzKVafTwDG8",
+    "video_id": "WzKVafTwDG8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Fierce Battle! Cobra versus Boy",
+    "url": "https://www.youtube.com/embed/gTlfZottJxQ",
+    "video_id": "gTlfZottJxQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · The Tattoo’s Secret",
+    "url": "https://www.youtube.com/embed/85pblm86apw",
+    "video_id": "85pblm86apw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Zados, the Sand Planet",
+    "url": "https://www.youtube.com/embed/RzjKmy168yo",
+    "video_id": "RzjKmy168yo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · The Dreadful Ultimate Weapon",
+    "url": "https://www.youtube.com/embed/5Dkpg3SODa4",
+    "video_id": "5Dkpg3SODa4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · The Roulette of Death",
+    "url": "https://www.youtube.com/embed/_D2ZAfAwhYM",
+    "video_id": "_D2ZAfAwhYM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 14,
+    "title": "S01E14 · The Great Magician, Galtan",
+    "url": "https://www.youtube.com/embed/LCwECbkU0zQ",
+    "video_id": "LCwECbkU0zQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "13 eps",
+  "desc": "Classic anime series (1982), streaming free from Anime! on TMS Official Channel, the official channel. The opening run the channel posts free: Episodes 1–8 and 10–14 of 31.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/d3528gwZxDs"
+ },
+ {
+  "id": "stv-73131",
+  "title": "Cybersix",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · The Mysterious Shadow",
+    "url": "https://www.youtube.com/embed/nHlhHImKxyE",
+    "video_id": "nHlhHImKxyE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Data 7 & Julian",
+    "url": "https://www.youtube.com/embed/qPxN2Zw-5yQ",
+    "video_id": "qPxN2Zw-5yQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Terra",
+    "url": "https://www.youtube.com/embed/TgWQ8hHReHg",
+    "video_id": "TgWQ8hHReHg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Yashimoto, Private Eye",
+    "url": "https://www.youtube.com/embed/YtkXdSNHpbQ",
+    "video_id": "YtkXdSNHpbQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Lori is Missing",
+    "url": "https://www.youtube.com/embed/-bOm04p_OxY",
+    "video_id": "-bOm04p_OxY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Blue Birds of Horror",
+    "url": "https://www.youtube.com/embed/GAOntNveMKI",
+    "video_id": "GAOntNveMKI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Brainwashed",
+    "url": "https://www.youtube.com/embed/xSKz_EF3Cd8",
+    "video_id": "xSKz_EF3Cd8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Gone with the Wings",
+    "url": "https://www.youtube.com/embed/Pd4K0VZbOs8",
+    "video_id": "Pd4K0VZbOs8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · Full Moon Fascination",
+    "url": "https://www.youtube.com/embed/cPDqRQ-gg9E",
+    "video_id": "cPDqRQ-gg9E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · The Eye",
+    "url": "https://www.youtube.com/embed/E5CGDpwijpM",
+    "video_id": "E5CGDpwijpM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · The Greatest Show in Meridiana",
+    "url": "https://www.youtube.com/embed/cTVypBnUvKA",
+    "video_id": "cTVypBnUvKA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · Daylight Devil",
+    "url": "https://www.youtube.com/embed/rYzwa_YKxEI",
+    "video_id": "rYzwa_YKxEI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · The Final Confrontation",
+    "url": "https://www.youtube.com/embed/UDf0ypp9BmY",
+    "video_id": "UDf0ypp9BmY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "13 eps",
+  "desc": "Classic anime series (1999), streaming free from Anime! on TMS Official Channel, the official channel. English dub. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/nHlhHImKxyE"
+ },
+ {
+  "id": "stv-73132",
+  "title": "Galaxy High School",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Welcome to Galaxy High",
+    "url": "https://www.youtube.com/embed/buhOXTbyAag",
+    "video_id": "buhOXTbyAag",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Pizza's Honor",
+    "url": "https://www.youtube.com/embed/ZaMz3Aeb72M",
+    "video_id": "ZaMz3Aeb72M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · The Beef who Would be King",
+    "url": "https://www.youtube.com/embed/FTPfm7iskZE",
+    "video_id": "FTPfm7iskZE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Where's Miho?",
+    "url": "https://www.youtube.com/embed/ehJFPZIretk",
+    "video_id": "ehJFPZIretk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Those Eyes, Those Lips",
+    "url": "https://www.youtube.com/embed/c3eDIwlDGCs",
+    "video_id": "c3eDIwlDGCs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Doyle's New Friend",
+    "url": "https://www.youtube.com/embed/EZPJY3GFUj8",
+    "video_id": "EZPJY3GFUj8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Dollar's and Sense",
+    "url": "https://www.youtube.com/embed/FvNWx5btmQw",
+    "video_id": "FvNWx5btmQw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Beach Blanket Blow-Up",
+    "url": "https://www.youtube.com/embed/WfxRsV01rGY",
+    "video_id": "WfxRsV01rGY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · The Brain Blaster",
+    "url": "https://www.youtube.com/embed/FJbJdZyjMSo",
+    "video_id": "FJbJdZyjMSo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · The Brat Pack",
+    "url": "https://www.youtube.com/embed/hqiKpSbDHCQ",
+    "video_id": "hqiKpSbDHCQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · Founder's Day",
+    "url": "https://www.youtube.com/embed/EStPr43fG3M",
+    "video_id": "EStPr43fG3M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · Martian Mumps",
+    "url": "https://www.youtube.com/embed/CY6C8espClo",
+    "video_id": "CY6C8espClo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · It Came from Earth",
+    "url": "https://www.youtube.com/embed/1qmotAeOwPQ",
+    "video_id": "1qmotAeOwPQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "13 eps",
+  "desc": "Classic anime series (1986), streaming free from Anime! on TMS Official Channel, the official channel. English dub. The complete series.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/buhOXTbyAag"
+ },
+ {
+  "id": "stv-73133",
+  "title": "Gravitation",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · ",
+    "url": "https://www.youtube.com/embed/ChpmKWeTODM",
+    "video_id": "ChpmKWeTODM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · ",
+    "url": "https://www.youtube.com/embed/DX_nCFGJL8A",
+    "video_id": "DX_nCFGJL8A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · ",
+    "url": "https://www.youtube.com/embed/38xU3F5ePkw",
+    "video_id": "38xU3F5ePkw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · ",
+    "url": "https://www.youtube.com/embed/fbsObhAAtyg",
+    "video_id": "fbsObhAAtyg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · ",
+    "url": "https://www.youtube.com/embed/bMW6UB-otVc",
+    "video_id": "bMW6UB-otVc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · ",
+    "url": "https://www.youtube.com/embed/OMqWY1ERbSA",
+    "video_id": "OMqWY1ERbSA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · ",
+    "url": "https://www.youtube.com/embed/SFl4_rYgc7o",
+    "video_id": "SFl4_rYgc7o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · ",
+    "url": "https://www.youtube.com/embed/tKU9gHOZfic",
+    "video_id": "tKU9gHOZfic",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · ",
+    "url": "https://www.youtube.com/embed/-ssSEuCJ2pM",
+    "video_id": "-ssSEuCJ2pM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 10,
+    "title": "S01E10 · ",
+    "url": "https://www.youtube.com/embed/hr8vcuumBJw",
+    "video_id": "hr8vcuumBJw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 11,
+    "title": "S01E11 · ",
+    "url": "https://www.youtube.com/embed/3-mwdeG58R4",
+    "video_id": "3-mwdeG58R4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 12,
+    "title": "S01E12 · ",
+    "url": "https://www.youtube.com/embed/lMJLWRXJens",
+    "video_id": "lMJLWRXJens",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 13,
+    "title": "S01E13 · ",
+    "url": "https://www.youtube.com/embed/D2X_qOBDiqk",
+    "video_id": "D2X_qOBDiqk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "13 eps",
+  "desc": "Classic anime series (2000), streaming free from Nozomi Entertainment, the official channel. The complete series.",
+  "rights_basis": "Licensed label (Nozomi Entertainment / Right Stuf) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Nozomi Entertainment",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ChpmKWeTODM"
+ },
+ {
+  "id": "stv-73134",
+  "title": "Yu-Gi-Oh!",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · The Heart of The Cards",
+    "url": "https://www.youtube.com/embed/feBdzKgMDMk",
+    "video_id": "feBdzKgMDMk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · The Gauntlet is Thrown",
+    "url": "https://www.youtube.com/embed/J5oUnecmz0s",
+    "video_id": "J5oUnecmz0s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Journey to the Duelist Kingdom",
+    "url": "https://www.youtube.com/embed/gsgqurpdSPk",
+    "video_id": "gsgqurpdSPk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Into the Hornet's Nest",
+    "url": "https://www.youtube.com/embed/2pBFsPJorB4",
+    "video_id": "2pBFsPJorB4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · The Ultimate Great Moth",
+    "url": "https://www.youtube.com/embed/emE1XCagKFE",
+    "video_id": "emE1XCagKFE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · First Duel",
+    "url": "https://www.youtube.com/embed/llBTq3xhBWo",
+    "video_id": "llBTq3xhBWo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Attack from the Deep",
+    "url": "https://www.youtube.com/embed/TTQTLLyFoJc",
+    "video_id": "TTQTLLyFoJc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Everything's Relative",
+    "url": "https://www.youtube.com/embed/HtGyKDvJNAo",
+    "video_id": "HtGyKDvJNAo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 9,
+    "title": "S01E09 · Duel With a Ghoul",
+    "url": "https://www.youtube.com/embed/NC46doeqyLo",
+    "video_id": "NC46doeqyLo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "9 eps",
+  "desc": "Classic anime series (2000), streaming free from RetroCrush, the official channel. Season 1, English dub — Episodes 1–9, the run RetroCrush posts free.",
+  "rights_basis": "Licensed classic-anime service (RetroCrush / Cineverse) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "RetroCrush",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/feBdzKgMDMk"
+ },
+ {
+  "id": "stv-73135",
+  "title": "Hajime no Ippo",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Hajime No Ippo",
+    "url": "https://www.youtube.com/embed/R2xiXwSwOTg",
+    "video_id": "R2xiXwSwOTg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Hajime No Ippo",
+    "url": "https://www.youtube.com/embed/R6JQKzJIgyI",
+    "video_id": "R6JQKzJIgyI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Hajime No Ippo",
+    "url": "https://www.youtube.com/embed/hA2HTBxnLRw",
+    "video_id": "hA2HTBxnLRw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Hajime No Ippo",
+    "url": "https://www.youtube.com/embed/fu5E43TqZx8",
+    "video_id": "fu5E43TqZx8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Hajime No Ippo",
+    "url": "https://www.youtube.com/embed/KG_KJzhPOr4",
+    "video_id": "KG_KJzhPOr4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Hajime No Ippo",
+    "url": "https://www.youtube.com/embed/0VBYo1Zs2qw",
+    "video_id": "0VBYo1Zs2qw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 8,
+    "title": "S01E08 · Hajime No Ippo",
+    "url": "https://www.youtube.com/embed/uZmfbATi_vs",
+    "video_id": "uZmfbATi_vs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "7 eps",
+  "desc": "Classic anime series (2000), streaming free from RetroCrush, the licensed classic-anime service. Episodes 1–6 and 8 — Episode 7 is not posted by the channel.",
+  "rights_basis": "Licensed classic-anime service (RetroCrush / Cineverse) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "RetroCrush",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/R2xiXwSwOTg"
+ },
+ {
+  "id": "stv-73136",
+  "title": "Great Teacher Onizuka",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · The Legend Begins",
+    "url": "https://www.youtube.com/embed/NOqVMFFCERw",
+    "video_id": "NOqVMFFCERw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Great Teacher Onizuka",
+    "url": "https://www.youtube.com/embed/P2lX18PkUq8",
+    "video_id": "P2lX18PkUq8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Great Teacher Onizuka",
+    "url": "https://www.youtube.com/embed/BrPOepULaJk",
+    "video_id": "BrPOepULaJk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · Great Teacher Onizuka",
+    "url": "https://www.youtube.com/embed/3eZWq7IAMZI",
+    "video_id": "3eZWq7IAMZI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Great Teacher Onizuka",
+    "url": "https://www.youtube.com/embed/1HOq_cDQETU",
+    "video_id": "1HOq_cDQETU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Great Teacher Onizuka",
+    "url": "https://www.youtube.com/embed/8rSf1kAEhW8",
+    "video_id": "8rSf1kAEhW8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 7,
+    "title": "S01E07 · Great Teacher Onizuka",
+    "url": "https://www.youtube.com/embed/a0-ADnMMX6U",
+    "video_id": "a0-ADnMMX6U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "7 eps",
+  "desc": "Classic anime series (1999), streaming free from RetroCrush, the official channel. The opening 7 episodes, the run RetroCrush posts free.",
+  "rights_basis": "Licensed classic-anime service (RetroCrush / Cineverse) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "RetroCrush",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/NOqVMFFCERw"
+ },
+ {
+  "id": "stv-73137",
+  "title": "Magic User's Club OVA",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · The Bell, Takakura, and Flying Magic",
+    "url": "https://www.youtube.com/embed/fbddZquhGoE",
+    "video_id": "fbddZquhGoE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · The Giant Top, Mistress Mizuha, and Failed Magic",
+    "url": "https://www.youtube.com/embed/bjmHv4XPKO4",
+    "video_id": "bjmHv4XPKO4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · The Whirligig, Akane, and Forbidden Magic",
+    "url": "https://www.youtube.com/embed/y2X4bp4gToQ",
+    "video_id": "y2X4bp4gToQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "S01E04 · The Sea, the Cave, and a Magic Party",
+    "url": "https://www.youtube.com/embed/UouEMUggtlI",
+    "video_id": "UouEMUggtlI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 5,
+    "title": "S01E05 · Nanaka, Aburatsubo, and Confession Magic?",
+    "url": "https://www.youtube.com/embed/fFxYRZcnsyE",
+    "video_id": "fFxYRZcnsyE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 6,
+    "title": "S01E06 · Sae, Jeff, and the Big Spell",
+    "url": "https://www.youtube.com/embed/vUarRCtnihI",
+    "video_id": "vUarRCtnihI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "6 eps",
+  "desc": "Classic anime series (1996), streaming free from Nozomi Entertainment, the official channel. The complete series.",
+  "rights_basis": "Licensed label (Nozomi Entertainment / Right Stuf) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Nozomi Entertainment",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/fbddZquhGoE"
+ },
+ {
+  "id": "stv-73138",
+  "title": "Tomorrow's Joe",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Tomorrow's Joe",
+    "url": "https://www.youtube.com/embed/-VC0FfMMryM",
+    "video_id": "-VC0FfMMryM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "S01E02 · Tomorrow's Joe",
+    "url": "https://www.youtube.com/embed/j9vRfZGAcfc",
+    "video_id": "j9vRfZGAcfc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "S01E03 · Tomorrow's Joe",
+    "url": "https://www.youtube.com/embed/gBt6HRJGpg8",
+    "video_id": "gBt6HRJGpg8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "3 eps",
+  "desc": "Classic anime series (1970), streaming free from Anime! on TMS Official Channel, the official channel. The opening 3 episodes, the run the channel posts free.",
+  "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Anime! on TMS Official Channel",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/-VC0FfMMryM"
+ },
+ {
+  "id": "stv-73139",
+  "title": "Revolutionary Girl Utena",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · The Rose Bride",
+    "url": "https://www.youtube.com/embed/HQxT6yOKzNY",
+    "video_id": "HQxT6yOKzNY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Classic anime series (1997), streaming free from Nozomi Entertainment, the official channel. Episode 1 only — it is the one episode the channel makes playable outside YouTube; the rest of the series is embed-locked there.",
+  "rights_basis": "Licensed label (Nozomi Entertainment / Right Stuf) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Nozomi Entertainment",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/HQxT6yOKzNY"
+ },
+ {
+  "id": "stv-73140",
+  "title": "Martian Successor Nadesico",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · To Go \"Like a Man\"",
+    "url": "https://www.youtube.com/embed/7Tx1DNg9320",
+    "video_id": "7Tx1DNg9320",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Classic anime series (1996), streaming free from Nozomi Entertainment, the official channel. Episode 1 only — it is the one episode the channel makes playable outside YouTube; the rest of the series is embed-locked there.",
+  "rights_basis": "Licensed label (Nozomi Entertainment / Right Stuf) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Nozomi Entertainment",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/7Tx1DNg9320"
+ },
+ {
+  "id": "stv-73141",
+  "title": "El-Hazard: The Magnificent World",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · ",
+    "url": "https://www.youtube.com/embed/1zCHJDaHYyk",
+    "video_id": "1zCHJDaHYyk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Classic anime series (1995), streaming free from Nozomi Entertainment, the official channel. Episode 1 only — it is the one episode the channel makes playable outside YouTube; the rest of the OVA is embed-locked there.",
+  "rights_basis": "Licensed label (Nozomi Entertainment / Right Stuf) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Nozomi Entertainment",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/1zCHJDaHYyk"
+ },
+ {
+  "id": "stv-73142",
+  "title": "Boogiepop Phantom",
+  "genre": "Anime",
+  "verified": true,
+  "dateAdded": "2026-10-21",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "S01E01 · Portraits From Memory",
+    "url": "https://www.youtube.com/embed/4d6fjMvAyMo",
+    "video_id": "4d6fjMvAyMo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Classic anime series (2000), streaming free from Nozomi Entertainment, the official channel. Episode 1 only — it is the one episode the channel makes playable outside YouTube; the rest of the series is embed-locked there.",
+  "rights_basis": "Licensed label (Nozomi Entertainment / Right Stuf) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
+  "source_channel": "Nozomi Entertainment",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/4d6fjMvAyMo"
  }
 ];
