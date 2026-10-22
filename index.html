@@ -191,7 +191,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cfbar-times{display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:#fff;text-shadow:0 1px 5px rgba(0,0,0,.9);margin-top:5px;pointer-events:none}
 .cfbar-row{display:flex;align-items:center;gap:10px}
 .cfbar-row .cfbar-track{flex:1}
-.cfpause{flex:0 0 auto;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.cfpause{position:relative;flex:0 0 auto;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
 .cfcard.playing.cf-paused .cfbar{opacity:1;pointer-events:auto}
 .cfcorner{display:flex;align-items:center;justify-content:center}
 .cfcard.playing .cfplay{display:none}
@@ -316,7 +316,7 @@ body.pip .scrub{display:none!important}
   font-size:15px;font-weight:800;padding:14px 26px;border-radius:32px;box-shadow:0 10px 40px rgba(0,0,0,.6);
   animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.06)}}
-.swipehint{text-align:center;font-size:10px;color:rgba(255,255,255,.45);margin-top:8px;letter-spacing:1px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:100%;padding:0 16px;box-sizing:border-box}
+.swipehint{text-align:center;font-size:10px;color:rgba(255,255,255,.60);margin-top:8px;letter-spacing:1px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;max-width:100%;padding:0 16px;box-sizing:border-box}
 
 
 /* ---------- rows of vertical cards ---------- */
@@ -616,7 +616,10 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .searchbar input{width:100%;background:#14141c;border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#fff;
   font-size:15px;font-family:inherit;padding:12px 42px 12px 16px;outline:none}
 .searchbar input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(229,9,20,.18)}
-.searchbar input::placeholder{color:rgba(255,255,255,.35)}
+/* A11Y 2026-10-22: designed focus state — gold ring on keyboard/switch focus (:focus-visible never fires on tap, so touch users see no change); box-shadow rescue for the inputs that kill their outline */
+:focus-visible{outline:2px solid #f6c945;outline-offset:2px}
+#cform input:focus,.lform input:focus,#lvsearch:focus,.pinput:focus,#lnsheet input:focus{box-shadow:0 0 0 3px rgba(246,201,69,.22);border-color:#f6c945}
+.searchbar input::placeholder{color:rgba(255,255,255,.50)}
 .searchbar button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);
   border:0;color:#fff;width:28px;height:28px;border-radius:50%;font-size:12px;cursor:pointer;line-height:1}
 #recentSrch{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:60;
@@ -1121,7 +1124,7 @@ body:has(:is(#scoutSheet,#stkSheet,#isheet,#lvsheet,#lnsheet,#ccsheet,#cdraw,#ed
 .ccrow .ck{margin-left:auto;color:var(--red);font-weight:900;font-size:16px;opacity:0}
 .ccrow.sel .ck{opacity:1}
 .ccnone{padding:13px 2px;font-size:13px;color:var(--mut)}
-.ccnote{padding:0 2px 12px;font-size:11px;color:var(--mut);opacity:.75}
+.ccnote{padding:0 2px 12px;font-size:11px;color:var(--mut);opacity:.85}
 .ccnote{font-size:11px;color:var(--mut);margin-top:14px;line-height:1.55}
 .ric button.ccon{color:var(--red)}
 
@@ -1251,6 +1254,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .live-setup{background:#101016;border:1px solid var(--line);border-radius:18px;padding:26px 20px;text-align:center}
 .live-steps{text-align:left;display:inline-block;margin:14px auto;font-size:13px;line-height:2.1;color:var(--txt)}
 .lroom{display:flex;gap:12px;background:#101016;border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px;align-items:center;position:relative}
+.cfpause::after{content:"";position:absolute;inset:-4px;border-radius:50%}.lroom-x::after{content:"";position:absolute;inset:-6px;border-radius:50%}
 .lroom-x{position:absolute;top:8px;right:8px;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:#1a1a24;color:var(--mut);font-size:14px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
 .lroom-x:active{background:#e00;color:#fff;border-color:#e00}
 .lroom-art{width:64px;height:92px;border-radius:10px;object-fit:cover;background:#1a1a24;flex-shrink:0}
@@ -1677,7 +1681,7 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 .szpop-comments{margin-top:11px;max-height:150px;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
 .szpop-c{font-size:11.5px;color:#c6c6cd;background:#17171b;border:1px solid #26262b;border-radius:9px;padding:7px 9px}
 .szpop-c b{color:#fff}
-.szpop-cempty{font-size:11px;color:#77777f}
+.szpop-cempty{font-size:11px;color:#8b8b96}
 .szpop-crow{display:flex;gap:7px;margin-top:9px}
 .szpop-crow .szp-input{flex:1}
 .szpop-post{background:#e8332a;color:#fff;border:0;border-radius:9px;font-weight:900;font-size:12px;padding:0 14px;cursor:pointer}
@@ -1702,7 +1706,7 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 .sztag{align-self:center;font-size:8.5px;font-weight:900;padding:3px 7px;border-radius:5px;flex:0 0 auto}
 .sztag.szon{background:#3a1113;color:#ff7a72}
 .sztag.szrp{background:#26262b;color:#c9c9cf}
-.sztag.szdf{background:#1b1b20;color:#77777f}
+.sztag.szdf{background:#1b1b20;color:#8b8b96}
 .sscard-stage{position:relative}
 .ssbar{position:absolute;left:0;right:0;bottom:0;height:26px;display:none;align-items:flex-end;z-index:6;touch-action:none;cursor:pointer}
 .ssbar.on{display:flex}
@@ -1912,6 +1916,11 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
   #view-genre .gfull-card img{width:100%;height:100%;object-fit:cover;display:block}
   #view-genre .gfull-card .t{position:absolute;left:0;right:0;bottom:0;padding:18px 8px 8px;
     background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:11px;font-weight:700;line-height:1.25}
+/* A11Y 2026-10-22: reduced motion — end states land instantly, the travel is removed. JS is untouched: AUTO-FRESH and the splash timers are not CSS. */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
 </style>
 <style>
 /* ============ PHONE SHIELD layout (only under html.sz-on) ============
@@ -1942,14 +1951,14 @@ html.sz-on body.force-land #view-home{width:calc(100vh / var(--sz-k));height:cal
 <!-- Shortz VS film-reel intro: scrolling reels, logo lands with the beat, glitch, out at 3s -->
 <div id="splash">
   <div id="splashZoom">
-    <div class="splashReel" data-speed="14" style="top:6%">
-      <img src="splash/efGqe1j3RNk.jpg"><img src="splash/KisuGP2lcPs.jpg"><img src="splash/xxPo-EP4Fwo.jpg"><img src="splash/a-pThWtX6I8.jpg"><img src="splash/efGqe1j3RNk.jpg"><img src="splash/KisuGP2lcPs.jpg">
+    <div class="splashReel" aria-hidden="true" data-speed="14" style="top:6%">
+      <img alt="" src="splash/efGqe1j3RNk.jpg"><img alt="" src="splash/KisuGP2lcPs.jpg"><img alt="" src="splash/xxPo-EP4Fwo.jpg"><img alt="" src="splash/a-pThWtX6I8.jpg"><img alt="" src="splash/efGqe1j3RNk.jpg"><img alt="" src="splash/KisuGP2lcPs.jpg">
     </div>
-    <div class="splashReel" data-speed="20" style="top:38%">
-      <img src="splash/NqOGfPIi1rA.jpg"><img src="splash/RuGyCh9BRig.jpg"><img src="splash/0HQG-6F861U.jpg"><img src="splash/qTbF9YTlU3o.jpg"><img src="splash/NqOGfPIi1rA.jpg"><img src="splash/RuGyCh9BRig.jpg">
+    <div class="splashReel" aria-hidden="true" data-speed="20" style="top:38%">
+      <img alt="" src="splash/NqOGfPIi1rA.jpg"><img alt="" src="splash/RuGyCh9BRig.jpg"><img alt="" src="splash/0HQG-6F861U.jpg"><img alt="" src="splash/qTbF9YTlU3o.jpg"><img alt="" src="splash/NqOGfPIi1rA.jpg"><img alt="" src="splash/RuGyCh9BRig.jpg">
     </div>
-    <div class="splashReel" data-speed="11" style="top:70%">
-      <img src="splash/1c5n9oAn0nU.jpg"><img src="splash/efGqe1j3RNk.jpg"><img src="splash/KisuGP2lcPs.jpg"><img src="splash/xxPo-EP4Fwo.jpg"><img src="splash/1c5n9oAn0nU.jpg"><img src="splash/efGqe1j3RNk.jpg">
+    <div class="splashReel" aria-hidden="true" data-speed="11" style="top:70%">
+      <img alt="" src="splash/1c5n9oAn0nU.jpg"><img alt="" src="splash/efGqe1j3RNk.jpg"><img alt="" src="splash/KisuGP2lcPs.jpg"><img alt="" src="splash/xxPo-EP4Fwo.jpg"><img alt="" src="splash/1c5n9oAn0nU.jpg"><img alt="" src="splash/efGqe1j3RNk.jpg">
     </div>
     <div id="splashVig"></div>
   </div>
@@ -1967,12 +1976,12 @@ html.sz-on body.force-land #view-home{width:calc(100vh / var(--sz-k));height:cal
     <button class="ag-btn" id="agEmailBtn">✉️ Continue with Email</button>
     <button class="ag-btn" id="agCreateBtn">＋ Create account</button>
     <div id="agForm" style="display:none">
-      <input class="pinput" id="agEmailIn" type="email" placeholder="Email" autocomplete="email">
-      <input class="pinput" id="agPassIn" type="password" placeholder="Password (6+ characters)" autocomplete="current-password">
+      <input class="pinput" id="agEmailIn" type="email" aria-label="Email" placeholder="Email" autocomplete="email">
+      <input class="pinput" id="agPassIn" type="password" aria-label="Password" placeholder="Password (6+ characters)" autocomplete="current-password">
       <div id="agErr"></div>
       <div class="ag-row">
         <button class="ag-btn" id="agGo">Continue</button>
-        <button class="ag-btn" id="agBack" style="flex:0 0 64px">←</button>
+        <button class="ag-btn" id="agBack" style="flex:0 0 64px" aria-label="Back">←</button>
       </div>
       <div id="agAlt" style="display:none">
         <button class="ag-btn" id="agCreateFromSignin">Create account with this email &amp; password</button>
@@ -2184,9 +2193,9 @@ try{
     </div>
     <div class="pia-bar">
       <div class="pia-title" id="piaTitle"></div>
-      <button class="pia-btn" id="piaMute" title="Mute/Unmute">🔊</button>
-      <button class="pia-btn" id="piaExpand" title="Full screen">⤢</button>
-      <button class="pia-btn" id="piaClose" title="Close">✕</button>
+      <button class="pia-btn" id="piaMute" title="Mute/Unmute" aria-label="Mute or unmute">🔊</button>
+      <button class="pia-btn" id="piaExpand" title="Full screen" aria-label="Full screen">⤢</button>
+      <button class="pia-btn" id="piaClose" title="Close" aria-label="Close player">✕</button>
     </div>
   </div>
 
@@ -2270,13 +2279,13 @@ try{
   <div id="nextCd"><div class="nc-num" id="nextCdN">5</div><div class="nc-tx"><div class="nc-k">Next episode</div><div class="nc-t" id="nextCdT"></div></div><button class="nc-x" id="nextCdX">Cancel</button></div>
 
   <div id="cscrim"></div>
-  <div id="cdraw">
+  <div id="cdraw" role="dialog" aria-label="Comments">
     <div class="grab"></div>
     <div class="chead"><button id="cclose" aria-label="Close comments">✕</button><h3>💬 Comments</h3></div>
     <div id="clist"></div>
-    <form id="cform"><input id="cinput" placeholder="Add a comment…" maxlength="300" autocomplete="off"><button type="submit">Post</button></form>
+    <form id="cform"><input id="cinput" aria-label="Add a comment" placeholder="Add a comment…" maxlength="300" autocomplete="off"><button type="submit">Post</button></form>
   </div>
-  <div id="ccsheet">
+  <div id="ccsheet" role="dialog" aria-label="Subtitles and audio">
     <div class="grab"></div>
     <div class="chead"><button id="ccclose" aria-label="Close">✕</button><h3>Subtitles &amp; audio</h3></div>
     <div id="ccbody">
@@ -2287,7 +2296,7 @@ try{
   </div>
 
   <div id="stkScrim"></div>
-  <div id="stkSheet">
+  <div id="stkSheet" role="dialog" aria-label="Stakes">
     <div class="stkGrab"></div>
     <div class="stkBody">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
@@ -2311,7 +2320,7 @@ try{
     </div>
   </div>
   <div id="escrim"></div>
-  <div id="edraw">
+  <div id="edraw" role="dialog" aria-label="Episodes">
     <div class="grab" id="edGrab"></div>
     <div class="ed-head" id="edHead">
       <img decoding="async" class="ed-thumb" id="edThumb" alt="">
@@ -2322,7 +2331,7 @@ try{
   </div>
 
   <div id="iscrim"></div>
-  <div id="isheet">
+  <div id="isheet" role="dialog" aria-label="Install Shortz VS">
     <div class="grab"></div>
     <h3>📲 Install Shortz VS</h3>
     <ol>
@@ -2334,20 +2343,20 @@ try{
   </div>
 
   <div id="lvscrim"></div>
-  <div id="lvsheet">
+  <div id="lvsheet" role="dialog" aria-label="Live">
     <div class="grab"></div>
     <div class="chead"><button id="lvsclose" aria-label="Close">✕</button><h3 id="lvstitle">Live</h3></div>
     <div id="lvsbody"></div>
   </div>
 
   <div id="lnscrim"></div>
-  <div id="lnsheet">
+  <div id="lnsheet" role="dialog" aria-label="Pick a display name">
     <div class="grab"></div>
     <button id="lnclose" aria-label="Close" style="position:absolute;top:10px;right:14px;background:none;border:none;color:#888;font-size:22px;cursor:pointer">×</button>
     <h3 style="padding:8px 18px 0">Pick a display name</h3>
     <div style="padding:12px 18px calc(20px + env(safe-area-inset-bottom))">
       <p style="font-size:12px;color:var(--mut);margin-bottom:10px">This is the name other viewers see in live chat.</p>
-      <input id="lninput" placeholder="Your name…" maxlength="24" autocomplete="off">
+      <input id="lninput" aria-label="Your display name" placeholder="Your name…" maxlength="24" autocomplete="off">
       <button class="btn-play" id="lnsave" style="width:100%;justify-content:center;margin-top:12px">Join Live</button>
       <button id="lnnotnow" style="width:100%;background:none;border:none;color:var(--mut);font-size:14px;padding:10px;cursor:pointer;margin-top:4px">Not now</button>
     </div>
@@ -2355,14 +2364,14 @@ try{
 
   <!-- SCOUT inbox sheet: messages from the user's personal Scout -->
   <div id="scoutScrim"></div>
-  <div id="scoutSheet">
+  <div id="scoutSheet" role="dialog" aria-label="Scout">
     <div class="grab"></div>
     <div class="chead"><button id="scoutClose" aria-label="Close">✕</button><h3>🤖 Your Scout</h3></div>
     <div class="scout-sub">Scout hunts while you're away. Here's what turned up 👇</div>
     <div id="scoutMsgs"></div>
   </div>
 
-  <div id="toast"></div>
+  <div id="toast" role="status" aria-live="polite"></div>
 </div>
 
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
@@ -2381,7 +2390,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792707518";
+window.__SZ_BUILD = "1792711525";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5070,18 +5079,18 @@ function slideHTML(){
       <div class="scrub-track"><div class="scrub-fill" data-fill></div><div class="scrub-knob" data-knob></div></div>
     </div>
     <div class="feed-rail">
-      <div class="ric"><button data-a="like" data-like>♥</button><span data-t="like">Like</span></div>
-      <div class="ric"><button data-a="com">💬</button><span data-t="com">0</span></div>
-      <div class="ric"><button data-a="share">↗</button><span>Share</span></div>
-      <div class="ric"><button data-a="save" data-save>＋</button><span>Save</span></div>
-      <div class="ric"><button data-a="more" data-more>▼</button><span>More</span></div>
+      <div class="ric"><button data-a="like" data-like aria-label="Like">♥</button><span data-t="like">Like</span></div>
+      <div class="ric"><button data-a="com" aria-label="Comments">💬</button><span data-t="com">0</span></div>
+      <div class="ric"><button data-a="share" aria-label="Share">↗</button><span>Share</span></div>
+      <div class="ric"><button data-a="save" data-save aria-label="Save">＋</button><span>Save</span></div>
+      <div class="ric"><button data-a="more" data-more aria-label="More options">▼</button><span>More</span></div>
       <div class="ric-more" data-moremenu>
-      <div class="ric"><button data-a="fit">⤢</button><span>Fit</span></div>
+      <div class="ric"><button data-a="fit" aria-label="Fit to screen">⤢</button><span>Fit</span></div>
       <div class="ric"><button data-a="cc" data-cc>CC</button><span>Subs</span></div>
-      <div class="ric"><button data-a="pip">⧉</button><span>PiP</span></div>
-      <div class="ric"><button data-a="pia">❐</button><span>Mini player</span></div>
-      <div class="ric"><button data-a="info">ⓘ</button><span>Info</span></div>
-      <div class="ric"><button data-a="rot">⟳</button><span>Rotate</span></div>
+      <div class="ric"><button data-a="pip" aria-label="Picture in picture">⧉</button><span>PiP</span></div>
+      <div class="ric"><button data-a="pia" aria-label="Mini player">❐</button><span>Mini player</span></div>
+      <div class="ric"><button data-a="info" aria-label="Info">ⓘ</button><span>Info</span></div>
+      <div class="ric"><button data-a="rot" aria-label="Rotate">⟳</button><span>Rotate</span></div>
       </div>
     </div>
     <button class="soundprompt" data-sound>🔊 Tap for sound</button>
@@ -5525,7 +5534,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792707518";
+const BUILD="1792711525";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6549,10 +6558,10 @@ function cfCardHTML(t){
       ${t.award?`<div class="cfaward">${esc(t.award)}</div>`:""}
     </div>
     <div class="cfactions">
-      <button class="cfact${liked?" liked":""}" data-cf-like><span data-cf-heart>${liked?"♥":"♡"}</span><span data-cf-likenum>${lc}</span></button>
+      <button class="cfact${liked?" liked":""}" data-cf-like aria-label="Like"><span data-cf-heart>${liked?"♥":"♡"}</span><span data-cf-likenum>${lc}</span></button>
       <button class="cfact" data-cf-open aria-label="Open in the player"><span class="cfcorner"><svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M3 8V3h5M16 3h5v5M21 16v5h-5M8 21H3v-5"/></svg></span><span>Player</span></button>
-      <button class="cfact" data-cf-com><span>💬</span><span data-cf-comnum>${cc}</span></button>
-      <button class="cfact${inList?" saved":""}" data-cf-save><span data-cf-saveicon>${inList?"✓":"+"}</span></button>
+      <button class="cfact" data-cf-com aria-label="Comments"><span>💬</span><span data-cf-comnum>${cc}</span></button>
+      <button class="cfact${inList?" saved":""}" data-cf-save aria-label="Save"><span data-cf-saveicon>${inList?"✓":"+"}</span></button>
       ${(epsN(t)>1)?`<button class="cfact" data-cf-eps aria-expanded="false"><span>▤</span><span>Episodes ${epsN(t)}</span><span class="epschev">▾</span></button>`:""}
       <button class="cfact share" data-cf-share><span>⤴</span><span>Share</span></button>
     </div>
@@ -7514,6 +7523,8 @@ function preloadNext(url,vid){
     fr.setAttribute("data-frame","");
     fr.setAttribute("referrerpolicy","strict-origin-when-cross-origin");
     fr.setAttribute("allow","autoplay; fullscreen; encrypted-media; picture-in-picture");
+    fr.setAttribute("aria-hidden","true");
+    fr.setAttribute("tabindex","-1");
     fr.style.cssText="position:absolute;width:2px;height:2px;opacity:0;pointer-events:none";
     fr.src=embedSrc(url,false); // no autoplay — just buffer
     document.body.appendChild(fr);
@@ -7727,7 +7738,7 @@ function openDetail(id){
       <div class="art-kb grain" style="background:${artBg(t.title)}">${big?`<img decoding="async" src="${big}" alt="" onerror="this.style.display='none'">`:""}</div>
       <div class="art-scrim"></div>
       <div class="art-shimmer"></div>
-      <button class="backbtn" id="dBack">‹</button>
+      <button class="backbtn" id="dBack" aria-label="Back">‹</button>
     </section>
     <div class="wrap"><div class="detail-body">
       <h1>${esc(t.title)}${t.award_verified?' 🏆':''}</h1>
@@ -8367,7 +8378,7 @@ function renderBrowseLanding(){
     <div id="browseLanding">
     <div class="br-head"><h1>Browse</h1>
       <div class="searchbar">
-        <input id="bsearch" type="text" placeholder="Search shows, creators, genres" value="" autocomplete="off" enterkeyhint="search">
+        <input id="bsearch" type="text" aria-label="Search shows, creators, genres" placeholder="Search shows, creators, genres" value="" autocomplete="off" enterkeyhint="search">
         <button id="bsearchx" aria-label="Clear search" style="display:none">✕</button>
         <div id="recentSrch"></div>
       </div>
@@ -8533,7 +8544,7 @@ function renderBrowse(g){
   $("#view-browse").innerHTML=`
     <div class="wrap" style="padding-top:18px">
       <div class="searchbar">
-        <input id="bsearch" type="text" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
+        <input id="bsearch" type="text" aria-label="Search shows" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
         <button id="bsearchx" aria-label="Clear search" style="display:${browseQuery?"":"none"}">✕</button>
         <div id="recentSrch"></div>
       </div>
@@ -8874,10 +8885,10 @@ function openSportsReel(sport){
       <button class="sreel-sound" data-sound aria-label="Toggle sound">${sportsSoundOn?"🔊":"🔇"}</button>
       <div class="sreel-sport">${esc(sport)} highlights</div>
       <div class="sreel-rail">
-        <div class="sreel-ric"><button data-like>♥</button><span>Like</span></div>
-        <div class="sreel-ric"><button data-com>💬</button><span>${(comments["sport_"+ep.video_id]||[]).length||"0"}</span></div>
-        <div class="sreel-ric"><button data-share>↗</button><span>Share</span></div>
-        <div class="sreel-ric"><button data-spip>⧉</button><span>PiP</span></div>
+        <div class="sreel-ric"><button data-like aria-label="Like">♥</button><span>Like</span></div>
+        <div class="sreel-ric"><button data-com aria-label="Comments">💬</button><span>${(comments["sport_"+ep.video_id]||[]).length||"0"}</span></div>
+        <div class="sreel-ric"><button data-share aria-label="Share">↗</button><span>Share</span></div>
+        <div class="sreel-ric"><button data-spip aria-label="Picture in picture">⧉</button><span>PiP</span></div>
       </div>
       <div class="sreel-cap"><b>${esc(ep.title||("Highlight "+(i+1)))}</b><p>Swipe up for next highlight</p></div>
     </div>`).join("");
@@ -9381,10 +9392,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792707518"></script>
+<script src="js/folders.js?v=1792711525"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792707518"></script>
+<script src="js/guide.js?v=1792711525"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10194,10 +10205,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792707518"></script>
-<script src="js/shortz-live.js?v=1792707518"></script>
-<script src="js/games.js?v=1792707518"></script>
-<script src="js/podcasts.js?v=1792707518"></script>
+<script src="js/streaming.js?v=1792711525"></script>
+<script src="js/shortz-live.js?v=1792711525"></script>
+<script src="js/games.js?v=1792711525"></script>
+<script src="js/podcasts.js?v=1792711525"></script>
 <script>
 
 
@@ -10715,7 +10726,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792707518"></script>
+<script src="js/swipe.js?v=1792711525"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -10889,7 +10900,7 @@ function mgOpenDetail(mid){
   window._mgMeta[mid]={t:t,c:mdxCover(m,"256")||cov||""};
   const meta=[au,m.status?m.status.charAt(0).toUpperCase()+m.status.slice(1):"",m.year].filter(Boolean).join(" · ");
   v.innerHTML='<div class="mg-dhero">'+(cov?'<img referrerpolicy="no-referrer" src="'+cov+'" alt="">':"")
-    +'<button class="mg-back" onclick="renderManga()">‹</button></div>'
+    +'<button class="mg-back" onclick="renderManga()" aria-label="Back">‹</button></div>'
     +'<div class="mg-dbody"><div class="mg-dtitle">'+mgEsc(t)+'</div>'
     +'<div class="mg-dmeta">'+mgEsc(meta)+'</div>'
     +'<div class="mg-dtags">'+mdxTags(m).slice(0,5).map(x=>'<span class="mg-tag">'+mgEsc(x)+'</span>').join("")+'</div>'
@@ -10942,7 +10953,7 @@ function mgOpenReader(idx){
   let r=document.getElementById("mgReader");
   if(!r){r=document.createElement("div");r.id="mgReader";r.className="mg-reader";document.body.appendChild(r);}
   Manga.readerOpen=true;
-  r.innerHTML='<div class="mg-rtop"><button class="mg-rx" id="mgRx">✕</button>'
+  r.innerHTML='<div class="mg-rtop"><button class="mg-rx" id="mgRx" aria-label="Close reader">✕</button>'
     +'<div class="mg-rtitle">'+mgEsc(t+" — "+num)+'</div><div style="width:48px"></div></div>'
     +'<div class="mg-rpage" id="mgRpage"><div class="mg-center"><div class="mg-spin"></div>Loading pages…</div></div>'
     +'<div class="mg-rbot"><button class="mg-rnav" id="mgPrev">‹ Prev</button><button class="mg-rnav" id="mgNext">Next ›</button></div>';
@@ -11284,7 +11295,7 @@ const Stake={
 function stkMountPill(){
   if(document.getElementById("stkFloatPill"))return;
   const b=document.createElement("button");
-  b.id="stkFloatPill";b.className="stkPill";
+  b.id="stkFloatPill";b.className="stkPill";b.setAttribute("aria-label","Stakes — coin balance");
   b.style.cssText="position:fixed;top:14px;right:14px;z-index:60;display:none";
   b.innerHTML="◉ <span>1,000</span>";
   b.onclick=()=>Stake.openSheet();
@@ -12262,7 +12273,7 @@ body.pip #scoutSheet,body.pip #scoutScrim{display:none!important}
 .scout-mmain{flex:1;min-width:0}
 .scout-mt{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .scout-mr{font-size:12px;color:var(--mut);line-height:1.45;margin-top:2px}
-.scout-mts{font-size:11px;color:var(--mut);opacity:.7;margin-top:3px}
+.scout-mts{font-size:11px;color:var(--mut);opacity:.85;margin-top:3px}
 .scout-dot{width:9px;height:9px;border-radius:50%;background:#e50914;flex-shrink:0}
 .scout-badge{display:inline-block;min-width:18px;text-align:center;background:#e50914;color:#fff;font-size:11px;font-weight:800;border-radius:9px;padding:1px 5px;margin-left:4px;vertical-align:1px}
 .scout-empty{padding:22px 10px;text-align:center;color:var(--mut);font-size:13px;line-height:1.6}
@@ -12944,10 +12955,10 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   </div>
   <div class="cs-pulse" id="csPulse"></div>
   <div class="cs-body" id="csBody"></div>
-  <div id="csSheet"></div>
-  <div id="csToast"></div>
+  <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
+  <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792707518"></script>
+<script src="js/live-sports.js?v=1792711525"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13103,7 +13114,7 @@ function paintShell(){
   body.innerHTML='<div id="csAdmin"></div>'+
    (canPost?'<div class="cs-composer"><div class="cs-flairs" id="csFlairs">'+
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.flair===k?" on":"")+'" data-flair="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
-   '<textarea id="csText" rows="3" placeholder="'+(CS.flair==="music"?"Drop a track, ask for real ears on a mix\u2026":"Share with creators\u2026 a drop, a question, a call for collabs")+'">'+esc(CS.draft)+"</textarea>"+
+   '<textarea id="csText" rows="3" aria-label="Share with creators" placeholder="'+(CS.flair==="music"?"Drop a track, ask for real ears on a mix\u2026":"Share with creators\u2026 a drop, a question, a call for collabs")+'">'+esc(CS.draft)+"</textarea>"+
    '<div class="cs-attachrow"><input id="csAttach" placeholder="Attach a title (optional) \u2014 type a name, tap Resolve" value="'+esc(CS.attachLabel)+'"><button class="cs-smallbtn" id="csResolve">Resolve</button></div>'+
    '<div class="cs-attachlbl" id="csAttachLbl">'+(CS.attachId?("Attached: "+esc(CS.attachLabel)):"")+"</div>"+
    '<div class="cs-uprow"><button class="cs-smallbtn gold" id="csUploadBtn">'+(CS.flair==="music"?"⬆ Upload a track":"⬆ Upload a video")+'</button><span class="cs-uplbl">straight off your phone</span></div>'+
@@ -13211,7 +13222,7 @@ function postCard(pid,p){
   h+='<div class="cs-acts">'+((CS.isMember||CS.isFounder)?'<button class="cs-act'+(mine?" on":"")+'" data-applaud="'+pid+'">♥ Applaud · '+nAp+'</button>':'<span class="cs-act" style="cursor:default">♥ '+nAp+'</span>')+
      '<button class="cs-act" data-comments="'+pid+'">💬 Feedback<span data-ccount="'+pid+'"></span></button>'+
      ((CS.isMember||CS.isFounder)?'<button class="cs-act" data-boost="'+pid+'">🔁 Boost</button>':"")+
-     '<button class="cs-act dots" data-menu="'+pid+'">•••</button></div>';
+     '<button class="cs-act dots" aria-label="Post options" data-menu="'+pid+'">•••</button></div>';
   h+="</div>";
   return h;
 }
@@ -13288,7 +13299,7 @@ function csOpenComments(pid){
    '<div class="cs-ptext sm">'+esc(p.text||"")+"</div>"+
    '<div class="cs-clist" id="csClist"><div class="cs-hint">Loading\u2026</div></div>'+
    ((p.tid||p.vid||p.aud)?'<div class="cs-autopin dim" id="csAutopin">Notes pin to the moment automatically.</div>':"")+
-   ((CS.isMember||CS.isFounder)?'<div class="cs-crow"><input id="csCText" placeholder="Give real feedback\u2026"><button class="cs-smallbtn gold" id="csCSend">Send</button></div>':'<div class="cs-hint" style="padding:2px">Feedback in here is creator-to-creator — request access to join in.</div>')+
+   ((CS.isMember||CS.isFounder)?'<div class="cs-crow"><input id="csCText" aria-label="Give feedback" placeholder="Give real feedback\u2026"><button class="cs-smallbtn gold" id="csCSend">Send</button></div>':'<div class="cs-hint" style="padding:2px">Feedback in here is creator-to-creator — request access to join in.</div>')+
    '<button class="cs-sheetbtn" id="csSheetX">Close</button></div>';
   sh.style.display="flex";
   $cs("#csSheetX").onclick=function(){sh.style.display="none";CS.commentsFor=null;unlistenComments();};
