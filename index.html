@@ -2238,7 +2238,6 @@ try{
   <button id="dubBtn" aria-label="My Dubs — see your Dubs">W</button>
   <button id="palBtn" aria-label="Scout Pal — your pet">🐾</button>
   <!-- EVERYTHING toggle: persistent — tap to enter/exit the swipeable section hub (restored 2026-10-16, his word: the All button stays) -->
-  <button id="evToggle" aria-label="All sections">⊞</button>
   <!-- UPDATES TV button: sits right of the All button — tap to summon the little
        TV (NEW / COMING SOON / TOP 10 updates), tap again to put it away.
        Glyph is inline SVG (stroke=currentColor), NOT an emoji: the old 📺 emoji
@@ -2402,7 +2401,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792720409";
+window.__SZ_BUILD = "1792759888";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4342,7 +4341,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // because the rest path no longer writes scrollLeft at all (the
   // write was the momentum-killer, not the entry), so a false rest
   // costs nothing.
-  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evJumpTarget=null, evJumpAt=0;
+  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evJumpTarget=null, evJumpAt=0, evGlideT=null;
   function evPanesInOrder(){ const vs=$("views"); return vs ? [...vs.querySelectorAll(".view.evpane")] : []; }
   function evGuard(){
     const vs=$("views"); if(!vs)return;
@@ -4367,7 +4366,10 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     evSampleT=setInterval(()=>{
       const sl=vs.scrollLeft, now=Date.now();
       if(sl!==evLastSl){ evLastSl=sl; evStableSince=now; return; }
-      if(now-evStableSince>=140)evFinishMotion();
+      /* LOCK-IN (his order 2026-10-23): the landed section commits one
+         second after ALL sliding stops — arrow glide or finger flick,
+         same law. Was 140ms; his word sets it to a full second. */
+      if(now-evStableSince>=1000)evFinishMotion();
     },60);
   }
   function evFinishMotion(){
@@ -4438,6 +4440,10 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   function evBindScroll(){
     if(evScrollBound)return; evScrollBound=true;
     const vs=$("views"); if(!vs)return;
+    // a finger grabbing the track mid-glide takes it over — the arrow's
+    // glide dies the moment he touches down (his slide, his control)
+    vs.addEventListener("touchstart",()=>{ if(evGlideT){ clearInterval(evGlideT); evGlideT=null; } },{passive:true});
+    vs.addEventListener("pointerdown",()=>{ if(evGlideT){ clearInterval(evGlideT); evGlideT=null; } },{passive:true});
     vs.addEventListener("scroll",e=>{
       if(!evMode)return;
       if(e.target===vs){ evGuard(); evNoteScroll(); }
@@ -4538,16 +4544,22 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       pos=3;
     }
     const dest=pos+dir;
-    /* INSTANT STEPS (his order 2026-10-21: navigation must be
-       instantaneous — "boom, it's automatic"). A press used to pay a
-       ~400ms smooth-scroll animation PLUS the rest sampler's 280ms
-       stillness window before the section committed (~1s measured,
-       and rapid presses chained animations and never landed). An
-       arrow press is a command, not a flick: set the track position
-       NOW and commit the section in the same tick via the rest path.
-       Finger flicks keep their physics + the sampler below. */
-    try{ vs.scrollLeft=dest*W; }catch(e){}
-    try{ evNoteScroll(); evFinishMotion(); }catch(e){}
+    /* ARROW KICK (his order 2026-10-23, superseding the 2026-10-21
+       instant steps): a press STARTS the slide — a short glide to the
+       next pane instead of a teleport. From there he can grab it and
+       slide free; the section locks in one second after all motion
+       stops (the sampler's stillness window above). The glide is
+       interruptible: a finger down on the track kills it instantly,
+       and a fresh press re-targets from wherever the track is. */
+    try{ evNoteScroll(); }catch(e){}
+    if(evGlideT){ clearInterval(evGlideT); evGlideT=null; }
+    const from=vs.scrollLeft, to=dest*W, t0=Date.now(), dur=380;
+    if(from===to)return;
+    evGlideT=setInterval(()=>{
+      const p=Math.min(1,(Date.now()-t0)/dur), ez=1-Math.pow(1-p,3);
+      try{ vs.scrollLeft=Math.round(from+(to-from)*ez); }catch(err){}
+      if(p>=1){ clearInterval(evGlideT); evGlideT=null; }
+    },16);
   }
   try{
     const pv=$("evPrev"), nx=$("evNext");
@@ -5581,7 +5593,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792720409";
+const BUILD="1792759888";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9453,10 +9465,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792720409"></script>
+<script src="js/folders.js?v=1792759888"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792720409"></script>
+<script src="js/guide.js?v=1792759888"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10266,10 +10278,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792720409"></script>
-<script src="js/shortz-live.js?v=1792720409"></script>
-<script src="js/games.js?v=1792720409"></script>
-<script src="js/podcasts.js?v=1792720409"></script>
+<script src="js/streaming.js?v=1792759888"></script>
+<script src="js/shortz-live.js?v=1792759888"></script>
+<script src="js/games.js?v=1792759888"></script>
+<script src="js/podcasts.js?v=1792759888"></script>
 <script>
 
 
@@ -10787,7 +10799,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792720409"></script>
+<script src="js/swipe.js?v=1792759888"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13019,7 +13031,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792720409"></script>
+<script src="js/live-sports.js?v=1792759888"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
