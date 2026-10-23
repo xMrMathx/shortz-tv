@@ -2403,7 +2403,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792765310";
+window.__SZ_BUILD = "1792768085";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4425,7 +4425,6 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   }
   function evGoTo(v){
     if(!evMode||SECTIONS.indexOf(v)<0)return;
-    evUnlock(); // an app-driven jump moves the track itself — it re-locks at rest
     const vs=$("views"); if(!vs)return;
     const W=SZ_W(); if(!W)return;
     // ground truth is the pane actually centered on screen — the section
@@ -4435,6 +4434,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
     const centered=panes[pos]?panes[pos].id.replace("view-",""):"";
     if(centered===v)return;
+    evUnlock(); // unlock ONLY here — a jump that turns out to be a no-op must never leak the freeze off (Brain audit 2026-10-23); a real move re-locks at rest
     /* record the intent synchronously (Brain audit fix 3): the sampler's
        only truth was position, so a nudge back toward the old pane read
        as "never left" — now evRest can tell a jump in flight from a rest
@@ -4482,12 +4482,17 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const vs=$("views");
     if(vs){
       vs.classList.add("evtrack");
-      evLock(); // the hub opens frozen — the first move waits for an arrow press (his order 2026-10-23)
       evPanes().forEach(el=>{ if(el)el.classList.add("evpane"); });
       evBindScroll();
       evSection=SECTIONS[evIdx];
       evRotateTo(evSection); // the current section starts mid-ring: wraparound runway both ways
-      requestAnimationFrame(()=>{ try{ vs.scrollLeft=Math.floor((SECTIONS.length-1)/2)*SZ_W(); }catch(e){} });
+      try{ tx0=0; ty0=0; swiped=false; }catch(e){} // no stale swipe state eats the first tap after entry
+      requestAnimationFrame(()=>{ try{ vs.scrollLeft=Math.floor((SECTIONS.length-1)/2)*SZ_W(); }catch(e){}
+        // the hub opens frozen (his order 2026-10-23) — lock AFTER the
+        // centering write lands, and never over an arrow step that
+        // already started (the door press steps at +80ms; its own rest
+        // does the locking) (Brain audit 2026-10-23)
+        if(evMode&&!evMoving&&!evGlideT)evLock(); });
     }
     updateHeader();
     try{
@@ -4501,6 +4506,8 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(evGlideT){ clearInterval(evGlideT); evGlideT=null; } // no zombie glide writing scrollLeft after exit
     if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
     if(evMoving){ evMoving=false; document.body.classList.remove("ev-moving"); }
+    evLastSl=null; evStableSince=0; // a stale position/timestamp pair makes the next open's sampler commit instantly onto the wrong slot (Brain audit 2026-10-23)
+    evJumpTarget=null; evJumpAt=0; // a jump intent never survives into the next hub session
     document.body.classList.remove("ev-mode");
     const vs=$("views");
     if(vs){ vs.classList.remove("evtrack"); vs.classList.remove("ev-locked"); evLocked=true; try{ vs.scrollLeft=0; }catch(e){} }
@@ -4545,7 +4552,6 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // deliberately skips the track move — bookkeeping only, screen stays.
   // That was the first arrows build's bug, his phone 2026-10-16.)
   function evStep(dir){
-    evUnlock(); // THE key turn (his order 2026-10-23): an arrow press unlocks the track, then slides it
     const vs=$("views"); if(!vs)return;
     const W=SZ_W(); if(!W)return;
     const panes=evPanesInOrder(); if(!panes.length)return;
@@ -4565,6 +4571,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       pos=3;
     }
     const dest=pos+dir;
+    evUnlock(); // THE key turn (his order 2026-10-23): the press unlocks the track, then slides it — placed after every validation so a dead press can never leak the freeze off (Brain audit 2026-10-23)
     /* ARROW KICK (his order 2026-10-23, superseding the 2026-10-21
        instant steps): a press STARTS the slide — a short glide to the
        next pane instead of a teleport. From there he can grab it and
@@ -5614,7 +5621,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792765310";
+const BUILD="1792768085";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9486,10 +9493,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792765310"></script>
+<script src="js/folders.js?v=1792768085"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792765310"></script>
+<script src="js/guide.js?v=1792768085"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10299,10 +10306,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792765310"></script>
-<script src="js/shortz-live.js?v=1792765310"></script>
-<script src="js/games.js?v=1792765310"></script>
-<script src="js/podcasts.js?v=1792765310"></script>
+<script src="js/streaming.js?v=1792768085"></script>
+<script src="js/shortz-live.js?v=1792768085"></script>
+<script src="js/games.js?v=1792768085"></script>
+<script src="js/podcasts.js?v=1792768085"></script>
 <script>
 
 
@@ -10820,7 +10827,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792765310"></script>
+<script src="js/swipe.js?v=1792768085"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13052,7 +13059,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792765310"></script>
+<script src="js/live-sports.js?v=1792768085"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
