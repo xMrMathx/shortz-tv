@@ -2403,7 +2403,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792768085";
+window.__SZ_BUILD = "1792774805";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4343,7 +4343,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // because the rest path no longer writes scrollLeft at all (the
   // write was the momentum-killer, not the entry), so a false rest
   // costs nothing.
-  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evJumpTarget=null, evJumpAt=0, evGlideT=null, evLocked=true;
+  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evJumpTarget=null, evJumpAt=0, evGlideT=null, evGlideDest=-1, evLocked=true;
   function evPanesInOrder(){ const vs=$("views"); return vs ? [...vs.querySelectorAll(".view.evpane")] : []; }
   function evGuard(){
     const vs=$("views"); if(!vs)return;
@@ -4391,6 +4391,49 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     // a jump (its sampler is running again; that motion locks at ITS rest)
     if(evMode&&!evJumpTarget&&!evSampleT)evLock();
   }
+  /* SECTION COMMIT (shared by the rest sampler and the arrow press):
+     the section's state, header and per-view enter/exit hooks switch
+     to v. go() carries every exit hook there is — leaving Home stops
+     the card + feed, leaving Live/Profile/Streaming silences their
+     stages — so a commit is also a silencing of the page left. */
+  function evCommit(v){
+    // a jump (evGoTo) pre-claims evSection for its own bookkeeping —
+    // the commit has still happened only when the app's view agrees.
+    // Checking evSection alone let a jump land the track on a section
+    // whose state never switched (curView stranded on the old page).
+    if(v===evSection&&v===(typeof curView!=="undefined"?curView:null))return;
+    evSection=v;
+    evIdx=SECTIONS.indexOf(v); if(evIdx<0)evIdx=0;
+    const pane=document.getElementById("view-"+v);
+    // a static pane that already holds real content is NOT
+    // rebuilt on entry — nothing emptied it while it sat in the
+    // ring, and rebuilding a whole wall/folder set on landing
+    // was its own hitch. Stubs and the live systems (whose exit
+    // hooks DO empty them) still build on entry, as always.
+    const needsBuild=(v==="live"||v==="streaming"||!pane||!pane.innerHTML.trim()||!!(pane&&pane.querySelector(".swipe-stub")));
+    if(needsBuild){ try{ renderView(v); }catch(e){} }
+    window.__evInternalNav=true; go(v); window.__evInternalNav=false;
+    updateHeader();
+  }
+  /* NO PLAYING FROM OTHER PAGES (his order 2026-10-23): at the moment
+     of an arrow press, every pane but the target goes quiet — media
+     elements pause, embeds get the same pause+mute belt the feed's
+     own silencer uses. Nothing destructive: a pane's own systems
+     resume it when it becomes the committed section. */
+  function evSilenceExcept(v){
+    evPanes().forEach(el=>{
+      if(!el||el.id==="view-"+v)return;
+      try{ el.querySelectorAll("video,audio").forEach(m=>{ try{ m.pause(); }catch(e){} }); }catch(e){}
+      try{ el.querySelectorAll("iframe").forEach(fr=>{
+        if(!fr.contentWindow)return;
+        const cw=fr.contentWindow, pm=o=>{ try{ cw.postMessage(JSON.stringify(o),"*"); }catch(e){} };
+        pm({event:"command",func:"pauseVideo",args:""});
+        pm({event:"command",func:"mute",args:""});
+        pm({method:"pause"});
+        pm({method:"setVolume",value:0});
+      }); }catch(e){}
+    });
+  }
   function evRest(){
     const vs=$("views"); if(!vs||!evMode)return;
     const W=SZ_W();
@@ -4408,19 +4451,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       else if(Date.now()-evJumpAt<2500){ evGoTo(evJumpTarget); return; }
       else evJumpTarget=null;
     }
-    if(v!==evSection){
-      evSection=v;
-      evIdx=SECTIONS.indexOf(v); if(evIdx<0)evIdx=0;
-      // a static pane that already holds real content is NOT
-      // rebuilt on entry — nothing emptied it while it sat in the
-      // ring, and rebuilding a whole wall/folder set on landing
-      // was its own hitch. Stubs and the live systems (whose exit
-      // hooks DO empty them) still build on entry, as always.
-      const needsBuild=(v==="live"||v==="streaming"||!pane.innerHTML.trim()||!!pane.querySelector(".swipe-stub"));
-      if(needsBuild){ try{ renderView(v); }catch(e){} }
-      window.__evInternalNav=true; go(v); window.__evInternalNav=false;
-      updateHeader();
-    }
+    evCommit(v);
     evLazyBuild();
   }
   function evGoTo(v){
@@ -4457,8 +4488,8 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const vs=$("views"); if(!vs)return;
     // a finger grabbing the track mid-glide takes it over — the arrow's
     // glide dies the moment he touches down (his slide, his control)
-    vs.addEventListener("touchstart",()=>{ if(evGlideT){ clearInterval(evGlideT); evGlideT=null; } },{passive:true});
-    vs.addEventListener("pointerdown",()=>{ if(evGlideT){ clearInterval(evGlideT); evGlideT=null; } },{passive:true});
+    vs.addEventListener("touchstart",()=>{ if(evGlideT){ cancelAnimationFrame(evGlideT); evGlideT=null; evGlideDest=-1; } },{passive:true});
+    vs.addEventListener("pointerdown",()=>{ if(evGlideT){ cancelAnimationFrame(evGlideT); evGlideT=null; evGlideDest=-1; } },{passive:true});
     vs.addEventListener("scroll",e=>{
       if(!evMode)return;
       if(e.target===vs){ evGuard(); evNoteScroll(); }
@@ -4503,7 +4534,8 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   function close(){
     if(!evMode)return;
     evMode=false;
-    if(evGlideT){ clearInterval(evGlideT); evGlideT=null; } // no zombie glide writing scrollLeft after exit
+    if(evGlideT){ cancelAnimationFrame(evGlideT); evGlideT=null; } // no zombie glide writing scrollLeft after exit
+    evGlideDest=-1;
     if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
     if(evMoving){ evMoving=false; document.body.classList.remove("ev-moving"); }
     evLastSl=null; evStableSince=0; // a stale position/timestamp pair makes the next open's sampler commit instantly onto the wrong slot (Brain audit 2026-10-23)
@@ -4555,7 +4587,10 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const vs=$("views"); if(!vs)return;
     const W=SZ_W(); if(!W)return;
     const panes=evPanesInOrder(); if(!panes.length)return;
-    let pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
+    // a press mid-glide steps from the glide's DESTINATION, never from
+    // wherever the track happens to be floating — a press can't get
+    // lost inside the slide or double up a page (his order 2026-10-23)
+    let pos=(evGlideT&&evGlideDest>=0)?evGlideDest:Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
     const centeredEl=panes[pos]; if(!centeredEl)return;
     const ci=SECTIONS.indexOf(centeredEl.id.replace("view-","")); if(ci<0)return;
     // Runway rule: the slide must stay inside the guard's free zone
@@ -4572,22 +4607,29 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     }
     const dest=pos+dir;
     evUnlock(); // THE key turn (his order 2026-10-23): the press unlocks the track, then slides it — placed after every validation so a dead press can never leak the freeze off (Brain audit 2026-10-23)
-    /* ARROW KICK (his order 2026-10-23, superseding the 2026-10-21
-       instant steps): a press STARTS the slide — a short glide to the
-       next pane instead of a teleport. From there he can grab it and
-       slide free; the section locks in one second after all motion
-       stops (the sampler's stillness window above). The glide is
-       interruptible: a finger down on the track kills it instantly,
-       and a fresh press re-targets from wherever the track is. */
+    /* INSTANT (his order 2026-10-23, superseding the 380ms kick):
+       the press itself commits the section and silences every other
+       pane — state and sound move NOW, not at rest a second later.
+       The slide is only the picture catching up: 200ms on the frame
+       clock (rAF) instead of a 16ms timer, so it cannot stutter the
+       way the timer did under load. A finger down still kills the
+       glide instantly; a fresh press re-targets from the running
+       glide's destination, so presses walk page by page. */
+    const destEl=evPanesInOrder()[dest];
+    const destV=destEl?destEl.id.replace("view-",""):"";
+    if(destV){ evSilenceExcept(destV); evCommit(destV); }
     try{ evNoteScroll(); }catch(e){}
-    if(evGlideT){ clearInterval(evGlideT); evGlideT=null; }
-    const from=vs.scrollLeft, to=dest*W, t0=Date.now(), dur=380;
-    if(from===to)return;
-    evGlideT=setInterval(()=>{
-      const p=Math.min(1,(Date.now()-t0)/dur), ez=1-Math.pow(1-p,3);
+    if(evGlideT){ cancelAnimationFrame(evGlideT); evGlideT=null; }
+    const from=vs.scrollLeft, to=dest*W, t0=performance.now(), dur=200;
+    evGlideDest=dest;
+    if(from===to){ evGlideDest=-1; return; }
+    const tick=()=>{
+      const p=Math.min(1,(performance.now()-t0)/dur), ez=1-Math.pow(1-p,3);
       try{ vs.scrollLeft=Math.round(from+(to-from)*ez); }catch(err){}
-      if(p>=1){ clearInterval(evGlideT); evGlideT=null; }
-    },16);
+      if(p>=1){ evGlideT=null; evGlideDest=-1; }
+      else evGlideT=requestAnimationFrame(tick);
+    };
+    evGlideT=requestAnimationFrame(tick);
   }
   try{
     const pv=$("evPrev"), nx=$("evNext");
@@ -5621,7 +5663,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792768085";
+const BUILD="1792774805";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9493,10 +9535,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792768085"></script>
+<script src="js/folders.js?v=1792774805"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792768085"></script>
+<script src="js/guide.js?v=1792774805"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10306,10 +10348,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792768085"></script>
-<script src="js/shortz-live.js?v=1792768085"></script>
-<script src="js/games.js?v=1792768085"></script>
-<script src="js/podcasts.js?v=1792768085"></script>
+<script src="js/streaming.js?v=1792774805"></script>
+<script src="js/shortz-live.js?v=1792774805"></script>
+<script src="js/games.js?v=1792774805"></script>
+<script src="js/podcasts.js?v=1792774805"></script>
 <script>
 
 
@@ -10827,7 +10869,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792768085"></script>
+<script src="js/swipe.js?v=1792774805"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13059,7 +13101,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792768085"></script>
+<script src="js/live-sports.js?v=1792774805"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
