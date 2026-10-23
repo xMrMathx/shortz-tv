@@ -2411,7 +2411,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792780923";
+window.__SZ_BUILD = "1792783547";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5697,7 +5697,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792780923";
+const BUILD="1792783547";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9431,8 +9431,8 @@ function renderProfile(){
       <button class="pbtn ghost sm" id="profEdit">Edit</button>
     </div>
     <div class="cs-door" id="csDoor">
-      <div style="font-size:14px;font-weight:800">🎨 Creator Space <span class="cs-badge">OPEN TO ALL</span></div>
-      <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">The backstage room for Shortz VS creators — collab, post casting calls, and get real feedback on your episodes. Everyone on Shortz VS can come in and look around. Posting belongs to the creators who stream or upload a series here.</div>
+      <div style="font-size:14px;font-weight:800">🎨 Creator Space <span class="cs-badge">INVITE ONLY</span></div>
+      <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">The backstage room for Shortz VS creators — collab, post casting calls, and get real feedback on your episodes. Invite only: request access and Mr. Math reviews every request himself. The room belongs to the creators who stream or upload a series here.</div>
       <button class="pbtn sm" id="csDoorBtn" style="margin-top:9px;background:#f6c945;color:#151310;border-color:#f6c945;font-weight:800">Enter Creator Space</button>
     </div>
     <div id="profAuth" style="margin-top:12px"></div>
@@ -9571,10 +9571,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792780923"></script>
+<script src="js/folders.js?v=1792783547"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792780923"></script>
+<script src="js/guide.js?v=1792783547"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10384,10 +10384,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792780923"></script>
-<script src="js/shortz-live.js?v=1792780923"></script>
-<script src="js/games.js?v=1792780923"></script>
-<script src="js/podcasts.js?v=1792780923"></script>
+<script src="js/streaming.js?v=1792783547"></script>
+<script src="js/shortz-live.js?v=1792783547"></script>
+<script src="js/games.js?v=1792783547"></script>
+<script src="js/podcasts.js?v=1792783547"></script>
 <script>
 
 
@@ -10905,7 +10905,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792780923"></script>
+<script src="js/swipe.js?v=1792783547"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13137,7 +13137,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792780923"></script>
+<script src="js/live-sports.js?v=1792783547"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13306,7 +13306,7 @@ function csOpen(){
     paintShell();
     if(CS.db&&CS.uid){
       var r=csRefs();
-      listen(r.posts.orderByChild("ts").limitToLast(50),"value",function(s){CS.posts=s.val()||{};if(document.activeElement&&document.activeElement.id==="csText"){CS.dirtyFeed=true;paintDirty();}else paintFeed();});
+      if(CS.isMember||CS.isFounder)listen(r.posts.orderByChild("ts").limitToLast(50),"value",function(s){CS.posts=s.val()||{};if(document.activeElement&&document.activeElement.id==="csText"){CS.dirtyFeed=true;paintDirty();}else paintFeed();}); // members only: a locked door never subscribes to the feed (the rules deny it too)
       if(CS.isMember||CS.isFounder)listen(r.members,"value",function(s){CS.members=s.val()||{};paintPulse();});
       if(CS.isFounder)listen(r.requests,"value",function(s){CS.requests=s.val()||{};paintAdmin();});
       csFollowLoad();
@@ -13320,7 +13320,7 @@ function csClose(){
   v.classList.remove("open");v.setAttribute("aria-hidden","true");
   var sh=$cs("#csSheet");if(sh)sh.style.display="none";
 }
-function gateState(){if(CS.isFounder||CS.isMember)return "in";if(CS.uid)return "view";return "signedout";}
+function gateState(){if(CS.isFounder||CS.isMember)return "in";if(CS.uid)return "locked";return "signedout";} // INVITE ONLY (his order 2026-10-23, superseding the 2026-10-21 open-viewing crown): a signed-in non-member gets the locked door + request, never the room
 function foundingHTML(){
   return '<div class="cs-memstrip"><div class="cs-memttl">FOUNDING CREATORS</div><div class="cs-mems">'+
     FOUNDING.map(function(n){return '<span class="cs-mem">'+esc(n)+'</span>';}).join("")+"</div></div>";
@@ -13329,17 +13329,17 @@ function paintShell(){
   var body=$cs("#csBody");if(!body)return;
   var g=gateState();
   if(g==="signedout"){
-    body.innerHTML='<div class="cs-gate"><div class="cs-gate-ic">🎨</div><div class="cs-gate-t">Creators only</div>'+
-    '<div class="cs-gate-b">Creator Space is the backstage room for people who stream or upload a series on Shortz VS. Sign in first — everyone on the app can come in and look around. Posting belongs to creators; if that\u2019s you, the door opens all the way.</div>'+
+    body.innerHTML='<div class="cs-gate"><div class="cs-gate-ic">🎨</div><div class="cs-gate-t">Invite only</div>'+
+    '<div class="cs-gate-b">Creator Space is invite only — the backstage room for people who stream or upload a series on Shortz VS. Sign in first, then request access; Mr. Math reviews every request himself.</div>'+
     '<button class="cs-bigbtn" id="csSignIn">Sign in</button></div>'+foundingHTML();
     var b=$cs("#csSignIn");if(b)b.onclick=function(){csClose();try{go("profile");}catch(e){}};
     paintPulse();return;
   }
   if(g==="locked"){
-    body.innerHTML='<div class="cs-gate"><div class="cs-gate-ic">🔒</div><div class="cs-gate-t">This door is creators-only</div>'+
-    '<div class="cs-gate-b">You\u2019re signed in, but your account isn\u2019t flagged as a creator yet. Creators get in by streaming or uploading a series on Shortz VS — Mr. Math reviews every request himself. No forms, no buying in.</div>'+
+    body.innerHTML='<div class="cs-gate"><div class="cs-gate-ic">🔒</div><div class="cs-gate-t">Invite only</div>'+
+    '<div class="cs-gate-b">You\u2019re signed in, but you\u2019re not in the room yet. Creator Space is invite only — creators get in by streaming or uploading a series on Shortz VS. Request access and Mr. Math reviews it himself: he can let you in or turn the request down. No forms, no buying in.</div>'+
     (CS.requested?'<div class="cs-sent">Request sent — you\u2019re in line. Mr. Math reviews these personally.</div>'
-      :'<button class="cs-bigbtn" id="csReqBtn">Request creator access</button>')+
+      :'<button class="cs-bigbtn" id="csReqBtn">Request access</button>')+
     '</div>'+foundingHTML();
     var r2=$cs("#csReqBtn");if(r2)r2.onclick=csRequest;
     paintPulse();return;
@@ -13355,8 +13355,8 @@ function paintShell(){
    '<div class="cs-attachlbl" id="csAttachLbl">'+(CS.attachId?("Attached: "+esc(CS.attachLabel)):"")+"</div>"+
    '<div class="cs-uprow"><button class="cs-smallbtn gold" id="csUploadBtn">'+(CS.flair==="music"?"⬆ Upload a track":"⬆ Upload a video")+'</button><span class="cs-uplbl">straight off your phone</span></div>'+
    '<div id="csUpBox"></div><input type="file" id="csFile" accept="'+(CS.flair==="music"?"audio/*":"video/*")+'" style="display:none">')+
-   '<div class="cs-compfoot"><span class="cs-hint">Everyone on Shortz VS can watch this room now — posting stays creators-only. Keep it about the work.</span><button class="cs-bigbtn sm" id="csPost">Post</button></div></div>'
-   :'<div class="cs-viewbar"><div class="cs-gate-b" style="margin:0">👀 You\u2019re watching the room — everyone on Shortz VS can look around in here. Posting belongs to flagged creators.</div>'+(CS.requested?'<div class="cs-sent" style="margin-top:8px">Request sent — you\u2019re in line. Mr. Math reviews these personally.</div>':'<button class="cs-bigbtn sm" id="csReqBtn" style="margin-top:8px">Request creator access</button>')+'</div>')+
+   '<div class="cs-compfoot"><span class="cs-hint">Invite only — everyone in this room was approved by Mr. Math. Keep it about the work.</span><button class="cs-bigbtn sm" id="csPost">Post</button></div></div>'
+   :'')+
    '<div class="cs-filters" id="csFilters"><button class="cs-flair'+(CS.filter==="all"?" on":"")+'" data-filter="all">All</button><button class="cs-flair'+(CS.filter==="following"?" on":"")+'" data-filter="following">👥 Following</button>'+
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.filter===k?" on":"")+'" data-filter="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
    '<div class="cs-dirty" id="csDirty" style="display:none">New posts landed \u2014 tap to refresh</div>'+
@@ -13383,7 +13383,7 @@ function paintPulse(){
     var week=Date.now()-7*864e5;
     n=C.filter(function(t){var d=new Date(t.dateAdded||0).getTime();return !isNaN(d)&&d>week&&["Kane Pixels","Mr. Ballin","Ray WJ","Hood","Faith"].indexOf(t.genre||"")>=0;}).length;
   }catch(e){n=0;}
-  el.textContent=n>0?("⚡ "+n+" new drop"+(n===1?"":"s")+" on creator shelves this week"):"⚡ The room is open — founding creators are in";
+  el.textContent=n>0?("⚡ "+n+" new drop"+(n===1?"":"s")+" on creator shelves this week"):"⚡ Founding creators are in";
 }
 function paintAdmin(){
   var el=$cs("#csAdmin");if(!el)return;
