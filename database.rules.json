@@ -1,0 +1,168 @@
+{
+ "rules": {
+  ".read": false,
+  ".write": false,
+  "events": {
+   "$eventId": {
+    ".validate": "newData.hasChildren(['seriesId', 'seriesTitle', 'withUids', 'when', 'createdBy', 'createdByName'])",
+    ".write": "auth != null && (!data.exists() ? newData.child('createdBy').val() === auth.uid : (data.child('createdBy').val() === auth.uid || data.child('withUids').child(auth.uid).exists()))"
+   },
+   ".indexOn": [
+    "when"
+   ],
+   ".read": "auth != null"
+  },
+  "presence": {
+   "$roomId": {
+    "$uid": {
+     ".validate": "newData.hasChildren(['name', 'ts']) && newData.child('name').val().length <= 40",
+     ".write": "auth != null && $uid === auth.uid"
+    },
+    ".read": "auth != null"
+   }
+  },
+  "likes": {
+   "$seriesId": {
+    ".read": "auth != null",
+    "$uid": {
+     ".validate": "newData.hasChildren(['name', 'ts']) && newData.child('name').isString() && newData.child('name').val().length <= 40",
+     ".write": "auth != null && $uid === auth.uid",
+     ".read": "auth != null"
+    }
+   }
+  },
+  "rooms": {
+   "$roomId": {
+    ".validate": "newData.hasChildren(['seriesId', 'hostUid', 'hostName', 'title', 'createdAt']) && newData.child('hostName').val().length <= 40",
+    ".write": "auth != null && (!data.exists() ? newData.child('hostUid').val() === auth.uid : data.child('hostUid').val() === auth.uid)",
+    "messages": {
+     "$msgId": {
+      ".validate": "newData.hasChildren(['uid', 'name', 'text', 'ts']) && newData.child('text').isString() && newData.child('text').val().length > 0 && newData.child('text').val().length <= 300 && newData.child('name').val().length <= 40",
+      ".write": "auth != null && (!data.exists() ? newData.child('uid').val() === auth.uid : data.child('uid').val() === auth.uid)"
+     },
+     ".indexOn": [
+      "ts"
+     ],
+     ".read": "auth != null"
+    }
+   },
+   ".indexOn": [
+    "createdAt"
+   ],
+   ".read": "auth != null"
+  },
+  "users": {
+   "$uid": {
+    "profile": {
+     ".read": "auth != null",
+     ".write": "auth != null && $uid === auth.uid"
+    },
+    "friends": {
+     ".read": "auth != null && $uid === auth.uid",
+     "$friendUid": {
+      ".write": "auth != null && ($uid === auth.uid || $friendUid === auth.uid)"
+     }
+    },
+    "friendRequests": {
+     ".read": "auth != null && $uid === auth.uid",
+     "$fromUid": {
+      ".write": "auth != null && ($fromUid === auth.uid || $uid === auth.uid)"
+     }
+    },
+    "friendAccepted": {
+     ".read": "auth != null && $uid === auth.uid",
+     "$fromUid": {
+      ".write": "auth != null && ($fromUid === auth.uid || $uid === auth.uid)"
+     }
+    },
+    "public": {
+     ".read": "auth != null",
+     ".write": "auth != null && $uid === auth.uid"
+    },
+    "inbox": {
+     ".read": "auth != null && $uid === auth.uid",
+     ".write": "auth != null && $uid === auth.uid"
+    },
+    "history": {
+     ".read": "auth != null && $uid === auth.uid",
+     ".write": "auth != null && $uid === auth.uid"
+    },
+    "following": {
+     ".read": "auth != null && $uid === auth.uid",
+     "$creatorUid": {
+      ".write": "auth != null && $uid === auth.uid",
+      ".validate": "newData.hasChildren(['name', 'ts']) && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 40 && newData.child('ts').isNumber()"
+     }
+    },
+    "fcmToken": {
+     ".write": "auth != null && $uid === auth.uid",
+     ".validate": "newData.isString()"
+    }
+   }
+  },
+  "directory": {
+   ".read": "auth != null",
+   "$duid": {
+    ".write": "auth != null && $duid === auth.uid"
+   }
+  },
+  "creatorSpace": {
+   "members": {
+    ".read": "auth != null && (root.child('creatorSpace/members').child(auth.uid).exists() || (auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413'))",
+    "$uid": {
+     ".read": "auth != null && ($uid === auth.uid || ((auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413')))",
+     ".write": "auth != null && ((auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413'))",
+     ".validate": "newData.hasChildren(['name', 'ts']) && newData.child('name').isString() && newData.child('name').val().length <= 40"
+    }
+   },
+   "requests": {
+    ".read": "auth != null && ((auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413'))",
+    "$uid": {
+     ".read": "auth != null && ($uid === auth.uid || ((auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413')))",
+     ".write": "auth != null && ($uid === auth.uid || ((auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413')))",
+     ".validate": "newData.hasChildren(['name', 'ts']) && newData.child('name').isString() && newData.child('name').val().length <= 40"
+    }
+   },
+   "posts": {
+    ".read": "auth != null",
+    ".indexOn": [
+     "ts"
+    ],
+    "$pid": {
+     ".validate": "newData.hasChildren(['uid', 'name', 'text', 'ts']) && newData.child('text').isString() && newData.child('text').val().length > 0 && newData.child('text').val().length <= 1200 && newData.child('name').isString() && newData.child('name').val().length <= 40",
+     ".write": "auth != null && (root.child('creatorSpace/members').child(auth.uid).exists() || (auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413')) && (!data.exists() ? newData.child('uid').val() === auth.uid : (data.child('uid').val() === auth.uid || ((auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413'))))",
+     "applauds": {
+      "$uid": {
+       ".write": "auth != null && $uid === auth.uid",
+       ".validate": "newData.hasChildren(['ts'])"
+      }
+     },
+     "votes": {
+      "$uid": {
+       ".write": "auth != null && $uid === auth.uid",
+       ".validate": "newData.hasChildren(['choice', 'ts']) && newData.child('choice').isNumber() && newData.child('choice').val() >= 0 && newData.child('choice').val() <= 3 && newData.child('ts').isNumber()"
+      }
+     }
+    }
+   },
+   "comments": {
+    "$pid": {
+     ".read": "auth != null",
+     "$cid": {
+      ".validate": "newData.hasChildren(['uid', 'name', 'text', 'ts']) && newData.child('text').isString() && newData.child('text').val().length > 0 && newData.child('text').val().length <= 600 && newData.child('name').isString() && newData.child('name').val().length <= 40",
+      ".write": "auth != null && (root.child('creatorSpace/members').child(auth.uid).exists() || (auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413')) && (!data.exists() ? newData.child('uid').val() === auth.uid : (data.child('uid').val() === auth.uid || ((auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413'))))"
+     }
+    }
+   },
+   "reports": {
+    ".read": "auth != null && ((auth.token.email === 'craigjrbb@gmail.com' || auth.uid === '4d6Znpeu8DdVgNGQOq9CJfPQQ413'))",
+    "$pid": {
+     "$uid": {
+      ".write": "auth != null && $uid === auth.uid",
+      ".validate": "newData.isNumber()"
+     }
+    }
+   }
+  }
+ }
+}

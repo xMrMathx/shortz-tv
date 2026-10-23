@@ -1478,6 +1478,16 @@ body.sz-open #evToggle,body.sz-open #tvBtn,body.sz-open #evHeader,body.sz-open #
 .cs-act{flex:1;background:none;border:none;color:#a9a9b3;font-size:12px;font-weight:800;padding:6px 2px;border-radius:8px;cursor:pointer}
 .cs-act.on{color:#f6c945}
 .cs-act.dots{flex:0 0 40px}
+.cs-pollopts{display:flex;flex-direction:column;gap:7px;margin-top:9px}
+.cs-pollin{background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:9px;color:#fff;padding:8px 11px;font-size:13px;width:100%}
+.cs-poll{margin-top:11px;display:flex;flex-direction:column;gap:7px}
+.cs-pollopt{position:relative;overflow:hidden;width:100%;text-align:left;background:#151517;border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#eee;padding:9px 12px;font-size:13px;font-weight:700;cursor:pointer}
+.cs-pollopt:disabled{cursor:default;opacity:.85}
+.cs-pollopt.mine{border-color:#f6c945;color:#fff}
+.cs-pollbar{position:absolute;inset:0 auto 0 0;background:rgba(246,201,69,.16);pointer-events:none}
+.cs-polllbl{position:relative}
+.cs-pollpct{position:relative;float:right;color:#f6c945;font-weight:900}
+.cs-pollmeta{font-size:11.5px;color:#8b8b96;font-weight:700}
 .cs-empty{background:#1f1f22;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:20px 18px;text-align:center}
 #csSheet{position:absolute;inset:0;z-index:5;background:rgba(0,0,0,.62);display:none;align-items:flex-end;justify-content:center}
 .cs-sheetcard{background:#1f1f22;border:1px solid rgba(255,255,255,.12);border-bottom:none;border-radius:18px 18px 0 0;width:100%;max-height:82%;overflow-y:auto;padding:16px 16px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:9px}
@@ -2392,7 +2402,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792716447";
+window.__SZ_BUILD = "1792720409";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5571,7 +5581,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792716447";
+const BUILD="1792720409";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9443,10 +9453,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792716447"></script>
+<script src="js/folders.js?v=1792720409"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792716447"></script>
+<script src="js/guide.js?v=1792720409"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10256,10 +10266,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792716447"></script>
-<script src="js/shortz-live.js?v=1792716447"></script>
-<script src="js/games.js?v=1792716447"></script>
-<script src="js/podcasts.js?v=1792716447"></script>
+<script src="js/streaming.js?v=1792720409"></script>
+<script src="js/shortz-live.js?v=1792720409"></script>
+<script src="js/games.js?v=1792720409"></script>
+<script src="js/podcasts.js?v=1792720409"></script>
 <script>
 
 
@@ -10777,7 +10787,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792716447"></script>
+<script src="js/swipe.js?v=1792720409"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13009,7 +13019,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792716447"></script>
+<script src="js/live-sports.js?v=1792720409"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13024,12 +13034,14 @@ var CS={db:null,uid:null,name:"",email:"",isFounder:false,isMember:false,request
   upUrl:"",upName:"",upSize:0,upPct:0,uploading:false,upTask:null,upPub:"",upKind:"",upDur:0,vidPos:{}};
 try{CS.blocked=JSON.parse(localStorage.getItem("cs_blocked")||"{}")||{};}catch(e){CS.blocked={};}
 try{CS.following=JSON.parse(localStorage.getItem("cs_following")||"{}")||{};}catch(e){CS.following={};}
+CS.pollDraft=["","","",""];
+try{var _pd=JSON.parse(localStorage.getItem("cs_pollopts")||"null");if(Array.isArray(_pd))for(var _pi=0;_pi<4;_pi++)CS.pollDraft[_pi]=String(_pd[_pi]||"");}catch(e){}
 try{CS.draft=localStorage.getItem("cs_draft")||"";}catch(e){}
 try{var _at=JSON.parse(localStorage.getItem("cs_attach")||"null");if(_at){if(_at.tid){CS.attachId=_at.tid;CS.attachLabel=_at.label||"";}if(_at.vid&&_at.vid.u){CS.upUrl=_at.vid.u;CS.upName=_at.vid.n||"";CS.upPub=_at.vid.p||"";CS.upKind="vid";}if(_at.aud&&_at.aud.u){CS.upUrl=_at.aud.u;CS.upName=_at.aud.n||"";CS.upPub="";CS.upKind="aud";CS.upDur=_at.aud.d||0;}}}catch(e){}
 try{CS.vidPos=JSON.parse(localStorage.getItem("cs_vidpos")||"{}")||{};}catch(e){CS.vidPos={};}
 var FOUNDER_EMAIL="craigjrbb@gmail.com";
 var FOUNDER_UID="4d6Znpeu8DdVgNGQOq9CJfPQQ413"; /* his verified session uid — the key on his own 2026-10-17 access request */
-var FLAIRS={update:"📣 Update",casting:"🎬 Casting Call",feedback:"🛠 Feedback Wanted",collab:"🤝 Collab Wanted",music:"🎵 Music"};
+var FLAIRS={update:"📣 Update",casting:"🎬 Casting Call",feedback:"🛠 Feedback Wanted",collab:"🤝 Collab Wanted",music:"🎵 Music",poll:"📊 Poll"};
 var FOUNDING=["ShowBizz The Adult","GriffPierre","Deen The Great","Mr. Ballin","Kane Pixels","P. Royal Lit","Unghetto","Miaouwai"];
 var $cs=function(s){return document.querySelector(s);};
 function ago(ts){var s=Math.max(1,(Date.now()-ts)/1000);if(s<60)return "now";var m=s/60;if(m<60)return Math.floor(m)+"m";var h=m/60;if(h<24)return Math.floor(h)+"h";return Math.floor(h/24)+"d";}
@@ -13218,11 +13230,13 @@ function paintShell(){
   body.innerHTML='<div id="csAdmin"></div>'+
    (canPost?'<div class="cs-composer"><div class="cs-flairs" id="csFlairs">'+
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.flair===k?" on":"")+'" data-flair="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
-   '<textarea id="csText" rows="3" aria-label="Share with creators" placeholder="'+(CS.flair==="music"?"Drop a track, ask for real ears on a mix\u2026":"Share with creators\u2026 a drop, a question, a call for collabs")+'">'+esc(CS.draft)+"</textarea>"+
-   '<div class="cs-attachrow"><input id="csAttach" placeholder="Attach a title (optional) \u2014 type a name, tap Resolve" value="'+esc(CS.attachLabel)+'"><button class="cs-smallbtn" id="csResolve">Resolve</button></div>'+
+   '<textarea id="csText" rows="3" aria-label="Share with creators" placeholder="'+(CS.flair==="music"?"Drop a track, ask for real ears on a mix\u2026":CS.flair==="poll"?"Ask the room a question\u2026":"Share with creators\u2026 a drop, a question, a call for collabs")+'">'+esc(CS.draft)+"</textarea>"+
+   (CS.flair==="poll"
+     ?'<div class="cs-pollopts" id="csPollOpts">'+[0,1,2,3].map(function(i){return '<input class="cs-pollin" data-pollidx="'+i+'" maxlength="60" placeholder="Choice '+(i+1)+(i>1?" (optional)":"")+'" value="'+esc(CS.pollDraft[i]||"")+'">';}).join("")+'</div><div class="cs-hint">Anyone signed in can vote \u2014 one vote each, changeable any time.</div>'
+     :'<div class="cs-attachrow"><input id="csAttach" placeholder="Attach a title (optional) \u2014 type a name, tap Resolve" value="'+esc(CS.attachLabel)+'"><button class="cs-smallbtn" id="csResolve">Resolve</button></div>'+
    '<div class="cs-attachlbl" id="csAttachLbl">'+(CS.attachId?("Attached: "+esc(CS.attachLabel)):"")+"</div>"+
    '<div class="cs-uprow"><button class="cs-smallbtn gold" id="csUploadBtn">'+(CS.flair==="music"?"⬆ Upload a track":"⬆ Upload a video")+'</button><span class="cs-uplbl">straight off your phone</span></div>'+
-   '<div id="csUpBox"></div><input type="file" id="csFile" accept="'+(CS.flair==="music"?"audio/*":"video/*")+'" style="display:none">'+
+   '<div id="csUpBox"></div><input type="file" id="csFile" accept="'+(CS.flair==="music"?"audio/*":"video/*")+'" style="display:none">')+
    '<div class="cs-compfoot"><span class="cs-hint">Everyone on Shortz VS can watch this room now — posting stays creators-only. Keep it about the work.</span><button class="cs-bigbtn sm" id="csPost">Post</button></div></div>'
    :'<div class="cs-viewbar"><div class="cs-gate-b" style="margin:0">👀 You\u2019re watching the room — everyone on Shortz VS can look around in here. Posting belongs to flagged creators.</div>'+(CS.requested?'<div class="cs-sent" style="margin-top:8px">Request sent — you\u2019re in line. Mr. Math reviews these personally.</div>':'<button class="cs-bigbtn sm" id="csReqBtn" style="margin-top:8px">Request creator access</button>')+'</div>')+
    '<div class="cs-filters" id="csFilters"><button class="cs-flair'+(CS.filter==="all"?" on":"")+'" data-filter="all">All</button><button class="cs-flair'+(CS.filter==="following"?" on":"")+'" data-filter="following">👥 Following</button>'+
@@ -13231,6 +13245,7 @@ function paintShell(){
    '<div id="csFeed"></div>';
   var ta=$cs("#csText");
   if(ta)ta.addEventListener("input",function(){CS.draft=ta.value;try{localStorage.setItem("cs_draft",CS.draft);}catch(e){}});
+  $cs("#csPollOpts")&&document.querySelectorAll("[data-pollidx]").forEach(function(inp){inp.addEventListener("input",function(){CS.pollDraft[+inp.getAttribute("data-pollidx")]=inp.value;try{localStorage.setItem("cs_pollopts",JSON.stringify(CS.pollDraft));}catch(e){}});});
   var fl0=$cs("#csFlairs");if(fl0)fl0.addEventListener("click",function(e){var b=e.target.closest("[data-flair]");if(!b)return;CS.flair=b.getAttribute("data-flair");paintShell();var t2=$cs("#csText");if(t2)t2.focus();});
   $cs("#csFilters").addEventListener("click",function(e){var b=e.target.closest("[data-filter]");if(!b)return;CS.filter=b.getAttribute("data-filter");paintShell();});
   var rs0=$cs("#csResolve");if(rs0)rs0.onclick=csResolveAttach;
@@ -13292,6 +13307,7 @@ function csResolveAttach(){
 }
 function csBuildPost(text){
   var post={uid:CS.uid,name:CS.name,flair:CS.flair,text:String(text||"").slice(0,1200),ts:Date.now()};
+  if(CS.flair==="poll"){var _po=(CS.pollDraft||[]).map(function(s){return String(s||"").trim().slice(0,60);}).filter(Boolean);if(_po.length>=2)post.poll=_po;}
   if(CS.attachId)post.tid=CS.attachId;
   if(CS.upUrl){if(CS.upKind==="aud"){post.aud={u:CS.upUrl,n:CS.upName||"Uploaded track"};if(CS.upDur)post.aud.d=Math.round(CS.upDur);}else{post.vid={u:CS.upUrl,n:CS.upName||"Uploaded video"};if(CS.upPub)post.vid.p=CS.upPub;}}
   if(CS.isFounder)post.founder=true;
@@ -13301,13 +13317,50 @@ async function csPost(){
   var text=(CS.draft||"").trim();
   if(!text){toast("Write something first");return;}
   if(CS.uploading){toast("Upload still going — wait for it to finish");return;}
+  if(CS.flair==="poll"){var _pv=(CS.pollDraft||[]).map(function(s){return String(s||"").trim();}).filter(Boolean);if(_pv.length<2){toast("A poll needs at least 2 choices");return;}}
   if(!CS.db||!CS.uid)return;
   var post=csBuildPost(text);
   try{
     await CS.db.ref("creatorSpace/posts").push(post);
-    CS.draft="";try{localStorage.removeItem("cs_draft");}catch(e){}CS.attachId="";CS.attachLabel="";CS.upUrl="";CS.upName="";CS.upSize=0;CS.upPub="";CS.upKind="";CS.upDur=0;try{localStorage.removeItem("cs_attach");}catch(e){}CS.dirtyFeed=false;
+    CS.draft="";try{localStorage.removeItem("cs_draft");}catch(e){}CS.attachId="";CS.attachLabel="";CS.upUrl="";CS.upName="";CS.upSize=0;CS.upPub="";CS.upKind="";CS.upDur=0;try{localStorage.removeItem("cs_attach");}catch(e){}CS.pollDraft=["","","",""];try{localStorage.removeItem("cs_pollopts");}catch(e){}CS.dirtyFeed=false;
     paintShell();toast("Posted to Creator Space");
   }catch(e){toast("Couldn\u2019t post — connection or permissions");}
+}
+/* POLLS (worth-eye piece 2, his go 2026-10-22): a poll post carries its
+   choices on the post; votes live at posts/{pid}/votes/{uid} = {choice,
+   ts} — one per person by construction, so changing your mind is just
+   overwriting your own vote, and tapping your current pick takes it
+   back. Anyone signed in can vote (his call, put to him at the board). */
+function csPollOpts(p){
+  var opts=p.poll;
+  if(!opts)return null;
+  if(!Array.isArray(opts)&&typeof opts==="object")opts=Object.keys(opts).sort(function(a,b){return (+a)-(+b);}).map(function(k){return opts[k];});
+  if(!Array.isArray(opts)||opts.length<2)return null;
+  return opts;
+}
+function csPollHTML(pid,p){
+  var opts=csPollOpts(p);if(!opts)return "";
+  var votes=p.votes||{};
+  var counts=opts.map(function(){return 0;});var mine=-1;var total=0;
+  Object.keys(votes).forEach(function(uid){var c=votes[uid]&&votes[uid].choice;if(typeof c==="number"&&c>=0&&c<opts.length){counts[c]++;total++;if(uid===CS.uid)mine=c;}});
+  var canVote=gateState()!=="signedout"&&!!CS.uid;
+  var h='<div class="cs-poll" data-poll="'+pid+'">';
+  opts.forEach(function(o,i){
+    var pct=total?Math.round(counts[i]/total*100):0;
+    h+='<button class="cs-pollopt'+(mine===i?" mine":"")+'" data-vote="'+pid+'" data-choice="'+i+'"'+(canVote?"":" disabled")+'><span class="cs-pollbar" style="width:'+pct+'%"></span><span class="cs-polllbl">'+esc(o)+'</span>'+(total?'<span class="cs-pollpct">'+pct+"%</span>":"")+"</button>";
+  });
+  h+='<div class="cs-pollmeta">'+(total===0?"No votes yet — be the first":(total+(total===1?" vote":" votes")))+(mine>=0?" · your pick is in":"")+"</div></div>";
+  return h;
+}
+async function csVote(pid,choice){
+  if(!CS.db||!CS.uid)return;
+  var p=CS.posts[pid];if(!p||!csPollOpts(p))return;
+  var mine=(p.votes&&p.votes[CS.uid]&&typeof p.votes[CS.uid].choice==="number")?p.votes[CS.uid].choice:-1;
+  var ref=CS.db.ref("creatorSpace/posts/"+pid+"/votes/"+CS.uid);
+  try{
+    if(mine===choice)await ref.remove();
+    else await ref.set({choice:choice,ts:Date.now()});
+  }catch(e){toast("Couldn\u2019t vote — try again");}
 }
 function postCard(pid,p){
   var applauds=p.applauds||{};var nAp=Object.keys(applauds).length;var mine=!!(CS.uid&&applauds[CS.uid]);
@@ -13318,6 +13371,7 @@ function postCard(pid,p){
     h+='<div class="cs-boost"><div class="cs-boost-h">🔁 Boosted from '+esc(p.boostName||"a creator")+' — credit stays on it</div><div class="cs-boost-b">'+esc(p.boostText||"")+"</div></div>";
   }
   h+='<div class="cs-ptext">'+esc(p.text||"")+"</div>";
+  h+=csPollHTML(pid,p);
   if(t){
     h+='<button class="cs-attach" data-watch="'+esc(t.id)+'"><span class="cs-athumb" style="background:'+art(t.title)+'">▶</span><span class="cs-atitle">'+esc(t.title)+'</span><span class="cs-awatch">Watch</span></button>';
   }
@@ -13350,6 +13404,7 @@ function paintFeed(){
   el.innerHTML=ids.map(function(pid){return postCard(pid,CS.posts[pid]);}).join("");
   el.querySelectorAll("[data-applaud]").forEach(function(b){b.onclick=function(){csApplaud(b.getAttribute("data-applaud"));};});
   el.querySelectorAll("[data-follow]").forEach(function(b){b.onclick=function(){csFollowToggle(b.getAttribute("data-follow"),b.getAttribute("data-followname"));};});
+  el.querySelectorAll("[data-vote]").forEach(function(b){b.onclick=function(){csVote(b.getAttribute("data-vote"),+b.getAttribute("data-choice"));};});
   el.querySelectorAll("[data-comments]").forEach(function(b){b.onclick=function(){csOpenComments(b.getAttribute("data-comments"));};});
   el.querySelectorAll("[data-boost]").forEach(function(b){b.onclick=function(){csBoost(b.getAttribute("data-boost"));};});
   el.querySelectorAll("[data-menu]").forEach(function(b){b.onclick=function(){csMenu(b.getAttribute("data-menu"));};});
@@ -13591,7 +13646,7 @@ function csAudPaint(pid){
     csAudPaint(v.getAttribute("data-vidpid"));
   },true);
 })();
-window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard,audCard:csAudCard,buildPost:csBuildPost,followToggle:csFollowToggle,followHas:csFollowHas,_testFeed:function(posts){CS.posts=posts||{};paintFeed();},state:function(){var fOn=Object.keys(CS.following||{}).filter(function(u){return CS.following[u]&&CS.following[u].on;});return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember,up:!!CS.upUrl,uploading:!!CS.uploading,vidposN:Object.keys(CS.vidPos||{}).length,followingN:fOn.length,following:fOn};}};
+window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard,audCard:csAudCard,buildPost:csBuildPost,followToggle:csFollowToggle,followHas:csFollowHas,vote:csVote,pollHTML:csPollHTML,_testFeed:function(posts){CS.posts=posts||{};paintFeed();},state:function(){var fOn=Object.keys(CS.following||{}).filter(function(u){return CS.following[u]&&CS.following[u].on;});return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember,up:!!CS.upUrl,uploading:!!CS.uploading,vidposN:Object.keys(CS.vidPos||{}).length,followingN:fOn.length,following:fOn,pollDraft:(CS.pollDraft||[]).slice()};}};
 })();
 
 </script>
