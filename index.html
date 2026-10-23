@@ -2390,7 +2390,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792711525";
+window.__SZ_BUILD = "1792713461";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5534,7 +5534,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792711525";
+const BUILD="1792713461";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9392,10 +9392,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792711525"></script>
+<script src="js/folders.js?v=1792713461"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792711525"></script>
+<script src="js/guide.js?v=1792713461"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10205,10 +10205,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792711525"></script>
-<script src="js/shortz-live.js?v=1792711525"></script>
-<script src="js/games.js?v=1792711525"></script>
-<script src="js/podcasts.js?v=1792711525"></script>
+<script src="js/streaming.js?v=1792713461"></script>
+<script src="js/shortz-live.js?v=1792713461"></script>
+<script src="js/games.js?v=1792713461"></script>
+<script src="js/podcasts.js?v=1792713461"></script>
 <script>
 
 
@@ -10726,7 +10726,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792711525"></script>
+<script src="js/swipe.js?v=1792713461"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12958,7 +12958,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792711525"></script>
+<script src="js/live-sports.js?v=1792713461"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -12969,9 +12969,10 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
 "use strict";
 var CS={db:null,uid:null,name:"",email:"",isFounder:false,isMember:false,requested:false,
   posts:{},members:{},requests:{},open:false,draft:"",flair:"update",filter:"all",
-  attachId:"",attachLabel:"",blocked:{},commentsFor:null,comments:{},dirtyFeed:false,ensured:false,
+  attachId:"",attachLabel:"",blocked:{},following:{},commentsFor:null,comments:{},dirtyFeed:false,ensured:false,
   upUrl:"",upName:"",upSize:0,upPct:0,uploading:false,upTask:null,upPub:"",upKind:"",upDur:0,vidPos:{}};
 try{CS.blocked=JSON.parse(localStorage.getItem("cs_blocked")||"{}")||{};}catch(e){CS.blocked={};}
+try{CS.following=JSON.parse(localStorage.getItem("cs_following")||"{}")||{};}catch(e){CS.following={};}
 try{CS.draft=localStorage.getItem("cs_draft")||"";}catch(e){}
 try{var _at=JSON.parse(localStorage.getItem("cs_attach")||"null");if(_at){if(_at.tid){CS.attachId=_at.tid;CS.attachLabel=_at.label||"";}if(_at.vid&&_at.vid.u){CS.upUrl=_at.vid.u;CS.upName=_at.vid.n||"";CS.upPub=_at.vid.p||"";CS.upKind="vid";}if(_at.aud&&_at.aud.u){CS.upUrl=_at.aud.u;CS.upName=_at.aud.n||"";CS.upPub="";CS.upKind="aud";CS.upDur=_at.aud.d||0;}}}catch(e){}
 try{CS.vidPos=JSON.parse(localStorage.getItem("cs_vidpos")||"{}")||{};}catch(e){CS.vidPos={};}
@@ -13058,6 +13059,57 @@ async function csEnsure(){
 function csRefs(){
   return {posts:CS.db.ref("creatorSpace/posts"),members:CS.db.ref("creatorSpace/members"),requests:CS.db.ref("creatorSpace/requests")};
 }
+/* FOLLOWS (his order 2026-10-22): a viewer follows a posting creator.
+   Local intent first (the Likes model) — a tap paints instantly and never
+   waits on the network; the server mirror lives at
+   users/{sessionUid}/following/{creatorUid} = {name, ts}, own-read and
+   own-write by rule, no public counts. Acks re-key per identity, so this
+   device's intents migrate to the account uid when a real session lands. */
+function csFollowSave(){try{localStorage.setItem("cs_following",JSON.stringify(CS.following));}catch(e){}}
+function csFollowHas(uid){var f=CS.following&&CS.following[uid];return !!(f&&f.on);}
+function csFollowEligible(){return gateState()!=="signedout";}
+async function csFollowFlush(){
+  if(!CS.db||!CS.uid)return;
+  var ks=Object.keys(CS.following||{});
+  for(var i=0;i<ks.length;i++){
+    var uid=ks[i],f=CS.following[uid];
+    if(!f||f.ack===CS.uid)continue;
+    try{
+      var ref=CS.db.ref("users/"+CS.uid+"/following/"+uid);
+      if(f.on)await ref.set({name:String(f.name||"Creator").slice(0,40),ts:f.ts||Date.now()});
+      else await ref.remove();
+      f.ack=CS.uid;
+    }catch(e){/* silent — intent stays local, the flush retries next open */}
+  }
+  csFollowSave();
+}
+async function csFollowLoad(){
+  if(!CS.db||!CS.uid)return;
+  try{
+    var sn=await CS.db.ref("users/"+CS.uid+"/following").once("value");
+    var srv=sn?(sn.val()||{}):{};
+    Object.keys(srv).forEach(function(uid){
+      if(!CS.following[uid])CS.following[uid]={name:srv[uid].name||"Creator",ts:srv[uid].ts||Date.now(),on:true,ack:CS.uid};
+    });
+    csFollowSave();
+  }catch(e){}
+  csFollowFlush();
+}
+function csFollowToggle(uid,name){
+  if(!uid||uid===CS.uid)return;
+  if(!csFollowEligible())return;
+  var f=CS.following[uid]||{name:name||"Creator",ts:Date.now(),on:false};
+  if(!f.on){
+    var n=0;Object.keys(CS.following).forEach(function(k){if(CS.following[k]&&CS.following[k].on)n++;});
+    if(n>=200){toast("You follow 200 creators — that\u2019s the room\u2019s limit for now");return;}
+    f.on=true;f.name=name||f.name||"Creator";f.ts=Date.now();
+    toast("Following "+(name||"creator")+" — their posts collect under Following");
+  }else{f.on=false;toast("Unfollowed "+(f.name||"creator"));}
+  delete f.ack;
+  CS.following[uid]=f;csFollowSave();
+  paintFeed();
+  csFollowFlush();
+}
 var _listeners=[];
 function listen(ref,ev,cb){ref.on(ev,cb);_listeners.push([ref,ev,cb]);}
 function unlistenAll(){_listeners.forEach(function(x){try{x[0].off(x[1],x[2]);}catch(e){}});_listeners=[];}
@@ -13076,6 +13128,7 @@ function csOpen(){
       listen(r.posts.orderByChild("ts").limitToLast(50),"value",function(s){CS.posts=s.val()||{};if(document.activeElement&&document.activeElement.id==="csText"){CS.dirtyFeed=true;paintDirty();}else paintFeed();});
       if(CS.isMember||CS.isFounder)listen(r.members,"value",function(s){CS.members=s.val()||{};paintPulse();});
       if(CS.isFounder)listen(r.requests,"value",function(s){CS.requests=s.val()||{};paintAdmin();});
+      csFollowLoad();
     }
   });
 }
@@ -13121,7 +13174,7 @@ function paintShell(){
    '<div id="csUpBox"></div><input type="file" id="csFile" accept="'+(CS.flair==="music"?"audio/*":"video/*")+'" style="display:none">'+
    '<div class="cs-compfoot"><span class="cs-hint">Everyone on Shortz VS can watch this room now — posting stays creators-only. Keep it about the work.</span><button class="cs-bigbtn sm" id="csPost">Post</button></div></div>'
    :'<div class="cs-viewbar"><div class="cs-gate-b" style="margin:0">👀 You\u2019re watching the room — everyone on Shortz VS can look around in here. Posting belongs to flagged creators.</div>'+(CS.requested?'<div class="cs-sent" style="margin-top:8px">Request sent — you\u2019re in line. Mr. Math reviews these personally.</div>':'<button class="cs-bigbtn sm" id="csReqBtn" style="margin-top:8px">Request creator access</button>')+'</div>')+
-   '<div class="cs-filters" id="csFilters"><button class="cs-flair'+(CS.filter==="all"?" on":"")+'" data-filter="all">All</button>'+
+   '<div class="cs-filters" id="csFilters"><button class="cs-flair'+(CS.filter==="all"?" on":"")+'" data-filter="all">All</button><button class="cs-flair'+(CS.filter==="following"?" on":"")+'" data-filter="following">👥 Following</button>'+
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.filter===k?" on":"")+'" data-filter="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
    '<div class="cs-dirty" id="csDirty" style="display:none">New posts landed \u2014 tap to refresh</div>'+
    '<div id="csFeed"></div>';
@@ -13219,8 +13272,10 @@ function postCard(pid,p){
   }
   h+=csVidCard(pid,p);
   h+=csAudCard(pid,p);
+  if(p.uid&&CS.following&&CS.following[p.uid]&&p.name&&CS.following[p.uid].name!==p.name){CS.following[p.uid].name=p.name;csFollowSave();}
   h+='<div class="cs-acts">'+((CS.isMember||CS.isFounder)?'<button class="cs-act'+(mine?" on":"")+'" data-applaud="'+pid+'">♥ Applaud · '+nAp+'</button>':'<span class="cs-act" style="cursor:default">♥ '+nAp+'</span>')+
      '<button class="cs-act" data-comments="'+pid+'">💬 Feedback<span data-ccount="'+pid+'"></span></button>'+
+     ((csFollowEligible()&&p.uid&&p.uid!==CS.uid)?'<button class="cs-act'+(csFollowHas(p.uid)?" on":"")+'" data-follow="'+esc(p.uid)+'" data-followname="'+esc(p.name||"Creator")+'">'+(csFollowHas(p.uid)?"✓ Following":"＋ Follow")+"</button>":"")+
      ((CS.isMember||CS.isFounder)?'<button class="cs-act" data-boost="'+pid+'">🔁 Boost</button>':"")+
      '<button class="cs-act dots" aria-label="Post options" data-menu="'+pid+'">•••</button></div>';
   h+="</div>";
@@ -13231,14 +13286,19 @@ function paintFeed(){
   var keep=null;
   el.querySelectorAll("video.cs-vid,audio.cs-aud").forEach(function(v){if(!v.paused&&!v.ended)keep={pid:v.getAttribute("data-vidpid"),t:v.currentTime||0};});
   var ids=Object.keys(CS.posts||{});
-  ids=ids.filter(function(pid){var p=CS.posts[pid];return p&&!CS.blocked[p.uid]&&(CS.filter==="all"||p.flair===CS.filter);});
+  ids=ids.filter(function(pid){var p=CS.posts[pid];return p&&!CS.blocked[p.uid]&&(CS.filter==="all"||(CS.filter==="following"?csFollowHas(p.uid):p.flair===CS.filter));});
   ids.sort(function(a,b){return (CS.posts[b].ts||0)-(CS.posts[a].ts||0);});
   if(!ids.length){
+    if(CS.filter==="following"){
+      el.innerHTML='<div class="cs-empty"><div class="cs-gate-t">Following</div><div class="cs-gate-b">No recent posts from creators you follow — the room keeps the latest 50. Your full list lives under Members.</div></div>'+foundingHTML();
+      return;
+    }
     el.innerHTML='<div class="cs-empty"><div class="cs-gate-t">The room is open</div><div class="cs-gate-b">No posts yet'+(CS.filter==="all"?"":" in this lane")+((CS.isMember||CS.isFounder)?'. Yours could be the first thing every creator on Shortz VS sees. Drop a trailer, call a casting, ask for real feedback.':'. When the creators post, it lands right here.')+'</div></div>'+foundingHTML();
     return;
   }
   el.innerHTML=ids.map(function(pid){return postCard(pid,CS.posts[pid]);}).join("");
   el.querySelectorAll("[data-applaud]").forEach(function(b){b.onclick=function(){csApplaud(b.getAttribute("data-applaud"));};});
+  el.querySelectorAll("[data-follow]").forEach(function(b){b.onclick=function(){csFollowToggle(b.getAttribute("data-follow"),b.getAttribute("data-followname"));};});
   el.querySelectorAll("[data-comments]").forEach(function(b){b.onclick=function(){csOpenComments(b.getAttribute("data-comments"));};});
   el.querySelectorAll("[data-boost]").forEach(function(b){b.onclick=function(){csBoost(b.getAttribute("data-boost"));};});
   el.querySelectorAll("[data-menu]").forEach(function(b){b.onclick=function(){csMenu(b.getAttribute("data-menu"));};});
@@ -13363,10 +13423,12 @@ function csMembers(){
    '<div class="cs-memttl" style="margin-top:14px">FLAGGED MEMBERS ('+memIds.length+")</div>"+
    (memIds.length?memIds.map(function(uid){var m=CS.members[uid]||{};return '<div class="cs-req"><span>'+esc(m.name||"Creator")+"</span></div>";}).join(""):'<div class="cs-hint">No flagged members yet — approvals land here.</div>')+
    (blockedIds.length?'<div class="cs-memttl" style="margin-top:14px">BLOCKED BY YOU</div>'+blockedIds.map(function(uid){return '<div class="cs-req"><span>'+esc(CS.blocked[uid])+'</span><button class="cs-smallbtn" data-unblock="'+uid+'">Unblock</button></div>';}).join(""):"")+
+   (function(){var fIds=Object.keys(CS.following||{}).filter(function(u){return CS.following[u]&&CS.following[u].on;});return fIds.length?'<div class="cs-memttl" style="margin-top:14px">FOLLOWING ('+fIds.length+')</div>'+fIds.map(function(uid){return '<div class="cs-req"><span>'+esc(CS.following[uid].name||"Creator")+'</span><button class="cs-smallbtn" data-unfollow="'+uid+'">Unfollow</button></div>';}).join(""):"";})()+
    '<button class="cs-sheetbtn" id="csSheetX">Close</button></div>';
   sh.style.display="flex";
   $cs("#csSheetX").onclick=function(){sh.style.display="none";};
   sh.querySelectorAll("[data-unblock]").forEach(function(b){b.onclick=function(){delete CS.blocked[b.getAttribute("data-unblock")];try{localStorage.setItem("cs_blocked",JSON.stringify(CS.blocked));}catch(e){}csMembers();paintFeed();};});
+  sh.querySelectorAll("[data-unfollow]").forEach(function(b){b.onclick=function(){csFollowToggle(b.getAttribute("data-unfollow"));csMembers();};});
 }
 document.addEventListener("DOMContentLoaded",function(){
   var back=$cs("#csBack");if(back)back.onclick=csClose;
@@ -13478,7 +13540,7 @@ function csAudPaint(pid){
     csAudPaint(v.getAttribute("data-vidpid"));
   },true);
 })();
-window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard,audCard:csAudCard,buildPost:csBuildPost,state:function(){return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember,up:!!CS.upUrl,uploading:!!CS.uploading,vidposN:Object.keys(CS.vidPos||{}).length};}};
+window.CreatorSpace={open:csOpen,close:csClose,autoTc:csAutoTc,vidCard:csVidCard,audCard:csAudCard,buildPost:csBuildPost,followToggle:csFollowToggle,followHas:csFollowHas,_testFeed:function(posts){CS.posts=posts||{};paintFeed();},state:function(){var fOn=Object.keys(CS.following||{}).filter(function(u){return CS.following[u]&&CS.following[u].on;});return {gate:gateState(),uid:CS.uid||null,posts:Object.keys(CS.posts||{}).length,open:CS.open,founder:CS.isFounder,member:CS.isMember,up:!!CS.upUrl,uploading:!!CS.uploading,vidposN:Object.keys(CS.vidPos||{}).length,followingN:fOn.length,following:fOn};}};
 })();
 
 </script>
