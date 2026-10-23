@@ -2403,7 +2403,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792774805";
+window.__SZ_BUILD = "1792778624";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4465,6 +4465,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const pos=Math.max(0,Math.min(panes.length-1,Math.round(vs.scrollLeft/W)));
     const centered=panes[pos]?panes[pos].id.replace("view-",""):"";
     if(centered===v)return;
+    if(evGlideT){ cancelAnimationFrame(evGlideT); evGlideT=null; evGlideDest=-1; } // a jump teleports the track — a glide still running would fight its writes slot by slot (Brain audit 2026-10-23)
     evUnlock(); // unlock ONLY here — a jump that turns out to be a no-op must never leak the freeze off (Brain audit 2026-10-23); a real move re-locks at rest
     /* record the intent synchronously (Brain audit fix 3): the sampler's
        only truth was position, so a nudge back toward the old pane read
@@ -4615,6 +4616,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
        way the timer did under load. A finger down still kills the
        glide instantly; a fresh press re-targets from the running
        glide's destination, so presses walk page by page. */
+    evJumpTarget=null; // the press takes the wheel: a stale jump intent still pending must never re-issue at rest and yank the track off the arrow's landing (Brain audit 2026-10-23 — the touch disarm never covered the arrow's own click path)
     const destEl=evPanesInOrder()[dest];
     const destV=destEl?destEl.id.replace("view-",""):"";
     if(destV){ evSilenceExcept(destV); evCommit(destV); }
@@ -5663,7 +5665,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792774805";
+const BUILD="1792778624";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9535,10 +9537,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792774805"></script>
+<script src="js/folders.js?v=1792778624"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792774805"></script>
+<script src="js/guide.js?v=1792778624"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10348,10 +10350,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792774805"></script>
-<script src="js/shortz-live.js?v=1792774805"></script>
-<script src="js/games.js?v=1792774805"></script>
-<script src="js/podcasts.js?v=1792774805"></script>
+<script src="js/streaming.js?v=1792778624"></script>
+<script src="js/shortz-live.js?v=1792778624"></script>
+<script src="js/games.js?v=1792778624"></script>
+<script src="js/podcasts.js?v=1792778624"></script>
 <script>
 
 
@@ -10869,7 +10871,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792774805"></script>
+<script src="js/swipe.js?v=1792778624"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13101,7 +13103,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792774805"></script>
+<script src="js/live-sports.js?v=1792778624"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
