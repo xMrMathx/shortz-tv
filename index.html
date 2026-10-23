@@ -850,6 +850,8 @@ body.ev-moving #views.evtrack iframe, body.ev-moving #views.evtrack video{visibi
 body.ev-moving #topbar, body.ev-moving #tabbar, body.ev-moving #evHeader, body.ev-moving #views.evtrack *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important} /* blurred layers over flying content repaint every frame — the feed scroll has none of these over it, the hub did */
 body.ev-moving #views.evtrack *{animation-play-state:paused!important} /* infinite in-pane animations (Ken Burns artwork, live pulses) repaint forever; frozen while the track moves, resumed at rest */ /* while the track is flying, panes show their static faces — painting several live video layers per frame is what chokes the compositor mid-fling; everything comes back the moment the scroll truly stops */
 #views.evtrack .view.evpane, #views.evtrack #cfeed{touch-action:pan-x pan-y}
+#views.evtrack.ev-locked{overflow-x:hidden} /* THE LOCK (his order 2026-10-23): at rest the track is frozen — no sideways scroll exists until an arrow press unlocks it; programmatic scrollLeft still works, panes stay fully alive (vertical scroll, taps, video) */
+#views.evtrack.ev-locked .view.evpane{touch-action:pan-y}
 #views.evtrack #cfeed{overflow:visible;height:auto;max-height:none}
 #views.evtrack .feedstage{touch-action:pan-x} /* stages claim EVERY touch for their own script pager (touch-action:none) — inside the hub that froze sideways scrolling dead on Live/Streaming (his report 2026-10-14: opened the hub on Streaming and could not swipe at all). pan-x hands sideways to the browser/track and leaves vertical moves to the stage pager untouched */
 #views.evtrack #tvTouch{touch-action:pan-x pan-y} /* the guide's touch layer in Profile gets the same freedom sideways */ /* the feed is its OWN vertical scroller, and a nested scroller swallows sideways gestures whole — in the hub the pane must be the one scroller for both axes, exactly like the Browse pane */ /* panes (and the Home feed inside its pane) start life touch-action:pan-y, which hands horizontal drags to script and native side-scrolling never engages — in the hub both axes belong to the browser */
@@ -2401,7 +2403,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792759888";
+window.__SZ_BUILD = "1792765310";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4341,7 +4343,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // because the rest path no longer writes scrollLeft at all (the
   // write was the momentum-killer, not the entry), so a false rest
   // costs nothing.
-  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evJumpTarget=null, evJumpAt=0, evGlideT=null;
+  let evSection=null, evMoving=false, evSampleT=null, evLastSl=null, evStableSince=0, evJumpTarget=null, evJumpAt=0, evGlideT=null, evLocked=true;
   function evPanesInOrder(){ const vs=$("views"); return vs ? [...vs.querySelectorAll(".view.evpane")] : []; }
   function evGuard(){
     const vs=$("views"); if(!vs)return;
@@ -4358,6 +4360,15 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     }
     if(sl!==vs.scrollLeft)vs.scrollLeft=sl;
   }
+  /* THE LOCK (his order 2026-10-23, corrected spec): the hub track is
+     frozen solid until he presses a section arrow. The press unlocks it
+     and starts the slide; he can then swipe free; one second after all
+     motion stops the sampler finishes and the track locks in place
+     again — stuck there until the next arrow press. App-driven jumps
+     (dots, folders, voice, tabs via go()) unlock for their own move and
+     re-lock at rest; a finger flick while locked does nothing at all. */
+  function evLock(){ evLocked=true; const vs=$("views"); if(vs)vs.classList.add("ev-locked"); }
+  function evUnlock(){ evLocked=false; const vs=$("views"); if(vs)vs.classList.remove("ev-locked"); }
   function evNoteScroll(){
     const vs=$("views"); if(!vs)return;
     if(evLastSl===null){ evLastSl=vs.scrollLeft; evStableSince=Date.now(); }
@@ -4376,6 +4387,9 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
     if(evMoving){ evMoving=false; document.body.classList.remove("ev-moving"); }
     evRest();
+    // lock in place (his order 2026-10-23) — unless evRest just re-issued
+    // a jump (its sampler is running again; that motion locks at ITS rest)
+    if(evMode&&!evJumpTarget&&!evSampleT)evLock();
   }
   function evRest(){
     const vs=$("views"); if(!vs||!evMode)return;
@@ -4411,6 +4425,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   }
   function evGoTo(v){
     if(!evMode||SECTIONS.indexOf(v)<0)return;
+    evUnlock(); // an app-driven jump moves the track itself — it re-locks at rest
     const vs=$("views"); if(!vs)return;
     const W=SZ_W(); if(!W)return;
     // ground truth is the pane actually centered on screen — the section
@@ -4467,6 +4482,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     const vs=$("views");
     if(vs){
       vs.classList.add("evtrack");
+      evLock(); // the hub opens frozen — the first move waits for an arrow press (his order 2026-10-23)
       evPanes().forEach(el=>{ if(el)el.classList.add("evpane"); });
       evBindScroll();
       evSection=SECTIONS[evIdx];
@@ -4482,9 +4498,12 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   function close(){
     if(!evMode)return;
     evMode=false;
+    if(evGlideT){ clearInterval(evGlideT); evGlideT=null; } // no zombie glide writing scrollLeft after exit
+    if(evSampleT){ clearInterval(evSampleT); evSampleT=null; }
+    if(evMoving){ evMoving=false; document.body.classList.remove("ev-moving"); }
     document.body.classList.remove("ev-mode");
     const vs=$("views");
-    if(vs){ vs.classList.remove("evtrack"); try{ vs.scrollLeft=0; }catch(e){} }
+    if(vs){ vs.classList.remove("evtrack"); vs.classList.remove("ev-locked"); evLocked=true; try{ vs.scrollLeft=0; }catch(e){} }
     evPanes().forEach(el=>{ if(el)el.classList.remove("evpane"); });
     try{ if(window.__swParkClear)window.__swParkClear(); if(window.__swSessionClear)window.__swSessionClear(); }catch(e){} // leaving the hub parks nothing: the strip clears with the toggle, and the session layer promotions release
   }
@@ -4497,6 +4516,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   document.addEventListener("touchend",e=>{
     if(window.__stripOwnsSwipe)return; // the slide strip owns horizontal drags — the snap is dead
     if(!evMode||!e.changedTouches||!e.changedTouches[0])return;
+    if(evLocked)return; // locked means locked (his order 2026-10-23): a flick alone never moves the hub — only an arrow press unlocks it
     const dx=e.changedTouches[0].clientX-tx0, dy=e.changedTouches[0].clientY-ty0;
     if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.4){
       swiped=true;
@@ -4525,6 +4545,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   // deliberately skips the track move — bookkeeping only, screen stays.
   // That was the first arrows build's bug, his phone 2026-10-16.)
   function evStep(dir){
+    evUnlock(); // THE key turn (his order 2026-10-23): an arrow press unlocks the track, then slides it
     const vs=$("views"); if(!vs)return;
     const W=SZ_W(); if(!W)return;
     const panes=evPanesInOrder(); if(!panes.length)return;
@@ -5593,7 +5614,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792759888";
+const BUILD="1792765310";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9465,10 +9486,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792759888"></script>
+<script src="js/folders.js?v=1792765310"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792759888"></script>
+<script src="js/guide.js?v=1792765310"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10278,10 +10299,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792759888"></script>
-<script src="js/shortz-live.js?v=1792759888"></script>
-<script src="js/games.js?v=1792759888"></script>
-<script src="js/podcasts.js?v=1792759888"></script>
+<script src="js/streaming.js?v=1792765310"></script>
+<script src="js/shortz-live.js?v=1792765310"></script>
+<script src="js/games.js?v=1792765310"></script>
+<script src="js/podcasts.js?v=1792765310"></script>
 <script>
 
 
@@ -10799,7 +10820,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792759888"></script>
+<script src="js/swipe.js?v=1792765310"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13031,7 +13052,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792759888"></script>
+<script src="js/live-sports.js?v=1792765310"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13244,7 +13265,7 @@ function paintShell(){
    Object.keys(FLAIRS).map(function(k){return '<button class="cs-flair'+(CS.flair===k?" on":"")+'" data-flair="'+k+'">'+FLAIRS[k]+"</button>";}).join("")+"</div>"+
    '<textarea id="csText" rows="3" aria-label="Share with creators" placeholder="'+(CS.flair==="music"?"Drop a track, ask for real ears on a mix\u2026":CS.flair==="poll"?"Ask the room a question\u2026":"Share with creators\u2026 a drop, a question, a call for collabs")+'">'+esc(CS.draft)+"</textarea>"+
    (CS.flair==="poll"
-     ?'<div class="cs-pollopts" id="csPollOpts">'+[0,1,2,3].map(function(i){return '<input class="cs-pollin" data-pollidx="'+i+'" maxlength="60" placeholder="Choice '+(i+1)+(i>1?" (optional)":"")+'" value="'+esc(CS.pollDraft[i]||"")+'">';}).join("")+'</div><div class="cs-hint">Anyone signed in can vote \u2014 one vote each, changeable any time.</div>'
+     ?'<div class="cs-pollopts" id="csPollOpts">'+[0,1,2,3].map(function(i){return '<input class="cs-pollin" data-pollidx="'+i+'" maxlength="60" placeholder="Choice '+(i+1)+(i>1?" (optional)":"")+'" value="'+esc(CS.pollDraft[i]||"")+'">';}).join("")+'</div><div class="cs-hint">Creators vote \u2014 one vote each, changeable any time.</div>'
      :'<div class="cs-attachrow"><input id="csAttach" placeholder="Attach a title (optional) \u2014 type a name, tap Resolve" value="'+esc(CS.attachLabel)+'"><button class="cs-smallbtn" id="csResolve">Resolve</button></div>'+
    '<div class="cs-attachlbl" id="csAttachLbl">'+(CS.attachId?("Attached: "+esc(CS.attachLabel)):"")+"</div>"+
    '<div class="cs-uprow"><button class="cs-smallbtn gold" id="csUploadBtn">'+(CS.flair==="music"?"⬆ Upload a track":"⬆ Upload a video")+'</button><span class="cs-uplbl">straight off your phone</span></div>'+
@@ -13355,13 +13376,13 @@ function csPollHTML(pid,p){
   var votes=p.votes||{};
   var counts=opts.map(function(){return 0;});var mine=-1;var total=0;
   Object.keys(votes).forEach(function(uid){var c=votes[uid]&&votes[uid].choice;if(typeof c==="number"&&c>=0&&c<opts.length){counts[c]++;total++;if(uid===CS.uid)mine=c;}});
-  var canVote=gateState()!=="signedout"&&!!CS.uid;
+  var canVote=!!(CS.isMember||CS.isFounder);
   var h='<div class="cs-poll" data-poll="'+pid+'">';
   opts.forEach(function(o,i){
     var pct=total?Math.round(counts[i]/total*100):0;
     h+='<button class="cs-pollopt'+(mine===i?" mine":"")+'" data-vote="'+pid+'" data-choice="'+i+'"'+(canVote?"":" disabled")+'><span class="cs-pollbar" style="width:'+pct+'%"></span><span class="cs-polllbl">'+esc(o)+'</span>'+(total?'<span class="cs-pollpct">'+pct+"%</span>":"")+"</button>";
   });
-  h+='<div class="cs-pollmeta">'+(total===0?"No votes yet — be the first":(total+(total===1?" vote":" votes")))+(mine>=0?" · your pick is in":"")+"</div></div>";
+  h+='<div class="cs-pollmeta">'+(total===0?"No votes yet":(total+(total===1?" vote":" votes")))+(mine>=0?" · your pick is in":(canVote?"":" · creators vote in this room"))+"</div></div>";
   return h;
 }
 async function csVote(pid,choice){
