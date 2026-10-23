@@ -1,37 +1,6 @@
 {
   "events": [
     {
-      "id": "auto-huskerrs-1791682758-ms",
-      "title": "HusKerrs is LIVE \u2014 hits 1,000 viewers?",
-      "sub": "Warzone \u00b7 currently at 632 watching",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "1.9",
-      "oddsB": "1.9",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "milestone",
-      "streamer": "HusKerrs",
-      "target": 1000,
-      "resolvedAt": 1791684554
-    },
-    {
-      "id": "auto-huskerrs-1791682758-mar",
-      "title": "HusKerrs just went live \u2014 3+ hour stream?",
-      "sub": "Warzone",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "2.0",
-      "oddsB": "1.8",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "marathon",
-      "streamer": "HusKerrs",
-      "resolvedAt": 1791684554
-    },
-    {
       "id": "auto-huskerrs-1791685454-ms",
       "title": "HusKerrs is LIVE \u2014 hits 1,000 viewers?",
       "sub": "Warzone \u00b7 currently at 673 watching",
@@ -467,6 +436,35 @@
       "kind": "marathon",
       "streamer": "HusKerrs",
       "resolvedAt": 1792718657
+    },
+    {
+      "id": "auto-aydan-1792724959-ms",
+      "title": "Aydan is LIVE \u2014 hits 100 viewers?",
+      "sub": "Warzone \u00b7 currently at 7 watching",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "milestone",
+      "streamer": "Aydan",
+      "target": 100
+    },
+    {
+      "id": "auto-aydan-1792724959-mar",
+      "title": "Aydan just went live \u2014 3+ hour stream?",
+      "sub": "Warzone",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "2.0",
+      "oddsB": "1.8",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "marathon",
+      "streamer": "Aydan"
     }
   ]
 }
