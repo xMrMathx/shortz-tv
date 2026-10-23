@@ -2057156,5 +2057156,30 @@
   "award_verified": false,
   "url": "https://www.youtube.com/embed/COBv7pFWsOE",
   "runtime": "92 min"
+ },
+ {
+  "id": "stv-77124",
+  "title": "The Rezort (2015)",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-23",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Rezort (2015) — Full Movie",
+    "url": "https://www.youtube.com/embed/eUnPQYnivJE",
+    "video_id": "eUnPQYnivJE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "The Rezort (2015) — after a zombie war, a luxury island resort lets rich guests hunt the undead for sport, until the security system fails and the hunters become the hunted. From Dimension On Demand.",
+  "rights_basis": "Free full-length feature posted by Dimension On Demand, the licensed label channel that posts its titles free in full. Embed-enabled upload (oEmbed-verified), public, age_limit 0, US-playable formats verified. Gate-verified 2026-10-23.",
+  "source_channel": "Dimension On Demand",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/eUnPQYnivJE",
+  "runtime": "86 min"
  }
 ]
