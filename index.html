@@ -194,6 +194,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cfbar-row{display:flex;align-items:center;gap:10px}
 .cfbar-row .cfbar-track{flex:1}
 .cfpause{position:relative;flex:0 0 auto;width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.cfbar [data-cf-pip]{font-size:15px}
 .cfcard.playing.cf-paused .cfbar{opacity:1;pointer-events:auto}
 .cfcorner{display:flex;align-items:center;justify-content:center}
 .cfcard.playing .cfplay{display:none}
@@ -2411,7 +2412,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792783547";
+window.__SZ_BUILD = "1792787159";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5697,7 +5698,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792783547";
+const BUILD="1792787159";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6718,7 +6719,7 @@ function cfCardHTML(t){
       ${dur?`<span class="cfdur">${dur}</span>`:""}
       <span class="cfplay">▶</span>
       <div class="cfshield"></div>
-      <div class="cfbar" data-cfbar><div class="cfbar-row"><button class="cfpause" data-cf-pause aria-label="Pause or play"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg></button><div class="cfbar-track"><div class="cfbar-fill" data-cf-fill></div><div class="cfbar-knob" data-cf-knob></div></div></div><div class="cfbar-times"><span data-cf-cur>0:00</span><span data-cf-dur>0:00</span></div></div>
+      <div class="cfbar" data-cfbar><div class="cfbar-row"><button class="cfpause" data-cf-pause aria-label="Pause or play"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg></button><button class="cfpause" data-cf-pip aria-label="Picture in picture">⧉</button><div class="cfbar-track"><div class="cfbar-fill" data-cf-fill></div><div class="cfbar-knob" data-cf-knob></div></div></div><div class="cfbar-times"><span data-cf-cur>0:00</span><span data-cf-dur>0:00</span></div></div>
     </div>
     <div class="cfbody" data-cf-body>
       <div class="cftitle">${t.award_verified?"🏆 ":""}${esc(t.title)}</div>
@@ -7353,7 +7354,7 @@ function cfBarSeek(card,sec){
 function cfBindBar(root){
   if(!root||root._cfBarBound)return; root._cfBarBound=true;
   let drag=null;
-  const barOf=e=>{ if(e.target&&e.target.closest&&e.target.closest("[data-cf-pause]"))return null; return e.target&&e.target.closest?e.target.closest("[data-cfbar]"):null; };
+  const barOf=e=>{ if(e.target&&e.target.closest&&e.target.closest("[data-cf-pause],[data-cf-pip]"))return null; return e.target&&e.target.closest?e.target.closest("[data-cfbar]"):null; };
   const ratioAt=(bar,cx)=>{ const tr=bar.querySelector(".cfbar-track"); if(!tr)return 0; const r=tr.getBoundingClientRect(); return r.width>0?Math.min(1,Math.max(0,(cx-r.left)/r.width)):0; };
   const start=(bar,x,y)=>{
     const card=bar.closest(".cfcard"); if(!card)return null;
@@ -7444,6 +7445,7 @@ function cfSyncCounts(){
     if(card._lpFired){card._lpFired=false;return;} // hold-to-like fired: swallow the tap
     if(card._barUsed){card._barUsed=false;return;} // cfbar touch/drag: swallow the tap (no stage door)
     if(e.target.closest("[data-cf-pause]")){ cfTogglePause(card); return; }
+    if(e.target.closest("[data-cf-pip]")){ try{szEnterPip()}catch(err){} return; }
     if(e.target.closest("[data-cf-open]")){ cfOpenFromCard(card,t); return; }
     if(e.target.closest("[data-cf-like]")){ cfLikeTap(card,t); return; }
     if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
@@ -9571,10 +9573,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792783547"></script>
+<script src="js/folders.js?v=1792787159"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792783547"></script>
+<script src="js/guide.js?v=1792787159"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10384,10 +10386,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792783547"></script>
-<script src="js/shortz-live.js?v=1792783547"></script>
-<script src="js/games.js?v=1792783547"></script>
-<script src="js/podcasts.js?v=1792783547"></script>
+<script src="js/streaming.js?v=1792787159"></script>
+<script src="js/shortz-live.js?v=1792787159"></script>
+<script src="js/games.js?v=1792787159"></script>
+<script src="js/podcasts.js?v=1792787159"></script>
 <script>
 
 
@@ -10905,7 +10907,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792783547"></script>
+<script src="js/swipe.js?v=1792787159"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13137,7 +13139,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792783547"></script>
+<script src="js/live-sports.js?v=1792787159"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
