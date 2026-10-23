@@ -1231,6 +1231,14 @@ body.pip .feed-video iframe{position:absolute!important;transform:none!important
 body.pip .feed-video video[data-av]{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important}
 #pipTap{display:none;position:fixed;inset:0;z-index:99999;background:transparent}
 body.pip #pipTap{display:block!important}
+/* PiP and the HOME CARD (his report 2026-10-23): card-first watching had
+   no pip rules at all, so the floating window showed the whole Home page
+   squeezed and mixed. Now the playing card's media fills the window edge
+   to edge and every other card steps out; the window's shape comes from
+   the native side (16:9 for a card — see szPipAspect). */
+body.pip .cfcard:not(.playing){display:none!important}
+body.pip .cfcard.playing .cfmedia{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;aspect-ratio:auto!important;border-radius:0!important;z-index:65}
+body.pip .cfcard.playing .cfbar,body.pip .cfcard.playing .cfbadge,body.pip .cfcard.playing .cfdur,body.pip .cfcard.playing .cfplay{display:none!important}
 /* ---------- universal progress bar: every video, everywhere ---------- */
 .uprog{position:absolute;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.18);z-index:10;pointer-events:none}
 .uprog>i{display:block;height:100%;width:0%;background:#e50914;transition:width .3s linear}
@@ -2403,7 +2411,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792778624";
+window.__SZ_BUILD = "1792780923";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5005,11 +5013,33 @@ window.addEventListener("resize",()=>{if(document.body.classList.contains("pip")
 /* system-PiP native controls: report play state to the app so the floating
    window's play/pause button stays in sync. Change-detected: the app only
    rebuilds its buttons when the state actually flips. */
+/* PiP shape (his fix 2026-10-23): the floating window must match the
+   video — the card is a 16:9 frame, a vertical feed short is 9:16. The
+   web side reports the shape; the native side sizes the window with it
+   (button entry AND swipe-home entry both read the last report). Older
+   APKs have no notePipAspect — every call is guarded. */
+function szPipAspect(){
+  try{
+    if(typeof cfActive!=="undefined"&&cfActive&&typeof cfPlayer!=="undefined"&&cfPlayer)return [16,9];
+    const s=(typeof curSlide==="function")?curSlide():null;
+    if(s){ const fv=s.querySelector(".feed-video"); if(fv)return fv.classList.contains("vert")?[9,16]:[16,9]; }
+  }catch(e){}
+  return [16,9];
+}
+function szNotePipAspect(){
+  try{ if(window.Android&&window.Android.notePipAspect){ const a=szPipAspect(); window.Android.notePipAspect(a[0],a[1]); } }catch(e){}
+}
+function szEnterPip(){
+  szNotePipAspect();
+  try{ if(window.Android&&window.Android.enterPip)window.Android.enterPip(); else toast("PiP needs the app"); }
+  catch(e){ toast("PiP not available"); }
+}
 let _pipLastPlaying=null;
 function pipReportState(playing){
   playing=!!playing;
   if(playing===_pipLastPlaying)return;
   _pipLastPlaying=playing;
+  szNotePipAspect();
   try{
     if(document.body.classList.contains("pip")&&window.Android&&Android.onPipPlaying)
       Android.onPipPlaying(playing);
@@ -5056,6 +5086,8 @@ window.onFcmToken=function(tok){
    Taps in PiP fall through to the YouTube iframe which doesn't toggle there,
    so we toggle through the player API directly. Tap = pause, tap again = play. */
 function pipTapToggle(){
+  /* card-first: the PiP window's tap catcher drives the card player too */
+  try{ if(typeof cfActive!=="undefined"&&cfActive&&typeof cfPlayer!=="undefined"&&cfPlayer&&typeof cfTogglePause==="function"){ cfTogglePause(cfActive); return; } }catch(e){}
   try{
     const slide=curSlide(); if(!slide)return;
     const pl=slide._player; if(!pl||!pl.getPlayerState)return;
@@ -5358,7 +5390,7 @@ function railAction(a,slide){
     if(m){ const open=m.classList.toggle("open"); if(btn)btn.textContent=open?"▲":"▼"; }
   }
   else if(a==="cc"){openCc(slide)}
-  else if(a==="pip"){try{if(window.Android&&window.Android.enterPip)window.Android.enterPip()}catch(e){}}
+  else if(a==="pip"){try{szEnterPip()}catch(e){}}
   else if(a==="pia"){try{piaEnter()}catch(e){}}
 }
 
@@ -5665,7 +5697,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792778624";
+const BUILD="1792780923";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6840,6 +6872,7 @@ function cfActivate(card){
     media.appendChild(v);
     card.classList.add("playing");
     cfActive=card;
+    try{szNotePipAspect()}catch(e){}
     cfBarWake(card);
     cfArmWatchCredit(card,t);
     cfPlayerKind="archive"; cfPlayer=makeArchivePlayer(v);
@@ -6857,6 +6890,7 @@ function cfActivate(card){
   media.appendChild(fr);
   card.classList.add("playing");
   cfActive=card;
+  try{szNotePipAspect()}catch(e){}
   cfBarWake(card);
   cfArmWatchCredit(card,t);
   cfArmSound(card,t,fr);
@@ -9142,7 +9176,7 @@ function openSportsReel(sport){
     renderComments();
     $("#cdraw").classList.add("open");$("#cscrim").classList.add("open");
   });
-  ov.querySelectorAll("[data-spip]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation(); try{ if(window.Android&&window.Android.enterPip)window.Android.enterPip(); else toast("PiP needs the app"); }catch(err){ toast("PiP not available"); } });
+  ov.querySelectorAll("[data-spip]").forEach(b=>b.onclick=(e)=>{ e.stopPropagation(); try{ szEnterPip(); }catch(err){ toast("PiP not available"); } });
 }
 // sports reel has its OWN sound state, fully independent from the Home feed:
 // toggling one never affects the other.
@@ -9537,10 +9571,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792778624"></script>
+<script src="js/folders.js?v=1792780923"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1792778624"></script>
+<script src="js/guide.js?v=1792780923"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10350,10 +10384,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792778624"></script>
-<script src="js/shortz-live.js?v=1792778624"></script>
-<script src="js/games.js?v=1792778624"></script>
-<script src="js/podcasts.js?v=1792778624"></script>
+<script src="js/streaming.js?v=1792780923"></script>
+<script src="js/shortz-live.js?v=1792780923"></script>
+<script src="js/games.js?v=1792780923"></script>
+<script src="js/podcasts.js?v=1792780923"></script>
 <script>
 
 
@@ -10871,7 +10905,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792778624"></script>
+<script src="js/swipe.js?v=1792780923"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13103,7 +13137,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792778624"></script>
+<script src="js/live-sports.js?v=1792780923"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
