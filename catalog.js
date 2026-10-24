@@ -2057356,5 +2057356,30 @@ window.SHORTZ_CATALOG = [
   "award_verified": false,
   "url": "https://www.youtube.com/embed/QJwBxGoITc8",
   "runtime": "119 min"
+ },
+ {
+  "id": "stv-77132",
+  "title": "The Farm (2018)",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-23",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Farm (2018) — Full Movie",
+    "url": "https://www.youtube.com/embed/YMXC4l-zuew",
+    "video_id": "YMXC4l-zuew",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Stranded when their car breaks down, a young couple accepts shelter from a rural farm commune — but the animal-masked farmers are cannibals, and the guests are what's for dinner. Nora Yessayan, Alec Gaylord and Ken Volok star in Hans Stjernswärd's survival horror. From Disaster Zone Movies.",
+  "rights_basis": "Upload by Disaster Zone Movies (Horror Central) stating 'Under license from Breaking Glass Pictures' on the video. Embed-enabled upload (oEmbed-verified), public, age_limit 0, runtime 76m57s vs 80-min reference. Gate-verified 2026-10-23.",
+  "source_channel": "Disaster Zone Movies",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/YMXC4l-zuew",
+  "runtime": "77 min"
  }
 ];
