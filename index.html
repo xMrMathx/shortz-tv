@@ -1023,6 +1023,48 @@ body.pip #tvBox{display:none!important}
 .tab .ico{font-size:20px;display:block;margin-bottom:3px}
 .tab.on{color:#fff}
 #viewpad{height:calc(74px + env(safe-area-inset-bottom))}
+/* ================= SIMPLIFY — doors, card stack, profile button (his design 2026-10-24) ================= */
+/* profile button: the old All button's exact slot + size (38px disc, top-center, z-9600 family),
+   a NEW id on purpose — never "evToggle" (dead hub wiring + probe history). Shows the user's
+   ACTUAL chosen profile picture via avatarHTML (preset / uploaded photo / initial). */
+#profileBtn{position:fixed;top:calc(6px + env(safe-area-inset-top));left:50%;transform:translateX(-50%);z-index:9600;
+  width:38px;height:38px;border-radius:50%;padding:0;cursor:pointer;overflow:hidden;
+  background:rgba(18,18,26,.55);border:1px solid rgba(236,201,92,.55);color:#cfcfd8;
+  display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);-webkit-tap-highlight-color:transparent;
+  transition:box-shadow .2s,transform .1s,opacity .4s}
+#profileBtn:active{transform:translateX(-50%) scale(.92)}
+#profileBtn.on{box-shadow:0 0 0 3px rgba(236,201,92,.45),0 0 16px rgba(236,201,92,.35)}
+#profileBtn .avatar{width:100%;height:100%;border-radius:50%;font-size:16px;display:flex;align-items:center;justify-content:center}
+#profileBtn .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+body.pip #profileBtn,body.playing-game #profileBtn,body.sz-open #profileBtn{display:none}
+body.hud-hidden #profileBtn{opacity:0;pointer-events:none}
+/* door bar: the five doors live in #tabbar around the mic (the mic node itself is unmoved) */
+.tab.szdoor{cursor:pointer;background:none;border:0;font-family:inherit}
+.tab.szdoor .ico{font-size:20px;display:block;margin-bottom:3px}
+.tab.szdoor.on{color:#ecc95c}
+.tab.szdoor.front{color:#ecc95c;text-shadow:0 0 12px rgba(236,201,92,.45)}
+/* retired floating chrome: hub arrows, feed mic dot, Dubs + Pal floaters — the door bar replaces this family */
+#evPrev,#evNext,#micDot,#dubBtn,#palBtn{display:none!important}
+/* card sheets: #views framed as a card; the front card is the active pane, back cards are strips above */
+body.sz-sheet #views{margin:calc(64px + var(--sz-stack-n,0)*34px) 6px 0;border:1px solid rgba(212,175,55,.45);
+  border-radius:20px;box-shadow:0 -12px 50px rgba(0,0,0,.85);background:#101013;
+  transition:margin-top .28s ease}
+#szStrips{position:fixed;top:56px;left:6px;right:6px;z-index:70;display:none}
+body.sz-sheet #szStrips{display:block}
+.sz-strip{display:flex;align-items:center;gap:7px;width:100%;height:30px;margin-bottom:4px;padding:0 12px;
+  background:#101013;border:1px solid rgba(212,175,55,.45);border-radius:14px;cursor:pointer;
+  color:#ecc95c;font:700 13px system-ui,sans-serif;letter-spacing:.05em;text-align:left;
+  box-shadow:0 -6px 24px rgba(0,0,0,.6);-webkit-tap-highlight-color:transparent}
+/* in-card toggles for the Live card: Streams | TV Guide | Live Sports | Watch Party.
+   The bar lives as #views' first child — the panes rewrite their own innerHTML on data
+   events (an in-pane bar was wiped ~250ms after entry); #views itself is never rewritten. */
+#szLiveTabs{display:none;gap:6px;padding:8px 8px 4px;background:#101013;overflow-x:auto}
+body.sz-livefront #szLiveTabs{display:flex}
+.szlt{flex:0 0 auto;background:#1d1d22;color:#f5f0e6;border:1px solid rgba(255,255,255,.16);border-radius:999px;
+  padding:6px 11px;font:600 12px system-ui,sans-serif;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.szlt.on{background:linear-gradient(180deg,#ecc95c,#c9a227);color:#151515;border-color:#ecc95c;font-weight:700}
+
 /* ---------- voice button: single-button navigation ----------
    SQUARE per user order: the mic is ONE 54px square in every state — this
    tab-bar button matches #micDot exactly (size, radius, listening glow).
@@ -2235,6 +2277,7 @@ try{
     <section class="view" id="view-genre"></section>
   </main>
   <div id="viewpad"></div>
+  <div id="szStrips" aria-hidden="false"></div>
   <button id="hudHint" aria-label="Show controls">Tap for controls</button>
   <!-- EVERYTHING header: shown in ev-mode, swipe between sections -->
   <div id="evHeader" aria-hidden="true">
@@ -2256,6 +2299,7 @@ try{
        font inside a 28–30px translucent disc and vanished against video on the
        user's phone, while the All button's text glyph (⊞) always rendered. SVG
        paints identically in every WebView, same as ⊞. -->
+  <button id="profileBtn" aria-label="Your profile"></button>
   <button id="tvBtn" aria-label="Updates TV"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 3.5 12 8l3.5-4.5"/><rect x="3" y="8" width="18" height="12" rx="2.5"/><path d="M10.4 11.3 15 14l-4.6 2.7z" fill="currentColor" stroke="none"/></svg></button>
   <!-- UPDATES TV (Phase 1 house promos): tiny floating TV, never blocks the show -->
   <div id="tvBox" aria-hidden="true">
@@ -2275,9 +2319,13 @@ try{
   <!-- voice button: ONE square mic (54px), same form as #micDot — the old
        full-width "Hold to talk" bar was removed per user order. -->
   <nav id="tabbar">
+    <button class="tab szdoor" data-v="home" data-door="watch"><span class="ico">▶</span>Watch</button>
+    <button class="tab szdoor" data-v="browse" data-door="browse"><span class="ico">🧭</span>Browse</button>
     <button id="voiceBtn" aria-label="Hold to speak, tap to type">
       <span class="vico" id="voiceIco">🎙</span>
     </button>
+    <button class="tab szdoor" data-v="livehub" data-door="live"><span class="ico">🔴</span>Live</button>
+    <button class="tab szdoor" data-v="games" data-door="play"><span class="ico">🎮</span>Play</button>
   </nav>
   <!-- voice popup: little bubble above the mic button (like a typing indicator) -->
   <div id="voicePop" aria-hidden="true">
@@ -2412,7 +2460,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792818687";
+window.__SZ_BUILD = "1792838918";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2585,8 +2633,8 @@ function alphaSortCached(key, arr){
   }
   return s;
 }
-const GENRES = ["Kane Pixels","Action","Animation","Anime","Body Cam","Comedy","Faith","Family","Fantasy","Hood","Horror","Mr. Ballin","Mystery","Nollywood","Ray WJ","Reality","Rebirth","Revenge","Romance","Sci-Fi","Short Films","Space","Sports","Thriller","Western","Zombie"];
-const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️","Zombie":"🧟","Kane Pixels":"🚪"};
+const GENRES = ["Kane Pixels","Action","Animation","Anime","Body Cam","Comedy","Faith","Family","Fantasy","Hood","Horror","Mr. Ballin","Mystery","Nollywood","Ray WJ","Reality","Rebirth","Revenge","Romance","Sci-Fi","Short Films","Space","Sports","Thriller","Western","Wrestling","Zombie"];
+const GICON = {"Romance":"💋","Thriller":"🔪","Mystery":"🕵️","Sci-Fi":"🚀","Horror":"👻","Comedy":"😂","Hood":"🏙️","Fantasy":"🧙","Family":"🏠","Action":"💥","Revenge":"⚔️","Western":"🤠","Faith":"🙏","Animation":"🎨","Anime":"⛩️","Zombie":"🧟","Wrestling":"🤼","Kane Pixels":"🚪"};
 
 /* ---------- utils ---------- */
 const $ = s => document.querySelector(s);
@@ -3470,6 +3518,7 @@ function go(v){
   try{if(window.Android&&window.Android.onWatching)window.Android.onWatching(v==="home")}catch(e){}
   // SPEED: single cheap scroll reset — scrollIntoView+scrollTo pair forced sync layout
   const _vs=$("#views"); if(_vs)_vs.scrollTop=0; SZ_TOP(0);
+  try{szSync()}catch(e){}
 }
 // tab buttons cached once — go() runs on every tab switch
 const TAB_BTNS=[...document.querySelectorAll(".tab")];
@@ -3530,7 +3579,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     "reborn":"Rebirth","rebirth":"Rebirth","revenge":"Revenge","romance":"Romance",
     "sci fi":"Sci-Fi","sci-fi":"Sci-Fi","scifi":"Sci-Fi","science fiction":"Sci-Fi",
     "short film":"Short Films","short films":"Short Films","space":"Space","sports":"Sports",
-    "thriller":"Thriller","western":"Western","westerns":"Western","zombie":"Zombie","zombies":"Zombie"
+    "thriller":"Thriller","western":"Western","westerns":"Western","zombie":"Zombie","zombies":"Zombie","wrestling":"Wrestling","wrestler":"Wrestling"
   };
 
   // Pre-compiled fuzzy tab matchers — built ONCE, not per voice command.
@@ -9322,7 +9371,7 @@ async function syncProfileWithAccount(){
           favGenres:Array.isArray(remote.favGenres)?remote.favGenres:((local&&local.favGenres)||[]),
           createdAt:remote.createdAt||(local&&local.createdAt)||Date.now()
         };
-        store.set("profile",merged);
+        store.set("profile",merged); try{refreshProfileBtn()}catch(e){}
         try{ Live.name=merged.name||Live.name; }catch(e){}
         // healed from the directory: backfill the real profile node so
         // the primary path serves every future sign-in (update(), never
@@ -9345,7 +9394,7 @@ async function syncProfileWithAccount(){
 }
 async function saveProfile(p){
   p.createdAt=p.createdAt||Date.now();
-  store.set("profile",p);
+  store.set("profile",p); try{refreshProfileBtn()}catch(e){}
   try{
     const ok=await liveEnsure();
     if(ok&&Live.db){
@@ -14430,6 +14479,171 @@ window.ScoutPal={open:palOpen,close:palClose,state:function(){var r=actScout(),r
 window.ScoutBattles={roster:ROSTER.map(function(r){return r.id;}),state:window.ScoutPal.state};
 })();
 
+</script>
+
+<script>
+/* ================= SIMPLIFY — door stack engine (his design 2026-10-24) =================
+   Home is the desk. Browse / Live / Play are cards that stack over it like folders:
+   tap a door to open, tap it again to close, tap a back card's strip to pull it forward,
+   swipe the front card down to close it. The profile button (top-center, the old All
+   button's slot) drops the Profile as a card over whatever is open; go()'s own exit
+   hooks silence whatever was playing behind it. The hub machinery stays dormant. */
+var szStack = [];              // open door entries, back -> front: 'browse' | 'live' | 'play'
+var szProfileOpen = false;
+var szLiveSub = 'streams';     // streams | guide | sports | party
+var SZ_DOOR_VIEW = { browse: 'browse', play: 'games' };
+var SZ_DOOR_LABEL = { browse: '🧭 BROWSE', live: '🔴 LIVE', play: '🎮 PLAY' };
+function szFront() { return szStack.length ? szStack[szStack.length - 1] : null; }
+function szGoEntry(entry) {
+  if (entry === 'live') { szGoLive(); return; }
+  var v = SZ_DOOR_VIEW[entry];
+  try { renderView(v); } catch (e) {}
+  go(v);
+}
+function szGoLive() {
+  if (szLiveSub === 'streams') {
+    if (curView !== 'streaming') { try { renderView('streaming'); } catch (e) {} go('streaming'); }
+    return;
+  }
+  if (curView !== 'live') { try { renderView('live'); } catch (e) {} go('live'); }
+  szApplyLiveSub();
+}
+function szApplyLiveSub() {
+  if (curView !== 'live') return;
+  var want = szLiveSub === 'party' ? 'lobby' : 'sports';
+  if (window.Live && Live.tab !== want) { Live.tab = want; try { renderLive(); } catch (e) {} }
+  if (szLiveSub === 'guide') {
+    setTimeout(function () { var el = document.getElementById('lsScore'); if (el) el.scrollIntoView({ block: 'start' }); }, 60);
+  } else if (szLiveSub === 'sports') {
+    setTimeout(function () { window.scrollTo(0, 0); }, 60);
+  }
+}
+function szDoor(entry) {
+  szProfileOpen = false;
+  if (entry === 'watch') {
+    szStack = [];
+    if (curView !== 'home') go('home');
+    szSync(); return;
+  }
+  var i = szStack.indexOf(entry);
+  if (i >= 0 && szFront() === entry) {           // tap the front card's door: close it
+    szStack.pop();
+    var f = szFront();
+    if (f) szGoEntry(f); else if (curView !== 'home') go('home');
+  } else if (i >= 0) {                            // in the stack: pull to front
+    szStack.splice(i, 1); szStack.push(entry); szGoEntry(entry);
+  } else {                                        // open it, on top
+    szStack.push(entry); szGoEntry(entry);
+  }
+  szSync();
+}
+function szStripTo(entry) {
+  var i = szStack.indexOf(entry);
+  if (i < 0) return;
+  szProfileOpen = false;
+  szStack.splice(i, 1); szStack.push(entry);
+  szGoEntry(entry); szSync();
+}
+function szProfileTap() {
+  if (szProfileOpen) {
+    szProfileOpen = false;
+    var f = szFront();
+    if (f) szGoEntry(f); else if (curView !== 'home') go('home');
+  } else {
+    szProfileOpen = true;
+    try { renderView('profile'); } catch (e) {}
+    go('profile');
+    refreshProfileBtn();
+  }
+  szSync();
+}
+function szEnsureLiveTabs() {
+  var need = !szProfileOpen && szFront() === 'live' && (curView === 'live' || curView === 'streaming');
+  document.body.classList.toggle('sz-livefront', !!need);
+  if (!need) return;
+  var views = document.getElementById('views');
+  if (!views) return;
+  var bar = document.getElementById('szLiveTabs');
+  if (!bar) {
+    bar = document.createElement('div');
+    bar.id = 'szLiveTabs';
+    bar.innerHTML = '<button class="szlt" data-lt="streams">📡 Streams</button>' +
+      '<button class="szlt" data-lt="guide">🏆 TV Guide</button>' +
+      '<button class="szlt" data-lt="sports">⚽ Live Sports</button>' +
+      '<button class="szlt" data-lt="party">🎉 Watch Party</button>';
+    bar.querySelectorAll('.szlt').forEach(function (b) {
+      b.onclick = function () { szLiveSub = b.dataset.lt; szGoLive(); szSync(); };
+    });
+  }
+  if (bar.parentNode !== views || views.firstChild !== bar) views.insertBefore(bar, views.firstChild);
+  szPaintLiveTabs();
+}
+function szPaintLiveTabs() {
+  var cur = curView === 'streaming' ? 'streams' : szLiveSub;
+  document.querySelectorAll('#szLiveTabs .szlt').forEach(function (b) {
+    b.classList.toggle('on', b.dataset.lt === cur);
+  });
+}
+function szSync() {
+  var open = szStack.length > 0 || szProfileOpen;
+  document.body.classList.toggle('sz-sheet', open);
+  document.body.classList.toggle('sz-profile', szProfileOpen);
+  document.body.style.setProperty('--sz-stack-n', String(Math.max(0, szStack.length - 1)));
+  // strips for the back cards (front card is the framed pane itself)
+  var box = document.getElementById('szStrips');
+  if (box) {
+    var back = szStack.slice(0, -1);
+    box.innerHTML = back.map(function (e) {
+      return '<button class="sz-strip" data-strip="' + e + '">' + SZ_DOOR_LABEL[e] + '</button>';
+    }).join('');
+    box.querySelectorAll('.sz-strip').forEach(function (b) {
+      b.onclick = function () { szStripTo(b.dataset.strip); };
+    });
+  }
+  // door states
+  document.querySelectorAll('.szdoor').forEach(function (b) {
+    var d = b.dataset.door;
+    b.classList.toggle('on', d === 'watch' ? (!open && curView === 'home') : szStack.indexOf(d) >= 0);
+    b.classList.toggle('front', d === szFront() || (d === 'watch' && !open && curView === 'home'));
+  });
+  var pb = document.getElementById('profileBtn');
+  if (pb) pb.classList.toggle('on', szProfileOpen);
+  szEnsureLiveTabs();
+  refreshProfileBtn();
+}
+var _szPbKey = '';
+function refreshProfileBtn() {
+  var btn = document.getElementById('profileBtn');
+  if (!btn || typeof avatarHTML !== 'function') return;
+  var prof = null;
+  try { prof = getProfile(); } catch (e) {}
+  var key = prof ? (prof.photo || '') + '|' + (prof.name || '') : 'none';
+  if (key === _szPbKey && btn.innerHTML) return;
+  _szPbKey = key;
+  btn.innerHTML = avatarHTML(prof, 'szpb');
+}
+/* swipe the front card down to close it (only from the very top, so scrolling is never fought) */
+(function () {
+  var y0 = null;
+  document.addEventListener('touchstart', function (e) {
+    y0 = (document.body.classList.contains('sz-sheet') && window.scrollY <= 2 && e.touches.length === 1)
+      ? e.touches[0].clientY : null;
+  }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (y0 === null) return;
+    var dy = e.changedTouches[0].clientY - y0;
+    y0 = null;
+    if (dy > 72 && !szProfileOpen) { var f = szFront(); if (f) szDoor(f); }
+    else if (dy > 72 && szProfileOpen) { szProfileTap(); }
+  }, { passive: true });
+})();
+/* door + profile wiring (replaces the generic .tab handler for doors) */
+document.querySelectorAll('.szdoor').forEach(function (b) {
+  b.onclick = function () { szDoor(b.dataset.door); };
+});
+var _szPb = document.getElementById('profileBtn');
+if (_szPb) _szPb.onclick = function () { szProfileTap(); };
+try { refreshProfileBtn(); } catch (e) {}
 </script>
 </body>
 </html>
