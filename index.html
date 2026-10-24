@@ -1055,6 +1055,11 @@ body.sz-deep #views{margin-top:132px}
 body.sz-pop #views{animation:szPop .17s ease-out}
 @media (prefers-reduced-motion: reduce){body.sz-pop #views{animation:none}}
 #tabbar .tab,#profileBtn,.sz-strip,.szlt{touch-action:manipulation}
+.szdoor.sz-press,#profileBtn.sz-press,.sz-strip.sz-press{filter:brightness(1.4)}
+/* the button IS the profile door — its avatar face is decoration only. avatarHTML puts an
+   inline openAvatarView() onclick on photo avatars (the profile page's viewer); inside this
+   button that handler hijacked the tap and popped the PICTURE instead of the profile. */
+#profileBtn *{pointer-events:none!important}
 #szStrips{position:fixed;top:60px;left:6px;right:6px;z-index:70;display:none}
 body.sz-sheet #szStrips{display:block}
 .sz-strip{display:flex;align-items:center;gap:7px;width:100%;height:30px;margin-bottom:4px;padding:0 12px;
@@ -2465,7 +2470,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792846276";
+window.__SZ_BUILD = "1792847972";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2526,6 +2531,7 @@ window.refreshFeed=function(){ buzz(15); };
 document.addEventListener("pointerdown",function(e){
   const t=e.target.closest("button,.btn-play,.btn,.ric button,.sreel-ric button,.setitem,.tab");
   if(!t)return;
+  if(t.closest("#tabbar,#szStrips,#profileBtn,#szLiveTabs"))return; // door chrome: the pop is the feedback — skip the ripple's forced-layout reads
   buzz(10);
   if(getComputedStyle(t).position==="static")t.style.position="relative";
   t.classList.add("ripple");
@@ -14522,10 +14528,11 @@ function szApplyLiveSub() {
   if (szLiveSub === 'guide') {
     setTimeout(function () { var el = document.getElementById('lsScore'); if (el) el.scrollIntoView({ block: 'start' }); }, 60);
   } else if (szLiveSub === 'sports') {
-    setTimeout(function () { window.scrollTo(0, 0); }, 60);
+    setTimeout(function () { try { SZ_TOP(0); } catch (e) { window.scrollTo(0, 0); } }, 60);
   }
 }
 function szDoor(entry) {
+  window.__szDoorNavFresh = Date.now();
   szProfileOpen = false;
   if (entry === 'watch') {
     szStack = [];
@@ -14546,6 +14553,7 @@ function szDoor(entry) {
   szSync();
 }
 function szStripTo(entry) {
+  window.__szDoorNavFresh = Date.now();
   var i = szStack.indexOf(entry);
   if (i < 0) return;
   szProfileOpen = false;
@@ -14553,6 +14561,7 @@ function szStripTo(entry) {
   szSync(); szGoEntry(entry); szSync();
 }
 function szProfileTap() {
+  window.__szDoorNavFresh = Date.now();
   if (szProfileOpen) {
     szProfileOpen = false;
     szSync();
@@ -14596,6 +14605,8 @@ function szPaintLiveTabs() {
 }
 var szLastFrontKey = '';
 function szSync() {
+  if ((!window.__szDoorNavFresh || Date.now() - window.__szDoorNavFresh > 60)
+      && !szProfileOpen && curView === 'home' && szStack.length) szStack = [];
   var open = szStack.length > 0 || szProfileOpen;
   document.body.classList.toggle('sz-sheet', open);
   document.body.classList.toggle('sz-profile', szProfileOpen);
@@ -14609,12 +14620,13 @@ function szSync() {
   var box = document.getElementById('szStrips');
   if (box) {
     var back = szStack.slice(0, -1);
-    box.innerHTML = back.map(function (e) {
-      return '<button class="sz-strip" data-strip="' + e + '">' + SZ_DOOR_LABEL[e] + '</button>';
-    }).join('');
-    box.querySelectorAll('.sz-strip').forEach(function (b) {
-      b.onclick = function () { szStripTo(b.dataset.strip); };
-    });
+    var sig = back.join(',');
+    if (sig !== window.__szStripSig) {
+      window.__szStripSig = sig;
+      box.innerHTML = back.map(function (e) {
+        return '<button class="sz-strip" data-strip="' + e + '">' + SZ_DOOR_LABEL[e] + '</button>';
+      }).join('');
+    }
   }
   // door states
   document.querySelectorAll('.szdoor').forEach(function (b) {
@@ -14642,7 +14654,8 @@ function refreshProfileBtn() {
 (function () {
   var y0 = null;
   document.addEventListener('touchstart', function (e) {
-    y0 = (document.body.classList.contains('sz-sheet') && window.scrollY <= 2 && e.touches.length === 1)
+    if (e.target && e.target.closest && e.target.closest('#tabbar,#szStrips,#profileBtn')) { y0 = null; return; }
+    y0 = (document.body.classList.contains('sz-sheet') && SZ_SY() <= 2 && e.touches.length === 1)
       ? e.touches[0].clientY : null;
   }, { passive: true });
   document.addEventListener('touchend', function (e) {
@@ -14653,12 +14666,48 @@ function refreshProfileBtn() {
     else if (dy > 72 && szProfileOpen) { szProfileTap(); }
   }, { passive: true });
 })();
-/* door + profile wiring (replaces the generic .tab handler for doors) */
+/* door + profile wiring (replaces the generic .tab handler for doors).
+   szTap fires on pointerdown — in Desktop-site mode the click event alone carries
+   Chrome's tap delay, and his finger must see the card react the instant it lands.
+   A plain click with no pointerdown before it (keyboard, probes) still fires once. */
+function szTap(el, fn) {
+  var lastDown = 0;
+  el.addEventListener('pointerdown', function (e) {
+    if (e.button !== undefined && e.button > 0) return;
+    lastDown = Date.now();
+    el.classList.add('sz-press');
+    setTimeout(function () { el.classList.remove('sz-press'); }, 240);
+    fn(e);
+  });
+  el.addEventListener('click', function (e) {
+    if (Date.now() - lastDown < 800) return;
+    fn(e);
+  });
+}
 document.querySelectorAll('.szdoor').forEach(function (b) {
-  b.onclick = function () { szDoor(b.dataset.door); };
+  b.onclick = null; /* the generic .tab wiring (line ~3536) would ALSO fire go(dataset.v) —
+    'livehub' has no #view- element and go() dies on it. Doors answer to szTap alone. */
+  szTap(b, function () { szDoor(b.dataset.door); });
 });
 var _szPb = document.getElementById('profileBtn');
-if (_szPb) _szPb.onclick = function () { szProfileTap(); };
+if (_szPb) szTap(_szPb, function () { szProfileTap(); });
+var _szStripsBox = document.getElementById('szStrips');
+if (_szStripsBox) {
+  var _stripDown = 0;
+  _szStripsBox.addEventListener('pointerdown', function (e) {
+    var b = e.target.closest ? e.target.closest('.sz-strip') : null;
+    if (!b) return;
+    _stripDown = Date.now();
+    b.classList.add('sz-press');
+    setTimeout(function () { b.classList.remove('sz-press'); }, 240);
+    szStripTo(b.dataset.strip);
+  });
+  _szStripsBox.addEventListener('click', function (e) {
+    if (Date.now() - _stripDown < 800) return;
+    var b = e.target.closest ? e.target.closest('.sz-strip') : null;
+    if (b) szStripTo(b.dataset.strip);
+  });
+}
 try { refreshProfileBtn(); } catch (e) {}
 </script>
 </body>
