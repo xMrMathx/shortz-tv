@@ -518,7 +518,13 @@ function openGameDetail(gid, league){
       m.querySelector(".gm-head").innerHTML=`<div class="t">${esc(an)} ${esc(as)} @ ${esc(hn)} ${esc(hs)}</div>`
         +`<div class="gm-status">${esc(st.shortDetail||"")}</div>`;
       // play-by-play: real-time from ESPN (NFL: drives.previous[].plays, others: plays[])
-      const pbp=document.getElementById("gmPBP");
+      // scope to THIS modal and bail if it was replaced/closed while the
+      // fetch was in flight — an unscoped getElementById let a slower
+      // game's response write its plays into the next game's sheet
+      // (cross-game bleed, his screenshot 2026-10-23)
+      if(!m.isConnected)return;
+      const pbp=m.querySelector(".gm-pbp");
+      if(!pbp)return;
       const plays=[];
       try{
         let raw=[];
@@ -551,12 +557,12 @@ function openGameDetail(gid, league){
       }
       pbp.innerHTML=plays.length
         ? plays.slice(-15).reverse().map(p=>
-            `<div class="gm-play"><div class="gm-pt">${esc(p.t)}</div>`+
+            `<div class="gm-pbp-row"><div class="gm-pt">${esc(p.t)}</div>`+
             (p.m||p.s?`<div class="gm-pm">${esc(p.m)}${p.s?" · "+esc(p.s):""}</div>`:"")+`</div>`
           ).join("")
         : `<div style="color:var(--mut);font-size:12px">No play data yet — game may not have started.</div>`;
       // highlights: search YouTube for this matchup
-      const hl=document.getElementById("gmHL");
+      const hl=m.querySelector(".gm-hl");
       const q=encodeURIComponent(`${an} vs ${hn} highlights`);
       hl.innerHTML=`<a href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener"
         style="display:block;background:#1a1a22;border-radius:10px;padding:14px;text-align:center;color:#fff;font-weight:700;text-decoration:none">
