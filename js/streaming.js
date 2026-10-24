@@ -522,6 +522,11 @@ function ssUnloadFrame(node){
   if(f)f.querySelectorAll("video").forEach(v=>{ try{ v.pause(); v.removeAttribute("src"); v.load(); }catch(e){} });
 }
 function ssActivate(idx){
+  // WARM GATE (his order 2026-10-24): poster cards may pre-build in the background,
+  // but a player NEVER mounts while Streaming isn't the screen he's on — hidden panes
+  // read as in-viewport here (opacity, not display), so without this gate the boot
+  // warm would start a sounding stream behind Home. One audio, only where he is.
+  if(typeof curView!=="undefined"&&curView!=="streaming")return;
   if(idx===ssActiveIdx||idx<0||!ssCards.length)return;
   const old=ssCards[ssActiveIdx];
   if(old&&sstreamStack[ssActiveIdx]){ ssUnloadFrame(old); sstreamFill(old,sstreamStack[ssActiveIdx],"unload"); }

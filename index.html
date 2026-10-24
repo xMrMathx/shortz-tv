@@ -2475,7 +2475,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792849444";
+window.__SZ_BUILD = "1792849929";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3534,6 +3534,7 @@ function go(v){
   try{if(window.Android&&window.Android.onWatching)window.Android.onWatching(v==="home")}catch(e){}
   // SPEED: single cheap scroll reset — scrollIntoView+scrollTo pair forced sync layout
   const _vs=$("#views"); if(_vs)_vs.scrollTop=0; SZ_TOP(0);
+  if(v==="streaming"){ try{ ssPickActive(); }catch(e){} } // posters pre-built at boot; the player mounts now that he's here
   try{szSync()}catch(e){}
 }
 // tab buttons cached once — go() runs on every tab switch
@@ -14516,19 +14517,18 @@ function szRenderOnce(v) { if (szRendered[v]) return; try { renderView(v); szRen
    no lagging, 100% of the time"): render-once still made the FIRST tap each session pay the
    full pane build (2-3s on his phone). So once Home is up and the app breathes, the engine
    pre-builds every door pane in the background — Browse first — and flushes its layout while
-   hidden, so a tap only flips the card: the pop is all that's left to pay. Streaming is NOT
-   warmed: its render starts the streamer feed (media) — the one-audio law forbids hidden media. */
-var szWarmQ = ['browse', 'games', 'profile'];
+   hidden, so a tap only flips the card: the pop is all that's left to pay. EVERY door warms —
+   Browse, Play, Profile, Live, Streaming. Media safety is enforced at the player gates, not
+   by skipping panes: ssActivate refuses to mount a streaming player while Streaming isn't
+   the open view, and liveSports paints its channel list hidden but starts its player only
+   on entry (one-audio law). Live + Streaming entries re-mount fresh on tap (their design);
+   the warm pre-pays the data and the DOM so that mount is a flip, not a build. */
+var szWarmQ = ['browse', 'games', 'profile', 'live', 'streaming'];
 function szGatesOpen() { return !!document.querySelector('#tutGate.open,.gate.open,#authGate.open'); }
 function szWarmStep() {
   if (szGatesOpen()) { setTimeout(szWarmStep, 700); return; }   // never warm a guest/stale state under a gate
   var v = szWarmQ.shift();
-  if (!v) { /* Live is DATA-warmed only: renderLive() bails mid-build when Live isn't the
-               current view, which would leave the pane stuck on 'Loading channels…' —
-               so Live renders on tap (fast once its data is warm), never at boot. */
-    try { fetch('live-sports.json').catch(function () {}); fetch('yt-live.json').catch(function () {}); } catch (e) {}
-    return;
-  }
+  if (!v) return;
   szRenderOnce(v);
   var p = document.getElementById('view-' + v);
   if (p) { void p.offsetHeight; }
@@ -14557,10 +14557,10 @@ function szGoEntry(entry) {
 }
 function szGoLive() {
   if (szLiveSub === 'streams') {
-    if (curView !== 'streaming') { szRenderOnce('streaming'); go('streaming'); }
+    if (curView !== 'streaming') { try { renderView('streaming'); } catch (e) {} go('streaming'); }
     return;
   }
-  if (curView !== 'live') { szRenderOnce('live'); go('live'); }
+  if (curView !== 'live') { try { renderView('live'); } catch (e) {} go('live'); }
   szApplyLiveSub();
 }
 function szApplyLiveSub() {

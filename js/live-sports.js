@@ -364,7 +364,7 @@ async function liveSports(){
     window.addEventListener("scroll",()=>{ if(typeof curView!=="undefined"&&curView==="live")lsStickCheck(); },{passive:true});
   }
   const body=$("#livebody"); if(!body)return;
-  body.innerHTML=lsHeadHTML()+'<div style="color:var(--mut);font-size:13px;padding:8px 0">Loading channels…</div>';
+  if(!body.querySelector(".ls-row")) body.innerHTML=lsHeadHTML()+'<div style="color:var(--mut);font-size:13px;padding:8px 0">Loading channels…</div>'; // a warm/refresh pass never blanks a list that's already painted
   // fresh lineup + live/replay state on every open — loaded TOGETHER
   // (they used to queue one after another, and the state fetch alone
   // could hold the stage ~3s before anything played)
@@ -378,7 +378,6 @@ async function liveSports(){
     if(r&&r.ok){ const d=await r.json(); if(d&&typeof d==="object")LS_STATE=d; }
   }catch(e){} })();
   await Promise.all([pChans,pState]);
-  if(typeof curView!=="undefined"&&curView!=="live")return;
   if(typeof Live!=="undefined"&&Live.tab!=="sports")return;
   if(!LS_CHANS.length){
     body.innerHTML=lsHeadHTML()+'<div style="color:var(--mut);font-size:13px;padding:8px 0">Channels are on their way — check back soon.</div>';
@@ -388,6 +387,11 @@ async function liveSports(){
   LS_FAIL_LVL={}; LS_DEADCH=new Set(); // failure memory is per-visit, same as the order
   LS_ORDER=svShuffle(LS_CHANS.map(c=>c.channelId)); // fresh order on EVERY entry (his order)
   lsRender();
+  // WARM SPLIT (his order 2026-10-24: everything built in the background, every press
+  // instant): the channel LIST paints even while this pane is hidden — the boot warm
+  // engine pre-builds it. The player below stays entry-only: sound never starts behind
+  // another screen (one-audio law).
+  if(typeof curView!=="undefined"&&curView!=="live")return;
   // his order: the #1 channel (live-first sort) starts playing — with sound —
   // the moment the Sports section opens
   const first=lsSorted()[0];
