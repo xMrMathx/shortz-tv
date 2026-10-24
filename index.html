@@ -1907,6 +1907,11 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 .tg-sub{font-size:11px;color:var(--mut);margin-top:2px}
 .tg-watch{margin-left:auto;flex:none}
 .tg-row{display:flex;align-items:center;gap:12px;padding:9px 10px;border-radius:12px;cursor:pointer;border:1px solid transparent}
+.tg-livehead{display:flex;align-items:baseline;gap:8px;padding:14px 10px 6px;font-size:16px;font-weight:900;color:#fff}
+.tg-livehead span{color:#9a9aa2;font-size:12px;font-weight:700}
+.tg-livebadge{display:inline-flex;align-items:center;gap:5px;color:#ff2d55;font-size:11px;font-weight:900;flex:none;margin-left:auto}
+.tg-livebadge i{width:7px;height:7px;border-radius:50%;background:#ff2d55}
+.tg-replaybadge{display:inline-flex;align-items:center;color:#9a9aa2;font-size:11px;font-weight:900;flex:none;margin-left:auto}
 .tg-row:active,.tg-row.sel{background:#15151c;border-color:#2c2c36}
 /* live sports highlights strip in TV Guide */
 #tgHL{margin:14px 0 4px}
@@ -1955,6 +1960,7 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 .gm-pt{font-size:13px;color:#eee;line-height:1.4}
 .gm-pm{font-size:11px;color:var(--mut);margin-top:2px}
 .tg-rt{width:76px;height:43px;border-radius:8px;object-fit:cover;background:#1b1b22;flex:none}
+.tg-ltav{width:43px;height:43px;border-radius:50%}
 .tg-rtitle{font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tg-rsub{font-size:11px;color:var(--mut);margin-top:2px}
 .tg-rplay{margin-left:auto;color:#ff3b30;font-size:18px;flex:none;padding:4px 8px}
@@ -2484,7 +2490,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792860784";
+window.__SZ_BUILD = "1792868094";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2825,7 +2831,7 @@ function showErrorCard(node,vid,code){
   if(retryBtn)retryBtn.onclick=()=>{
     card.style.display="none";
     const e=(t&&t.episodes||[]).find(x=>(x.video_id||vidOf(x.url||""))===vid);
-    if(e&&typeof playEpisode==="function")playEpisode(e);
+    if(e&&typeof playEpisode==="function")playEpisode(e,true);
     else if(typeof loadVideoInto==="function"&&node){ loadVideoInto(node,(t&&t.url)||"",vid); }
   };
   const nextBtn=card.querySelector("[data-err-next]");
@@ -3532,6 +3538,7 @@ function go(v){
   if(curView==="manga"&&v!=="manga"&&typeof mangaExit==="function")mangaExit();
   if(v==="home"&&curView!=="home"&&homeMode==="stage")resumeFeedVideo(); // instant: iframe stayed warm (stage mode only — card mode has nothing to resume)
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
+  try{ closeComments(); }catch(e){} // never leave the comments drawer hanging over another view (his report 2026-10-24: the sheet sat open over Browse)
   TAB_BTNS.forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
   try{document.querySelectorAll("#deskNav button").forEach(b=>b.classList.toggle("on",b.dataset.nav===v||(v==="detail"&&b.dataset.nav===returnView)));}catch(e){}
   try{document.querySelectorAll("#sideBar button").forEach(b=>b.classList.toggle("on",b.dataset.nav===v||(v==="detail"&&b.dataset.nav===returnView)));}catch(e){}
@@ -5767,16 +5774,18 @@ function mountFeed(){
   });
   buildCardFeed();
 }
-/* Fresh home on every app open: when the app comes back to the foreground
-   after being away a while, start a new random video so it never feels
-   like the same stuff. Quick switches (under 30s) keep your place. */
+/* RETURN NEVER RESTARTS (his word 2026-10-24): the old "fresh home on
+   every app open" shuffle (new random video / re-dealt lineup after a
+   long absence) is REMOVED — coming back to the app keeps the same
+   video in the same place. _hiddenAt still stamps departures for the
+   stale-build guard below. */
 let _hiddenAt=0;
 /* STALE-BUILD GUARD v2 — bulletproof auto-update.
    The app shell (WebView) restores pages from memory and caches aggressively,
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792860784";
+const BUILD="1792868094";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -5807,7 +5816,7 @@ function _videoPlaying(){
     if(reel&&reel.classList&&reel.classList.contains("open"))return true;
     // TV Guide preview / highlights player.
     const pv=document.getElementById("tgPreviewBox");
-    if(pv&&pv._tid)return true;
+    if(pv&&(pv._tid||pv._liveCh))return true; // _liveCh added 2026-10-24: the guide's live-CHANNEL previews carry _liveCh, not _tid — the detector was blind to them, so a held update could reload over a live-channel watch (caught by probe_return2)
     // Card-feed preview (Home in card mode): playback lives in the active
     // card's own player (cfPlayer), NOT in a stage slide — the curSlide()
     // checks above are blind to it, and a freshness reload yanked a card
@@ -5818,8 +5827,7 @@ function _videoPlaying(){
         const cp=(typeof cfPlayer!=="undefined")?cfPlayer:null;
         if(cp&&typeof cp.getPlayerState==="function"){
           const cst=cp.getPlayerState();
-          if(cst===1||cst===3||cst===-1||cst===5)return true; // playing/buffering/loading
-          // paused or ended: a natural break — fall through.
+          if(cst===1||cst===3||cst===-1||cst===5||cst===2)return true; // playing/buffering/loading/PAUSED — a paused card is a watch in progress: the lock screen auto-pauses players, and reading that pause as a "natural break" reloaded the app on unlock (Ivory's report, 2026-10-24). Only ENDED (0) is a break — it falls through.
         }else{
           return true; // Vimeo or not-yet-wrapped iframe: active card plays by design
         }
@@ -5840,32 +5848,43 @@ function _videoPlaying(){
   return false;
 }
 /* Held-update watcher: while an update is pending, re-check every 2s and apply
-   it at the first natural break — media paused/ended, view switched, or the
-   app went to the background. There is NO time-based expiry: a held update
-   waits indefinitely rather than ever yanking a playing video. */
+   it at the first genuine break — media ENDED, view switched, or the next
+   cold boot. A held update NEVER applies over a watch, over a paused watch,
+   over an open game, or across a screen lock (RETURN NEVER RESTARTS, his
+   word 2026-10-24). */
 let _freshWatch=null;
 function _armFreshWatcher(){
   if(_freshWatch)return;
   _freshWatch=setInterval(()=>{
     if(!_fresh.pending){clearInterval(_freshWatch);_freshWatch=null;return;}
-    // Backgrounding is a natural break — EXCEPT PiP, where the video is
-    // still on screen in the floating window while the page reads hidden.
-    let pip=false;
-    try{ pip=!!(document.body&&document.body.classList&&document.body.classList.contains("pip")); }catch(e){}
-    // Bounded hold (2026-10-14): an update may wait for a natural
-    // break, but never indefinitely — after 25s it applies even over a
-    // card preview (the intent stash restores his place). It still
-    // never yanks the main stage player mid-movie. His complaint:
-    // updates took so long to reach the app that fixes looked broken.
+    // RETURN NEVER RESTARTS (his word 2026-10-24, Ivory's report).
+    // The 2026-10-14 watcher had two restart paths: its background
+    // branch applied a held update the moment the screen locked, and
+    // its 25s bounded hold applied even over a playing card preview —
+    // both rebooted the app out from under a watch. The bounded-hold
+    // mechanism stays (the game exemption's shape depends on it), but
+    // it is now only ever a break-accelerator: heldLong includes
+    // !_videoPlaying(), so no amount of waiting can fire it over a
+    // watch, and the apply itself additionally requires the page
+    // VISIBLE and no mid-watch departure (_wasWatching, snapshotted
+    // by the guard's own hidden handler before the feed tears its
+    // preview down). Updates still land promptly at view switches
+    // (previews stop there) and at the next cold boot (the boot check
+    // fires before anything plays) — they just never yank a watch.
     let _stage=false;
     try{ const _s=(typeof curSlide==="function")?curSlide():null; if(_s&&_s._vid&&!_s._paused)_stage=true; }catch(e){}
-    // Games are a natural-break-only surface, same as the stage player
-    // (Emulator Arcade, 2026-10-22): a held update must never force a
-    // reload over an open game — the session and its saves would die.
+    // Games are a natural-break-only surface (Emulator Arcade,
+    // 2026-10-22): a held update must never force a reload over an
+    // open game — the session and its saves would die.
     let _game=false;
     try{ const _gp=document.getElementById("gamePlayer"); if(_gp&&_gp.classList&&_gp.classList.contains("open")&&_gp.querySelector("iframe"))_game=true; }catch(e){}
-    const heldLong=_fresh.pendingAt&&(Date.now()-_fresh.pendingAt>25000)&&!_stage&&!_game;
-    if((document.hidden&&!pip)||!_videoPlaying()||heldLong){
+    const heldLong=_fresh.pendingAt&&(Date.now()-_fresh.pendingAt>25000)&&!_stage&&!_game&&!_videoPlaying();
+    if(_fresh._wasWatching&&!document.hidden){
+      // the live signal has taken over again, or she navigated away
+      // from the watch — either way the snapshot has done its job
+      if(_videoPlaying()||(typeof curView!=="undefined"&&curView!=="home"))_fresh._wasWatching=false;
+    }
+    if(!document.hidden&&!_fresh._wasWatching&&!_game&&(!_videoPlaying()||heldLong)){
       _fresh.pending=false; _fresh.pendingAt=0;
       clearInterval(_freshWatch);_freshWatch=null;
       forceFreshReload();
@@ -6054,20 +6073,19 @@ function _runFreshCheck(reason){
 // Manual trigger (debugging / future UI): window.checkForUpdates()
 window.checkForUpdates=()=>_runFreshCheck("manual");
 document.addEventListener("visibilitychange",()=>{
-  if(document.visibilityState==="hidden"){_hiddenAt=Date.now();return;}
+  if(document.visibilityState==="hidden"){_hiddenAt=Date.now(); try{ _fresh._wasWatching=_videoPlaying(); }catch(e){} return;}
   if(document.visibilityState!=="visible")return;
   if(piaActive)return; // don't interrupt PIA
   // ALWAYS check freshness on return — no stale builds, ever. No force-close needed.
   _runFreshCheck("visible").then(updated=>{
-    if(updated)return; // reload incoming — skip the feed shuffle
-    if(curView!=="home")return;
-    if(Date.now()-_hiddenAt<30000)return; // quick switch: keep your place
-    try{
-      // NEW HOME: in card mode a long absence re-deals the card lineup;
-      // in stage mode keep the old behavior (fresh video in the player).
-      if(homeMode==="cards"){ buildCardFeed(); }
-      else{ const t=pickRandom(feed.cur&&feed.cur.id); if(t)playSeries(t); }
-    }catch(e){}
+    if(updated)return; // reload incoming
+    // RETURN NEVER RESTARTS (his word 2026-10-24, from Ivory's report):
+    // leaving the screen and coming back lands on the SAME video in the
+    // SAME place. The old "fresh home" shuffle re-dealt the whole card
+    // lineup (or dealt a random stage video) after 30s away, so every
+    // return restarted her watch from zero. The card preview resumes on
+    // its own through the cfRecompute visibility handler + the banked
+    // position; the stage iframe stays warm. Nothing to do here.
   });
 });
 // bfcache restores (back button) don't reliably fire visibilitychange — catch them here.
@@ -6539,8 +6557,14 @@ function loadVideoInto(node,url,vid){
       try{fr.contentWindow.postMessage(JSON.stringify({method:"addEventListener",value:"ended"}),"*")}catch(e){}
       const s=prog[vid]||0;
       if(s>5){
-        try{fr.contentWindow.postMessage(JSON.stringify({method:"seekTo",value:s}),"*")}catch(e){}
-        flashResume(node,s);
+        // near-end guard (mirrors maybeResume): a bank within 10s of
+        // the end is a finished episode, never a resume point
+        const d=progDur[vid]||0;
+        if(d>0&&s>d-10){ delete prog[vid]; delete progTime[vid]; try{store.set("progress",prog);store.set("progressTime",progTime);}catch(e){} }
+        else{
+          try{fr.contentWindow.postMessage(JSON.stringify({method:"seekTo",value:s}),"*")}catch(e){}
+          flashResume(node,s);
+        }
       }
       if(ccLang){vimeoCc(node,ccLang);markCc(node,true);}
       try{suggestFit(node)}catch(e){}
@@ -6946,7 +6970,9 @@ function cfActivate(card){
       if(v.readyState>=3||v.currentTime>0)return;
       try{ v.muted=true; const pw=v.play(); if(pw&&pw.catch)pw.catch(()=>{}); }catch(e){}
       setTimeout(()=>{ if(cfActive!==card||!v.isConnected)return;
-        if(v.readyState<3&&v.currentTime===0)cfDead(); },2500);
+        if(v.readyState<3&&v.currentTime===0)cfDead();
+        else if(soundOn){ try{ v.muted=false; }catch(e){} } // muted-retry landed: give the sound back (2026-10-24)
+      },2500);
     },2500);
     media.appendChild(v);
     card.classList.add("playing");
@@ -7016,10 +7042,16 @@ function cfSoundArm(kind,player,card){
     try{
       if(kind==="yt"){
         const st=player.getPlayerState();
-        if(st!==1&&st!==3){ try{ player.mute(); player.playVideo(); }catch(e){} }
+        /* SOUND-CUT FIX (his report 2026-10-24: audio dies mid-watch and
+           never returns): the muted-start rescue may only mute a session
+           that has no sound yet. Once soundOn is true the rescue drives
+           AUDIBLE like the app shell — muting a sound-on player here was
+           parking cards silent forever (the watchdog then saw "playing"
+           and stopped, and the one-shot first-touch arm was long gone). */
+        if(st!==1&&st!==3){ try{ if(soundOn){ player.unMute(); player.setVolume(100); }else{ player.mute(); } player.playVideo(); }catch(e){} }
       }else if(kind==="vm"){
         player.getPaused().then(paused=>{
-          if(paused&&stillMine()){ try{ player.setVolume(0); const p2=player.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} }
+          if(paused&&stillMine()){ try{ player.setVolume(soundOn?1:0); const p2=player.play(); if(p2&&p2.catch)p2.catch(()=>{}); }catch(e){} }
         }).catch(()=>{});
       }
     }catch(e){}
@@ -7035,7 +7067,9 @@ function cfSoundArm(kind,player,card){
      context: the app asked for sound in the embed (mute=0) and sound
      is on from boot, so it re-drives AUDIBLE — unMute + volume + play;
      the web keeps its muted-start rescue (the only start the browser
-     allows; sound there is the first-touch arm's job). Stops the
+     allows; sound there is the first-touch arm's job) ONLY while
+     soundOn is still false — once the session has sound, the web
+     rescue drives audible too (2026-10-24 sound-cut fix). Stops the
      moment the player is PLAYING. */
   let cfTries=0;
   const cfTick=()=>{
@@ -7046,10 +7080,10 @@ function cfSoundArm(kind,player,card){
       if(kind==="yt"){
         const st=player.getPlayerState();
         if(st===1)done=true;
-        else if(st!==3){ try{ if(WEBCTX){ player.mute(); }else{ player.unMute(); player.setVolume(100); } player.playVideo(); }catch(e){} }
+        else if(st!==3){ try{ if(WEBCTX&&!soundOn){ player.mute(); }else{ player.unMute(); player.setVolume(100); } player.playVideo(); }catch(e){} }
       }else if(kind==="vm"){
         player.getPaused().then(paused=>{
-          if(paused&&stillMine()){ try{ player.setVolume(WEBCTX?0:1); const p3=player.play(); if(p3&&p3.catch)p3.catch(()=>{}); }catch(e){} }
+          if(paused&&stillMine()){ try{ player.setVolume(WEBCTX&&!soundOn?0:1); const p3=player.play(); if(p3&&p3.catch)p3.catch(()=>{}); }catch(e){} }
         }).catch(()=>{});
       }
     }catch(e){}
@@ -7118,7 +7152,7 @@ function cfApplyResume(card){
 function cfOpenFromCard(card,t){
   cfCapturePos().then(()=>{
     const pe=t._cfEp;
-    if(pe&&pe.verified&&pe.url){ playSeries(t); playEpisode(pe); }
+    if(pe&&pe.verified&&pe.url){ playSeries(t); playEpisode(pe,true); }
     else playSeries(t);
   });
 }
@@ -7249,6 +7283,7 @@ function cfOnScroll(){
 /* --- mode switching: cards <-> the existing full-screen stage --- */
 function cfEnterStage(){
   homeMode="stage";
+  try{ closeComments(); }catch(e){} // the drawer belongs to the surface that opened it
   cfStopPreview();
   const f=$("#cfeed"), s=$("#feedStage"), b=$("#cfBack");
   if(f)f.style.display="none";
@@ -7258,6 +7293,7 @@ function cfEnterStage(){
 function showCardFeed(fresh){
   try{ const cs=curSlide(); if(cs)saveProg(cs); }catch(e){} // continuity: bank the stage position before going back to the cards
   try{ pauseFeedVideo(); }catch(e){}
+  try{ closeComments(); }catch(e){} // the drawer belongs to the surface that opened it
   homeMode="cards";
   const f=$("#cfeed"), s=$("#feedStage"), b=$("#cfBack");
   if(s)s.style.display="none";
@@ -7297,7 +7333,7 @@ if(WEBCTX){
         else if(cfPlayerKind==="vm"){ try{ if(cfPlayer.setMuted)cfPlayer.setMuted(false); cfPlayer.setVolume(1); const p=cfPlayer.play(); if(p&&p.catch)p.catch(()=>{}); hit=true; }catch(e){} }
         else if(cfPlayerKind==="archive"){ try{ cfPlayer.unMute(); cfPlayer.setVolume(100); cfPlayer.playVideo(); hit=true; }catch(e){} }
         if(!hit)needRetry=true;
-      }
+      }else if(cfActive){ needRetry=true; } // a card is previewing but its player object hasn't landed yet — the upgrade has nowhere to land, so the arm stays armed (Brain audit 2026-10-24)
     }catch(e){}
     try{
       const s=curSlide();
@@ -7872,9 +7908,18 @@ function epIdxOf(eps,vid){
   }
   return -1;
 }
-function playEpisode(e){
+function playEpisode(e,keep){
   const t=feed.cur; if(!t||!e||!e.verified||!e.url)return;
   feed.curEp=e;
+  // EPISODES START AT THE BEGINNING (his law, 2026-10-24): an episode
+  // entered as a NEW start — the binge auto-advance, an episode-row
+  // tap, an auto-skip — never inherits a saved position. A stale bank
+  // (left by an ambient card preview or an old session) used to ride
+  // into the next episode and start it at its end. The bank for THIS
+  // episode is wiped before the load, so no resume path can apply it.
+  // keep=true is only for same-watch handoffs (card -> stage on the
+  // episode already playing, error retry of the current episode).
+  if(!keep){ try{ const v=e.video_id||vidOf(e.url||""); if(v&&(prog[v]||progTime[v]||progDur[v])){ delete prog[v]; delete progTime[v]; delete progDur[v]; store.set("progress",prog); store.set("progressTime",progTime); store.set("progressDur",progDur); } }catch(err){} }
   closeEpDrawer();
   const slide=curSlide();
   hideErrorCard(slide);
@@ -8634,6 +8679,24 @@ function collapseEmptyLanding(){
   if(pk&&pk.children.length===0){ pk.style.display="none"; const lb=document.getElementById("scoutPicksLabel"); if(lb)lb.style.display="none"; }
   const dr=document.getElementById("browseScoutDoor");
   if(dr&&!dr.innerHTML.trim()) dr.style.display="none";
+  try{ sweepLandingGaps(); }catch(e){}
+}
+/* his screenshots kept showing a tall dead band on the landing that no
+   local repro could produce (2026-10-24, twice). Whatever box renders
+   tall and EMPTY on his phone — no text, no picture, no control — takes
+   no space: the sweep hides any such box anywhere in the landing stack,
+   so the sections can never be pried apart by an empty one again. A
+   real section always carries text or media, so it is never touched. */
+function sweepLandingGaps(){
+  const L=document.getElementById("browseLanding"); if(!L)return;
+  L.querySelectorAll("*").forEach(el=>{
+    if(el.id==="featHero"||el.id==="featTrack")return;
+    if(el.querySelector("img,video,iframe,canvas,svg,input,button"))return;
+    if((el.innerText||"").trim())return;
+    const r=el.getBoundingClientRect();
+    if(r.height<56||r.width<60)return;
+    el.style.display="none";
+  });
 }
 function paintDiscovery(){
   try{ // Continue Watching — his own history, most recent first
@@ -8688,8 +8751,8 @@ function renderBrowseLanding(){
     <div class="wrap"><div class="award-sec" id="discCwSec" style="display:none">
       <div class="award-head"><h3>Continue watching</h3><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">See all</button></div>
       <div class="award-row" id="discCwRow"></div>
-    </div></div>
-    <div class="wrap"><div class="top10-sec" id="top10sec" style="display:none">
+    </div>
+    <div class="top10-sec" id="top10sec" style="display:none">
       <div class="top10-head"><h3>Top 10 today</h3></div>
       <div class="top10-row" id="top10row"></div>
     </div></div>
@@ -8761,6 +8824,7 @@ function renderBrowseLanding(){
     if("requestIdleCallback" in window) requestIdleCallback(later,{timeout:900});
     else setTimeout(later,300);
     setTimeout(()=>{ if(window.__discRowToken===tk){ try{ collapseEmptyLanding(); }catch(e){} } },2600);
+    setTimeout(()=>{ if(window.__discRowToken===tk){ try{ collapseEmptyLanding(); }catch(e){} } },5200);
   }catch(e){}
   document.querySelectorAll("#view-browse [data-gtile]").forEach(b=>{ b.onclick=()=>{
     const g=b.dataset.gtile;
@@ -9706,7 +9770,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792860784"></script>
+<script src="js/folders.js?v=1792868094"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10519,10 +10583,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792860784"></script>
-<script src="js/shortz-live.js?v=1792860784"></script>
-<script src="js/games.js?v=1792860784"></script>
-<script src="js/podcasts.js?v=1792860784"></script>
+<script src="js/streaming.js?v=1792868094"></script>
+<script src="js/shortz-live.js?v=1792868094"></script>
+<script src="js/games.js?v=1792868094"></script>
+<script src="js/podcasts.js?v=1792868094"></script>
 <script>
 
 
@@ -11040,7 +11104,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792860784"></script>
+<script src="js/swipe.js?v=1792868094"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12055,7 +12119,7 @@ const TUTS=[
   {icon:"👤",title:"Your Profile Button",
    body:"Your picture sits at the top center of the screen. Tap it to open your whole profile — your list, your history, your settings — all in one long card."},
   {icon:"🔴",title:"Live Is All Live",
-   body:"Live holds everything live in one card: streams, the TV guide, live sports and watch parties. Flip between them with the toggles at the top of the card."},
+   body:"Live holds everything live in one card: streams, live sports and watch parties. Flip between them with the toggles at the top of the card. The TV guide lives in your Profile — free live channels at the top, then every show."},
   {icon:"🎤",title:"Talk To It",
    body:"Tap the mic in the middle of the bar and say “take me to manga” — or “play”, “pause”, “next”, “mute”. Hands-free."}
 ];
@@ -13272,7 +13336,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792860784"></script>
+<script src="js/live-sports.js?v=1792868094"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -14574,7 +14638,7 @@ window.ScoutBattles={roster:ROSTER.map(function(r){return r.id;}),state:window.S
    hooks silence whatever was playing behind it. The hub machinery stays dormant. */
 var szStack = [];              // open door entries, back -> front: 'browse' | 'live' | 'play'
 var szProfileOpen = false;
-var szLiveSub = 'streams';     // streams | guide | sports | party
+var szLiveSub = 'streams';     // streams | sports | party (TV guide lives in Profile — his order 2026-10-24)
 var SZ_DOOR_VIEW = { browse: 'browse', play: 'games' };
 var SZ_DOOR_LABEL = { browse: '🧭 BROWSE', live: '🔴 LIVE', play: '🎮 PLAY' };
 function szFront() { return szStack.length ? szStack[szStack.length - 1] : null; }
@@ -14663,11 +14727,19 @@ function szApplyLiveSub() {
   if (curView !== 'live') return;
   var want = szLiveSub === 'party' ? 'lobby' : 'sports';
   if (window.Live && Live.tab !== want) { Live.tab = want; try { renderLive(); } catch (e) {} }
-  if (szLiveSub === 'guide') {
-    setTimeout(function () { var el = document.getElementById('lsScore'); if (el) el.scrollIntoView({ block: 'start' }); }, 60);
-  } else if (szLiveSub === 'sports') {
+  if (szLiveSub === 'sports') {
     setTimeout(function () { try { SZ_TOP(0); } catch (e) { window.scrollTo(0, 0); } }, 60);
   }
+}
+/* START AT THE TOP (his order 2026-10-24): every door press opens its
+   card at the very top. The page is the scroller for every pane, so an
+   un-reset press inherited the last pane's scroll depth and the card
+   opened dragged down to the middle. Door OPENS reset the page scroll;
+   closes and strip reveals keep their place. */
+function szTopScroll() {
+  try { window.scrollTo(0, 0); } catch (e) {}
+  try { document.documentElement.scrollTop = 0; } catch (e) {}
+  if (document.body) { try { document.body.scrollTop = 0; } catch (e) {} }
 }
 function szDoor(entry) {
   window.__szDoorNavFresh = Date.now();
@@ -14675,6 +14747,7 @@ function szDoor(entry) {
   if (entry === 'watch') {
     szStack = [];
     if (curView !== 'home') go('home');
+    szTopScroll();
     szSync(); return;
   }
   var i = szStack.indexOf(entry);
@@ -14684,9 +14757,9 @@ function szDoor(entry) {
     var f = szFront();
     if (f) szGoEntry(f); else if (curView !== 'home') go('home');
   } else if (i >= 0) {                            // in the stack: pull to front
-    szStack.splice(i, 1); szStack.push(entry); szSync(); szGoEntry(entry);
+    szStack.splice(i, 1); szStack.push(entry); szSync(); szGoEntry(entry); szTopScroll();
   } else {                                        // open it, on top
-    szStack.push(entry); szSync(); szGoEntry(entry);
+    szStack.push(entry); szSync(); szGoEntry(entry); szTopScroll();
   }
   szSync();
 }
@@ -14710,6 +14783,7 @@ function szProfileTap() {
     szSync();
     szRenderOnce('profile');
     go('profile');
+    szTopScroll();
     refreshProfileBtn();
   }
   szSync();
@@ -14725,7 +14799,6 @@ function szEnsureLiveTabs() {
     bar = document.createElement('div');
     bar.id = 'szLiveTabs';
     bar.innerHTML = '<button class="szlt" data-lt="streams">📡 Streams</button>' +
-      '<button class="szlt" data-lt="guide">🏆 TV Guide</button>' +
       '<button class="szlt" data-lt="sports">⚽ Live Sports</button>' +
       '<button class="szlt" data-lt="party">🎉 Watch Party</button>';
     bar.querySelectorAll('.szlt').forEach(function (b) {

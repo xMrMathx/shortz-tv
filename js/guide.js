@@ -57,6 +57,7 @@ function tgMore(){
 }
 function tgPreview(id,_skip){
   const t=byId(id); if(!t)return;
+  TG_LIVE_TOKEN++;
   document.querySelectorAll("#tgList .tg-row").forEach(r=>r.classList.toggle("sel",r.dataset.id===id));
   const fr=$("#tgFrame"); if(!fr)return;
   const url=tgEmbed(t);
@@ -72,8 +73,8 @@ function tgPreview(id,_skip){
   // ENDED handler, no sound arm) was ever attached. That ordering bug is
   // the root cause of the guide's dead auto-advance; the Vimeo leg only
   // worked because its arm defers through a promise.
-  fr._tid=t.id;
-  const pv=$("#tgPreviewBox"); if(pv)pv._tid=t.id;
+  fr._tid=t.id; fr._liveCh=null;
+  const pv=$("#tgPreviewBox"); if(pv){ pv._tid=t.id; pv._liveCh=null; }
   if(url){fr.innerHTML=`<iframe src="${url}" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;tgArmEnd(t);}
   else if(isArchiveUrl(t.url)){
     // archive.org titles (11,144 in the catalog) have no embed iframe —
@@ -110,19 +111,122 @@ function tgPreview(id,_skip){
   }
   const wb2=$("#tgWatch"); if(wb2)wb2.style.display="";
 }
+/* ---------- The free live channels at the TOP of the guide (his order
+   2026-10-24: the free live channels and the guide are one guide now —
+   the live channels first, in their order, then the regular movies and
+   series). These are the Free Live Sports channels (LS_CHANS from
+   live-sports.json, live state from yt-live.json — the same list that
+   plays in the Live card). Tapping one previews it right here in the
+   guide's own player via lsEmbed (live broadcast, else the latest
+   replay), sound-first, under the same patient-unmute discipline as
+   lsPlay. ---------- */
+let TG_LIVE_TOKEN=0, TG_LIVE_PLAYER=null, _tgLiveLoading=false;
+function tgLoadLive(){
+  if(LS_CHANS.length||_tgLiveLoading)return;
+  _tgLiveLoading=true;
+  const pChans=(async()=>{ try{
+    const r=await fetch("live-sports.json",{cache:"no-store"});
+    if(r.ok){ const d=await r.json(); if(d&&Array.isArray(d.channels)&&d.channels.length)LS_CHANS=d.channels; }
+  }catch(e){} })();
+  const pState=(async()=>{ try{
+    const to=new Promise((_,rej)=>setTimeout(rej,1500));
+    const r=await Promise.race([fetch("yt-live.json",{cache:"no-store"}),to]);
+    if(r&&r.ok){ const d=await r.json(); if(d&&typeof d==="object")LS_STATE=d; }
+  }catch(e){} })();
+  Promise.all([pChans,pState]).then(()=>{ _tgLiveLoading=false; tgPaintLive(); }).catch(()=>{ _tgLiveLoading=false; });
+}
+function tgLiveRowHTML(ch){
+  const live=(typeof lsIsLive==="function")&&lsIsLive(ch), s=(typeof lsState==="function")?lsState(ch):{};
+  const whatsOn=live?(s.latestTitle||"Live broadcast on now"):(s.latestTitle?("↻ Replay · "+s.latestTitle):(ch.blurb||"Replays · live events return soon"));
+  const badge=live?'<span class="tg-livebadge"><i></i>LIVE NOW</span>':'<span class="tg-replaybadge">↻ REPLAY</span>';
+  return '<div class="tg-row" data-tglive="'+esc(ch.channelId)+'">'
+    +'<img class="tg-rt tg-ltav" loading="lazy" src="'+esc(ch.avatar||"")+'" alt="" onerror="this.style.display=\'none\'">'
+    +'<div style="flex:1;min-width:0"><div class="tg-rtitle">'+esc(ch.name)+'</div>'
+    +'<div class="tg-rsub">'+esc(ch.sport||"Sports")+' · '+esc(whatsOn)+'</div></div>'
+    +badge+'</div>';
+}
+function tgPaintLive(){
+  const box=$("#tgLive"); if(!box)return;
+  if(!LS_CHANS.length){ tgLoadLive(); return; }
+  const chans=(typeof lsSorted==="function")?lsSorted():LS_CHANS;
+  box.innerHTML='<div class="tg-livehead">📺 Free Live Sports<span>Free live channels</span></div>'+chans.map(tgLiveRowHTML).join("");
+  box.querySelectorAll("[data-tglive]").forEach(b=>{ b.onclick=()=>{ const ch=LS_CHANS.find(c=>c.channelId===b.dataset.tglive); if(ch)tgPreviewLive(ch); }; });
+  const fr=$("#tgFrame");
+  if(fr&&fr._liveCh)box.querySelectorAll("[data-tglive]").forEach(b=>b.classList.toggle("sel",b.dataset.tglive===fr._liveCh));
+}
+function tgLiveStart(){
+  const fr=$("#tgFrame"); if(!fr||fr.querySelector("iframe,video"))return false;
+  if(!LS_CHANS.length)return false;
+  const chans=(typeof lsSorted==="function")?lsSorted():LS_CHANS;
+  tgPreviewLive(chans[0]); return true;
+}
+function tgPreviewLive(ch){
+  const fr=$("#tgFrame"); if(!fr)return;
+  TG_LIVE_TOKEN++;
+  document.querySelectorAll("#tgList .tg-row").forEach(r=>r.classList.remove("sel"));
+  document.querySelectorAll("#tgLive .tg-row").forEach(r=>r.classList.toggle("sel",r.dataset.tglive===ch.channelId));
+  try{ tgWatchEnd(); }catch(e){}
+  fr._tid=null; fr._liveCh=ch.channelId;
+  const pv=$("#tgPreviewBox"); if(pv){ pv._tid=null; pv._liveCh=ch.channelId; }
+  const tt=$("#tgTitle"); if(tt)tt.textContent=ch.name||"Live Sports";
+  const ts=$("#tgSub"); if(ts)ts.textContent=((typeof lsIsLive==="function"&&lsIsLive(ch))?"🔴 LIVE · ":"↻ Replay · ")+(ch.sport||"Sports");
+  const im=$("#tgThumb"); if(im){ im.src=ch.avatar||""; im.style.display=ch.avatar?"":"none"; }
+  const ph=$("#tgPh"); if(ph)ph.style.display="none";
+  fr.innerHTML='<iframe id="tgLiveFrame" src="'+lsEmbed(ch)+'" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>';
+  const wb=$("#tgWatch"); if(wb)wb.style.display="none";
+  tgArmLiveSound(TG_LIVE_TOKEN);
+}
+function tgArmLiveSound(token){
+  const fr=$("#tgLiveFrame"); if(!fr||typeof ensureYT!=="function")return;
+  ensureYT(()=>{
+    if(token!==TG_LIVE_TOKEN)return;
+    const f2=$("#tgLiveFrame"); if(!f2||f2!==fr)return;
+    try{
+      TG_LIVE_PLAYER=new YT.Player(f2,{events:{onReady:(e)=>{
+        if(token!==TG_LIVE_TOKEN)return;
+        try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(_){}
+        let tries=0;
+        const iv=setInterval(()=>{
+          if(token!==TG_LIVE_TOKEN){ clearInterval(iv); return; }
+          tries++;
+          let st=-1, muted=false;
+          try{ st=e.target.getPlayerState(); muted=e.target.isMuted(); }catch(_){}
+          if(st===1){ if(muted){ try{ e.target.unMute(); e.target.setVolume(100); }catch(_){} } clearInterval(iv); return; }
+          if(st===3){ if(tries>=10)clearInterval(iv); return; }
+          try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(_){}
+          if(tries>=6){ clearInterval(iv); try{ e.target.mute(); e.target.playVideo(); }catch(_){} }
+        },1500);
+      }}});
+    }catch(_){}
+  });
+}
 /* entry hook for go(): tab entry renders BEFORE curView flips, so
    the render above correctly stays silent; go() calls this once
    Profile is actually current and starts the preview then. */
-window.__tgStartGuide=function(){ try{ const fr=$("#tgFrame"); if(fr&&!fr.querySelector("iframe,video")&&typeof tgList!=="undefined"&&tgList&&tgList.length)tgPreview(tgList[0].id); }catch(e){} };
+window.__tgStartGuide=function(){ try{ const fr=$("#tgFrame"); if(fr&&!fr.querySelector("iframe,video")){
+  // RETURN NEVER RESTARTS (his word 2026-10-24): a screen-lock return
+  // resumes the channel/show she was previewing (stashed by tgPause,
+  // honored only on the visibility path within 20 minutes) — a plain
+  // Profile entry still opens on the first show as designed — the
+  // free live channels sit at the top of the LIST (his merge order)
+  // and play in this same preview when tapped.
+  if(window.__tgResume){ window.__tgResume=false; const rc=fr._resumeLiveCh, rt=fr._resumeTid, ra=fr._resumeAt||0; fr._resumeLiveCh=null; fr._resumeTid=null;
+    if(Date.now()-ra<1200000){
+      if(rc&&typeof LS_CHANS!=="undefined"){ const ch=LS_CHANS.find(c=>c.channelId===rc); if(ch){ tgPreviewLive(ch); return; } }
+      if(rt&&typeof tgList!=="undefined"&&tgList&&tgList.some(t=>t.id===rt)){ tgPreview(rt); return; }
+    }
+  }
+  if(typeof tgList!=="undefined"&&tgList&&tgList.length)tgPreview(tgList[0].id); } }catch(e){} };
 function tgPause(){
+  TG_LIVE_TOKEN++;
   const fr=$("#tgFrame");
-  if(fr){fr.innerHTML="";fr._tid=null;}
+  if(fr){ try{ fr._resumeTid=fr._tid||null; fr._resumeLiveCh=fr._liveCh||null; fr._resumeAt=Date.now(); }catch(e){} fr.innerHTML="";fr._tid=null;fr._liveCh=null; }
   /* the stuck box is position:fixed — pausing alone left a black box
      glued to the viewport that followed him around the app (his report
      + screenshot 2026-10-21). Losing the room ALWAYS unsticks: the box
      goes back into the Profile flow and the spacer goes away. */
   const pv=$("#tgPreviewBox");
-  if(pv){ pv.classList.remove("stuck"); pv._stickTop=null; }
+  if(pv){ pv.classList.remove("stuck"); pv._stickTop=null; pv._tid=null; pv._liveCh=null; } // the preview is gone — clear its playing flags too, or _videoPlaying() reads a ghost guide forever (2026-10-24)
   const ph=$("#tgStickPh"); if(ph)ph.remove();
   tgWatchEnd();
 }
@@ -130,7 +234,7 @@ function tgPause(){
    pages after a tab switch): the guide preview plays WITH SOUND by his
    order, so it must cut when the tab hides — same stop/recompute pair
    the Home feed uses (cfStopPreview/cfRecompute). */
-document.addEventListener("visibilitychange",()=>{ if(document.hidden){ try{tgPause();}catch(e){} } else if(typeof curView!=="undefined"&&curView==="profile"){ try{ if(window.__tgStartGuide)window.__tgStartGuide(); }catch(e){} } });
+document.addEventListener("visibilitychange",()=>{ if(document.hidden){ try{tgPause();}catch(e){} } else if(typeof curView!=="undefined"&&curView==="profile"){ try{ window.__tgResume=true; if(window.__tgStartGuide)window.__tgStartGuide(); }catch(e){} } });
 /* ---------- guide sound: previews play WITH SOUND (his order) ----------
    tgEmbed requests an audible start; the APK shell permits it
    (setMediaPlaybackRequiresUserGesture(false) in MainActivity). PLAYBACK
@@ -285,15 +389,17 @@ function renderTvGuide(){
     <div class="searchbar"><input id="tgSearch" type="text" placeholder="🔍 Search the guide…" autocomplete="off" enterkeyhint="search"></div>
     <div id="tgHL"></div>
     <div id="tgScore"></div>
+    <div id="tgLive"></div>
     <div id="tgList"></div>
     <div id="tgEmpty" class="empty" style="display:none">No shows found.</div>`;
   tgMore();
+  try{ tgPaintLive(); }catch(e){}
   // preview the first show so the box isn't empty — ONLY when
   // Profile is truly the current screen. A build that happens
   // off-screen (swipe peek / neighbor pre-build) must stay silent:
   // an autoplaying guide under another tab had no exit hook, and
   // its audio never stopped (his report, 2026-10-14).
-  if(tgList.length&&curView==="profile")tgPreview(tgList[0].id);
+  if(curView==="profile"){ if(tgList.length)tgPreview(tgList[0].id); }
   renderTgHighlights(true);
   renderTgScoreboard(true);
   tgRefreshGuideData(); // guide opens on live data, same as Home — see below
