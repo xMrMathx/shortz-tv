@@ -2490,7 +2490,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792883072";
+window.__SZ_BUILD = "1792884381";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2675,6 +2675,25 @@ function artBg(t){const h=hash(t),h1=h%360,h2=(h1+45+(h%70))%360;
   return `radial-gradient(120% 90% at 20% 10%, hsl(${h1},60%,30%), transparent 60%),linear-gradient(155deg,hsl(${h1},58%,24%),hsl(${h2},62%,9%) 75%)`}
 /* real cover art: YouTube thumbnails, vumbnail for the one Vimeo title */
 function ytId(u){const s=String(u||"");let m=s.match(/youtube\.com\/embed\/([A-Za-z0-9_-]{6,})/);if(m)return m[1];m=s.match(/[?&]v=([A-Za-z0-9_-]{6,})/);return m?m[1]:""}
+/* SELF-HEALING POSTERS (2026-10-24, his blank-art report — "no pictures anywhere"):
+   a poster that fails ONCE must never stay failed. The old onerror hid the img
+   forever, so any single hiccup — a flaky request, a stale cache state, one
+   image host refusing the phone — blanked art app-wide while videos (a
+   different path) kept playing. The heal chain: (1) retry the same file once,
+   cache-busted; (2) for YouTube art, pull the SAME file from the mirror host
+   img.youtube.com; (3) only then give up and hide. Regression-locked by
+   probe_art2 (Guard id 'art'): posters must actually paint, and must paint
+   via the mirror when the main host is dead. */
+function szImgErr(img){
+  try{
+    if(!img.dataset.szorig) img.dataset.szorig=img.getAttribute("src")||"";
+    var orig=img.dataset.szorig, step=+(img.dataset.szerr||0);
+    if(!orig){ img.style.display="none"; return; }
+    if(step===0){ img.dataset.szerr="1"; img.src=orig+(orig.indexOf("?")>=0?"&":"?")+"szr=1"; }
+    else if(step===1 && orig.indexOf("i.ytimg.com")>=0){ img.dataset.szerr="2"; img.src=orig.replace("i.ytimg.com","img.youtube.com"); }
+    else { img.style.display="none"; }
+  }catch(e){ try{ img.style.display="none"; }catch(_){} }
+}
 function thumb(t,sz){
   const u=t.url||((t.episodes&&t.episodes[0]&&t.episodes[0].url)||"");
   const vm=u.match(/vimeo\.com\/(?:video\/)?(\d+)/); // per-video thumbnail, not one shared face
@@ -3094,7 +3113,7 @@ function cardHTML(t){
   const sub=[t.runtime||"",((GICON[t.genre]||"")+" "+(t.genre||"")).trim()].filter(x=>x&&String(x).trim()).join(" · ");
   return `<div class="vcard" data-id="${t.id}">
     <div class="vthumb" style="background:${artBg(t.title)}">
-      <img decoding="async" src="${sm}" alt="" loading="lazy" onerror="this.style.display='none'">
+      <img decoding="async" src="${sm}" alt="" loading="lazy" onerror="szImgErr(this)">
       <span class="epsbadge">${esc(t.eps)}</span>
       ${awBadge}
       ${newBadge}
@@ -5785,7 +5804,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792883072";
+const BUILD="1792884381";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6816,7 +6835,7 @@ function cfCardHTML(t){
   const lc=(window.Likes&&Likes.cache)?likesCount(t.id):0;
   return `<article class="cfcard" data-id="${t.id}">
     <div class="cfmedia" data-cf-media style="background:${artBg(t.title)}">
-      ${art?`<img class="cfart" src="${art}" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`:""}
+      ${art?`<img class="cfart" src="${art}" alt="" loading="lazy" decoding="async" onerror="szImgErr(this)">`:""}
       ${badge?`<span class="cfbadge">${badge}</span>`:""}
       ${dur?`<span class="cfdur">${dur}</span>`:""}
       <span class="cfplay">▶</span>
@@ -8039,7 +8058,7 @@ function openDetail(id){
   const big=thumb(t,"hq"); // hqdefault always exists for valid videos; sddefault 404s into a placeholder trap on some videos
   $("#view-detail").innerHTML=`
     <section id="detailArt">
-      <div class="art-kb grain" style="background:${artBg(t.title)}">${big?`<img decoding="async" src="${big}" alt="" onerror="this.style.display='none'">`:""}</div>
+      <div class="art-kb grain" style="background:${artBg(t.title)}">${big?`<img decoding="async" src="${big}" alt="" onerror="szImgErr(this)">`:""}</div>
       <div class="art-scrim"></div>
       <div class="art-shimmer"></div>
       <button class="backbtn" id="dBack" aria-label="Back">‹</button>
@@ -8268,7 +8287,7 @@ async function renderComingSoon(){
     items.sort((a,b)=>String(a.drop_date||"").localeCompare(String(b.drop_date||"")));
     row.innerHTML=items.map(x=>{
       const img=x.thumb
-        ? `<img decoding="async" src="${esc(x.thumb)}" alt="" loading="lazy" onerror="this.style.display='none'">`
+        ? `<img decoding="async" src="${esc(x.thumb)}" alt="" loading="lazy" onerror="szImgErr(this)">`
         : `<div class="cs-noimg">🔜<br>${esc(x.title)}</div>`;
       const award=x.award?`<div class="cs-award">🏆 ${esc(x.award)}</div>`:"";
       return `<div class="cs-item">
@@ -8307,7 +8326,7 @@ function loadAwardCarousels(){
     row.innerHTML=items.map(t=>{
       const eps=t.eps||t.episodes||[];
       return `<div class="award-item" data-aid="${t.id}">
-        <img decoding="async" src="${esc(thumb(t,"hq"))}" alt="" loading="lazy" onerror="this.style.display='none'">
+        <img decoding="async" src="${esc(thumb(t,"hq"))}" alt="" loading="lazy" onerror="szImgErr(this)">
         <span class="awardbadge" style="top:6px;left:6px" title="Award winner">🏆</span>
         <div class="award-t">${esc(t.title)}</div>
         <div class="award-e">${eps.length>1?eps.length+" episodes":"Short film"}</div>
@@ -8343,7 +8362,7 @@ async function loadTop10File(secId,rowId,file,cacheKey){
       return `
       <div class="top10-item${i+1>=10?" wide":""}" data-tid="${esc(t.id)}">
         <div class="top10-num">${i+1}</div>
-        <img decoding="async" src="${esc(t.thumb)}" alt="" loading="lazy" onerror="this.style.display='none'">
+        <img decoding="async" src="${esc(t.thumb)}" alt="" loading="lazy" onerror="szImgErr(this)">
         ${awb}
         <div class="top10-t">${esc(t.title)}</div>
         <div class="top10-v">${fmtViews(t.views||0)}</div>
@@ -8626,7 +8645,7 @@ function discCwRow(list){
     else if(eps.length===1){ const p=prog[eps[0].video_id]||0, d=progDur[eps[0].video_id]||0; frac=(p>0&&d>0)?Math.min(1,p/d):-1; }
     return `<div class="vcard cw-card" data-id="${t.id}">
       <div class="vthumb" style="background:${artBg(t.title)}">
-        <img decoding="async" src="${esc(thumb(t,"mq"))}" alt="" loading="lazy" onerror="this.style.display='none'">
+        <img decoding="async" src="${esc(thumb(t,"mq"))}" alt="" loading="lazy" onerror="szImgErr(this)">
         ${epN?`<span class="cw-ep">Ep ${epN}</span>`:""}
       </div>
       ${frac>=0?`<div class="cw-bar"><i style="width:${Math.round(frac*100)}%"></i></div>`:""}
@@ -8691,6 +8710,7 @@ function sweepLandingGaps(){
   const L=document.getElementById("browseLanding"); if(!L)return;
   L.querySelectorAll("*").forEach(el=>{
     if(el.id==="featHero"||el.id==="featTrack")return;
+    if(el.matches("img,video,iframe,canvas,svg,input,button"))return; // a poster ITSELF has no descendants — the descendant check alone let the sweep hide every loaded poster on the landing (the blank-art bug, caught by probe_art2 2026-10-24)
     if(el.querySelector("img,video,iframe,canvas,svg,input,button"))return;
     if((el.innerText||"").trim())return;
     const r=el.getBoundingClientRect();
@@ -8717,7 +8737,7 @@ function paintDiscovery(){
       const list=all.filter(s=>s.live).concat(all.filter(s=>!s.live)).slice(0,12);
       const sec=document.getElementById("discLiveSec"), row=document.getElementById("discLiveRow");
       if(!sec||!row||!list.length)return;
-      row.innerHTML=list.map(s=>`<div class="vcard disc-live"><div class="vthumb" style="background:#101013"><img decoding="async" src="${esc(s.thumb||"")}" alt="" loading="lazy" onerror="this.style.display='none'">${s.live?'<span class="disc-livepill">● LIVE</span>':""}<div class="vtitle">${esc(s.name||"")}</div><div class="vsub">${esc(s.platform||"")}</div></div></div>`).join("");
+      row.innerHTML=list.map(s=>`<div class="vcard disc-live"><div class="vthumb" style="background:#101013"><img decoding="async" src="${esc(s.thumb||"")}" alt="" loading="lazy" onerror="szImgErr(this)">${s.live?'<span class="disc-livepill">● LIVE</span>':""}<div class="vtitle">${esc(s.name||"")}</div><div class="vsub">${esc(s.platform||"")}</div></div></div>`).join("");
       row.querySelectorAll(".disc-live").forEach(c=>{ c.onclick=()=>{ try{ go("streaming"); }catch(e){} }; });
       sec.style.display="";
       const b=sec.querySelector("[data-all]"); if(b)b.onclick=()=>{ try{ go("streaming"); }catch(e){} };
@@ -9745,7 +9765,7 @@ function renderProfManga(){
   }
   row.innerHTML=list.map(([id,m])=>
     `<div class="mg-card pcard" data-mid="${id}"><div class="mg-cov">`+
-    `<img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="mg-covers/${id}.jpg" alt="" onerror="this.style.display='none'">`+
+    `<img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="mg-covers/${id}.jpg" alt="" onerror="szImgErr(this)">`+
     `</div><div class="mg-t">${mgEsc(m.t||"Loading…")}</div></div>`
   ).join("");
   row.querySelectorAll(".mg-card").forEach(c=>c.onclick=()=>{go("manga");mgOpenDetail(c.dataset.mid);});
@@ -9770,7 +9790,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792883072"></script>
+<script src="js/folders.js?v=1792884381"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10370,7 +10390,7 @@ async function openFriendProfile(uid){
     const saved=(p.saved||[]).map(id=>byId(id)).filter(Boolean).slice(0,8);
     const isMe=uid===Live.uid;
     const isFriend=!!(Live.friendsSnap&&Live.friendsSnap[uid]);
-    const row=t=>{const th=thumb(t,"mq");return `<div class="lvrow">${th?`<img decoding="async" class="lvrow-img" src="${th}" alt="" loading="lazy" onerror="this.style.display='none'">`:""}<span class="lvrow-main"><span class="lvrow-t">${esc(t.title)}</span></span></div>`;};
+    const row=t=>{const th=thumb(t,"mq");return `<div class="lvrow">${th?`<img decoding="async" class="lvrow-img" src="${th}" alt="" loading="lazy" onerror="szImgErr(this)">`:""}<span class="lvrow-main"><span class="lvrow-t">${esc(t.title)}</span></span></div>`;};
     $("#lvsbody").innerHTML=`<div style="text-align:center;padding:6px 0 2px">
         ${avLive(p,"lg",uid)}
         <div style="font-size:19px;font-weight:800;margin-top:8px">${esc(p.name||"Viewer")}</div>
@@ -10583,10 +10603,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792883072"></script>
-<script src="js/shortz-live.js?v=1792883072"></script>
-<script src="js/games.js?v=1792883072"></script>
-<script src="js/podcasts.js?v=1792883072"></script>
+<script src="js/streaming.js?v=1792884381"></script>
+<script src="js/shortz-live.js?v=1792884381"></script>
+<script src="js/games.js?v=1792884381"></script>
+<script src="js/podcasts.js?v=1792884381"></script>
 <script>
 
 
@@ -10655,7 +10675,7 @@ function liveRenderRooms(rooms){
     const r=rooms[id], t=byId(r.seriesId), img=t?thumb(t,"hq"):"";
     return `<div class="lroom">
       <button class="lroom-x" data-close="${id}" aria-label="Close watch party">✕</button>
-      ${img?`<img decoding="async" class="lroom-art" src="${img}" alt="" loading="lazy" onerror="this.style.display='none'">`:`<div class="lroom-art" style="background:${artBg(r.title||"?")}"></div>`}
+      ${img?`<img decoding="async" class="lroom-art" src="${img}" alt="" loading="lazy" onerror="szImgErr(this)">`:`<div class="lroom-art" style="background:${artBg(r.title||"?")}"></div>`}
       <div class="lroom-mid">
         <div class="lroom-t">${esc(r.title)}</div>
         <div class="lroom-s">Host: ${esc(r.hostName)} · <span class="livedot">●</span> <span data-viewers="${id}">${liveCounts[id]||0} watching</span></div>
@@ -10682,7 +10702,7 @@ function liveSeriesPicker(){
     const qn=searchNorm(q), qf=qn.replace(/ /g,"");
     const list=C.filter(t=>!q||searchMatch((t.title||"")+" "+(t.genre||""),qn,qf)).slice(0,60);
     const box=$("#lvlist");
-    box.innerHTML=list.map(t=>{const th=thumb(t,"mq");return `<button class="lvrow" data-sid="${t.id}">${th?`<img decoding="async" class="lvrow-img" src="${th}" alt="" loading="lazy" onerror="this.style.display='none'">`:""}<span class="lvrow-main"><span class="lvrow-t">${esc(t.title)}</span>${t.desc?`<span class="lvrow-d">${esc(t.desc)}</span>`:""}</span><span class="lvrow-s">${esc(t.eps||"")}</span></button>`}).join("")
+    box.innerHTML=list.map(t=>{const th=thumb(t,"mq");return `<button class="lvrow" data-sid="${t.id}">${th?`<img decoding="async" class="lvrow-img" src="${th}" alt="" loading="lazy" onerror="szImgErr(this)">`:""}<span class="lvrow-main"><span class="lvrow-t">${esc(t.title)}</span>${t.desc?`<span class="lvrow-d">${esc(t.desc)}</span>`:""}</span><span class="lvrow-s">${esc(t.eps||"")}</span></button>`}).join("")
       || `<div class="live-empty">No matches.</div>`;
     box.querySelectorAll("[data-sid]").forEach(b=>b.onclick=()=>{ closeLiveSheet(); startRoom(b.dataset.sid); });
   };
@@ -10928,7 +10948,7 @@ function livePlan(){
   // series dropdown with cover art thumbnails
   const plD=$("#plDrop"), plB=$("#plDropBtn"), plM=$("#plMenu"), plC=$("#plDropCur"), plH=$("#plSeries");
   if(plD&&plM){
-    plM.innerHTML=C.map(t=>{const th=thumb(t,"mq");return `<button type="button" class="gitem" data-sid="${t.id}">${th?`<img decoding="async" src="${th}" alt="" loading="lazy" style="width:44px;height:60px;object-fit:cover;border-radius:8px;flex-shrink:0" onerror="this.style.display='none'">`:""}<span style="flex:1">${esc(t.title)}</span><span class="cnt">${esc(t.genre||"")}</span></button>`}).join("");
+    plM.innerHTML=C.map(t=>{const th=thumb(t,"mq");return `<button type="button" class="gitem" data-sid="${t.id}">${th?`<img decoding="async" src="${th}" alt="" loading="lazy" style="width:44px;height:60px;object-fit:cover;border-radius:8px;flex-shrink:0" onerror="szImgErr(this)">`:""}<span style="flex:1">${esc(t.title)}</span><span class="cnt">${esc(t.genre||"")}</span></button>`}).join("");
     plB.onclick=(e)=>{e.stopPropagation();plD.classList.toggle("open");};
     plM.querySelectorAll("[data-sid]").forEach(b=>b.onclick=()=>{
       plH.value=b.dataset.sid;
@@ -11104,7 +11124,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792883072"></script>
+<script src="js/swipe.js?v=1792884381"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13262,7 +13282,7 @@ function renderInbox(){
     const t=byId(m.titleId);
     let th=""; try{ th=t?thumb(t,"mq"):""; }catch(e){}
     return '<div class="scout-msg" data-mi="'+i+'">'
-      +(th?'<img class="scout-th" src="'+th+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">':"")
+      +(th?'<img class="scout-th" src="'+th+'" alt="" loading="lazy" onerror="szImgErr(this)">':"")
       +'<div class="scout-mmain"><div class="scout-mt">'+esc(m.title||(t?t.title:""))+'</div>'
       +'<div class="scout-mr">🤖 Scout: '+esc(msgLine(m))+'</div>'
       +'<div class="scout-mts">'+relDay(m.ts)+'</div></div>'
@@ -13336,7 +13356,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792883072"></script>
+<script src="js/live-sports.js?v=1792884381"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a

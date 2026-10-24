@@ -86,7 +86,7 @@ function renderVideoFolders(){
       <span class="vf-tab"></span>
       <span class="vf-body">
         <span class="vf-screen">
-          <span class="vf-media cfmedia" data-vf-media>${poster?`<img class="cfart" src="${poster}" alt="" onerror="this.style.display='none'">`:""}<span class="vf-fade"></span></span>
+          <span class="vf-media cfmedia" data-vf-media>${poster?`<img class="cfart" src="${poster}" alt="" onerror="szImgErr(this)">`:""}<span class="vf-fade"></span></span>
           <span class="vf-glass"></span>
           <span class="vf-now" data-vf-now></span>
         </span>

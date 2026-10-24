@@ -25,7 +25,7 @@ function tgEmbed(t,muted){
 function tgRowHTML(t){
   const sm=thumb(t,"mq");
   return `<div class="tg-row" data-id="${t.id}">
-    <img class="tg-rt" loading="lazy" src="${sm}" alt="" onerror="this.style.display='none'">
+    <img class="tg-rt" loading="lazy" src="${sm}" alt="" onerror="szImgErr(this)">
     <div style="flex:1;min-width:0"><div class="tg-rtitle">${esc(t.title)}</div>
     <div class="tg-rsub">${esc(t.genre||"")} · ${esc(t.eps||"")}</div></div>
     <span class="tg-rplay">▶</span></div>`;
@@ -140,7 +140,7 @@ function tgLiveRowHTML(ch){
   const whatsOn=live?(s.latestTitle||"Live broadcast on now"):(s.latestTitle?("↻ Replay · "+s.latestTitle):(ch.blurb||"Replays · live events return soon"));
   const badge=live?'<span class="tg-livebadge"><i></i>LIVE NOW</span>':'<span class="tg-replaybadge">↻ REPLAY</span>';
   return '<div class="tg-row" data-tglive="'+esc(ch.channelId)+'">'
-    +'<img class="tg-rt tg-ltav" loading="lazy" src="'+esc(ch.avatar||"")+'" alt="" onerror="this.style.display=\'none\'">'
+    +'<img class="tg-rt tg-ltav" loading="lazy" src="'+esc(ch.avatar||"")+'" alt="" onerror="szImgErr(this)">'
     +'<div style="flex:1;min-width:0"><div class="tg-rtitle">'+esc(ch.name)+'</div>'
     +'<div class="tg-rsub">'+esc(ch.sport||"Sports")+' · '+esc(whatsOn)+'</div></div>'
     +badge+'</div>';
@@ -380,7 +380,7 @@ function renderTvGuide(){
         <div class="uprog"><i id="tgProg"></i></div>
       </div>
       <div class="tg-meta">
-        <img class="tg-thumb" id="tgThumb" alt="" style="display:none" onerror="this.style.display='none'">
+        <img class="tg-thumb" id="tgThumb" alt="" style="display:none" onerror="szImgErr(this)">
         <div style="flex:1;min-width:0"><div class="tg-title" id="tgTitle">Shortz VS Guide</div>
         <div class="tg-sub" id="tgSub">${C.length} shows · tap one to preview</div></div>
         <button class="btn-play tg-watch" id="tgWatch" style="display:none">▶ Watch</button>

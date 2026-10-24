@@ -352,7 +352,7 @@ function renderGamesShelf(){
   if(!sec||!row||!GAMES.length)return;
   row.innerHTML=GAMES.map(g=>
     '<div class="gm-item" data-gtitle="'+esc(g.title)+'">'+
-      '<img decoding="async" src="'+esc(g.thumb)+'" alt="" loading="lazy" onerror="this.style.display=\'none\'">'+
+      '<img decoding="async" src="'+esc(g.thumb)+'" alt="" loading="lazy" onerror="szImgErr(this)">'+
       '<div class="gm-play">\u25b6</div>'+
       '<div class="award-t">'+esc(g.title)+'</div>'+
       '<div class="award-e">'+esc(g.cat)+'</div>'+
