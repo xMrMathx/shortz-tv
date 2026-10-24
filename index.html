@@ -2475,7 +2475,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792849023";
+window.__SZ_BUILD = "1792849444";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -14511,26 +14511,44 @@ var SZ_DOOR_VIEW = { browse: 'browse', play: 'games' };
 var SZ_DOOR_LABEL = { browse: '🧭 BROWSE', live: '🔴 LIVE', play: '🎮 PLAY' };
 function szFront() { return szStack.length ? szStack[szStack.length - 1] : null; }
 var szRendered = {};
-function szRenderOnce(v) { if (szRendered[v]) return; szRendered[v] = 1; try { renderView(v); } catch (e) {} }
+function szRenderOnce(v) { if (szRendered[v]) return; try { renderView(v); szRendered[v] = 1; } catch (e) {} }
 /* WARM ENGINE (his word 2026-10-24: "press Browse and it pops up RIGHT AWAY — no stalling,
    no lagging, 100% of the time"): render-once still made the FIRST tap each session pay the
    full pane build (2-3s on his phone). So once Home is up and the app breathes, the engine
    pre-builds every door pane in the background — Browse first — and flushes its layout while
    hidden, so a tap only flips the card: the pop is all that's left to pay. Streaming is NOT
    warmed: its render starts the streamer feed (media) — the one-audio law forbids hidden media. */
-var szWarmQ = ['browse', 'games', 'profile', 'live'];
+var szWarmQ = ['browse', 'games', 'profile'];
+function szGatesOpen() { return !!document.querySelector('#tutGate.open,.gate.open,#authGate.open'); }
 function szWarmStep() {
+  if (szGatesOpen()) { setTimeout(szWarmStep, 700); return; }   // never warm a guest/stale state under a gate
   var v = szWarmQ.shift();
-  if (!v) return;
+  if (!v) { /* Live is DATA-warmed only: renderLive() bails mid-build when Live isn't the
+               current view, which would leave the pane stuck on 'Loading channels…' —
+               so Live renders on tap (fast once its data is warm), never at boot. */
+    try { fetch('live-sports.json').catch(function () {}); fetch('yt-live.json').catch(function () {}); } catch (e) {}
+    return;
+  }
   szRenderOnce(v);
   var p = document.getElementById('view-' + v);
   if (p) { void p.offsetHeight; }
-  setTimeout(szWarmStep, 400);
+  if ('requestIdleCallback' in window) requestIdleCallback(szWarmStep, { timeout: 2500 });
+  else setTimeout(szWarmStep, 400);
 }
 setTimeout(function () {
   if ('requestIdleCallback' in window) requestIdleCallback(szWarmStep, { timeout: 3000 });
   else szWarmStep();
 }, 1200);
+/* catalog splice guard: if a fresher catalog splices in after Browse warmed, re-warm it once */
+var szCatRev0 = window.__catRev || 0, szRevTries = 0;
+var szRevWatch = setInterval(function () {
+  szRevTries++;
+  if ((window.__catRev || 0) !== szCatRev0) {
+    szCatRev0 = window.__catRev;
+    if (szRendered.browse && curView !== 'browse') { delete szRendered.browse; szWarmQ.unshift('browse'); szWarmStep(); }
+    clearInterval(szRevWatch);
+  } else if (szRevTries > 20) clearInterval(szRevWatch);
+}, 3000);
 function szGoEntry(entry) {
   if (entry === 'live') { szGoLive(); return; }
   var v = SZ_DOOR_VIEW[entry];
