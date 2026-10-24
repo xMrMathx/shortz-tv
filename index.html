@@ -1060,6 +1060,11 @@ body.sz-pop #views{animation:szPop .17s ease-out}
    inline openAvatarView() onclick on photo avatars (the profile page's viewer); inside this
    button that handler hijacked the tap and popped the PICTURE instead of the profile. */
 #profileBtn *{pointer-events:none!important}
+/* his word 2026-10-24: NO text selection anywhere in the app, ever — a long-press in the
+   channel list popped Android's selection handles and they stuck on screen. Inputs and
+   text areas keep real selection so typing/editing/search still work. */
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+body input,body textarea,body [contenteditable="true"]{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
 #szStrips{position:fixed;top:60px;left:6px;right:6px;z-index:70;display:none}
 body.sz-sheet #szStrips{display:block}
 .sz-strip{display:flex;align-items:center;gap:7px;width:100%;height:30px;margin-bottom:4px;padding:0 12px;
@@ -2470,7 +2475,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792847972";
+window.__SZ_BUILD = "1792849023";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -14507,6 +14512,25 @@ var SZ_DOOR_LABEL = { browse: '🧭 BROWSE', live: '🔴 LIVE', play: '🎮 PLAY
 function szFront() { return szStack.length ? szStack[szStack.length - 1] : null; }
 var szRendered = {};
 function szRenderOnce(v) { if (szRendered[v]) return; szRendered[v] = 1; try { renderView(v); } catch (e) {} }
+/* WARM ENGINE (his word 2026-10-24: "press Browse and it pops up RIGHT AWAY — no stalling,
+   no lagging, 100% of the time"): render-once still made the FIRST tap each session pay the
+   full pane build (2-3s on his phone). So once Home is up and the app breathes, the engine
+   pre-builds every door pane in the background — Browse first — and flushes its layout while
+   hidden, so a tap only flips the card: the pop is all that's left to pay. Streaming is NOT
+   warmed: its render starts the streamer feed (media) — the one-audio law forbids hidden media. */
+var szWarmQ = ['browse', 'games', 'profile', 'live'];
+function szWarmStep() {
+  var v = szWarmQ.shift();
+  if (!v) return;
+  szRenderOnce(v);
+  var p = document.getElementById('view-' + v);
+  if (p) { void p.offsetHeight; }
+  setTimeout(szWarmStep, 400);
+}
+setTimeout(function () {
+  if ('requestIdleCallback' in window) requestIdleCallback(szWarmStep, { timeout: 3000 });
+  else szWarmStep();
+}, 1200);
 function szGoEntry(entry) {
   if (entry === 'live') { szGoLive(); return; }
   var v = SZ_DOOR_VIEW[entry];
