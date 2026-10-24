@@ -445,11 +445,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "marathon",
-      "streamer": "HusKerrs"
+      "streamer": "HusKerrs",
+      "resolvedAt": 1792876158
     },
     {
       "id": "auto-vs-1792865363-huskerrs-symfuhny",
@@ -459,13 +460,14 @@
       "optB": "Symfuhny",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "versus",
       "streamer": "HusKerrs",
       "streamerB": "Symfuhny",
-      "versus_key": "HusKerrs|Symfuhny"
+      "versus_key": "HusKerrs|Symfuhny",
+      "resolvedAt": 1792876158
     }
   ]
 }
