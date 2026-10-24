@@ -1404,6 +1404,13 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 /* GAMES (his order 2026-10-14): a card feed like Home/Streaming,
    section between Manga and Profile in the ring */
 .gcards{max-width:720px;margin:0 auto;padding:14px 12px 90px;display:flex;flex-direction:column;gap:18px}
+.pal-door{max-width:720px;margin:14px auto 0;display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;cursor:pointer;background:linear-gradient(135deg,rgba(246,201,69,.20),rgba(246,201,69,.06));border:1px solid rgba(246,201,69,.55);color:#fff;-webkit-tap-highlight-color:transparent}
+.pal-door:active{transform:scale(.985)}
+.pal-door-ico{font-size:30px;line-height:1}
+.pal-door-tx{display:flex;flex-direction:column;gap:2px}
+.pal-door-tx b{font-size:18px;letter-spacing:.2px}
+.pal-door-tx i{font-style:normal;font-size:12.5px;color:#c9c9d2}
+.pal-door-go{margin-left:auto;font-weight:800;color:#f6c945;font-size:14px}
 /* EMULATOR ARCADE stage (his design, 2026-10-22): the picked console
    stands on a light stage above the shelf; chips pick the system */
 .arcade-stage{max-width:720px;margin:0 auto;padding:18px 12px 0}
@@ -2475,7 +2482,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792856324";
+window.__SZ_BUILD = "1792860784";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3516,7 +3523,10 @@ function go(v){
   if(curView==="profile"&&v!=="profile"&&typeof tgPause==="function")tgPause(); // stop the TV Guide preview
   if(curView==="profile"&&v!=="profile"){try{vfStopPreviews();vfCloseFolder(true);}catch(e){}} // Video Folders: previews + an open folder stay on Profile
   if(curView==="browse"&&v!=="browse"&&typeof featStop==="function")featStop(); // stop featured carousel
-  if(v==="browse"&&typeof featBegin==="function")featBegin(); // (re)start featured carousel on entering Browse
+  if(v==="browse"&&typeof featBegin==="function"){ // (re)start featured carousel on entering Browse — if the hero is already built, ONLY restart its timer; rebuilding the slides on every entry was pure tap lag (2026-10-24)
+    const __ft=document.querySelector("#featTrack");
+    if(__ft&&__ft.children.length){ try{ featAuto(); }catch(e){} } else featBegin();
+  }
   if(curView==="manga"&&v!=="manga"&&typeof mangaExit==="function")mangaExit();
   if(v==="home"&&curView!=="home"&&homeMode==="stage")resumeFeedVideo(); // instant: iframe stayed warm (stage mode only — card mode has nothing to resume)
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
@@ -5764,7 +5774,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792807256";
+const BUILD="1792860784";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8579,25 +8589,61 @@ function discCwRow(list){
   sec.style.display="";
   const b=sec.querySelector("[data-all]"); if(b)b.onclick=()=>{ browseWall=true; renderBrowse(ALL); SZ_TOP(0); };
 }
+/* Discovery row picks, computed ONCE per catalog revision (his order
+   2026-10-24: Browse must open instant — the New/Horror/Hood picks used to
+   re-filter and re-sort all ~75k records on EVERY landing build, inside
+   his tap). The picks are day-stable, so caching them changes nothing he
+   sees; it only removes the repeated full-catalog scans. */
+let __discCache=null, __discCacheRev=-1;
+function discPicks(){
+  const rev=window.__catRev||0;
+  if(__discCache&&__discCacheRev===rev)return __discCache;
+  const nw=C.filter(t=>t.dateAdded).sort((a,b)=>String(b.dateAdded).localeCompare(String(a.dateAdded))).slice(0,12);
+  const seed=parseInt(new Date().toISOString().slice(0,10).replace(/-/g,""),10);
+  const grow=g=>{
+    const pool=C.filter(t=>t.genre===g);
+    const sh=a=>a.slice().sort((x,y)=>((hash(x.id)+seed)%997)-((hash(y.id)+seed)%997));
+    return sh(pool.filter(t=>(t.ec||0)>=3)).concat(sh(pool.filter(t=>(t.ec||0)<3))).slice(0,12);
+  };
+  __discCache={nw:nw,horror:grow("Horror"),hood:grow("Hood")};
+  __discCacheRev=rev;
+  return __discCache;
+}
+function paintDiscoveryRows(){
+  try{ const p=discPicks();
+    discRow("discNewSec","discNewRow",p.nw,"__all__");
+    discRow("discHorrorSec","discHorrorRow",p.horror,"Horror");
+    discRow("discHoodSec","discHoodRow",p.hood,"Hood");
+  }catch(e){}
+  try{ collapseEmptyLanding(); }catch(e){}
+}
+/* his screenshot 2026-10-24: a dead black band between sections on the
+   landing. Guarantee: a landing section that ends up with an EMPTY row
+   takes NO space — sections stack tight, always. */
+function collapseEmptyLanding(){
+  const secs=["discCwSec","top10sec","awardWinSec","kaneSpotSec","discLiveSec","discNewSec","discHorrorSec","discHoodSec","discWrestSec"];
+  for(const id of secs){
+    const sec=document.getElementById(id); if(!sec)continue;
+    if(sec.style.display==="none")continue;
+    const row=sec.querySelector(".award-row,.top10-row");
+    if(row&&row.children.length===0) sec.style.display="none";
+  }
+  const pk=document.getElementById("browseScoutPicks");
+  if(pk&&pk.children.length===0){ pk.style.display="none"; const lb=document.getElementById("scoutPicksLabel"); if(lb)lb.style.display="none"; }
+  const dr=document.getElementById("browseScoutDoor");
+  if(dr&&!dr.innerHTML.trim()) dr.style.display="none";
+}
 function paintDiscovery(){
   try{ // Continue Watching — his own history, most recent first
     const seen=new Set(), cw=[];
     for(const h of (history||[])){ const t=h&&byId(h.id); if(t&&!seen.has(t.id)){ seen.add(t.id); cw.push(t); } if(cw.length>=12)break; }
     discCwRow(cw);
   }catch(e){}
-  try{ // New on Shortz VS
-    const nw=C.filter(t=>t.dateAdded).sort((a,b)=>String(b.dateAdded).localeCompare(String(a.dateAdded))).slice(0,12);
-    discRow("discNewSec","discNewRow",nw,"__all__");
-  }catch(e){}
-  try{ // Genre rows — series first, day-stable shuffle
-    const seed=parseInt(new Date().toISOString().slice(0,10).replace(/-/g,""),10);
-    const grow=g=>{
-      const pool=C.filter(t=>t.genre===g);
-      const sh=a=>a.slice().sort((x,y)=>((hash(x.id)+seed)%997)-((hash(y.id)+seed)%997));
-      return sh(pool.filter(t=>(t.ec||0)>=3)).concat(sh(pool.filter(t=>(t.ec||0)<3))).slice(0,12);
-    };
-    discRow("discHorrorSec","discHorrorRow",grow("Horror"),"Horror");
-    discRow("discHoodSec","discHoodRow",grow("Hood"),"Hood");
+  try{ // Wrestling — his order 2026-10-24: highlight the wrestling we added.
+    // One small genre filter (64 records), newest first; the expensive
+    // discovery rows moved to paintDiscoveryRows (deferred + cached).
+    const wl=C.filter(t=>t.genre==="Wrestling").sort((a,b)=>String(b.dateAdded||"").localeCompare(String(a.dateAdded||""))).slice(0,12);
+    discRow("discWrestSec","discWrestRow",wl,"Wrestling");
   }catch(e){}
   try{ // Live Now — streamers, live first; tap lands on Streaming
     const fill=()=>{
@@ -8649,12 +8695,16 @@ function renderBrowseLanding(){
       <div class="award-head"><h3>Award winners</h3><button id="awardWinAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">See all</button></div>
       <div class="award-row" id="awardWinRow"></div>
     </div></div>
+    <div class="wrap"><div class="award-sec" id="discWrestSec" style="display:none">
+      <div class="award-head"><h3>🤼 Wrestling</h3><span style="margin-left:10px;color:#9a9aa2;font-size:12px;font-weight:700">Just added</span><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">View all ›</button></div>
+      <div class="award-row" id="discWrestRow"></div>
+    </div></div>
     <div class="btt-wrap" id="browseTopTenWrap">
       <div class="btt-head"><h2>🤖 Scout's Top Ten</h2><span>Fresh every visit — swipe</span></div>
       <div class="btt-win" id="browseTopTen"><div class="btt-track" id="browseTopTenTrack"></div></div>
     </div>
     <div class="bcf-door" id="browseScoutDoor"></div>
-    <div class="wrap"><div class="rowlabel" style="margin-top:10px"><h2>🤖 Scout's Picks</h2></div></div>
+    <div class="wrap" id="scoutPicksLabel"><div class="rowlabel" style="margin-top:10px"><h2>🤖 Scout's Picks</h2></div></div>
     <div class="bcf-list" id="browseScoutPicks"></div>
     <div class="wrap"><div class="award-sec" id="kaneSpotSec" style="display:none">
       <div class="award-head"><h3>🚪 Kane Pixels</h3><span style="margin-left:10px;color:#9a9aa2;font-size:12px;font-weight:700">Creator spotlight</span><button id="kaneSpotAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px">View all ›</button></div>
@@ -8689,12 +8739,27 @@ function renderBrowseLanding(){
     </div>`;
   bindCfCards($("#view-browse"));
   try{ featBegin(); }catch(e){}
-  paintBrowseFresh();
-  try{ paintBrowseScout(); }catch(e){}
-  try{ renderKaneSpot(); }catch(e){}
   try{ loadTop10(); }catch(e){}
-  try{ renderAwardWinners(); }catch(e){}
   try{ paintDiscovery(); }catch(e){}
+  /* everything below the first screen — Scout's Top Ten + Picks, Kane,
+     Award winners and the heavy discovery rows (New/Horror/Hood) — paints
+     AFTER the landing is on screen, in one idle pass. His tap only pays
+     for the shell, the hero, Continue Watching and Wrestling (2026-10-24
+     speed fix). The token keeps a stale landing build from painting
+     into a newer one. */
+  try{
+    const tk=(window.__discRowToken=(window.__discRowToken||0)+1);
+    const later=()=>{ if(window.__discRowToken!==tk)return;
+      try{ paintBrowseFresh(); }catch(e){}
+      try{ paintBrowseScout(); }catch(e){}
+      try{ renderKaneSpot(); }catch(e){}
+      try{ renderAwardWinners(); }catch(e){}
+      paintDiscoveryRows();
+    };
+    if("requestIdleCallback" in window) requestIdleCallback(later,{timeout:900});
+    else setTimeout(later,300);
+    setTimeout(()=>{ if(window.__discRowToken===tk){ try{ collapseEmptyLanding(); }catch(e){} } },2600);
+  }catch(e){}
   document.querySelectorAll("#view-browse [data-gtile]").forEach(b=>{ b.onclick=()=>{
     const g=b.dataset.gtile;
     if(g==="__games"){ try{ renderView("games"); }catch(e){} try{ go("games"); }catch(e){} return; }
@@ -9639,7 +9704,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792807256"></script>
+<script src="js/folders.js?v=1792860784"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10452,10 +10517,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792807256"></script>
-<script src="js/shortz-live.js?v=1792807256"></script>
-<script src="js/games.js?v=1792807256"></script>
-<script src="js/podcasts.js?v=1792807256"></script>
+<script src="js/streaming.js?v=1792860784"></script>
+<script src="js/shortz-live.js?v=1792860784"></script>
+<script src="js/games.js?v=1792860784"></script>
+<script src="js/podcasts.js?v=1792860784"></script>
 <script>
 
 
@@ -10973,7 +11038,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792807256"></script>
+<script src="js/swipe.js?v=1792860784"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11981,16 +12046,16 @@ function renderAuthSection(){
 
 /* ---------- Tutorial ---------- */
 const TUTS=[
-  {icon:"⊞",title:"The All Button",
-   body:"Tap ⊞ to swipe between Home, Browse, Live, Streaming, Manga & Profile. Tap it again to lock onto the page you're on."},
-  {icon:"📖",title:"Manga",
-   body:"Browse covers in the Manga tab. Tap a title to see its chapters, then tap right or left to turn the pages."},
+  {icon:"🚪",title:"Your Doors",
+   body:"The bar at the bottom is your doors: Watch, Browse, Live and Play. Tap a door and it opens as a card right over Home. Tap it again to close it. Home is always underneath, right where you left it."},
+  {icon:"🗂️",title:"Cards Stack",
+   body:"Open more than one door and the cards stack like windows. Tap the strip at the top of a card behind to bring it to the front — or swipe a card down to close it."},
+  {icon:"👤",title:"Your Profile Button",
+   body:"Your picture sits at the top center of the screen. Tap it to open your whole profile — your list, your history, your settings — all in one long card."},
+  {icon:"🔴",title:"Live Is All Live",
+   body:"Live holds everything live in one card: streams, the TV guide, live sports and watch parties. Flip between them with the toggles at the top of the card."},
   {icon:"🎤",title:"Talk To It",
-   body:"Tap the mic and say “take me to manga” — or “play”, “pause”, “next”, “mute”. Hands-free."},
-  {icon:"♥",title:"My List",
-   body:"Double-tap any card or hit ＋ Save. Everything you save lives on your Profile."},
-  {icon:"👆",title:"Keep Swiping",
-   body:"Swipe up on Home for the next short. Your recently watched is always waiting on your Profile."}
+   body:"Tap the mic in the middle of the bar and say “take me to manga” — or “play”, “pause”, “next”, “mute”. Hands-free."}
 ];
 let tutIdx=0, tutTX=0;
 function paintTut(){
@@ -13205,7 +13270,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792807256"></script>
+<script src="js/live-sports.js?v=1792860784"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -14538,7 +14603,7 @@ function szWarmStep() {
   if (szGatesOpen()) { setTimeout(szWarmStep, 700); return; }   // never warm a guest/stale state under a gate
   var v = szWarmQ.shift();
   if (!v) return;
-  szRenderOnce(v);
+  try { szRenderOnce(v); } catch (e) { /* one pane's bad build must never kill the chain (learned 2026-10-24: the warm could die silently mid-queue and every later door stayed cold) */ }
   var p = document.getElementById('view-' + v);
   if (p) { void p.offsetHeight; }
   if ('requestIdleCallback' in window) requestIdleCallback(szWarmStep, { timeout: 2500 });
@@ -14552,13 +14617,19 @@ function szWarmStep() {
 var szWarmStarted = false;
 function szWarmStart() {
   if (szWarmStarted) return; szWarmStarted = true;
-  if ('requestIdleCallback' in window) requestIdleCallback(szWarmStep, { timeout: 3000 });
-  else szWarmStep();
+  /* step 1 is BROWSE and it fires NOW, not through an idle callback that
+     could wait seconds — his tap lands ~0.3s after Home paints and the old
+     chain (500ms settle + rIC timeout 3000) lost that race every time
+     (his report 2026-10-24). Steps 2+ keep the idle pacing inside
+     szWarmStep, and the landing build itself is light now (heavy
+     discovery rows deferred + cached), so this cannot re-create the
+     old intro freeze, which was the monolith's fault, not the timing. */
+  setTimeout(szWarmStep, 0);
 }
 (function szWarmArm() {
   var t0 = Date.now();
   var iv = setInterval(function () {
-    if (!document.getElementById('splash') && Date.now() - t0 > 400) { clearInterval(iv); setTimeout(szWarmStart, 500); }
+    if (!document.getElementById('splash') && Date.now() - t0 > 400) { clearInterval(iv); setTimeout(szWarmStart, 120); }
     else if (Date.now() - t0 > 6000) { clearInterval(iv); szWarmStart(); }
   }, 200);
 })();

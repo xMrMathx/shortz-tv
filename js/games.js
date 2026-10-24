@@ -283,7 +283,14 @@ function renderGames(){
   if(!v)return;
   if(gamesBuilt&&v.querySelector(".gcards")){ try{dubsPaint()}catch(e){} return; }
   gamesBuilt=true;
-  v.innerHTML=arcadeStageHTML()+`<div class="gcards" id="gcards">`+gameCardsHTML()+`</div>`;
+  v.innerHTML=arcadeStageHTML()
+    /* PAL KEEP (his crown 2026-10-24): the Pals' door lives here in the
+       Play card — the old floating paw button was retired with the hub,
+       and the Pals were never his to lose. One tap opens Scout Pal. */
+    +`<div class="pal-door" id="palDoor" role="button" aria-label="Open Scout Pal"><span class="pal-door-ico">🐾</span><span class="pal-door-tx"><b>Scout Pal</b><i>Your pet, battles & rewards</i></span><span class="pal-door-go">Open ›</span></div>`
+    +`<div class="gcards" id="gcards">`+gameCardsHTML()+`</div>`;
+  const pd=v.querySelector("#palDoor");
+  if(pd)pd.onclick=()=>{ try{ if(window.ScoutPal)ScoutPal.open(); }catch(e){} };
   bindGameCards(v);
   try{dubsPaint()}catch(e){}
 }

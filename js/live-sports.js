@@ -272,8 +272,26 @@ document.addEventListener("visibilitychange",()=>{ if(document.hidden){ try{lsSt
    keeps playing in view while the guide rows scroll beneath it. Scrolling
    back to the placeholder restores it. Only ever active in Sports. */
 function lsStickInit(){
-  const st=$("#lsStage"); if(st){ st.classList.remove("stuck"); st._stickTop=null; }
+  const st=$("#lsStage"); if(st){ st.classList.remove("stuck"); st._stickTop=null; st.style.left=""; st.style.width=""; }
   const ph=$("#lsStickPh"); if(ph)ph.remove();
+}
+/* the stuck stage's horizontal frame, measured from the stage's own
+   in-flow box (his screenshots 2026-10-24: at rest the player sits
+   perfect and centered; the fixed left/right:16px CSS put the follower
+   on the VIEWPORT's edges instead of the card's column — wider, shifted,
+   "off center"). Copying the real box makes the follower EXACTLY the
+   same frame, just riding along. Offsets are layout px (the fixed
+   containing block is the transformed body), so the offsetLeft chain
+   up to body is the right ruler. */
+function lsStickGeo(st){
+  /* measure the VISUAL box and convert back to layout px with the shield
+     factor (the same ruler lsStickTop uses for Y). The offsetLeft chain
+     undercounted by ~2px (ancestor borders) — the rect is what he sees,
+     so the rect is the truth. */
+  const k=(window.__SZ_ON&&window.__SZ_K)?window.__SZ_K:1;
+  const br=document.body.getBoundingClientRect();
+  const r=st.getBoundingClientRect();
+  return { left:Math.round((r.left-br.left)/k), width:st.offsetWidth||0 };
 }
 function lsStickPane(el){ if(document.body.classList.contains("ev-mode")&&el&&el.closest){ const p=el.closest(".view"); if(p)return p; } return null; }
 function lsStickY(el){ const p=lsStickPane(el); return p?p.scrollTop:((window.SZ_SY?SZ_SY():(window.scrollY||0))); }
@@ -289,6 +307,7 @@ function lsStickCheck(){
       const ph=document.createElement("div");
       ph.id="lsStickPh"; ph.style.height=st.offsetHeight+"px";
       st.parentNode.insertBefore(ph,st);
+      try{ const g=lsStickGeo(st); if(g.width>0){ st.style.left=g.left+"px"; st.style.width=g.width+"px"; } }catch(e){}
       st.classList.add("stuck");
     }
   }else{
@@ -297,9 +316,9 @@ function lsStickCheck(){
       let phTop=0;
       try{ phTop=lsStickTop(ph); }catch(e){}
       if(lsStickY(st)<=phTop){
-        st.classList.remove("stuck"); ph.remove(); st._stickTop=null;
+        st.classList.remove("stuck"); ph.remove(); st._stickTop=null; st.style.left=""; st.style.width="";
       }
-    }else{ st.classList.remove("stuck"); st._stickTop=null; }
+    }else{ st.classList.remove("stuck"); st._stickTop=null; st.style.left=""; st.style.width=""; }
   }
 }
 /* ESPN scoreboard strip for the Sports Guide — same endpoints, classes and
