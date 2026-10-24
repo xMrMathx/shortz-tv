@@ -2475,7 +2475,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792849929";
+window.__SZ_BUILD = "1792856324";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -14525,7 +14525,16 @@ function szRenderOnce(v) { if (szRendered[v]) return; try { renderView(v); szRen
    the warm pre-pays the data and the DOM so that mount is a flip, not a build. */
 var szWarmQ = ['browse', 'games', 'profile', 'live', 'streaming'];
 function szGatesOpen() { return !!document.querySelector('#tutGate.open,.gate.open,#authGate.open'); }
+/* the warm YIELDS to his hand (his order 2026-10-24: a tap must never wait on
+   background building). Every pointerdown stamps __szLastTouch; a warm step
+   that finds a touch in the last 2.5s waits instead of building, and resumes
+   on its own once he's idle. The door he actually taps renders on the spot
+   through szRenderOnce in the door path — the warm is only for doors he
+   hasn't opened yet, so it never needs to race him. */
+window.__szLastTouch = 0;
+document.addEventListener('pointerdown', function () { window.__szLastTouch = Date.now(); }, { capture: true, passive: true });
 function szWarmStep() {
+  if (Date.now() - (window.__szLastTouch || 0) < 2500) { setTimeout(szWarmStep, 600); return; }   // his hand is on the app — stand down
   if (szGatesOpen()) { setTimeout(szWarmStep, 700); return; }   // never warm a guest/stale state under a gate
   var v = szWarmQ.shift();
   if (!v) return;
@@ -14535,10 +14544,24 @@ function szWarmStep() {
   if ('requestIdleCallback' in window) requestIdleCallback(szWarmStep, { timeout: 2500 });
   else setTimeout(szWarmStep, 400);
 }
-setTimeout(function () {
+/* warm starts ONLY after the intro is gone (his report 2026-10-24: the intro ended and
+   the app sat frozen ~2s — the old flat 1200ms start fired the heavy Browse build while
+   the splash was still up, and Home's reveal queued behind it). The splash removes itself
+   at ~3.15s; the engine waits for that, gives Home a 500ms settle to paint clean, then
+   builds. Hard fallback at 6s so the warm always runs. NOTHING else changed. */
+var szWarmStarted = false;
+function szWarmStart() {
+  if (szWarmStarted) return; szWarmStarted = true;
   if ('requestIdleCallback' in window) requestIdleCallback(szWarmStep, { timeout: 3000 });
   else szWarmStep();
-}, 1200);
+}
+(function szWarmArm() {
+  var t0 = Date.now();
+  var iv = setInterval(function () {
+    if (!document.getElementById('splash') && Date.now() - t0 > 400) { clearInterval(iv); setTimeout(szWarmStart, 500); }
+    else if (Date.now() - t0 > 6000) { clearInterval(iv); szWarmStart(); }
+  }, 200);
+})();
 /* catalog splice guard: if a fresher catalog splices in after Browse warmed, re-warm it once */
 var szCatRev0 = window.__catRev || 0, szRevTries = 0;
 var szRevWatch = setInterval(function () {
