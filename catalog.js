@@ -96624,7 +96624,7 @@ window.SHORTZ_CATALOG = [
  },
  {
   "id": "stv-1882",
-  "title": "Project: S.E.R.A - Episode 1",
+  "title": "Project: S.E.R.A.",
   "genre": "Sci-Fi",
   "eps": "6 eps",
   "runtime": "~1-3 min each",
