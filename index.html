@@ -1047,10 +1047,15 @@ body.hud-hidden #profileBtn{opacity:0;pointer-events:none}
 /* retired floating chrome: hub arrows, feed mic dot, Dubs + Pal floaters — the door bar replaces this family */
 #evPrev,#evNext,#micDot,#dubBtn,#palBtn{display:none!important}
 /* card sheets: #views framed as a card; the front card is the active pane, back cards are strips above */
-body.sz-sheet #views{margin:calc(64px + var(--sz-stack-n,0)*34px) 6px 0;border:1px solid rgba(212,175,55,.45);
-  border-radius:20px;box-shadow:0 -12px 50px rgba(0,0,0,.85);background:#101013;
-  transition:margin-top .28s ease}
-#szStrips{position:fixed;top:56px;left:6px;right:6px;z-index:70;display:none}
+body.sz-sheet #views{margin:98px 6px 0;border:2px solid rgba(212,175,55,.6);
+  border-radius:20px;box-shadow:0 -14px 54px rgba(0,0,0,.92),0 0 0 6px rgba(0,0,0,.35);background:#101013}
+body.sz-deep #views{margin-top:132px}
+/* the POP: transform/opacity only — the compositor moves the card, the layout never reflows */
+@keyframes szPop{from{transform:translateY(18px) scale(.982);opacity:.5}to{transform:translateY(0) scale(1);opacity:1}}
+body.sz-pop #views{animation:szPop .17s ease-out}
+@media (prefers-reduced-motion: reduce){body.sz-pop #views{animation:none}}
+#tabbar .tab,#profileBtn,.sz-strip,.szlt{touch-action:manipulation}
+#szStrips{position:fixed;top:60px;left:6px;right:6px;z-index:70;display:none}
 body.sz-sheet #szStrips{display:block}
 .sz-strip{display:flex;align-items:center;gap:7px;width:100%;height:30px;margin-bottom:4px;padding:0 12px;
   background:#101013;border:1px solid rgba(212,175,55,.45);border-radius:14px;cursor:pointer;
@@ -2460,7 +2465,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792839158";
+window.__SZ_BUILD = "1792846276";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -14494,18 +14499,20 @@ var szLiveSub = 'streams';     // streams | guide | sports | party
 var SZ_DOOR_VIEW = { browse: 'browse', play: 'games' };
 var SZ_DOOR_LABEL = { browse: '🧭 BROWSE', live: '🔴 LIVE', play: '🎮 PLAY' };
 function szFront() { return szStack.length ? szStack[szStack.length - 1] : null; }
+var szRendered = {};
+function szRenderOnce(v) { if (szRendered[v]) return; szRendered[v] = 1; try { renderView(v); } catch (e) {} }
 function szGoEntry(entry) {
   if (entry === 'live') { szGoLive(); return; }
   var v = SZ_DOOR_VIEW[entry];
-  try { renderView(v); } catch (e) {}
+  szRenderOnce(v);
   go(v);
 }
 function szGoLive() {
   if (szLiveSub === 'streams') {
-    if (curView !== 'streaming') { try { renderView('streaming'); } catch (e) {} go('streaming'); }
+    if (curView !== 'streaming') { szRenderOnce('streaming'); go('streaming'); }
     return;
   }
-  if (curView !== 'live') { try { renderView('live'); } catch (e) {} go('live'); }
+  if (curView !== 'live') { szRenderOnce('live'); go('live'); }
   szApplyLiveSub();
 }
 function szApplyLiveSub() {
@@ -14528,12 +14535,13 @@ function szDoor(entry) {
   var i = szStack.indexOf(entry);
   if (i >= 0 && szFront() === entry) {           // tap the front card's door: close it
     szStack.pop();
+    szSync();
     var f = szFront();
     if (f) szGoEntry(f); else if (curView !== 'home') go('home');
   } else if (i >= 0) {                            // in the stack: pull to front
-    szStack.splice(i, 1); szStack.push(entry); szGoEntry(entry);
+    szStack.splice(i, 1); szStack.push(entry); szSync(); szGoEntry(entry);
   } else {                                        // open it, on top
-    szStack.push(entry); szGoEntry(entry);
+    szStack.push(entry); szSync(); szGoEntry(entry);
   }
   szSync();
 }
@@ -14542,16 +14550,18 @@ function szStripTo(entry) {
   if (i < 0) return;
   szProfileOpen = false;
   szStack.splice(i, 1); szStack.push(entry);
-  szGoEntry(entry); szSync();
+  szSync(); szGoEntry(entry); szSync();
 }
 function szProfileTap() {
   if (szProfileOpen) {
     szProfileOpen = false;
+    szSync();
     var f = szFront();
     if (f) szGoEntry(f); else if (curView !== 'home') go('home');
   } else {
     szProfileOpen = true;
-    try { renderView('profile'); } catch (e) {}
+    szSync();
+    szRenderOnce('profile');
     go('profile');
     refreshProfileBtn();
   }
@@ -14584,11 +14594,17 @@ function szPaintLiveTabs() {
     b.classList.toggle('on', b.dataset.lt === cur);
   });
 }
+var szLastFrontKey = '';
 function szSync() {
   var open = szStack.length > 0 || szProfileOpen;
   document.body.classList.toggle('sz-sheet', open);
   document.body.classList.toggle('sz-profile', szProfileOpen);
-  document.body.style.setProperty('--sz-stack-n', String(Math.max(0, szStack.length - 1)));
+  document.body.classList.toggle('sz-deep', szStack.length >= 3);
+  var key = szProfileOpen ? 'profile' : (szFront() || 'home');
+  if (key !== szLastFrontKey) {
+    szLastFrontKey = key;
+    if (open) { document.body.classList.remove('sz-pop'); void document.body.offsetWidth; document.body.classList.add('sz-pop'); }
+  }
   // strips for the back cards (front card is the framed pane itself)
   var box = document.getElementById('szStrips');
   if (box) {
