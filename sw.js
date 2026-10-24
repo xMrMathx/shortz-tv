@@ -1,7 +1,6 @@
 /* Shortz TV service worker — app shell: network-first for the page (always fresh when online), cache-first for the rest */
-const CACHE = "shortztv-v7"; // bumped 2026-10-15: catalog goes cache-first (Piece 1 transfer diet)
+const CACHE = "shortztv-v8"; // bumped 2026-10-24: thumb interception removed (blank-art fix — images go straight to network; the old thumbs cache is purged on activate because it is no longer in the keep-list)
 const CATALOG_CACHE = "shortztv-catalog-v1"; // survives shell bumps; keys are content-addressed URLs
-const THUMBS = "shortztv-thumbs-v1";
 const SHELL = ["catalog.js", "manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
 const PAGE = ["index.html"];
@@ -29,11 +28,6 @@ function isShell(url) {
   return SHELL.some(f => p.endsWith("/" + f));
 }
 
-function isThumb(url) {
-  // Cover art hosts: cache-first so repeat visits render instantly.
-  return /^(i\.ytimg\.com|vumbnail\.com|www\.dailymotion\.com|archive\.org)$/.test(url.hostname);
-}
-
 self.addEventListener("install", e => {
   e.waitUntil(
     caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())
@@ -43,7 +37,7 @@ self.addEventListener("install", e => {
 self.addEventListener("activate", e => {
   e.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== THUMBS && k !== CATALOG_CACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== CATALOG_CACHE).map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -51,19 +45,10 @@ self.addEventListener("activate", e => {
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
   const url = new URL(e.request.url);
-  if (isThumb(url)) {
-    // Cover art: serve from cache instantly, refresh in background.
-    e.respondWith(
-      caches.open(THUMBS).then(c => c.match(e.request).then(hit => {
-        const net = fetch(e.request).then(res => {
-          if (res && res.ok) c.put(e.request, res.clone());
-          return res;
-        }).catch(() => hit);
-        return hit || net;
-      }))
-    );
-    return;
-  }
+  // Cover art (i.ytimg.com, vumbnail.com, dailymotion, archive.org) is NOT
+  // intercepted — image requests go straight to the network. (2026-10-24:
+  // the cache-first thumb layer was removed after a blank-art report; a
+  // stale service-worker state must never sit between the app and its art.)
   if (isPage(url)) {
     // The page itself: always try network first so updates reach the app immediately.
     // (The app needs internet for videos anyway; cache is only the offline fallback.)
