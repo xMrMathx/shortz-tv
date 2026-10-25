@@ -1122,7 +1122,7 @@ body.sz-livefront #szLiveTabs{display:flex}
    paints over it — every sheet's last row stays fully visible and tappable.
    Listening state still shows on the mic square / voice bar themselves, and
    the voice JS zone exclusion keeps sheet taps from ever reaching the mic. */
-body:has(:is(#agSheet,#scoutSheet,#stkSheet,#isheet,#lvsheet,#lnsheet,#ccsheet,#cdraw,#edraw).open) #voicePop{opacity:0!important}
+body:has(:is(#agSheet,#agBubble,#scoutSheet,#stkSheet,#isheet,#lvsheet,#lnsheet,#ccsheet,#cdraw,#edraw).open) #voicePop{opacity:0!important}
 /* ENGINE v2: pulse when actively hearing speech (like system mic) */
 #voicePop.hearing{border-color:rgba(229,9,20,.6);box-shadow:0 0 24px rgba(229,9,20,.25)}
 #voicePop.hearing .vp-dots span{animation:vpulse .6s ease-in-out infinite}
@@ -2515,7 +2515,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792963749";
+window.__SZ_BUILD = "1792967251";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4347,7 +4347,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     e.stopPropagation();e.preventDefault();
     try{
       if(listening){stopListen();}
-      else if(typeof window._agentOpen==="function"){window._agentOpen(true);}
+      else if(typeof window._agentBubble==="function"){window._agentBubble();}else if(typeof window._agentOpen==="function"){window._agentOpen(true);}
       else{startListen();}
     }catch(err){}
   });
@@ -4385,7 +4385,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     dot.addEventListener("click",function(e){
       try{
         if(typeof suppressClick!=="undefined"&&suppressClick)return; // ignore post-drag taps
-        if(typeof window._agentOpen==="function")window._agentOpen(true);
+        if(typeof window._agentBubble==="function")window._agentBubble();else if(typeof window._agentOpen==="function")window._agentOpen(true);
         else if(typeof window._micToggle==="function")window._micToggle();
         e.stopPropagation();
         e.preventDefault();
@@ -5850,7 +5850,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792963749";
+const BUILD="1792967251";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9854,7 +9854,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792963749"></script>
+<script src="js/folders.js?v=1792967251"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10667,10 +10667,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792963749"></script>
-<script src="js/shortz-live.js?v=1792963749"></script>
-<script src="js/games.js?v=1792963749"></script>
-<script src="js/podcasts.js?v=1792963749"></script>
+<script src="js/streaming.js?v=1792967251"></script>
+<script src="js/shortz-live.js?v=1792967251"></script>
+<script src="js/games.js?v=1792967251"></script>
+<script src="js/podcasts.js?v=1792967251"></script>
 <script>
 
 
@@ -11188,7 +11188,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792963749"></script>
+<script src="js/swipe.js?v=1792967251"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13420,8 +13420,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792963749"></script>
-<script src="js/agent.js?v=1792963749"></script>
+<script src="js/live-sports.js?v=1792967251"></script>
+<script src="js/agent.js?v=1792967251"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a

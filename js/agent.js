@@ -71,7 +71,21 @@ var CSS=[
 "#agIn{flex:1;background:#1a1a20;border:1px solid #33333d;border-radius:999px;color:#fff;padding:11px 14px;font-size:14px;outline:none}",
 "#agMic,#agSend{width:44px;height:44px;border-radius:50%;border:1px solid #3a3a45;background:#22222a;color:#fff;font-size:18px;flex:0 0 auto}",
 "#agMic.listening{background:rgba(229,9,20,.4);border-color:#e50914}",
-"#agSend{background:#f5c542;color:#111;border-color:#f5c542;font-weight:700}"
+"#agSend{background:#f5c542;color:#111;border-color:#f5c542;font-weight:700}",
+"#agBubble{position:fixed;inset:0;z-index:99995;display:none}",
+"#agBubble.open{display:block}",
+"#agBubble .agb-back{position:absolute;inset:0;background:rgba(0,0,0,.74)}",
+"#agBubble .agb-core{position:absolute;left:0;right:0;top:15%;display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 24px}",
+"#agBubble .agb-face{width:118px;height:118px;border-radius:50%;border:3px solid #f5c542;overflow:hidden;background:#17171d;box-shadow:0 10px 34px rgba(0,0,0,.65);flex:0 0 auto}",
+"#agBubble .agb-face img{width:100%;height:100%;object-fit:cover;display:block}",
+"#agBubble.listening .agb-face{animation:agbPulse 1.6s ease-in-out infinite}",
+"@keyframes agbPulse{0%,100%{box-shadow:0 0 0 0 rgba(245,197,66,.45)}50%{box-shadow:0 0 0 15px rgba(245,197,66,0)}}",
+"#agBubble .agb-wave{display:flex;gap:4px;align-items:center;height:34px}",
+"#agBubble .agb-wave i{display:block;width:5px;border-radius:3px;background:#f5c542;height:5px;transition:height .09s ease}",
+"#agBubble .agb-said{color:#eee;font-size:15px;line-height:1.45;text-align:center;max-width:330px;min-height:22px}",
+"#agBubble .agb-said.you{color:#9a9aa5;font-size:13px}",
+"#agBubble .agb-type{background:#1c1c22;color:#f5c542;border:1px solid #3a3a45;border-radius:999px;padding:10px 18px;font-size:13px}",
+"#agBubble .agb-x{position:absolute;top:calc(10px + env(safe-area-inset-top));right:12px;width:38px;height:38px;border-radius:50%;background:#1c1c22;color:#ddd;border:1px solid #33333d;font-size:15px;z-index:2}"
 ].join("\n");
 var styleEl=document.createElement("style"); styleEl.textContent=CSS; document.head.appendChild(styleEl);
 var wrap=document.createElement("div"); wrap.id="agSheet"; wrap.setAttribute("aria-hidden","true");
@@ -84,6 +98,13 @@ wrap.innerHTML='<div class="ag-back"></div><div class="ag-box" role="dialog" ari
  +'<input id="agIn" type="text" placeholder="Say or type: play Fearless…" autocomplete="off" enterkeyhint="go">'
  +'<button id="agSend" type="button" aria-label="Send">➤</button></div></div>';
 document.body.appendChild(wrap);
+var bub=document.createElement("div"); bub.id="agBubble"; bub.setAttribute("aria-hidden","true");
+bub.innerHTML='<div class="agb-back"></div><button class="agb-x" type="button" aria-label="Close">✕</button>'
+ +'<div class="agb-core"><div class="agb-face"><img src="mascot-avatar.png" alt="Shortz"></div>'
+ +'<div class="agb-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'
+ +'<div class="agb-said you">Listening…</div>'
+ +'<button class="agb-type" type="button">⌨ Type instead…</button></div>';
+document.body.appendChild(bub);
 var log=$("#agLog"), input=$("#agIn"), liveBtn=$("#agLive"), micBtn=$("#agMic");
 var opened=false, greeted=false, liveMode=false, lastViaVoice=false;
 
@@ -133,7 +154,11 @@ function speak(text){
 }
 function afterSpeak(){
   if(liveMode&&opened){
-    setTimeout(function(){ if(liveMode&&opened) startListen(); },300);
+    setTimeout(function(){
+      if(!liveMode||!opened||speakingNow)return;
+      if(popShown())return;
+      startListen();
+    },300);
   }
 }
 
@@ -149,6 +174,7 @@ function meta(t){
   return bits.join(" · ");
 }
 function addCards(list,note){
+  if(bubbleOpen){ bubbleCards=true; bubLine(note||"Found it — tap Shortz to see.","her"); }
   if(note)addMsg(note,"a");
   var box=document.createElement("div"); box.className="ag-cards";
   list.forEach(function(t){
@@ -174,6 +200,7 @@ function addChips(list){
 }
 function say(text,opts){
   addMsg(text,"a");
+  if(bubbleOpen) bubLine(text,"her");
   if((liveMode||(opts&&opts.voice))){ if(!speak(text)&&liveMode) afterSpeak(); }
 }
 
@@ -365,16 +392,18 @@ function startListen(){
   /* Arm agent capture: the engine hands the final transcript to handle()
      instead of executing it, so voice gets the FULL agent brain. */
   window._agentCapture=function(t){
+    bubHeard=true;
     handle(t,true);
     if(liveMode){
       setTimeout(function(){
         var pop=$("#voicePop");
-        var listeningNow=pop&&pop.getAttribute("aria-hidden")!=="true";
+        var listeningNow=!!(pop&&pop.classList.contains("show"));
         var speaking=speakingNow;
         if(liveMode&&opened&&!listeningNow&&!speaking) startListen();
       },1200);
     }
   };
+  if(liveMode&&popShown())return; /* session visibly live: capture re-armed above; a toggle would kill it */
   try{ if(window._micToggle)window._micToggle(); }catch(e){}
 }
 function watchTranscript(){
@@ -385,6 +414,7 @@ function watchTranscript(){
     if(t&&t!=="Listening…"){
       if(!liveBubble){ liveBubble=addMsg("","u"); liveBubble.classList.add("live"); }
       liveBubble.textContent=t; lastTranscript=t; log.scrollTop=log.scrollHeight;
+      if(bubbleOpen) bubLine(t,"you");
     }
   });
   mo.observe(tx,{childList:true,characterData:true,subtree:true});
@@ -392,6 +422,7 @@ function watchTranscript(){
     var po=new MutationObserver(function(){
       var hidden=pop.getAttribute("aria-hidden")==="true"||!pop.classList.contains("show");
       micBtn.classList.toggle("listening",!hidden);
+      if(bubbleOpen){ bub.classList.toggle("listening",!hidden); if(hidden&&!bubHeard&&!speakingNow) bubLine("Didn't catch that — tap Shortz to try again.","her"); }
       if(hidden&&liveBubble){
         /* Capture normally finalizes the bubble inside handle(); this is the
            safety path for a listen that ended with no final transcript. */
@@ -415,7 +446,7 @@ function openSheet(autoListen){
 }
 function closeSheet(){
   opened=false; stopSpeak(); wrap.classList.remove("open"); wrap.setAttribute("aria-hidden","true");
-  if(liveMode){ liveMode=false; liveBtn.classList.remove("on"); }
+  if(liveMode){ liveMode=false; liveBtn.classList.remove("on"); stopLiveGuard(); }
 }
 window._agentOpen=openSheet;
 wrap.querySelector(".ag-back").addEventListener("click",closeSheet);
@@ -425,8 +456,57 @@ input.addEventListener("keydown",function(e){ if(e.key==="Enter"){ var v=input.v
 micBtn.addEventListener("click",function(){ startListen(); });
 liveBtn.addEventListener("click",function(){
   liveMode=!liveMode; liveBtn.classList.toggle("on",liveMode);
-  if(liveMode){ say("Live talk on — I'm listening. Talk to me like a call; say \"stop\" anytime to end it.",{}); setTimeout(startListen,400); }
-  else{ stopSpeak(); }
+  if(liveMode){ startLiveGuard(); say("Live talk on — I'm listening. Talk to me like a call; say \"stop\" anytime to end it.",{}); }
+  else{ stopLiveGuard(); stopSpeak(); }
 });
+/* ---------- the bubble: the mic's simple face (his word 2026-10-25) ----------
+   Mic tap opens THIS, never the chat window: mascot in a circle, a live
+   voice line under him driven by the real mic level (native RMS bridge;
+   her speaking state pulses it while she talks), one line of text.
+   The chat window opens only from the Type pill. */
+var bubbleOpen=false, bubbleCards=false, bubHeard=false;
+var waveLevel=0, waveTick=null, lastRmsAt=0;
+var bubSaid=bub.querySelector(".agb-said"), bubBars=bub.querySelectorAll(".agb-wave i");
+window.onNativeVoiceRms=function(v){ var n=parseFloat(v); if(isFinite(n)){ waveLevel=Math.max(0,Math.min(1,n)); lastRmsAt=Date.now(); } };
+function popShown(){ var pop=$("#voicePop"); return !!(pop&&pop.classList.contains("show")); }
+function bubLine(t,who){ if(bubSaid){ bubSaid.textContent=t; bubSaid.className="agb-said "+(who==="you"?"you":"her"); } }
+function waveStart(){ if(waveTick)return; waveTick=setInterval(function(){
+  var sp=speakingNow?(0.34+0.18*Math.sin(Date.now()/170)):0;
+  if(Date.now()-lastRmsAt>260) waveLevel*=0.72;
+  var lv=Math.max(waveLevel,sp), pat=[0.45,0.75,1,0.8,0.55,0.8,1,0.75,0.45];
+  for(var i=0;i<bubBars.length;i++){ bubBars[i].style.height=(4+lv*28*(pat[i]||0.6))+"px"; }
+},90); }
+function waveStop(){ if(waveTick){ clearInterval(waveTick); waveTick=null; } for(var i=0;i<bubBars.length;i++) bubBars[i].style.height="5px"; }
+function openBubble(){
+  if(opened) closeSheet();
+  bubbleOpen=true; bubbleCards=false; bubHeard=false;
+  bub.classList.add("open"); bub.setAttribute("aria-hidden","false");
+  bubLine("Listening…","you"); waveStart();
+  setTimeout(function(){ if(bubbleOpen) startListen(); },200);
+}
+function closeBubble(){
+  if(!bubbleOpen)return;
+  bubbleOpen=false; bub.classList.remove("open"); bub.setAttribute("aria-hidden","true"); waveStop();
+  if(popShown()){ try{ if(window._micToggle) window._micToggle(); }catch(e){} }
+}
+window._agentBubble=openBubble;
+bub.querySelector(".agb-back").addEventListener("click",closeBubble);
+bub.querySelector(".agb-x").addEventListener("click",closeBubble);
+bub.querySelector(".agb-type").addEventListener("click",function(){ closeBubble(); openSheet(false); });
+bub.querySelector(".agb-face").addEventListener("click",function(){
+  if(bubbleCards){ closeBubble(); openSheet(false); }
+  else if(!popShown()&&!speakingNow){ bubHeard=false; bubLine("Listening…","you"); startListen(); }
+});
+
+/* ---------- live-talk guard: while Live talk is on, the mic hands back ----------
+   Self-healing loop: any dropped re-arm (a native session that ended
+   silently, a toggle consumed mid-teardown) is picked up here. Every arm
+   is guarded by the same checks, so the paths can never double-start. */
+var liveGuard=null;
+function startLiveGuard(){ stopLiveGuard(); liveGuard=setInterval(function(){
+  if(liveMode&&opened&&!speakingNow&&!popShown()) startListen();
+},1300); }
+function stopLiveGuard(){ if(liveGuard){ clearInterval(liveGuard); liveGuard=null; } }
+
 watchTranscript();
 })();
