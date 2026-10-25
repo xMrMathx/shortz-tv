@@ -176,7 +176,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #feedTrack .slide{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;will-change:transform}
 /* ---------- HOME CARD FEED (Reddit-style cards; center card previews) ---------- */
 #cfeed{position:relative;height:100dvh;overflow-y:auto;overflow-x:hidden;background:#050506;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
-#cfeedInner{max-width:640px;margin:0 auto;padding:calc(66px + env(safe-area-inset-top)) 12px calc(96px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
+#cfeedInner{max-width:640px;margin:0 auto;padding:12px 12px calc(96px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
+body.feedfull #cfeedInner{padding-top:calc(66px + env(safe-area-inset-top))}
 .cfcard{background:#101013;border:1px solid #232328;border-radius:16px;overflow:hidden;flex:none}
 .cfcard.playing{border-color:rgba(229,9,20,.55);box-shadow:0 0 0 1px rgba(229,9,20,.35),0 8px 30px rgba(0,0,0,.5)}
 .cfmedia{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden}
@@ -2515,7 +2516,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792939885";
+window.__SZ_BUILD = "1792940628";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5837,7 +5838,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792939885";
+const BUILD="1792940628";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9839,7 +9840,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792939885"></script>
+<script src="js/folders.js?v=1792940628"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10652,10 +10653,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792939885"></script>
-<script src="js/shortz-live.js?v=1792939885"></script>
-<script src="js/games.js?v=1792939885"></script>
-<script src="js/podcasts.js?v=1792939885"></script>
+<script src="js/streaming.js?v=1792940628"></script>
+<script src="js/shortz-live.js?v=1792940628"></script>
+<script src="js/games.js?v=1792940628"></script>
+<script src="js/podcasts.js?v=1792940628"></script>
 <script>
 
 
@@ -11173,7 +11174,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792939885"></script>
+<script src="js/swipe.js?v=1792940628"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13405,7 +13406,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792939885"></script>
+<script src="js/live-sports.js?v=1792940628"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
