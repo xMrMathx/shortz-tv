@@ -96,6 +96,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Shortz VS">
 <link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="icon-192.png">
 <style>
 :root{
@@ -652,6 +653,16 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .librow .lm{font-size:11px;color:var(--mut);margin-top:3px}
 .librow .go{margin-left:auto;color:var(--red);font-size:20px}
 .empty{text-align:center;color:var(--mut);padding:50px 20px;font-size:14px;line-height:1.7}
+/* Mascot (his crown 2026-10-24 — all six pieces): the red-VS character as a
+   gold-framed sticker. Full body = mascot.webp; head/shoulders = mascot-avatar.png. */
+.sz-mascot{display:block;margin:0 auto;object-fit:cover;background:#e9dfc9;border:2px solid #d4af37;border-radius:14px}
+.empty::before{content:"";display:block;width:52px;height:104px;margin:0 auto 12px;background:#e9dfc9 url("mascot.webp") center/cover no-repeat;border:2px solid #d4af37;border-radius:14px}
+@keyframes szMascotBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.sz-mascot-bounce{animation:szMascotBounce 1.05s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){.sz-mascot-bounce{animation:none}}
+#ptr .ptr-mascot{width:34px;height:34px;border-radius:50%;border:2px solid #d4af37;object-fit:cover;background:#e9dfc9}
+#ptr.pulling .ptr-mascot{animation:szMascotBounce 1.05s ease-in-out infinite} /* bounce only while pulled open — a hidden perpetual animation would keep the compositor repainting (Brain audit 2026-10-24) */
+@media (prefers-reduced-motion: reduce){#ptr.pulling .ptr-mascot{animation:none}}
 .profhead{display:flex;gap:14px;align-items:center;margin:22px 0 16px}
 .avatar{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--red),#7a0d18);
   display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:900;box-shadow:0 8px 24px rgba(229,9,20,.4);overflow:hidden;flex-shrink:0}
@@ -2243,7 +2254,7 @@ try{
   setInterval(check, CHECK_MS);
 })();
 </script>
-<div id="ptr"><div class="ptr-spin"></div></div>
+<div id="ptr"><img class="ptr-mascot" src="mascot-avatar.png" alt=""></div>
 <button id="rotexit" aria-label="Exit rotate" onclick="toggleRotate()">✕</button>
 <div id="app">
   <header id="topbar">
@@ -2490,7 +2501,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792884381";
+window.__SZ_BUILD = "1792886530";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2602,12 +2613,12 @@ document.addEventListener("click",function(e){
   document.addEventListener("touchmove",function(e){
     if(!pulling)return;
     const dy=e.touches[0].clientY-sy;
-    if(dy>0 && dy<120){ ptr.style.height=Math.min(dy,80)+"px"; }
+    if(dy>0 && dy<120){ ptr.style.height=Math.min(dy,80)+"px"; ptr.classList.add("pulling"); }
   },{passive:true});
   document.addEventListener("touchend",function(e){
     if(!pulling)return; pulling=false;
     const h=parseInt(ptr.style.height)||0;
-    ptr.style.height="0px";
+    ptr.style.height="0px"; ptr.classList.remove("pulling");
     if(h>50){ buzz(20); if(window.refreshFeed)refreshFeed(); /* never location.reload() in app WebView */ }
   });
 })();
@@ -5330,6 +5341,7 @@ function slideHTML(){
         allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen
         title="Shortz VS player"></iframe>
       <div class="errcard" data-errcard style="display:none">
+        <img class="sz-mascot" src="mascot.webp" alt="" style="width:52px;height:104px;margin-bottom:12px">
         <h3>Video unavailable</h3>
         <p data-errmsg>This video can't play right now.</p>
         <div class="ebtns">
@@ -5804,7 +5816,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792884381";
+const BUILD="1792886530";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9447,7 +9459,7 @@ function avatarHTML(prof,cls){
   if(ph.indexOf("http")===0||ph.indexOf("data:image")===0){
     return `<div class="avatar ${cls}" onclick="openAvatarView(this)"><img decoding="async" src="${esc(ph)}" alt="" onerror="this.remove()"></div>`;
   }
-  return `<div class="avatar ${cls} pav0">${init}</div>`;
+  return `<div class="avatar ${cls}"><img decoding="async" src="mascot-avatar.png" alt="" onerror="this.remove()"></div>`; // default profile picture (his crown 2026-10-24): the mascot, until the user picks their own
 }
 /* ---------- tap a profile picture to view it full-screen ---------- */
 function openAvatarView(el){
@@ -9790,7 +9802,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792884381"></script>
+<script src="js/folders.js?v=1792886530"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10603,10 +10615,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792884381"></script>
-<script src="js/shortz-live.js?v=1792884381"></script>
-<script src="js/games.js?v=1792884381"></script>
-<script src="js/podcasts.js?v=1792884381"></script>
+<script src="js/streaming.js?v=1792886530"></script>
+<script src="js/shortz-live.js?v=1792886530"></script>
+<script src="js/games.js?v=1792886530"></script>
+<script src="js/podcasts.js?v=1792886530"></script>
 <script>
 
 
@@ -11124,7 +11136,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792884381"></script>
+<script src="js/swipe.js?v=1792886530"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12155,8 +12167,8 @@ function showTutorial(force){
   try{ if(!force&&!SHOW_GATES_EVERY_TIME&&store.get("tutorial_done"))return; }catch(e){ return; }
   const g=$("tutGate"); if(!g)return;
   tutIdx=0;
-  $("tutTrack").innerHTML=TUTS.map(t=>
-    '<div class="tutpage"><div class="tut-ico">'+t.icon+'</div>'
+  $("tutTrack").innerHTML=TUTS.map((t,i)=>
+    '<div class="tutpage">'+(i===0?'<img class="sz-mascot" src="mascot.webp" alt="" style="width:52px;height:104px;margin-bottom:2px">':'')+'<div class="tut-ico">'+t.icon+'</div>'
     +'<div class="tut-title">'+t.title+'</div>'
     +'<div class="tut-body">'+t.body+'</div></div>'
   ).join("");
@@ -13356,7 +13368,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792884381"></script>
+<script src="js/live-sports.js?v=1792886530"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a

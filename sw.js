@@ -1,5 +1,5 @@
 /* Shortz TV service worker — app shell: network-first for the page (always fresh when online), cache-first for the rest */
-const CACHE = "shortztv-v8"; // bumped 2026-10-24: thumb interception removed (blank-art fix — images go straight to network; the old thumbs cache is purged on activate because it is no longer in the keep-list)
+const CACHE = "shortztv-v9"; // bumped 2026-10-24: mascot app icons (the precached icon-192/512/maskable are new files — a fresh cache name is what makes existing installs pick them up)
 const CATALOG_CACHE = "shortztv-catalog-v1"; // survives shell bumps; keys are content-addressed URLs
 const SHELL = ["catalog.js", "manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
