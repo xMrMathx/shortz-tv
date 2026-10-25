@@ -2501,7 +2501,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792889055";
+window.__SZ_BUILD = "1792893298";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5816,7 +5816,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792889055";
+const BUILD="1792893298";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8385,6 +8385,7 @@ async function loadTop10File(secId,rowId,file,cacheKey){
     });
     sec.style.display="";
     try{ const vb=$("#view-browse"); if(vb)likesWatch(vb); }catch(e){}
+    try{ collapseEmptyLanding(); }catch(e){} // late paint (async fetch): re-run the compaction so no neighbor keeps dead space (his dead-band screenshots, 2026-10-24)
   }catch(e){ /* row stays hidden if the file is missing */ }
 }
 function loadTop10(){ return loadTop10File("top10sec","top10row","top10.json","main"); }
@@ -8621,10 +8622,12 @@ function paintBrowseFresh(){
   const tw=$("#browseTopTenWrap"), track=$("#browseTopTenTrack");
   if(track&&visit&&visit.top&&visit.top.length){
     track.innerHTML=browseTopTenHTML(visit);
+    if(tw)tw.style.display="";
     bindBrowseTopTen();
   } else if(tw){ tw.style.display="none"; }
   const pk=$("#browseScoutPicks");
   if(pk){ pk.innerHTML=browseFreshHTML(visit); try{ likesWatch($("#view-browse")); }catch(e){} try{ bindBrowseScoutPicks(); }catch(e){} }
+  try{ collapseEmptyLanding(); }catch(e){} // Scout paints are the last wave — compact after them too
 }
 function openExtUrl(u){
   let w=null;
@@ -8699,17 +8702,30 @@ function paintDiscoveryRows(){
    landing. Guarantee: a landing section that ends up with an EMPTY row
    takes NO space — sections stack tight, always. */
 function collapseEmptyLanding(){
-  const secs=["discCwSec","top10sec","awardWinSec","kaneSpotSec","discLiveSec","discNewSec","discHorrorSec","discHoodSec","discWrestSec"];
-  for(const id of secs){
-    const sec=document.getElementById(id); if(!sec)continue;
-    if(sec.style.display==="none")continue;
-    const row=sec.querySelector(".award-row,.top10-row");
+  // EVERY landing section, every copy, any row class (2026-10-24, third
+  // round on his dead-band screenshots): the old pass only checked a
+  // fixed id list via getElementById (first copy only) and only two row
+  // classes — a section standing with an empty content container kept
+  // its full height and read as a black band between its neighbors.
+  // Rule now: a section whose content container is empty takes NO
+  // space, whoever painted it, whenever this runs. Painters re-show
+  // their section (display="") only after filling it, so a late fill
+  // still lands correctly.
+  const secs=new Set();
+  for(const id of ["discCwSec","top10sec","awardWinSec","kaneSpotSec","discLiveSec","discNewSec","discHorrorSec","discHoodSec","discWrestSec"]) document.querySelectorAll("#"+id).forEach(s=>secs.add(s));
+  const L=document.getElementById("browseLanding");
+  if(L) L.querySelectorAll(".award-sec,.top10-sec,.cs-sec").forEach(s=>secs.add(s));
+  secs.forEach(sec=>{
+    if(sec.style.display==="none")return;
+    const row=sec.querySelector(".award-row,.top10-row,.cs-row,.btt-track,.disc-row");
     if(row&&row.children.length===0) sec.style.display="none";
-  }
+  });
   const pk=document.getElementById("browseScoutPicks");
   if(pk&&pk.children.length===0){ pk.style.display="none"; const lb=document.getElementById("scoutPicksLabel"); if(lb)lb.style.display="none"; }
   const dr=document.getElementById("browseScoutDoor");
   if(dr&&!dr.innerHTML.trim()) dr.style.display="none";
+  const tw=document.getElementById("browseTopTenWrap");
+  if(tw){ const tr=document.getElementById("browseTopTenTrack"); if(tr&&tr.children.length===0) tw.style.display="none"; }
   try{ sweepLandingGaps(); }catch(e){}
 }
 /* his screenshots kept showing a tall dead band on the landing that no
@@ -8796,7 +8812,7 @@ function renderBrowseLanding(){
       <div class="award-head"><h3>🤼 Wrestling</h3><span style="margin-left:10px;color:#9a9aa2;font-size:12px;font-weight:700">Just added</span><button data-all style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">View all ›</button></div>
       <div class="award-row" id="discWrestRow"></div>
     </div></div>
-    <div class="btt-wrap" id="browseTopTenWrap">
+    <div class="btt-wrap" id="browseTopTenWrap" style="display:none">
       <div class="btt-head"><h2>🤖 Scout's Top Ten</h2><span>Fresh every visit — swipe</span></div>
       <div class="btt-win" id="browseTopTen"><div class="btt-track" id="browseTopTenTrack"></div></div>
     </div>
@@ -9802,7 +9818,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792889055"></script>
+<script src="js/folders.js?v=1792893298"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10615,10 +10631,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792889055"></script>
-<script src="js/shortz-live.js?v=1792889055"></script>
-<script src="js/games.js?v=1792889055"></script>
-<script src="js/podcasts.js?v=1792889055"></script>
+<script src="js/streaming.js?v=1792893298"></script>
+<script src="js/shortz-live.js?v=1792893298"></script>
+<script src="js/games.js?v=1792893298"></script>
+<script src="js/podcasts.js?v=1792893298"></script>
 <script>
 
 
@@ -11136,7 +11152,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792889055"></script>
+<script src="js/swipe.js?v=1792893298"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13368,7 +13384,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792889055"></script>
+<script src="js/live-sports.js?v=1792893298"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
