@@ -371,7 +371,7 @@ body.pip .scrub{display:none!important}
 #profMyList .awardbadge{font-size:8px;padding:3px 5px;top:6px;left:6px}
 
 /* ---------- detail ---------- */
-#detailArt{position:relative;width:100vw;margin-left:calc(50% - 50vw);height:300px;overflow:hidden;background:#0e0e15}
+#detailArt{position:relative;height:300px;overflow:hidden;background:#0e0e15;margin:0 16px;border-radius:16px}
 .art-kb{position:absolute;top:-6%;left:-6%;width:112%;height:112%;animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
 @keyframes kenburns{from{transform:scale(1) translate(0,0) rotate(0deg)}to{transform:scale(1.22) translate(-2.5%,2%) rotate(.6deg)}}
 .art-kb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -2052,7 +2052,6 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 html.sz-on{overflow:hidden;background:#050506}
 html.sz-on body{width:calc(100vw / var(--sz-k));height:calc(100vh / var(--sz-k));transform:scale(var(--sz-k));transform-origin:0 0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain}
 html.sz-on #cfeed,html.sz-on .feedstage{height:calc(100dvh / var(--sz-k))}
-html.sz-on #detailArt{width:calc(100vw / var(--sz-k));margin-left:calc(50% - 50vw / var(--sz-k))}
 html.sz-on .swipe-stub{min-height:calc(100vh / var(--sz-k))}
 html.sz-on #views{min-height:calc(80vh / var(--sz-k))}
 html.sz-on .cffold .eplist{max-height:calc(44vh / var(--sz-k))}
@@ -2516,7 +2515,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792940628";
+window.__SZ_BUILD = "1792941440";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5838,7 +5837,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792940628";
+const BUILD="1792941440";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9840,7 +9839,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792940628"></script>
+<script src="js/folders.js?v=1792941440"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10653,10 +10652,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792940628"></script>
-<script src="js/shortz-live.js?v=1792940628"></script>
-<script src="js/games.js?v=1792940628"></script>
-<script src="js/podcasts.js?v=1792940628"></script>
+<script src="js/streaming.js?v=1792941440"></script>
+<script src="js/shortz-live.js?v=1792941440"></script>
+<script src="js/games.js?v=1792941440"></script>
+<script src="js/podcasts.js?v=1792941440"></script>
 <script>
 
 
@@ -11174,7 +11173,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792940628"></script>
+<script src="js/swipe.js?v=1792941440"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13406,7 +13405,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792940628"></script>
+<script src="js/live-sports.js?v=1792941440"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
