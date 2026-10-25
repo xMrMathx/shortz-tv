@@ -2058948,5 +2058948,348 @@ window.SHORTZ_CATALOG = [
   "award_verified": false,
   "url": "https://www.youtube.com/embed/T6gBP8jZOV8",
   "runtime": "10 min"
+ },
+ {
+  "id": "stv-77192",
+  "title": "Zombified",
+  "genre": "Zombie",
+  "eps": "1 ep",
+  "desc": "A rescue team reaches an isolated research camp where time resets every three days — and the terrifying creatures roaming it make escape almost impossible.",
+  "url": "https://www.youtube.com/watch?v=M8_aKdvc2Sc",
+  "source_channel": "Boxoffice | HORROR | Full Movies",
+  "rights_basis": "Distributor-posted full feature — Boxoffice official YouTube upload, public embed; gate-passed 2026-10-24 (embeddable, US-clear, not age-restricted).",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "ai_made": false,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zombified",
+    "url": "https://www.youtube.com/watch?v=M8_aKdvc2Sc",
+    "video_id": "M8_aKdvc2Sc",
+    "platform": "youtube",
+    "verified": true
+   }
+  ]
+ },
+ {
+  "id": "stv-77193",
+  "title": "Zombie Night (2013)",
+  "genre": "Zombie",
+  "eps": "1 ep",
+  "desc": "When the sun goes down, the dead rise. A mysterious outbreak brings the deceased back to life — but only at night. Two very different families band together in a secluded home for a desperate fight to survive until dawn. Starring Anthony Michael Hall and Daryl Hannah.",
+  "url": "https://www.youtube.com/watch?v=M057D89kuBc",
+  "source_channel": "MONSTERS",
+  "rights_basis": "Distributor-posted full feature — MONSTERS official YouTube upload, public embed; gate-passed 2026-10-24 (embeddable, US-clear, not age-restricted). The Disaster Zone copy of this film is embed-disabled and was not used.",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "ai_made": false,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zombie Night",
+    "url": "https://www.youtube.com/watch?v=M057D89kuBc",
+    "video_id": "M057D89kuBc",
+    "platform": "youtube",
+    "verified": true
+   }
+  ]
+ },
+ {
+  "id": "stv-77194",
+  "title": "Dead Town",
+  "genre": "Zombie",
+  "eps": "7 eps",
+  "desc": "It's the end of the world. The dead have risen and humanity is crumbling in the small industrial town of Runcorn, in the North West of England. British comedy-horror web series following John Diant and friends as they bumble through the apocalypse.",
+  "url": "https://www.youtube.com/watch?v=J3PSSG-PX-U",
+  "source_channel": "Dead Town",
+  "rights_basis": "Creators' official channel — all 6 episodes + teaser gate-passed 2026-10-24 (embeddable, US-clear, not age-restricted).",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "ai_made": false,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Road To Nowhere",
+    "url": "https://www.youtube.com/watch?v=J3PSSG-PX-U",
+    "video_id": "J3PSSG-PX-U",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 2,
+    "title": "This Must be the Place",
+    "url": "https://www.youtube.com/watch?v=shS8IUnuKMo",
+    "video_id": "shS8IUnuKMo",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 3,
+    "title": "Once in a Lifetime",
+    "url": "https://www.youtube.com/watch?v=D4d7NiALQTM",
+    "video_id": "D4d7NiALQTM",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 4,
+    "title": "Same As It Ever Was",
+    "url": "https://www.youtube.com/watch?v=QE8bGZu2zOw",
+    "video_id": "QE8bGZu2zOw",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 5,
+    "title": "Life During Wartime",
+    "url": "https://www.youtube.com/watch?v=ut69x2finrI",
+    "video_id": "ut69x2finrI",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 6,
+    "title": "Life During Wartime Part 2",
+    "url": "https://www.youtube.com/watch?v=27ifIXTGHIs",
+    "video_id": "27ifIXTGHIs",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 7,
+    "title": "Teaser Trailer",
+    "url": "https://www.youtube.com/watch?v=6UZ6NTqGD-A",
+    "video_id": "6UZ6NTqGD-A",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "episodes_note": "Complete run: Series 1 (Episodes 1-3) + Series 2 (Episodes 4-6), continuous numbering. Official teaser trailer last."
+ },
+ {
+  "id": "stv-77195",
+  "title": "Zomblogalypse",
+  "genre": "Zombie",
+  "eps": "26 eps",
+  "desc": "Three friends in York video-blog their way through a zombie apocalypse — the shopping, the boredom, the siege, and the quest for a decent cup of tea at the end of the world. Cult British zomedy web series by Miles To Go Films (BBC/Hat Trick web-native).",
+  "url": "https://www.youtube.com/watch?v=LXTim9-n1Ag",
+  "source_channel": "Zomblogalypse",
+  "rights_basis": "Creators' official channel (Miles To Go Films) — all 24 episodes + teaser + trailer gate-passed 2026-10-24 (embeddable, US-clear, not age-restricted).",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "ai_made": false,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Connectivity",
+    "url": "https://www.youtube.com/watch?v=vcX4C2QiUfs",
+    "video_id": "vcX4C2QiUfs",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 2,
+    "title": "Business as Usual",
+    "url": "https://www.youtube.com/watch?v=rO0vOe8njXQ",
+    "video_id": "rO0vOe8njXQ",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 3,
+    "title": "Hangin' in the Garage",
+    "url": "https://www.youtube.com/watch?v=YY9v5DB1gCc",
+    "video_id": "YY9v5DB1gCc",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 4,
+    "title": "Cooking & Sports in the Apocalypse",
+    "url": "https://www.youtube.com/watch?v=2ZgI-zOwjnI",
+    "video_id": "2ZgI-zOwjnI",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 5,
+    "title": "The Zombie Postman Cometh",
+    "url": "https://www.youtube.com/watch?v=FKDypZNyCaY",
+    "video_id": "FKDypZNyCaY",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 6,
+    "title": "The End... Or Is It?",
+    "url": "https://www.youtube.com/watch?v=w2pxMOnOL1g",
+    "video_id": "w2pxMOnOL1g",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 7,
+    "title": "Shopping",
+    "url": "https://www.youtube.com/watch?v=LXTim9-n1Ag",
+    "video_id": "LXTim9-n1Ag",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 8,
+    "title": "Boredom",
+    "url": "https://www.youtube.com/watch?v=JP22iSiI2WE",
+    "video_id": "JP22iSiI2WE",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 9,
+    "title": "Rivalry",
+    "url": "https://www.youtube.com/watch?v=EuZzDu7WMqc",
+    "video_id": "EuZzDu7WMqc",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 10,
+    "title": "Relationships",
+    "url": "https://www.youtube.com/watch?v=4j4zkMce1Vs",
+    "video_id": "4j4zkMce1Vs",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 11,
+    "title": "Kiwi",
+    "url": "https://www.youtube.com/watch?v=_B31QAYIW2Y",
+    "video_id": "_B31QAYIW2Y",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 12,
+    "title": "Cinepocalypse",
+    "url": "https://www.youtube.com/watch?v=Gxlp2gT35OM",
+    "video_id": "Gxlp2gT35OM",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 13,
+    "title": "Ground Z-Ro",
+    "url": "https://www.youtube.com/watch?v=rZXxCUlAJfE",
+    "video_id": "rZXxCUlAJfE",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 14,
+    "title": "Homeless",
+    "url": "https://www.youtube.com/watch?v=RGy9ayw5eS4",
+    "video_id": "RGy9ayw5eS4",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 15,
+    "title": "Walkabout",
+    "url": "https://www.youtube.com/watch?v=v4jvE0Wjm98",
+    "video_id": "v4jvE0Wjm98",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 16,
+    "title": "Natural Selection",
+    "url": "https://www.youtube.com/watch?v=hYjylViDlkY",
+    "video_id": "hYjylViDlkY",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 17,
+    "title": "Ambition",
+    "url": "https://www.youtube.com/watch?v=CEGDX8zeMvc",
+    "video_id": "CEGDX8zeMvc",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 18,
+    "title": "Siege",
+    "url": "https://www.youtube.com/watch?v=Yj0NZyHFJy0",
+    "video_id": "Yj0NZyHFJy0",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 19,
+    "title": "Way of the Ninja",
+    "url": "https://www.youtube.com/watch?v=AurrQAUPToY",
+    "video_id": "AurrQAUPToY",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 20,
+    "title": "Splat to the Future",
+    "url": "https://www.youtube.com/watch?v=Wo-Usk15B_4",
+    "video_id": "Wo-Usk15B_4",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 21,
+    "title": "Full Metal Hatchet",
+    "url": "https://www.youtube.com/watch?v=0vlWQnsX9Eo",
+    "video_id": "0vlWQnsX9Eo",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 22,
+    "title": "Attack of the Moans",
+    "url": "https://www.youtube.com/watch?v=hj52l2zulbE",
+    "video_id": "hj52l2zulbE",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 23,
+    "title": "There Will Be Guts",
+    "url": "https://www.youtube.com/watch?v=xr014bBt22I",
+    "video_id": "xr014bBt22I",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 24,
+    "title": "Zombies in the Mist",
+    "url": "https://www.youtube.com/watch?v=vgxRSUeRi98",
+    "video_id": "vgxRSUeRi98",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 25,
+    "title": "Zomblog Zero Teaser",
+    "url": "https://www.youtube.com/watch?v=UCJsQ_J5uGo",
+    "video_id": "UCJsQ_J5uGo",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 26,
+    "title": "Series Trailer",
+    "url": "https://www.youtube.com/watch?v=tqixvNysPv0",
+    "video_id": "tqixvNysPv0",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "episodes_note": "Complete web series: Series 0 (Episodes 1-6), Series 1 (Episodes 7-12), Series 2 (Episodes 13-18), Series 3 (Episodes 19-24), continuous numbering. Teaser, then series trailer, last. The Season 3 feature-length compilation is not duplicated here."
  }
-];
+]
+;
