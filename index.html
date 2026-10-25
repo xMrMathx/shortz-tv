@@ -2514,7 +2514,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792895123";
+window.__SZ_BUILD = "1792919388";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3582,6 +3582,8 @@ function go(v){
   if(v==="home"&&curView!=="home"&&homeMode==="stage")resumeFeedVideo(); // instant: iframe stayed warm (stage mode only — card mode has nothing to resume)
   try{ closeSportsReel(); }catch(e){} // never leave a reel playing over another tab
   try{ closeComments(); }catch(e){} // never leave the comments drawer hanging over another view (his report 2026-10-24: the sheet sat open over Browse)
+  try{ closeEpDrawer(); }catch(e){} // same law for the episodes sheet — its .open state vetoes the watch fade
+  try{ document.querySelectorAll(".gdrop.open,.ric-more.open").forEach(el=>el.classList.remove("open")); }catch(e){} // a menu left open in another view vetoes the Home watch fade forever — the fade's veto check is document-wide (his report 2026-10-25)
   TAB_BTNS.forEach(t=>t.classList.toggle("on",t.dataset.v===v||(v==="detail"&&t.dataset.v===returnView)));
   try{document.querySelectorAll("#deskNav button").forEach(b=>b.classList.toggle("on",b.dataset.nav===v||(v==="detail"&&b.dataset.nav===returnView)));}catch(e){}
   try{document.querySelectorAll("#sideBar button").forEach(b=>b.classList.toggle("on",b.dataset.nav===v||(v==="detail"&&b.dataset.nav===returnView)));}catch(e){}
@@ -5026,7 +5028,11 @@ function makeArchivePlayer(v){
     destroy(){ try{this._v.pause(); this._v.removeAttribute("src"); this._v.load();}catch(e){} try{this._v.remove();}catch(e){} }
   };
 }
-/* HUD auto-hide: 2s no touch/scroll → ALL UI over the video fades, tap/scroll → back */
+/* HUD auto-hide: 2s no touch → ALL UI over the video fades, tap → back.
+   ONLY a real touch wakes it — scroll/wheel never do (Chrome Contract, his word):
+   the feed's own settle, momentum tail and scroll-anchoring fired the old
+   scroll listener nonstop on his phone and the fade never landed
+   (his reports 2026-10-24 + 2026-10-25). */
 let _hudT=null;
 function hudWake(){
   document.body.classList.remove("hud-hidden");
@@ -5047,7 +5053,8 @@ function hudWake(){
 ["touchstart","mousedown"].forEach(ev=>document.addEventListener(ev,()=>{ 
   if(document.body.classList.contains("hud-hidden"))hudWake(); else hudWake();
 },{passive:true}));
-["wheel","scroll"].forEach(ev=>document.addEventListener(ev,()=>{hudWake();},{passive:true,capture:true}));
+/* scroll/wheel wake REMOVED 2026-10-25: programmatic and feed scrolls are not
+   touches — they may never reset the fade (see the contract note above). */
 /* rotate: pure CSS in-app rotation — works regardless of phone's auto-rotate setting */
 let _rotated=false;
 function toggleRotate(){
@@ -5829,7 +5836,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792895123";
+const BUILD="1792919388";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9831,7 +9838,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792895123"></script>
+<script src="js/folders.js?v=1792919388"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10644,10 +10651,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792895123"></script>
-<script src="js/shortz-live.js?v=1792895123"></script>
-<script src="js/games.js?v=1792895123"></script>
-<script src="js/podcasts.js?v=1792895123"></script>
+<script src="js/streaming.js?v=1792919388"></script>
+<script src="js/shortz-live.js?v=1792919388"></script>
+<script src="js/games.js?v=1792919388"></script>
+<script src="js/podcasts.js?v=1792919388"></script>
 <script>
 
 
@@ -11165,7 +11172,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792895123"></script>
+<script src="js/swipe.js?v=1792919388"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13397,7 +13404,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792895123"></script>
+<script src="js/live-sports.js?v=1792919388"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
