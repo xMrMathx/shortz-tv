@@ -525,6 +525,7 @@ body.rot-full #rotexit{display:block}
 #browseLanding .top10-num{color:transparent;-webkit-text-stroke:3px #f6c945}
 #browseLanding .top10-v{display:none}
 .cw-card .vthumb{aspect-ratio:16/9;height:auto}
+.cw-card{content-visibility:visible}
 .cw-ep{position:absolute;right:6px;bottom:6px;background:rgba(0,0,0,.78);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px;z-index:3}
 .cw-bar{height:4px;background:#2b2b31;border-radius:2px;margin:7px 1px 0;overflow:hidden}
 .cw-bar i{display:block;height:100%;background:#f6c945;border-radius:2px}
@@ -2514,7 +2515,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792919388";
+window.__SZ_BUILD = "1792939885";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5836,7 +5837,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792919388";
+const BUILD="1792939885";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9838,7 +9839,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792919388"></script>
+<script src="js/folders.js?v=1792939885"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10651,10 +10652,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792919388"></script>
-<script src="js/shortz-live.js?v=1792919388"></script>
-<script src="js/games.js?v=1792919388"></script>
-<script src="js/podcasts.js?v=1792919388"></script>
+<script src="js/streaming.js?v=1792939885"></script>
+<script src="js/shortz-live.js?v=1792939885"></script>
+<script src="js/games.js?v=1792939885"></script>
+<script src="js/podcasts.js?v=1792939885"></script>
 <script>
 
 
@@ -11172,7 +11173,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792919388"></script>
+<script src="js/swipe.js?v=1792939885"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13404,7 +13405,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792919388"></script>
+<script src="js/live-sports.js?v=1792939885"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
