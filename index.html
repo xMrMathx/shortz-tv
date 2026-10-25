@@ -1366,6 +1366,19 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
 .lform input{flex:1;background:#1a1a24;border:1px solid var(--line);border-radius:22px;padding:12px 16px;color:#fff;font-size:14px;outline:none}
 .lform button{background:var(--red);color:#fff;font-weight:800;width:46px;height:46px;border-radius:50%;font-size:17px;flex-shrink:0}
 .live-hint{font-size:11px;color:var(--mut);text-align:center;margin:10px 0 4px}
+/* STREAM CHAT (his order 2026-10-24): one fixed panel on <body>, keyed to
+   the ACTIVE streamer — it lives outside #view-streaming because the feed
+   rebuilds that view's innerHTML on every restack, which would wipe a
+   chat mounted inside a card. Twitch = the real Twitch chat embed;
+   YouTube/Kick = the Shortz chat (Watch Party pattern). */
+#ssChatPill{position:fixed;right:14px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:9000;background:var(--red);color:#fff;font-weight:800;font-size:14px;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:11px 18px;box-shadow:0 8px 22px rgba(0,0,0,.5);cursor:pointer}
+#ssChatPanel{position:fixed;left:0;right:0;bottom:0;height:min(62dvh,560px);z-index:9400;background:#101016;border-top:1px solid var(--gold);display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
+.sschat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:800;font-size:14px;color:#fff}
+#ssChatX{background:none;border:1px solid var(--line);color:#fff;width:34px;height:34px;border-radius:50%;font-size:15px;cursor:pointer;flex-shrink:0}
+#ssChatFrame{flex:1;width:100%;border:0;background:#0c0c12}
+#ssChatBody{flex:1;display:flex;flex-direction:column;min-height:0}
+.sschat-msgs{flex:1;overflow-y:auto;background:#0c0c12;padding:10px 12px;display:flex;flex-direction:column;gap:8px}
+.sschat-form{padding:10px 12px;margin-top:0}
 #lvscrim,#lnscrim{position:fixed;inset:0;z-index:125;background:rgba(0,0,0,.62);opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
 #lvscrim.open,#lnscrim.open{opacity:1;pointer-events:auto}
 #lvsheet,#lnsheet{position:fixed;left:0;right:0;bottom:0;z-index:130;max-height:72vh;background:#101016;border-radius:22px 22px 0 0;
@@ -2501,7 +2514,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792893298";
+window.__SZ_BUILD = "1792895123";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5816,7 +5829,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792893298";
+const BUILD="1792895123";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9818,7 +9831,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792893298"></script>
+<script src="js/folders.js?v=1792895123"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10631,10 +10644,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792893298"></script>
-<script src="js/shortz-live.js?v=1792893298"></script>
-<script src="js/games.js?v=1792893298"></script>
-<script src="js/podcasts.js?v=1792893298"></script>
+<script src="js/streaming.js?v=1792895123"></script>
+<script src="js/shortz-live.js?v=1792895123"></script>
+<script src="js/games.js?v=1792895123"></script>
+<script src="js/podcasts.js?v=1792895123"></script>
 <script>
 
 
@@ -11152,7 +11165,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792893298"></script>
+<script src="js/swipe.js?v=1792895123"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13384,7 +13397,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792893298"></script>
+<script src="js/live-sports.js?v=1792895123"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a

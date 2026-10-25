@@ -533,6 +533,7 @@ function ssActivate(idx){
   ssActiveIdx=idx; sstreamPos=idx;
   const card=ssCards[idx];
   if(card&&sstreamStack[idx])sstreamFill(card,sstreamStack[idx],"current");
+  try{ ssChatSync(); }catch(e){} /* stream chat follows the active card */
 }
 let ssSettleT=null, ssPendingIdx=-1;
 function ssPickActive(){
@@ -703,3 +704,158 @@ async function mountStreamFeed(){
   });
 }
 async function renderStreaming(){ await mountStreamFeed(); }
+
+/* ================= STREAM CHAT (his order 2026-10-24) =================
+   Chat while you watch, in the Streaming view. One fixed panel on <body>,
+   keyed to the ACTIVE streamer (ssActiveIdx / sstreamStack) — it lives
+   OUTSIDE #view-streaming on purpose: ssBuildCards rebuilds that view's
+   innerHTML on every restack, and a chat mounted inside a card would be
+   wiped (iframe reload, lost draft) whenever any streamer flips state.
+   The panel node never moves; only its content swaps.
+   Twitch streams get the REAL Twitch chat (official embed — same parent
+   construction as the video player in sstreamEmbed; reading is open,
+   posting asks for a Twitch sign-in inside the frame, Twitch's rule).
+   YouTube/Kick get the Shortz chat: the Watch Party pattern at
+   streamChat/<shareId>/messages (rules mirror rooms/$roomId/messages). */
+/* Shortz-side chat (YouTube/Kick) stays gated OFF until the streamChat
+   block in database.rules.json is DEPLOYED to Firebase — the code and
+   rules are ready; the deploy needs the founder's Firebase sign-in.
+   Twitch chat does not use RTDB and is live regardless. */
+const SS_CHAT_LIVE=false;
+let ssChatWrap=null, ssChatPill=null, ssChatPanel=null, ssChatFrame=null, ssChatBody=null, ssChatMsgs=null, ssChatFormEl=null, ssChatInput=null, ssChatTitleEl=null;
+let ssChatIsOpen=false, ssChatKey="", ssChatRef=null, ssChatMsgFn=null;
+function ssChatParents(){
+  const host=(window.location&&window.location.hostname)||"";
+  const ps=["xmrmathx.github.io"];
+  if(host&&ps.indexOf(host)<0)ps.push(host);
+  return ps.map(p=>"parent="+encodeURIComponent(p)).join("&");
+}
+function ssChatActiveStreamer(){
+  try{ if(ssActiveIdx>=0&&sstreamStack&&sstreamStack[ssActiveIdx])return sstreamStack[ssActiveIdx]; }catch(e){}
+  return null;
+}
+function ssChatBuild(){
+  if(ssChatWrap)return;
+  const w=document.createElement("div");
+  w.innerHTML=
+    '<button id="ssChatPill" type="button" style="display:none">💬 Chat</button>'+
+    '<div id="ssChatPanel" style="display:none">'+
+      '<div class="sschat-head"><span id="ssChatTitle">💬 Chat</span><button id="ssChatX" type="button" aria-label="Close chat">✕</button></div>'+
+      '<iframe id="ssChatFrame" title="Stream chat" style="display:none" referrerpolicy="origin"></iframe>'+
+      '<div id="ssChatBody" style="display:none">'+
+        '<div id="ssChatMsgs" class="sschat-msgs"></div>'+
+        '<form id="ssChatForm" class="lform sschat-form"><input id="ssChatInput" maxlength="300" placeholder="Message…" autocomplete="off"><button type="submit" aria-label="Send">➤</button></form>'+
+      '</div>'+
+    '</div>';
+  document.body.appendChild(w);
+  ssChatWrap=w;
+  ssChatPill=w.querySelector("#ssChatPill");
+  ssChatPanel=w.querySelector("#ssChatPanel");
+  ssChatFrame=w.querySelector("#ssChatFrame");
+  ssChatBody=w.querySelector("#ssChatBody");
+  ssChatMsgs=w.querySelector("#ssChatMsgs");
+  ssChatFormEl=w.querySelector("#ssChatForm");
+  ssChatInput=w.querySelector("#ssChatInput");
+  ssChatTitleEl=w.querySelector("#ssChatTitle");
+  ssChatPill.addEventListener("click",e=>{ e.stopPropagation(); ssChatSetOpen(true); });
+  w.querySelector("#ssChatX").addEventListener("click",e=>{ e.stopPropagation(); ssChatSetOpen(false); });
+  ssChatFormEl.addEventListener("submit",ssChatSend);
+  /* taps and typing inside the panel never leak into the card feed */
+  w.addEventListener("click",e=>e.stopPropagation());
+  w.addEventListener("touchstart",e=>e.stopPropagation(),{passive:true});
+}
+function ssChatDetach(){
+  try{ if(ssChatRef&&ssChatMsgFn)ssChatRef.off("child_added",ssChatMsgFn); }catch(e){}
+  ssChatRef=null; ssChatMsgFn=null;
+}
+function ssChatBind(key){
+  ssChatDetach();
+  if(ssChatMsgs)ssChatMsgs.innerHTML="";
+  try{
+    if(!(window.firebase&&firebase.apps&&firebase.apps.length&&firebase.auth))return;
+    const auth=firebase.auth();
+    const ready=()=>{
+      const u=auth.currentUser; if(!u)return;
+      const ref=firebase.database().ref("streamChat/"+key+"/messages");
+      ssChatRef=ref;
+      ssChatMsgFn=snap=>{
+        const m=snap.val(); if(!m||!ssChatMsgs)return;
+        const d=document.createElement("div");
+        d.className="lmsg"+(m.uid===u.uid?" me":"");
+        d.innerHTML='<span class="lname"></span><span class="ltext"></span>';
+        d.querySelector(".lname").textContent=m.name||"Guest";
+        d.querySelector(".ltext").textContent=m.text||"";
+        ssChatMsgs.appendChild(d);
+        while(ssChatMsgs.children.length>80)ssChatMsgs.removeChild(ssChatMsgs.firstChild);
+        ssChatMsgs.scrollTop=ssChatMsgs.scrollHeight;
+      };
+      ref.limitToLast(60).on("child_added",ssChatMsgFn);
+    };
+    if(auth.currentUser)ready();
+    else if(typeof authEnsureUser==="function")authEnsureUser(auth,{anon:true}).then(ready).catch(()=>{});
+  }catch(e){}
+}
+function ssChatSend(e){
+  e.preventDefault();
+  const text=(ssChatInput.value||"").trim();
+  if(!text||!ssChatKey)return;
+  try{
+    const auth=firebase.auth(); const u=auth.currentUser; if(!u)return;
+    let name="";
+    try{ name=localStorage.getItem("live_name")||""; }catch(_){}
+    if(!name){
+      name=((window.prompt&&prompt("Pick a display name for chat"))||"").trim().slice(0,40);
+      if(!name)return;
+      try{ localStorage.setItem("live_name",name); }catch(_){}
+    }
+    firebase.database().ref("streamChat/"+ssChatKey+"/messages").push({uid:u.uid,name:name,text:text.slice(0,300),ts:firebase.database.ServerValue.TIMESTAMP});
+    ssChatInput.value="";
+  }catch(_){}
+}
+function ssChatMount(s){
+  if(!s||!ssChatPanel)return;
+  const key=streamShareId(s);
+  if(ssChatTitleEl)ssChatTitleEl.textContent="💬 "+(s.name||"Stream")+" — Chat";
+  if(s.platform==="twitch"){
+    ssChatDetach();
+    if(ssChatBody)ssChatBody.style.display="none";
+    if(ssChatFrame){
+      ssChatFrame.style.display="";
+      const src="https://www.twitch.tv/embed/"+encodeURIComponent(sstreamChannel(s))+"/chat?"+ssChatParents()+"&darkpopout";
+      if(ssChatFrame.getAttribute("src")!==src)ssChatFrame.src=src;
+    }
+    ssChatKey=key;
+  }else{
+    if(ssChatFrame){ ssChatFrame.style.display="none"; if(ssChatFrame.getAttribute("src"))ssChatFrame.removeAttribute("src"); }
+    if(ssChatBody)ssChatBody.style.display="";
+    if(!SS_CHAT_LIVE){
+      ssChatDetach(); ssChatKey=key;
+      if(ssChatFormEl)ssChatFormEl.style.display="none";
+      if(ssChatMsgs)ssChatMsgs.innerHTML='<div class="live-hint" style="margin:auto;text-align:center">Shortz chat for this stream is not switched on yet.</div>';
+      return;
+    }
+    if(ssChatFormEl)ssChatFormEl.style.display="";
+    if(key!==ssChatKey){ ssChatKey=key; ssChatBind(key); }
+  }
+}
+function ssChatSetOpen(open){
+  ssChatIsOpen=open;
+  if(!ssChatPanel)return;
+  ssChatPanel.style.display=open?"":"none";
+  if(open){ const s=ssChatActiveStreamer(); if(s)ssChatMount(s); }
+}
+function ssChatSync(){
+  const onStream=(typeof curView!=="undefined"&&curView==="streaming");
+  if(!onStream){
+    if(ssChatPill)ssChatPill.style.display="none";
+    if(ssChatIsOpen)ssChatSetOpen(false);
+    if(ssChatFrame&&ssChatFrame.getAttribute("src"))ssChatFrame.removeAttribute("src");
+    ssChatDetach(); ssChatKey="";
+    return;
+  }
+  ssChatBuild();
+  const s=ssChatActiveStreamer();
+  if(ssChatPill)ssChatPill.style.display=s?"":"none";
+  if(ssChatIsOpen&&s)ssChatMount(s);
+}
+setInterval(()=>{ try{ ssChatSync(); }catch(e){} },2000);
