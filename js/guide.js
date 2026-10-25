@@ -404,7 +404,7 @@ function renderTvGuide(){
   renderTgScoreboard(true);
   tgRefreshGuideData(); // guide opens on live data, same as Home — see below
   const pb=$("#tgPreviewBox");
-  const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); cfPresentTitle(t);};
+  const goFull=()=>{const id=pb._tid; if(!id)return; const t=byId(id); if(!t)return; tgPause(); openDetail(t.id);};
   pb.onclick=goFull;
   const wb=$("#tgWatch"); if(wb){wb.style.display="";wb.onclick=(e)=>{e.stopPropagation();goFull();};}
   const si=$("#tgSearch");

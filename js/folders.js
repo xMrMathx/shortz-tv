@@ -351,7 +351,7 @@ function vfEnsureOverlay(){
     vfPresenting=true; // the close must stay silent — a show is opening (Brain audit fix 4)
     vfCloseFolder(true);
     vfPresenting=false;
-    if(t)cfPresentTitle(t);
+    if(t)openDetail(t.id);
   },true);
   /* A REAL FINGER IS NOT A CLICK (folder audit layer 1, 2026-10-15,
      proven by the phone-shaped probe): on Android, a tap that lands
@@ -380,7 +380,7 @@ function vfEnsureOverlay(){
     e.preventDefault(); e.stopPropagation();
     window.__vfTouchServed=Date.now();
     vfPresenting=true; vfCloseFolder(true); vfPresenting=false;
-    cfPresentTitle(tt);
+    openDetail(tt.id);
   },{capture:true});
   return ov;
 }

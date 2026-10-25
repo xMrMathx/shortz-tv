@@ -2501,7 +2501,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792886530";
+window.__SZ_BUILD = "1792889055";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3139,12 +3139,12 @@ function bindOneCard(c){
     if(c._lpFired){c._lpFired=false;return;} // long-press fired: swallow the click
     if(tapTimer){clearTimeout(tapTimer);tapTimer=null;dblSave(c.dataset.id);return;}
     tapTimer=setTimeout(()=>{tapTimer=null;
-      // CARD-FIRST LAW — FULL SCOPE (his order 2026-10-14): a title tap
-      // ANYWHERE (Browse, Home shelves, Profile, Video Folders, detail
-      // rows — everywhere) lands on Home as a playing card. Only the
-      // TV Guide + Sports guide keep their own players (they live in
-      // the Live view), and manga is not video: taps there keep theirs.
-      if(!c.closest("#view-live,#view-manga")){ const bt=byId(c.dataset.id); if(bt){ cfPresentTitle(bt); return; } }
+      // INFO-FIRST (his order 2026-10-24, refining the 2026-10-14
+      // card-first tap routing): picking a title ANYWHERE (Browse,
+      // Home shelves, Profile, folders — everywhere) opens its INFO
+      // PAGE first. The info page's Play button and episode picks are
+      // what funnel onto the Home card (cfPresentTitle) — playback
+      // still happens ONLY on the Home card; that half is unchanged.
       openDetail(c.dataset.id);},300);
   };
   bindHoldToLike(c,c.dataset.id); // hold-to-like on every cover, everywhere
@@ -5816,7 +5816,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792886530";
+const BUILD="1792889055";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7629,11 +7629,11 @@ function bindCfCards(root){
     if(e.target.closest("[data-cf-com]")){ cfOpenComments(t); return; }
     if(e.target.closest("[data-cf-save]")){ cfSaveTap(card,t); return; }
     if(e.target.closest("[data-cf-share]")){ shareTitle(t); return; }
-    if(e.target.closest("[data-cf-open]")){ cfPresentTitle(t); return; }
+    if(e.target.closest("[data-cf-open]")){ openDetail(t.id); return; }
     if(e.target.closest("[data-cf-eps]")){ cfToggleFold(card); return; }
     const fr=e.target.closest("[data-cf-fold] .erow");
-    if(fr){ if(fr.tagName==="BUTTON")cfPresentTitle(t,parseInt(fr.dataset.idx,10)); return; }
-    if(e.target.closest("[data-cf-media],[data-cf-body]")){ cfPresentTitle(t); }
+    if(fr){ if(fr.tagName==="BUTTON")openDetail(t.id); return; }
+    if(e.target.closest("[data-cf-media],[data-cf-body]")){ openDetail(t.id); }
   });
 }
 
@@ -8345,7 +8345,7 @@ function loadAwardCarousels(){
       </div>`;
     }).join("");
     row.querySelectorAll("[data-aid]").forEach(el=>{
-      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.aid); if(t)cfPresentTitle(t); };
+      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.aid); if(t)openDetail(el.dataset.aid); };
       bindHoldToLike(el,el.dataset.aid);
     });
     sec.style.display="";
@@ -8380,7 +8380,7 @@ async function loadTop10File(secId,rowId,file,cacheKey){
         <div class="top10-v">${fmtViews(t.views||0)}</div>
       </div>`;}).join("");
     row.querySelectorAll("[data-tid]").forEach(el=>{
-      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.tid); if(t) cfPresentTitle(t); };
+      el.onclick=()=>{ if(el._lpFired){el._lpFired=false;return;} const t=byId(el.dataset.tid); if(t) openDetail(el.dataset.tid); };
       bindHoldToLike(el,el.dataset.tid);
     });
     sec.style.display="";
@@ -8486,7 +8486,7 @@ function featBindDrag(){
     if(Math.abs(dx)<10){
       const cur=track.children[1];
       if(cur&&cur._lpFired){cur._lpFired=false;} // hold-to-like fired: swallow the tap
-      else{ const L=FEAT_IDS.filter(x=>byId(x)); const t=L.length?byId(L[((featIdx%L.length)+L.length)%L.length]):null; if(t)cfPresentTitle(t); }
+      else{ const L=FEAT_IDS.filter(x=>byId(x)); const t=L.length?byId(L[((featIdx%L.length)+L.length)%L.length]):null; if(t)openDetail(t.id); }
     }
     dx=0;
     featAuto(); // resume the 3s rotation
@@ -9802,7 +9802,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792886530"></script>
+<script src="js/folders.js?v=1792889055"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10615,10 +10615,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792886530"></script>
-<script src="js/shortz-live.js?v=1792886530"></script>
-<script src="js/games.js?v=1792886530"></script>
-<script src="js/podcasts.js?v=1792886530"></script>
+<script src="js/streaming.js?v=1792889055"></script>
+<script src="js/shortz-live.js?v=1792889055"></script>
+<script src="js/games.js?v=1792889055"></script>
+<script src="js/podcasts.js?v=1792889055"></script>
 <script>
 
 
@@ -11136,7 +11136,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792886530"></script>
+<script src="js/swipe.js?v=1792889055"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13368,7 +13368,7 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792886530"></script>
+<script src="js/live-sports.js?v=1792889055"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -13757,7 +13757,7 @@ function paintFeed(){
   el.querySelectorAll("[data-comments]").forEach(function(b){b.onclick=function(){csOpenComments(b.getAttribute("data-comments"));};});
   el.querySelectorAll("[data-boost]").forEach(function(b){b.onclick=function(){csBoost(b.getAttribute("data-boost"));};});
   el.querySelectorAll("[data-menu]").forEach(function(b){b.onclick=function(){csMenu(b.getAttribute("data-menu"));};});
-  el.querySelectorAll("[data-watch]").forEach(function(b){b.onclick=function(){var t=null;try{t=byId(b.getAttribute("data-watch"));}catch(e){}if(t){csClose();try{cfPresentTitle(t);}catch(e){}}};});
+  el.querySelectorAll("[data-watch]").forEach(function(b){b.onclick=function(){var t=null;try{t=byId(b.getAttribute("data-watch"));}catch(e){}if(t){csClose();try{openDetail(t.id);}catch(e){}}};});
   el.querySelectorAll("[data-audbtn]").forEach(function(b){b.onclick=function(){var pid=b.getAttribute("data-audbtn");var a=el.querySelector('audio.cs-aud[data-vidpid="'+pid+'"]');if(!a)return;if(a.paused){var pr=a.play();if(pr&&pr.catch)pr.catch(function(){});}else a.pause();};});
   el.querySelectorAll("[data-audbar]").forEach(function(bar){bar.onclick=function(ev){var pid=bar.getAttribute("data-audbar");var a=el.querySelector('audio.cs-aud[data-vidpid="'+pid+'"]');if(!a||!a.duration)return;var r=bar.getBoundingClientRect();var pc=Math.max(0,Math.min(1,(ev.clientX-r.left)/r.width));try{a.currentTime=pc*a.duration;}catch(e){}csAudPaint(pid);};});
   if(CS.db)ids.forEach(function(pid){
