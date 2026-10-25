@@ -412,12 +412,13 @@
       "optB": "NO",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "milestone",
       "streamer": "Symfuhny",
-      "target": 5000
+      "target": 5000,
+      "resolvedAt": 1792952660
     },
     {
       "id": "auto-symfuhny-1792946373-mar",
@@ -427,11 +428,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "marathon",
-      "streamer": "Symfuhny"
+      "streamer": "Symfuhny",
+      "resolvedAt": 1792952660
     },
     {
       "id": "auto-huskerrs-1792950870-ms",
@@ -457,11 +459,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "marathon",
-      "streamer": "HusKerrs"
+      "streamer": "HusKerrs",
+      "resolvedAt": 1792952660
     }
   ]
 }
