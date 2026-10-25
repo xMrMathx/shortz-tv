@@ -88,17 +88,48 @@ var log=$("#agLog"), input=$("#agIn"), liveBtn=$("#agLive"), micBtn=$("#agMic");
 var opened=false, greeted=false, liveMode=false, lastViaVoice=false;
 
 /* ---------- speech out (Layer 6) ---------- */
+var speakingNow=false, speakWatchdog=null;
+function cleanSayText(t){ return String(t).replace(/[▶🎙📞✕➤♥]/g,""); }
+function speakDone(){
+  if(speakWatchdog){ clearTimeout(speakWatchdog); speakWatchdog=null; }
+  if(!speakingNow)return;
+  speakingNow=false;
+  afterSpeak();
+}
+window.onNativeTtsDone=function(){ speakDone(); };
+window.onNativeTtsError=function(){ speakDone(); };
+window.onNativeTtsStart=function(){};
+function stopSpeak(){
+  if(speakWatchdog){ clearTimeout(speakWatchdog); speakWatchdog=null; }
+  speakingNow=false;
+  try{ if(window.Android&&Android.ttsStop)Android.ttsStop(); }catch(e){}
+  try{ if("speechSynthesis" in window)speechSynthesis.cancel(); }catch(e){}
+}
 function speak(text){
+  text=cleanSayText(text);
+  /* Native speaker first (APK): Android WebView has no speechSynthesis,
+     so the app carries its own TTS bridge (MainActivity.ttsSpeak). */
+  try{
+    if(window.Android&&typeof Android.ttsSpeak==="function"){
+      stopSpeak();
+      speakingNow=true;
+      var ms=Math.min(24000,Math.max(6000,text.length*95));
+      speakWatchdog=setTimeout(speakDone,ms);
+      Android.ttsSpeak(text);
+      return true;
+    }
+  }catch(e){}
   try{
     if(!("speechSynthesis" in window))return false;
     speechSynthesis.cancel();
-    var u=new SpeechSynthesisUtterance(String(text).replace(/[▶🎙📞✕➤♥]/g,""));
+    var u=new SpeechSynthesisUtterance(text);
     u.lang="en-US"; u.rate=1.02;
-    u.onend=function(){ afterSpeak(); };
-    u.onerror=function(){ afterSpeak(); };
+    speakingNow=true;
+    u.onend=function(){ speakDone(); };
+    u.onerror=function(){ speakDone(); };
     speechSynthesis.speak(u);
     return true;
-  }catch(e){ return false; }
+  }catch(e){ speakingNow=false; return false; }
 }
 function afterSpeak(){
   if(liveMode&&opened){
@@ -339,7 +370,7 @@ function startListen(){
       setTimeout(function(){
         var pop=$("#voicePop");
         var listeningNow=pop&&pop.getAttribute("aria-hidden")!=="true";
-        var speaking=false; try{ speaking=!!(window.speechSynthesis&&speechSynthesis.speaking); }catch(e){}
+        var speaking=speakingNow;
         if(liveMode&&opened&&!listeningNow&&!speaking) startListen();
       },1200);
     }
@@ -383,7 +414,7 @@ function openSheet(autoListen){
   else setTimeout(function(){ try{ input.focus(); }catch(e){} },250);
 }
 function closeSheet(){
-  opened=false; wrap.classList.remove("open"); wrap.setAttribute("aria-hidden","true");
+  opened=false; stopSpeak(); wrap.classList.remove("open"); wrap.setAttribute("aria-hidden","true");
   if(liveMode){ liveMode=false; liveBtn.classList.remove("on"); }
 }
 window._agentOpen=openSheet;
@@ -395,7 +426,7 @@ micBtn.addEventListener("click",function(){ startListen(); });
 liveBtn.addEventListener("click",function(){
   liveMode=!liveMode; liveBtn.classList.toggle("on",liveMode);
   if(liveMode){ say("Live talk on — I'm listening. Talk to me like a call; say \"stop\" anytime to end it.",{}); setTimeout(startListen,400); }
-  else{ try{ speechSynthesis.cancel(); }catch(e){} }
+  else{ stopSpeak(); }
 });
 watchTranscript();
 })();
