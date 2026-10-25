@@ -2059290,6 +2059290,5081 @@ window.SHORTZ_CATALOG = [
    }
   ],
   "episodes_note": "Complete web series: Series 0 (Episodes 1-6), Series 1 (Episodes 7-12), Series 2 (Episodes 13-18), Series 3 (Episodes 19-24), continuous numbering. Teaser, then series trailer, last. The Season 3 feature-length compilation is not duplicated here."
+ },
+ {
+  "id": "stv-77196",
+  "title": "Sam Holloway vs Jimmy House",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sam Holloway vs Jimmy House",
+    "url": "https://www.youtube.com/embed/mLeQTU2QCwo",
+    "video_id": "mLeQTU2QCwo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/mLeQTU2QCwo",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77197",
+  "title": "Will Allday vs Erik Lockhart",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Will Allday vs Erik Lockhart",
+    "url": "https://www.youtube.com/embed/E5tYzcs_E4c",
+    "video_id": "E5tYzcs_E4c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/E5tYzcs_E4c",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77198",
+  "title": "Jazmin Allure vs Presley Sloan",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jazmin Allure vs Presley Sloan",
+    "url": "https://www.youtube.com/embed/O-Zk6iBBugQ",
+    "video_id": "O-Zk6iBBugQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/O-Zk6iBBugQ",
+  "runtime": "6 min"
+ },
+ {
+  "id": "stv-77199",
+  "title": "Cap Jones vs Jimmy House - Texas Championship",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cap Jones vs Jimmy House - Texas Championship",
+    "url": "https://www.youtube.com/embed/OxqyONqYACc",
+    "video_id": "OxqyONqYACc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/OxqyONqYACc",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77200",
+  "title": "Jay Davis vs Ajaxx",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jay Davis vs Ajaxx",
+    "url": "https://www.youtube.com/embed/9mfyU1NOHZM",
+    "video_id": "9mfyU1NOHZM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/9mfyU1NOHZM",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77201",
+  "title": "Jesse Funaki vs Chandler Hopkins - Legacy Championship",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jesse Funaki vs Chandler Hopkins - Legacy Championship",
+    "url": "https://www.youtube.com/embed/ZDaMsMSgCvY",
+    "video_id": "ZDaMsMSgCvY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ZDaMsMSgCvY",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77202",
+  "title": "Max Castellanos vs Jay Alexander",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Max Castellanos vs Jay Alexander",
+    "url": "https://www.youtube.com/embed/luz2M9Gv8_o",
+    "video_id": "luz2M9Gv8_o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/luz2M9Gv8_o",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77203",
+  "title": "Joe Alonzo vs Zack Mason",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Joe Alonzo vs Zack Mason",
+    "url": "https://www.youtube.com/embed/8QrQBpgkspM",
+    "video_id": "8QrQBpgkspM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/8QrQBpgkspM",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77204",
+  "title": "Semsei vs Nasir Dey",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Semsei vs Nasir Dey",
+    "url": "https://www.youtube.com/embed/zKSeeAeBJHo",
+    "video_id": "zKSeeAeBJHo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/zKSeeAeBJHo",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77205",
+  "title": "Josiah Jean vs Big Luther",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Josiah Jean vs Big Luther",
+    "url": "https://www.youtube.com/embed/_aT0FMwBxvs",
+    "video_id": "_aT0FMwBxvs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/_aT0FMwBxvs",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77206",
+  "title": "Monica Monroe & Jazmine Allure vs Tiffany Nieves & Gretta",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Monica Monroe & Jazmine Allure vs Tiffany Nieves & Gretta",
+    "url": "https://www.youtube.com/embed/YTdkZSnVjR4",
+    "video_id": "YTdkZSnVjR4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/YTdkZSnVjR4",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77207",
+  "title": "AJ Francis vs Big Luther",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "AJ Francis vs Big Luther",
+    "url": "https://www.youtube.com/embed/5HgVYq6DOqg",
+    "video_id": "5HgVYq6DOqg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/5HgVYq6DOqg",
+  "runtime": "18 min"
+ },
+ {
+  "id": "stv-77208",
+  "title": "WWE ID’s Gianna Capri vs LadyBird Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID’s Gianna Capri vs LadyBird Monica Monroe",
+    "url": "https://www.youtube.com/embed/pqM7kltlY28",
+    "video_id": "pqM7kltlY28",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/pqM7kltlY28",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77209",
+  "title": "NXT’s Hank Walker & Tank Ledger vs Sam Holloway & EJ Nduka",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Hank Walker & Tank Ledger vs Sam Holloway & EJ Nduka",
+    "url": "https://www.youtube.com/embed/5-vv3GvyFxs",
+    "video_id": "5-vv3GvyFxs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/5-vv3GvyFxs",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77210",
+  "title": "WWE / NXT Timothy Thatcher vs Clay Roberts",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE / NXT Timothy Thatcher vs Clay Roberts",
+    "url": "https://www.youtube.com/embed/zMLwuy3hWII",
+    "video_id": "zMLwuy3hWII",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/zMLwuy3hWII",
+  "runtime": "16 min"
+ },
+ {
+  "id": "stv-77211",
+  "title": "Chazz Starboy Hall vs CJ Valor Reality of Wrestling / WWE ID",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Chazz Starboy Hall vs CJ Valor Reality of Wrestling / WWE ID",
+    "url": "https://www.youtube.com/embed/G3g0cSfAcZA",
+    "video_id": "G3g0cSfAcZA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/G3g0cSfAcZA",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77212",
+  "title": "Cap Jones vs Jay Alexander vs Tempo vs Chandler Hopkins",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cap Jones vs Jay Alexander vs Tempo vs Chandler Hopkins",
+    "url": "https://www.youtube.com/embed/gm-j2l24Cms",
+    "video_id": "gm-j2l24Cms",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/gm-j2l24Cms",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77213",
+  "title": "Mia Friday vs Mystii Marks",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mia Friday vs Mystii Marks",
+    "url": "https://www.youtube.com/embed/M-jA6pvImis",
+    "video_id": "M-jA6pvImis",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/M-jA6pvImis",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77214",
+  "title": "Will Allday & Cam Cole vs Dirty White Boyz",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Will Allday & Cam Cole vs Dirty White Boyz",
+    "url": "https://www.youtube.com/embed/ufVk_ZK92uM",
+    "video_id": "ufVk_ZK92uM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ufVk_ZK92uM",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77215",
+  "title": "Mr. 400 Jay Bishop vs Jay Alexander",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mr. 400 Jay Bishop vs Jay Alexander",
+    "url": "https://www.youtube.com/embed/SkIz89jqopY",
+    "video_id": "SkIz89jqopY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/SkIz89jqopY",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77216",
+  "title": "Ladybird Monica Monroe vs Rachel Ley",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ladybird Monica Monroe vs Rachel Ley",
+    "url": "https://www.youtube.com/embed/e4WCtGim-xo",
+    "video_id": "e4WCtGim-xo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/e4WCtGim-xo",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77217",
+  "title": "SemSei vs Terrale Tempo",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "SemSei vs Terrale Tempo",
+    "url": "https://www.youtube.com/embed/kfRRy9fZCFg",
+    "video_id": "kfRRy9fZCFg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/kfRRy9fZCFg",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77218",
+  "title": "EJ Nduka & Sam Holloway vs K Toomer & Mike Anthony",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "EJ Nduka & Sam Holloway vs K Toomer & Mike Anthony",
+    "url": "https://www.youtube.com/embed/ehzgzy5DwjY",
+    "video_id": "ehzgzy5DwjY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ehzgzy5DwjY",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77219",
+  "title": "Joe Alonzo vs Ryan Davidson",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Joe Alonzo vs Ryan Davidson",
+    "url": "https://www.youtube.com/embed/6f05JBPbJJg",
+    "video_id": "6f05JBPbJJg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6f05JBPbJJg",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77220",
+  "title": "WWE ID CJ Valor vs Nasir Dey",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID CJ Valor vs Nasir Dey",
+    "url": "https://www.youtube.com/embed/QZ2PcZwGnfw",
+    "video_id": "QZ2PcZwGnfw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/QZ2PcZwGnfw",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77221",
+  "title": "Mia Friday vs Jacey Love",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mia Friday vs Jacey Love",
+    "url": "https://www.youtube.com/embed/zzrafsDRf-E",
+    "video_id": "zzrafsDRf-E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/zzrafsDRf-E",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77222",
+  "title": "NXT/LFG Superstar Zena Sterling vs Mia Friday",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT/LFG Superstar Zena Sterling vs Mia Friday",
+    "url": "https://www.youtube.com/embed/ePI2vxBXXE0",
+    "video_id": "ePI2vxBXXE0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ePI2vxBXXE0",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77223",
+  "title": "Jesse Funaki vs Richard Holliday (c) Legacy Champion",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jesse Funaki vs Richard Holliday (c) Legacy Champion",
+    "url": "https://www.youtube.com/embed/z7NUDD3H_X0",
+    "video_id": "z7NUDD3H_X0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/z7NUDD3H_X0",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77224",
+  "title": "Better Together vs The DWB’s",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Better Together vs The DWB’s",
+    "url": "https://www.youtube.com/embed/mpHpznZwOfc",
+    "video_id": "mpHpznZwOfc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/mpHpznZwOfc",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77225",
+  "title": "Jay Alexander vs Braddah Kaimi",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jay Alexander vs Braddah Kaimi",
+    "url": "https://www.youtube.com/embed/6eRmpB4yGqk",
+    "video_id": "6eRmpB4yGqk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6eRmpB4yGqk",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77226",
+  "title": "NXT’s Niko Vance vs Danny Limelight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Niko Vance vs Danny Limelight",
+    "url": "https://www.youtube.com/embed/6MQfDf1p-so",
+    "video_id": "6MQfDf1p-so",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6MQfDf1p-so",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77227",
+  "title": "Fat-Jitsu K. Toomer & Mike Anthony vs Blake Banks & Drew Tyra",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Fat-Jitsu K. Toomer & Mike Anthony vs Blake Banks & Drew Tyra",
+    "url": "https://www.youtube.com/embed/dnaJebUugqQ",
+    "video_id": "dnaJebUugqQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/dnaJebUugqQ",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77228",
+  "title": "Big Luther vs Terrale Tempo with AJ Francis on commentary",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Big Luther vs Terrale Tempo with AJ Francis on commentary",
+    "url": "https://www.youtube.com/embed/_JwENlZhfx8",
+    "video_id": "_JwENlZhfx8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/_JwENlZhfx8",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77229",
+  "title": "Ladybird Monica Monroe vs Kaylia Capri",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ladybird Monica Monroe vs Kaylia Capri",
+    "url": "https://www.youtube.com/embed/iHRhyyhQeeU",
+    "video_id": "iHRhyyhQeeU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/iHRhyyhQeeU",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77230",
+  "title": "WWE ID Max Abrams & CJ Valor vs Clay Roberts & Ajaxx",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Max Abrams & CJ Valor vs Clay Roberts & Ajaxx",
+    "url": "https://www.youtube.com/embed/3Jh_dWtka3Y",
+    "video_id": "3Jh_dWtka3Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/3Jh_dWtka3Y",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77231",
+  "title": "WWE ID Jacari Ball vs Will Austin",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Jacari Ball vs Will Austin",
+    "url": "https://www.youtube.com/embed/A_PoFrVSz0g",
+    "video_id": "A_PoFrVSz0g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/A_PoFrVSz0g",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77232",
+  "title": "Zack “Zilla” Mason vs “The Honey Badger” Will Austin ￼- NO DQ",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zack “Zilla” Mason vs “The Honey Badger” Will Austin ￼- NO DQ",
+    "url": "https://www.youtube.com/embed/6OHIyNsozjE",
+    "video_id": "6OHIyNsozjE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6OHIyNsozjE",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77233",
+  "title": "WWE ID CJ Valor vs Daniel Alexandro",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID CJ Valor vs Daniel Alexandro",
+    "url": "https://www.youtube.com/embed/SBSWmSc2qlw",
+    "video_id": "SBSWmSc2qlw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/SBSWmSc2qlw",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77234",
+  "title": "WWE ID Cappuccino Jones vs Chandler Hopkins - Reality Of Wrestling (GLORY)",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Cappuccino Jones vs Chandler Hopkins - Reality Of Wrestling (GLORY)",
+    "url": "https://www.youtube.com/embed/kyGo5T7pUhg",
+    "video_id": "kyGo5T7pUhg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/kyGo5T7pUhg",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77235",
+  "title": "Simone Williams vs Mia Friday - Reality of Wrestling (GLORY)",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Simone Williams vs Mia Friday - Reality of Wrestling (GLORY)",
+    "url": "https://www.youtube.com/embed/Jf9sOsGNCNE",
+    "video_id": "Jf9sOsGNCNE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Jf9sOsGNCNE",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77236",
+  "title": "Richard Holliday vs Semsei — GLORY Championship",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Richard Holliday vs Semsei — GLORY Championship",
+    "url": "https://www.youtube.com/embed/CeVN8gtz2VY",
+    "video_id": "CeVN8gtz2VY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/CeVN8gtz2VY",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77237",
+  "title": "NXT Superstar Niko Vance DEFENDS the ROW Championship Against JAVI",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT Superstar Niko Vance DEFENDS the ROW Championship Against JAVI",
+    "url": "https://www.youtube.com/embed/XihlrFYkaJI",
+    "video_id": "XihlrFYkaJI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/XihlrFYkaJI",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77238",
+  "title": "Will Allday vs Ryan Davidson",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Will Allday vs Ryan Davidson",
+    "url": "https://www.youtube.com/embed/fHuRM0CU984",
+    "video_id": "fHuRM0CU984",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/fHuRM0CU984",
+  "runtime": "17 min"
+ },
+ {
+  "id": "stv-77239",
+  "title": "IT’S GAL vs Vin Parc",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "IT’S GAL vs Vin Parc",
+    "url": "https://www.youtube.com/embed/N4oE3kjPFQc",
+    "video_id": "N4oE3kjPFQc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/N4oE3kjPFQc",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77240",
+  "title": "NXT’s Skylar Raye vs Ladybird Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Skylar Raye vs Ladybird Monica Monroe",
+    "url": "https://www.youtube.com/embed/oMCGoYxO3JQ",
+    "video_id": "oMCGoYxO3JQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/oMCGoYxO3JQ",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77241",
+  "title": "Jay Alexander vs Daniel Alexandro - Reality Of Wrestling ￼I Texas Championship Match",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jay Alexander vs Daniel Alexandro - Reality Of Wrestling ￼I Texas Championship Match",
+    "url": "https://www.youtube.com/embed/r3KKRRkU5YA",
+    "video_id": "r3KKRRkU5YA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/r3KKRRkU5YA",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77242",
+  "title": "Jesse Funaki vs Nasir Dey",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jesse Funaki vs Nasir Dey",
+    "url": "https://www.youtube.com/embed/eHD-1C0JYEY",
+    "video_id": "eHD-1C0JYEY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/eHD-1C0JYEY",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77243",
+  "title": "Better Together vs DWB’s",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Better Together vs DWB’s",
+    "url": "https://www.youtube.com/embed/Rq7E_86F6zA",
+    "video_id": "Rq7E_86F6zA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Rq7E_86F6zA",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77244",
+  "title": "The Savage King vs Hoka",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Savage King vs Hoka",
+    "url": "https://www.youtube.com/embed/SlpmB0y3_3E",
+    "video_id": "SlpmB0y3_3E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/SlpmB0y3_3E",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77245",
+  "title": "Hoka vs Cam Fox",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hoka vs Cam Fox",
+    "url": "https://www.youtube.com/embed/WvhW4T09Y1A",
+    "video_id": "WvhW4T09Y1A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/WvhW4T09Y1A",
+  "runtime": "6 min"
+ },
+ {
+  "id": "stv-77246",
+  "title": "Ajaxx vs Will Austin",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ajaxx vs Will Austin",
+    "url": "https://www.youtube.com/embed/vtq8nhOX-CM",
+    "video_id": "vtq8nhOX-CM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/vtq8nhOX-CM",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77247",
+  "title": "Hollyhood Haley J vs Simone Williams",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hollyhood Haley J vs Simone Williams",
+    "url": "https://www.youtube.com/embed/cWJxJfNRoo4",
+    "video_id": "cWJxJfNRoo4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/cWJxJfNRoo4",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77248",
+  "title": "WWE ID Jacari Ball & CJ Valor vs Q Wynters & Josiah Jean",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Jacari Ball & CJ Valor vs Q Wynters & Josiah Jean",
+    "url": "https://www.youtube.com/embed/bn2Afi8dfV0",
+    "video_id": "bn2Afi8dfV0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/bn2Afi8dfV0",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77249",
+  "title": "WWE ID Jimmy House vs Daniel Alexandro",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Jimmy House vs Daniel Alexandro",
+    "url": "https://www.youtube.com/embed/YA-U6jSkFDQ",
+    "video_id": "YA-U6jSkFDQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/YA-U6jSkFDQ",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77250",
+  "title": "WWE ID Cap Jones vs Blank Banks",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Cap Jones vs Blank Banks",
+    "url": "https://www.youtube.com/embed/d9xISnp2k3Y",
+    "video_id": "d9xISnp2k3Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/d9xISnp2k3Y",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77251",
+  "title": "Skylar Raye vs Hollyhood Haley J vs Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Skylar Raye vs Hollyhood Haley J vs Monica Monroe",
+    "url": "https://www.youtube.com/embed/Gxnpuj0fUzc",
+    "video_id": "Gxnpuj0fUzc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Gxnpuj0fUzc",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77252",
+  "title": "WWE NXT’s EK Prosper & Cap Jones vs DWB’s",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE NXT’s EK Prosper & Cap Jones vs DWB’s",
+    "url": "https://www.youtube.com/embed/gbxzKW9tRTY",
+    "video_id": "gbxzKW9tRTY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/gbxzKW9tRTY",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77253",
+  "title": "Sam Holloway & EJ Nduka vs The Command",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sam Holloway & EJ Nduka vs The Command",
+    "url": "https://www.youtube.com/embed/Lz9eBCJ9B84",
+    "video_id": "Lz9eBCJ9B84",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Lz9eBCJ9B84",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77254",
+  "title": "The Rottweiler Jay Davis vs Baby Keef",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Rottweiler Jay Davis vs Baby Keef",
+    "url": "https://www.youtube.com/embed/fmTSzsGzMWk",
+    "video_id": "fmTSzsGzMWk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/fmTSzsGzMWk",
+  "runtime": "5 min"
+ },
+ {
+  "id": "stv-77255",
+  "title": "Brittnie Brooks vs Ladybird Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Brittnie Brooks vs Ladybird Monica Monroe",
+    "url": "https://www.youtube.com/embed/vRXx_BG1H8k",
+    "video_id": "vRXx_BG1H8k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/vRXx_BG1H8k",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77256",
+  "title": "House Money with AJ Francis vs Brent Oakley & The Command",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "House Money with AJ Francis vs Brent Oakley & The Command",
+    "url": "https://www.youtube.com/embed/6gidDBiwvII",
+    "video_id": "6gidDBiwvII",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6gidDBiwvII",
+  "runtime": "16 min"
+ },
+ {
+  "id": "stv-77257",
+  "title": "Zilla Fatu vs Danny Limelight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu vs Danny Limelight",
+    "url": "https://www.youtube.com/embed/xMnSUiQljPw",
+    "video_id": "xMnSUiQljPw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/xMnSUiQljPw",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77258",
+  "title": "FLY DEF vs Rhys Maddox & Erik Lockhart",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "FLY DEF vs Rhys Maddox & Erik Lockhart",
+    "url": "https://www.youtube.com/embed/Q19vjdvEdfs",
+    "video_id": "Q19vjdvEdfs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Q19vjdvEdfs",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77259",
+  "title": "WWE ID Jha’Quan McNair vs Will Austin",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Jha’Quan McNair vs Will Austin",
+    "url": "https://www.youtube.com/embed/iiFQUYTBvlY",
+    "video_id": "iiFQUYTBvlY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/iiFQUYTBvlY",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77260",
+  "title": "Semsei vs The Giant Alex Ace",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Semsei vs The Giant Alex Ace",
+    "url": "https://www.youtube.com/embed/kDDK9q-aNzg",
+    "video_id": "kDDK9q-aNzg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/kDDK9q-aNzg",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77261",
+  "title": "Jesse Funaki vs AJAXX",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jesse Funaki vs AJAXX",
+    "url": "https://www.youtube.com/embed/fOJBW_0-mqk",
+    "video_id": "fOJBW_0-mqk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/fOJBW_0-mqk",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77262",
+  "title": "Fallyn Grey vs Mia Friday",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Fallyn Grey vs Mia Friday",
+    "url": "https://www.youtube.com/embed/vx-Suiwx2LM",
+    "video_id": "vx-Suiwx2LM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/vx-Suiwx2LM",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77263",
+  "title": "BDE vs Will Allday",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "BDE vs Will Allday",
+    "url": "https://www.youtube.com/embed/xDpttBwuFAg",
+    "video_id": "xDpttBwuFAg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/xDpttBwuFAg",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77264",
+  "title": "Erik Lockhart vs Daniel Alexandro",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Erik Lockhart vs Daniel Alexandro",
+    "url": "https://www.youtube.com/embed/pjj4Y3Jws_M",
+    "video_id": "pjj4Y3Jws_M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/pjj4Y3Jws_M",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77265",
+  "title": "Clay Roberts vs WWE ID Mike Cunningham",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Clay Roberts vs WWE ID Mike Cunningham",
+    "url": "https://www.youtube.com/embed/N27GUy7VpAw",
+    "video_id": "N27GUy7VpAw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/N27GUy7VpAw",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77266",
+  "title": "WWE ID Champion Cappuccino Jones vs Chandler Hopkins",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Champion Cappuccino Jones vs Chandler Hopkins",
+    "url": "https://www.youtube.com/embed/xsWeNbDc6YU",
+    "video_id": "xsWeNbDc6YU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/xsWeNbDc6YU",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77267",
+  "title": "The Command vs Cam Fox & Baby Keef",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Command vs Cam Fox & Baby Keef",
+    "url": "https://www.youtube.com/embed/MCn_IwmMTCA",
+    "video_id": "MCn_IwmMTCA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/MCn_IwmMTCA",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77268",
+  "title": "Zilla Fatu & Jesse Funaki vs Danny Limelight & Gaspar Hernandez",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu & Jesse Funaki vs Danny Limelight & Gaspar Hernandez",
+    "url": "https://www.youtube.com/embed/MnJkuHRZJY4",
+    "video_id": "MnJkuHRZJY4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/MnJkuHRZJY4",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77269",
+  "title": "Brooke Havok vs Ladybird Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Brooke Havok vs Ladybird Monica Monroe",
+    "url": "https://www.youtube.com/embed/J8GDG8FXNfQ",
+    "video_id": "J8GDG8FXNfQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/J8GDG8FXNfQ",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77270",
+  "title": "Fly Def vs Better Together",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Fly Def vs Better Together",
+    "url": "https://www.youtube.com/embed/7wssJgqabGY",
+    "video_id": "7wssJgqabGY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/7wssJgqabGY",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77271",
+  "title": "Mike Cunningham (WWE ID) vs Ma￼x Castellanos",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mike Cunningham (WWE ID) vs Ma￼x Castellanos",
+    "url": "https://www.youtube.com/embed/HRgy7Y-kuIA",
+    "video_id": "HRgy7Y-kuIA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/HRgy7Y-kuIA",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77272",
+  "title": "4 Way Tag Team Match",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "4 Way Tag Team Match",
+    "url": "https://www.youtube.com/embed/3qyHtx6WOh8",
+    "video_id": "3qyHtx6WOh8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/3qyHtx6WOh8",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77273",
+  "title": "Jesse Funaki vs Danny Limelight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jesse Funaki vs Danny Limelight",
+    "url": "https://www.youtube.com/embed/xbqZp310Y-M",
+    "video_id": "xbqZp310Y-M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/xbqZp310Y-M",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77274",
+  "title": "Jada Stone vs Ladybird Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jada Stone vs Ladybird Monica Monroe",
+    "url": "https://www.youtube.com/embed/8_ycIUqqaa0",
+    "video_id": "8_ycIUqqaa0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/8_ycIUqqaa0",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77275",
+  "title": "AJ Francis vs Eli Knight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "AJ Francis vs Eli Knight",
+    "url": "https://www.youtube.com/embed/icDCmERUyJs",
+    "video_id": "icDCmERUyJs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/icDCmERUyJs",
+  "runtime": "22 min"
+ },
+ {
+  "id": "stv-77276",
+  "title": "Blake Troop vs Gaspar Hernandez",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blake Troop vs Gaspar Hernandez",
+    "url": "https://www.youtube.com/embed/wWdqsgaP4ug",
+    "video_id": "wWdqsgaP4ug",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/wWdqsgaP4ug",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77277",
+  "title": "Jay Alexander vs Max Castellanos",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jay Alexander vs Max Castellanos",
+    "url": "https://www.youtube.com/embed/3ofnLG1CqKU",
+    "video_id": "3ofnLG1CqKU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/3ofnLG1CqKU",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77278",
+  "title": "Ryan Davidson vs Buck Gator",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ryan Davidson vs Buck Gator",
+    "url": "https://www.youtube.com/embed/ZJ51o3pVMIc",
+    "video_id": "ZJ51o3pVMIc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ZJ51o3pVMIc",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77279",
+  "title": "Hollyhood Haley J vs Mystii Marks",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hollyhood Haley J vs Mystii Marks",
+    "url": "https://www.youtube.com/embed/l2f64ZgrsK4",
+    "video_id": "l2f64ZgrsK4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/l2f64ZgrsK4",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77280",
+  "title": "Richard Holliday vs Lee Morrow",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Richard Holliday vs Lee Morrow",
+    "url": "https://www.youtube.com/embed/3fbqLJAw6VM",
+    "video_id": "3fbqLJAw6VM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/3fbqLJAw6VM",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77281",
+  "title": "Max Castellanos vs Matty Ice",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Max Castellanos vs Matty Ice",
+    "url": "https://www.youtube.com/embed/nIfRFjROqwE",
+    "video_id": "nIfRFjROqwE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/nIfRFjROqwE",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77282",
+  "title": "Edge Stone w/ Booker T vs Cappuccino Jones",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Edge Stone w/ Booker T vs Cappuccino Jones",
+    "url": "https://www.youtube.com/embed/uglDh3vW4QQ",
+    "video_id": "uglDh3vW4QQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/uglDh3vW4QQ",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77283",
+  "title": "Zilla Fatu vs Will Allday vs Ryan Davidson vs Danny Limelight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu vs Will Allday vs Ryan Davidson vs Danny Limelight",
+    "url": "https://www.youtube.com/embed/iuYZ7YAMD9o",
+    "video_id": "iuYZ7YAMD9o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/iuYZ7YAMD9o",
+  "runtime": "20 min"
+ },
+ {
+  "id": "stv-77284",
+  "title": "5 Way LEGACY TITLE Ladder Match",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "5 Way LEGACY TITLE Ladder Match",
+    "url": "https://www.youtube.com/embed/tqL2EGP29FE",
+    "video_id": "tqL2EGP29FE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/tqL2EGP29FE",
+  "runtime": "16 min"
+ },
+ {
+  "id": "stv-77285",
+  "title": "AJ Francis & House Money vs Eli Knight & The Command",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "AJ Francis & House Money vs Eli Knight & The Command",
+    "url": "https://www.youtube.com/embed/FKLHtz7A2uc",
+    "video_id": "FKLHtz7A2uc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/FKLHtz7A2uc",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77286",
+  "title": "Hollyhood Haley J vs Ladybird Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hollyhood Haley J vs Ladybird Monica Monroe",
+    "url": "https://www.youtube.com/embed/G88SdoHJzHs",
+    "video_id": "G88SdoHJzHs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/G88SdoHJzHs",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77287",
+  "title": "NXT’s Myles Borne vs Max Castellanos",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Myles Borne vs Max Castellanos",
+    "url": "https://www.youtube.com/embed/mUQCboa7lJQ",
+    "video_id": "mUQCboa7lJQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/mUQCboa7lJQ",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77288",
+  "title": "Promise Braxton vs Mandy Wylde",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Promise Braxton vs Mandy Wylde",
+    "url": "https://www.youtube.com/embed/JP4FjFRkiOU",
+    "video_id": "JP4FjFRkiOU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/JP4FjFRkiOU",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77289",
+  "title": "Shaukat vs Danny Limelight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Shaukat vs Danny Limelight",
+    "url": "https://www.youtube.com/embed/9ccVt8f4UCY",
+    "video_id": "9ccVt8f4UCY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/9ccVt8f4UCY",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77290",
+  "title": "AJ Francis vs Blake Troop",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "AJ Francis vs Blake Troop",
+    "url": "https://www.youtube.com/embed/blm2hLrxa9M",
+    "video_id": "blm2hLrxa9M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/blm2hLrxa9M",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77291",
+  "title": "Tiffany Nieves vs Monica Monroe vs Gigi Rey",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Tiffany Nieves vs Monica Monroe vs Gigi Rey",
+    "url": "https://www.youtube.com/embed/yRn1O-1Wjsw",
+    "video_id": "yRn1O-1Wjsw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/yRn1O-1Wjsw",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77292",
+  "title": "Maya World vs Ladybird Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Maya World vs Ladybird Monica Monroe",
+    "url": "https://www.youtube.com/embed/AjvtMLWjRy0",
+    "video_id": "AjvtMLWjRy0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/AjvtMLWjRy0",
+  "runtime": "16 min"
+ },
+ {
+  "id": "stv-77293",
+  "title": "Mike Cunningham (WWE ID) & Will Allday vs FLY DEF",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mike Cunningham (WWE ID) & Will Allday vs FLY DEF",
+    "url": "https://www.youtube.com/embed/OtQrg54rz8k",
+    "video_id": "OtQrg54rz8k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/OtQrg54rz8k",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77294",
+  "title": "Tiffany Nieves vs Mandy Wylde",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Tiffany Nieves vs Mandy Wylde",
+    "url": "https://www.youtube.com/embed/FTMOSDArRrY",
+    "video_id": "FTMOSDArRrY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/FTMOSDArRrY",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77295",
+  "title": "Gigi Rey vs Mystii Marks",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gigi Rey vs Mystii Marks",
+    "url": "https://www.youtube.com/embed/s0HOC0Bos90",
+    "video_id": "s0HOC0Bos90",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/s0HOC0Bos90",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77296",
+  "title": "NXT’s Tyra Mae Steele vs Kalientita",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Tyra Mae Steele vs Kalientita",
+    "url": "https://www.youtube.com/embed/Hbu_j3z_JGI",
+    "video_id": "Hbu_j3z_JGI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Hbu_j3z_JGI",
+  "runtime": "6 min"
+ },
+ {
+  "id": "stv-77297",
+  "title": "Maya World vs Londyn Dior",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Maya World vs Londyn Dior",
+    "url": "https://www.youtube.com/embed/YNXuLY2iVk0",
+    "video_id": "YNXuLY2iVk0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/YNXuLY2iVk0",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77298",
+  "title": "LAST MAN STANDING: Ryan Davidson vs Jordan Oasis",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "LAST MAN STANDING: Ryan Davidson vs Jordan Oasis",
+    "url": "https://www.youtube.com/embed/62QC9O-0Rxs",
+    "video_id": "62QC9O-0Rxs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/62QC9O-0Rxs",
+  "runtime": "16 min"
+ },
+ {
+  "id": "stv-77299",
+  "title": "AJ Francis vs Gino Medina",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "AJ Francis vs Gino Medina",
+    "url": "https://www.youtube.com/embed/GkApEfRbyCY",
+    "video_id": "GkApEfRbyCY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/GkApEfRbyCY",
+  "runtime": "16 min"
+ },
+ {
+  "id": "stv-77300",
+  "title": "Hollyhood Haley J vs Kiah Dream",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hollyhood Haley J vs Kiah Dream",
+    "url": "https://www.youtube.com/embed/mwsu0nZumSI",
+    "video_id": "mwsu0nZumSI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/mwsu0nZumSI",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77301",
+  "title": "Semsei vs HITT",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Semsei vs HITT",
+    "url": "https://www.youtube.com/embed/6GmmNOpDvKA",
+    "video_id": "6GmmNOpDvKA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6GmmNOpDvKA",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77302",
+  "title": "NXT’s Tavion Heights vs Edge Stone with Booker T",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Tavion Heights vs Edge Stone with Booker T",
+    "url": "https://www.youtube.com/embed/zA3na8GtU7k",
+    "video_id": "zA3na8GtU7k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/zA3na8GtU7k",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77303",
+  "title": "Zilla Fatu vs Ryan Davidson with Booker T",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu vs Ryan Davidson with Booker T",
+    "url": "https://www.youtube.com/embed/VeEBY-AAMVc",
+    "video_id": "VeEBY-AAMVc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/VeEBY-AAMVc",
+  "runtime": "19 min"
+ },
+ {
+  "id": "stv-77304",
+  "title": "Bases Loaded 2025 AJ Francis, Zilla Fatu, Maxo Kream & More",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bases Loaded 2025 AJ Francis, Zilla Fatu, Maxo Kream & More",
+    "url": "https://www.youtube.com/embed/lflG2xX67e8",
+    "video_id": "lflG2xX67e8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full event from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-event upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/lflG2xX67e8",
+  "runtime": "57 min"
+ },
+ {
+  "id": "stv-77305",
+  "title": "Edge Stone w/ Booker T vs NXT’s Tavion Heights",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Edge Stone w/ Booker T vs NXT’s Tavion Heights",
+    "url": "https://www.youtube.com/embed/IqfxsODbs4A",
+    "video_id": "IqfxsODbs4A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/IqfxsODbs4A",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77306",
+  "title": "Sam Holloway (WWE ID) vs Ayden Cristiano",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sam Holloway (WWE ID) vs Ayden Cristiano",
+    "url": "https://www.youtube.com/embed/ED1wlqnP-wM",
+    "video_id": "ED1wlqnP-wM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ED1wlqnP-wM",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77307",
+  "title": "Eli Knight (WWE ID) vs Clay Roberts",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Eli Knight (WWE ID) vs Clay Roberts",
+    "url": "https://www.youtube.com/embed/MifRyzFcRSU",
+    "video_id": "MifRyzFcRSU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/MifRyzFcRSU",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77308",
+  "title": "Promise Braxton vs Kiah Dream",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Promise Braxton vs Kiah Dream",
+    "url": "https://www.youtube.com/embed/DtTHOaXnAbo",
+    "video_id": "DtTHOaXnAbo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/DtTHOaXnAbo",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77309",
+  "title": "The Command (Terrale Tempo & Big Luther) vs TY Shane & Hans Steele",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Command (Terrale Tempo & Big Luther) vs TY Shane & Hans Steele",
+    "url": "https://www.youtube.com/embed/DHUrAu8zm74",
+    "video_id": "DHUrAu8zm74",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/DHUrAu8zm74",
+  "runtime": "6 min"
+ },
+ {
+  "id": "stv-77310",
+  "title": "Josiah Jean & Quentin Wynters vs Vin Parker & Jimmy House",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Josiah Jean & Quentin Wynters vs Vin Parker & Jimmy House",
+    "url": "https://www.youtube.com/embed/Tt_Hn7Nv3YQ",
+    "video_id": "Tt_Hn7Nv3YQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Tt_Hn7Nv3YQ",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77311",
+  "title": "The Command vs The Remote Controls",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Command vs The Remote Controls",
+    "url": "https://www.youtube.com/embed/Ou-gQxEta78",
+    "video_id": "Ou-gQxEta78",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Ou-gQxEta78",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77312",
+  "title": "Alex Gracia vs Rachel Chanel vs Gigi Rey",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alex Gracia vs Rachel Chanel vs Gigi Rey",
+    "url": "https://www.youtube.com/embed/-TlsiydHcaA",
+    "video_id": "-TlsiydHcaA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/-TlsiydHcaA",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77313",
+  "title": "NXT’s Trick Williams & AJ Francis vs Gino Medina & Zilla Fatu",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Trick Williams & AJ Francis vs Gino Medina & Zilla Fatu",
+    "url": "https://www.youtube.com/embed/am5GqtvYavo",
+    "video_id": "am5GqtvYavo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/am5GqtvYavo",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77314",
+  "title": "Erik Lockhart vs Will Austin",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Erik Lockhart vs Will Austin",
+    "url": "https://www.youtube.com/embed/tK5fKv6YS-c",
+    "video_id": "tK5fKv6YS-c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/tK5fKv6YS-c",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77315",
+  "title": "WWE NXT Trick Williams vs Gino Medina",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE NXT Trick Williams vs Gino Medina",
+    "url": "https://www.youtube.com/embed/6j-vect5-dQ",
+    "video_id": "6j-vect5-dQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6j-vect5-dQ",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77316",
+  "title": "WWE ID Champion Cappuccino Jones vs Rudy Garza￼",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Champion Cappuccino Jones vs Rudy Garza￼",
+    "url": "https://www.youtube.com/embed/ruJJecmcZGs",
+    "video_id": "ruJJecmcZGs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ruJJecmcZGs",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77317",
+  "title": "Josiah Jean vs Chandler Hopkins",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Josiah Jean vs Chandler Hopkins",
+    "url": "https://www.youtube.com/embed/lmLGvY0s6Vk",
+    "video_id": "lmLGvY0s6Vk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/lmLGvY0s6Vk",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77318",
+  "title": "Jack Cartwheel vs Clay Roberts",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jack Cartwheel vs Clay Roberts",
+    "url": "https://www.youtube.com/embed/sQU7whZ6jnc",
+    "video_id": "sQU7whZ6jnc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/sQU7whZ6jnc",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77319",
+  "title": "Zayda Steel vs Vert Vixen",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zayda Steel vs Vert Vixen",
+    "url": "https://www.youtube.com/embed/Ng6DnoEBlw8",
+    "video_id": "Ng6DnoEBlw8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Ng6DnoEBlw8",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77320",
+  "title": "NXT’s Jasper Troy vs WWE ID Sam Holloway",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Jasper Troy vs WWE ID Sam Holloway",
+    "url": "https://www.youtube.com/embed/YlWxJFCMvJA",
+    "video_id": "YlWxJFCMvJA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/YlWxJFCMvJA",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77321",
+  "title": "Hollyhood Haley J vs Jada Stone vs Kiah Dream vs Promise Braxton",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hollyhood Haley J vs Jada Stone vs Kiah Dream vs Promise Braxton",
+    "url": "https://www.youtube.com/embed/1G2ahSEmH_8",
+    "video_id": "1G2ahSEmH_8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/1G2ahSEmH_8",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77322",
+  "title": "NXT’s Tavion Heights vs Edge Stone w/ Booker T",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Tavion Heights vs Edge Stone w/ Booker T",
+    "url": "https://www.youtube.com/embed/Kb17jWP-Nlk",
+    "video_id": "Kb17jWP-Nlk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Kb17jWP-Nlk",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77323",
+  "title": "Zilla Fatu vs Ryan Davidson - Samoan Street Fight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu vs Ryan Davidson - Samoan Street Fight",
+    "url": "https://www.youtube.com/embed/WUQpTcaUpz8",
+    "video_id": "WUQpTcaUpz8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/WUQpTcaUpz8",
+  "runtime": "24 min"
+ },
+ {
+  "id": "stv-77324",
+  "title": "NXT’s Jaida Parker vs Alex Gracia",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Jaida Parker vs Alex Gracia",
+    "url": "https://www.youtube.com/embed/ISma0-dTuf4",
+    "video_id": "ISma0-dTuf4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ISma0-dTuf4",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77325",
+  "title": "Zilla Fatu & TNT vs Ryan Davidson & Fly Def",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu & TNT vs Ryan Davidson & Fly Def",
+    "url": "https://www.youtube.com/embed/BKH8PwKnvPw",
+    "video_id": "BKH8PwKnvPw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/BKH8PwKnvPw",
+  "runtime": "19 min"
+ },
+ {
+  "id": "stv-77326",
+  "title": "NXT’s Arianna Grace vs Hollyhood Haley J",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Arianna Grace vs Hollyhood Haley J",
+    "url": "https://www.youtube.com/embed/Fb1hmvyRZaw",
+    "video_id": "Fb1hmvyRZaw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Fb1hmvyRZaw",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77327",
+  "title": "Javi vs Savage King",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Javi vs Savage King",
+    "url": "https://www.youtube.com/embed/7CT7Vm7X7MU",
+    "video_id": "7CT7Vm7X7MU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/7CT7Vm7X7MU",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77328",
+  "title": "Kaylia Capri vs VertVixen",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Kaylia Capri vs VertVixen",
+    "url": "https://www.youtube.com/embed/QnKdft03QMk",
+    "video_id": "QnKdft03QMk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/QnKdft03QMk",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77329",
+  "title": "Jordan Oasis vs Sam Holloway Reality Of Wrestling / WWE ID",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jordan Oasis vs Sam Holloway Reality Of Wrestling / WWE ID",
+    "url": "https://www.youtube.com/embed/fEfSW3xzKo8",
+    "video_id": "fEfSW3xzKo8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/fEfSW3xzKo8",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77330",
+  "title": "Erik Lockart vs Rhys Maddox",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Erik Lockart vs Rhys Maddox",
+    "url": "https://www.youtube.com/embed/9rHk_M8x8Zs",
+    "video_id": "9rHk_M8x8Zs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/9rHk_M8x8Zs",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77331",
+  "title": "WWE ID Jordan Oasis vs Ayden Cristiano",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE ID Jordan Oasis vs Ayden Cristiano",
+    "url": "https://www.youtube.com/embed/LIeXdKb5DbA",
+    "video_id": "LIeXdKb5DbA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/LIeXdKb5DbA",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77332",
+  "title": "Brad Baylor vs Marcus Mathers Reality Of Wrestling / WWE ID",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Brad Baylor vs Marcus Mathers Reality Of Wrestling / WWE ID",
+    "url": "https://www.youtube.com/embed/Uc3aSw2LANQ",
+    "video_id": "Uc3aSw2LANQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Uc3aSw2LANQ",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77333",
+  "title": "Jay Alexander vs Jake St Patrick",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jay Alexander vs Jake St Patrick",
+    "url": "https://www.youtube.com/embed/0o6_3NupeBo",
+    "video_id": "0o6_3NupeBo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/0o6_3NupeBo",
+  "runtime": "7 min"
+ },
+ {
+  "id": "stv-77334",
+  "title": "Gino Medina vs Edge Stone w/ Booker T",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gino Medina vs Edge Stone w/ Booker T",
+    "url": "https://www.youtube.com/embed/P9rUfOhZvAw",
+    "video_id": "P9rUfOhZvAw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/P9rUfOhZvAw",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77335",
+  "title": "Eli Knight vs Rudy Garza",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Eli Knight vs Rudy Garza",
+    "url": "https://www.youtube.com/embed/loRQpSHd4fI",
+    "video_id": "loRQpSHd4fI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/loRQpSHd4fI",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77336",
+  "title": "Edge Stone w/ Booker T vs Eli Knight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Edge Stone w/ Booker T vs Eli Knight",
+    "url": "https://www.youtube.com/embed/_AH6CSo_Ea4",
+    "video_id": "_AH6CSo_Ea4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/_AH6CSo_Ea4",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77337",
+  "title": "Savage King vs WWE ID Sam Holloway",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Savage King vs WWE ID Sam Holloway",
+    "url": "https://www.youtube.com/embed/pqIv8JPzATU",
+    "video_id": "pqIv8JPzATU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/pqIv8JPzATU",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77338",
+  "title": "Jordan Oasis vs It’s Gal Reality Of Wrestling / WWE ID",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jordan Oasis vs It’s Gal Reality Of Wrestling / WWE ID",
+    "url": "https://www.youtube.com/embed/aHOyrUFQ5UQ",
+    "video_id": "aHOyrUFQ5UQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/aHOyrUFQ5UQ",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77339",
+  "title": "Gino Medina vs Rudy Garza",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gino Medina vs Rudy Garza",
+    "url": "https://www.youtube.com/embed/OI_T4koSs2U",
+    "video_id": "OI_T4koSs2U",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/OI_T4koSs2U",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77340",
+  "title": "Edge Stone vs WWE ID Jordan Oasis",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Edge Stone vs WWE ID Jordan Oasis",
+    "url": "https://www.youtube.com/embed/rPBxE7_GNm8",
+    "video_id": "rPBxE7_GNm8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/rPBxE7_GNm8",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77341",
+  "title": "Alex Gracia vs Gigi Rey",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alex Gracia vs Gigi Rey",
+    "url": "https://www.youtube.com/embed/dBZbByAgBHw",
+    "video_id": "dBZbByAgBHw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/dBZbByAgBHw",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77342",
+  "title": "VYBE Guys BDE & Brent Oakley vs AJ Francis & Quentin Wynters",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "VYBE Guys BDE & Brent Oakley vs AJ Francis & Quentin Wynters",
+    "url": "https://www.youtube.com/embed/cOE5gm0sT9s",
+    "video_id": "cOE5gm0sT9s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/cOE5gm0sT9s",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77343",
+  "title": "NXT’s Stacks Lorenzo vs Will Austin",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Stacks Lorenzo vs Will Austin",
+    "url": "https://www.youtube.com/embed/bfmf8_WPluM",
+    "video_id": "bfmf8_WPluM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/bfmf8_WPluM",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77344",
+  "title": "GLORY – Full Episode 10",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "GLORY – Full Episode 10",
+    "url": "https://www.youtube.com/embed/6eeNfWqgJvI",
+    "video_id": "6eeNfWqgJvI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full event from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-event upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6eeNfWqgJvI",
+  "runtime": "34 min"
+ },
+ {
+  "id": "stv-77345",
+  "title": "Zilla Fatu vs Ryan Davidson",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu vs Ryan Davidson",
+    "url": "https://www.youtube.com/embed/vthuWVp1cjw",
+    "video_id": "vthuWVp1cjw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/vthuWVp1cjw",
+  "runtime": "22 min"
+ },
+ {
+  "id": "stv-77346",
+  "title": "Ice Williams vs IT’S GAL Reality Of Wrestling / WWE ID",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ice Williams vs IT’S GAL Reality Of Wrestling / WWE ID",
+    "url": "https://www.youtube.com/embed/tni3cXzNurc",
+    "video_id": "tni3cXzNurc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/tni3cXzNurc",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77347",
+  "title": "NXT’s Hank Walker & Tank Ledger vs Terrale Tempo & Big Luther",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Hank Walker & Tank Ledger vs Terrale Tempo & Big Luther",
+    "url": "https://www.youtube.com/embed/6P76e3feoa8",
+    "video_id": "6P76e3feoa8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/6P76e3feoa8",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77348",
+  "title": "Alex Gracia vs Promise Braxton",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alex Gracia vs Promise Braxton",
+    "url": "https://www.youtube.com/embed/1EkCIvD5I6g",
+    "video_id": "1EkCIvD5I6g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/1EkCIvD5I6g",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77349",
+  "title": "NXT’s Thea Hail vs Ladybird Monica Monroe",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Thea Hail vs Ladybird Monica Monroe",
+    "url": "https://www.youtube.com/embed/RBOdpk3fxJo",
+    "video_id": "RBOdpk3fxJo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/RBOdpk3fxJo",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77350",
+  "title": "Chandler Hopkins vs Quentin Wynters",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Chandler Hopkins vs Quentin Wynters",
+    "url": "https://www.youtube.com/embed/2WU6qCwg0xg",
+    "video_id": "2WU6qCwg0xg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/2WU6qCwg0xg",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77351",
+  "title": "WWE Superstar Nattie Neidhart vs Promise Braxton",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "WWE Superstar Nattie Neidhart vs Promise Braxton",
+    "url": "https://www.youtube.com/embed/_rUZk84CQgA",
+    "video_id": "_rUZk84CQgA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/_rUZk84CQgA",
+  "runtime": "19 min"
+ },
+ {
+  "id": "stv-77352",
+  "title": "HART & SOUL — All-Women’s Wrestling Special",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "HART & SOUL — All-Women’s Wrestling Special",
+    "url": "https://www.youtube.com/embed/x7IVzuUTbHg",
+    "video_id": "x7IVzuUTbHg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full event from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-event upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/x7IVzuUTbHg",
+  "runtime": "63 min"
+ },
+ {
+  "id": "stv-77353",
+  "title": "Max Castellano vs Matty Ice",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Max Castellano vs Matty Ice",
+    "url": "https://www.youtube.com/embed/eD9KCKlQDao",
+    "video_id": "eD9KCKlQDao",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/eD9KCKlQDao",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77354",
+  "title": "Marcus Mathers vs Sam Holloway Reality Of Wrestling - WWE ID",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Marcus Mathers vs Sam Holloway Reality Of Wrestling - WWE ID",
+    "url": "https://www.youtube.com/embed/9KpvWvM1GLk",
+    "video_id": "9KpvWvM1GLk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/9KpvWvM1GLk",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77355",
+  "title": "AJ Francis vs Chandler Hopkins",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "AJ Francis vs Chandler Hopkins",
+    "url": "https://www.youtube.com/embed/Nr4Na1S9AfI",
+    "video_id": "Nr4Na1S9AfI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Nr4Na1S9AfI",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77356",
+  "title": "Cap Jones vs Jack Cartwheel",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cap Jones vs Jack Cartwheel",
+    "url": "https://www.youtube.com/embed/mMQalD3KEZY",
+    "video_id": "mMQalD3KEZY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/mMQalD3KEZY",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77357",
+  "title": "Fly Def vs Team TNT",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Fly Def vs Team TNT",
+    "url": "https://www.youtube.com/embed/aclcZyCDr14",
+    "video_id": "aclcZyCDr14",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/aclcZyCDr14",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77358",
+  "title": "Marcus Mathers vs Ice Williams vs Jordan Oasis WWE ID /",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Marcus Mathers vs Ice Williams vs Jordan Oasis WWE ID /",
+    "url": "https://www.youtube.com/embed/foXXFowl4SE",
+    "video_id": "foXXFowl4SE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/foXXFowl4SE",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77359",
+  "title": "Gigi Rey vs Kalientita",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gigi Rey vs Kalientita",
+    "url": "https://www.youtube.com/embed/RPbMm5nbs5s",
+    "video_id": "RPbMm5nbs5s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/RPbMm5nbs5s",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77360",
+  "title": "Terrale Tempo vs “WWE ID” Ice Williams",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Terrale Tempo vs “WWE ID” Ice Williams",
+    "url": "https://www.youtube.com/embed/GWnPaLU2mOg",
+    "video_id": "GWnPaLU2mOg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/GWnPaLU2mOg",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77361",
+  "title": "Vert Vixen vs Kiah Dream",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Vert Vixen vs Kiah Dream",
+    "url": "https://www.youtube.com/embed/xBTHYmzqPqM",
+    "video_id": "xBTHYmzqPqM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/xBTHYmzqPqM",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77362",
+  "title": "Will Allday vs Danny Limelight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Will Allday vs Danny Limelight",
+    "url": "https://www.youtube.com/embed/PFLrQUJGEpo",
+    "video_id": "PFLrQUJGEpo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/PFLrQUJGEpo",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77363",
+  "title": "NXT’s Jacy Jayne vs Gigi Rey",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Jacy Jayne vs Gigi Rey",
+    "url": "https://www.youtube.com/embed/SFoVBL3EH84",
+    "video_id": "SFoVBL3EH84",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/SFoVBL3EH84",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77364",
+  "title": "Zilla Fatu vs Gaspar Hernandez w/ Booker T",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu vs Gaspar Hernandez w/ Booker T",
+    "url": "https://www.youtube.com/embed/g59xNPGHJoo",
+    "video_id": "g59xNPGHJoo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/g59xNPGHJoo",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77365",
+  "title": "Ayden Cristiano vs Forneo",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ayden Cristiano vs Forneo",
+    "url": "https://www.youtube.com/embed/oiHmkJMO0tY",
+    "video_id": "oiHmkJMO0tY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/oiHmkJMO0tY",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77366",
+  "title": "The Savage King vs “Bulletproof” Blake Troop",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Savage King vs “Bulletproof” Blake Troop",
+    "url": "https://www.youtube.com/embed/87klGyQjMEo",
+    "video_id": "87klGyQjMEo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/87klGyQjMEo",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77367",
+  "title": "Edge Stone vs Nick Rodriguez",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Edge Stone vs Nick Rodriguez",
+    "url": "https://www.youtube.com/embed/V3jED0GyG4g",
+    "video_id": "V3jED0GyG4g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/V3jED0GyG4g",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77368",
+  "title": "NXT’s Wren Sinclair vs Mia Friday",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Wren Sinclair vs Mia Friday",
+    "url": "https://www.youtube.com/embed/5sbTxkDUE3I",
+    "video_id": "5sbTxkDUE3I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/5sbTxkDUE3I",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77369",
+  "title": "AJ Francis vs Chandler Hopkins REMATCH",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "AJ Francis vs Chandler Hopkins REMATCH",
+    "url": "https://www.youtube.com/embed/j2Br25GFvvw",
+    "video_id": "j2Br25GFvvw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/j2Br25GFvvw",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77370",
+  "title": "Kiah Dream vs Alex Gracia",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Kiah Dream vs Alex Gracia",
+    "url": "https://www.youtube.com/embed/90ljlE-17hw",
+    "video_id": "90ljlE-17hw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/90ljlE-17hw",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77371",
+  "title": "Duke Hanson vs Cam Cole",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Duke Hanson vs Cam Cole",
+    "url": "https://www.youtube.com/embed/YCtOaUhWtSs",
+    "video_id": "YCtOaUhWtSs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/YCtOaUhWtSs",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77372",
+  "title": "Gino Medina vs Josiah Jean",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gino Medina vs Josiah Jean",
+    "url": "https://www.youtube.com/embed/M2rQiUhCezE",
+    "video_id": "M2rQiUhCezE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/M2rQiUhCezE",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77373",
+  "title": "Kaylia Capri vs Hollyhood Haley J",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Kaylia Capri vs Hollyhood Haley J",
+    "url": "https://www.youtube.com/embed/pA6rOM2u96Q",
+    "video_id": "pA6rOM2u96Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/pA6rOM2u96Q",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77374",
+  "title": "NXT’s Wes Lee vs Eli Knight",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Wes Lee vs Eli Knight",
+    "url": "https://www.youtube.com/embed/WGm7l-QAAbw",
+    "video_id": "WGm7l-QAAbw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/WGm7l-QAAbw",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77375",
+  "title": "Kiah Dream vs Haley J vs Tiffany Nieves",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Kiah Dream vs Haley J vs Tiffany Nieves",
+    "url": "https://www.youtube.com/embed/IZw41xVoRa0",
+    "video_id": "IZw41xVoRa0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/IZw41xVoRa0",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77376",
+  "title": "Tiffany Nieves & Haley J vs The Money Birds",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Tiffany Nieves & Haley J vs The Money Birds",
+    "url": "https://www.youtube.com/embed/_c-PCPORZCs",
+    "video_id": "_c-PCPORZCs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/_c-PCPORZCs",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77377",
+  "title": "Matty Ice vs Gaspar Hernandez with Booker T",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Matty Ice vs Gaspar Hernandez with Booker T",
+    "url": "https://www.youtube.com/embed/99AMNgvRwJI",
+    "video_id": "99AMNgvRwJI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/99AMNgvRwJI",
+  "runtime": "12 min"
+ },
+ {
+  "id": "stv-77378",
+  "title": "SemSei vs Ice Williams",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "SemSei vs Ice Williams",
+    "url": "https://www.youtube.com/embed/79y65EJR9FQ",
+    "video_id": "79y65EJR9FQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/79y65EJR9FQ",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77379",
+  "title": "NXT’ Hank & Tank vs Team TNT vs Fly Def vs MMT",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’ Hank & Tank vs Team TNT vs Fly Def vs MMT",
+    "url": "https://www.youtube.com/embed/Cah0VYORzDI",
+    "video_id": "Cah0VYORzDI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/Cah0VYORzDI",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77380",
+  "title": "Brad Baylor vs Ice Williams Official WWE ID Match",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Brad Baylor vs Ice Williams Official WWE ID Match",
+    "url": "https://www.youtube.com/embed/3ZGhjy8U7T4",
+    "video_id": "3ZGhjy8U7T4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/3ZGhjy8U7T4",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77381",
+  "title": "Sam Holloway vs Marcus Mathers Official WWE ID Match",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sam Holloway vs Marcus Mathers Official WWE ID Match",
+    "url": "https://www.youtube.com/embed/mQKvO0f8gpo",
+    "video_id": "mQKvO0f8gpo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/mQKvO0f8gpo",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77382",
+  "title": "Jada Stone vs Alex Gracia",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jada Stone vs Alex Gracia",
+    "url": "https://www.youtube.com/embed/TjlpwLbMOqg",
+    "video_id": "TjlpwLbMOqg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/TjlpwLbMOqg",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77383",
+  "title": "Gino Medina vs Max Castellanos",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gino Medina vs Max Castellanos",
+    "url": "https://www.youtube.com/embed/qM8Pw1F7Gfk",
+    "video_id": "qM8Pw1F7Gfk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/qM8Pw1F7Gfk",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77384",
+  "title": "Island Boys vs The Notorious",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Island Boys vs The Notorious",
+    "url": "https://www.youtube.com/embed/7dVHwMicF_0",
+    "video_id": "7dVHwMicF_0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/7dVHwMicF_0",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77385",
+  "title": "The Money Birds vs Maya World & Kaylia Capri",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Money Birds vs Maya World & Kaylia Capri",
+    "url": "https://www.youtube.com/embed/8ZXzLPgLhLs",
+    "video_id": "8ZXzLPgLhLs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/8ZXzLPgLhLs",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77386",
+  "title": "Zilla Fatu vs Edge Stone with Booker T",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zilla Fatu vs Edge Stone with Booker T",
+    "url": "https://www.youtube.com/embed/ifOL8DMFwbU",
+    "video_id": "ifOL8DMFwbU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/ifOL8DMFwbU",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77387",
+  "title": "Cam Cole vs Matty Ice",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cam Cole vs Matty Ice",
+    "url": "https://www.youtube.com/embed/PPkEBjwuqLk",
+    "video_id": "PPkEBjwuqLk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/PPkEBjwuqLk",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77388",
+  "title": "Will Allday vs Big Luther",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Will Allday vs Big Luther",
+    "url": "https://www.youtube.com/embed/sRfVU-hNNIw",
+    "video_id": "sRfVU-hNNIw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/sRfVU-hNNIw",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77389",
+  "title": "Alex Gracia vs Kiah Dream vs Tiffany Nieves vs Emmy Camacho",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alex Gracia vs Kiah Dream vs Tiffany Nieves vs Emmy Camacho",
+    "url": "https://www.youtube.com/embed/9fW_INuNiWk",
+    "video_id": "9fW_INuNiWk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/9fW_INuNiWk",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77390",
+  "title": "Shaukut vs Chandler Hopkins",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Shaukut vs Chandler Hopkins",
+    "url": "https://www.youtube.com/embed/eL6rPizMerc",
+    "video_id": "eL6rPizMerc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/eL6rPizMerc",
+  "runtime": "13 min"
+ },
+ {
+  "id": "stv-77391",
+  "title": "SemSei vs Justin Corino",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "SemSei vs Justin Corino",
+    "url": "https://www.youtube.com/embed/H2Vy-6ketRU",
+    "video_id": "H2Vy-6ketRU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/H2Vy-6ketRU",
+  "runtime": "10 min"
+ },
+ {
+  "id": "stv-77392",
+  "title": "NXT’s Hank Walker and Tank Ledger vs Fly Def",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "NXT’s Hank Walker and Tank Ledger vs Fly Def",
+    "url": "https://www.youtube.com/embed/qXpoTO94s5c",
+    "video_id": "qXpoTO94s5c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/qXpoTO94s5c",
+  "runtime": "15 min"
+ },
+ {
+  "id": "stv-77393",
+  "title": "Ice Williams vs Jordan Oasis Reality of Wrestling / WWE ID Match",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ice Williams vs Jordan Oasis Reality of Wrestling / WWE ID Match",
+    "url": "https://www.youtube.com/embed/w7ub4GljzyU",
+    "video_id": "w7ub4GljzyU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/w7ub4GljzyU",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77394",
+  "title": "Sidney Akeem vs Semsei",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sidney Akeem vs Semsei",
+    "url": "https://www.youtube.com/embed/oAk-Q5MZngg",
+    "video_id": "oAk-Q5MZngg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/oAk-Q5MZngg",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77395",
+  "title": "Nor 'Phoenix' Diana vs Kalientita",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Nor 'Phoenix' Diana vs Kalientita",
+    "url": "https://www.youtube.com/embed/oBzc987USc0",
+    "video_id": "oBzc987USc0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/oBzc987USc0",
+  "runtime": "9 min"
+ },
+ {
+  "id": "stv-77396",
+  "title": "Josiah Jean vs Rudy Garza",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Josiah Jean vs Rudy Garza",
+    "url": "https://www.youtube.com/embed/IfSd7kbuIM4",
+    "video_id": "IfSd7kbuIM4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/IfSd7kbuIM4",
+  "runtime": "8 min"
+ },
+ {
+  "id": "stv-77397",
+  "title": "Fly Def vs The Island Boys",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Fly Def vs The Island Boys",
+    "url": "https://www.youtube.com/embed/XQUbEKB6MQQ",
+    "video_id": "XQUbEKB6MQQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/XQUbEKB6MQQ",
+  "runtime": "11 min"
+ },
+ {
+  "id": "stv-77398",
+  "title": "Women’s 2025 Battle To The Bell Ladder Match",
+  "genre": "Wrestling",
+  "verified": true,
+  "dateAdded": "2026-10-24",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Women’s 2025 Battle To The Bell Ladder Match",
+    "url": "https://www.youtube.com/embed/LNCPqMwz5xc",
+    "video_id": "LNCPqMwz5xc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Full match from Reality of Wrestling — Booker T's Houston promotion.",
+  "rights_basis": "Official Reality of Wrestling channel free full-match upload; embed enabled; verified 2026-10-24.",
+  "source_channel": "Reality of Wrestling",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/LNCPqMwz5xc",
+  "runtime": "12 min"
  }
 ]
 ;
