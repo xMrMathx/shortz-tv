@@ -107,6 +107,9 @@ bub.innerHTML='<div class="agb-back"></div><button class="agb-x" type="button" a
 document.body.appendChild(bub);
 var log=$("#agLog"), input=$("#agIn"), liveBtn=$("#agLive"), micBtn=$("#agMic");
 var opened=false, greeted=false, liveMode=false, lastViaVoice=false;
+/* talk-back layer (his order 2026-10-25): she asks a follow-up when a find is
+   open-ended, takes the answer, and remembers the last picks she showed. */
+var pendingAsk=null, lastCards=null, lastFind=null;
 
 /* ---------- speech out (Layer 6) ---------- */
 var speakingNow=false, speakWatchdog=null;
@@ -167,13 +170,22 @@ function addMsg(text,who){
   var d=document.createElement("div"); d.className="ag-m "+(who||"a"); d.textContent=text;
   log.appendChild(d); log.scrollTop=log.scrollHeight; return d;
 }
+function epsCount(t){
+  /* slim records carry episodes:[] until hydration; the count lives in ec
+     or in the eps string — mirror index's epsN so finds split right. */
+  if(t.episodes&&t.episodes.length)return t.episodes.length;
+  if(t.ec)return +t.ec||0;
+  if(t.eps){ var m=String(t.eps).match(/\d+/); if(m)return +m[0]; }
+  return 0;
+}
 function meta(t){
   var bits=[]; if(t.genre)bits.push(t.genre);
   if(t.runtime)bits.push(String(t.runtime));
-  var n=(t.episodes&&t.episodes.length)||t.eps||0; if(n>1)bits.push(n+" episodes");
+  var n=epsCount(t); if(n>1)bits.push(n+" episodes");
   return bits.join(" · ");
 }
 function addCards(list,note){
+  lastCards=list.slice();
   if(bubbleOpen){ bubbleCards=true; bubLine(note||"Found it — tap Shortz to see.","her"); }
   if(note)addMsg(note,"a");
   var box=document.createElement("div"); box.className="ag-cards";
@@ -212,9 +224,9 @@ function runtimeMin(t){
   if(h||m) return (h?parseInt(h[1],10)*60:0)+(m?parseInt(m[1],10):0);
   var plain=r.match(/^(\d+)$/); return plain?parseInt(plain[1],10):null;
 }
-function isSeries(t){ return ((t.episodes&&t.episodes.length)||t.eps||0)>1; }
+function isSeries(t){ return epsCount(t)>1; }
 
-function doFind(genreWord,typeWord,maxMin,phrase){
+function doFind(genreWord,typeWord,maxMin,phrase,off){
   var C=cat(), out=[], i, t, g = genreWord?GENRE_WORDS[genreWord]:null;
   for(i=0;i<C.length&&out.length<40;i++){
     t=C[i]; if(!t||!t.title)continue;
@@ -230,7 +242,61 @@ function doFind(genreWord,typeWord,maxMin,phrase){
     out.push(t);
   }
   out.sort(function(a,b){ return ((b.award_verified?2:0)+(b.verified?1:0))-((a.award_verified?2:0)+(a.verified?1:0)); });
-  return out.slice(0,3);
+  return out.slice(off||0,(off||0)+3);
+}
+
+/* ---------- talk-back: follow-up answers + referring to the picks ---------- */
+function askKind(gw,viaVoice){
+  pendingAsk={genre:gw,askedAt:Date.now(),reasks:0};
+  say("Okay, "+GENRE_WORDS[gw].toLowerCase()+" — you looking for a short form, a movie, or a series?",{voice:viaVoice});
+  addChips(["A short one","A movie","A series","Any of those"]);
+}
+function answerKind(low,viaVoice){
+  if(Date.now()-(pendingAsk.askedAt||0)>120000)return false; // stale question — route fresh
+  if(/\b(play|watch|bring up|open|go to|take me)\b/.test(low))return false; // a command beats an answer
+  /* a find for a DIFFERENT genre is a new request, never this answer */
+  if(/\b(find|show|search|get|give|look for|looking for)\b/.test(low)){
+    for(var k in GENRE_WORDS){ if(k!==pendingAsk.genre&&low.indexOf(k)>=0)return false; }
+  }
+  var tw=null, any=false;
+  if(/\bshort\b/.test(low))tw="short"; // short first: "a short movie" means short-form
+  else if(/\bseries\b|\bserious\b|\bshows?\b|\btv\b/.test(low))tw="series"; // "serious" = the mic's mis-hear of series
+  else if(/\bmovies?\b|\bfilms?\b/.test(low))tw="movie";
+  else if(/\b(any|either|whatever|don'?t care|doesn'?t matter|all of them)\b/.test(low))any=true;
+  if(!tw&&!any)return false;
+  if(low.split(/\s+/).length>6&&!any)return false; // a long sentence is a new request, not an answer
+  var mm=low.match(/under\s+(\d+)\s*(min|minute|hour)/), maxMin=null;
+  if(mm)maxMin=parseInt(mm[1],10)*(mm[2]==="hour"?60:1);
+  var gw=pendingAsk.genre, reasks=pendingAsk.reasks||0; pendingAsk=null;
+  var res=doFind(gw,tw,maxMin,null);
+  lastFind={gw:gw,typeWord:tw,maxMin:maxMin,off:0};
+  var kind=tw==="short"?"shorts":tw==="series"?"series":tw==="movie"?"movies":"picks";
+  if(res.length){
+    say("Here's some "+GENRE_WORDS[gw].toLowerCase()+" "+kind+" — say \u201Cplay the first one\u201D, or tap one.",{voice:viaVoice});
+    addCards(res,GENRE_WORDS[gw]+" "+kind+":");
+  }else if(reasks<1){
+    pendingAsk={genre:gw,askedAt:Date.now(),reasks:reasks+1};
+    say("No "+GENRE_WORDS[gw].toLowerCase()+" "+kind+" in the catalog. Want to try a different kind?",{voice:viaVoice});
+    addChips(["A short one","A movie","A series","Any of those"]);
+  }else{
+    var broad=doFind(gw,null,null,null);
+    if(broad.length){ lastFind={gw:gw,typeWord:null,maxMin:null,off:0}; say("No luck with that kind — here's "+GENRE_WORDS[gw].toLowerCase()+" picks instead.",{voice:viaVoice}); addCards(broad,GENRE_WORDS[gw]+" picks:"); }
+    else say("Nothing under "+GENRE_WORDS[gw].toLowerCase()+" at all — try another genre.",{voice:viaVoice});
+  }
+  return true;
+}
+function presentPick(t,viaVoice){
+  memPlay(t);
+  say("Playing "+(t.title||"it")+".",{voice:viaVoice});
+  closeSheet();
+  try{ cfPresentTitle(t); }catch(e){}
+}
+function openPick(t,viaVoice){
+  /* "open / bring up the first one" shows it first (info-first law) —
+     only an explicit play verb presents and plays. */
+  say("Here's "+(t.title||"it")+".",{voice:viaVoice});
+  closeSheet();
+  try{ openDetail(t.id); }catch(e){}
 }
 
 function describeDelegate(text){
@@ -292,7 +358,11 @@ function handle(raw, viaVoice){
   if(/^(thanks|thank you|thx)\b/.test(low)){ say("Anytime. What else?",{voice:viaVoice}); return; }
   if(/who are you|your name/.test(low)){ say("I'm the Shortz agent — I run the app by voice and text. Play, find, bring things up, answer questions.",{voice:viaVoice}); return; }
   if(/what can you do|help$|^help\b/.test(low)){ say("Try one of these:",{voice:viaVoice}); addChips(["Play Fearless","Find me a horror short under 20 minutes","What's live","Surprise me","Continue watching"]); return; }
-  if(liveMode&&/^(stop|stop talking|goodbye|bye|end call|hang up)\b/.test(low)){ liveMode=false; liveBtn.classList.remove("on"); say("Okay — call ended. I'm still here in text whenever.",{}); return; }
+  if(liveMode&&/^(stop|stop talking|goodbye|bye|end call|hang up)\b/.test(low)){ pendingAsk=null; liveMode=false; liveBtn.classList.remove("on"); say("Okay — call ended. I'm still here in text whenever.",{}); return; }
+
+  /* talk-back: an answer to her follow-up question beats fresh routing;
+     anything else clears the question and routes as a new request */
+  if(pendingAsk){ if(answerKind(low,viaVoice))return; pendingAsk=null; }
 
   /* Layer 4: game stats */
   if(/(kills|deaths|stats|score|last game|how did i do)/.test(low)&&!/episode/.test(low)){ say(statsAnswer(low),{voice:viaVoice}); return; }
@@ -334,16 +404,44 @@ function handle(raw, viaVoice){
     return;
   }
 
+  /* talk-back: referring to the picks she just showed. A play verb plays;
+     open / bring up / a bare pick shows it first (info-first law). */
+  var ord={first:0,"1st":0,second:1,"2nd":1,third:2,"3rd":2};
+  var pm=low.match(/^(?:play|watch|put on)\s+(?:the\s+)?(first|second|third|1st|2nd|3rd)(?:\s+one)?\s*(?:please)?$/);
+  if(pm&&lastCards&&lastCards[ord[pm[1]]]){ presentPick(lastCards[ord[pm[1]]],viaVoice); return; }
+  var om=low.match(/^(?:(?:open|bring up|show)\s+)?(?:the\s+)?(first|second|third|1st|2nd|3rd)(?:\s+one)?\s*(?:please)?$/);
+  if(om&&lastCards&&lastCards[ord[om[1]]]&&!/^(play|watch|put on)\b/.test(low)){ openPick(lastCards[ord[om[1]]],viaVoice); return; }
+  if(/^(play|watch|put on) (it|that|that one)$/.test(low)&&lastCards&&lastCards.length){ presentPick(lastCards[0],viaVoice); return; }
+  if(/^(open|bring up) (it|that|that one)$/.test(low)&&lastCards&&lastCards.length){ openPick(lastCards[0],viaVoice); return; }
+  if(/^(more|show me more|another|any more)$/.test(low)&&lastFind){
+    var more=doFind(lastFind.gw,lastFind.typeWord,lastFind.maxMin||null,null,lastFind.off+3);
+    if(!more.length){ lastFind.off=0; more=doFind(lastFind.gw,lastFind.typeWord,lastFind.maxMin||null,null,0); }
+    else lastFind.off+=3;
+    if(more.length){ say("Here's some more.",{voice:viaVoice}); addCards(more,"More picks:"); return; }
+  }
+
   /* filter finds: "find me a horror short under 20 minutes" */
-  var fm=low.match(/(?:find|show|get|give|search)(?:\s+me)?\s+(?:a\s+|an\s+|some\s+)?(.+)/);
+  var fm=low.match(/(?:find|show|get|give|search|watch|see)(?:\s+me)?\s+(?:a\s+|an\s+|some\s+)?(.+)/);
   if(fm){
     var rest=fm[1], maxMin=null, mm=rest.match(/under\s+(\d+)\s*(min|minute|hour)/);
     if(mm){ maxMin=parseInt(mm[1],10)*(mm[2]==="hour"?60:1); rest=rest.replace(mm[0],""); }
-    var typeWord=null; if(/\bseries\b|\bshow\b/.test(rest)&&!/shows?\s+me/.test(low))typeWord="series"; if(/\bmovie\b|\bfilm\b/.test(rest))typeWord="movie"; if(/\bshort\b/.test(rest))typeWord="short";
+    var typeWord=null; if(/\bseries\b|\bserious\b|\bshow\b/.test(rest)&&!/shows?\s+me/.test(low))typeWord="series"; if(/\bmovie\b|\bfilm\b/.test(rest))typeWord="movie"; if(/\bshort\b/.test(rest))typeWord="short";
     var gw=null; for(var k in GENRE_WORDS){ if(rest.indexOf(k)>=0){ gw=k; break; } }
     if(gw||typeWord||maxMin){
+      /* talk-back: a genre ask with the kind still open gets a question
+         first, not a silent card dump — his example: "I want to find like
+         a drama series" -> "Okay, a drama — short form, a movie, or a
+         series?" A want-phrase asks even when a kind word rode along; a
+         runtime cap or a direct command with a kind acts at once. */
+      var wantPhrase=/\b(i want|i wanna|i'?m looking for|looking for|i feel like)\b/.test(low);
+      if(gw&&!maxMin&&(!typeWord||wantPhrase)){ askKind(gw,viaVoice); return; }
       var res=doFind(gw,typeWord,maxMin,null);
-      if(res.length){ addCards(res,(gw?GENRE_WORDS[gw]:"Picks")+(typeWord==="short"?" shorts":typeWord==="series"?" series":typeWord==="movie"?" movies":"")+(maxMin?(" under "+maxMin+" minutes"):"")+":"); }
+      lastFind={gw:gw,typeWord:typeWord,maxMin:maxMin,off:0};
+      if(res.length){
+        var note=(gw?GENRE_WORDS[gw]:"Picks")+(typeWord==="short"?" shorts":typeWord==="series"?" series":typeWord==="movie"?" movies":"")+(maxMin?(" under "+maxMin+" minutes"):"");
+        if(viaVoice||liveMode){ addCards(res); say(note+" — say \u201Cplay the first one\u201D, or tap one.",{voice:viaVoice}); }
+        else addCards(res,note+":");
+      }
       else say("I couldn't find a match for that in the catalog — try loosening it up, like just the genre.",{voice:viaVoice});
       return;
     }
@@ -445,6 +543,7 @@ function openSheet(autoListen){
   else setTimeout(function(){ try{ input.focus(); }catch(e){} },250);
 }
 function closeSheet(){
+  pendingAsk=null; /* a pending question dies with the sheet (Pinky audit) */
   opened=false; stopSpeak(); wrap.classList.remove("open"); wrap.setAttribute("aria-hidden","true");
   if(liveMode){ liveMode=false; liveBtn.classList.remove("on"); stopLiveGuard(); }
 }
@@ -457,7 +556,7 @@ micBtn.addEventListener("click",function(){ startListen(); });
 liveBtn.addEventListener("click",function(){
   liveMode=!liveMode; liveBtn.classList.toggle("on",liveMode);
   if(liveMode){ startLiveGuard(); say("Live talk on — I'm listening. Talk to me like a call; say \"stop\" anytime to end it.",{}); }
-  else{ stopLiveGuard(); stopSpeak(); }
+  else{ pendingAsk=null; stopLiveGuard(); stopSpeak(); }
 });
 /* ---------- the bubble: the mic's simple face (his word 2026-10-25) ----------
    Mic tap opens THIS, never the chat window: mascot in a circle, a live
