@@ -444,11 +444,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "marathon",
-      "streamer": "Symfuhny"
+      "streamer": "Symfuhny",
+      "resolvedAt": 1793020161
     },
     {
       "id": "auto-vs-1793014756-aydan-symfuhny",
@@ -458,13 +459,14 @@
       "optB": "Symfuhny",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "A",
       "auto": true,
       "kind": "versus",
       "streamer": "Aydan",
       "streamerB": "Symfuhny",
-      "versus_key": "Aydan|Symfuhny"
+      "versus_key": "Aydan|Symfuhny",
+      "resolvedAt": 1793020161
     }
   ]
 }
