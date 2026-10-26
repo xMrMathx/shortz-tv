@@ -156,12 +156,252 @@ function stopSpeak(){
   if(speakWatchdog){ clearTimeout(speakWatchdog); speakWatchdog=null; }
   if(speakingNow){ speakEndAt=Date.now(); lastSpoken.end=speakEndAt; }
   speakingNow=false;
+  if(_daveAudio){ try{ _daveAudio.onended=null; _daveAudio.onerror=null; _daveAudio.pause(); }catch(e){} }
   try{ if(window.Android&&Android.ttsStop)Android.ttsStop(); }catch(e){}
   try{ if("speechSynthesis" in window)speechSynthesis.cancel(); }catch(e){}
 }
-function speak(text){
-  text=cleanSayText(text);
-  lastSpoken={toks:echoToks(text),end:0};
+/* DAVE-1 VOICE (his crown, 2026-10-25; "throughout" order 2026-10-26):
+   lines rendered in his real voice (Dave Style 1) play as clips FIRST —
+   exact text match only. Anything without a clip falls to the TTS paths
+   below until the live voice service lands, so he is never silent. */
+var SZ_DAVE_CLIPS={
+  "What's up, Mr. Moore? What you trying to watch today — you trying to play something, catch a streamer?":"audio/dave-greeting.mp3",
+  "What's up, Mr. Moore? What are we getting into?":"audio/dave-opener-1.mp3",
+  "Hey, Mr. Moore. How's your day treating you so far?":"audio/dave-opener-2.mp3",
+  "I'm right here, Mr. Moore. What kind of mood are we in?":"audio/dave-opener-3.mp3",
+  "Good to hear you, Mr. Moore. What are we watching?":"audio/dave-opener-4.mp3",
+  "Yo, Mr. Moore. Talk to me — what's the move?":"audio/dave-opener-5.mp3",
+  "Say that again for me?":"audio/dave-reprompt.mp3",
+  "Alright. I'm right here when you need me.":"audio/dave-close.mp3",
+  "Hey — I'm here. What are we watching?":"audio/dave-here.mp3",
+  "Anytime. What else?":"audio/dave-anytime.mp3",
+  "I'm the Shortz agent — I run the app by voice and text. Play, find, bring things up, answer questions.":"audio/dave-iam.mp3",
+  "Try one of these:":"audio/dave-try.mp3",
+  "Okay — call ended. I'm still here in text whenever.":"audio/dave-callend.mp3",
+  "I don't know your usual yet — play a few things through me and I'll learn it.":"audio/dave-nousual.mp3",
+  "Nothing in Continue Watching yet — watch something and it'll be here.":"audio/dave-nocontinue.mp3",
+  "Here's everything live right now.":"audio/dave-livenow.mp3",
+  "Couldn't pick just now — try a genre, like 'find me a western'.":"audio/dave-couldntpick.mp3",
+  "Here's some more.":"audio/dave-more.mp3",
+  "I couldn't find a match for that in the catalog — try loosening it up, like just the genre.":"audio/dave-nomatch.mp3",
+  "I didn't catch a command in that. I understand things like:":"audio/dave-nocatch.mp3",
+  "No games have reported stats to me yet. Once a game is wired to the notebook, ask me again and I'll know your last game.":"audio/dave-nostats.mp3",
+  "I couldn't find that title.":"audio/dave-notitle.mp3",
+  "Done.":"audio/dave-done.mp3",
+  "Okay, horror — you looking for a short form, a movie, or a series?":"audio/dave-ask-horror.mp3",
+  "Here's some horror shorts — say “play the first one”, or tap one.":"audio/dave-found-horror-shorts.mp3",
+  "Here's some horror series — say “play the first one”, or tap one.":"audio/dave-found-horror-series.mp3",
+  "Here's some horror movies — say “play the first one”, or tap one.":"audio/dave-found-horror-movies.mp3",
+  "Here's some horror picks — say “play the first one”, or tap one.":"audio/dave-found-horror-picks.mp3",
+  "No horror shorts in the catalog. Want to try a different kind?":"audio/dave-empty-horror-shorts.mp3",
+  "No horror series in the catalog. Want to try a different kind?":"audio/dave-empty-horror-series.mp3",
+  "No horror movies in the catalog. Want to try a different kind?":"audio/dave-empty-horror-movies.mp3",
+  "No luck with that kind — here's horror picks instead.":"audio/dave-broad-horror.mp3",
+  "Nothing under horror at all — try another genre.":"audio/dave-none-horror.mp3",
+  "Okay, comedy — you looking for a short form, a movie, or a series?":"audio/dave-ask-comedy.mp3",
+  "Here's some comedy shorts — say “play the first one”, or tap one.":"audio/dave-found-comedy-shorts.mp3",
+  "Here's some comedy series — say “play the first one”, or tap one.":"audio/dave-found-comedy-series.mp3",
+  "Here's some comedy movies — say “play the first one”, or tap one.":"audio/dave-found-comedy-movies.mp3",
+  "Here's some comedy picks — say “play the first one”, or tap one.":"audio/dave-found-comedy-picks.mp3",
+  "No comedy shorts in the catalog. Want to try a different kind?":"audio/dave-empty-comedy-shorts.mp3",
+  "No comedy series in the catalog. Want to try a different kind?":"audio/dave-empty-comedy-series.mp3",
+  "No comedy movies in the catalog. Want to try a different kind?":"audio/dave-empty-comedy-movies.mp3",
+  "No luck with that kind — here's comedy picks instead.":"audio/dave-broad-comedy.mp3",
+  "Nothing under comedy at all — try another genre.":"audio/dave-none-comedy.mp3",
+  "Okay, action — you looking for a short form, a movie, or a series?":"audio/dave-ask-action.mp3",
+  "Here's some action shorts — say “play the first one”, or tap one.":"audio/dave-found-action-shorts.mp3",
+  "Here's some action series — say “play the first one”, or tap one.":"audio/dave-found-action-series.mp3",
+  "Here's some action movies — say “play the first one”, or tap one.":"audio/dave-found-action-movies.mp3",
+  "Here's some action picks — say “play the first one”, or tap one.":"audio/dave-found-action-picks.mp3",
+  "No action shorts in the catalog. Want to try a different kind?":"audio/dave-empty-action-shorts.mp3",
+  "No action series in the catalog. Want to try a different kind?":"audio/dave-empty-action-series.mp3",
+  "No action movies in the catalog. Want to try a different kind?":"audio/dave-empty-action-movies.mp3",
+  "No luck with that kind — here's action picks instead.":"audio/dave-broad-action.mp3",
+  "Nothing under action at all — try another genre.":"audio/dave-none-action.mp3",
+  "Okay, drama — you looking for a short form, a movie, or a series?":"audio/dave-ask-drama.mp3",
+  "Here's some drama shorts — say “play the first one”, or tap one.":"audio/dave-found-drama-shorts.mp3",
+  "Here's some drama series — say “play the first one”, or tap one.":"audio/dave-found-drama-series.mp3",
+  "Here's some drama movies — say “play the first one”, or tap one.":"audio/dave-found-drama-movies.mp3",
+  "Here's some drama picks — say “play the first one”, or tap one.":"audio/dave-found-drama-picks.mp3",
+  "No drama shorts in the catalog. Want to try a different kind?":"audio/dave-empty-drama-shorts.mp3",
+  "No drama series in the catalog. Want to try a different kind?":"audio/dave-empty-drama-series.mp3",
+  "No drama movies in the catalog. Want to try a different kind?":"audio/dave-empty-drama-movies.mp3",
+  "No luck with that kind — here's drama picks instead.":"audio/dave-broad-drama.mp3",
+  "Nothing under drama at all — try another genre.":"audio/dave-none-drama.mp3",
+  "Okay, western — you looking for a short form, a movie, or a series?":"audio/dave-ask-western.mp3",
+  "Here's some western shorts — say “play the first one”, or tap one.":"audio/dave-found-western-shorts.mp3",
+  "Here's some western series — say “play the first one”, or tap one.":"audio/dave-found-western-series.mp3",
+  "Here's some western movies — say “play the first one”, or tap one.":"audio/dave-found-western-movies.mp3",
+  "Here's some western picks — say “play the first one”, or tap one.":"audio/dave-found-western-picks.mp3",
+  "No western shorts in the catalog. Want to try a different kind?":"audio/dave-empty-western-shorts.mp3",
+  "No western series in the catalog. Want to try a different kind?":"audio/dave-empty-western-series.mp3",
+  "No western movies in the catalog. Want to try a different kind?":"audio/dave-empty-western-movies.mp3",
+  "No luck with that kind — here's western picks instead.":"audio/dave-broad-western.mp3",
+  "Nothing under western at all — try another genre.":"audio/dave-none-western.mp3",
+  "Okay, sci-fi — you looking for a short form, a movie, or a series?":"audio/dave-ask-sci-fi.mp3",
+  "Here's some sci-fi shorts — say “play the first one”, or tap one.":"audio/dave-found-sci-fi-shorts.mp3",
+  "Here's some sci-fi series — say “play the first one”, or tap one.":"audio/dave-found-sci-fi-series.mp3",
+  "Here's some sci-fi movies — say “play the first one”, or tap one.":"audio/dave-found-sci-fi-movies.mp3",
+  "Here's some sci-fi picks — say “play the first one”, or tap one.":"audio/dave-found-sci-fi-picks.mp3",
+  "No sci-fi shorts in the catalog. Want to try a different kind?":"audio/dave-empty-sci-fi-shorts.mp3",
+  "No sci-fi series in the catalog. Want to try a different kind?":"audio/dave-empty-sci-fi-series.mp3",
+  "No sci-fi movies in the catalog. Want to try a different kind?":"audio/dave-empty-sci-fi-movies.mp3",
+  "No luck with that kind — here's sci-fi picks instead.":"audio/dave-broad-sci-fi.mp3",
+  "Nothing under sci-fi at all — try another genre.":"audio/dave-none-sci-fi.mp3",
+  "Okay, romance — you looking for a short form, a movie, or a series?":"audio/dave-ask-romance.mp3",
+  "Here's some romance shorts — say “play the first one”, or tap one.":"audio/dave-found-romance-shorts.mp3",
+  "Here's some romance series — say “play the first one”, or tap one.":"audio/dave-found-romance-series.mp3",
+  "Here's some romance movies — say “play the first one”, or tap one.":"audio/dave-found-romance-movies.mp3",
+  "Here's some romance picks — say “play the first one”, or tap one.":"audio/dave-found-romance-picks.mp3",
+  "No romance shorts in the catalog. Want to try a different kind?":"audio/dave-empty-romance-shorts.mp3",
+  "No romance series in the catalog. Want to try a different kind?":"audio/dave-empty-romance-series.mp3",
+  "No romance movies in the catalog. Want to try a different kind?":"audio/dave-empty-romance-movies.mp3",
+  "No luck with that kind — here's romance picks instead.":"audio/dave-broad-romance.mp3",
+  "Nothing under romance at all — try another genre.":"audio/dave-none-romance.mp3",
+  "Okay, thriller — you looking for a short form, a movie, or a series?":"audio/dave-ask-thriller.mp3",
+  "Here's some thriller shorts — say “play the first one”, or tap one.":"audio/dave-found-thriller-shorts.mp3",
+  "Here's some thriller series — say “play the first one”, or tap one.":"audio/dave-found-thriller-series.mp3",
+  "Here's some thriller movies — say “play the first one”, or tap one.":"audio/dave-found-thriller-movies.mp3",
+  "Here's some thriller picks — say “play the first one”, or tap one.":"audio/dave-found-thriller-picks.mp3",
+  "No thriller shorts in the catalog. Want to try a different kind?":"audio/dave-empty-thriller-shorts.mp3",
+  "No thriller series in the catalog. Want to try a different kind?":"audio/dave-empty-thriller-series.mp3",
+  "No thriller movies in the catalog. Want to try a different kind?":"audio/dave-empty-thriller-movies.mp3",
+  "No luck with that kind — here's thriller picks instead.":"audio/dave-broad-thriller.mp3",
+  "Nothing under thriller at all — try another genre.":"audio/dave-none-thriller.mp3",
+  "Okay, mystery — you looking for a short form, a movie, or a series?":"audio/dave-ask-mystery.mp3",
+  "Here's some mystery shorts — say “play the first one”, or tap one.":"audio/dave-found-mystery-shorts.mp3",
+  "Here's some mystery series — say “play the first one”, or tap one.":"audio/dave-found-mystery-series.mp3",
+  "Here's some mystery movies — say “play the first one”, or tap one.":"audio/dave-found-mystery-movies.mp3",
+  "Here's some mystery picks — say “play the first one”, or tap one.":"audio/dave-found-mystery-picks.mp3",
+  "No mystery shorts in the catalog. Want to try a different kind?":"audio/dave-empty-mystery-shorts.mp3",
+  "No mystery series in the catalog. Want to try a different kind?":"audio/dave-empty-mystery-series.mp3",
+  "No mystery movies in the catalog. Want to try a different kind?":"audio/dave-empty-mystery-movies.mp3",
+  "No luck with that kind — here's mystery picks instead.":"audio/dave-broad-mystery.mp3",
+  "Nothing under mystery at all — try another genre.":"audio/dave-none-mystery.mp3",
+  "Okay, crime — you looking for a short form, a movie, or a series?":"audio/dave-ask-crime.mp3",
+  "Here's some crime shorts — say “play the first one”, or tap one.":"audio/dave-found-crime-shorts.mp3",
+  "Here's some crime series — say “play the first one”, or tap one.":"audio/dave-found-crime-series.mp3",
+  "Here's some crime movies — say “play the first one”, or tap one.":"audio/dave-found-crime-movies.mp3",
+  "Here's some crime picks — say “play the first one”, or tap one.":"audio/dave-found-crime-picks.mp3",
+  "No crime shorts in the catalog. Want to try a different kind?":"audio/dave-empty-crime-shorts.mp3",
+  "No crime series in the catalog. Want to try a different kind?":"audio/dave-empty-crime-series.mp3",
+  "No crime movies in the catalog. Want to try a different kind?":"audio/dave-empty-crime-movies.mp3",
+  "No luck with that kind — here's crime picks instead.":"audio/dave-broad-crime.mp3",
+  "Nothing under crime at all — try another genre.":"audio/dave-none-crime.mp3",
+  "Okay, documentary — you looking for a short form, a movie, or a series?":"audio/dave-ask-documentary.mp3",
+  "Here's some documentary shorts — say “play the first one”, or tap one.":"audio/dave-found-documentary-shorts.mp3",
+  "Here's some documentary series — say “play the first one”, or tap one.":"audio/dave-found-documentary-series.mp3",
+  "Here's some documentary movies — say “play the first one”, or tap one.":"audio/dave-found-documentary-movies.mp3",
+  "Here's some documentary picks — say “play the first one”, or tap one.":"audio/dave-found-documentary-picks.mp3",
+  "No documentary shorts in the catalog. Want to try a different kind?":"audio/dave-empty-documentary-shorts.mp3",
+  "No documentary series in the catalog. Want to try a different kind?":"audio/dave-empty-documentary-series.mp3",
+  "No documentary movies in the catalog. Want to try a different kind?":"audio/dave-empty-documentary-movies.mp3",
+  "No luck with that kind — here's documentary picks instead.":"audio/dave-broad-documentary.mp3",
+  "Nothing under documentary at all — try another genre.":"audio/dave-none-documentary.mp3",
+  "Okay, animation — you looking for a short form, a movie, or a series?":"audio/dave-ask-animation.mp3",
+  "Here's some animation shorts — say “play the first one”, or tap one.":"audio/dave-found-animation-shorts.mp3",
+  "Here's some animation series — say “play the first one”, or tap one.":"audio/dave-found-animation-series.mp3",
+  "Here's some animation movies — say “play the first one”, or tap one.":"audio/dave-found-animation-movies.mp3",
+  "Here's some animation picks — say “play the first one”, or tap one.":"audio/dave-found-animation-picks.mp3",
+  "No animation shorts in the catalog. Want to try a different kind?":"audio/dave-empty-animation-shorts.mp3",
+  "No animation series in the catalog. Want to try a different kind?":"audio/dave-empty-animation-series.mp3",
+  "No animation movies in the catalog. Want to try a different kind?":"audio/dave-empty-animation-movies.mp3",
+  "No luck with that kind — here's animation picks instead.":"audio/dave-broad-animation.mp3",
+  "Nothing under animation at all — try another genre.":"audio/dave-none-animation.mp3",
+  "Okay, anime — you looking for a short form, a movie, or a series?":"audio/dave-ask-anime.mp3",
+  "Here's some anime shorts — say “play the first one”, or tap one.":"audio/dave-found-anime-shorts.mp3",
+  "Here's some anime series — say “play the first one”, or tap one.":"audio/dave-found-anime-series.mp3",
+  "Here's some anime movies — say “play the first one”, or tap one.":"audio/dave-found-anime-movies.mp3",
+  "Here's some anime picks — say “play the first one”, or tap one.":"audio/dave-found-anime-picks.mp3",
+  "No anime shorts in the catalog. Want to try a different kind?":"audio/dave-empty-anime-shorts.mp3",
+  "No anime series in the catalog. Want to try a different kind?":"audio/dave-empty-anime-series.mp3",
+  "No anime movies in the catalog. Want to try a different kind?":"audio/dave-empty-anime-movies.mp3",
+  "No luck with that kind — here's anime picks instead.":"audio/dave-broad-anime.mp3",
+  "Nothing under anime at all — try another genre.":"audio/dave-none-anime.mp3",
+  "Okay, family — you looking for a short form, a movie, or a series?":"audio/dave-ask-family.mp3",
+  "Here's some family shorts — say “play the first one”, or tap one.":"audio/dave-found-family-shorts.mp3",
+  "Here's some family series — say “play the first one”, or tap one.":"audio/dave-found-family-series.mp3",
+  "Here's some family movies — say “play the first one”, or tap one.":"audio/dave-found-family-movies.mp3",
+  "Here's some family picks — say “play the first one”, or tap one.":"audio/dave-found-family-picks.mp3",
+  "No family shorts in the catalog. Want to try a different kind?":"audio/dave-empty-family-shorts.mp3",
+  "No family series in the catalog. Want to try a different kind?":"audio/dave-empty-family-series.mp3",
+  "No family movies in the catalog. Want to try a different kind?":"audio/dave-empty-family-movies.mp3",
+  "No luck with that kind — here's family picks instead.":"audio/dave-broad-family.mp3",
+  "Nothing under family at all — try another genre.":"audio/dave-none-family.mp3",
+  "Okay, war — you looking for a short form, a movie, or a series?":"audio/dave-ask-war.mp3",
+  "Here's some war shorts — say “play the first one”, or tap one.":"audio/dave-found-war-shorts.mp3",
+  "Here's some war series — say “play the first one”, or tap one.":"audio/dave-found-war-series.mp3",
+  "Here's some war movies — say “play the first one”, or tap one.":"audio/dave-found-war-movies.mp3",
+  "Here's some war picks — say “play the first one”, or tap one.":"audio/dave-found-war-picks.mp3",
+  "No war shorts in the catalog. Want to try a different kind?":"audio/dave-empty-war-shorts.mp3",
+  "No war series in the catalog. Want to try a different kind?":"audio/dave-empty-war-series.mp3",
+  "No war movies in the catalog. Want to try a different kind?":"audio/dave-empty-war-movies.mp3",
+  "No luck with that kind — here's war picks instead.":"audio/dave-broad-war.mp3",
+  "Nothing under war at all — try another genre.":"audio/dave-none-war.mp3",
+  "Okay, music — you looking for a short form, a movie, or a series?":"audio/dave-ask-music.mp3",
+  "Here's some music shorts — say “play the first one”, or tap one.":"audio/dave-found-music-shorts.mp3",
+  "Here's some music series — say “play the first one”, or tap one.":"audio/dave-found-music-series.mp3",
+  "Here's some music movies — say “play the first one”, or tap one.":"audio/dave-found-music-movies.mp3",
+  "Here's some music picks — say “play the first one”, or tap one.":"audio/dave-found-music-picks.mp3",
+  "No music shorts in the catalog. Want to try a different kind?":"audio/dave-empty-music-shorts.mp3",
+  "No music series in the catalog. Want to try a different kind?":"audio/dave-empty-music-series.mp3",
+  "No music movies in the catalog. Want to try a different kind?":"audio/dave-empty-music-movies.mp3",
+  "No luck with that kind — here's music picks instead.":"audio/dave-broad-music.mp3",
+  "Nothing under music at all — try another genre.":"audio/dave-none-music.mp3",
+  "Okay, sports — you looking for a short form, a movie, or a series?":"audio/dave-ask-sports.mp3",
+  "Here's some sports shorts — say “play the first one”, or tap one.":"audio/dave-found-sports-shorts.mp3",
+  "Here's some sports series — say “play the first one”, or tap one.":"audio/dave-found-sports-series.mp3",
+  "Here's some sports movies — say “play the first one”, or tap one.":"audio/dave-found-sports-movies.mp3",
+  "Here's some sports picks — say “play the first one”, or tap one.":"audio/dave-found-sports-picks.mp3",
+  "No sports shorts in the catalog. Want to try a different kind?":"audio/dave-empty-sports-shorts.mp3",
+  "No sports series in the catalog. Want to try a different kind?":"audio/dave-empty-sports-series.mp3",
+  "No sports movies in the catalog. Want to try a different kind?":"audio/dave-empty-sports-movies.mp3",
+  "No luck with that kind — here's sports picks instead.":"audio/dave-broad-sports.mp3",
+  "Nothing under sports at all — try another genre.":"audio/dave-none-sports.mp3",
+  "Okay, reality — you looking for a short form, a movie, or a series?":"audio/dave-ask-reality.mp3",
+  "Here's some reality shorts — say “play the first one”, or tap one.":"audio/dave-found-reality-shorts.mp3",
+  "Here's some reality series — say “play the first one”, or tap one.":"audio/dave-found-reality-series.mp3",
+  "Here's some reality movies — say “play the first one”, or tap one.":"audio/dave-found-reality-movies.mp3",
+  "Here's some reality picks — say “play the first one”, or tap one.":"audio/dave-found-reality-picks.mp3",
+  "No reality shorts in the catalog. Want to try a different kind?":"audio/dave-empty-reality-shorts.mp3",
+  "No reality series in the catalog. Want to try a different kind?":"audio/dave-empty-reality-series.mp3",
+  "No reality movies in the catalog. Want to try a different kind?":"audio/dave-empty-reality-movies.mp3",
+  "No luck with that kind — here's reality picks instead.":"audio/dave-broad-reality.mp3",
+  "Nothing under reality at all — try another genre.":"audio/dave-none-reality.mp3",
+  "Okay, wrestling — you looking for a short form, a movie, or a series?":"audio/dave-ask-wrestling.mp3",
+  "Here's some wrestling shorts — say “play the first one”, or tap one.":"audio/dave-found-wrestling-shorts.mp3",
+  "Here's some wrestling series — say “play the first one”, or tap one.":"audio/dave-found-wrestling-series.mp3",
+  "Here's some wrestling movies — say “play the first one”, or tap one.":"audio/dave-found-wrestling-movies.mp3",
+  "Here's some wrestling picks — say “play the first one”, or tap one.":"audio/dave-found-wrestling-picks.mp3",
+  "No wrestling shorts in the catalog. Want to try a different kind?":"audio/dave-empty-wrestling-shorts.mp3",
+  "No wrestling series in the catalog. Want to try a different kind?":"audio/dave-empty-wrestling-series.mp3",
+  "No wrestling movies in the catalog. Want to try a different kind?":"audio/dave-empty-wrestling-movies.mp3",
+  "No luck with that kind — here's wrestling picks instead.":"audio/dave-broad-wrestling.mp3",
+  "Nothing under wrestling at all — try another genre.":"audio/dave-none-wrestling.mp3"
+};
+var _daveAudio=null;
+function speakClip(text,src){
+  try{
+    stopSpeak();
+    if(!_daveAudio)_daveAudio=new Audio();
+    var fellBack=false;
+    function fallback(){ if(fellBack)return; fellBack=true; if(speakingNow)speakTTS(text); }
+    speakingNow=true;
+    speakWatchdog=setTimeout(speakDone,12000);
+    _daveAudio.onloadedmetadata=function(){ /* size the stall watchdog to the real clip */
+      if(speakWatchdog)clearTimeout(speakWatchdog);
+      var ms=(_daveAudio.duration&&isFinite(_daveAudio.duration))?(_daveAudio.duration*1000+5000):12000;
+      speakWatchdog=setTimeout(speakDone,ms);
+    };
+    _daveAudio.onended=function(){ speakDone(); };
+    _daveAudio.onerror=function(){ fallback(); };
+    _daveAudio.src=src;
+    var pr=_daveAudio.play();
+    if(pr&&pr.catch)pr.catch(function(){ fallback(); });
+    return true;
+  }catch(e){ return false; }
+}
+function speakTTS(text){
   /* Native speaker first (APK): Android WebView has no speechSynthesis,
      so the app carries its own TTS bridge (MainActivity.ttsSpeak). */
   try{
@@ -185,6 +425,13 @@ function speak(text){
     speechSynthesis.speak(u);
     return true;
   }catch(e){ speakingNow=false; return false; }
+}
+function speak(text){
+  text=cleanSayText(text);
+  lastSpoken={toks:echoToks(text),end:0};
+  var clip=SZ_DAVE_CLIPS[text];
+  if(clip&&speakClip(text,clip))return true;
+  return speakTTS(text);
 }
 function afterSpeak(){
   if(liveMode&&opened){
@@ -292,20 +539,15 @@ window.SZAgentBrain={ ask:function(text){
 /* Live talk opens with HIM talking first (his word 2026-10-26): a fresh brain greeting every
    time; a rotating local opener covers a slow or unreachable brain so it never opens silent. */
 function brainGreet(){
-  var spoke=false;
-  function fallback(){
-    if(spoke)return; spoke=true;
-    var i; do{ i=Math.floor(Math.random()*BRAIN_OPENERS.length); }while(BRAIN_OPENERS.length>1&&i===brainGreetIdx);
-    brainGreetIdx=i; var line=BRAIN_OPENERS[i];
-    brainHist=[{role:"assistant",content:line}];
-    say(line,{});
-  }
-  var fb=setTimeout(fallback,2800);
-  brainPost({mode:"greet",context:brainContext()},6000).then(function(reply){
-    if(spoke)return; spoke=true; clearTimeout(fb);
-    if(reply){ brainHist=[{role:"assistant",content:reply}]; say(reply,{}); }
-    else fallback();
-  });
+  /* DAVE-1 GREETING (his "use the voice" order, 2026-10-26): Live talk opens
+     with one of his crowned Dave-1 lines — the spec greeting or a rotating
+     opener — so the first thing he hears is Dave's real voice, every time.
+     The brain still runs the conversation from his first reply onward. */
+  var lines=["What's up, Mr. Moore? What you trying to watch today — you trying to play something, catch a streamer?"].concat(BRAIN_OPENERS);
+  var i; do{ i=Math.floor(Math.random()*lines.length); }while(lines.length>1&&i===brainGreetIdx);
+  brainGreetIdx=i; var line=lines[i];
+  brainHist=[{role:"assistant",content:line}];
+  say(line,{});
 }
 
 /* ---------- the brain (Layer 1 + 5 + 4) ---------- */
