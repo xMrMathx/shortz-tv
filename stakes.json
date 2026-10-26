@@ -428,12 +428,13 @@
       "optB": "NO",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "A",
       "auto": true,
       "kind": "milestone",
       "streamer": "Symfuhny",
-      "target": 1000
+      "target": 1000,
+      "resolvedAt": 1793015656
     },
     {
       "id": "auto-symfuhny-1793014756-mar",
