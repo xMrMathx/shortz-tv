@@ -309,7 +309,7 @@ body.feedfull #cfeedInner{padding-top:calc(66px + env(safe-area-inset-top))}
 .f-next .ns{font-size:10px;color:var(--mut);margin-top:2px}
 .f-next .nxt{margin-left:auto;font-size:22px;color:var(--red)}
 /* custom scrubber: thin progress line, expands with handle + times when paused/dragging */
-.scrub{position:absolute;left:0;right:0;bottom:calc(58px + env(safe-area-inset-bottom));height:30px;z-index:6;touch-action:none}
+.scrub{position:absolute;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom));height:30px;z-index:6;touch-action:none}
 .scrub-track{position:absolute;left:10px;right:10px;top:50%;height:3px;transform:translateY(-50%);background:rgba(255,255,255,.28);border-radius:2px}
 .scrub-fill{position:absolute;left:0;top:0;bottom:0;width:0%;background:#e50914;border-radius:2px}
 .scrub-knob{position:absolute;top:50%;left:0;width:13px;height:13px;border-radius:50%;background:#fff;transform:translate(-50%,-50%) scale(0);transition:transform .18s;box-shadow:0 1px 8px rgba(0,0,0,.6)}
@@ -446,6 +446,12 @@ body.hud-hidden #dubBtn,
 body.hud-hidden #palBtn,
 body.hud-hidden #micDot,
 body.hud-hidden #hudHint{opacity:0!important;pointer-events:none!important}
+/* his order 2026-10-25: the player bar must slide on the FIRST touch like the
+   Home cards — while watching, the HUD is faded and the kill rule above made
+   the scrub pointer-events:none, so his drag landed on the tap zone and the
+   bar felt dead/choppy. The fade still hides it visually; the strip stays
+   grabbable, and grabbing it wakes the HUD (hudWake in bindScrub). */
+body.hud-hidden.feedfull #view-home .scrub{pointer-events:auto!important}
 /* css-land: in-app 90° rotation — video fills screen, no OS rotation needed */
 body.css-land #view-home .feed-rail,
 body.css-land #view-home .feed-bottom,
@@ -2515,7 +2521,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1792967251";
+window.__SZ_BUILD = "1792982367";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5850,7 +5856,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1792967251";
+const BUILD="1792982367";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6372,6 +6378,7 @@ function bindScrub(slide){
   };
   sc.addEventListener("touchstart",e=>{
     const t=e.touches[0];sx=t.clientX;sy=t.clientY;active=true;claimed=false;sc._drag=false;
+    hudWake(); // grabbing the faded bar brings the chrome back while he drags
   },{capture:true,passive:true});
   sc.addEventListener("touchmove",e=>{
     if(!active)return;
@@ -9854,7 +9861,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1792967251"></script>
+<script src="js/folders.js?v=1792982367"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10667,10 +10674,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1792967251"></script>
-<script src="js/shortz-live.js?v=1792967251"></script>
-<script src="js/games.js?v=1792967251"></script>
-<script src="js/podcasts.js?v=1792967251"></script>
+<script src="js/streaming.js?v=1792982367"></script>
+<script src="js/shortz-live.js?v=1792982367"></script>
+<script src="js/games.js?v=1792982367"></script>
+<script src="js/podcasts.js?v=1792982367"></script>
 <script>
 
 
@@ -11188,7 +11195,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1792967251"></script>
+<script src="js/swipe.js?v=1792982367"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13420,8 +13427,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1792967251"></script>
-<script src="js/agent.js?v=1792967251"></script>
+<script src="js/live-sports.js?v=1792982367"></script>
+<script src="js/agent.js?v=1792982367"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
