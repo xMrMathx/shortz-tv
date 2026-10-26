@@ -113,11 +113,40 @@ var pendingAsk=null, lastCards=null, lastFind=null;
 
 /* ---------- speech out (Layer 6) ---------- */
 var speakingNow=false, speakWatchdog=null;
+/* ECHO SHIELD (2026-10-26, his report — "he hears himself and answers
+   himself"): Shortz remembers the exact line he last spoke. Voice intake in
+   index.html asks _szEchoHit() before executing anything spoken: a transcript
+   that matches his own line (the speaker bleeding into the mic) is dropped,
+   never treated as the user. A ~1s quiet window after he finishes keeps the
+   mic closed while his voice is still ringing out of the speaker. Short
+   transcripts (<4 words) are NEVER echo-dropped — a real "movie" or "series"
+   answer to his question can never be swallowed by the shield. */
+var lastSpoken={toks:[],end:0}, speakEndAt=0;
+var ECHO_QUIET_MS=1000, ECHO_WINDOW_MS=6000;
+function echoToks(t){ return String(t||"").toLowerCase().replace(/[^a-z0-9\s]/g," ").split(/\s+/).filter(Boolean); }
+function inQuiet(){ return !!(speakEndAt&&(Date.now()-speakEndAt<ECHO_QUIET_MS)); }
+window._szSpeakingNow=function(){ return speakingNow; };
+window._szEchoHit=function(raw){
+  try{
+    var tt=echoToks(raw), st=lastSpoken.toks;
+    if(tt.length<4||!st.length)return false;
+    if(!lastSpoken.end||Date.now()-lastSpoken.end>ECHO_WINDOW_MS)return false;
+    var bag={}, common=0, i, w;
+    for(i=0;i<st.length;i++)bag[st[i]]=(bag[st[i]]||0)+1;
+    for(i=0;i<tt.length;i++){ w=tt[i]; if(bag[w]){ bag[w]--; common++; } }
+    if(common>=4&&common/tt.length>=0.8&&common/st.length>=0.45)return true;
+    var tj=" "+tt.join(" ")+" ", sj=" "+st.join(" ")+" ";
+    if(tt.length>=5&&sj.indexOf(tj)>=0)return true;
+    if(st.length>=5&&st.length/tt.length>=0.6&&tj.indexOf(sj)>=0)return true;
+    return false;
+  }catch(e){ return false; }
+};
 function cleanSayText(t){ return String(t).replace(/[▶🎙📞✕➤♥]/g,""); }
 function speakDone(){
   if(speakWatchdog){ clearTimeout(speakWatchdog); speakWatchdog=null; }
   if(!speakingNow)return;
   speakingNow=false;
+  speakEndAt=Date.now(); lastSpoken.end=speakEndAt;
   afterSpeak();
 }
 window.onNativeTtsDone=function(){ speakDone(); };
@@ -125,12 +154,14 @@ window.onNativeTtsError=function(){ speakDone(); };
 window.onNativeTtsStart=function(){};
 function stopSpeak(){
   if(speakWatchdog){ clearTimeout(speakWatchdog); speakWatchdog=null; }
+  if(speakingNow){ speakEndAt=Date.now(); lastSpoken.end=speakEndAt; }
   speakingNow=false;
   try{ if(window.Android&&Android.ttsStop)Android.ttsStop(); }catch(e){}
   try{ if("speechSynthesis" in window)speechSynthesis.cancel(); }catch(e){}
 }
 function speak(text){
   text=cleanSayText(text);
+  lastSpoken={toks:echoToks(text),end:0};
   /* Native speaker first (APK): Android WebView has no speechSynthesis,
      so the app carries its own TTS bridge (MainActivity.ttsSpeak). */
   try{
@@ -157,11 +188,15 @@ function speak(text){
 }
 function afterSpeak(){
   if(liveMode&&opened){
+    /* ECHO SHIELD: wait out the quiet window (~1s after his voice ends)
+       before re-opening the mic — 300ms re-armed it while he was still
+       ringing out of the speaker, so he transcribed himself. */
+    var wait=Math.max(950,speakEndAt+ECHO_QUIET_MS-Date.now());
     setTimeout(function(){
-      if(!liveMode||!opened||speakingNow)return;
+      if(!liveMode||!opened||speakingNow||inQuiet())return;
       if(popShown())return;
       startListen();
-    },300);
+    },wait);
   }
 }
 
@@ -554,7 +589,7 @@ function startListen(){
         var pop=$("#voicePop");
         var listeningNow=!!(pop&&pop.classList.contains("show"));
         var speaking=speakingNow;
-        if(liveMode&&opened&&!listeningNow&&!speaking) startListen();
+        if(liveMode&&opened&&!listeningNow&&!speaking&&!inQuiet()) startListen();
       },1200);
     }
   };
@@ -609,7 +644,13 @@ wrap.querySelector(".ag-back").addEventListener("click",closeSheet);
 $("#agClose").addEventListener("click",closeSheet);
 $("#agSend").addEventListener("click",function(){ var v=input.value; input.value=""; handle(v,false); });
 input.addEventListener("keydown",function(e){ if(e.key==="Enter"){ var v=input.value; input.value=""; handle(v,false); } });
-micBtn.addEventListener("click",function(){ startListen(); });
+micBtn.addEventListener("click",function(){
+  /* BARGE-IN (live-talk feel, his word 2026-10-26): tapping the mic while
+     Shortz is talking cuts him off and hands the floor to the user —
+     deliberate, so it never trips the echo shield. */
+  if(speakingNow){ stopSpeak(); setTimeout(function(){ if(opened) startListen(); },200); return; }
+  startListen();
+});
 liveBtn.addEventListener("click",function(){
   liveMode=!liveMode; liveBtn.classList.toggle("on",liveMode);
   if(liveMode){ startLiveGuard(); brainGreet(); }
@@ -651,7 +692,11 @@ bub.querySelector(".agb-x").addEventListener("click",closeBubble);
 bub.querySelector(".agb-type").addEventListener("click",function(){ closeBubble(); openSheet(false); });
 bub.querySelector(".agb-face").addEventListener("click",function(){
   if(bubbleCards){ closeBubble(); openSheet(false); }
-  else if(!popShown()&&!speakingNow){ bubHeard=false; bubLine("Listening…","you"); startListen(); }
+  else if(speakingNow){ /* BARGE-IN: tap his face mid-sentence — he stops, the mic is yours. */
+    stopSpeak(); bubHeard=false; bubLine("Listening…","you");
+    setTimeout(function(){ if(bubbleOpen) startListen(); },200);
+  }
+  else if(!popShown()){ bubHeard=false; bubLine("Listening…","you"); startListen(); }
 });
 
 /* ---------- live-talk guard: while Live talk is on, the mic hands back ----------
@@ -660,7 +705,7 @@ bub.querySelector(".agb-face").addEventListener("click",function(){
    is guarded by the same checks, so the paths can never double-start. */
 var liveGuard=null;
 function startLiveGuard(){ stopLiveGuard(); liveGuard=setInterval(function(){
-  if(liveMode&&opened&&!speakingNow&&!popShown()) startListen();
+  if(liveMode&&opened&&!speakingNow&&!inQuiet()&&!popShown()) startListen();
 },1300); }
 function stopLiveGuard(){ if(liveGuard){ clearInterval(liveGuard); liveGuard=null; } }
 

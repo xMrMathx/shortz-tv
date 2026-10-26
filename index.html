@@ -2524,7 +2524,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793039591";
+window.__SZ_BUILD = "1793043479";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3768,11 +3768,21 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     }).join(" ");
   }
 
+  // ECHO SHIELD (2026-10-26, his report): asks the agent layer whether this
+  // spoken text is Shortz's own voice coming back through the mic — either
+  // he is talking right now, or the words match the line he just said.
+  function szEchoDrop(t){
+    try{ return !!(window._szEchoHit&&((typeof window._szSpeakingNow==="function"&&window._szSpeakingNow())||window._szEchoHit(t))); }
+    catch(e){ return false; }
+  }
   function voiceCommand(raw,spoken){
     if(spoken===undefined)spoken=true;
     // v4: repair mis-transcriptions on SPOKEN input only — typed text is literal.
     const text=(spoken?phoneticFix(raw):String(raw||"")).toLowerCase().trim();
     if(!text||text==="listening…")return false;
+    // ECHO SHIELD: his own echo is dropped silently (counts as handled, so
+    // no "didn't catch that" toast). Typed input (spoken===false) never gated.
+    if(spoken&&szEchoDrop(raw))return true;
     // AGENT CAPTURE: when the Agent sheet is listening, the transcript goes to
     // the agent brain (js/agent.js) instead of executing here. One-shot.
     if(spoken&&typeof window._agentCapture==="function"){
@@ -4171,7 +4181,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
                 settleTimer=null;
                 if(execDone||noExec||!listening)return;
                 if(phoneticFix(normTx(pendingText))===settleText&&settleText){
-                  execDone=true;const cmd=settleText;settleText="";stopListen();execBare(cmd);
+                  execDone=true;const cmd=settleText;settleText="";stopListen();if(!szEchoDrop(cmd))execBare(cmd);
                 }
               },350);
             }
@@ -4274,7 +4284,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
             settleTimer=null;
             if(execDone||noExec)return;
             if(phoneticFix(normTx(pendingText))===settleText&&settleText){
-              execDone=true;const cmd=settleText;settleText="";stopListen();execBare(cmd);
+              execDone=true;const cmd=settleText;settleText="";stopListen();if(!szEchoDrop(cmd))execBare(cmd);
             }
           },350);
         }
@@ -5859,7 +5869,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793039591";
+const BUILD="1793043479";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9885,7 +9895,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793039591"></script>
+<script src="js/folders.js?v=1793043479"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10698,10 +10708,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793039591"></script>
-<script src="js/shortz-live.js?v=1793039591"></script>
-<script src="js/games.js?v=1793039591"></script>
-<script src="js/podcasts.js?v=1793039591"></script>
+<script src="js/streaming.js?v=1793043479"></script>
+<script src="js/shortz-live.js?v=1793043479"></script>
+<script src="js/games.js?v=1793043479"></script>
+<script src="js/podcasts.js?v=1793043479"></script>
 <script>
 
 
@@ -11219,7 +11229,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793039591"></script>
+<script src="js/swipe.js?v=1793043479"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13451,8 +13461,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793039591"></script>
-<script src="js/agent.js?v=1793039591"></script>
+<script src="js/live-sports.js?v=1793043479"></script>
+<script src="js/agent.js?v=1793043479"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
