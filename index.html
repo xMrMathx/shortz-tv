@@ -2164,7 +2164,10 @@ try{
   if(_skipSplash){
     const _s=document.getElementById("splash");if(_s)_s.remove();
   }else{
-  try{ sessionStorage.setItem("svIntroShown","1"); }catch(e){}
+  // INTRO MARKER FIX (2026-10-26, his report): the marker is set ONLY when the
+  // splash actually finishes (the 3150ms removal below). Setting it here, at
+  // splash START, let an update-chase reload landing mid-intro mark the intro
+  // "played" — the reloaded page then skipped it outright (no reels, no sting).
   window.__svIntroPlayed=true;
   const a=new Audio("whats-next-sting.wav");
   a.volume=1.0; a.preload="auto";
@@ -2196,7 +2199,7 @@ try{
   if(window.matchMedia&&matchMedia("(min-width:1024px)").matches){
     document.querySelectorAll(".splashReel").forEach(r=>{r.innerHTML+=r.innerHTML;});
   }
-  setTimeout(()=>{const s=document.getElementById("splash");if(s)s.remove();},3150);
+  setTimeout(()=>{const s=document.getElementById("splash");if(s)s.remove();try{ sessionStorage.setItem("svIntroShown","1"); }catch(e){}},3150);
   } // end else (skip splash only when the intro already played this session)
 }catch(e){}
 </script>
@@ -2521,7 +2524,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793032920";
+window.__SZ_BUILD = "1793039591";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5856,7 +5859,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793032920";
+const BUILD="1793039591";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6094,6 +6097,11 @@ function _restoreFreshIntent(){
 }
 try{ window.addEventListener("load",_restoreFreshIntent); }catch(e){}
 function _runFreshCheck(reason){
+  // INTRO GUARD (2026-10-26, his report): while the intro is on screen, never
+  // start an update chase — its reload cut the reels and the sting, and the
+  // reloaded page skipped the intro. Recheck right after the intro ends; the
+  // update loses ~3s, the intro plays whole.
+  if(reason!=="manual"&&document.getElementById("splash")){ setTimeout(()=>_runFreshCheck(reason),3400); return Promise.resolve(false); }
   // Watchdog: skip if we just checked (<10s) — avoids stampedes, except manual.
   if(reason!=="manual"&&Date.now()-_fresh.lastCheck<10000)return Promise.resolve(false);
   return checkBuildFresh().then(v=>{
@@ -9512,6 +9520,17 @@ function closeSportsReel(){
    ============================================================ */
 const PRESET_N=10;
 function presetClass(i){return "pav"+((i%PRESET_N+PRESET_N)%PRESET_N);}
+/* Avatar image resilience (2026-10-26, his report): a single interrupted fetch
+   (an update reload landing mid-load, a network blip) used to delete the
+   profile picture for the whole session via onerror="this.remove()". Now the
+   first failure retries once with a fresh request; only a second failure
+   removes the img (the honest end state for a truly missing picture). */
+function _avImgErr(img){
+  if(img._avR){ img.remove(); return; }
+  img._avR=1;
+  const local=img.getAttribute("src")==="mascot-avatar.png";
+  setTimeout(()=>{ try{ img.src=local?"mascot-avatar.png?av=1":img.src; }catch(e){} },700);
+}
 function avatarHTML(prof,cls){
   cls=cls||"";
   const nm=(prof&&prof.name)||"V";
@@ -9521,9 +9540,9 @@ function avatarHTML(prof,cls){
     return `<div class="avatar ${cls} ${presetClass(parseInt(ph.slice(7),10)||0)}">${init}</div>`;
   }
   if(ph.indexOf("http")===0||ph.indexOf("data:image")===0){
-    return `<div class="avatar ${cls}" onclick="openAvatarView(this)"><img decoding="async" src="${esc(ph)}" alt="" onerror="this.remove()"></div>`;
+    return `<div class="avatar ${cls}" onclick="openAvatarView(this)"><img decoding="async" src="${esc(ph)}" alt="" onerror="_avImgErr(this)"></div>`;
   }
-  return `<div class="avatar ${cls}"><img decoding="async" src="mascot-avatar.png" alt="" onerror="this.remove()"></div>`; // default profile picture (his crown 2026-10-24): the mascot, until the user picks their own
+  return `<div class="avatar ${cls}"><img decoding="async" src="mascot-avatar.png" alt="" onerror="_avImgErr(this)"></div>`; // default profile picture (his crown 2026-10-24): the mascot, until the user picks their own
 }
 /* ---------- tap a profile picture to view it full-screen ---------- */
 function openAvatarView(el){
@@ -9866,7 +9885,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793032920"></script>
+<script src="js/folders.js?v=1793039591"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10679,10 +10698,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793032920"></script>
-<script src="js/shortz-live.js?v=1793032920"></script>
-<script src="js/games.js?v=1793032920"></script>
-<script src="js/podcasts.js?v=1793032920"></script>
+<script src="js/streaming.js?v=1793039591"></script>
+<script src="js/shortz-live.js?v=1793039591"></script>
+<script src="js/games.js?v=1793039591"></script>
+<script src="js/podcasts.js?v=1793039591"></script>
 <script>
 
 
@@ -11200,7 +11219,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793032920"></script>
+<script src="js/swipe.js?v=1793039591"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13432,8 +13451,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793032920"></script>
-<script src="js/agent.js?v=1793032920"></script>
+<script src="js/live-sports.js?v=1793039591"></script>
+<script src="js/agent.js?v=1793039591"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -14956,7 +14975,12 @@ function refreshProfileBtn() {
   var prof = null;
   try { prof = getProfile(); } catch (e) {}
   var key = prof ? (prof.photo || '') + '|' + (prof.name || '') : 'none';
-  if (key === _szPbKey && btn.innerHTML) return;
+  if (key === _szPbKey && btn.innerHTML) {
+    // a rendered-but-broken avatar img (interrupted fetch) must not stick for
+    // the whole session — fall through and re-render so the picture retries.
+    var bim = btn.querySelector('img');
+    if (!bim || !(bim.complete && bim.naturalWidth === 0)) return;
+  }
   _szPbKey = key;
   btn.innerHTML = avatarHTML(prof, 'szpb');
 }
