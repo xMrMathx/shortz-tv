@@ -673,7 +673,12 @@ function stopStreamFeed(){
   ssCards.forEach(n=>{ ssUnloadFrame(n); const f=n.querySelector("[data-sframe]"); if(f)f.innerHTML=""; });
 }
 async function mountStreamFeed(){
-  document.body.classList.remove("feedfull"); // a scrolling card feed now, not the fullscreen stage
+  /* feedfull is owned by go() per view (rupture repair 2026-10-25): this used
+     to strip it here, and the warm engine's background pre-render of this pane
+     then stripped it while he sat on Home — the topbar fell back into flow,
+     the stage pushed one header-height down, and the scrub landed behind the
+     tab bar for the rest of the session. go('streaming') already removes it
+     before this pane is ever shown. */
   const v=$("#view-streaming");
   sstreamMounted=true;
   const sfill=()=>{
