@@ -186,7 +186,7 @@ function meta(t){
 }
 function addCards(list,note){
   lastCards=list.slice();
-  if(bubbleOpen){ bubbleCards=true; bubLine(note||"Found it — tap Shortz to see.","her"); }
+  if(bubbleOpen){ bubbleCards=true; bubLine(note||"Found it — tap Shortz to see.","him"); }
   if(note)addMsg(note,"a");
   var box=document.createElement("div"); box.className="ag-cards";
   list.forEach(function(t){
@@ -212,8 +212,65 @@ function addChips(list){
 }
 function say(text,opts){
   addMsg(text,"a");
-  if(bubbleOpen) bubLine(text,"her");
+  if(bubbleOpen) bubLine(text,"him");
   if((liveMode||(opts&&opts.voice))){ if(!speak(text)&&liveMode) afterSpeak(); }
+}
+
+/* ---------- Layer 2: the real conversation brain (shortz-brain Worker, wired 2026-10-26) ---------- */
+var SZ_BRAIN_URL="https://shortz-brain.second-memory.workers.dev/";
+var brainHist=[], brainGreetIdx=-1;
+var BRAIN_OPENERS=[
+  "What's up, Mr. Moore? What are we getting into?",
+  "Hey, Mr. Moore. How's your day treating you so far?",
+  "I'm right here, Mr. Moore. What kind of mood are we in?",
+  "Good to hear you, Mr. Moore. What are we watching?",
+  "Yo, Mr. Moore. Talk to me \u2014 what's the move?"
+];
+function brainContext(){
+  try{
+    var d=new Date(), days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var h=d.getHours(), ap=h>=12?"PM":"AM", h12=h%12||12;
+    var out="It is "+days[d.getDay()]+", about "+h12+":"+("0"+d.getMinutes()).slice(-2)+" "+ap+", for Mr. Moore. He is in Live talk in the Shortz VS app.";
+    var m=memLoad(), p=(m.plays||[])[0];
+    if(p&&p.g) out+=" The last thing he watched was a "+p.g+".";
+    var ug=usualGenre(); if(ug) out+=" His usual favorite is "+ug+".";
+    return out;
+  }catch(e){ return ""; }
+}
+function brainPost(body,ms){
+  return new Promise(function(resolve){
+    var done=false, ctl=("AbortController" in window)?new AbortController():null;
+    var to=setTimeout(function(){ if(done)return; done=true; if(ctl){ try{ ctl.abort(); }catch(e){} } resolve(null); },ms||7000);
+    fetch(SZ_BRAIN_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body),signal:ctl?ctl.signal:undefined})
+      .then(function(r){ return r.json(); })
+      .then(function(j){ if(done)return; done=true; clearTimeout(to); resolve(j&&typeof j.reply==="string"&&j.reply.trim()?j.reply.trim():null); })
+      .catch(function(){ if(done)return; done=true; clearTimeout(to); resolve(null); });
+  });
+}
+window.SZAgentBrain={ ask:function(text){
+  var cand=brainHist.concat([{role:"user",content:text}]).slice(-10);
+  return brainPost({history:cand,context:brainContext()},7000).then(function(reply){
+    if(reply){ brainHist=cand.concat([{role:"assistant",content:reply}]); }
+    return reply;
+  });
+}};
+/* Live talk opens with HIM talking first (his word 2026-10-26): a fresh brain greeting every
+   time; a rotating local opener covers a slow or unreachable brain so it never opens silent. */
+function brainGreet(){
+  var spoke=false;
+  function fallback(){
+    if(spoke)return; spoke=true;
+    var i; do{ i=Math.floor(Math.random()*BRAIN_OPENERS.length); }while(BRAIN_OPENERS.length>1&&i===brainGreetIdx);
+    brainGreetIdx=i; var line=BRAIN_OPENERS[i];
+    brainHist=[{role:"assistant",content:line}];
+    say(line,{});
+  }
+  var fb=setTimeout(fallback,2800);
+  brainPost({mode:"greet",context:brainContext()},6000).then(function(reply){
+    if(spoke)return; spoke=true; clearTimeout(fb);
+    if(reply){ brainHist=[{role:"assistant",content:reply}]; say(reply,{}); }
+    else fallback();
+  });
 }
 
 /* ---------- the brain (Layer 1 + 5 + 4) ---------- */
@@ -520,7 +577,7 @@ function watchTranscript(){
     var po=new MutationObserver(function(){
       var hidden=pop.getAttribute("aria-hidden")==="true"||!pop.classList.contains("show");
       micBtn.classList.toggle("listening",!hidden);
-      if(bubbleOpen){ bub.classList.toggle("listening",!hidden); if(hidden&&!bubHeard&&!speakingNow) bubLine("Didn't catch that — tap Shortz to try again.","her"); }
+      if(bubbleOpen){ bub.classList.toggle("listening",!hidden); if(hidden&&!bubHeard&&!speakingNow) bubLine("Didn't catch that — tap Shortz to try again.","him"); }
       if(hidden&&liveBubble){
         /* Capture normally finalizes the bubble inside handle(); this is the
            safety path for a listen that ended with no final transcript. */
@@ -555,7 +612,7 @@ input.addEventListener("keydown",function(e){ if(e.key==="Enter"){ var v=input.v
 micBtn.addEventListener("click",function(){ startListen(); });
 liveBtn.addEventListener("click",function(){
   liveMode=!liveMode; liveBtn.classList.toggle("on",liveMode);
-  if(liveMode){ startLiveGuard(); say("Live talk on — I'm listening. Talk to me like a call; say \"stop\" anytime to end it.",{}); }
+  if(liveMode){ startLiveGuard(); brainGreet(); }
   else{ pendingAsk=null; stopLiveGuard(); stopSpeak(); }
 });
 /* ---------- the bubble: the mic's simple face (his word 2026-10-25) ----------
@@ -568,7 +625,7 @@ var waveLevel=0, waveTick=null, lastRmsAt=0;
 var bubSaid=bub.querySelector(".agb-said"), bubBars=bub.querySelectorAll(".agb-wave i");
 window.onNativeVoiceRms=function(v){ var n=parseFloat(v); if(isFinite(n)){ waveLevel=Math.max(0,Math.min(1,n)); lastRmsAt=Date.now(); } };
 function popShown(){ var pop=$("#voicePop"); return !!(pop&&pop.classList.contains("show")); }
-function bubLine(t,who){ if(bubSaid){ bubSaid.textContent=t; bubSaid.className="agb-said "+(who==="you"?"you":"her"); } }
+function bubLine(t,who){ if(bubSaid){ bubSaid.textContent=t; bubSaid.className="agb-said "+(who==="you"?"you":"him"); } }
 function waveStart(){ if(waveTick)return; waveTick=setInterval(function(){
   var sp=speakingNow?(0.34+0.18*Math.sin(Date.now()/170)):0;
   if(Date.now()-lastRmsAt>260) waveLevel*=0.72;
