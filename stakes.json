@@ -1,52 +1,6 @@
 {
   "events": [
     {
-      "id": "auto-huskerrs-1792969759-mar",
-      "title": "HusKerrs just went live \u2014 3+ hour stream?",
-      "sub": "Warzone",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "2.0",
-      "oddsB": "1.8",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "marathon",
-      "streamer": "HusKerrs",
-      "resolvedAt": 1792971557
-    },
-    {
-      "id": "auto-symfuhny-1793014756-ms",
-      "title": "Symfuhny is LIVE \u2014 hits 1,000 viewers?",
-      "sub": "Warzone \u00b7 currently at 643 watching",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "1.9",
-      "oddsB": "1.9",
-      "status": "resolved",
-      "winner": "A",
-      "auto": true,
-      "kind": "milestone",
-      "streamer": "Symfuhny",
-      "target": 1000,
-      "resolvedAt": 1793015656
-    },
-    {
-      "id": "auto-symfuhny-1793014756-mar",
-      "title": "Symfuhny just went live \u2014 3+ hour stream?",
-      "sub": "Warzone",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "2.0",
-      "oddsB": "1.8",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "marathon",
-      "streamer": "Symfuhny",
-      "resolvedAt": 1793020161
-    },
-    {
       "id": "auto-vs-1793014756-aydan-symfuhny",
       "title": "\u2694\ufe0f Aydan vs Symfuhny \u2014 who peaks higher?",
       "sub": "Warzone \u00b7 both live now",
@@ -465,6 +419,51 @@
       "kind": "marathon",
       "streamer": "Symfuhny",
       "resolvedAt": 1793123657
+    },
+    {
+      "id": "auto-huskerrs-1793132662-ms",
+      "title": "HusKerrs is LIVE \u2014 hits 100 viewers?",
+      "sub": "Warzone \u00b7 currently at 78 watching",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "milestone",
+      "streamer": "HusKerrs",
+      "target": 100
+    },
+    {
+      "id": "auto-huskerrs-1793132662-mar",
+      "title": "HusKerrs just went live \u2014 3+ hour stream?",
+      "sub": "Warzone",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "2.0",
+      "oddsB": "1.8",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "marathon",
+      "streamer": "HusKerrs"
+    },
+    {
+      "id": "auto-vs-1793132662-aydan-huskerrs",
+      "title": "\u2694\ufe0f Aydan vs HusKerrs \u2014 who peaks higher?",
+      "sub": "Warzone \u00b7 both live now",
+      "optA": "Aydan",
+      "optB": "HusKerrs",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "versus",
+      "streamer": "Aydan",
+      "streamerB": "HusKerrs",
+      "versus_key": "Aydan|HusKerrs"
     }
   ]
 }
