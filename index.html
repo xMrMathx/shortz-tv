@@ -426,8 +426,6 @@ body.pip .scrub{display:none!important}
 body.hud-hidden #view-home .feed-rail,
 body.hud-hidden #view-home .feed-bottom,
 body.hud-hidden #view-home .soundprompt,
-body.hud-hidden.feedfull #topbar,
-body.hud-hidden.feedfull #tabbar,
 body.hud-hidden.feedfull #view-home .scrub,
 body.hud-hidden.feedfull #view-home .uprog,
 body.hud-hidden .sreel-rail,
@@ -452,6 +450,12 @@ body.hud-hidden #hudHint{opacity:0!important;pointer-events:none!important}
    bar felt dead/choppy. The fade still hides it visually; the strip stays
    grabbable, and grabbing it wakes the HUD (hudWake in bindScrub). */
 body.hud-hidden.feedfull #view-home .scrub{pointer-events:auto!important}
+/* STARTUP-INPUT F1 (2026-10-27): the top and bottom bars FADE but never stop
+   taking taps — while hud-hidden they stay live, so a press on the mic, a
+   door, or the profile acts on that very press instead of falling through
+   to the stage tapzone and being spent as a wake. */
+body.hud-hidden.feedfull #topbar,
+body.hud-hidden.feedfull #tabbar{opacity:0!important}
 /* css-land: in-app 90° rotation — video fills screen, no OS rotation needed */
 body.css-land #view-home .feed-rail,
 body.css-land #view-home .feed-bottom,
@@ -1063,7 +1067,7 @@ body.pip #tvBox{display:none!important}
 #profileBtn .avatar{width:100%;height:100%;border-radius:50%;font-size:16px;display:flex;align-items:center;justify-content:center}
 #profileBtn .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 body.pip #profileBtn,body.playing-game #profileBtn,body.sz-open #profileBtn{display:none}
-body.hud-hidden #profileBtn{opacity:0;pointer-events:none}
+body.hud-hidden #profileBtn{opacity:0} /* F1: faded, still tappable */
 /* door bar: the five doors live in #tabbar around the mic (the mic node itself is unmoved) */
 .tab.szdoor{cursor:pointer;background:none;border:0;font-family:inherit}
 .tab.szdoor .ico{font-size:20px;display:block;margin-bottom:3px}
@@ -2131,7 +2135,7 @@ html.sz-on body.force-land #view-home{width:calc(100vh / var(--sz-k));height:cal
   <button id="tutNext">Next</button>
 </div>
 <style>
-#splash{position:fixed;inset:0;z-index:99999;background:#000;overflow:hidden;pointer-events:none;
+#splash{position:fixed;inset:0;z-index:99999;background:#000;overflow:hidden;pointer-events:auto; /* F5: intro taps land on the splash, never blind on the app beneath */
   animation:splashOut .35s ease 2.75s forwards}
 #splashZoom{position:absolute;inset:-40px;transform-origin:center;animation:splashZoom 3s ease-in-out forwards}
 @keyframes splashZoom{from{transform:scale(1)}to{transform:scale(1.45)}}
@@ -2395,6 +2399,14 @@ try{
     <button class="tab szdoor" data-v="livehub" data-door="live"><span class="ico">🔴</span>Live</button>
     <button class="tab szdoor" data-v="games" data-door="play"><span class="ico">🎮</span>Play</button>
   </nav>
+  <script>
+  /* STARTUP-INPUT F2 (2026-10-27): the mic must answer from the first paint.
+     The voice engine registers its #voiceBtn handler only after the catalog
+     script parses — a press in that window used to be silently lost. This
+     shim buffers ONE press; the engine adopts it the moment it loads. */
+  window.__earlyMic={t:0};
+  (function(){var b=document.getElementById("voiceBtn");if(b)b.addEventListener("click",function(){window.__earlyMic.t=Date.now();});})();
+  </script>
   <!-- voice popup: little bubble above the mic button (like a typing indicator) -->
   <div id="voicePop" aria-hidden="true">
     <div class="vp-dots"><span></span><span></span><span></span></div>
@@ -2528,7 +2540,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793079090";
+window.__SZ_BUILD = "1793084425";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -4441,6 +4453,14 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   btn.addEventListener("touchstart",e=>e.stopPropagation(),{passive:true});
   btn.addEventListener("touchend",e=>e.stopPropagation(),{passive:true});
   btn.addEventListener("contextmenu",e=>e.preventDefault());
+  /* F2 adoption: a mic press buffered before the engine loaded fires the
+     chain once, now that the real handler exists. */
+  try{
+    if(window.__earlyMic&&window.__earlyMic.t&&Date.now()-window.__earlyMic.t<15000){
+      window.__earlyMic.t=0;
+      setTimeout(()=>{try{btn.click();}catch(e){}},60);
+    }
+  }catch(e){}
 
   document.getElementById("voiceCancel").onclick=closeType;
 
@@ -5208,6 +5228,7 @@ function toggleFit(slide){
    offer a small one-tap pill instead of digging through More > Fit */
 /* tap state shared between the gesture handlers and handleTap */
 var tapHudHidden=false, startOnPill=false, pillSlide=null;
+var tapToggled=false, tapSlideEl=null; // F4: instant-pause bookkeeping for the double-tap seek undo
 let _fitSugT=null;
 function hideFitSuggest(node){
   clearTimeout(_fitSugT);
@@ -5949,7 +5970,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793079090";
+const BUILD="1793084425";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6373,20 +6394,24 @@ function handleTap(x,y){
   // Taps anywhere else (mic button, edges) are ignored by the video.
   const w=window.innerWidth||390, h=window.innerHeight||700, s=170;
   if(typeof x!=="number"||typeof y!=="number"||Math.abs(x-w/2)>s/2||Math.abs(y-h/2)>s/2)return;
-  const wasHidden=tapHudHidden; tapHudHidden=false;
+  tapHudHidden=false;
   try{hudWake();}catch(e){} // every tap on the video wakes the HUD (HUD law)
-  if(wasHidden)return; // first tap only reveals the menu; the next tap acts
+  /* STARTUP-INPUT F1+F4 (2026-10-27): no wake-only first tap and no 350ms
+     pause lag — a tap wakes the HUD AND acts; the pause fires instantly.
+     A second tap inside 350ms is the double-tap seek: undo the instant
+     toggle (same slide only), then seek. */
   const now=Date.now();
   if(soundOn&&now-lastTapT<350){
     clearTimeout(tapTimer);tapTimer=null;lastTapT=0;
+    if(tapToggled&&tapSlideEl===curSlide()){tapToggled=false;try{togglePause();}catch(e){}}
     const w=(curSlide()&&curSlide().getBoundingClientRect().width)||window.innerWidth||390;
     seekBy(x<w/2?-10:10);
     return;
   }
   lastTapT=now;
   if(!soundOn){lastTapT=0;doUnmute();return;} // first tap always unmutes immediately
-  clearTimeout(tapTimer);
-  tapTimer=setTimeout(()=>{tapTimer=null;lastTapT=0;togglePause();},350);
+  tapToggled=true; tapSlideEl=curSlide();
+  togglePause();
 }
 function seekBy(d){
   const slide=curSlide();if(!slide||!feed.cur)return;
@@ -9979,7 +10004,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793079090"></script>
+<script src="js/folders.js?v=1793084425"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10792,10 +10817,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793079090"></script>
-<script src="js/shortz-live.js?v=1793079090"></script>
-<script src="js/games.js?v=1793079090"></script>
-<script src="js/podcasts.js?v=1793079090"></script>
+<script src="js/streaming.js?v=1793084425"></script>
+<script src="js/shortz-live.js?v=1793084425"></script>
+<script src="js/games.js?v=1793084425"></script>
+<script src="js/podcasts.js?v=1793084425"></script>
 <script>
 
 
@@ -11313,7 +11338,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793079090"></script>
+<script src="js/swipe.js?v=1793084425"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13545,8 +13570,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793079090"></script>
-<script src="js/agent.js?v=1793079090"></script>
+<script src="js/live-sports.js?v=1793084425"></script>
+<script src="js/agent.js?v=1793084425"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
