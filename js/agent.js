@@ -17,6 +17,17 @@ function escH(s){ return (typeof esc==="function")?esc(s):String(s==null?"":s).r
 function cat(){ try{ return window.SHORTZ_CATALOG||[]; }catch(e){ return []; } }
 function byId(id){ var C=cat(); for(var i=0;i<C.length;i++) if(C[i].id===id) return C[i]; return null; }
 function findT(q){ try{ if(window._findSeries) return window._findSeries(q); }catch(e){} return null; }
+function _normTitle(s){ return String(s||"").toLowerCase().replace(/[^\w\s]/g," ").replace(/\s+/g," ").trim(); }
+function bareTitleMatch(rawText){
+  var q=_normTitle(rawText);
+  if(!q||q.split(" ").length>8)return null;
+  var t=findT(String(rawText||"").replace(/[^\w\s]/g,"").trim());
+  if(!t||!t.title)return null;
+  var tt=_normTitle(t.title);
+  if(tt===q)return t;
+  if(tt.replace(/^the /,"")===q||tt===q.replace(/^the /,""))return t;
+  return null;
+}
 
 /* ---------- Layer 4: memory ---------- */
 var MEM_KEY="szAgentMem";
@@ -791,6 +802,13 @@ function handle(raw, viaVoice){
       if(sims.length){ addCards(sims,"More like "+(base.title||sm[1])+":"); return; }
     }
   }
+
+  /* TITLE FIRST (his order 2026-10-26): a bare title name IS the title —
+     "remain calm" goes straight to Remain Calm, never to the chat brain as
+     a mood to comment on. Strict whole-utterance equality only, so ordinary
+     sentences are never hijacked. */
+  var bareT=bareTitleMatch(text);
+  if(bareT){ openPick(bareT,viaVoice); return; }
 
   /* Layer 2/3 slot: a real chat brain, when one is wired */
   if(window.SZAgentBrain&&typeof window.SZAgentBrain.ask==="function"&&!/(play|bring up|show me|open|go to|find)\b/.test(low)){
