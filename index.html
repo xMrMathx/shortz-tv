@@ -2524,7 +2524,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793066655";
+window.__SZ_BUILD = "1793070320";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5017,6 +5017,15 @@ function szArmSharpen(player){
 try{ const _nc=szConn(); if(_nc&&_nc.addEventListener) _nc.addEventListener("change",()=>{ if(!szSlowConn()){ _szSoftPlayers.forEach(p=>{ try{ p.setPlaybackQuality("hd1080"); }catch(e){} }); _szSoftPlayers.clear(); } }); }catch(e){}
 window.__szQ={slow:szSlowConn,startVq:szStartVq,arm:szArmSharpen,softCount:()=>_szSoftPlayers.size};
 function embedSrc(u,autoplay){
+  u=String(u||"");
+  // WATCH-LINK REPAIR (2026-10-26): some catalog episodes store a YouTube
+  // WATCH url — framing a watch page is refused by YouTube (black player),
+  // while the Home card, which builds from the video id, plays fine.
+  // Normalize any YouTube watch/short link to the canonical embed form.
+  if(u.indexOf("youtube.com/watch")>=0||u.indexOf("youtu.be/")>=0){
+    const wid=vidOf(u)||(u.match(/youtu\.be\/([A-Za-z0-9_-]+)/)||[])[1];
+    if(wid)u="https://www.youtube.com/embed/"+wid;
+  }
   const vimeo=u.indexOf("vimeo.com")>=0;
   const sep=u.indexOf("?")>=0?"&":"?";
   // HD ENGINE: vq picks the starting rung — hd1080 on a healthy connection
@@ -5869,7 +5878,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793066655";
+const BUILD="1793070320";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9895,7 +9904,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793066655"></script>
+<script src="js/folders.js?v=1793070320"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10708,10 +10717,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793066655"></script>
-<script src="js/shortz-live.js?v=1793066655"></script>
-<script src="js/games.js?v=1793066655"></script>
-<script src="js/podcasts.js?v=1793066655"></script>
+<script src="js/streaming.js?v=1793070320"></script>
+<script src="js/shortz-live.js?v=1793070320"></script>
+<script src="js/games.js?v=1793070320"></script>
+<script src="js/podcasts.js?v=1793070320"></script>
 <script>
 
 
@@ -11229,7 +11238,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793066655"></script>
+<script src="js/swipe.js?v=1793070320"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13461,8 +13470,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793066655"></script>
-<script src="js/agent.js?v=1793066655"></script>
+<script src="js/live-sports.js?v=1793070320"></script>
+<script src="js/agent.js?v=1793070320"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
