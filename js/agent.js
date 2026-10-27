@@ -744,8 +744,24 @@ function handle(raw, viaVoice){
     return;
   }
 
+  /* follows: his list + who's live FROM his list (his order 2026-10-27) */
+  if(/who am i following|who do i follow|my follows|my following/.test(low)){
+    var fl=(typeof window.szFollowedStreamers==="function")?window.szFollowedStreamers():[];
+    if(!fl.length)say("You're not following anybody yet. Tap any streamer and hit Follow on their card, and I'll watch them for you.",{voice:viaVoice});
+    else say("You're following "+fl.map(function(s){return s.name;}).join(", ")+".",{voice:viaVoice});
+    return;
+  }
+
   /* what's live */
-  if(/what'?s live|who is live|what is live|anybody live|anyone live/.test(low)){
+  if(/what'?s live|who'?s live|who is live|what is live|anybody live|anyone live/.test(low)){
+    var hasFol=(typeof window.szFollowedStreamers==="function"&&window.szFollowedStreamers().length>0);
+    if(hasFol){
+      var lv=window.szFollowLive();
+      if(lv.length)say("From your follows, "+lv.map(function(s){return s.name;}).join(", ")+(lv.length===1?" is":" are")+" live right now.",{voice:viaVoice});
+      else say("None of your follows are live right now.",{voice:viaVoice});
+      try{ if(typeof refreshStreamersLive==="function")refreshStreamersLive(); }catch(e){}
+      return;
+    }
     say("Here's everything live right now.",{voice:viaVoice}); closeSheet();
     try{ if(typeof renderView==="function")renderView("live"); }catch(e){}
     try{ go("live"); }catch(e){}
@@ -911,6 +927,7 @@ function closeSheet(){
   if(liveMode){ liveMode=false; liveBtn.classList.remove("on"); stopLiveGuard(); }
 }
 window._agentOpen=openSheet;
+window._agentSay=say; /* FOLLOWS LIVE CALL (2026-10-27): the go-live alert speaks through the agent's own say() — clip-first, voice rules intact */
 wrap.querySelector(".ag-back").addEventListener("click",closeSheet);
 $("#agClose").addEventListener("click",closeSheet);
 $("#agSend").addEventListener("click",function(){ var v=input.value; input.value=""; handle(v,false); });

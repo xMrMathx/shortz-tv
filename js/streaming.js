@@ -27,6 +27,23 @@ function kickRefreshOne(s){
       return ((!!s.live)!==before)||((s.thumb||"")!==beforeThumb);
     }).catch(()=>false);
 }
+/* Twitch live via the public web GraphQL — the same client id twitch.tv's
+   own site ships, no account and no key. Any failure leaves the last
+   known state untouched; offline streamers fall through to the VOD fetch. */
+function twitchRefreshLive(s){
+  const ch=String(s.url||"").split("/").filter(Boolean).pop();
+  if(!ch)return Promise.resolve(false);
+  const before=!!s.live;
+  return Promise.race([
+    fetch("https://gql.twitch.tv/gql",{method:"POST",headers:{"Client-Id":"kimne78kx3ncx6brgo4mv6wki5h1ko","Content-Type":"application/json"},body:JSON.stringify({query:"query($l:String!){user(login:$l){stream{id}}}",variables:{l:ch.toLowerCase()}})}),
+    kickFetchTimeout(4000)
+  ]).then(r=>r.ok?r.json():null).then(d=>{
+    const st=d&&d.data&&d.data.user?d.data.user.stream:null;
+    s.live=!!st;
+    if(s.live)return (!!s.live)!==before;
+    return twitchFetchVod(s).then(()=>((!!s.live)!==before));
+  }).catch(()=>false);
+}
 /* most recent offline VOD for a Kick channel */
 function kickFetchVod(s){
   const ch=String(s.url||"").split("/").filter(Boolean).pop();
@@ -193,8 +210,9 @@ async function refreshStreamersLive(){
     }catch(e){}
     // refresh live status for Kick channels (no auth needed); fetch most-recent VOD for offline ones
     const kc=await Promise.all(STREAMERS.kick.map(kickRefreshOne));
-    // fetch most-recent VOD for Twitch streamers (assume offline — no auth for live check)
-    const tc=await Promise.all(STREAMERS.twitch.map(s=>{ s.live=false; return twitchFetchVod(s); }));
+    // Twitch live is really checked now (public web GraphQL — see
+    // twitchRefreshLive); offline streamers still fetch their latest VOD.
+    const tc=await Promise.all(STREAMERS.twitch.map(twitchRefreshLive));
     try{ localStorage.setItem("shortz_streamers",JSON.stringify(STREAMERS)); }catch(e){}
     // live badges (or new replays) arrived — re-sort and re-fill visible slots if the tab is still open
     if(curView==="streaming"&&(addedNew||kc.some(Boolean)||tc.some(Boolean)))restackStreams();
@@ -591,12 +609,11 @@ function ssBuildCards(){
   ssCards=sstreamStack.map(st=>{
     const d=document.createElement("article");
     d.className="sscard"; d.innerHTML=ssCardHTML();
-    /* his tap is an order, not a hint: tapping a card plays THAT card
-       (through the same ssActivate funnel as the scroll settle, so the
-       carousel gate and one-audio discipline still rule). Scroll
-       drags never produce this click; the share button stops its own
-       propagation, so it never double-fires. */
-    d.addEventListener("click",()=>{ try{ ssActivate(ssCards.indexOf(d)); }catch(e){} });
+    /* FOLLOWS (his design 2026-10-26): tapping a streamer opens their
+       card — the card IS the player, with Like + Follow on it. Scroll
+       settle still activates the card under him exactly as before;
+       scroll drags never produce this click. */
+    d.addEventListener("click",()=>{ try{ const s=sstreamStack[ssCards.indexOf(d)]; if(s&&window.ShortzLive)ShortzLive.openPop(streamShareId(s)); }catch(e){} });
     box.appendChild(d);
     return d;
   });

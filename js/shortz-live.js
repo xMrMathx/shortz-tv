@@ -529,6 +529,90 @@ ShortzLive.closePop=function(silent){
   if(!silent){ try{ ssPickActive(); }catch(e){} try{ ShortzLive.carVis(); }catch(e){} }
 };
 
+/* ============ FOLLOWS LIVE CALL (his order 2026-10-27: "alert me and
+   let me know that somebody starts the stream") ============
+   App-level watcher: every 60s, no matter which tab he's on, the
+   streamers he FOLLOWS get a live check (Kick + Twitch real checks,
+   YouTube through the shared yt-live poll). The first sighting of each
+   follow only marks the baseline — a call fires on a real offline→live
+   transition he could have missed, once per live session. The call is
+   a card in the agent bubble's shell language (mascot face, one line,
+   Watch / Not now) plus the spoken line through the agent's own say()
+   with voice forced — silent only while he's mid-conversation on the
+   mic. App-CLOSED alerting needs a push sender that doesn't exist yet;
+   that's the next slice, not this one. */
+const szWatchState={};
+let szWatchTimer=null, szCallFor=null;
+function szFollowed(){ return szArr(SZ_FOLLOWS_KEY).map(szFindByShareId).filter(Boolean); }
+window.szFollowedStreamers=szFollowed;
+window.szFollowLive=function(){ return szFollowed().filter(s=>!!s.live); };
+/* the watcher works on the STREAMERS ORIGINALS — sstreamList() hands out
+   shallow clones, so a live flag set on a clone dies with it; the agent's
+   answers and every later list build read from the originals. */
+function szOrigFor(id){
+  try{
+    for(const p of ["kick","twitch","youtube"]){
+      const hit=(STREAMERS[p]||[]).find(x=>streamShareId(Object.assign({platform:p},x))===id);
+      if(hit)return hit;
+    }
+  }catch(e){}
+  return null;
+}
+async function szWatchTick(){
+  try{
+    if(typeof STREAMERS!=="undefined"&&!STREAMERS_LOADED&&typeof loadStreamers==="function"){ try{ await loadStreamers(); }catch(e){} }
+    const ids=szArr(SZ_FOLLOWS_KEY); if(!ids.length)return;
+    const fol=ids.map(id=>({id, orig:szOrigFor(id)})).filter(x=>x.orig);
+    await Promise.all(fol.map(x=>{
+      const s=x.orig, p=x.id.split(":")[0];
+      try{
+        if(p==="kick"&&typeof kickRefreshOne==="function")return kickRefreshOne(s);
+        if(p==="twitch"&&typeof twitchRefreshLive==="function")return twitchRefreshLive(s);
+      }catch(e){}
+      return Promise.resolve(false);
+    }));
+    try{ if(typeof pollYtLive==="function")await pollYtLive(); }catch(e){}
+    fol.forEach(x=>{
+      const now=!!x.orig.live, was=szWatchState[x.id];
+      szWatchState[x.id]=now;
+      if(was===false&&now) ShortzLive.liveCall(Object.assign({platform:x.id.split(":")[0]},x.orig));
+    });
+  }catch(e){}
+}
+window.szWatchTick=szWatchTick;
+ShortzLive.liveCall=function(s){
+  try{
+    if(!s)return;
+    const id=streamShareId(s);
+    if(szCallFor===id)return;
+    ShortzLive.endCall(true);
+    szCallFor=id;
+    const w=document.createElement("div"); w.id="szCall"; w.className="szcall-wrap";
+    w.innerHTML=`<div class="szcall-card">
+      <div class="szcall-face"><img src="mascot-avatar.png" alt=""></div>
+      <div class="szcall-name">${esc(s.name||"A streamer")}</div>
+      <div class="szcall-sub">just went live — one of your follows</div>
+      <div class="szcall-acts">
+        <button class="szcall-watch" data-szcall="watch">▶ Watch</button>
+        <button class="szcall-no" data-szcall="no">Not now</button>
+      </div></div>`;
+    document.body.appendChild(w);
+    const micBusy=(typeof window._szMicLive==="function"&&window._szMicLive());
+    const sayFn=(typeof window._agentSay==="function")?window._agentSay:(typeof window.say==="function"?window.say:null);
+    if(!micBusy&&sayFn){ try{ sayFn((s.name||"Your streamer")+" just went live.",{voice:true}); }catch(e){} }
+    const kill=setTimeout(()=>ShortzLive.endCall(true),30000);
+    w.addEventListener("click",e=>{
+      const b=e.target.closest("[data-szcall]"); if(!b)return;
+      clearTimeout(kill);
+      const act=b.dataset.szcall;
+      ShortzLive.endCall(true);
+      if(act==="watch"){ try{ go("streaming"); }catch(err){} setTimeout(()=>{ try{ ShortzLive.openPop(id); }catch(err){} },350); }
+    });
+  }catch(e){}
+};
+ShortzLive.endCall=function(){ const w=document.getElementById("szCall"); if(w)w.remove(); szCallFor=null; };
+(function szStartWatch(){ if(szWatchTimer)return; szWatchTimer=setInterval(szWatchTick,60000); setTimeout(szWatchTick,8000); })();
+
 /* ============ AUDIO DISCIPLINE (his word, 2026-10-15: "audio need to
    cut out if you're not watching them — not overlapping audios").
    The carousel and the feed already yield to each other while he's ON
