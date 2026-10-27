@@ -2068301,5 +2068301,30 @@
   "award_verified": false,
   "url": "https://www.youtube.com/embed/jyP3SYylkOk",
   "runtime": "39 min"
+ },
+ {
+  "id": "stv-77555",
+  "title": "Remain Calm",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-26",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Remain Calm",
+    "url": "https://www.youtube.com/embed/3ETZmhzURfQ",
+    "video_id": "3ETZmhzURfQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Two gas station clerks on a lonely night shift get a chilling warning: a creature that hunts by sensing anxiety is loose in the store, and the only way to survive it is to stay calm. Pauly Shore, Nick Swardson, and Doug Jones star in the Lewis Brothers' viral horror short.",
+  "rights_basis": "Official Lewis Brothers channel free upload; embed enabled; verified 2026-10-26.",
+  "source_channel": "The Lewis Brothers",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/3ETZmhzURfQ",
+  "runtime": "14 min"
  }
 ]
