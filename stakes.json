@@ -1,37 +1,6 @@
 {
   "events": [
     {
-      "id": "auto-symfuhny-1792953559-mar",
-      "title": "Symfuhny just went live \u2014 3+ hour stream?",
-      "sub": "Warzone",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "2.0",
-      "oddsB": "1.8",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "marathon",
-      "streamer": "Symfuhny",
-      "resolvedAt": 1792956260
-    },
-    {
-      "id": "auto-huskerrs-1792962569-ms",
-      "title": "HusKerrs is LIVE \u2014 hits 1,000 viewers?",
-      "sub": "Warzone \u00b7 currently at 817 watching",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "1.9",
-      "oddsB": "1.9",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "milestone",
-      "streamer": "HusKerrs",
-      "target": 1000,
-      "resolvedAt": 1792964358
-    },
-    {
       "id": "auto-huskerrs-1792962569-mar",
       "title": "HusKerrs just went live \u2014 3+ hour stream?",
       "sub": "Warzone",
@@ -443,12 +412,13 @@
       "optB": "NO",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "milestone",
       "streamer": "Symfuhny",
-      "target": 5000
+      "target": 5000,
+      "resolvedAt": 1793117358
     },
     {
       "id": "auto-symfuhny-1793114664-mar",
@@ -458,11 +428,41 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
+      "status": "resolved",
+      "winner": "B",
+      "auto": true,
+      "kind": "marathon",
+      "streamer": "Symfuhny",
+      "resolvedAt": 1793117358
+    },
+    {
+      "id": "auto-aydan-1793117358-ms",
+      "title": "Aydan is LIVE \u2014 hits 1,000 viewers?",
+      "sub": "Warzone \u00b7 currently at 507 watching",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "milestone",
+      "streamer": "Aydan",
+      "target": 1000
+    },
+    {
+      "id": "auto-aydan-1793117358-mar",
+      "title": "Aydan just went live \u2014 3+ hour stream?",
+      "sub": "Warzone",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "2.0",
+      "oddsB": "1.8",
       "status": "open",
       "winner": null,
       "auto": true,
       "kind": "marathon",
-      "streamer": "Symfuhny"
+      "streamer": "Aydan"
     }
   ]
 }
