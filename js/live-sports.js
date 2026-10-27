@@ -210,6 +210,7 @@ function lsArmSound(token){
         let tries=0;
         const iv=setInterval(()=>{
           if(token!==LS_TOKEN){ clearInterval(iv); return; }
+          if(window._szMicLive&&window._szMicLive())return; // mic live: never restart sound
           tries++;
           let st=-1, muted=false;
           try{ st=e.target.getPlayerState(); muted=e.target.isMuted(); }catch(_){}

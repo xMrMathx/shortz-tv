@@ -255,10 +255,11 @@ function tgSoundArm(kind,player,token){
   audible(); playIt();
   let checks=0, fellBack=false, done=false;
   const finish=()=>{ if(done)return; done=true; clearInterval(iv); document.removeEventListener("pointerdown",onTap,true); };
-  const onTap=()=>{ if(!stillMine()){ finish(); return; } audible(); playIt(); };
+  const onTap=()=>{ if(!stillMine()){ finish(); return; } if(window._szMicLive&&window._szMicLive())return; audible(); playIt(); };
   document.addEventListener("pointerdown",onTap,true);
   const iv=setInterval(()=>{
     if(!stillMine()){ finish(); return; }
+    if(window._szMicLive&&window._szMicLive())return; // mic live: never restart sound
     checks++;
     try{
       if(kind==="yt"){

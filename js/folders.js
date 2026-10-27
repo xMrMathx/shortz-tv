@@ -310,6 +310,7 @@ function vfArmSound(key,t,fr){
         /* survival check, cf-style: if an audible start was refused and the
            player sits idle, fall back to a muted play so the screen MOVES */
         setTimeout(()=>{ if(!stillMine())return;
+          if(window._szMicLive&&window._szMicLive())return; // mic live: never restart sound
           try{ const st=e.target.getPlayerState();
             if(st!==1&&st!==3){ e.target.mute(); e.target.playVideo(); }
           }catch(err){}

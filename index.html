@@ -2524,7 +2524,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793075401";
+window.__SZ_BUILD = "1793076023";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3645,7 +3645,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   try{
     NATIVE_VOICE=!!(window.Android&&window.Android.hasNativeVoice&&window.Android.hasNativeVoice());
   }catch(e){NATIVE_VOICE=false;}
-  let rec=null, listening=false, holdTimer=null, wasHold=false, voicePausedSlide=null, noExec=false;
+  let rec=null, listening=false, holdTimer=null, wasHold=false, voiceResumeList=[], voicePausedObjs=new Set(), noExec=false;
   // ENGINE v3 (Pinky & Brain) state: execDone guards double-execution,
   // pendingText keeps the transcript in JS memory (no DOM round-trip),
   // settleTimer/settleText implement interim early-execution for instant commands.
@@ -4137,6 +4137,91 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     return bestScore>=3?best:null;
   }
 
+  /* MIC SILENCE (his order 2026-10-26): pressing the mic pauses EVERYTHING
+     audible, so the mic hears HIM — the old block only ever reached the
+     center stage slide, never the card player he actually watches on.
+     voiceResumeAll() brings back exactly what was playing; every entry is
+     a resume thunk carrying its own validity check. */
+  function _belt(fr,play,unmute){
+    if(!fr||!fr.contentWindow)return;
+    const cw=fr.contentWindow, pm=o=>{ try{ cw.postMessage(JSON.stringify(o),"*"); }catch(e){} };
+    if(!play){ pm({event:"command",func:"pauseVideo",args:""}); pm({event:"command",func:"mute",args:""}); pm({method:"pause"}); pm({method:"setVolume",value:0}); }
+    else{ pm({event:"command",func:"playVideo",args:""}); pm({method:"play"}); if(unmute){ pm({event:"command",func:"unMute",args:""}); pm({method:"setVolume",value:100}); } }
+  }
+  function _silenceApi(getPl,kind){
+    let pl=null; try{ pl=getPl(); }catch(e){}
+    if(!pl)return;
+    try{
+      if(kind==="vm"||(pl.getPaused&&!pl.getPlayerState)){
+        const rec={was:false};
+        try{ pl.getPaused().then(p=>{ if(!p){ rec.was=true; voicePausedObjs.add(pl); try{pl.pause();}catch(e){} } }).catch(()=>{}); }catch(e){}
+        voiceResumeList.push(()=>{ try{ if(rec.was&&getPl()===pl){ const p=pl.play(); if(p&&p.catch)p.catch(()=>{}); } }catch(e){} });
+      }else if(pl.getPlayerState&&pl.pauseVideo){
+        const st=pl.getPlayerState();
+        if(st===1||st===3){ pl.pauseVideo(); voicePausedObjs.add(pl); voiceResumeList.push(()=>{ try{ if(getPl()===pl&&pl.getPlayerState()===2)pl.playVideo(); }catch(e){} }); }
+      }
+    }catch(e){}
+  }
+  function voiceSilenceAll(){
+    voiceResumeList=[]; voicePausedObjs=new Set();
+    // 1) the stage slide: API player, else the Vimeo belt
+    try{
+      const s=curSlide();
+      if(s){
+        if(s._player&&s._player.getPlayerState){ _silenceApi(()=>s._player); if(voicePausedObjs.has(s._player))s._paused=true; }
+        else if(s._vid&&String(s._vid).indexOf("vimeo:")===0){
+          const fr=s.querySelector("[data-frame]");
+          if(fr){ _belt(fr,false); s._paused=true; voiceResumeList.push(()=>{ try{ if(curSlide()===s)_belt(fr,true,true); s._paused=false; }catch(e){} }); }
+        }
+      }
+    }catch(e){}
+    // 2) the Home card player — where Home playback actually lives
+    try{ if(typeof cfPlayer!=="undefined"&&cfPlayer)_silenceApi(()=>cfPlayer,(typeof cfPlayerKind!=="undefined"?cfPlayerKind:null)); }catch(e){}
+    // 3) named players: guide preview, guide live, sports, live TV, folder audible
+    try{ if(typeof tgPlayer!=="undefined"&&tgPlayer)_silenceApi(()=>tgPlayer,(typeof tgPlayerKind!=="undefined"?tgPlayerKind:null)); }catch(e){}
+    try{ if(typeof TG_LIVE_PLAYER!=="undefined"&&TG_LIVE_PLAYER)_silenceApi(()=>TG_LIVE_PLAYER,"yt"); }catch(e){}
+    try{ if(typeof LS_PLAYER!=="undefined"&&LS_PLAYER)_silenceApi(()=>LS_PLAYER,"yt"); }catch(e){}
+    try{ if(typeof LT_PLAYER!=="undefined"&&LT_PLAYER)_silenceApi(()=>LT_PLAYER,"yt"); }catch(e){}
+    try{ if(typeof vfState!=="undefined"&&typeof vfSoundKey!=="undefined"&&vfSoundKey&&vfState[vfSoundKey])_silenceApi(()=>vfState[vfSoundKey].player,null); }catch(e){}
+    // 4) raw media sweep: podcasts, Creator Space media, HLS vods, <video> twins
+    try{
+      document.querySelectorAll("video,audio").forEach(el=>{
+        try{
+          if(el.paused||el.ended)return;
+          el.pause();
+          voiceResumeList.push(()=>{ try{
+            if(!el.isConnected||!el.paused)return;
+            try{ if(typeof cfPlayer!=="undefined"&&cfPlayer&&cfPlayer.getPlayerState&&cfPlayer.getPlayerState()===1&&!voicePausedObjs.has(cfPlayer))return; }catch(e){}
+            const p=el.play(); if(p&&p.catch)p.catch(()=>{});
+          }catch(e){} });
+        }catch(e){}
+      });
+    }catch(e){}
+    // 5) plain iframes: live Twitch/Kick have no pause API — blank + restore;
+    //    the watch-party frame and the streaming stage take the belt both ways
+    try{
+      document.querySelectorAll("iframe").forEach(fr=>{
+        try{
+          const src=fr.src||"";
+          if(!src||src==="about:blank"||!fr.getClientRects().length)return;
+          if(/player\.twitch\.tv\/\?[^"]*channel=/.test(src)||/player\.kick\.com\//.test(src)){
+            voiceResumeList.push(()=>{ try{ if(fr.isConnected&&(fr.src==="about:blank"||!fr.src))fr.src=src; }catch(e){} });
+            fr.src="about:blank";
+          }else if(/youtube\.com\/embed|youtube-nocookie\.com\/embed|player\.vimeo\.com/.test(src)){
+            _belt(fr,false);
+            if((fr.closest&&fr.closest(".lvid"))||(fr.closest&&fr.closest("#view-streaming"))){
+              voiceResumeList.push(()=>{ try{ if(fr.isConnected)_belt(fr,true,true); }catch(e){} });
+            }
+          }
+        }catch(e){}
+      });
+    }catch(e){}
+  }
+  function voiceResumeAll(){
+    const list=voiceResumeList; voiceResumeList=[];
+    list.slice().reverse().forEach(fn=>{ try{ fn(); }catch(e){} });
+    voicePausedObjs=new Set();
+  }
   // NATIVE VOICE: platform SpeechRecognizer path for the APK (no Web Speech API
   // in WebView). Feeds the SAME engine: live transcript UI, V3-B interim settle
   // for instant commands, V3-A final-result execution, V4 phoneticFix.
@@ -4152,16 +4237,8 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     execDone=false;pendingText="";settleText="";if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}
     try{var _mdn=document.getElementById("micDot");if(_mdn)_mdn.classList.add("listening");}catch(_e){}
     tx.textContent="Listening…";if(vl)vl.textContent="Listening…";
-    // AUTO-PAUSE: same as the web path — pause video while you talk.
-    try{
-      const s=curSlide();
-      const pl=s&&s._player;
-      if(pl&&pl.getPlayerState&&pl.pauseVideo){
-        const st=pl.getPlayerState();
-        if(st===1||st===3){voicePausedSlide=s;pl.pauseVideo();}
-        else voicePausedSlide=null;
-      }
-    }catch(e){voicePausedSlide=null;}
+    // MIC SILENCE: pause EVERYTHING audible while you talk (see voiceSilenceAll).
+    try{ voiceSilenceAll(); }catch(e){ voiceResumeList=[]; }
     // Callbacks invoked by the Android bridge.
     window.onNativeVoiceReady=function(){try{pop.classList.add("hearing");}catch(e){}};
     window.onNativeVoicePartial=function(t){
@@ -4236,17 +4313,9 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     execDone=false;pendingText="";settleText="";if(settleTimer){clearTimeout(settleTimer);settleTimer=null;}
     try{var _md=document.getElementById("micDot");if(_md)_md.classList.add("listening");}catch(_e){}
     tx.textContent="Listening…";if(vl)vl.textContent="Listening…";
-    // AUTO-PAUSE: if the video is playing, pause it while you talk (mic hears YOU, not the video).
-    // On release, it resumes — unless you paused it yourself before holding.
-    try{
-      const s=curSlide();
-      const pl=s&&s._player;
-      if(pl&&pl.getPlayerState&&pl.pauseVideo){
-        const st=pl.getPlayerState();
-        if(st===1||st===3){voicePausedSlide=s;pl.pauseVideo();}
-        else voicePausedSlide=null;
-      }
-    }catch(e){voicePausedSlide=null;}
+    // MIC SILENCE: pause EVERYTHING audible while you talk (mic hears YOU,
+    // not the video). On release, exactly what was playing resumes.
+    try{ voiceSilenceAll(); }catch(e){ voiceResumeList=[]; }
     rec.onresult=e=>{
       let interim="",final="",gotFinal=false;
       for(let i=e.resultIndex;i<e.results.length;i++){
@@ -4330,17 +4399,12 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
     try{if(rec)rec.stop();}catch(e){}
     rec=null;btn.classList.remove("listening");pop.classList.remove("show");if(vl)vl.textContent="Hold to talk";
     try{var _md2=document.getElementById("micDot");if(_md2)_md2.classList.remove("listening");}catch(_e2){}
-    // AUTO-RESUME: if WE paused it for voice, resume on release — but only if
-    // the voice command didn't navigate away (then curSlide differs).
-    const rs=voicePausedSlide;voicePausedSlide=null;
-    if(rs){
-      setTimeout(()=>{
-        try{
-          if(curSlide()===rs&&rs._player&&rs._player.getPlayerState){
-            if(rs._player.getPlayerState()===2)rs._player.playVideo();
-          }
-        }catch(e){}
-      },700);
+    // AUTO-RESUME: bring back exactly what the mic silenced, once any
+    // command has settled. Token-guarded: a fresh listen that already
+    // re-silenced keeps ownership of the list.
+    if(voiceResumeList.length){
+      const tok=voiceResumeList;
+      setTimeout(()=>{ if(voiceResumeList===tok){ try{ voiceResumeAll(); }catch(e){} } },700);
     }
   }
   function openType(){
@@ -4387,6 +4451,9 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       return true;
     }catch(e){return false;}
   };
+  // Sound-arm loops in every view check this before re-driving playback:
+  // while the mic is live, nothing may restart sound (his order 2026-10-26).
+  window._szMicLive=function(){ return !!listening; };
   // AGENT BRIDGES (js/agent.js): the typed path + title finder, same pattern
   // as _micToggle. The agent extends this engine; it never replaces it.
   window._voiceCommand=voiceCommand;
@@ -5243,7 +5310,7 @@ window.nativeMediaCommand=function(cmd){
     }
     const s=curSlide(); const pl=s&&s._player;
     if(pl&&(pl.playVideo||pl.pauseVideo)){
-      if(cmd==="play")pl.playVideo(); else if(cmd==="pause")pl.pauseVideo();
+      if(cmd==="play"){ if(!window._szMicLive||!window._szMicLive())pl.playVideo(); } else if(cmd==="pause")pl.pauseVideo();
       return;
     }
     const v=document.querySelector("video");
@@ -5878,7 +5945,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793075401";
+const BUILD="1793076023";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7130,13 +7197,15 @@ function cfArmSound(card,t,fr){
 }
 function cfSoundArm(kind,player,card){
   if(cfActive!==card)return;
+  if(window._szMicLive&&window._szMicLive()){ setTimeout(()=>{ try{ cfSoundArm(kind,player,card); }catch(e){} },900); return; } // mic live: never fight the silence
   try{ cfApplyResume(card); }catch(e){} // continuity: pick up where this video left off
   const stillMine=()=>cfActive===card;
   try{
     if(kind==="yt"){ player.unMute(); player.setVolume(100); player.playVideo(); }
     else if(kind==="vm"){ player.setVolume(1); const p=player.play(); if(p&&p.catch)p.catch(()=>{}); }
   }catch(e){}
-  setTimeout(()=>{
+  const cfLate=()=>{
+    if(window._szMicLive&&window._szMicLive()){ setTimeout(cfLate,900); return; }
     if(!stillMine())return;
     try{
       if(kind==="yt"){
@@ -7154,7 +7223,8 @@ function cfSoundArm(kind,player,card){
         }).catch(()=>{});
       }
     }catch(e){}
-  },1800);
+  };
+  setTimeout(cfLate,1800);
   /* Rescue watchdog — EVERY context (was web-only; that gate is the bug).
      The single check above can be consumed while the player is still
      BUFFERING (state 3); when buffering then settles into a paused or
@@ -7173,6 +7243,7 @@ function cfSoundArm(kind,player,card){
   let cfTries=0;
   const cfTick=()=>{
     if(!stillMine()||cfTries>=10)return;
+    if(window._szMicLive&&window._szMicLive()){ setTimeout(cfTick,900); return; } // mic live: wait it out, don't burn a try
     cfTries++;
     let done=false;
     try{
@@ -9904,7 +9975,7 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793075401"></script>
+<script src="js/folders.js?v=1793076023"></script>
 <script>
 </script>
 <script src="js/guide.js?v=1792818687"></script>
@@ -10717,10 +10788,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793075401"></script>
-<script src="js/shortz-live.js?v=1793075401"></script>
-<script src="js/games.js?v=1793075401"></script>
-<script src="js/podcasts.js?v=1793075401"></script>
+<script src="js/streaming.js?v=1793076023"></script>
+<script src="js/shortz-live.js?v=1793076023"></script>
+<script src="js/games.js?v=1793076023"></script>
+<script src="js/podcasts.js?v=1793076023"></script>
 <script>
 
 
@@ -11238,7 +11309,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793075401"></script>
+<script src="js/swipe.js?v=1793076023"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13470,8 +13541,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793075401"></script>
-<script src="js/agent.js?v=1793075401"></script>
+<script src="js/live-sports.js?v=1793076023"></script>
+<script src="js/agent.js?v=1793076023"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
