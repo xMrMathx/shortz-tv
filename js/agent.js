@@ -430,6 +430,17 @@ function speakTTS(text){
     speechSynthesis.cancel();
     var u=new SpeechSynthesisUtterance(text);
     u.lang="en-US"; u.rate=1.02;
+    /* MALE VOICE (his word 2026-10-27): when the browser offers a man's
+       voice, use it — never the female default while a male voice exists. */
+    try{
+      var vs=speechSynthesis.getVoices()||[];
+      for(var i=0;i<vs.length;i++){
+        var nm=(vs[i].name||""), lg=(vs[i].lang||"");
+        if(!/^en/i.test(lg))continue;
+        if(/female|zira|samantha|victoria|aria|jenny|catherine|martha/i.test(nm))continue;
+        if(/david|daniel|christopher|\bmale\b|eric|\bguy\b|ryan|brian|arthur|george|james|thomas|fred|alex/i.test(nm)){ u.voice=vs[i]; break; }
+      }
+    }catch(e){}
     speakingNow=true;
     u.onend=function(){ speakDone(); };
     u.onerror=function(){ speakDone(); };
