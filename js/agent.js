@@ -456,6 +456,10 @@ function speak(text){
   return speakTTS(text);
 }
 function afterSpeak(){
+  /* CATALOG-SMART GREETING: the greeting just ended — chain the pitch in
+     this same seam (there is no speech queue; a parallel say() would
+     cancel the greeting). Armed by brainGreet, fires once, fresh only. */
+  if(pitchArmed&&liveMode&&opened&&Date.now()-pitchArmAt<20000){ pitchArmed=false; if(deliverPitch())return; }
   if(liveMode&&opened){
     /* ECHO SHIELD: wait out the quiet window (~1s after his voice ends)
        before re-opening the mic — 300ms re-armed it while he was still
@@ -538,7 +542,7 @@ function brainContext(){
     var m=memLoad(), p=(m.plays||[])[0];
     if(p&&p.g) out+=" The last thing he watched was a "+p.g+".";
     var ug=usualGenre(); if(ug) out+=" His usual favorite is "+ug+".";
-    return out;
+    return out+catalogDigest();
   }catch(e){ return ""; }
 }
 function brainPost(body,ms){
@@ -570,6 +574,115 @@ function brainGreet(){
   brainGreetIdx=i; var line=lines[i];
   brainHist=[{role:"assistant",content:line}];
   say(line,{});
+  /* arm the catalog pitch — it chains in afterSpeak when this greeting ends */
+  pickSessionPitch();
+  pitchArmed=!!sessionPick; pitchArmAt=Date.now();
+}
+
+/* ---------- CATALOG-SMART GREETING (his ask 2026-10-27): after he greets
+   you, Shortz pitches ONE real pick with its real details. Facts come only
+   from the catalog record: title, shelf, episode count, and a runtime
+   ONLY when the catalog states it unambiguously. The same session pick
+   feeds the pitch, the brain's catalog digest, and the yes/no answer. */
+var sessionPick=null, pitchQueue=[], pitchArmed=false, pitchArmAt=0, pitchTplIdx=0;
+var PITCH_CHANNELS={"Mr. Ballin":1,"Ray WJ":1,"DUST":1};
+function pitchRuntime(t){
+  var r=String(t.runtime||"").trim(); if(!r)return null;
+  var c=epsCount(t), m;
+  if(m=r.match(/^~?\s*(\d+(?:\.\d+)?)\s*[–-]\s*(\d+(?:\.\d+)?)\s*min\.?$/)) return {lo:+m[1],hi:+m[2],each:c>1};
+  if(m=r.match(/^~?\s*(\d+):(\d\d)\s*[–-]\s*(\d+):(\d\d)$/)) return {lo:+m[1],hi:+m[3],each:c>1};
+  if(m=r.match(/^~?\s*(\d+):(\d\d)$/)) return {lo:Math.max(1,Math.round((+m[1])+(+m[2])/60)),hi:0,each:false};
+  if(c<=1&&(m=r.match(/^~?\s*(\d+)\s*min\.?$/))) return {lo:+m[1],hi:0,each:false};
+  return null;
+}
+function pitchFacts(t){
+  var c=epsCount(t), shelf=String(t.genre||""), chan=!!PITCH_CHANNELS[shelf], s;
+  if(c>1) s="It's "+(chan?("a series from "+shelf):("a "+shelf+" series"))+" — "+c+" episodes";
+  else s="It's "+(chan?("one from "+shelf):("a "+shelf+" pick"));
+  var rt=pitchRuntime(t);
+  if(rt) s+=", "+(rt.each?("and they run about "):("runs about "))+rt.lo+(rt.hi?(" to "+rt.hi):"")+" minutes"+(rt.each?" each":"");
+  return s+".";
+}
+function pitchLine(t){
+  var tpl=["Got one for you — ","Here's one I like for you: ","Before you ask, this one sits right: "][pitchTplIdx++%3];
+  return tpl+(t.title||"")+". "+pitchFacts(t)+" Say the word and I'll put it on.";
+}
+function markPitched(id){
+  try{
+    var a=JSON.parse(localStorage.getItem("szPitched")||"[]");
+    a.push(id); while(a.length>30)a.shift();
+    localStorage.setItem("szPitched",JSON.stringify(a));
+  }catch(e){}
+}
+function pickSessionPitch(){
+  sessionPick=null; pitchQueue=[];
+  try{
+    var C=cat(), recent={};
+    try{ (JSON.parse(localStorage.getItem("szPitched")||"[]")).forEach(function(x){ recent[x]=1; }); }catch(e){}
+    var ug=""; try{ ug=usualGenre()||""; }catch(e){}
+    var pool=[], i, t;
+    for(i=0;i<C.length;i++){
+      t=C[i]; if(!t||!t.title||!t.id)continue;
+      if(epsCount(t)<1)continue;
+      if(!(t.episodes&&t.episodes.length)&&!t.url&&!t.v)continue;
+      var mm=String(t.title).match(/EP\s*(\d+)\s*[-–]\s*(\d+)/i);
+      if(mm&&(+mm[2])-(+mm[1])+1!==epsCount(t))continue; /* part-compilation: count wouldn't be honest */
+      pool.push(t);
+    }
+    pool.sort(function(a,b){
+      var sa=(String(a.genre||"")===ug?4:0)+(pitchRuntime(a)?2:0)+(a.award_verified?2:(a.verified?1:0));
+      var sb=(String(b.genre||"")===ug?4:0)+(pitchRuntime(b)?2:0)+(b.award_verified?2:(b.verified?1:0));
+      return sb-sa;
+    });
+    for(i=0;i<pool.length&&pitchQueue.length<3;i++){ if(!recent[pool[i].id])pitchQueue.push(pool[i]); }
+    if(!pitchQueue.length&&pool.length)pitchQueue=pool.slice(0,3);
+    sessionPick=pitchQueue[0]||null;
+  }catch(e){}
+}
+function deliverPitch(){
+  if(!sessionPick)return false;
+  var line=pitchLine(sessionPick);
+  brainHist.push({role:"assistant",content:line});
+  pendingAsk={pitch:sessionPick.id,askedAt:Date.now()};
+  markPitched(sessionPick.id);
+  say(line,{});
+  return true;
+}
+function pitchNext(viaVoice){
+  pitchQueue.shift();
+  if(!pitchQueue.length)pickSessionPitch();
+  sessionPick=pitchQueue[0]||null;
+  if(!sessionPick){ say("That's the best I've got lined up — tell me a mood and I'll dig.",{voice:viaVoice}); return; }
+  var line=pitchLine(sessionPick);
+  brainHist.push({role:"assistant",content:line});
+  pendingAsk={pitch:sessionPick.id,askedAt:Date.now()};
+  markPitched(sessionPick.id);
+  say(line,{voice:viaVoice});
+}
+function answerPitch(low,viaVoice){
+  if(Date.now()-(pendingAsk.askedAt||0)>120000)return false; /* stale — route fresh */
+  var t=byId(pendingAsk.pitch); if(!t)return false;
+  var words=low.split(/\s+/).length;
+  if(words<=5&&/^(yes|yeah|yep|sure|ok|okay|play it|play that|put it on|let'?s go|do it|sounds good|watch it|go ahead)\b/.test(low)){ pendingAsk=null; presentPick(t,viaVoice); return true; }
+  if(words<=5&&/\b(another|different|something else|next one|next)\b/.test(low)){ pendingAsk=null; pitchNext(viaVoice); return true; }
+  if(words<=5&&/^(no|nope|not now|pass|nah)\b/.test(low)){ pendingAsk=null; say("No problem. What are you in the mood for?",{voice:viaVoice}); return true; }
+  return false; /* anything longer/different is a fresh request — handle() clears and routes it */
+}
+var brainDigest="", brainDigestId="__none__";
+function catalogDigest(){
+  var id=sessionPick?sessionPick.id:"";
+  if(brainDigest&&brainDigestId===id)return brainDigest;
+  try{
+    var C=cat(), eps=0, gc={}, i, t;
+    for(i=0;i<C.length;i++){ t=C[i]; if(!t)continue; eps+=epsCount(t); var g=String(t.genre||""); if(g)gc[g]=(gc[g]||0)+1; }
+    var top=Object.keys(gc).sort(function(a,b){ return gc[b]-gc[a]; }).slice(0,5);
+    var s=" Catalog digest (real, from the app itself): "+C.length.toLocaleString()+" titles, "+eps.toLocaleString()+" episodes. Biggest shelves: "+top.join(", ")+".";
+    function dt(x){ if(!x)return ""; var c=epsCount(x), rt=pitchRuntime(x); return (x.title||"")+" ("+(x.genre||"")+(c>1?(", "+c+" episodes"):", single")+(rt?(", runs about "+rt.lo+(rt.hi?(" to "+rt.hi):"")+" minutes"+(rt.each?" each":"")):"")+")"; }
+    if(sessionPick)s+=" The pick you pitched him: "+dt(sessionPick)+".";
+    var alts=pitchQueue.slice(1).map(dt).filter(Boolean);
+    if(alts.length)s+=" Also lined up: "+alts.join("; ")+".";
+    brainDigest=s; brainDigestId=id; return s;
+  }catch(e){ return ""; }
 }
 
 /* ---------- the brain (Layer 1 + 5 + 4) ---------- */
@@ -715,6 +828,10 @@ function handle(raw, viaVoice){
   if(/who are you|your name/.test(low)){ say("I'm the Shortz agent — I run the app by voice and text. Play, find, bring things up, answer questions.",{voice:viaVoice}); return; }
   if(/what can you do|help$|^help\b/.test(low)){ say("Try one of these:",{voice:viaVoice}); addChips(["Play Fearless","Find me a horror short under 20 minutes","What's live","Surprise me","Continue watching"]); return; }
   if(liveMode&&/^(stop|stop talking|goodbye|bye|end call|hang up)\b/.test(low)){ pendingAsk=null; liveMode=false; liveBtn.classList.remove("on"); say("Okay — call ended. I'm still here in text whenever.",{}); return; }
+
+  /* the catalog pitch gets its own answer lane FIRST (answerKind would
+     swallow a yes — it only understands the genre-question shape) */
+  if(pendingAsk&&pendingAsk.pitch){ if(answerPitch(low,viaVoice))return; pendingAsk=null; }
 
   /* talk-back: an answer to her follow-up question beats fresh routing;
      anything else clears the question and routes as a new request */
