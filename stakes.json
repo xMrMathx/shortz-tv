@@ -1,37 +1,6 @@
 {
   "events": [
     {
-      "id": "auto-symfuhny-1793023760-mar",
-      "title": "Symfuhny just went live \u2014 3+ hour stream?",
-      "sub": "Warzone",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "2.0",
-      "oddsB": "1.8",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "marathon",
-      "streamer": "Symfuhny",
-      "resolvedAt": 1793026470
-    },
-    {
-      "id": "auto-symfuhny-1793027361-ms",
-      "title": "Symfuhny is LIVE \u2014 hits 10,000 viewers?",
-      "sub": "Warzone \u00b7 currently at 4,360 watching",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "1.9",
-      "oddsB": "1.9",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "milestone",
-      "streamer": "Symfuhny",
-      "target": 10000,
-      "resolvedAt": 1793030960
-    },
-    {
       "id": "auto-symfuhny-1793027361-mar",
       "title": "Symfuhny just went live \u2014 3+ hour stream?",
       "sub": "Warzone",
@@ -465,6 +434,35 @@
       "kind": "marathon",
       "streamer": "Symfuhny",
       "resolvedAt": 1793206461
+    },
+    {
+      "id": "auto-symfuhny-1793207363-ms",
+      "title": "Symfuhny is LIVE \u2014 hits 5,000 viewers?",
+      "sub": "Warzone \u00b7 currently at 2,352 watching",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "milestone",
+      "streamer": "Symfuhny",
+      "target": 5000
+    },
+    {
+      "id": "auto-symfuhny-1793207363-mar",
+      "title": "Symfuhny just went live \u2014 3+ hour stream?",
+      "sub": "Warzone",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "2.0",
+      "oddsB": "1.8",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "marathon",
+      "streamer": "Symfuhny"
     }
   ]
 }
