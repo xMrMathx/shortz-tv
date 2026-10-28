@@ -1,39 +1,6 @@
 {
   "events": [
     {
-      "id": "auto-vs-1793014756-aydan-symfuhny",
-      "title": "\u2694\ufe0f Aydan vs Symfuhny \u2014 who peaks higher?",
-      "sub": "Warzone \u00b7 both live now",
-      "optA": "Aydan",
-      "optB": "Symfuhny",
-      "oddsA": "1.9",
-      "oddsB": "1.9",
-      "status": "resolved",
-      "winner": "A",
-      "auto": true,
-      "kind": "versus",
-      "streamer": "Aydan",
-      "streamerB": "Symfuhny",
-      "versus_key": "Aydan|Symfuhny",
-      "resolvedAt": 1793020161
-    },
-    {
-      "id": "auto-aydan-1793021057-ms",
-      "title": "Aydan is LIVE \u2014 hits 2,500 viewers?",
-      "sub": "Warzone \u00b7 currently at 976 watching",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "1.9",
-      "oddsB": "1.9",
-      "status": "resolved",
-      "winner": "B",
-      "auto": true,
-      "kind": "milestone",
-      "streamer": "Aydan",
-      "target": 2500,
-      "resolvedAt": 1793022871
-    },
-    {
       "id": "auto-aydan-1793021057-mar",
       "title": "Aydan just went live \u2014 3+ hour stream?",
       "sub": "Warzone",
@@ -467,6 +434,35 @@
       "streamerB": "HusKerrs",
       "versus_key": "Aydan|HusKerrs",
       "resolvedAt": 1793146163
+    },
+    {
+      "id": "auto-huskerrs-1793147063-ms",
+      "title": "HusKerrs is LIVE \u2014 hits 1,000 viewers?",
+      "sub": "Warzone \u00b7 currently at 463 watching",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "milestone",
+      "streamer": "HusKerrs",
+      "target": 1000
+    },
+    {
+      "id": "auto-huskerrs-1793147063-mar",
+      "title": "HusKerrs just went live \u2014 3+ hour stream?",
+      "sub": "Warzone",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "2.0",
+      "oddsB": "1.8",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "marathon",
+      "streamer": "HusKerrs"
     }
   ]
 }
