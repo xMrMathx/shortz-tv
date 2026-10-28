@@ -459,13 +459,14 @@
       "optB": "HusKerrs",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "A",
       "auto": true,
       "kind": "versus",
       "streamer": "Aydan",
       "streamerB": "HusKerrs",
-      "versus_key": "Aydan|HusKerrs"
+      "versus_key": "Aydan|HusKerrs",
+      "resolvedAt": 1793146163
     }
   ]
 }
