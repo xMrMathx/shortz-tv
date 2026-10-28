@@ -695,8 +695,10 @@ function runtimeMin(t){
 }
 function isSeries(t){ return epsCount(t)>1; }
 
-function doFind(genreWord,typeWord,maxMin,phrase,off){
+function doFind(genreWord,typeWord,maxMin,phrase,off,extra){
+  extra=extra||{};
   var C=cat(), out=[], i, t, g = genreWord?GENRE_WORDS[genreWord]:null;
+  var terms=extra.terms||null;
   for(i=0;i<C.length&&out.length<40;i++){
     t=C[i]; if(!t||!t.title)continue;
     if(g && String(t.genre||"").toLowerCase()!==g.toLowerCase())continue;
@@ -704,13 +706,23 @@ function doFind(genreWord,typeWord,maxMin,phrase,off){
       var hay=(String(t.title)+" "+String(t.genre||"")).toLowerCase();
       if(phrase.split(/\s+/).some(function(w){ return w.length>2 && hay.indexOf(w)<0; }))continue;
     }
+    /* FIND EXACTNESS (his order 2026-10-27): theme words and episode-count
+       bounds are part of the ask — a title that fails them is not a match,
+       and "no match" is an honest answer, never random cards. */
+    if(terms){
+      var hay2=(String(t.title)+" "+String(t.genre||"")+" "+String(t.desc||"")).toLowerCase(), okT=true;
+      for(var ti=0;ti<terms.length;ti++){ var term=terms[ti], stem=term.replace(/(es|s)$/,""); if(hay2.indexOf(term)<0&&hay2.indexOf(stem)<0){ okT=false; break; } }
+      if(!okT)continue;
+    }
     if(typeWord==="movie"&&isSeries(t))continue;
     if(typeWord==="series"&&!isSeries(t))continue;
+    if(extra.minEps&&epsCount(t)<=extra.minEps)continue;
+    if(extra.maxEps&&epsCount(t)>=extra.maxEps)continue;
     if(maxMin){ var rm=runtimeMin(t); if(rm!==null&&rm>maxMin)continue; if(rm===null&&typeWord!=="short")continue; }
     if(typeWord==="short"){ var r2=runtimeMin(t); if(r2!==null&&r2>45)continue; }
     out.push(t);
   }
-  out.sort(function(a,b){ return ((b.award_verified?2:0)+(b.verified?1:0))-((a.award_verified?2:0)+(a.verified?1:0)); });
+  out.sort(function(a,b){ var d=((b.award_verified?2:0)+(b.verified?1:0))-((a.award_verified?2:0)+(a.verified?1:0)); if(!d&&(terms||extra.minEps))d=epsCount(b)-epsCount(a); return d; });
   return out.slice(off||0,(off||0)+3);
 }
 
@@ -903,8 +915,8 @@ function handle(raw, viaVoice){
   if(/^(play|watch|put on) (it|that|that one)$/.test(low)&&lastCards&&lastCards.length){ presentPick(lastCards[0],viaVoice); return; }
   if(/^(open|bring up) (it|that|that one)$/.test(low)&&lastCards&&lastCards.length){ openPick(lastCards[0],viaVoice); return; }
   if(/^(more|show me more|another|any more)$/.test(low)&&lastFind){
-    var more=doFind(lastFind.gw,lastFind.typeWord,lastFind.maxMin||null,null,lastFind.off+3);
-    if(!more.length){ lastFind.off=0; more=doFind(lastFind.gw,lastFind.typeWord,lastFind.maxMin||null,null,0); }
+    var more=doFind(lastFind.gw,lastFind.typeWord,lastFind.maxMin||null,null,lastFind.off+3,{minEps:lastFind.minEps,maxEps:lastFind.maxEps,terms:lastFind.terms});
+    if(!more.length){ lastFind.off=0; more=doFind(lastFind.gw,lastFind.typeWord,lastFind.maxMin||null,null,0,{minEps:lastFind.minEps,maxEps:lastFind.maxEps,terms:lastFind.terms}); }
     else lastFind.off+=3;
     if(more.length){ say("Here's some more.",{voice:viaVoice}); addCards(more,"More picks:"); return; }
   }
@@ -912,26 +924,39 @@ function handle(raw, viaVoice){
   /* filter finds: "find me a horror short under 20 minutes" */
   var fm=low.match(/(?:find|show|get|give|search|watch|see)(?:\s+me)?\s+(?:a\s+|an\s+|some\s+)?(.+)/);
   if(fm){
-    var rest=fm[1], maxMin=null, mm=rest.match(/under\s+(\d+)\s*(min|minute|hour)/);
+    var rest=fm[1], origRest=fm[1], maxMin=null, mm=rest.match(/under\s+(\d+)\s*(min|minute|hour)/);
     if(mm){ maxMin=parseInt(mm[1],10)*(mm[2]==="hour"?60:1); rest=rest.replace(mm[0],""); }
+    /* episode-count bounds: "more than five episodes" is part of the ask */
+    var minEps=null, maxEps=null, em, NUMW={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,fifteen:15,twenty:20};
+    function numW(s){ return /^\d+$/.test(s)?parseInt(s,10):(NUMW[s]||null); }
+    if(em=rest.match(/(?:more than|over|at least)\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty)\s*episodes?/)){ var nv=numW(em[1]); if(nv!==null){ minEps=nv; rest=rest.replace(em[0]," "); } }
+    if(em=rest.match(/(?:fewer than|less than|under)\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty)\s*episodes?/)){ var nv2=numW(em[1]); if(nv2!==null){ maxEps=nv2; rest=rest.replace(em[0]," "); } }
     var typeWord=null; if(/\bseries\b|\bserious\b|\bshow\b/.test(rest)&&!/shows?\s+me/.test(low))typeWord="series"; if(/\bmovie\b|\bfilm\b/.test(rest))typeWord="movie"; if(/\bshort\b/.test(rest))typeWord="short";
     var gw=null; for(var k in GENRE_WORDS){ if(rest.indexOf(k)>=0){ gw=k; break; } }
-    if(gw||typeWord||maxMin){
+    /* theme terms: whatever content words survive after the kind, the
+       genre, and the filler are stripped ("zombie" is the whole point of
+       "zombie series" — dropping it silently was the 2026-10-27 bug) */
+    var themeStr=rest; if(gw)themeStr=themeStr.split(gw).join(" ");
+    var FILLER={series:1,serious:1,show:1,shows:1,movie:1,movies:1,film:1,films:1,short:1,shorts:1,with:1,than:1,more:1,less:1,over:1,under:1,episodes:1,episode:1,eps:1,the:1,and:1,for:1,that:1,have:1,has:1,got:1,some:1,any:1,one:1,ones:1,please:1,something:1,anything:1,stuff:1,video:1,videos:1,kind:1,type:1,genre:1,titles:1,title:1,good:1,great:1,nice:1,best:1,watch:1,watching:1,about:1,from:1,like:1,want:1,need:1};
+    var terms=themeStr.replace(/[^a-z0-9\s]/g," ").split(/\s+/).filter(function(w){ return w.length>2&&!FILLER[w]; });
+    if(gw||typeWord||maxMin||minEps||maxEps||terms.length){
       /* talk-back: a genre ask with the kind still open gets a question
          first, not a silent card dump — his example: "I want to find like
          a drama series" -> "Okay, a drama — short form, a movie, or a
          series?" A want-phrase asks even when a kind word rode along; a
-         runtime cap or a direct command with a kind acts at once. */
+         runtime cap or a direct command with a kind acts at once. Theme
+         terms and episode bounds are exact asks — they act at once too. */
       var wantPhrase=/\b(i want|i wanna|i'?m looking for|looking for|i feel like)\b/.test(low);
-      if(gw&&!maxMin&&(!typeWord||wantPhrase)){ askKind(gw,viaVoice); return; }
-      var res=doFind(gw,typeWord,maxMin,null);
-      lastFind={gw:gw,typeWord:typeWord,maxMin:maxMin,off:0};
+      if(gw&&!maxMin&&!minEps&&!maxEps&&!terms.length&&(!typeWord||wantPhrase)){ askKind(gw,viaVoice); return; }
+      var ex={minEps:minEps,maxEps:maxEps,terms:terms.length?terms:null};
+      var res=doFind(gw,typeWord,maxMin,null,0,ex);
+      lastFind={gw:gw,typeWord:typeWord,maxMin:maxMin,off:0,minEps:minEps,maxEps:maxEps,terms:terms.length?terms:null};
       if(res.length){
-        var note=(gw?GENRE_WORDS[gw]:"Picks")+(typeWord==="short"?" shorts":typeWord==="series"?" series":typeWord==="movie"?" movies":"")+(maxMin?(" under "+maxMin+" minutes"):"");
+        var note=(terms.length?terms.map(function(w){return w.charAt(0).toUpperCase()+w.slice(1);}).join(" "):(gw?GENRE_WORDS[gw]:"Picks"))+(typeWord==="short"?" shorts":typeWord==="series"?" series":typeWord==="movie"?" movies":"")+(minEps?(" with more than "+minEps+" episodes"):"")+(maxEps?(" with fewer than "+maxEps+" episodes"):"")+(maxMin?(" under "+maxMin+" minutes"):"");
         if(viaVoice||liveMode){ addCards(res); say(note+" — say \u201Cplay the first one\u201D, or tap one.",{voice:viaVoice}); }
         else addCards(res,note+":");
       }
-      else say("I couldn't find a match for that in the catalog — try loosening it up, like just the genre.",{voice:viaVoice});
+      else say("I couldn't find a match for \u201C"+origRest.trim()+"\u201D in the catalog — nothing in there fits all of that.",{voice:viaVoice});
       return;
     }
   }

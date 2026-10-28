@@ -970489,7 +970489,7 @@ window.SHORTZ_CATALOG = [
   ],
   "url": "https://www.youtube.com/embed/8yT5cm8Q3Zk",
   "eps": "69 eps",
-  "desc": "Z Nation — series from FilmRise Television (69 episodes).",
+  "desc": "Three years after a zombie virus ends the world, a ragtag crew escorts the one immune survivor across America to a lab that can make a cure.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Television",
   "award_verified": false
