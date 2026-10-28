@@ -476,7 +476,7 @@ window.SHORTZ_CATALOG = [
    },
    {
     "n": 2,
-    "title": "Murder in the the Parish - Why Does the Vicar Want Him Buried So Quickly? Episode 2",
+    "title": "Murder in the Parish - Why Does the Vicar Want Him Buried So Quickly? Episode 2",
     "video_id": "6fJo3tErRNc",
     "url": "https://www.youtube.com/embed/6fJo3tErRNc",
     "verified": true,
@@ -635,7 +635,8 @@ window.SHORTZ_CATALOG = [
     "kind": "episode"
    }
   ],
-  "episodes_note": "21 episodes (S1E1-E14 + S2E1-S2E7), all oEmbed-verified. 2 playlist extras (trailer, S2 announcement) excluded."
+  "episodes_note": "21 episodes (S1E1-E14 + S2E1-S2E7), all oEmbed-verified. 2 playlist extras (trailer, S2 announcement) excluded.",
+  "art": "Br3UBVXbChI"
  },
  {
   "id": "stv-016",
@@ -1931372,7 +1931373,9 @@ window.SHORTZ_CATALOG = [
     "platform": "youtube",
     "verified": true
    }
-  ]
+  ],
+  "art": "V2sH3XGiUns",
+  "runtime": "~42–43 min"
  },
  {
   "id": "stv-73071",
