@@ -459,11 +459,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "marathon",
-      "streamer": "Symfuhny"
+      "streamer": "Symfuhny",
+      "resolvedAt": 1793194758
     }
   ]
 }
