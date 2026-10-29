@@ -498,6 +498,11 @@ body.rot-full #rotexit{display:block}
 .prev-spot-d{font-size:12px;color:#aaa;line-height:1.4}
 .prev-spot-btn{flex:none;background:#e50914;border:none;color:#fff;font-size:13px;font-weight:800;
   border-radius:20px;padding:10px 18px;cursor:pointer}
+/* Store spotlight (his word 2026-10-29: link the live merch store inside Shortz VS) */
+.store-spot{display:flex;align-items:center;gap:12px;margin:10px 0;padding:14px 16px;border-radius:14px;cursor:pointer;
+  background:linear-gradient(135deg,rgba(229,9,20,.16),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14)}
+.store-spot-btn{flex:none;background:#e50914;border:none;color:#fff;font-size:13px;font-weight:800;
+  border-radius:20px;padding:10px 18px;cursor:pointer}
 /* ---------- Top 10 (Netflix-style) ---------- */
 .top10-sec{margin:16px -16px 8px}
 .top10-head{display:flex;align-items:baseline;gap:8px;padding:0 16px;margin-bottom:6px}
@@ -2553,7 +2558,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793302561";
+window.__SZ_BUILD = "1793303188";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5989,7 +5994,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793302561";
+const BUILD="1793303188";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8836,6 +8841,12 @@ function bindPrevSpot(root){
   root.querySelectorAll(".prev-spot-btn").forEach(b=>{ b.onclick=e=>{ e.stopPropagation(); openExtUrl("https://watchpreviously.com/"); }; });
   root.querySelectorAll(".prev-spot").forEach(c=>{ c.onclick=()=>{ openExtUrl("https://watchpreviously.com/"); }; });
 }
+const STORE_URL="https://app.amazecommerce.com/shop/craigjrbb";
+function bindStoreSpot(root){
+  if(!root)return;
+  root.querySelectorAll(".store-spot-btn").forEach(b=>{ b.onclick=e=>{ e.stopPropagation(); openExtUrl(STORE_URL); }; });
+  root.querySelectorAll(".store-spot").forEach(c=>{ c.onclick=()=>{ openExtUrl(STORE_URL); }; });
+}
 /* ---------- Discovery rows (his crown 2026-10-15: Netflix-style rows
    page in the app's own colors; Home cards untouched) ---------- */
 function discRow(secId,rowId,list,genre){
@@ -9216,6 +9227,14 @@ function renderBrowse(g){
         </div>
         <button class="prev-spot-btn" id="prevSpotBtn">Visit ↗</button>
       </div>
+      <div class="store-spot">
+        <div class="prev-spot-tx">
+          <div class="prev-spot-k" style="color:#ff6b6b">Official merch</div>
+          <div class="prev-spot-t" style="font-size:15px">🛍️ SHORTZ VS STORE — Mascot Tees $24.33</div>
+          <div class="prev-spot-d">The official Shortz VS mascot tees — printed and shipped to your door.</div>
+        </div>
+        <button class="store-spot-btn">Shop ↗</button>
+      </div>
       <div class="wrap"><div class="award-sec" id="awardFilmsSec" style="display:none">
         <div class="award-head"><h3>🏆 Award-Winning Short Films</h3></div>
         <div class="award-row" id="awardFilmsRow"></div>
@@ -9283,6 +9302,7 @@ function renderBrowse(g){
   try{if(window.Games&&Games.renderShelf)Games.renderShelf();}catch(e){} // 🎮 Games row in Browse — fed by the one shelf list in games.js
   // Previously spotlight: open James's site in the system browser
   bindPrevSpot(document.getElementById("view-browse"));
+  bindStoreSpot(document.getElementById("view-browse"));
   const si=$("#bsearch"),sx=$("#bsearchx"),bc=$("#bcount"),gr=$("#bgrid"),nr=$("#bnores");
   const applySearch=()=>{
     browseQuery=si.value;
@@ -9879,6 +9899,11 @@ function renderProfile(){
       <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">You&rsquo;ve been watching short-form content all day. For longer-form shows and movies, check out <b style="color:#fff">WatchPreviously.com</b> &mdash; my brother James&rsquo;s website.</div>
       <button class="pbtn sm prev-spot-btn" style="margin-top:9px">Visit WatchPreviously.com &#8599;</button>
     </div>
+    <div class="store-spot" style="flex-direction:column;align-items:stretch;padding:12px 14px;margin:0 0 14px">
+      <div style="font-size:14px;font-weight:800">🛍️ SHORTZ VS STORE — Mascot Tees $24.33</div>
+      <div style="font-size:12.5px;color:var(--mut);margin-top:4px;line-height:1.45">The official Shortz VS mascot tees — printed and shipped to your door.</div>
+      <button class="pbtn sm store-spot-btn" style="margin-top:9px;align-self:flex-start">Shop the store &#8599;</button>
+    </div>
     <div class="profhead">
       ${avatarHTML(p,"lg")}
       <div style="flex:1"><div style="font-size:19px;font-weight:800">${esc(p.name||"Viewer")}</div>
@@ -9924,6 +9949,7 @@ function renderProfile(){
   const _csdb=$("#csDoorBtn"); if(_csdb)_csdb.onclick=()=>{ if(window.CreatorSpace) CreatorSpace.open(); };
   const _podd=$("#podDoorBtn"); if(_podd)_podd.onclick=()=>{ try{renderView("podcasts")}catch(e){} go("podcasts"); };
   bindPrevSpot(document.getElementById("view-profile"));
+  bindStoreSpot(document.getElementById("view-profile"));
   renderTvGuide();
   paintYtSignInRows();
   paintLiveVisitors();
@@ -10026,10 +10052,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793302561"></script>
+<script src="js/folders.js?v=1793303188"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1793302561"></script>
+<script src="js/guide.js?v=1793303188"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10839,10 +10865,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793302561"></script>
-<script src="js/shortz-live.js?v=1793302561"></script>
-<script src="js/games.js?v=1793302561"></script>
-<script src="js/podcasts.js?v=1793302561"></script>
+<script src="js/streaming.js?v=1793303188"></script>
+<script src="js/shortz-live.js?v=1793303188"></script>
+<script src="js/games.js?v=1793303188"></script>
+<script src="js/podcasts.js?v=1793303188"></script>
 <script>
 
 
@@ -11360,7 +11386,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793302561"></script>
+<script src="js/swipe.js?v=1793303188"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13592,8 +13618,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793302561"></script>
-<script src="js/agent.js?v=1793302561"></script>
+<script src="js/live-sports.js?v=1793303188"></script>
+<script src="js/agent.js?v=1793303188"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
