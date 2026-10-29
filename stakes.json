@@ -445,12 +445,13 @@
       "optB": "NO",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "milestone",
       "streamer": "Aydan",
-      "target": 2500
+      "target": 2500,
+      "resolvedAt": 1793301865
     },
     {
       "id": "auto-aydan-1793300063-mar",
@@ -460,11 +461,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "marathon",
-      "streamer": "Aydan"
+      "streamer": "Aydan",
+      "resolvedAt": 1793301865
     }
   ]
 }
