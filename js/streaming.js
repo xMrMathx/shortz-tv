@@ -349,6 +349,47 @@ function ssBarReset(node){
   if(node._ssBarT){ clearInterval(node._ssBarT); node._ssBarT=null; }
   const bar=node.querySelector("[data-sbar]"); if(bar)bar.classList.remove("on");
 }
+/* ---------- RESUME ANYWHERE (his greenlight, 2026-10-29) ----------
+   Streaming replays share the flagship's ONE resume store (the
+   localStorage shortztv_progress* maps the main player's store
+   wrapper owns) — a replay left mid-way picks up at the same second,
+   in this feed, in the SZ pop-up, anywhere. Live is never banked:
+   you can't resume a live edge. Near the end is finished, same rule
+   as the flagship: inside the last 30s, or past 95%, the bank clears. */
+function ssProgMaps(){
+  try{ return {p:JSON.parse(localStorage.getItem("shortztv_progress")||"{}")||{},t:JSON.parse(localStorage.getItem("shortztv_progressTime")||"{}")||{},d:JSON.parse(localStorage.getItem("shortztv_progressDur")||"{}")||{}}; }
+  catch(e){ return {p:{},t:{},d:{}}; }
+}
+function ssProgGet(k){
+  if(!k)return 0;
+  const m=ssProgMaps(), s=+m.p[k]||0, d=+m.d[k]||0;
+  if(!(s>5))return 0;
+  if(d>0&&(d-s<30||s/d>=0.95))return 0;
+  return s;
+}
+function ssProgSet(k,s,d){
+  if(!k)return;
+  try{
+    const m=ssProgMaps(); s=Math.floor(s||0); d=Math.floor(d||0);
+    if(s>5&&!(d>0&&(d-s<30||s/d>=0.95))){ m.p[k]=s; m.t[k]=Date.now(); if(d>0)m.d[k]=d; }
+    else{ delete m.p[k]; delete m.t[k]; delete m.d[k]; }
+    localStorage.setItem("shortztv_progress",JSON.stringify(m.p));
+    localStorage.setItem("shortztv_progressTime",JSON.stringify(m.t));
+    localStorage.setItem("shortztv_progressDur",JSON.stringify(m.d));
+  }catch(e){}
+}
+function ssBankNow(node){
+  try{
+    if(!node||!node._s||node._s.live)return;
+    if(node._ssPlayer&&node._ssPlayer.getCurrentTime){
+      let id=""; try{ const vd=node._ssPlayer.getVideoData?node._ssPlayer.getVideoData():null; id=(vd&&vd.video_id)||""; }catch(e){}
+      if(id)ssProgSet(id, node._ssPlayer.getCurrentTime()||0, node._ssPlayer.getDuration?node._ssPlayer.getDuration()||0:0);
+      return;
+    }
+    const vid=node._svid||node.querySelector("[data-sframe] video");
+    if(vid&&node._svodKey)ssProgSet(node._svodKey, vid.currentTime||0, vid.duration||0);
+  }catch(e){}
+}
 function ssBarArm(node,s){
   ssBarReset(node);
   if(!s||s.live)return; // live: no bar, ever
@@ -370,6 +411,10 @@ function ssBarArm(node,s){
       if(!shown){ shown=true; bar.classList.add("on"); }
       fill.style.width=Math.min(100,(g.t/g.d)*100)+"%";
       tlab.textContent=fmt(g.t)+" / "+fmt(g.d);
+      /* Resume Anywhere banking: the bar ticker already watches the
+         position — bank it (throttled to 5s) so leaving mid-replay
+         and coming back lands on the same second. */
+      if(!node._ssBankT||Date.now()-node._ssBankT>5000){ node._ssBankT=Date.now(); ssBankNow(node); }
     }
   },500);
   if(!bar._ssWired){
@@ -386,6 +431,7 @@ function ssBarArm(node,s){
 }
 function sstreamFill(node,s,mode){
   const fr=node.querySelector("[data-sframe]"), ov=node.querySelector("[data-sov]");
+  ssBankNow(node); // bank the outgoing replay's second before any teardown
   ssBarReset(node);
   if(node._ssPlayer){ try{ node._ssPlayer.destroy(); }catch(e){} node._ssPlayer=null; }
   node._s=s||null;
@@ -473,6 +519,7 @@ function ssYtMount(node,s){
     return;
   }
   let qi=Math.max(0,queue.indexOf(startId));
+  let curId=startId; // Resume Anywhere: the queue's current video, for banking + resume
   const box=document.createElement("div");
   box.style.cssText="width:100%;height:100%;position:relative";
   const poster=fr.querySelector(".ssposter"); // keep the thumbnail up while the player loads
@@ -480,7 +527,8 @@ function ssYtMount(node,s){
   let dead=false, player=null;
   const fallback=()=>{ if(dead)return; if(typeof curView!=="undefined"&&curView!=="streaming")return; /* he left Streaming while the API was loading — planting a sounding iframe now would bleed onto the next screen */ dead=true;
     const ids=queue.length?queue:[startId];
-    fr.innerHTML=`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(ids[0])}?autoplay=1&mute=0&rel=0&controls=0&disablekb=1&fs=0&loop=1&playlist=${encodeURIComponent(ids.join(","))}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
+    const sv0=ssProgGet(ids[0]);
+    fr.innerHTML=`<iframe src="https://www.youtube.com/embed/${encodeURIComponent(ids[0])}?autoplay=1&mute=0&rel=0&controls=0&disablekb=1&fs=0&loop=1&playlist=${encodeURIComponent(ids.join(","))}${sv0>0?"&start="+sv0:""}" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe>`;
   };
   const make=()=>{
     if(dead)return;
@@ -489,16 +537,16 @@ function ssYtMount(node,s){
         width:"100%",height:"100%",videoId:startId,
         playerVars:{autoplay:1,controls:0,rel:0,playsinline:1,disablekb:1,fs:0,modestbranding:1},
         events:{
-          onReady:e=>{ node._ssPlayer=player; if(poster)poster.remove(); try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(_){ } },
+          onReady:e=>{ node._ssPlayer=player; if(poster)poster.remove(); try{ e.target.unMute(); e.target.setVolume(100); e.target.playVideo(); }catch(_){ } const sv=ssProgGet(curId); if(sv>0){ try{ e.target.seekTo(sv,true); }catch(_){ } } },
           onStateChange:e=>{
             if(e.data===0){ // ENDED -> next of the 5, looping to the first
-              if(queue.length){ qi=(qi+1)%queue.length;
+              if(queue.length){ ssProgSet(curId,0,0); qi=(qi+1)%queue.length; curId=queue[qi];
                 const tt=node.querySelector("[data-s-title]"); if(tt&&s.ytRecentTitles&&s.ytRecentTitles[qi]){ tt.textContent=s.ytRecentTitles[qi]; tt.style.display=""; }
-                try{ player.loadVideoById(queue[qi]); player.unMute(); player.setVolume(100); }catch(_){ }
+                try{ player.loadVideoById({videoId:curId,startSeconds:ssProgGet(curId)||0}); player.unMute(); player.setVolume(100); }catch(_){ }
               } else { try{ player.seekTo(0); player.playVideo(); }catch(_){ } }
             }
           },
-          onError:()=>{ if(queue.length>1){ qi=(qi+1)%queue.length; try{ player.loadVideoById(queue[qi]); }catch(_){ } } }
+          onError:()=>{ if(queue.length>1){ qi=(qi+1)%queue.length; curId=queue[qi]; try{ player.loadVideoById({videoId:curId,startSeconds:ssProgGet(curId)||0}); }catch(_){ } } }
         }
       });
     }catch(e){ fallback(); }
@@ -514,12 +562,19 @@ function ssVodWire(node,s){
   vid.muted=false;
   const q=(s.vodQueue&&s.vodQueue.length)?s.vodQueue:[{hls:s.vod_hls,title:s.vod_title||"",id:s.vod_id}];
   let qi=0;
+  /* Resume Anywhere for native VODs: one bank key per queue item;
+     a mid-way VOD restarts at its banked second on the next mount. */
+  const keyFor=it=>"vod:"+((it&&(it.id||it.hls))||s.vod_id||s.name||"");
+  node._svodKey=keyFor(q[0]);
+  vid.addEventListener("loadedmetadata",()=>{ const sv=ssProgGet(node._svodKey); if(sv>0){ try{ vid.currentTime=sv; }catch(e){} } });
   const playAudible=()=>{ const pr=vid.play(); if(pr&&pr.catch)pr.catch(()=>{ try{ vid.muted=true; const p2=vid.play(); if(p2&&p2.catch)p2.catch(()=>{}); const un=()=>{ vid.muted=false; document.removeEventListener("pointerdown",un,true); }; document.addEventListener("pointerdown",un,true); }catch(e){} }); };
   playAudible(); setTimeout(()=>{ if(vid.paused)playAudible(); },800);
   const prefetch=i=>{ const nx=q[i]; if(nx&&!nx.hls&&s.platform==="twitch"&&nx.id){ twitchFetchVodStream(s,nx.id).then(()=>{ nx.hls=s._lastHls||nx.hls; }); } };
   vid.addEventListener("ended",()=>{
+    ssProgSet(node._svodKey,0,0); // finished: no resume bank for this VOD
     qi=(qi+1)%q.length;
     const nx=q[qi]; if(!nx)return;
+    node._svodKey=keyFor(nx);
     const tt=node.querySelector("[data-s-title]"); if(tt&&nx.title){ tt.textContent=nx.title; tt.style.display=""; }
     const go=()=>{ vid.src=nx.hls; playAudible(); prefetch((qi+1)%q.length); };
     if(nx.hls)go();
@@ -535,6 +590,7 @@ function ssVodWire(node,s){
 let ssCards=[], ssActiveIdx=-1, ssScrollBound=false, ssScrollRaf=0;
 function ssUnloadFrame(node){
   if(!node)return;
+  ssBankNow(node);
   if(node._ssPlayer){ try{ node._ssPlayer.destroy(); }catch(e){} node._ssPlayer=null; }
   const f=node.querySelector("[data-sframe]");
   if(f)f.querySelectorAll("video").forEach(v=>{ try{ v.pause(); v.removeAttribute("src"); v.load(); }catch(e){} });

@@ -2558,7 +2558,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793303188";
+window.__SZ_BUILD = "1793303696";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5994,7 +5994,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793303188";
+const BUILD="1793303696";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6621,16 +6621,57 @@ function flashResume(node,s){
   f.innerHTML='<span class="fp-play sm"></span>'+fmtTime(s);
   f.classList.remove("show");void f.offsetWidth;f.classList.add("show");
 }
+/* RESUME ANYWHERE (his greenlight, 2026-10-29): near the end is
+   FINISHED, not a resume point — inside the last 30 seconds, or past
+   95%, the bank clears so a rewatch starts at the top and no surface
+   ever resumes into a video's final seconds. */
+function progFinished(s,d){ return !!(s>5&&d>0&&(d-s<30||s/d>=0.95)); }
 function saveProg(node){
   if(!node||!node._vid||!node._player||!node._player.getCurrentTime)return;
   try{
     const s=Math.floor(node._player.getCurrentTime());
-    if(s>5){prog[node._vid]=s;progTime[node._vid]=Date.now(); try{const d=Math.floor(node._player.getDuration?node._player.getDuration():0); if(d>0)progDur[node._vid]=d;}catch(e){}}
+    let d=0; try{d=Math.floor(node._player.getDuration?node._player.getDuration():0);}catch(e){}
+    if(d>0)progDur[node._vid]=d;
+    if(s>5&&!progFinished(s,d||progDur[node._vid]||0)){prog[node._vid]=s;progTime[node._vid]=Date.now();}
     else{delete prog[node._vid];delete progTime[node._vid];delete progDur[node._vid];}
     store.set("progress",prog); store.set("progressTime",progTime); store.set("progressDur",progDur);
+    syncProgRemote();
   }catch(e){}
 }
-function clearProg(node){if(node&&node._vid){delete prog[node._vid];delete progTime[node._vid];delete progDur[node._vid];store.set("progress",prog);store.set("progressTime",progTime);store.set("progressDur",progDur)}}
+function clearProg(node){if(node&&node._vid){delete prog[node._vid];delete progTime[node._vid];delete progDur[node._vid];store.set("progress",prog);store.set("progressTime",progTime);store.set("progressDur",progDur);syncProgRemote();}}
+/* RESUME ANYWHERE — cloud leg (2026-10-29): positions follow the
+   signed-in viewer across screens, in the same users/{uid}/profile
+   home as saved/recent. The local store stays this device's truth;
+   the cloud copy merges by newest progressTime wins. Writes are
+   throttled — a position moves every few seconds while watching. */
+let _progSyncAt=0,_progSyncPend=false;
+function syncProgRemote(force){
+  try{
+    if(typeof Live==="undefined"||!Live.authed||!Live.db||!Live.uid)return;
+    const now=Date.now();
+    if(!force&&now-_progSyncAt<20000){
+      if(!_progSyncPend){ _progSyncPend=true; setTimeout(()=>{ _progSyncPend=false; syncProgRemote(true); },21000); }
+      return;
+    }
+    _progSyncAt=now;
+    const ks=Object.keys(prog).filter(k=>!/[.#$\[\]]/.test(k)).sort((a,b)=>(progTime[b]||0)-(progTime[a]||0)).slice(0,200);
+    const p={},pt={},pd={};
+    ks.forEach(k=>{ p[k]=prog[k]; if(progTime[k])pt[k]=progTime[k]; if(progDur[k])pd[k]=progDur[k]; });
+    Live.db.ref("users/"+Live.uid+"/profile").update({progress:p,progressTime:pt,progressDur:pd,progTs:now});
+  }catch(e){}
+}
+function mergeProgRemote(r){
+  try{
+    const rp=(r&&r.progress)||{}, rt=(r&&r.progressTime)||{}, rd=(r&&r.progressDur)||{};
+    let changed=false;
+    Object.keys(rp).forEach(k=>{
+      const s=+rp[k]||0; if(!(s>5))return;
+      const t=+rt[k]||0;
+      if(prog[k]==null||t>(progTime[k]||0)){ prog[k]=s; if(t)progTime[k]=t; if(rd[k])progDur[k]=+rd[k]||rd[k]; changed=true; }
+    });
+    if(changed){ store.set("progress",prog); store.set("progressTime",progTime); store.set("progressDur",progDur); }
+  }catch(e){}
+}
 function maybeResume(node,player){
   const vid=node._vid; if(!vid||node._seekDone)return;
   const s=prog[vid]||0;
@@ -6638,7 +6679,7 @@ function maybeResume(node,player){
   const attempt=()=>{
     if(node._vid!==vid)return;
     let dur=0; try{dur=player.getDuration?player.getDuration():0}catch(e){}
-    if(dur>0&&s>dur-10){delete prog[vid];delete progTime[vid];store.set("progress",prog);store.set("progressTime",progTime);node._seekDone=true;return}
+    if(progFinished(s,dur)){delete prog[vid];delete progTime[vid];delete progDur[vid];store.set("progress",prog);store.set("progressTime",progTime);store.set("progressDur",progDur);node._seekDone=true;return}
     try{player.seekTo(s,true)}catch(e){}
     node._seekDone=true;flashResume(node,s);
   };
@@ -6776,10 +6817,10 @@ function loadVideoInto(node,url,vid){
       try{fr.contentWindow.postMessage(JSON.stringify({method:"addEventListener",value:"ended"}),"*")}catch(e){}
       const s=prog[vid]||0;
       if(s>5){
-        // near-end guard (mirrors maybeResume): a bank within 10s of
-        // the end is a finished episode, never a resume point
+        // near-end guard (mirrors maybeResume): a bank inside the
+        // finished rule is a finished episode, never a resume point
         const d=progDur[vid]||0;
-        if(d>0&&s>d-10){ delete prog[vid]; delete progTime[vid]; try{store.set("progress",prog);store.set("progressTime",progTime);}catch(e){} }
+        if(progFinished(s,d)){ delete prog[vid]; delete progTime[vid]; delete progDur[vid]; try{store.set("progress",prog);store.set("progressTime",progTime);store.set("progressDur",progDur);}catch(e){} }
         else{
           try{fr.contentWindow.postMessage(JSON.stringify({method:"seekTo",value:s}),"*")}catch(e){}
           flashResume(node,s);
@@ -6835,7 +6876,7 @@ function pollProg(){
   saveProg(s);
 }
 setInterval(()=>{try{pollProg()}catch(e){}},5000);
-window.addEventListener("pagehide",()=>{try{pollProg()}catch(e){}});
+window.addEventListener("pagehide",()=>{try{pollProg()}catch(e){} try{syncProgRemote(true)}catch(e){}});
 window.addEventListener("message",e=>{
   try{
     const d=typeof e.data==="string"?JSON.parse(e.data):e.data;
@@ -6862,9 +6903,10 @@ window.addEventListener("message",e=>{
         const fr=n.querySelector("[data-frame]");
         if(n._vid&&fr&&fr.contentWindow===e.source){
           const s=Math.floor(d.value);
-          if(s>5){prog[n._vid]=s;progTime[n._vid]=Date.now(); if(n._dur>0)progDur[n._vid]=Math.floor(n._dur);}
+          if(s>5&&!progFinished(s,n._dur||progDur[n._vid]||0)){prog[n._vid]=s;progTime[n._vid]=Date.now(); if(n._dur>0)progDur[n._vid]=Math.floor(n._dur);}
           else{delete prog[n._vid];delete progTime[n._vid];delete progDur[n._vid];}
           store.set("progress",prog); store.set("progressTime",progTime); store.set("progressDur",progDur);
+          syncProgRemote();
         }
       });
     }
@@ -7330,12 +7372,14 @@ function cfArmWatchCredit(card,t){
    writes its live position before it is ever torn down, and applies the
    stored position every time it starts — so Home -> player -> Home (and
    scroll away -> back) all pick up at the same second, for every video. */
-function cfWriteProg(vid,s){
+function cfWriteProg(vid,s,d){
   if(!vid)return;
   s=Math.floor(s||0);
-  if(s>5){ prog[vid]=s; progTime[vid]=Date.now(); }
-  else{ delete prog[vid]; delete progTime[vid]; }
-  store.set("progress",prog); store.set("progressTime",progTime);
+  if(d>0)progDur[vid]=Math.floor(d);
+  if(s>5&&!progFinished(s,d||progDur[vid]||0)){ prog[vid]=s; progTime[vid]=Date.now(); }
+  else{ delete prog[vid]; delete progTime[vid]; delete progDur[vid]; }
+  store.set("progress",prog); store.set("progressTime",progTime); store.set("progressDur",progDur);
+  syncProgRemote();
 }
 function cfCardVid(){
   const card=cfActive; if(!card)return null;
@@ -7346,7 +7390,7 @@ function cfCapturePosSync(){
   try{
     if(!cfPlayer||cfPlayerKind==="vm")return;
     const vid=cfCardVid(); if(!vid)return;
-    cfWriteProg(vid, cfPlayer.getCurrentTime?cfPlayer.getCurrentTime():0);
+    cfWriteProg(vid, cfPlayer.getCurrentTime?cfPlayer.getCurrentTime():0, cfPlayer.getDuration?cfPlayer.getDuration()||0:0);
   }catch(e){}
 }
 function cfCapturePos(){
@@ -7355,7 +7399,7 @@ function cfCapturePos(){
       if(!cfPlayer)return res();
       if(cfPlayerKind!=="vm"){ cfCapturePosSync(); return res(); }
       const vid=cfCardVid(); if(!vid)return res();
-      cfPlayer.getCurrentTime().then(s=>{ cfWriteProg(vid,s||0); res(); }).catch(()=>res());
+      Promise.all([cfPlayer.getCurrentTime(),cfPlayer.getDuration?cfPlayer.getDuration():Promise.resolve(0)]).then(function(r){ cfWriteProg(vid,r[0]||0,r[1]||0); res(); }).catch(()=>res());
     }catch(e){ res(); }
   });
 }
@@ -7366,7 +7410,7 @@ function cfApplyResume(card){
     const vid=vidOf(cfEpUrl(t)); if(!vid)return;
     const s=prog[vid]||0; if(!(s>5))return;
     if(cfPlayerKind==="vm"){
-      cfPlayer.getDuration().then(d=>{ if(cfActive!==card)return; if(d>0&&s>d-10)return; cfPlayer.setCurrentTime(s).catch(()=>{}); }).catch(()=>{});
+      cfPlayer.getDuration().then(d=>{ if(cfActive!==card)return; if(progFinished(s,d))return; cfPlayer.setCurrentTime(s).catch(()=>{}); }).catch(()=>{});
     }else{
       maybeResume({_vid:vid,_seekDone:false,querySelector:()=>null},cfPlayer);
     }
@@ -8139,15 +8183,15 @@ function epIdxOf(eps,vid){
 function playEpisode(e,keep){
   const t=feed.cur; if(!t||!e||!e.verified||!e.url)return;
   feed.curEp=e;
-  // EPISODES START AT THE BEGINNING (his law, 2026-10-24): an episode
-  // entered as a NEW start — the binge auto-advance, an episode-row
-  // tap, an auto-skip — never inherits a saved position. A stale bank
-  // (left by an ambient card preview or an old session) used to ride
-  // into the next episode and start it at its end. The bank for THIS
-  // episode is wiped before the load, so no resume path can apply it.
-  // keep=true is only for same-watch handoffs (card -> stage on the
-  // episode already playing, error retry of the current episode).
-  if(!keep){ try{ const v=e.video_id||vidOf(e.url||""); if(v&&(prog[v]||progTime[v]||progDur[v])){ delete prog[v]; delete progTime[v]; delete progDur[v]; store.set("progress",prog); store.set("progressTime",progTime); store.set("progressDur",progDur); } }catch(err){} }
+  // RESUME ANYWHERE (his greenlight, 2026-10-29) supersedes the
+  // 2026-10-24 start-at-the-beginning law: an episode entered ANY way
+  // — episode-row tap, binge auto-advance, auto-skip, error retry —
+  // resumes at the viewer's banked second through loadVideoInto's
+  // resume paths; the bank is no longer wiped on entry. The old law's
+  // failure mode (a stale bank starting an episode at its end) is
+  // owned by the finished rule: inside the last 30s or past 95% the
+  // bank clears in saveProg/maybeResume, so nothing resumes into an
+  // ending. `keep` remains only as a caller hint, no longer a wipe.
   closeEpDrawer();
   const slide=curSlide();
   hideErrorCard(slide);
@@ -10052,10 +10096,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793303188"></script>
+<script src="js/folders.js?v=1793303696"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1793303188"></script>
+<script src="js/guide.js?v=1793303696"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10865,10 +10909,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793303188"></script>
-<script src="js/shortz-live.js?v=1793303188"></script>
-<script src="js/games.js?v=1793303188"></script>
-<script src="js/podcasts.js?v=1793303188"></script>
+<script src="js/streaming.js?v=1793303696"></script>
+<script src="js/shortz-live.js?v=1793303696"></script>
+<script src="js/games.js?v=1793303696"></script>
+<script src="js/podcasts.js?v=1793303696"></script>
 <script>
 
 
@@ -11386,7 +11430,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793303188"></script>
+<script src="js/swipe.js?v=1793303696"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12037,7 +12081,9 @@ async function authSyncLists(){
     const addOn=remoteRecent.filter(id=>id&&!seenIds.has(id)).map(id=>({id:id,ts:Date.now()}));
     history=[...history,...addOn].slice(0,30);
     try{store.set("history",history);}catch(e){}
+    mergeProgRemote(r); // Resume Anywhere: pull the account's positions in
     try{ await ref.update({saved:merged.slice(0,100),recent:history.map(h=>h.id).slice(0,30),ts:Date.now()}); }catch(e){}
+    try{ syncProgRemote(true); }catch(e){} // and push the merged set back up
   }catch(e){}
 }
 /* Pull remote lists into local (used on session restore). */
@@ -12055,6 +12101,7 @@ async function authPullLists(){
       const addOn=r.recent.filter(id=>id&&!seenIds.has(id)).map(id=>({id:id,ts:Date.now()}));
       if(addOn.length){ history=[...history,...addOn].slice(0,30); try{store.set("history",history);}catch(e){} }
     }
+    mergeProgRemote(r); // Resume Anywhere: session restore pulls positions too
   }catch(e){}
 }
 function isSignedIn(){
@@ -13618,8 +13665,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793303188"></script>
-<script src="js/agent.js?v=1793303188"></script>
+<script src="js/live-sports.js?v=1793303696"></script>
+<script src="js/agent.js?v=1793303696"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
