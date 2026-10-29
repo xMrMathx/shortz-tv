@@ -1,6 +1,17 @@
 {
  "kick": [
   {
+   "avatar": "https://files.kick.com/images/user/121588650/profile_image/conversion/e18babda-2762-43f7-8cc7-503bbd62a410-fullsize.webp",
+   "followers": "9",
+   "name": "Avennue_612",
+   "pinned": true,
+   "thumb": "https://images.kick.com/video_thumbnails/dtEfAzjU9DWJ/9pB0YwPUl9dH/720.webp",
+   "url": "https://kick.com/avennue-612",
+   "vod_hls": "https://stream.kick.com/0f3cb0ebce7/ivs/v1/196233775518/dtEfAzjU9DWJ/2026/10/27/23/39/9pB0YwPUl9dH/media/hls/master.m3u8",
+   "vod_id": 134627967,
+   "vod_title": "reviewing a 2 MONTH CURE"
+  },
+  {
    "avatar": "https://files.kick.com/images/user/94951600/profile_image/conversion/b4c012c9-344d-46ed-9756-125395c7f124-fullsize.webp",
    "category": "IRL / Boxing",
    "followers": "238609",
@@ -16,6 +27,7 @@
    "category": "IRL / Boxing",
    "followers": "467403",
    "name": "DeenTheGreat",
+   "pinned": true,
    "thumb": "https://images.kick.com/video_thumbnails/nnDwHw8EOliy/DFD7TV2zs0dX/720.webp",
    "url": "https://kick.com/deenthegreat",
    "vod_hls": "https://stream.kick.com/3c81249a5ce0/ivs/v1/196233775518/nnDwHw8EOliy/2026/10/12/18/30/DFD7TV2zs0dX/media/hls/master.m3u8",
@@ -359,7 +371,6 @@
    "channelId": "UCYxVAOXX7beQCyXb4OW_Z2g",
    "followers": "368000",
    "name": "ShowBizzTheAdult",
-   "pinned": true,
    "url": "https://www.youtube.com/@showbizztheadult"
   },
   {

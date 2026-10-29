@@ -9,9 +9,10 @@
    Channel slots/ownership become data in Piece 3 (owner panel); the
    roster below is the founding lineup from the crowned mock. */
 const SZ_CHANNELS=[
-  {ch:"SZ1", match:"showbizz",    name:"ShowBizz The Adult"},
-  {ch:"SZ2", match:"griffpierre", name:"GriffPierre"},
-  {ch:"SZ3", match:"deenthegreat",name:"Deen The Great"}
+  {ch:"SZ1", match:"avennue-612", name:"Avennue_612"},
+  {ch:"SZ2", match:"deenthegreat",name:"Deen The Great"},
+  {ch:"SZ3", match:"showbizz",    name:"ShowBizz The Adult"},
+  {ch:"SZ4", match:"griffpierre", name:"GriffPierre"}
 ];
 function szFindStreamer(def){
   try{
