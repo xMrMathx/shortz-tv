@@ -35,6 +35,13 @@
   "thumb": "https://i.ytimg.com/vi/nIVa9lxkbus/mqdefault.jpg"
  },
  {
+  "id": "stv-5032",
+  "title": "Star Trek Continues",
+  "genre": "Space",
+  "views": 4080064,
+  "thumb": "https://i.ytimg.com/vi/3G-ziTBAkbQ/mqdefault.jpg"
+ },
+ {
   "id": "stv-1991",
   "title": "Jake and Amir",
   "genre": "Comedy",
@@ -61,12 +68,5 @@
   "genre": "Comedy",
   "views": 1668170,
   "thumb": "https://i.ytimg.com/vi/0zAUx8xhl3Q/mqdefault.jpg"
- },
- {
-  "id": "stv-8050",
-  "title": "BlackBoxTV Presents",
-  "genre": "Horror",
-  "views": 751729,
-  "thumb": "https://i.ytimg.com/vi/88NtyUfPYvI/mqdefault.jpg"
  }
 ]
