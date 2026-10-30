@@ -2068254,11 +2068254,11 @@ window.SHORTZ_CATALOG = [
   "id": "stv-77556",
   "title": "DIESEL",
   "genre": "Zombie",
-  "eps": "3 eps",
-  "desc": "The world has ended, the supplies are running out, and the only way out is a road full of zombies. Alex survived the first days of the apocalypse locked inside his home; now his supplies are gone, and he has to drive the island's back roads to reach the port on the far side of the island, where escape may still be possible. Indie post-apocalyptic zombie survival web series — a road movie where everything depends on a car and a tank of diesel. Episode 1 out now. Episode 2 premieres Friday, October 30 at 2:00 PM CT — new episodes every Friday.",
+  "eps": "4 eps",
+  "desc": "The world has ended, the supplies are running out, and the only way out is a road full of zombies. Alex survived the first days of the apocalypse locked inside his home; now his supplies are gone, and he has to drive the island's back roads to reach the port on the far side of the island, where escape may still be possible. Indie post-apocalyptic zombie survival web series — a road movie where everything depends on a car and a tank of diesel. Episodes 1–2 out now. New episodes every Friday.",
   "url": "https://www.youtube.com/watch?v=wFY2bAqUoJk",
   "source_channel": "DIESEL Web Series",
-  "rights_basis": "Creators' official channel (@Dieselwebseries) — Episode 1 + teaser + trailer gate-passed 2026-10-30 (embeddable, public, not age-restricted, not live/upcoming).",
+  "rights_basis": "Creators' official channel (@Dieselwebseries) — Episodes 1–2 + teaser + trailer gate-passed 2026-10-30 (embeddable, public, not age-restricted, not live/upcoming).",
   "verified": true,
   "dateAdded": "2026-10-30",
   "ai_made": false,
@@ -2068273,6 +2068273,14 @@ window.SHORTZ_CATALOG = [
    },
    {
     "n": 2,
+    "title": "Ship of Hope",
+    "url": "https://www.youtube.com/watch?v=VkHkHu8viJM",
+    "video_id": "VkHkHu8viJM",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 3,
     "title": "Official Teaser",
     "url": "https://www.youtube.com/watch?v=VeK-2uJSVCw",
     "video_id": "VeK-2uJSVCw",
@@ -2068280,7 +2068288,7 @@ window.SHORTZ_CATALOG = [
     "verified": true
    },
    {
-    "n": 3,
+    "n": 4,
     "title": "Official Trailer",
     "url": "https://www.youtube.com/watch?v=eRuAhbJE1X4",
     "video_id": "eRuAhbJE1X4",
@@ -2068288,7 +2068296,7 @@ window.SHORTZ_CATALOG = [
     "verified": true
    }
   ],
-  "episodes_note": "Season 1 in progress (6 episodes planned): Episode 1 out now; Episode 2 premieres Friday, October 30, 2026 at 2:00 PM CT — new episodes every Friday. Official teaser, then official trailer, last."
+  "episodes_note": "Season 1 in progress (6 episodes planned): Episodes 1–2 out now — new episodes every Friday. Official teaser, then official trailer, last."
  }
 ]
 ;
