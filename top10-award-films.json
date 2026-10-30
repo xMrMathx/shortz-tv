@@ -28,6 +28,13 @@
   "thumb": "https://i.ytimg.com/vi/2GbxFIVQv8c/mqdefault.jpg"
  },
  {
+  "id": "stv-8073",
+  "title": "Snow Bear",
+  "genre": "Animation",
+  "views": 10056827,
+  "thumb": "https://i.ytimg.com/vi/xOXolSQcEb4/mqdefault.jpg"
+ },
+ {
   "id": "stv-8040",
   "title": "The Crush",
   "genre": "Short Films",
@@ -61,12 +68,5 @@
   "genre": "Documentary",
   "views": 2347417,
   "thumb": "https://i.ytimg.com/vi/DRW0auOiqm4/mqdefault.jpg"
- },
- {
-  "id": "stv-3688",
-  "title": "Room 8 - Winner of the BAFTA for Short Film 2014",
-  "genre": "Thriller",
-  "views": 2056958,
-  "thumb": "https://i.ytimg.com/vi/WJj_NMhYwf0/mqdefault.jpg"
  }
 ]
