@@ -7,6 +7,13 @@
   "thumb": "https://i.ytimg.com/vi/dNJdJIwCF_Y/mqdefault.jpg"
  },
  {
+  "id": "stv-8087",
+  "title": "La Bruxa",
+  "genre": "Animation",
+  "views": 26899186,
+  "thumb": "https://i.ytimg.com/vi/jFxaNN7JMag/mqdefault.jpg"
+ },
+ {
   "id": "stv-4489",
   "title": "The Silent Child",
   "genre": "Short Films",
@@ -61,12 +68,5 @@
   "genre": "Family",
   "views": 1882819,
   "thumb": "https://i.ytimg.com/vi/lvX6qlnSB3U/mqdefault.jpg"
- },
- {
-  "id": "stv-4890",
-  "title": "Toyland (Spielzeugland)",
-  "genre": "Drama",
-  "views": 1860817,
-  "thumb": "https://i.ytimg.com/vi/PwrySjp4J9Q/mqdefault.jpg"
  }
 ]
