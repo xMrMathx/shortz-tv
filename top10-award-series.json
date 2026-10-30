@@ -1,5 +1,12 @@
 [
  {
+  "id": "stv-096",
+  "title": "The Lizzie Bennet Diaries",
+  "genre": "Romance",
+  "views": 3763753,
+  "thumb": "https://i.ytimg.com/vi/KisuGP2lcPs/mqdefault.jpg"
+ },
+ {
   "id": "stv-8050",
   "title": "BlackBoxTV Presents",
   "genre": "Horror",
@@ -47,13 +54,6 @@
   "genre": "Comedy",
   "views": 41,
   "thumb": "https://i.ytimg.com/vi/1Wu24fwbud8/mqdefault.jpg"
- },
- {
-  "id": "stv-096",
-  "title": "The Lizzie Bennet Diaries",
-  "genre": "Romance",
-  "views": 0,
-  "thumb": "https://i.ytimg.com/vi/KisuGP2lcPs/mqdefault.jpg"
  },
  {
   "id": "stv-1571",
