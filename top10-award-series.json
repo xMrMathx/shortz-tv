@@ -28,6 +28,13 @@
   "thumb": "https://i.ytimg.com/vi/fjzzhMtiilU/mqdefault.jpg"
  },
  {
+  "id": "stv-6221",
+  "title": "Auto-Tune the News",
+  "genre": "Comedy",
+  "views": 2030140,
+  "thumb": "https://i.ytimg.com/vi/b0OzxvClwoU/mqdefault.jpg"
+ },
+ {
   "id": "stv-8050",
   "title": "BlackBoxTV Presents",
   "genre": "Horror",
@@ -61,12 +68,5 @@
   "genre": "Comedy",
   "views": 14011,
   "thumb": "https://i.ytimg.com/vi/b5sBSNkLWKY/mqdefault.jpg"
- },
- {
-  "id": "stv-8035",
-  "title": "195 Lewis",
-  "genre": "Drama",
-  "views": 5449,
-  "thumb": "https://i.ytimg.com/vi/ypTzmFpU-lE/mqdefault.jpg"
  }
 ]
