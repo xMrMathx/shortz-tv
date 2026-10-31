@@ -476,7 +476,7 @@
    },
    {
     "n": 2,
-    "title": "Murder in the the Parish - Why Does the Vicar Want Him Buried So Quickly? Episode 2",
+    "title": "Murder in the Parish - Why Does the Vicar Want Him Buried So Quickly? Episode 2",
     "video_id": "6fJo3tErRNc",
     "url": "https://www.youtube.com/embed/6fJo3tErRNc",
     "verified": true,
@@ -635,7 +635,8 @@
     "kind": "episode"
    }
   ],
-  "episodes_note": "21 episodes (S1E1-E14 + S2E1-S2E7), all oEmbed-verified. 2 playlist extras (trailer, S2 announcement) excluded."
+  "episodes_note": "21 episodes (S1E1-E14 + S2E1-S2E7), all oEmbed-verified. 2 playlist extras (trailer, S2 announcement) excluded.",
+  "art": "Br3UBVXbChI"
  },
  {
   "id": "stv-016",
@@ -970489,7 +970490,7 @@
   ],
   "url": "https://www.youtube.com/embed/8yT5cm8Q3Zk",
   "eps": "69 eps",
-  "desc": "Z Nation — series from FilmRise Television (69 episodes).",
+  "desc": "Three years after a zombie virus ends the world, a ragtag crew escorts the one immune survivor across America to a lab that can make a cure.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Television",
   "award_verified": false
@@ -1419848,86 +1419849,6 @@
   "episodes_note": "Complete series: Season 1 (Episodes 1-15) + Season 2 (Episodes 16-34), continuous numbering on the official channel."
  },
  {
-  "id": "stv-52410",
-  "title": "Fight of the Living Dead",
-  "genre": "Zombie",
-  "eps": "8 eps",
-  "desc": "YouTube stars are locked inside an abandoned jail and pitted against a zombie horde in a Survivor-style elimination game. BlackBoxTV reality web series (Joey Graceffa, iJustine, PrankvsPrank and more).",
-  "url": "https://www.youtube.com/watch?v=Jpg784McjKY",
-  "source_channel": "BlackBoxTV",
-  "rights_basis": "Official BlackBoxTV channel — all 8 parts gate-passed 2026-10-15 (embeddable, US-clear, not age-restricted).",
-  "verified": true,
-  "dateAdded": "2026-10-15",
-  "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "It Begins!",
-    "url": "https://www.youtube.com/watch?v=Jpg784McjKY",
-    "video_id": "Jpg784McjKY",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 2,
-    "title": "Help is Found",
-    "url": "https://www.youtube.com/watch?v=8oS1-baFAHk",
-    "video_id": "8oS1-baFAHk",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 3,
-    "title": "Safe No More",
-    "url": "https://www.youtube.com/watch?v=599iclgopLI",
-    "video_id": "599iclgopLI",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 4,
-    "title": "Showdown",
-    "url": "https://www.youtube.com/watch?v=kLFJ2mb0Yzo",
-    "video_id": "kLFJ2mb0Yzo",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 5,
-    "title": "Trust No One",
-    "url": "https://www.youtube.com/watch?v=w6CNTnAKyrg",
-    "video_id": "w6CNTnAKyrg",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 6,
-    "title": "Tests",
-    "url": "https://www.youtube.com/watch?v=lhkG5vqf_ck",
-    "video_id": "lhkG5vqf_ck",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 7,
-    "title": "Survival",
-    "url": "https://www.youtube.com/watch?v=NmbZ120SNTI",
-    "video_id": "NmbZ120SNTI",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
-    "n": 8,
-    "title": "Finale",
-    "url": "https://www.youtube.com/watch?v=rJlMxdeUgs4",
-    "video_id": "rJlMxdeUgs4",
-    "platform": "youtube",
-    "verified": true
-   }
-  ],
-  "episodes_note": "Season 1 complete: Episodes 1-7 + the Finale."
- },
- {
   "id": "stv-52411",
   "title": "Zombie with a Shotgun",
   "genre": "Zombie",
@@ -1447093,7 +1447014,7 @@
  {
   "id": "stv-53513",
   "title": "No Witnesses",
-  "genre": "Horror",
+  "genre": "Crime",
   "verified": true,
   "dateAdded": "2026-10-16",
   "episodes": [
@@ -1931452,7 +1931373,9 @@
     "platform": "youtube",
     "verified": true
    }
-  ]
+  ],
+  "art": "V2sH3XGiUns",
+  "runtime": "~42–43 min"
  },
  {
   "id": "stv-73071",
@@ -2068301,5 +2068224,78 @@
   "award_verified": false,
   "url": "https://www.youtube.com/embed/jyP3SYylkOk",
   "runtime": "39 min"
+ },
+ {
+  "id": "stv-77555",
+  "title": "Remain Calm",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-10-26",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Remain Calm",
+    "url": "https://www.youtube.com/embed/3ETZmhzURfQ",
+    "video_id": "3ETZmhzURfQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "eps": "1 ep",
+  "desc": "Two gas station clerks on a lonely night shift get a chilling warning: a creature that hunts by sensing anxiety is loose in the store, and the only way to survive it is to stay calm. Pauly Shore, Nick Swardson, and Doug Jones star in the Lewis Brothers' viral horror short.",
+  "rights_basis": "Official Lewis Brothers channel free upload; embed enabled; verified 2026-10-26.",
+  "source_channel": "The Lewis Brothers",
+  "award_verified": false,
+  "url": "https://www.youtube.com/embed/3ETZmhzURfQ",
+  "runtime": "14 min"
+ },
+ {
+  "id": "stv-77556",
+  "title": "DIESEL",
+  "genre": "Zombie",
+  "eps": "4 eps",
+  "desc": "The world has ended, the supplies are running out, and the only way out is a road full of zombies. Alex survived the first days of the apocalypse locked inside his home; now his supplies are gone, and he has to drive the island's back roads to reach the port on the far side of the island, where escape may still be possible. Indie post-apocalyptic zombie survival web series — a road movie where everything depends on a car and a tank of diesel. Episodes 1–2 out now. New episodes every Friday.",
+  "url": "https://www.youtube.com/watch?v=wFY2bAqUoJk",
+  "source_channel": "DIESEL Web Series",
+  "rights_basis": "Creators' official channel (@Dieselwebseries) — Episodes 1–2 + teaser + trailer gate-passed 2026-10-30 (embeddable, public, not age-restricted, not live/upcoming).",
+  "verified": true,
+  "dateAdded": "2026-10-30",
+  "ai_made": false,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alex",
+    "url": "https://www.youtube.com/watch?v=wFY2bAqUoJk",
+    "video_id": "wFY2bAqUoJk",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 2,
+    "title": "Ship of Hope",
+    "url": "https://www.youtube.com/watch?v=VkHkHu8viJM",
+    "video_id": "VkHkHu8viJM",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 3,
+    "title": "Official Teaser",
+    "url": "https://www.youtube.com/watch?v=VeK-2uJSVCw",
+    "video_id": "VeK-2uJSVCw",
+    "platform": "youtube",
+    "verified": true
+   },
+   {
+    "n": 4,
+    "title": "Official Trailer",
+    "url": "https://www.youtube.com/watch?v=eRuAhbJE1X4",
+    "video_id": "eRuAhbJE1X4",
+    "platform": "youtube",
+    "verified": true
+   }
+  ],
+  "episodes_note": "Season 1 in progress (6 episodes planned): Episodes 1–2 out now — new episodes every Friday. Official teaser, then official trailer, last."
  }
 ]
