@@ -374,7 +374,7 @@ body.pip .scrub{display:none!important}
 #detailArt{position:relative;height:300px;overflow:hidden;background:#0e0e15;margin:0 16px;border-radius:16px}
 .art-kb{position:absolute;top:-6%;left:-6%;width:112%;height:112%;animation:kenburns 26s ease-in-out infinite alternate;will-change:transform}
 @keyframes kenburns{from{transform:scale(1) translate(0,0) rotate(0deg)}to{transform:scale(1.22) translate(-2.5%,2%) rotate(.6deg)}}
-.art-kb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.art-kb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%}
 .art-shimmer{position:absolute;top:-20%;bottom:-20%;width:38%;left:-45%;transform:skewX(-18deg);
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);
   animation:shimmer 7s ease-in-out infinite;pointer-events:none;z-index:2}
@@ -510,6 +510,8 @@ body.rot-full #rotexit{display:block}
 .top10-head span{font-size:12px;color:var(--mut)}
 .top10-row{display:flex;gap:2px;overflow-x:auto;padding:6px 16px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .top10-row::-webkit-scrollbar{display:none}
+.top10-row::after{content:"";flex:0 0 14px}
+.award-row::after{content:"";flex:0 0 6px}
 .top10-item{position:relative;flex:0 0 auto;width:152px;cursor:pointer}
 .top10-num{position:absolute;left:0;bottom:36px;font-family:Arial,Helvetica,sans-serif;font-size:118px;font-weight:900;line-height:.8;color:#0a0a0a;-webkit-text-stroke:4px #e5e5e5;z-index:0;user-select:none;letter-spacing:-8px}
 .top10-item.wide{width:252px}
@@ -2502,7 +2504,7 @@ try{
   <div id="isheet" role="dialog" aria-label="Install Shortz VS">
     <div class="grab"></div>
     <h3>📲 Install Shortz VS</h3>
-    <ol>
+    <ol id="isheetSteps">
       <li>Tap the <b>Share</b> button (box with an arrow) in your browser</li>
       <li>Scroll down and tap <b>Add to Home Screen</b></li>
       <li>Tap <b>Add</b> — Shortz VS opens full-screen like a real app</li>
@@ -2558,7 +2560,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793461232";
+window.__SZ_BUILD = "1793464696";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -5591,11 +5593,11 @@ function rtEach(t){
   const r=String(t.runtime||"").trim();
   return r+((r&&!/each/i.test(r))?" each":"");
 }
-function metaLine(t,epLabel){
+function metaLine(t,epLabel,epObj){
   const p=[];
   const ep=String(epLabel||"")+(t.eps||"");
   if(ep.trim())p.push(ep.trim());
-  const rt=rtEach(t); if(rt)p.push(rt);
+  const rt=(epObj&&epObj.dur)?fmtTime(epObj.dur):rtEach(t); if(rt)p.push(rt);
   if(t.genre)p.push(t.genre);
   return p.join(" · ");
 }
@@ -5622,7 +5624,7 @@ function fillSlide(node,t,mode){
   const feps=t.episodes||[], fvid=vidOf(t.url||"");
   const fei=feps.findIndex(x=>(x.video_id||vidOf(x.url||""))===fvid);
   const feplabel = fei>=0 ? `Episode ${feps[fei].n||fei+1} of ${feps.length} · ` : "";
-  node.querySelector("[data-meta]").textContent=metaLine(t,feplabel)+(t.ai_made?" · ✦ Made with AI":"");
+  node.querySelector("[data-meta]").textContent=metaLine(t,feplabel,fei>=0?feps[fei]:null)+(t.ai_made?" · ✦ Made with AI":"");
   updateRailIn(node,t);
   if(mode==="current"){
     loadVideoInto(node,t.url,vidOf(t.url));
@@ -5994,7 +5996,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793461232";
+const BUILD="1793464696";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -7900,8 +7902,8 @@ function epRowTitle(e,partIdx){
 /* THE episode rows: one markup for the player drawer, the detail fold and
    the card fold. Catalog order IS the order (true order; trailers last). */
 function epRowsHTML(t){
-  const rt=t.runtime||"";
   return (t.episodes||[]).map((e,idx)=>{
+    const rt=e.dur?fmtTime(e.dur):(t.runtime||"");
     const k=e.kind||"episode", pi=partIdxOf(t,e);
     const num=epNumLabel(e,pi), title=epRowTitle(e,pi);
     const badge=!e.verified?`<span class="unbadge">Unavailable</span>`:k==="special"?`<span class="spbadge">SPECIAL</span>`:k==="compilation"?`<span class="cpbadge">COMPILATION</span>`:"";
@@ -8211,7 +8213,7 @@ function playEpisode(e,keep){
   if(meta){
     const eps=t.episodes||[], ei=eps.indexOf(e);
     const eplabel = ei>=0 ? `Episode ${e.n||ei+1} of ${eps.length} · ` : "";
-    meta.textContent=metaLine(t,eplabel)+(t.ai_made?" · ✦ Made with AI":"")+" · "+epRowTitle(e,partIdxOf(t,e));
+    meta.textContent=metaLine(t,eplabel,e)+(t.ai_made?" · ✦ Made with AI":"")+" · "+epRowTitle(e,partIdxOf(t,e));
   }
   pushHistory(t);
   toast("▶ "+epRowTitle(e,partIdxOf(t,e)));
@@ -8308,10 +8310,10 @@ function openDetail(id){
   const t=byId(id);if(!t)return;
   if(curView!=="detail")returnView=curView;
   const inList=mylist.has(id);
-  const big=thumb(t,"hq"); // hqdefault always exists for valid videos; sddefault 404s into a placeholder trap on some videos
+  const big=thumb(t,"sd"), bigFb=thumb(t,"hq"); // sd first for a sharper hero; the img onload swaps to hq if sd is YouTube's 120x90 placeholder
   $("#view-detail").innerHTML=`
     <section id="detailArt">
-      <div class="art-kb grain" style="background:${artBg(t.title)}">${big?`<img decoding="async" src="${big}" alt="" onerror="szImgErr(this)">`:""}</div>
+      <div class="art-kb grain" style="background:${artBg(t.title)}">${big?`<img decoding="async" src="${big}" alt="" onload="if(this.naturalWidth&&this.naturalWidth<=120&&!this.dataset.fb){this.dataset.fb=1;this.src='${bigFb}';}" onerror="szImgErr(this)">`:""}</div>
       <div class="art-scrim"></div>
       <div class="art-shimmer"></div>
       <button class="backbtn" id="dBack" aria-label="Back">‹</button>
@@ -8499,14 +8501,20 @@ function fmtViews(v){
 function renderAwardWinners(){
   const sec=$("#awardWinSec"),row=$("#awardWinRow");
   if(!sec||!row)return;
-  const PIN=["stv-4670","stv-4669","stv-4668","stv-4886","stv-4740","stv-5032","stv-5034","stv-096"];
+  const PIN=["stv-4670","stv-4669","stv-4668","stv-4886","stv-4740","stv-5032","stv-096"];
   const rest=[];
   try{ for(const t of C){ if(t.award_verified&&PIN.indexOf(t.id)<0)rest.push(t.id); } }catch(e){}
   for(let i=rest.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const tmp=rest[i];rest[i]=rest[j];rest[j]=tmp;}
   const ids=PIN.filter(id=>byId(id)).concat(rest).slice(0,24);
   if(!ids.length)return;
-  row.innerHTML=ids.map(id=>cardHTML(byId(id))).join("");
-  bindCards(row);
+  row.innerHTML=ids.map(id=>{const t=byId(id);const eps=t.episodes||[];
+    return `<div class="award-item" data-aid="${t.id}">
+      <img decoding="async" src="${esc(thumb(t,"mq"))}" alt="" loading="lazy" onerror="szImgErr(this)">
+      ${t.award_verified?'<span class="awardbadge" style="top:6px;left:6px" title="Award winner">🏆</span>':""}
+      <div class="award-t">${esc(t.title)}</div>
+      <div class="award-e">${eps.length>1?eps.length+" episodes":(t.runtime||"Short film")}</div>
+    </div>`;}).join("");
+  row.querySelectorAll("[data-aid]").forEach(el=>{el.onclick=()=>{if(el._lpFired){el._lpFired=false;return;}openDetail(el.dataset.aid);};});
   sec.style.display="";
   const all=$("#awardWinAll");
   if(all)all.onclick=()=>{renderBrowse(AWARD);};
@@ -8560,7 +8568,7 @@ async function renderComingSoon(){
 }
 /* award-winning carousels: films + series (IDs curated from catalog award mentions) */
 const AWARD_TOP_FILMS=["stv-4670","stv-4669","stv-4668","stv-4886","stv-4740"]; // Oscar winners: Last Repair Shop, Queen of Basketball, Colette, Sing, Sand Castle
-const AWARD_TOP_SERIES=["stv-5032","stv-5034","stv-5035","stv-5033","stv-4513","stv-096","stv-1571","stv-1749","stv-1715"]; // Continues #1, Phase II #2, Farragut #3, Mission Backup Earth #4, Zenith Run #5, then Lizzie Bennet, Creature Comforts, Emma Approved, Vox Borders
+const AWARD_TOP_SERIES=["stv-5032","stv-5035","stv-5033","stv-4513","stv-096","stv-1571","stv-1749","stv-1715"]; // Continues #1, Farragut #2, Mission Backup Earth #3, Zenith Run #4, then Lizzie Bennet, Creature Comforts, Emma Approved, Vox Borders (stv-5034 removed 2026-10-31: no longer in the catalog, it silently ate a slot)
 function loadAwardCarousels(){
   const fs=$("#awardFilmsSec"), fr=$("#awardFilmsRow");
   const ss=$("#awardSeriesSec"), sr=$("#awardSeriesRow");
@@ -10096,10 +10104,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793461232"></script>
+<script src="js/folders.js?v=1793464696"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1793461232"></script>
+<script src="js/guide.js?v=1793464696"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10750,7 +10758,7 @@ function installEngaged(){
 }
 function refreshInstallBtn(){
   const b=$("#installAppBtn");if(!b)return;
-  const show=!isStandalone()&&(!!deferredInstallPrompt||isIOS())&&installEngaged();
+  const show=!isStandalone(); // Profile is where he goes looking for it — the prompt/engagement gates kept it invisible on Android Chrome (family check 2026-10-31)
   b.style.display=show?"":"none";
 }
 function onInstallClick(){
@@ -10762,6 +10770,8 @@ function onInstallClick(){
   }
 }
 function openInstallSheet(){
+  const ol=$("#isheetSteps");
+  if(ol&&!isIOS())ol.innerHTML="<li>Tap the <b>⋮ menu</b> in your browser</li><li>Tap <b>Add to Home screen</b> (or <b>Install app</b>)</li><li>Tap <b>Add</b> — Shortz VS opens full-screen like a real app</li>";
   $("#iscrim").classList.add("open");$("#isheet").classList.add("open");
 }
 function closeInstallSheet(){
@@ -10909,10 +10919,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793461232"></script>
-<script src="js/shortz-live.js?v=1793461232"></script>
-<script src="js/games.js?v=1793461232"></script>
-<script src="js/podcasts.js?v=1793461232"></script>
+<script src="js/streaming.js?v=1793464696"></script>
+<script src="js/shortz-live.js?v=1793464696"></script>
+<script src="js/games.js?v=1793464696"></script>
+<script src="js/podcasts.js?v=1793464696"></script>
 <script>
 
 
@@ -11430,7 +11440,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793461232"></script>
+<script src="js/swipe.js?v=1793464696"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13665,8 +13675,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793461232"></script>
-<script src="js/agent.js?v=1793461232"></script>
+<script src="js/live-sports.js?v=1793464696"></script>
+<script src="js/agent.js?v=1793464696"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
