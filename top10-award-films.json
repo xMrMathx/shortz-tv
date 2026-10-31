@@ -28,6 +28,13 @@
   "thumb": "https://i.ytimg.com/vi/jFxaNN7JMag/mqdefault.jpg"
  },
  {
+  "id": "stv-4490",
+  "title": "The Neighbors' Window",
+  "genre": "Short Films",
+  "views": 21424708,
+  "thumb": "https://i.ytimg.com/vi/k1vCrsZ80M4/mqdefault.jpg"
+ },
+ {
   "id": "stv-8161",
   "title": "Save Ralph",
   "genre": "Animation",
@@ -61,12 +68,5 @@
   "genre": "Animation",
   "views": 10091649,
   "thumb": "https://i.ytimg.com/vi/UUlaseGrkLc/mqdefault.jpg"
- },
- {
-  "id": "stv-8073",
-  "title": "Snow Bear",
-  "genre": "Animation",
-  "views": 10056827,
-  "thumb": "https://i.ytimg.com/vi/xOXolSQcEb4/mqdefault.jpg"
  }
 ]
