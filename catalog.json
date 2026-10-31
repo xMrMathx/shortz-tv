@@ -2068297,5 +2068297,43 @@
    }
   ],
   "episodes_note": "Season 1 in progress (6 episodes planned): Episodes 1–2 out now — new episodes every Friday. Official teaser, then official trailer, last."
+ },
+ {
+  "id": "stv-77557",
+  "title": "MIMIC",
+  "genre": "Horror",
+  "runtime": "~2-14 min each",
+  "desc": "A shape-shifting entity copies the voices and faces of the people you trust most. Across a run of connected short films from The Noctuary, it wears a mother's face, answers a sister's call from the bottom of the stairs, and hunts through the Appalachian dark. Part 2 is not in this set yet — its upload is locked behind a sign-in wall; it joins the moment that opens up.",
+  "ai_made": true,
+  "source_channel": "The Noctuary",
+  "rights_basis": "Public YouTube embed",
+  "url": "https://www.youtube.com/embed/IohZ8XAAktE",
+  "dateAdded": "2026-10-31",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "MIMIC — Part 1",
+    "video_id": "IohZ8XAAktE",
+    "url": "https://www.youtube.com/embed/IohZ8XAAktE",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "MIMIC — Part 3",
+    "video_id": "92FfprbRLgg",
+    "url": "https://www.youtube.com/embed/92FfprbRLgg",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "MIMIC — Part 4",
+    "video_id": "XSk01xV_AE8",
+    "url": "https://www.youtube.com/embed/XSk01xV_AE8",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
  }
 ]
