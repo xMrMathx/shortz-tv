@@ -1,38 +1,6 @@
 {
   "events": [
     {
-      "id": "auto-huskerrs-1793132662-mar",
-      "title": "HusKerrs just went live \u2014 3+ hour stream?",
-      "sub": "Warzone",
-      "optA": "YES",
-      "optB": "NO",
-      "oddsA": "2.0",
-      "oddsB": "1.8",
-      "status": "resolved",
-      "winner": "A",
-      "auto": true,
-      "kind": "marathon",
-      "streamer": "HusKerrs",
-      "resolvedAt": 1793143469
-    },
-    {
-      "id": "auto-vs-1793132662-aydan-huskerrs",
-      "title": "\u2694\ufe0f Aydan vs HusKerrs \u2014 who peaks higher?",
-      "sub": "Warzone \u00b7 both live now",
-      "optA": "Aydan",
-      "optB": "HusKerrs",
-      "oddsA": "1.9",
-      "oddsB": "1.9",
-      "status": "resolved",
-      "winner": "A",
-      "auto": true,
-      "kind": "versus",
-      "streamer": "Aydan",
-      "streamerB": "HusKerrs",
-      "versus_key": "Aydan|HusKerrs",
-      "resolvedAt": 1793146163
-    },
-    {
       "id": "auto-huskerrs-1793147063-ms",
       "title": "HusKerrs is LIVE \u2014 hits 1,000 viewers?",
       "sub": "Warzone \u00b7 currently at 463 watching",
@@ -468,6 +436,35 @@
       "streamerB": "Symfuhny",
       "versus_key": "HusKerrs|Symfuhny",
       "resolvedAt": 1793591678
+    },
+    {
+      "id": "auto-symfuhny-1793623166-ms",
+      "title": "Symfuhny is LIVE \u2014 hits 2,500 viewers?",
+      "sub": "Warzone \u00b7 currently at 1,104 watching",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "1.9",
+      "oddsB": "1.9",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "milestone",
+      "streamer": "Symfuhny",
+      "target": 2500
+    },
+    {
+      "id": "auto-symfuhny-1793623166-mar",
+      "title": "Symfuhny just went live \u2014 3+ hour stream?",
+      "sub": "Warzone",
+      "optA": "YES",
+      "optB": "NO",
+      "oddsA": "2.0",
+      "oddsB": "1.8",
+      "status": "open",
+      "winner": null,
+      "auto": true,
+      "kind": "marathon",
+      "streamer": "Symfuhny"
     }
   ]
 }
