@@ -445,11 +445,12 @@
       "optB": "NO",
       "oddsA": "2.0",
       "oddsB": "1.8",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "A",
       "auto": true,
       "kind": "marathon",
-      "streamer": "Aydan"
+      "streamer": "Aydan",
+      "resolvedAt": 1793742867
     },
     {
       "id": "auto-vs-1793732064-aydan-huskerrs",
