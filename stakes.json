@@ -445,12 +445,13 @@
       "optB": "NO",
       "oddsA": "1.9",
       "oddsB": "1.9",
-      "status": "open",
-      "winner": null,
+      "status": "resolved",
+      "winner": "B",
       "auto": true,
       "kind": "milestone",
       "streamer": "HusKerrs",
-      "target": 500
+      "target": 500,
+      "resolvedAt": 1793667268
     },
     {
       "id": "auto-huskerrs-1793653772-mar",
