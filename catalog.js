@@ -2068433,6 +2068433,32 @@ window.SHORTZ_CATALOG = [
     "kind": "episode"
    }
   ]
+ },
+ {
+  "id": "stv-77558",
+  "title": "Grinlocke: The Boo Boo Games",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-02",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Grinlocke: The Boo Boo Games",
+    "url": "https://www.youtube.com/embed/EKvGLIUd2iU",
+    "video_id": "EKvGLIUd2iU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3665
+   }
+  ],
+  "url": "https://www.youtube.com/embed/EKvGLIUd2iU",
+  "video_id": "EKvGLIUd2iU",
+  "eps": "1 ep",
+  "runtime": "61 min",
+  "desc": "Twenty-five desperate contestants enter a deadly Antarctic maze game show for $10M, where an unlikely underdog captures America's heart. The first full-length GRINLOCKE movie: Boo Boo launches the maddest game show on Earth, and Grinlocke sets out to stop him.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "GRINLOCKE THE ANIME",
+  "award_verified": false
  }
 ]
 ;
