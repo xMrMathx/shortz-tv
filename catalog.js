@@ -2068459,6 +2068459,11961 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "Public YouTube embed",
   "source_channel": "GRINLOCKE THE ANIME",
   "award_verified": false
+ },
+ {
+  "id": "stv-77559",
+  "title": "Murder Among Friends",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Murder Among Friends",
+    "url": "https://www.youtube.com/embed/skmYK1jBIoo",
+    "video_id": "skmYK1jBIoo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5185
+   }
+  ],
+  "url": "https://www.youtube.com/embed/skmYK1jBIoo",
+  "video_id": "skmYK1jBIoo",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Fourteen years after graduating from college, a group of friends get together for a weekend to celebrate one of them getting married. When one of them dies, old secrets, wounds and lies emerge. Presented By Radial Entertainment",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "FilmRise Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77560",
+  "title": "Murder At The Mansion",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Murder At The Mansion",
+    "url": "https://www.youtube.com/embed/X41y8Sb78Ao",
+    "video_id": "X41y8Sb78Ao",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5333
+   }
+  ],
+  "url": "https://www.youtube.com/embed/X41y8Sb78Ao",
+  "video_id": "X41y8Sb78Ao",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "A bride-to-be becomes suspicious of her fiancee's family while planning their wedding at his remote countryside estate. Presented By Radial Entertainment",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "FilmRise Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77561",
+  "title": "The Perfect Stalker",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Perfect Stalker",
+    "url": "https://www.youtube.com/embed/mzHsEll-Fxo",
+    "video_id": "mzHsEll-Fxo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5355
+   }
+  ],
+  "url": "https://www.youtube.com/embed/mzHsEll-Fxo",
+  "video_id": "mzHsEll-Fxo",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "The Perfect Stalker exists only in the imagination of Grace Winston, a woman who kills her husband and then uses the imaginary character to get her neighbor to \"love and protect\" her! Presented By Radial Entertainment",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "FilmRise Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77562",
+  "title": "Community Theatre Christmas",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Community Theatre Christmas",
+    "url": "https://www.youtube.com/embed/SiL1wtNLvPE",
+    "video_id": "SiL1wtNLvPE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5569
+   }
+  ],
+  "url": "https://www.youtube.com/embed/SiL1wtNLvPE",
+  "video_id": "SiL1wtNLvPE",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "A community theater competes for a state grant that is needed to keep the doors of the theater open. Meanwhile, they race to get their first, original Christmas play up and running while everything falls apart. Please visit our website to get more information: 🔗 Stay Connected With Us. 👉 Facebook: 👉 Instagram: 👉 Threads: 👉 Twitter (X): 👉 Website: 📩 For Business Inquiries: indierights@gmail.com ============================= 🎬 Recommended Playlists 👉 All Channel Films 👉 Free Thrillers 🎬 WATCH OUR OTHER VIDEOS: 👉 Vendetta Road (2023) | Full Movie 👉 Anu (2023) | Full Movie | Adventure | Drama 👉 A",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Indie Rights Movies For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77563",
+  "title": "Echo Point",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Echo Point",
+    "url": "https://www.youtube.com/embed/mqA90PR0TMM",
+    "video_id": "mqA90PR0TMM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3723
+   }
+  ],
+  "url": "https://www.youtube.com/embed/mqA90PR0TMM",
+  "video_id": "mqA90PR0TMM",
+  "eps": "1 ep",
+  "runtime": "62 min",
+  "desc": "After the death of his estranged father, a man inherits a remote cabin deep in the woods, driven by curiosity he discovers an old ham radio that emits, strange, unsettling transmissions. What begins purely as curiosity quickly turns into obsession and danger as the voices grow clear. He soon realizes that the voices belong to victims of a killer, preserved somehow within the radio's signal. As he digs deeper, the line between past and present begin to blur. The voices aren't just echoes they're trying to warn him. With each transmission, the truth surrounding his father and the cabin becomes",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Indie Rights Movies For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77564",
+  "title": "Informal Crooks",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Informal Crooks",
+    "url": "https://www.youtube.com/embed/2VsNoZG6rn4",
+    "video_id": "2VsNoZG6rn4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4743
+   }
+  ],
+  "url": "https://www.youtube.com/embed/2VsNoZG6rn4",
+  "video_id": "2VsNoZG6rn4",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Set in Los Angeles in the mid-90s, four young criminals are caught while robbing a bail bond store. When interrogated by the sharp Detective Keane, they all tell their version of the facts. Who is telling the truth? Please visit our website to get more information: 🔗 Stay Connected With Us. 👉 Facebook: 👉 Instagram: 👉 Threads: 👉 Twitter (X): 👉 Website: 📩 For Business Inquiries: indierights@gmail.com ============================= 🎬 Recommended Playlists 👉 All Channel Films 👉 Free Thrillers 🎬 WATCH OUR OTHER VIDEOS: 👉 Vendetta Road (2023) | Full Movie 👉 Anu (2023) | Full Movie | Adventure |",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Indie Rights Movies For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77565",
+  "title": "What About Us",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "What About Us",
+    "url": "https://www.youtube.com/embed/MZXGT3PpTug",
+    "video_id": "MZXGT3PpTug",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6578
+   }
+  ],
+  "url": "https://www.youtube.com/embed/MZXGT3PpTug",
+  "video_id": "MZXGT3PpTug",
+  "eps": "1 ep",
+  "runtime": "110 min",
+  "desc": "\"What About Us?\" is not just a story about three boys from Flint; it's a universal tale of struggle, love, and the quest for a better tomorrow. It’s a powerful narrative that encourages viewers to reflect on their own lives and the impact of their decisions on the next generation. Please visit our website to get more information: 🔗 Stay Connected With Us. 👉 Facebook: 👉 Instagram: 👉 Threads: 👉 Twitter (X): 👉 Website: 📩 For Business Inquiries: indierights@gmail.com ============================= 🎬 Recommended Playlists 👉 All Channel Films 👉 Free Thrillers 🎬 WATCH OUR OTHER VIDEOS: 👉 Vendetta",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Indie Rights Movies For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77566",
+  "title": "100 Tears",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "100 Tears",
+    "url": "https://www.youtube.com/embed/Rgm0gy7wN8Y",
+    "video_id": "Rgm0gy7wN8Y",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5498
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Rgm0gy7wN8Y",
+  "video_id": "Rgm0gy7wN8Y",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "Investigative reporters Mark Webb and Jennifer Stevenson believe they may have finally found their big story when a tip puts them on the trail of a brutal serial killer. Their investigation leads them into the world of carnival performers — and directly toward a murderous figure whose legend has been written in blood. Years earlier, a lonely circus performer was falsely accused of horrific crimes and violently cast out by those around him. What began as revenge transformed him into an unstoppable killer known as Gurdy the Clown, leaving massacres behind wherever the circus travels. Now Mark",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77567",
+  "title": "A Halloween Feast",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Halloween Feast",
+    "url": "https://www.youtube.com/embed/uW1svolQz4M",
+    "video_id": "uW1svolQz4M",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6044
+   }
+  ],
+  "url": "https://www.youtube.com/embed/uW1svolQz4M",
+  "video_id": "uW1svolQz4M",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "desc": "Former ballerina Angela is beginning to unravel, and her increasingly unpredictable behavior leaves her dysfunctional family struggling to hold everything together. After an infamous family dinner sends their lives spiraling into chaos, buried tensions, secrets, and increasingly bizarre circumstances threaten to tear everyone apart. Eventually, everything comes to a head at a Halloween party where the family’s skeletons — figurative and otherwise — are ready to come out. A HALLOWEEN FEAST mixes dysfunctional family drama, madness, absurdity, and gruesome dark comedy into one wildly",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77568",
+  "title": "Bigfoot Is Still Out There",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bigfoot Is Still Out There",
+    "url": "https://www.youtube.com/embed/gyXuhGG1Hh4",
+    "video_id": "gyXuhGG1Hh4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3860
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gyXuhGG1Hh4",
+  "video_id": "gyXuhGG1Hh4",
+  "eps": "1 ep",
+  "runtime": "64 min",
+  "desc": "Deep in the woods surrounding Monroe, Michigan, stories have persisted for decades about an upright, hair-covered creature stalking the outskirts of town. The legend of the Monroe Monster exploded during a series of frightening sightings in the 1960s — but more than half a century later, people are still reporting encounters. BIGFOOT IS STILL OUT THERE: THE MONROE MONSTER MYSTERY reopens one of Michigan’s most enduring cryptid cases, combining the history of the original sightings with new eyewitness testimony and modern reports. The investigation features the son of an original witness,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77569",
+  "title": "Creature Fear",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Creature Fear",
+    "url": "https://www.youtube.com/embed/4erSBvnV-i0",
+    "video_id": "4erSBvnV-i0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4896
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4erSBvnV-i0",
+  "video_id": "4erSBvnV-i0",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "In a small Wisconsin lake town, a starving felon eats diseased venison and begins a horrifying descent into madness. As his condition worsens and his behavior becomes increasingly violent, two musicians are pulled into the path of his unraveling — threatening their lives and the future they hoped to build together. CREATURE FEAR is a dark psychological horror film where sickness, desperation, and escalating violence collide in an isolated small-town setting. Written and directed by Manny Gumina, the film stars Natalie Gerene, Billy Chengary, Jarrod Langwinski, Jimmy Romano, David Precour,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77570",
+  "title": "Curse of the Slasher Nurse",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Curse of the Slasher Nurse",
+    "url": "https://www.youtube.com/embed/7veif_9PpMA",
+    "video_id": "7veif_9PpMA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5225
+   }
+  ],
+  "url": "https://www.youtube.com/embed/7veif_9PpMA",
+  "video_id": "7veif_9PpMA",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "A group of friends heads to a secluded cabin in the woods for a weekend of drinking, partying, and getting away from it all. Far from civilization, they settle in for what should be a weekend they’ll never forget. But when a frightening story about a deranged woman dressed in a nurse’s uniform begins sounding less like fiction, their isolated getaway takes a bloody turn. An escaped mental patient is on the loose, and the friends soon find themselves fighting to survive a nightmare they never believed was real. CURSE OF THE SLASHER NURSE is an old-school indie slasher packed with",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77571",
+  "title": "Demon Queen Pinball Machine",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Demon Queen Pinball Machine",
+    "url": "https://www.youtube.com/embed/ukR3uclGwQI",
+    "video_id": "ukR3uclGwQI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5510
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ukR3uclGwQI",
+  "video_id": "ukR3uclGwQI",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "Derrick and Max are two broke video-store owners looking to make some extra cash when they accept what should be an easy delivery job: transport a vintage pinball machine to a mysterious customer. There’s just one problem. The pinball machine is possessed. Unbeknownst to the pair, a vicious revenge spirit is attached to the game. Along the way they cross paths with occult specialist River, who becomes caught in the machine’s supernatural influence. Once the pinball machine reaches its destination and the game is activated, all hell breaks loose as the Demon Queen emerges to collect what she",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77572",
+  "title": "Grimmwood",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Grimmwood",
+    "url": "https://www.youtube.com/embed/36u6KY2Eu0Q",
+    "video_id": "36u6KY2Eu0Q",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5956
+   }
+  ],
+  "url": "https://www.youtube.com/embed/36u6KY2Eu0Q",
+  "video_id": "36u6KY2Eu0Q",
+  "eps": "1 ep",
+  "runtime": "99 min",
+  "desc": "Every year, the anniversary of an accused witch’s execution hangs over the small town of Grimmwood. But when people begin mysteriously dying around that same date, an old local legend starts looking much less like folklore. A depressed journalist returns to his hometown alongside his teenage sister, determined to separate fact from superstition and uncover what is really happening. As they dig deeper into the town’s history, the siblings discover that the deaths may be connected to something that has haunted Grimmwood for generations — and the truth behind the curse could be far more",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77573",
+  "title": "Halloween Hell",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Halloween Hell",
+    "url": "https://www.youtube.com/embed/E2y8bI8zA5g",
+    "video_id": "E2y8bI8zA5g",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5194
+   }
+  ],
+  "url": "https://www.youtube.com/embed/E2y8bI8zA5g",
+  "video_id": "E2y8bI8zA5g",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Six young contestants accept the ultimate Halloween challenge: spend the entire night locked inside a room with a supposedly possessed Devil Doll for a chance to win $100,000. Everything happening inside is captured by surveillance cameras and broadcast to a pay-per-view audience watching from home. The doll is rumored to house a demon and to have been connected to deaths stretching back generations — but the contestants have much more to worry about than an urban legend. Their reality show is being controlled by a psychotic host who believes he is Count Dracula, and as Halloween night",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77574",
+  "title": "Horrorbuku",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Horrorbuku",
+    "url": "https://www.youtube.com/embed/3u6mFoMgxvw",
+    "video_id": "3u6mFoMgxvw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5284
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3u6mFoMgxvw",
+  "video_id": "3u6mFoMgxvw",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "A struggling horror author searching for inspiration discovers an ancient wooden mask that looks exactly like one from his own novels. The mask begins compelling him to write again — but the deeper he falls into his new story, the harder it becomes to tell where his fiction ends and reality begins. As his grip on reality fractures, a strange doppelgänger enters his life and battles for control of his creative direction. Meanwhile, the novel unfolding on the page transports the story to Malaysia, where a family becomes entangled in its own increasingly supernatural and dangerous nightmare. Two",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77575",
+  "title": "Possession: The Ingloda Within",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Possession: The Ingloda Within",
+    "url": "https://www.youtube.com/embed/cI_6S9R8E6o",
+    "video_id": "cI_6S9R8E6o",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5988
+   }
+  ],
+  "url": "https://www.youtube.com/embed/cI_6S9R8E6o",
+  "video_id": "cI_6S9R8E6o",
+  "eps": "1 ep",
+  "runtime": "100 min",
+  "desc": "Kelly Wells is a young woman trying to build a new life when news of her estranged mother’s death brings painful memories from her past rushing back. Soon, buried anger begins manifesting as disturbing voices, hallucinations, and increasingly unpredictable behavior that her closest friends can no longer ignore. When Kelly turns to the uncle who raised her for answers, disturbing revelations about her childhood push her even further toward the edge. As the boundary between reality and delusion begins to disappear, her friends desperately try to reach her before Kelly loses herself completely —",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77576",
+  "title": "Return of the Slasher Nurse",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Return of the Slasher Nurse",
+    "url": "https://www.youtube.com/embed/aPOTUMrznwA",
+    "video_id": "aPOTUMrznwA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4199
+   }
+  ],
+  "url": "https://www.youtube.com/embed/aPOTUMrznwA",
+  "video_id": "aPOTUMrznwA",
+  "eps": "1 ep",
+  "runtime": "70 min",
+  "desc": "Six years after a group of friends vanished during a trip to a secluded cabin in the woods, Kara refuses to give up on discovering what happened to her older sister. When she learns that the detective investigating the disappearances is retiring, Kara decides she can no longer wait for someone else to find the answers. With the help of the sibling of another person who disappeared that night, Kara takes the investigation into her own hands. But their search for the truth leads them toward something they may wish had stayed buried. They wanted answers. What they get is the return of the",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77577",
+  "title": "The Halloween Double Trouble Horror Show",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Halloween Double Trouble Horror Show",
+    "url": "https://www.youtube.com/embed/vNRXvwE3XJM",
+    "video_id": "vNRXvwE3XJM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4889
+   }
+  ],
+  "url": "https://www.youtube.com/embed/vNRXvwE3XJM",
+  "video_id": "vNRXvwE3XJM",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Young Tabitha is consumed by jealousy and rage, leaving her vulnerable to the influence of a sinister witch. Drawn deeper under her control, Tabitha is instructed down a path of pure evil as the witch begins putting a much darker plan into motion. But revenge is only the beginning. The witch intends to unleash an unholy abomination from the depths of Hell, setting the stage for a vicious and seemingly unstoppable killing spree. What begins with one young woman’s anger becomes a supernatural Halloween nightmare with consequences far beyond anything she could have imagined. THE HALLOWEEN DOUBLE",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77578",
+  "title": "The Stalking",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Stalking",
+    "url": "https://www.youtube.com/embed/Abr4ybmdijU",
+    "video_id": "Abr4ybmdijU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4374
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Abr4ybmdijU",
+  "video_id": "Abr4ybmdijU",
+  "eps": "1 ep",
+  "runtime": "73 min",
+  "desc": "Halloween night takes a terrifying turn when an evil witch conjures dark spirits and transforms them into malignant sunflower creatures, unleashing them on an unsuspecting suburban town. As supernatural chaos spreads through the neighborhood, a group of bullied teenagers finds themselves caught directly in the nightmare. With danger closing in from every direction, the teens must band together and fight to survive the bizarre creatures stalking the town — along with the other horrors waiting for them after dark. What should have been one night of costumes and scares becomes a very real battle",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Kings of Horror",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77579",
+  "title": "Christmas for the Soul",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Christmas for the Soul",
+    "url": "https://www.youtube.com/embed/9bKHCRU4m7Y",
+    "video_id": "9bKHCRU4m7Y",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5120
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9bKHCRU4m7Y",
+  "video_id": "9bKHCRU4m7Y",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Soul food, family secrets, and a Christmas Eve dinner that goes off the rails! 🎄😂 Leslie Ross agrees to cater for the dysfunctional Shaw family—but rivalries and a pie-throwing incident turn dinner into holiday chaos. With her father’s restaurant struggling, she has more at stake than what’s on the menu. Would you stay for dessert or grab a plate and leave? 👀 🎬 Christmas for the Soul Starring Fatima, Trazi Lashawn, Lakesha Logan, and Orlando Eric Street. Directed by Aaron L. Williams. About Maverick ► More Movies, Free on YouTube: Full Length Movies » instagram • facebook • twitter • tiktok •",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77580",
+  "title": "Curfew: Sins of the Father",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Curfew: Sins of the Father",
+    "url": "https://www.youtube.com/embed/HziWdpePIhw",
+    "video_id": "HziWdpePIhw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4829
+   }
+  ],
+  "url": "https://www.youtube.com/embed/HziWdpePIhw",
+  "video_id": "HziWdpePIhw",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Former police captain Thomas Cooper, once a respected figure, finds himself entangled in a dangerous deal with a notorious crime boss. His involvement leads to a love triangle and ultimately a betrayal. Now, haunted by his past, Thomas must confront the consequences when his son, Christian, becomes a target of the crime boss's revenge. Learn more about Curfew: Sins of the Father: About Maverick ► More Movies, Free on YouTube: Full Length Movies » instagram • facebook • twitter • tiktok • Check out the Maverick Free Black Cinema App! On Roku, Amazon Fire and Vizio: Roku » FireTV » Vizio",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77581",
+  "title": "Grit",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Grit",
+    "url": "https://www.youtube.com/embed/fdb6ofP2ViM",
+    "video_id": "fdb6ofP2ViM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6636
+   }
+  ],
+  "url": "https://www.youtube.com/embed/fdb6ofP2ViM",
+  "video_id": "fdb6ofP2ViM",
+  "eps": "1 ep",
+  "runtime": "111 min",
+  "desc": "Three estranged brothers, Jason Jarell, and Josiah, are brought together by their sister Laura's death. The brothers make a pact to uncover the truth behind her murder, setting off a perilous journey into the dark political world, where they forge unexpected alliances in order to get justice for Laura. Learn more about Grit: More Movies, Free on YouTube: Full Length Movies » Urban Movies » Gospel & Inspirational » Action » Comedy » Thrillers » Drama » Trailers » instagram • facebook • twitter • tiktok • Check out the Maverick Free Black Cinema App! On: Roku » FireTV » Vizio WatchFree »",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77582",
+  "title": "Holiday Heist",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Holiday Heist",
+    "url": "https://www.youtube.com/embed/O1qHR7g3jRc",
+    "video_id": "O1qHR7g3jRc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4783
+   }
+  ],
+  "url": "https://www.youtube.com/embed/O1qHR7g3jRc",
+  "video_id": "O1qHR7g3jRc",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Raymond’s holiday plans unravel when his divorced parents arrive early—and a snowstorm traps everyone inside. Then the family discovers that his mother’s new boyfriend is a con artist who has swindled them all. To turn the tables, his parents must put their differences aside. Watch Holiday Heist, a Christmas thriller packed with family tension, deception, and unexpected teamwork. About Maverick ► Join Members Only » See the Members Only Playlist » Maverick's Movie Subscription - New Releases, No Limits, Ad Free More Movies, Free on YouTube: Full Length Movies » Urban Movies » Gospel &",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77583",
+  "title": "Love and Leftovers",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Love and Leftovers",
+    "url": "https://www.youtube.com/embed/OG1n91kBajI",
+    "video_id": "OG1n91kBajI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5426
+   }
+  ],
+  "url": "https://www.youtube.com/embed/OG1n91kBajI",
+  "video_id": "OG1n91kBajI",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Jacob has the talent to open his own restaurant, but his relationship with demanding girlfriend Drina is holding him back. When grounded, strong-willed Lisa recognizes his potential, he must choose between the life he knows and the possibility of something new. Watch Love and Leftovers, a holiday romance about ambition, complicated relationships, and finding someone who believes in you. About Maverick ► More Movies, Free on YouTube: Full Length Movies » instagram • facebook • twitter • tiktok • Check out the Maverick Free Black Cinema App! On Roku, Amazon Fire and Vizio: Roku » FireTV » Vizio",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77584",
+  "title": "Nowhere to be Found",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Nowhere to be Found",
+    "url": "https://www.youtube.com/embed/pSaGCWffxy4",
+    "video_id": "pSaGCWffxy4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6291
+   }
+  ],
+  "url": "https://www.youtube.com/embed/pSaGCWffxy4",
+  "video_id": "pSaGCWffxy4",
+  "eps": "1 ep",
+  "runtime": "105 min",
+  "desc": "Two sisters go on a senior trip to Mexico, led by Ava's boyfriend Trent. Meanwhile, journalist Jessica Vandross is going to the same Mexican town in search of her sister's killer after escaping a trafficking ring. These stories collide, in a thrilling fight for their lives. Learn more about this film: About Maverick ► Join Members Only » See the Members Only Playlist » Maverick's Movie Subscription - New Releases, No Limits, Ad Free More Movies, Free on YouTube: Full Length Movies » Urban Movies » Gospel & Inspirational » Action » Comedy » Thrillers » Drama » Trailers » instagram • facebook •",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77585",
+  "title": "Redemption",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Redemption",
+    "url": "https://www.youtube.com/embed/U_HMNev_vvg",
+    "video_id": "U_HMNev_vvg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 9495
+   }
+  ],
+  "url": "https://www.youtube.com/embed/U_HMNev_vvg",
+  "video_id": "U_HMNev_vvg",
+  "eps": "1 ep",
+  "runtime": "158 min",
+  "desc": "Your past doesn’t have the final word. Lost in grief, Chris looks for comfort in the wrong crowd. An encounter with the mysterious Patrick leads him down a dangerous path, forcing him to confront his morality and the consequences of his decisions. Watch Redemption, a faith-based drama exploring grief, temptation, accountability, and the possibility of a new beginning. About Maverick ► Join Members Only » See the Members Only Playlist » Maverick's Movie Subscription - New Releases, No Limits, Ad Free More Movies, Free on YouTube: Full Length Movies » instagram • facebook • twitter • tiktok •",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77586",
+  "title": "The Kitty Hallow Killer",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Kitty Hallow Killer",
+    "url": "https://www.youtube.com/embed/ttUoIcWUUUw",
+    "video_id": "ttUoIcWUUUw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5554
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ttUoIcWUUUw",
+  "video_id": "ttUoIcWUUUw",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "A serial killer is on the loose in Houston killing pedophiles and rapists. When Mason and Jessica get into a horrible car accident on their wedding day, Jessica wakes up with no memory of her life or even her husband. As her memories start to come back in pieces, she is afraid that her husband, Mason, could be The Kitty Hallow Killer. About Maverick ► More Movies, Free on YouTube: Full Length Movies » instagram • facebook • twitter • tiktok •",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77587",
+  "title": "Toxic Friendz",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Toxic Friendz",
+    "url": "https://www.youtube.com/embed/gDTYyfiMWXM",
+    "video_id": "gDTYyfiMWXM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4969
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gDTYyfiMWXM",
+  "video_id": "gDTYyfiMWXM",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "One Halloween party. Too many secrets. Kelly reluctantly steps outside her routine to attend her company’s Halloween party, only to find herself caught in a night of shocking revelations and twisted friendships. As reality blurs, one question remains: who is the real villain? Watch Toxic Friendz, starring Kelly Kellz, Donald Tanner, Cocoa Brown, and Veronica Baldwin. About Maverick ► Join Members Only » See the Members Only Playlist » Maverick's Movie Subscription - New Releases, No Limits, Ad Free More Movies, Free on YouTube: Full Length Movies » instagram • facebook • twitter • tiktok •",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Maverick Movies",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77588",
+  "title": "A Christmas Reunion",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Christmas Reunion",
+    "url": "https://www.youtube.com/embed/OxWHXFCcofY",
+    "video_id": "OxWHXFCcofY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5230
+   }
+  ],
+  "url": "https://www.youtube.com/embed/OxWHXFCcofY",
+  "video_id": "OxWHXFCcofY",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Former Sweethearts Fall In Love Again This Christmas | A Christmas Reunion | Romance Christmas Film A Christmas Reunion is a heartwarming holiday romance that reunites two former high school sweethearts through an unexpected inheritance. Chloe Vance (Denise Richards) has spent years building a fast-paced life in Chicago, trying to forget the heartbreak of leaving her hometown and her first love, Julian Briggs (Patrick Muldoon). When beloved local figure Mrs. Higgins passes away, Chloe returns to the snowy town of Silver Falls for the funeral, only to learn that Mrs. Higgins' will leaves her",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77589",
+  "title": "A Haunting in Salem",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Haunting in Salem",
+    "url": "https://www.youtube.com/embed/MMiioiGmMUM",
+    "video_id": "MMiioiGmMUM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5148
+   }
+  ],
+  "url": "https://www.youtube.com/embed/MMiioiGmMUM",
+  "video_id": "MMiioiGmMUM",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Sheriff Moves Family Into A Cursed Salem House | A Haunting in Salem | Full 2026 Horror Movie - A Haunting in Salem is a spine-chilling indie horror film centered on a sheriff who relocates his family to Salem, Massachusetts, in search of a fresh start, only to discover the house they've moved into is plagued by an ancient curse. Haunted by malicious spirits with no intention of sharing their home peacefully, the family finds unexplained events escalating around them as the true history of the house comes to light. The film stars Bill Oberst Jr., Courtney Abbiati, Jenna Stone, Carey Van Dyke,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77590",
+  "title": "A Holiday to Remember",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Holiday to Remember",
+    "url": "https://www.youtube.com/embed/G6R5vBHuY1I",
+    "video_id": "G6R5vBHuY1I",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5664
+   }
+  ],
+  "url": "https://www.youtube.com/embed/G6R5vBHuY1I",
+  "video_id": "G6R5vBHuY1I",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "She Reunites With Her First Love On Christmas | A Holiday to Remember | Full Christmas Romance Film - A Holiday to Remember is a tender holiday romance that captures the warmth of coming home for the holidays. The story follows a recently divorced mother who returns to her small South Carolina hometown for the holiday season, only to be unexpectedly reunited with her first love. The film features Connie Sellecca alongside Randy Travis (country music legend) and Rue McClanahan (The Golden Girls), with Asia Vieira and Brenda Bazinet rounding out the cast, delivering a heartfelt story of second",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77591",
+  "title": "A Perfect Christmas List",
+  "genre": "Family",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Perfect Christmas List",
+    "url": "https://www.youtube.com/embed/k3qUjBIrTdU",
+    "video_id": "k3qUjBIrTdU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5363
+   }
+  ],
+  "url": "https://www.youtube.com/embed/k3qUjBIrTdU",
+  "video_id": "k3qUjBIrTdU",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Grandma's Christmas Plan To Save Her Family | A Perfect Christmas List | Full Family Christmas Film - A woman concocts a scheme to repair the damaged relationship between her daughter and granddaughter. A Perfect Christmas List is a heartwarming holiday comedy drama about a grandmother who hatches a clever Christmas scheme to repair the damaged relationship between her daughter and granddaughter. Determined to mend old wounds and bring her family back together before the holidays slip away, she sets her plan into motion with equal parts humor and heart. The film brings together a warm",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77592",
+  "title": "A Rocky Mountain Affair",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Rocky Mountain Affair",
+    "url": "https://www.youtube.com/embed/2uNsvGGAwaI",
+    "video_id": "2uNsvGGAwaI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5667
+   }
+  ],
+  "url": "https://www.youtube.com/embed/2uNsvGGAwaI",
+  "video_id": "2uNsvGGAwaI",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "A City Girl Falls For A Rocky Mountain Cowboy | A Rocky Mountain Affair | Full Romance 2026 Film - A Rocky Mountain Affair is a charming, feel-good romantic comedy about a talented young event planner from the city who gets the opportunity of a lifetime: overseeing an adventurous team-building corporate retreat deep in the Rocky Mountains. After a minor accident on the way there, she's rescued by a handsome mountain guide on horseback who knows the wilderness better than anyone. The two clash on everything at first, but as they navigate the breathtaking landscape together, an undeniable",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77593",
+  "title": "American Conjuring",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "American Conjuring",
+    "url": "https://www.youtube.com/embed/9rU2AaPX64Q",
+    "video_id": "9rU2AaPX64Q",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5083
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9rU2AaPX64Q",
+  "video_id": "9rU2AaPX64Q",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "American Conjuring is a chilling haunted house horror movie following a young family — starring Darren Matheson, Lynn Csontos, Mackenzie Mowat, Chloe Bear, and Eliza Faria — as they begin a new life in their newly purchased dream home. Their excitement quickly turns to dread when they discover the property was once the site of a brutal massacre. As strange occurrences pile up night after night, the family comes to a terrifying realization: they are far from the only ones still living there, and something from the past refuses to leave. Perfect for fans of full free horror movies on YouTube,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77594",
+  "title": "Aquarium of the Dead",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Aquarium of the Dead",
+    "url": "https://www.youtube.com/embed/at7a_Rv-pJE",
+    "video_id": "at7a_Rv-pJE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5139
+   }
+  ],
+  "url": "https://www.youtube.com/embed/at7a_Rv-pJE",
+  "video_id": "at7a_Rv-pJE",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "A Deadly Virus Turns Fish Into Zombies | Aquarium Of The Dead | Full Halloween Monster Horror Movie - Aquarium Of The Dead is a campy, gore-splattered comedy-horror movie that turns a beloved family attraction into a nightmare. At an aquarium off the coast of Southern California, a mysterious virus sweeps through the building, transforming the marine life into ravenous undead creatures. Trapped inside with only steps between them and an ocean inlet, a group of employees — played by Vivica A. Fox, Eva Ceja, D.C. Douglas, Erica Duke, and Anthony Jensen — must band together to fight off the",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77595",
+  "title": "Badlands Island",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Badlands Island",
+    "url": "https://www.youtube.com/embed/jVnGTLUgodc",
+    "video_id": "jVnGTLUgodc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5120
+   }
+  ],
+  "url": "https://www.youtube.com/embed/jVnGTLUgodc",
+  "video_id": "jVnGTLUgodc",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "She Can't Leave The Island Until She Kills The Monster | Badlands Island | Full Survival Horror Film - Badlands Island is a tense survival horror film that follows a team of seasoned hunters as they journey to a remote, uncharted island rumored to harbor a legendary beast lurking in its dense forests. When their trusted guide betrays them, luring the group into a deadly trap, the hunters become the hunted, forced to outwit and outlast a highly intelligent predator that stalks them one by one in a relentless fight for survival. The film stars Deniella Alexis, Kevin Lloyd Reid, Madison Caan,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77596",
+  "title": "Christmas Lake",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Christmas Lake",
+    "url": "https://www.youtube.com/embed/qeC5Y_XmBDM",
+    "video_id": "qeC5Y_XmBDM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6653
+   }
+  ],
+  "url": "https://www.youtube.com/embed/qeC5Y_XmBDM",
+  "video_id": "qeC5Y_XmBDM",
+  "eps": "1 ep",
+  "runtime": "111 min",
+  "desc": "He Lost His Best Friend & Dad At Christmas | Christmas Lake | Full Hallmark Emotional Holiday Film - Christmas Lake is a heartfelt holiday family drama about grief, healing, and the power of friendship during the Christmas season. After losing both his best friend and his father around the holidays, a heartbroken teenage boy, played by Kristian Jackson, quits his beloved sport of hockey and shuts out the friends who care about him most. But everything changes when a mysterious ice rink magically appears overnight on the frozen lake near his home, stirring up memories of happier times and",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77597",
+  "title": "Christmas Together",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Christmas Together",
+    "url": "https://www.youtube.com/embed/dYiycggP8qc",
+    "video_id": "dYiycggP8qc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5176
+   }
+  ],
+  "url": "https://www.youtube.com/embed/dYiycggP8qc",
+  "video_id": "dYiycggP8qc",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Falling For A Charming Single Dad This Christmas | Christmas Together | Full Holiday Romance Film - Christmas Together is a heartwarming full Christmas romance movie about starting over and finding love when you least expect it. After a sudden breakup, a woman (Anna Marie Dobbins) leaves New York for Los Angeles to rebuild her life. She rents the cozy guest house belonging to a young single father (Marc Herrmann), and as the holiday season unfolds around them, an unexpected connection begins to grow. With the film also starring Vivica A. Fox and Rylie Coe, this gentle, festive story follows",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77598",
+  "title": "Dolls",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dolls",
+    "url": "https://www.youtube.com/embed/O1GNckKr7Ns",
+    "video_id": "O1GNckKr7Ns",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5002
+   }
+  ],
+  "url": "https://www.youtube.com/embed/O1GNckKr7Ns",
+  "video_id": "O1GNckKr7Ns",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Haunted Dolls Come Alive & Want Blood | Dolls | Full Free 2026 Halloween Horror Film - Dolls is a chilling supernatural horror thriller following Robert (Thomas Downey), a struggling children's book author, and his estranged daughter Sammey (Trinity Simpson), who inherit a secluded family house after Robert's mother dies in what appears to be a freak accident. While settling in, they discover three mysterious antique dolls hidden away in the attic. As strange, unexplainable occurrences begin to plague the fragile reunion, Robert and Sammey slowly realize the dolls conceal a sinister, deadly",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77599",
+  "title": "Haunting of Winchester House",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Haunting of Winchester House",
+    "url": "https://www.youtube.com/embed/AJZKb3aG5Ng",
+    "video_id": "AJZKb3aG5Ng",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5132
+   }
+  ],
+  "url": "https://www.youtube.com/embed/AJZKb3aG5Ng",
+  "video_id": "AJZKb3aG5Ng",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "They Try To Escape A Cursed Mansion | Haunting of Winchester House | 2026 Halloween Horror Movie - Haunting of Winchester House is a chilling supernatural horror thriller inspired by the legend of the Winchester Mystery House. A struggling family takes a live-in caretaker job at a sprawling, maze-like mansion, expecting the biggest challenge to be its endless corridors and hidden passageways. But as unexplained sounds echo through the walls and restless spirits stir in empty rooms, the family slowly realizes the house's strange history is only the beginning of what's really wrong with the",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77600",
+  "title": "Hippopotamus",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hippopotamus",
+    "url": "https://www.youtube.com/embed/3EIFPgFv7o8",
+    "video_id": "3EIFPgFv7o8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4624
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3EIFPgFv7o8",
+  "video_id": "3EIFPgFv7o8",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "She Woke Up Chained Trapped In A Basement | Hippopotamus | Full 2026 Psychological Thriller Movie - Ruby wakes from a bad dream into a real life nightmare. She's trapped in a basement, her legs are broken and she can't remember who she is or how she got there. Her kidnapper, Tom, tells her she will remain captive until she falls in love with him. Ruby is focused on trying to escape until Tom starts helping her to remember her past, then she begins to question everything. Hippopotamus is a tense, mind-bending psychological thriller that traps its heroine in a waking nightmare with no clear way",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77601",
+  "title": "Love on the Ranch",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Love on the Ranch",
+    "url": "https://www.youtube.com/embed/nbaOUe4nA7c",
+    "video_id": "nbaOUe4nA7c",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5347
+   }
+  ],
+  "url": "https://www.youtube.com/embed/nbaOUe4nA7c",
+  "video_id": "nbaOUe4nA7c",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Author Falls In Love With A Cowgirl | Love on the Ranch | Full 2026 Romance Movie - Love on the Ranch is a heartfelt romance film following a handsome Manhattan author, played by Andrew Rogers, who is sent to a rustic ranch in upstate New York in search of inspiration for his next novel. Instead, he finds a lot more than he bargained for, starring opposite Ashley Brinkman, with Vivica A. Fox, Cody Calafiore, and Chris Owen rounding out the cast. What starts as a simple research trip for a book turns into an experience the author never could have written himself. Perfect for fans of full free",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77602",
+  "title": "Nefarious",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Nefarious",
+    "url": "https://www.youtube.com/embed/rQNQ8IC75WE",
+    "video_id": "rQNQ8IC75WE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5852
+   }
+  ],
+  "url": "https://www.youtube.com/embed/rQNQ8IC75WE",
+  "video_id": "rQNQ8IC75WE",
+  "eps": "1 ep",
+  "runtime": "98 min",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77603",
+  "title": "Pickleball Princess",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Pickleball Princess",
+    "url": "https://www.youtube.com/embed/mOw1MLwjTdY",
+    "video_id": "mOw1MLwjTdY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6079
+   }
+  ],
+  "url": "https://www.youtube.com/embed/mOw1MLwjTdY",
+  "video_id": "mOw1MLwjTdY",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "desc": "Tennis Snob Forced Into A Pickleball Duel | Pickleball Princess | Full Sports Comedy Movie - Pickleball Princess is a feel-good sports comedy about pride, rivalry, and the pickleball craze sweeping the country. A self-assured tennis snob is challenged to a pickleball duel and reluctantly picks up a paddle to try a sport he openly detests. After a humiliating defeat, his wounded pride pushes him to vow he'll keep playing only long enough to win back his honor. But the more time he spends on the court, the more the game he swore to hate starts winning him over. The film stars Kelly Montgomery",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77604",
+  "title": "Possessing Piper Rose",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Possessing Piper Rose",
+    "url": "https://www.youtube.com/embed/JH3GTABtrpU",
+    "video_id": "JH3GTABtrpU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5335
+   }
+  ],
+  "url": "https://www.youtube.com/embed/JH3GTABtrpU",
+  "video_id": "JH3GTABtrpU",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "They Adopted A Girl They Didn't Know Was Cursed | Possessing Piper Rose | Full Horror Thriller Movie Possessing Piper Rose is a chilling horror thriller about a couple whose long-awaited adoption should be their happy ending. Instead, adoptive parents played by Rebecca Romijn and David Cubitt bring home a little girl, Piper (Isabella Crovetti), who seems to carry something with her that shouldn't be there. What begins as a dream of parenthood quickly spirals into a nightmare they can't wake from, with Sarah-Jane Redmond and Christine Willes rounding out the cast as the family's world",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77605",
+  "title": "Sasquatch Rage",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sasquatch Rage",
+    "url": "https://www.youtube.com/embed/cNhIMXCk_YQ",
+    "video_id": "cNhIMXCk_YQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6030
+   }
+  ],
+  "url": "https://www.youtube.com/embed/cNhIMXCk_YQ",
+  "video_id": "cNhIMXCk_YQ",
+  "eps": "1 ep",
+  "runtime": "100 min",
+  "desc": "A Couple Realizes They're Being Stalked By Bigfoot | Sasquatch Rage | Full Horror Thriller Movie - Sasquatch Rage is a tense survival horror thriller following Ashley and Max Carr (Casey Gagliardi and Andrew Joseph Montgomery) as they become lost deep in the dense forests of the Pacific Northwest. What begins as a wilderness ordeal quickly turns terrifying when the couple realizes they are being stalked by something far more dangerous than they imagined - a massive, unseen creature that might be Bigfoot itself. Also starring Marshal Hilton, Jim Roof, and Eloy Casados, the film builds",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77606",
+  "title": "The Dog Who Saved Halloween",
+  "genre": "Family",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Dog Who Saved Halloween",
+    "url": "https://www.youtube.com/embed/QfRm9w6eodo",
+    "video_id": "QfRm9w6eodo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5283
+   }
+  ],
+  "url": "https://www.youtube.com/embed/QfRm9w6eodo",
+  "video_id": "QfRm9w6eodo",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Brave Pup Saves Halloween For Everyone | The Dog Who Saved Halloween | Full Family Halloween Movie - The Dog Who Saved Halloween is a heartwarming family comedy that follows the Bannisters as they move into their new home just in time for Halloween. Their talking dog Zeus (voiced by Joey Lawrence) can't shake the feeling that something is off about the strange lights flickering at the house next door — and the eerie canine next door (voiced by Mayim Bialik) only deepens the mystery. Featuring Dean Cain and Elisa Donovan, the film follows Zeus as he takes it upon himself to sniff out the",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77607",
+  "title": "The Lost Husband",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Lost Husband",
+    "url": "https://www.youtube.com/embed/w3Y03NjcORI",
+    "video_id": "w3Y03NjcORI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6609
+   }
+  ],
+  "url": "https://www.youtube.com/embed/w3Y03NjcORI",
+  "video_id": "w3Y03NjcORI",
+  "eps": "1 ep",
+  "runtime": "110 min",
+  "desc": "Widow Falls In Love Again On A Texas Farm | The Lost Husband | Full 2026 Romantic Drama Movie - The Lost Husband is a heartfelt romantic drama about grief, resilience, and starting over. After the sudden loss of her husband, a grieving widow, played by Leslie Bibb, moves her children to her aunt's secluded farm in rural Texas. As she adjusts to a quieter, simpler way of life, she faces the emotional weight of her loss while slowly discovering unexpected healing, strength, and the possibility of new love, with Josh Duhamel starring alongside her. Nora Dunn brings warmth to the role of the",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77608",
+  "title": "Was Once a Hero",
+  "genre": "Western",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Was Once a Hero",
+    "url": "https://www.youtube.com/embed/5MgBJanyIr0",
+    "video_id": "5MgBJanyIr0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6781
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5MgBJanyIr0",
+  "video_id": "5MgBJanyIr0",
+  "eps": "1 ep",
+  "runtime": "113 min",
+  "desc": "Outlaw Murders Their Father & They Want Revenge | Was Once a Hero | Full Western Drama Movie - After their father is brutally murdered by an outlaw, Ginny and her brother flee through a treacherous wilderness. They team up with a memory-impaired ex-war hero as they race toward the elusive sanctuary of Black Ridge. Will they survive? Was Once a Hero is a gripping western drama of survival, found family, and redemption set against the harsh backdrop of the untamed wild. After their father is brutally murdered by a ruthless outlaw, young Ginny and her brother are forced to flee through",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Movie Central",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77609",
+  "title": "Hold Your Breath",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hold Your Breath",
+    "url": "https://www.youtube.com/embed/R_VxHfvVJ2o",
+    "video_id": "R_VxHfvVJ2o",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4961
+   }
+  ],
+  "url": "https://www.youtube.com/embed/R_VxHfvVJ2o",
+  "video_id": "R_VxHfvVJ2o",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "A group of friends set out on a weekend camping trip, unaware that an old cemetery superstition is about to become terrifyingly real. When one of them refuses to hold her breath while passing a graveyard, an evil spirit is unleashed—and the friends begin to be hunted one by one. Directed by: Jared Cohn Starring: Katrina Bowden, Randy Wayne, Erin Marie Hogan Year: 2012 Hold Your Breath | Full Supernatural Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77610",
+  "title": "Barely Legal",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Barely Legal",
+    "url": "https://www.youtube.com/embed/ctSUC8vUmPk",
+    "video_id": "ctSUC8vUmPk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5296
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ctSUC8vUmPk",
+  "video_id": "ctSUC8vUmPk",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Three teenage friends spend their mornings creating bootleg adult films at a local video store. When one of them suddenly loses his job, the trio hatch an outrageous plan to make their own movie—but turning their idea into reality proves far more chaotic than they expected. Directed by: David Mickey Evans Starring: Erik von Detten, Tony Denman, Daniel Farber Year: 2003 Barely Legal | Full Raunchy Comedy Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77611",
+  "title": "Gremlin",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gremlin",
+    "url": "https://www.youtube.com/embed/b5iiuMlYCok",
+    "video_id": "b5iiuMlYCok",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5336
+   }
+  ],
+  "url": "https://www.youtube.com/embed/b5iiuMlYCok",
+  "video_id": "b5iiuMlYCok",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "When a man receives a mysterious box, he discovers it contains something far more terrifying than he could ever imagine. Trapped inside is a deadly creature that threatens to kill everyone in his family, and there's only one way to stop it: pass the box to someone he loves. As the danger grows, he faces an impossible choice between protecting his family and condemning someone else to the same nightmare. Directed by: Ryan Bellgardt Starring: Adam Hampton, Kristy K. Boone, Catcher Stair Year: 2017 Gremlin | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77612",
+  "title": "Anger of the Dead",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Anger of the Dead",
+    "url": "https://www.youtube.com/embed/ZkxUlzXPc24",
+    "video_id": "ZkxUlzXPc24",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5022
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ZkxUlzXPc24",
+  "video_id": "ZkxUlzXPc24",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "As a deadly virus spreads across the world, society collapses and survival becomes a desperate struggle. Alice, a pregnant woman caught in the chaos, must fight to stay alive as the outbreak turns the world around her into a nightmare. With danger closing in and nowhere truly safe, every decision could mean the difference between life and death. Directed by: Francesco Picone Starring: Aaron Stielstra, Michael Segal, Marius Bizau Year: 2015 Anger of the Dead | Full Zombie Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77613",
+  "title": "Animal Among Us",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Animal Among Us",
+    "url": "https://www.youtube.com/embed/gqNmHnPYCKA",
+    "video_id": "gqNmHnPYCKA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5353
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gqNmHnPYCKA",
+  "video_id": "gqNmHnPYCKA",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Fifteen years after two teenage girls were brutally murdered at Merrymaker Campgrounds, the abandoned campsite remains haunted by a terrifying mystery. The killings were blamed on an animal attack, but the real killer was never found. Now, as the secrets of the condemned camp resurface, something deadly still lurks in the surrounding woods—and hunting season is far from over. Directed by: John Woodruff Starring: Larisa Oleynik, Erin Daniels, Heather Tom Year: 2019 Animal Among Us | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77614",
+  "title": "Galaxy of Horrors",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Galaxy of Horrors",
+    "url": "https://www.youtube.com/embed/gTmoYCFFarw",
+    "video_id": "gTmoYCFFarw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6366
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gTmoYCFFarw",
+  "video_id": "gTmoYCFFarw",
+  "eps": "1 ep",
+  "runtime": "106 min",
+  "desc": "Trapped inside a damaged cryogenic pod, a man awakens to discover his life-support systems are failing. With no escape and time running out, he is forced to watch eight terrifying science-fiction stories filled with mysterious encounters, unimaginable creatures, and nightmares from beyond the stars. As each chilling tale unfolds, the boundary between wonder and horror begins to disappear. Directed by: Dennis Cabella, Javier Chillon, Todd Cobery Starring: Gabriele Angieri, Bela B., Olli Banjo Year: 2017 Galaxy of Horrors | Full Sci-Fi Horror Movie | Flix For Free Movies 🎬 Flix for Free brings",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77615",
+  "title": "Curse of the Blind Dead",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Curse of the Blind Dead",
+    "url": "https://www.youtube.com/embed/p2Xk8ZBeUh8",
+    "video_id": "p2Xk8ZBeUh8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5255
+   }
+  ],
+  "url": "https://www.youtube.com/embed/p2Xk8ZBeUh8",
+  "video_id": "p2Xk8ZBeUh8",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "In 14th-century France, a secret society of Knights Templar is captured and executed after being accused of heresy and devil worship. But death cannot contain the darkness surrounding them, as a terrifying curse gives rise to a supernatural nightmare rooted in an ancient and sinister past. Directed by: Raffaele Picchio Starring: Aaron Stielstra, Alice Zanini, Francesca Pellegrini Year: 2020 Curse of the Blind Dead | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77616",
+  "title": "Avenged",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Avenged",
+    "url": "https://www.youtube.com/embed/sEaGhuFuTzQ",
+    "video_id": "sEaGhuFuTzQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5653
+   }
+  ],
+  "url": "https://www.youtube.com/embed/sEaGhuFuTzQ",
+  "video_id": "sEaGhuFuTzQ",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "After a deaf young woman is brutally attacked by a murderous gang and left for dead, a supernatural force gives her a terrifying chance at revenge. Possessed by the vengeful spirit of an Apache warrior, she returns to hunt down those responsible one by one. Directed by: Michael S. Ojeda Starring: Amanda Adrienne Smith, Marc Anthony Samuel, Rodney Rowland Year: 2013 Avenged | Full Action Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77617",
+  "title": "The Psychic Phenomenon",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Psychic Phenomenon",
+    "url": "https://www.youtube.com/embed/t1pUKXyxiQY",
+    "video_id": "t1pUKXyxiQY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6112
+   }
+  ],
+  "url": "https://www.youtube.com/embed/t1pUKXyxiQY",
+  "video_id": "t1pUKXyxiQY",
+  "eps": "1 ep",
+  "runtime": "102 min",
+  "desc": "Explore the mysterious world of psychic phenomena and the enduring questions surrounding extraordinary human abilities. Featuring discussions of psychic research, military involvement, telepathy, and accounts involving former CIA program director Russell Targ, this documentary examines some of the most fascinating claims surrounding the unexplained. Directed by: Darcy Weir Starring: Jason Boule, Tracey Garbutt Dolan, Thomas Jane Year: 2025 The Psychic Phenomenon | Full Documentary | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77618",
+  "title": "Oceans Rising",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Oceans Rising",
+    "url": "https://www.youtube.com/embed/rBy6anK8zBo",
+    "video_id": "rBy6anK8zBo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5217
+   }
+  ],
+  "url": "https://www.youtube.com/embed/rBy6anK8zBo",
+  "video_id": "rBy6anK8zBo",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "When a scientist’s warnings of a catastrophic global flood are ignored, he takes matters into his own hands and builds a boat to survive the coming disaster. But when the oceans begin to rise and his predictions become reality, the people who dismissed him must suddenly turn to him for their only chance of survival. Directed by: Adam Lipsius Starring: Jason Tobias, Summer Spiro, DeJean Brown Year: 2017 Oceans Rising | Full Action Disaster Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77619",
+  "title": "The Toybox",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Toybox",
+    "url": "https://www.youtube.com/embed/rAu7LPTAVTc",
+    "video_id": "rAu7LPTAVTc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5689
+   }
+  ],
+  "url": "https://www.youtube.com/embed/rAu7LPTAVTc",
+  "video_id": "rAu7LPTAVTc",
+  "eps": "1 ep",
+  "runtime": "95 min",
+  "desc": "An estranged family sets out on a desert road trip in a used RV, hoping for a chance to reconnect. But when they become stranded in the scorching wilderness, they discover their vehicle is hiding a horrifying past—and something inside it begins hunting them one by one. Directed by: Tom Nagel Starring: Denise Richards, Mischa Barton, Jeff Denton Year: 2018 The Toybox | Full Supernatural Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77620",
+  "title": "The Hybrids",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Hybrids",
+    "url": "https://www.youtube.com/embed/YGIc4CUO6cM",
+    "video_id": "YGIc4CUO6cM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4768
+   }
+  ],
+  "url": "https://www.youtube.com/embed/YGIc4CUO6cM",
+  "video_id": "YGIc4CUO6cM",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Could alien-human hybrids be living among us? Hosted by Serena DC, The Hybrids explores extraordinary claims surrounding alleged alien-human hybridization programs, encounters with extraterrestrial beings, and what believers say these mysteries could mean for humanity. Directed by: Serena DC Starring: Adam Apollo, Caroline Cory, Serena DC Year: 2026 The Hybrids | Full Alien Documentary | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77621",
+  "title": "Digging to Death",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Digging to Death",
+    "url": "https://www.youtube.com/embed/9ticZnN8sKA",
+    "video_id": "9ticZnN8sKA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5747
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9ticZnN8sKA",
+  "video_id": "9ticZnN8sKA",
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "After moving into a mysterious new home, David Van Owen makes an unbelievable discovery buried in his backyard—a box containing $3 million and a fresh corpse. He hides the fortune inside the house, but keeping the money soon becomes a nightmare when the body he buried refuses to stay in the past. Directed by: Michael P. Blevins Starring: Ford Austin, Tom Fitzpatrick, Rachel Alig Year: 2021 Digging to Death | Full Horror Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77622",
+  "title": "Ice Blue",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ice Blue",
+    "url": "https://www.youtube.com/embed/XvvnO7Slu58",
+    "video_id": "XvvnO7Slu58",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6241
+   }
+  ],
+  "url": "https://www.youtube.com/embed/XvvnO7Slu58",
+  "video_id": "XvvnO7Slu58",
+  "eps": "1 ep",
+  "runtime": "104 min",
+  "desc": "Arielle’s secluded life on her family farm begins to unravel when her long-estranged mother suddenly returns. As tensions tear apart her bond with her father, buried secrets emerge and expose a chilling past. Directed by: Sandi Somers Starring: Michelle Morgan, Billy MacLellan, Sophia Lauchlin Hirt Year: 2017 Ice Blue | Full Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free, nonstop entertainment.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77623",
+  "title": "Mobile Homes",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mobile Homes",
+    "url": "https://www.youtube.com/embed/-vgNcMb_5Ts",
+    "video_id": "-vgNcMb_5Ts",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6340
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-vgNcMb_5Ts",
+  "video_id": "-vgNcMb_5Ts",
+  "eps": "1 ep",
+  "runtime": "106 min",
+  "desc": "A young mother drifts between motels with her troubled boyfriend and eight-year-old son, trapped in a life without stability. When a crisis tears them apart, an unexpected community offers her a fragile chance to build a better future. Directed by: Vladimir de Fontenay Starring: Imogen Poots, Frank Oulton, Rebecca Singh Year: 2017 Mobile Homes | Full Drama Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77624",
+  "title": "Gift of Fear",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gift of Fear",
+    "url": "https://www.youtube.com/embed/Z2oo64fjUg0",
+    "video_id": "Z2oo64fjUg0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6760
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Z2oo64fjUg0",
+  "video_id": "Z2oo64fjUg0",
+  "eps": "1 ep",
+  "runtime": "113 min",
+  "desc": "Haunted by witnessing her mother’s murder, Mili finds a new family through her Jiu Jitsu team—until her violent past comes hunting for her. When a friend is pulled into a trafficking operation, Mili must risk everything to fight back and save her. Directed by: Katy Dore, Jack Kohler Starring: Justin Johnson Cortez, Michael Horse, Brian D. Cohen Year: 2023 Gift of Fear | Full Action Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77625",
+  "title": "End of the Road",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "End of the Road",
+    "url": "https://www.youtube.com/embed/uyswaf-xuMo",
+    "video_id": "uyswaf-xuMo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5648
+   }
+  ],
+  "url": "https://www.youtube.com/embed/uyswaf-xuMo",
+  "video_id": "uyswaf-xuMo",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "A crew of ghost hunters enters the darkness to film a new reality show, but when one of their own dies, something terrifying appears to awaken. Trapped with restless supernatural forces, their investigation becomes a desperate fight to survive the night. Directed by: J.P. Pierce Starring: Michael Dorn, Robert Picardo, Zack Ward Year: 2011 End of the Road | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77626",
+  "title": "The Hermit",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Hermit",
+    "url": "https://www.youtube.com/embed/lvvd9cpbkyQ",
+    "video_id": "lvvd9cpbkyQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5183
+   }
+  ],
+  "url": "https://www.youtube.com/embed/lvvd9cpbkyQ",
+  "video_id": "lvvd9cpbkyQ",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Dragged into a remote woodland vacation, teenagers Lisa and Eric find themselves hunted by a relentless cannibal pig farmer. With nowhere safe to hide, their getaway becomes a terrifying fight for survival. Directed by: Salvatore Sclafani Starring: Lou Ferrigno, Malina Pauli Weissman, D'Kia Anderson Year: 2025 The Hermit | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free, nonstop",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77627",
+  "title": "Very Frightening Tales",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Very Frightening Tales",
+    "url": "https://www.youtube.com/embed/S0ClnHcsUcg",
+    "video_id": "S0ClnHcsUcg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3400
+   }
+  ],
+  "url": "https://www.youtube.com/embed/S0ClnHcsUcg",
+  "video_id": "S0ClnHcsUcg",
+  "eps": "1 ep",
+  "runtime": "57 min",
+  "desc": "Seven chilling tales collide in a sinister anthology where nightmares, deadly ambition, mysterious encounters, and desperate choices lead ordinary people into terrifying situations. From a young ballerina to a retiring hitman, every story hides a frightening twist. Directed by: Dale Fabrigar Starring: Brian DeRozan, Christopher Dukes, Christopher M. Dukes Year: 2023 Very Frightening Tales | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77628",
+  "title": "The Burning Dead",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Burning Dead",
+    "url": "https://www.youtube.com/embed/ji9pozccvlc",
+    "video_id": "ji9pozccvlc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5129
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ji9pozccvlc",
+  "video_id": "ji9pozccvlc",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "When a volcanic eruption unleashes a terrifying horde of lava-filled zombies, a determined sheriff must battle the undead and raging inferno to rescue his estranged family. Explosive action and supernatural horror collide in this fiery fight for survival. Directed by: Rene Perez Starring: Danny Trejo, Thomas Downey, Moniqua Plante Year: 2015 The Burning Dead | Full Action Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77629",
+  "title": "Megalodon: the Frenzy",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Megalodon: the Frenzy",
+    "url": "https://www.youtube.com/embed/sTSFvcUiJX0",
+    "video_id": "sTSFvcUiJX0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4932
+   }
+  ],
+  "url": "https://www.youtube.com/embed/sTSFvcUiJX0",
+  "video_id": "sTSFvcUiJX0",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "When five monstrous Megalodons unleash terror across the open ocean, survivors must fight against impossible odds before the predators turn the seas into a feeding ground. Directed by: Brendan Petrizzo Starring: Caroline Williams, Eric Roberts, Jessica Chancellor Year: 2023 Megalodon: The Frenzy | Full Action Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free, nonstop entertainment.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77630",
+  "title": "Camp Utopia",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Camp Utopia",
+    "url": "https://www.youtube.com/embed/XJMhijNjQqQ",
+    "video_id": "XJMhijNjQqQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4511
+   }
+  ],
+  "url": "https://www.youtube.com/embed/XJMhijNjQqQ",
+  "video_id": "XJMhijNjQqQ",
+  "eps": "1 ep",
+  "runtime": "75 min",
+  "desc": "What began as a peaceful hippie commune in 1969 descends into madness when a manipulative cult leader unleashes a night of brutal violence. Decades later, the horrifying legend of Camp Utopia still lingers in the shadows, waiting to resurface. Directed by: Robert Madero Starring: Jessica Jordan, Collin Stark, Alexandra Westmore Year: 2002 CAMP UTOPIA | Full Horror Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77631",
+  "title": "Born Bad",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Born Bad",
+    "url": "https://www.youtube.com/embed/agY69VkeheQ",
+    "video_id": "agY69VkeheQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5404
+   }
+  ],
+  "url": "https://www.youtube.com/embed/agY69VkeheQ",
+  "video_id": "agY69VkeheQ",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "A young woman is swept into a passionate romance with a mysterious stranger, only to discover the dangerous darkness hiding beneath his charm. As obsession takes hold, escaping him may prove more terrifying than falling for him. Directed by: Jared Cohn Starring: Meredith Monroe, Bonnie Dennison, Michael Welch Year: 2011 Born Bad | Full Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free, nonstop",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77632",
+  "title": "Lifechanger",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Lifechanger",
+    "url": "https://www.youtube.com/embed/rehzFaaagoc",
+    "video_id": "rehzFaaagoc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4936
+   }
+  ],
+  "url": "https://www.youtube.com/embed/rehzFaaagoc",
+  "video_id": "rehzFaaagoc",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "A murderous shapeshifter steals bodies to survive, but every transformation brings him closer to the woman he desperately loves. As his violent existence begins to unravel, obsession and mortality collide in a chilling fight against time. Directed by: Justin McConnell Starring: Lora Burke, Jack Foley, Elitsa Bako Year: 2018 Lifechanger | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77633",
+  "title": "Exit Humanity",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Exit Humanity",
+    "url": "https://www.youtube.com/embed/PmUEzoM09Hs",
+    "video_id": "PmUEzoM09Hs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6810
+   }
+  ],
+  "url": "https://www.youtube.com/embed/PmUEzoM09Hs",
+  "video_id": "PmUEzoM09Hs",
+  "eps": "1 ep",
+  "runtime": "114 min",
+  "desc": "In the aftermath of the American Civil War, a grieving young man embarks on a perilous journey through a land overrun by the undead. As humanity crumbles around him, he must fight to survive while holding onto hope in a world consumed by horror. Directed by: John Geddes Starring: Brian Cox, Mark Gibson, Dee Wallace Year: 2011 Exit Humanity | Full Zombie Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77634",
+  "title": "Titanic II",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Titanic II",
+    "url": "https://www.youtube.com/embed/ekVSaFN7mus",
+    "video_id": "ekVSaFN7mus",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5388
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ekVSaFN7mus",
+  "video_id": "ekVSaFN7mus",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "A century after the original Titanic's ill-fated voyage, a state-of-the-art luxury liner retraces its legendary route—only to face catastrophe when a tsunami sends a massive iceberg directly into its path. As disaster unfolds, passengers and crew must fight against impossible odds to survive. Directed by: Shane Van Dyke Starring: Shane Van Dyke, Marie Westbrook, Bruce Davison Year: 2010 Titanic II | Full Disaster Action Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77635",
+  "title": "Sharknado",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sharknado",
+    "url": "https://www.youtube.com/embed/_S4aQY9guWw",
+    "video_id": "_S4aQY9guWw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5427
+   }
+  ],
+  "url": "https://www.youtube.com/embed/_S4aQY9guWw",
+  "video_id": "_S4aQY9guWw",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "When a monstrous hurricane hurls thousands of man-eating sharks across Los Angeles, an unlikely group of survivors must battle nature's deadliest predators from the streets to the skies. Packed with outrageous action, explosive chaos, and unforgettable creature mayhem, this cult disaster hit delivers nonstop entertainment. Directed by: Anthony C. Ferrante Starring: Ian Ziering, Tara Reid, John Heard Year: 2013 Sharknado | Full Action Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77636",
+  "title": "2012: Ice Age",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "2012: Ice Age",
+    "url": "https://www.youtube.com/embed/H9bd1Wtdp6g",
+    "video_id": "H9bd1Wtdp6g",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5492
+   }
+  ],
+  "url": "https://www.youtube.com/embed/H9bd1Wtdp6g",
+  "video_id": "H9bd1Wtdp6g",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "After a massive volcanic eruption in Iceland triggers a catastrophic new ice age, a desperate father races across a rapidly freezing America to save his family before the world is consumed by ice. Packed with relentless disasters, thrilling escapes, and a fight for survival against nature itself. Directed by: Travis Fort Starring: Patrick Labyorteaux, Julie McCullough, Katie Wilson Year: 2011 2012: Ice Age | Full Disaster Action Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77637",
+  "title": "Anneliese: the Exorcist Tapes",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Anneliese: the Exorcist Tapes",
+    "url": "https://www.youtube.com/embed/RBp-wKeUqo4",
+    "video_id": "RBp-wKeUqo4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5294
+   }
+  ],
+  "url": "https://www.youtube.com/embed/RBp-wKeUqo4",
+  "video_id": "RBp-wKeUqo4",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Presented as recovered footage, this chilling supernatural horror follows the terrifying exorcisms of Anneliese Michel, one of history's most infamous alleged possession cases. As sinister forces grow stronger, the line between faith and fear disappears in a relentless descent into darkness. Directed by: Jude Gerard Prest Starring: Yaz Canli, Kai Cofer, Christopher Karl Johnson Year: 2011 Anneliese: The Exorcist Tapes | Full Found Footage Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77638",
+  "title": "Septic Man",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Septic Man",
+    "url": "https://www.youtube.com/embed/bqypUvmoMpE",
+    "video_id": "bqypUvmoMpE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5162
+   }
+  ],
+  "url": "https://www.youtube.com/embed/bqypUvmoMpE",
+  "video_id": "bqypUvmoMpE",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Trapped inside a septic tank during a deadly contamination crisis, a sewage worker endures a horrifying transformation as isolation and toxic waste consume both his body and mind. This disturbing body horror delivers grotesque suspense and a descent into unimaginable terror. Directed by: Jesse Thomas Cook Starring: Jason David Brown, Molly Dunsworth, Julian Richings Year: 2013 Septic Man | Full Body Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77639",
+  "title": "Biology 101",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Biology 101",
+    "url": "https://www.youtube.com/embed/gBYmAZmC4hU",
+    "video_id": "gBYmAZmC4hU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4471
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gBYmAZmC4hU",
+  "video_id": "gBYmAZmC4hU",
+  "eps": "1 ep",
+  "runtime": "75 min",
+  "desc": "A respected biology professor's secret obsession with an online cam model spirals into paranoia, deception, and dangerous consequences when he suspects one of his students is living a hidden double life. As fantasy and reality collide, his desperate search for the truth threatens to destroy everything he holds dear. Directed by: Christopher R. Smith Starring: David Christian Welborn, Noelle DuBois, Deborah O'Brien Year: 2013 BIOLOGY 101 | Full Psychological Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77640",
+  "title": "100 Degrees Below Zero",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "100 Degrees Below Zero",
+    "url": "https://www.youtube.com/embed/tBNQh7tnBr4",
+    "video_id": "tBNQh7tnBr4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5307
+   }
+  ],
+  "url": "https://www.youtube.com/embed/tBNQh7tnBr4",
+  "video_id": "tBNQh7tnBr4",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "As catastrophic volcanic eruptions plunge Europe into a deadly new ice age, an American couple races against time to rescue their children before Paris freezes solid. Packed with relentless danger, epic disasters, and a desperate fight for survival, this chilling action thriller delivers nonstop suspense. Directed by: Richard Schenkman Starring: Jeff Fahey, Sara Malakul Lane, Marc Ewins Year: 2013 100 Degrees Below Zero | Full Disaster Action Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77641",
+  "title": "Mercenaries",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mercenaries",
+    "url": "https://www.youtube.com/embed/Gnvwgt-XBPE",
+    "video_id": "Gnvwgt-XBPE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5349
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Gnvwgt-XBPE",
+  "video_id": "Gnvwgt-XBPE",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "When the President's daughter is kidnapped and locked inside a brutal women's prison deep in a war zone, an elite squad of fearless female commandos launches a high-risk rescue mission where every second could be their last. Explosive action, relentless combat, and impossible odds collide in this adrenaline-fuelled military thriller. Directed by: Christopher Ray Starring: Zoë Bell, Kristanna Loken, Vivica A. Fox, Brigitte Nielsen, Cynthia Rothrock Year: 2014 Mercenaries | Full Action Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77642",
+  "title": "Blackout",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blackout",
+    "url": "https://www.youtube.com/embed/-NWFcZiQ2rY",
+    "video_id": "-NWFcZiQ2rY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4820
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-NWFcZiQ2rY",
+  "video_id": "-NWFcZiQ2rY",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "After a mysterious global blackout plunges humanity into eternal darkness, survivors awaken trapped within isolated versions of reality. Guided by eerie figures known as The Ushers, they must face terrifying truths and make one final, irreversible choice. Directed by: Shane Aquino Starring: Mike Ferguson, Riley Ryan, Twana Barnett Year: 2026 Blackout | Full Sci-Fi Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77643",
+  "title": "The Exorcists",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Exorcists",
+    "url": "https://www.youtube.com/embed/hCQwlFHQTpM",
+    "video_id": "hCQwlFHQTpM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5095
+   }
+  ],
+  "url": "https://www.youtube.com/embed/hCQwlFHQTpM",
+  "video_id": "hCQwlFHQTpM",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "A desperate father turns to three seasoned exorcists when an ancient evil takes hold of his child, unleashing a terrifying battle between faith and darkness. As the demon's power grows, every exorcism pushes them closer to a chilling final confrontation. Directed by: Jose Prendes Starring: Doug Bradley, Kayla Fields, Victor Maraña Year: 2023 The Exorcists | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77644",
+  "title": "Do Not Open",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Do Not Open",
+    "url": "https://www.youtube.com/embed/WsXA63zy_bE",
+    "video_id": "WsXA63zy_bE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4801
+   }
+  ],
+  "url": "https://www.youtube.com/embed/WsXA63zy_bE",
+  "video_id": "WsXA63zy_bE",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "A peaceful cabin getaway turns into a waking nightmare when a mysterious locked door becomes an irresistible obsession. As sinister whispers echo through the halls and fear consumes their minds, one forbidden choice may unleash unimaginable horror. Directed by: Christopher Leto Starring: Shawn Ray, Marisol Ray, Ricky Garcia Year: 2026 Do Not Open | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77645",
+  "title": "Coven",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Coven",
+    "url": "https://www.youtube.com/embed/St76mBK7gWQ",
+    "video_id": "St76mBK7gWQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4796
+   }
+  ],
+  "url": "https://www.youtube.com/embed/St76mBK7gWQ",
+  "video_id": "St76mBK7gWQ",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "When a coven of young witches summons the ancient demon Ashura, a terrifying possession unleashes unimaginable evil. As dark powers spiral out of control, the remaining witches must confront their former sister before the world is consumed by darkness. Directed by: Margaret Malandruccolo Starring: Lizze Gordon, Jennifer Cipolla, Margot Major Year: 2020 Coven | Full Supernatural Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77646",
+  "title": "Cold Blooded",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cold Blooded",
+    "url": "https://www.youtube.com/embed/rA5bSxJYKSI",
+    "video_id": "rA5bSxJYKSI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5157
+   }
+  ],
+  "url": "https://www.youtube.com/embed/rA5bSxJYKSI",
+  "video_id": "rA5bSxJYKSI",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "A determined police officer finds herself trapped inside a precinct with a ruthless criminal when deadly assassins descend to finish what a failed heist started. With trust in short supply and danger closing in, survival depends on unlikely alliances and impossible choices. Directed by: Jason Lapeyre Starring: Ryan Robbins, Zoie Palmer, William MacDonald Year: 2012 Cold Blooded | Full Action Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77647",
+  "title": "Arctic Apocalypse",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Arctic Apocalypse",
+    "url": "https://www.youtube.com/embed/OWvgGDl8d1s",
+    "video_id": "OWvgGDl8d1s",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5317
+   }
+  ],
+  "url": "https://www.youtube.com/embed/OWvgGDl8d1s",
+  "video_id": "OWvgGDl8d1s",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "When catastrophic glacial melting plunges the Northern Hemisphere into a devastating new ice age, one family must cross a frozen wasteland in a desperate race for survival. Battling relentless cold and impossible odds, hope may be their only chance to outrun extinction. Directed by: Eric Paul Erickson, Jon Kondelik Starring: Joel Berti, Jennifer Lee Wiggins, Lauren Esposito Year: 2019 Arctic Apocalypse | Full Sci-Fi Disaster Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77648",
+  "title": "Megalodon",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Megalodon",
+    "url": "https://www.youtube.com/embed/d4fVA5JjNqk",
+    "video_id": "d4fVA5JjNqk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5301
+   }
+  ],
+  "url": "https://www.youtube.com/embed/d4fVA5JjNqk",
+  "video_id": "d4fVA5JjNqk",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "When a military vessel investigates a mysterious underwater threat, the crew comes face-to-face with a colossal prehistoric shark thought to be extinct. Trapped at sea with nowhere to run, they must use every weapon at their disposal to survive the ultimate predator. Directed by: James Thomas Starring: Michael Madsen, Dominic Pace, Caroline Harris Year: 2018 Megalodon | Full Action Sci-Fi Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77649",
+  "title": "Jurassic Domination",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jurassic Domination",
+    "url": "https://www.youtube.com/embed/D1HouPgf2Iw",
+    "video_id": "D1HouPgf2Iw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5056
+   }
+  ],
+  "url": "https://www.youtube.com/embed/D1HouPgf2Iw",
+  "video_id": "D1HouPgf2Iw",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "When two genetically engineered military dinosaurs escape into a quiet mountain town, a determined sheriff must stop the deadly creatures before they spread destruction across the country. As chaos erupts, survival depends on outsmarting predators built for war. Directed by: Brian Nowak Starring: Eric Roberts, Jack Pearson, Jamie Bernadette Year: 2022 Jurassic Domination | Full Action Sci-Fi Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77650",
+  "title": "Capture",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Capture",
+    "url": "https://www.youtube.com/embed/4Q1gTNzRBIM",
+    "video_id": "4Q1gTNzRBIM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5122
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4Q1gTNzRBIM",
+  "video_id": "4Q1gTNzRBIM",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "After inheriting the home of the parents she never knew, a lifelong orphan discovers a camcorder and a stack of videotapes revealing horrifying family secrets. As she watches the disturbing footage, she uncovers a terrifying truth that refuses to stay buried. Directed by: Bruce Wemple Starring: Kaitlyn Lunardi, Cedric Gegel, Chris Cimperman Year: 2026 Capture | Full Found Footage Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77651",
+  "title": "St. Agatha",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "St. Agatha",
+    "url": "https://www.youtube.com/embed/hjqfCNQkv-E",
+    "video_id": "hjqfCNQkv-E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6187
+   }
+  ],
+  "url": "https://www.youtube.com/embed/hjqfCNQkv-E",
+  "video_id": "hjqfCNQkv-E",
+  "eps": "1 ep",
+  "runtime": "103 min",
+  "desc": "Seeking shelter in a secluded 1950s convent, a desperate pregnant woman soon discovers the sanctuary hides terrifying secrets behind its holy walls. Trapped by cruel discipline and sinister rituals, she must fight to escape before darkness consumes her completely. Directed by: Darren Lynn Bousman Starring: Carolyn Hennesy, Hannah Fierman, Courtney Halverson Year: 2018 ST. AGATHA | Full Horror Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77652",
+  "title": "Stranded",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Stranded",
+    "url": "https://www.youtube.com/embed/K77lKRZ_2lM",
+    "video_id": "K77lKRZ_2lM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5270
+   }
+  ],
+  "url": "https://www.youtube.com/embed/K77lKRZ_2lM",
+  "video_id": "K77lKRZ_2lM",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "After their vehicle breaks down deep in the wilderness near Fouke, Arkansas, a group of siblings becomes the prey of a legendary creature lurking in the shadows. Cut off from help, they must confront an ancient terror before the forest claims them all. Directed by: Shawn Burkett Starring: Cheyenne Gordon, Tom Komisar, Kyler Burkett Year: 2023 Stranded | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77653",
+  "title": "Battlefield 2025",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Battlefield 2025",
+    "url": "https://www.youtube.com/embed/65NUybLrrdw",
+    "video_id": "65NUybLrrdw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5031
+   }
+  ],
+  "url": "https://www.youtube.com/embed/65NUybLrrdw",
+  "video_id": "65NUybLrrdw",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "A quiet camping weekend in a small Arizona town erupts into chaos when a deadly extraterrestrial visitor descends from the skies. Trapped between fear, violence, and an unstoppable alien force, strangers must unite to survive the terrifying night. Directed by: Joseph Mbah Starring: Jose Rosete, Anna Harr, Dustin James Leighton Year: 2020 BATTLEFIELD 2025 | Full Sci-Fi Horror Movie | Flix For Free Movies",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77654",
+  "title": "Antrum: the Deadliest Film Ever Made",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Antrum: the Deadliest Film Ever Made",
+    "url": "https://www.youtube.com/embed/EaOLYwphghA",
+    "video_id": "EaOLYwphghA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5644
+   }
+  ],
+  "url": "https://www.youtube.com/embed/EaOLYwphghA",
+  "video_id": "EaOLYwphghA",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "A brother and sister venture deep into a cursed forest to dig a gateway to Hell, unaware they are becoming part of a terrifying legend. Blending nightmare folklore with forbidden cinema, this chilling descent into darkness blurs the line between myth and reality. Directed by: David Amito, Michael Laicini Starring: Nicole Tompkins, Rowan Smyth, Dan Istrate Year: 2018 ANTRUM: THE DEADLIEST FILM EVER MADE | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77655",
+  "title": "Almost Dead",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Almost Dead",
+    "url": "https://www.youtube.com/embed/k_Z6fPMFMrU",
+    "video_id": "k_Z6fPMFMrU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4978
+   }
+  ],
+  "url": "https://www.youtube.com/embed/k_Z6fPMFMrU",
+  "video_id": "k_Z6fPMFMrU",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "In a world devastated by a deadly virus, a brilliant researcher fights to survive as society collapses into chaos and terror. Hunted by infection, fear, and isolation, she must risk everything to uncover hope before humanity disappears forever. Directed by: Giorgio Bruno Starring: Aylin Prandi, Sean James Sutton, Valentina Ferrante Year: 2016 ALMOST DEAD | Full Post-Apocalyptic Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77656",
+  "title": "The Basement",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Basement",
+    "url": "https://www.youtube.com/embed/7jdQ4nBNj58",
+    "video_id": "7jdQ4nBNj58",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5299
+   }
+  ],
+  "url": "https://www.youtube.com/embed/7jdQ4nBNj58",
+  "video_id": "7jdQ4nBNj58",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Kidnapped by a sadistic serial killer in Los Angeles, a young man is forced into terrifying role-playing games designed to fulfill his captor’s twisted fantasies. Trapped in a nightmare of torture and manipulation, he must fight to survive before becoming the killer’s next victim. Directed by: Brian M. Conley, Nathan Ives Starring: Jackson Davis, Cayleb Long, Mischa Barton Year: 2018 THE BASEMENT | Full Psychological Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77657",
+  "title": "American Exorcism",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "American Exorcism",
+    "url": "https://www.youtube.com/embed/5gTGdKdMBco",
+    "video_id": "5gTGdKdMBco",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5454
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5gTGdKdMBco",
+  "video_id": "5gTGdKdMBco",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "A former exorcist is forced back into a world of demonic terror when his estranged daughter becomes the target of an ancient evil. Haunted by his past and racing against time, he must confront the darkness he thought he escaped forever. Directed by: Tripp Weathers Starring: Michael Filipowich, William McKinney, Kate Tumanova Year: 2017 AMERICAN EXORCISM | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77658",
+  "title": "Allegiance of Powers",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Allegiance of Powers",
+    "url": "https://www.youtube.com/embed/EbMS7Cs0WiU",
+    "video_id": "EbMS7Cs0WiU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4993
+   }
+  ],
+  "url": "https://www.youtube.com/embed/EbMS7Cs0WiU",
+  "video_id": "EbMS7Cs0WiU",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "As rival factions of superpowered warriors wage war across a collapsing city, a young girl with unimaginable abilities becomes the key to ultimate control. With loyalties shattered and destruction spreading fast, the battle for power threatens to consume everyone in its path. Directed by: Michael Crum Starring: Robert Cavazos, Ariah Davis, Jason Dilworth Year: 2016 ALLEGIANCE OF POWERS | Full Sci-Fi Action Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77659",
+  "title": "Shockwave: Darkside",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Shockwave: Darkside",
+    "url": "https://www.youtube.com/embed/bnyrU-f5Sv0",
+    "video_id": "bnyrU-f5Sv0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5458
+   }
+  ],
+  "url": "https://www.youtube.com/embed/bnyrU-f5Sv0",
+  "video_id": "bnyrU-f5Sv0",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "After crashing on the dark side of the moon during humanity’s last great war, five stranded soldiers must cross deadly enemy territory to survive. As paranoia grows and their numbers fall, they uncover a terrifying secret hidden beneath the lunar surface. Directed by: Jay Weisman Starring: Bill Sage, Mei Melançon, Sonequa Martin-Green Year: 2014 SHOCKWAVE: DARKSIDE | Full Sci-Fi War Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77660",
+  "title": "The Convent",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Convent",
+    "url": "https://www.youtube.com/embed/cAxW_wXgPN8",
+    "video_id": "cAxW_wXgPN8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4546
+   }
+  ],
+  "url": "https://www.youtube.com/embed/cAxW_wXgPN8",
+  "video_id": "cAxW_wXgPN8",
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "Sent to a secluded convent, a troubled young woman soon discovers a sinister presence lurking within its walls, where faith and madness intertwine. As paranormal forces intensify, the women trapped inside must confront a growing evil that threatens to consume them all. Directed by: Tamae Garateguy Starring: Naiara Awada, Marcela Benjumea, Paula Carruega Year: 2024 The Convent | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77661",
+  "title": "Blood Thirsty",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blood Thirsty",
+    "url": "https://www.youtube.com/embed/Ki-2sqCrXgk",
+    "video_id": "Ki-2sqCrXgk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4220
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Ki-2sqCrXgk",
+  "video_id": "Ki-2sqCrXgk",
+  "eps": "1 ep",
+  "runtime": "70 min",
+  "desc": "On their anniversary night, Sarah is trapped at work as a terrifying zombie outbreak erupts around her. With time running out, Brian must battle through the undead chaos to save the woman he loves. Directed by: Nachela Knox Starring: Stephen Barrington, Jae Blacc, Jon Blaq Year: 2024 Blood Thirsty | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free, nonstop entertainment.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77662",
+  "title": "Blood Moon",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blood Moon",
+    "url": "https://www.youtube.com/embed/5hCEZikbdDM",
+    "video_id": "5hCEZikbdDM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5143
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5hCEZikbdDM",
+  "video_id": "5hCEZikbdDM",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Stranded in a ghostly mining town beneath a crimson moon, a group of travelers, outlaws, and a deadly gunslinger must unite to survive a savage creature stalking the night. As fear and suspicion spread, the blood moon rises higher — and the hunt begins. Directed by: Jeremy Wooding Starring: George Blagden, Tom Cotcher, Barrington De La Roche Year: 2014 BLOOD MOON | Full Horror Western Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77663",
+  "title": "3 Demons",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "3 Demons",
+    "url": "https://www.youtube.com/embed/DL2ujCyd8ic",
+    "video_id": "DL2ujCyd8ic",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5854
+   }
+  ],
+  "url": "https://www.youtube.com/embed/DL2ujCyd8ic",
+  "video_id": "DL2ujCyd8ic",
+  "eps": "1 ep",
+  "runtime": "98 min",
+  "desc": "A lone deputy guarding the body of a recently deceased woman becomes trapped in a terrifying night of ritualistic horror when his curiosity awakens an unfinished conjuring. As sinister forces close in, he must survive the darkness before it claims him too. Directed by: Matt Cunningham Starring: Zoë Cunningham, Sherryl Despres, Laura Golinski Year: 2022 3 DEMONS | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77664",
+  "title": "The Nun's Curse",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Nun's Curse",
+    "url": "https://www.youtube.com/embed/k9A0rlQDZQ8",
+    "video_id": "k9A0rlQDZQ8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4399
+   }
+  ],
+  "url": "https://www.youtube.com/embed/k9A0rlQDZQ8",
+  "video_id": "k9A0rlQDZQ8",
+  "eps": "1 ep",
+  "runtime": "73 min",
+  "desc": "When a group of travelers takes shelter inside an abandoned prison, they awaken the terrifying legacy of Sister Monday, a notorious nun accused of murdering inmates. As darkness closes in, faith, fear, and survival collide. Directed by: Tommy Faircloth Starring: Felissa Rose, Damian Maffei, Erika Arlee Year: 2019 The Nun's Curse | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free, nonstop",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77665",
+  "title": "Ruthless Bastards",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ruthless Bastards",
+    "url": "https://www.youtube.com/embed/6Bqc1Md1fY4",
+    "video_id": "6Bqc1Md1fY4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5361
+   }
+  ],
+  "url": "https://www.youtube.com/embed/6Bqc1Md1fY4",
+  "video_id": "6Bqc1Md1fY4",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Two former gangster enforcers, bound by hatred and a violent past, are forced into a final deadly mission that pushes their loyalty and survival instincts to the edge. As betrayal looms and bullets fly, only one may walk away from the chaos alive. Directed by: Bruce Fontaine Starring: Sean Patrick Flanery, Parmish Verma, Casper Van Dien Year: 2025 Ruthless Bastards | Full Action Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77666",
+  "title": "Echoes of Fear",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Echoes of Fear",
+    "url": "https://www.youtube.com/embed/YVVBL3qTfD4",
+    "video_id": "YVVBL3qTfD4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5368
+   }
+  ],
+  "url": "https://www.youtube.com/embed/YVVBL3qTfD4",
+  "video_id": "YVVBL3qTfD4",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "After inheriting her grandfather’s secluded home, a young woman uncovers a chilling mystery tied to his death—and a malevolent presence that refuses to stay hidden. As the house reveals its secrets, terror echoes through every shadow. Directed by: Brian Avenet-Bradley, Laurence Avenet-Bradley Starring: Trista Robinson, Hannah Race, Paul Chirico Year: 2018 Echoes of Fear | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77667",
+  "title": "Jacob",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jacob",
+    "url": "https://www.youtube.com/embed/pSbxExJCu-Q",
+    "video_id": "pSbxExJCu-Q",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5523
+   }
+  ],
+  "url": "https://www.youtube.com/embed/pSbxExJCu-Q",
+  "video_id": "pSbxExJCu-Q",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "Haunted by loss and driven by a fractured mind, Jacob Kell descends into a brutal path of vengeance after a devastating tragedy shatters his world. In the darkness of his grief, anyone who crosses him becomes part of his relentless fury. Directed by: Larry Wade Carrell Starring: Grace Powell, Dylan Horne, Travis Hester Year: 2011 Jacob | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77668",
+  "title": "Ouija Summoning",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ouija Summoning",
+    "url": "https://www.youtube.com/embed/qvp1dhzVMqk",
+    "video_id": "qvp1dhzVMqk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5425
+   }
+  ],
+  "url": "https://www.youtube.com/embed/qvp1dhzVMqk",
+  "video_id": "qvp1dhzVMqk",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "A curious experiment with a Ouija board unleashes a sinister force that binds itself to a young woman, turning her life into a waking nightmare. As the entity grows stronger, the line between possession and survival begins to blur. Directed by: Marwan Mokbel Starring: Tara Shayne, Marty Dew, Kristen Hagen Year: 2015 OUIJA SUMMONING: You Will Kill | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77669",
+  "title": "Mutant Man",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mutant Man",
+    "url": "https://www.youtube.com/embed/xHeP7acK4r4",
+    "video_id": "xHeP7acK4r4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4579
+   }
+  ],
+  "url": "https://www.youtube.com/embed/xHeP7acK4r4",
+  "video_id": "xHeP7acK4r4",
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "A quiet family camping trip turns into a nightmare when two mothers and their children become stranded in the wilderness, hunted by a savage clan of cannibalistic mutants. As terror closes in, survival becomes a brutal fight against unimaginable horror. Directed by: Suzanne DeLaurentiis Starring: Sulva von Woltor, Susan Levin, Jonathan Nurkiewicz Year: 1996 Mutant Man | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77670",
+  "title": "Billy Club",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Billy Club",
+    "url": "https://www.youtube.com/embed/3R6J9JeHIHQ",
+    "video_id": "3R6J9JeHIHQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5515
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3R6J9JeHIHQ",
+  "video_id": "3R6J9JeHIHQ",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "Four childhood friends reunite to honor their murdered teammates, but their tribute turns into terror when a masked killer armed with a brutal baseball bat begins hunting them one by one. As secrets from the past resurface, survival becomes a deadly game with no escape. Directed by: Drew Rosas, Nick Sommer Starring: Marshall Caswell, Erin Hammond, Nick Sommer Year: 2013 Billy Club | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77671",
+  "title": "The Caretaker",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Caretaker",
+    "url": "https://www.youtube.com/embed/kZ6XS4_Z5LQ",
+    "video_id": "kZ6XS4_Z5LQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5285
+   }
+  ],
+  "url": "https://www.youtube.com/embed/kZ6XS4_Z5LQ",
+  "video_id": "kZ6XS4_Z5LQ",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "In a forgotten ghost town, a lone caretaker is thrust into a deadly standoff when ruthless criminals arrive hunting a young woman under his protection. As violence erupts and loyalties are tested, survival demands a fight against overwhelming odds. Directed by: Fady Jeanbart Starring: Daniel Baldwin, Quinton \"Rampage\" Jackson, Avaryana Rose Year: 2025 The Caretaker | Full Action Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77672",
+  "title": "Knock Off",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Knock Off",
+    "url": "https://www.youtube.com/embed/qLJlsLXZ5h8",
+    "video_id": "qLJlsLXZ5h8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5425
+   }
+  ],
+  "url": "https://www.youtube.com/embed/qLJlsLXZ5h8",
+  "video_id": "qLJlsLXZ5h8",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "When a fast-talking fashion designer is pulled into a deadly web of counterfeit goods and global terrorism, he must team up with a relentless C.I.A. agent to stop a catastrophic attack before time runs out. Explosive action, sharp twists, and high-stakes danger collide in this adrenaline-fueled thriller. Directed by: Hark Tsui Starring: Jean-Claude Van Damme, Rob Schneider, Lela Rochon Year: 1998 Knock Off | Full Action Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77673",
+  "title": "Judas Ghost",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Judas Ghost",
+    "url": "https://www.youtube.com/embed/60Ft1RsQw6w",
+    "video_id": "60Ft1RsQw6w",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4574
+   }
+  ],
+  "url": "https://www.youtube.com/embed/60Ft1RsQw6w",
+  "video_id": "60Ft1RsQw6w",
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "A team of seasoned ghost hunters becomes trapped inside a remote village hall, where a sinister presence begins to unravel their sanity and souls. As the haunting intensifies, escape may come at a terrifying cost none of them are ready to pay. Directed by: Simon Pearce Starring: Martin Delaney, Lucy Cudden, Simon Merrells Year: 2013 Judas Ghost | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77674",
+  "title": "Blood Totem",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blood Totem",
+    "url": "https://www.youtube.com/embed/fbIds0JI-D0",
+    "video_id": "fbIds0JI-D0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4848
+   }
+  ],
+  "url": "https://www.youtube.com/embed/fbIds0JI-D0",
+  "video_id": "fbIds0JI-D0",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "When a search for a missing soldier leads deep into Apache territory, a hardened group of men confronts a force older and darker than the frontier itself. As the land awakens with supernatural fury, survival becomes a battle against both legend and terror. Directed by: Robert Conway Starring: Christopher Beeman, Daniel Link, Celeste Luccitti Year: 2026 Blood Totem | Full Western Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77675",
+  "title": "God's Soldier",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "God's Soldier",
+    "url": "https://www.youtube.com/embed/A_QsT-AEObM",
+    "video_id": "A_QsT-AEObM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6345
+   }
+  ],
+  "url": "https://www.youtube.com/embed/A_QsT-AEObM",
+  "video_id": "A_QsT-AEObM",
+  "eps": "1 ep",
+  "runtime": "106 min",
+  "desc": "An orphaned girl marked for death finds sanctuary in a secluded chapel, but the refuge hides dangerous secrets of its own. As a ruthless CIA agent closes in, a desperate escape ignites a relentless battle of faith, survival, and betrayal. Directed by: Jean-Marc Minéo Starring: Carolina Carlsson, William Baldwin, Marcel Miller Year: 2025 God's Soldier | Full Action Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77676",
+  "title": "Devil's Tower",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Devil's Tower",
+    "url": "https://www.youtube.com/embed/FIoILdXbLMA",
+    "video_id": "FIoILdXbLMA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4710
+   }
+  ],
+  "url": "https://www.youtube.com/embed/FIoILdXbLMA",
+  "video_id": "FIoILdXbLMA",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "When a friend vanishes inside a decaying tower block, two outsiders uncover a terrifying secret lurking in the shadows—a vengeful spirit commanding the dead. As the horror closes in, survival means facing something far darker than they ever imagined. Directed by: Owen Tooth Starring: Roxanne Pallett, Jason Mewes, Frances Ruffelle Year: 2014 Devil's Tower | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77677",
+  "title": "Stealing the Sky",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Stealing the Sky",
+    "url": "https://www.youtube.com/embed/MASC8PV0d5o",
+    "video_id": "MASC8PV0d5o",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6001
+   }
+  ],
+  "url": "https://www.youtube.com/embed/MASC8PV0d5o",
+  "video_id": "MASC8PV0d5o",
+  "eps": "1 ep",
+  "runtime": "100 min",
+  "desc": "As demolition looms over a crumbling warehouse loft, a group of intertwined lives collide in moments of humor, loss, and fragile hope. In a city rising too fast, they struggle to hold onto what little remains before it’s gone forever. Directed by: Megan Follows Starring: Marie Dame, Megan Follows, Alex Karzis Year: 2025 Stealing the Sky | Full Drama Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77678",
+  "title": "Demon Tongue",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Demon Tongue",
+    "url": "https://www.youtube.com/embed/MDssrXbh9XA",
+    "video_id": "MDssrXbh9XA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4953
+   }
+  ],
+  "url": "https://www.youtube.com/embed/MDssrXbh9XA",
+  "video_id": "MDssrXbh9XA",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "A group of student ghost hunters enters an abandoned complex seeking answers, but what they awaken is far more sinister than they imagined. Trapped in darkness, they must confront a demonic force lurking deep below before it consumes them all. Directed by: Dan Mahon, Gavin Rapp Starring: Jack Davis, Debbie College, Seth Gontkovic Year: 2016 Demon Tongue | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77679",
+  "title": "Crying Wolf",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Crying Wolf",
+    "url": "https://www.youtube.com/embed/Elcrg3W3cIk",
+    "video_id": "Elcrg3W3cIk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5468
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Elcrg3W3cIk",
+  "video_id": "Elcrg3W3cIk",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "When a brutal killing shakes a quiet English village, a bizarre hunt begins for a savage creature lurking in the shadows. But as chaos spirals and the body count rises, the line between fear and absurdity becomes terrifyingly thin. Directed by: Tony Jopia Starring: Caroline Munro, Gary Martin, Joe Egan Year: 2015 Crying Wolf | Full Comedy Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free, nonstop",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77680",
+  "title": "Anti Matter",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Anti Matter",
+    "url": "https://www.youtube.com/embed/_O4f7NrWdvM",
+    "video_id": "_O4f7NrWdvM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4454
+   }
+  ],
+  "url": "https://www.youtube.com/embed/_O4f7NrWdvM",
+  "video_id": "_O4f7NrWdvM",
+  "eps": "1 ep",
+  "runtime": "74 min",
+  "desc": "After a groundbreaking wormhole experiment shatters her memory, an Oxford PhD student spirals into a terrifying reality where time, identity, and existence begin to unravel. As fragments of truth emerge, she must confront a chilling force that may not belong to this world. Directed by: Keir Burrows Starring: Yaiza Figueroa, Philippa Carson, Tom Barber-Duffy Year: 2016 Anti Matter | Full Sci-Fi Thriller Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77681",
+  "title": "The Ouija Exorcism",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Ouija Exorcism",
+    "url": "https://www.youtube.com/embed/U5M1HjtVUeI",
+    "video_id": "U5M1HjtVUeI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5166
+   }
+  ],
+  "url": "https://www.youtube.com/embed/U5M1HjtVUeI",
+  "video_id": "U5M1HjtVUeI",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching The Ouija Exorcism on @FlixForFree In 1985, a renowned exorcist sealed a demon inside a Ouija board to save his son. Decades later, his grandson unknowingly unleashes it again—repeating the deadly mistake that cursed his family. The Ouija Exorcism delivers a chilling tale of demonic possession, generational horror, and the terrifying consequences of tampering with the unknown. Director: Nick Slatkin Cast: Julia Rae, J. Damian Anastasio, Brittney Bertier Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77682",
+  "title": "It Watches",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "It Watches",
+    "url": "https://www.youtube.com/embed/QE-5_dmzkck",
+    "video_id": "QE-5_dmzkck",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4758
+   }
+  ],
+  "url": "https://www.youtube.com/embed/QE-5_dmzkck",
+  "video_id": "QE-5_dmzkck",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "After a near-fatal accident, a troubled man takes a quiet house-sitting job in the hills—only to discover the home is alive with something watching from the dark. As the night deepens, unseen forces close in, turning isolation into a relentless psychological nightmare. Directed by: Dave Parker Starring: Ivan Djurovic, Rick Irwin Year: 2016 It Watches | Full Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77683",
+  "title": "A Town Called Purgatory",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Town Called Purgatory",
+    "url": "https://www.youtube.com/embed/O_cT23x9Ptw",
+    "video_id": "O_cT23x9Ptw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5348
+   }
+  ],
+  "url": "https://www.youtube.com/embed/O_cT23x9Ptw",
+  "video_id": "O_cT23x9Ptw",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "A hardened Yankee lawman and a haunted ex-Confederate tracker ride into a ghost town chasing ruthless train robbers, only to awaken a nightmare far older than the frontier. As fear closes in and the Skinwalker begins its hunt, survival becomes a brutal fight against evil itself. Directed by: Matt Servitto Starring: Ken Arnold, Dan De Luca, Kevin Jiggetts Year: 2025 A Town Called Purgatory | Full Western Horror Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77684",
+  "title": "Casino Jack",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Casino Jack",
+    "url": "https://www.youtube.com/embed/42G2R3-cVKk",
+    "video_id": "42G2R3-cVKk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6516
+   }
+  ],
+  "url": "https://www.youtube.com/embed/42G2R3-cVKk",
+  "video_id": "42G2R3-cVKk",
+  "eps": "1 ep",
+  "runtime": "109 min",
+  "desc": "A powerful Washington lobbyist rises to the top of the political world—until greed, corruption, and dangerous alliances send his empire crashing down. As the scandal deepens, the line between power and prison begins to disappear. Directed by: George Hickenlooper Starring: Kevin Spacey, Barry Pepper, Jon Lovitz Year: 2010 Casino Jack | Full Crime Drama Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud comedies and timeless classics. Sit back, press play, and enjoy hours of free,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77685",
+  "title": "Gangs of Paris",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gangs of Paris",
+    "url": "https://www.youtube.com/embed/urRlE2dihHo",
+    "video_id": "urRlE2dihHo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5652
+   }
+  ],
+  "url": "https://www.youtube.com/embed/urRlE2dihHo",
+  "video_id": "urRlE2dihHo",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching Gangs of Paris on @FlixForFree After her brother is murdered, a fearless young woman infiltrates the violent Parisian crime syndicate responsible. One by one, she eliminates each member of the gang—until she falls dangerously close to their magnetic leader. Gangs of Paris is a gritty French action thriller packed with revenge, deception, and high-stakes betrayal in the underbelly of Paris. Director: Romain Quirot Cast: Alice Isaaz, Niels Schneider, Rod Paradot Genre: Action, Thriller, Crime, Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77686",
+  "title": "Chapter 27",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Chapter 27",
+    "url": "https://www.youtube.com/embed/vAEoizQOd-E",
+    "video_id": "vAEoizQOd-E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5074
+   }
+  ],
+  "url": "https://www.youtube.com/embed/vAEoizQOd-E",
+  "video_id": "vAEoizQOd-E",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "In the final haunting days before tragedy, a disturbed drifter arrives in New York, obsessively spiraling toward a moment that will shock the world and silence a legend forever. As reality and delusion blur, his fixation on fame, loneliness, and “The Catcher in the Rye” drives him toward an irreversible act. Directed by: J.P. Schaefer Starring: Jared Leto, Lindsay Lohan, Judah Friedlander Year: 2007 Chapter 27 | Full Crime Drama Movie | Flix For Free Movies 🎬 Flix for Free brings you full-length movies across every genre: from action-packed thrillers and heartfelt dramas to laugh-out-loud",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77687",
+  "title": "Mascarpone: The Rainbow Cake",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mascarpone: The Rainbow Cake",
+    "url": "https://www.youtube.com/embed/-pUe5zR5enU",
+    "video_id": "-pUe5zR5enU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6336
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-pUe5zR5enU",
+  "video_id": "-pUe5zR5enU",
+  "eps": "1 ep",
+  "runtime": "106 min",
+  "desc": "Thanks for watching Mascarpone: The Rainbow Cake on @FlixForFree Three years after their breakup, Antonio and Luca unexpectedly cross paths again. Antonio is now a successful pastry chef, still struggling with unresolved feelings for Luca, who is engaged to someone else. As old emotions resurface, both men are forced to confront love, timing, and the choices that shaped their lives, discovering whether the past can offer a second chance at happiness. Director: Alessandro Guida Cast: Giancarlo Commare, Gianmarco Saurino, Michela Giraud Genre: Romance, Comedy, LGBTQ+ Watch more movies on Flix",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77688",
+  "title": "Rebound",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Rebound",
+    "url": "https://www.youtube.com/embed/9yzh4qkqX9M",
+    "video_id": "9yzh4qkqX9M",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5048
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9yzh4qkqX9M",
+  "video_id": "9yzh4qkqX9M",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Rebound on @FlixForFree After discovering her boyfriend’s betrayal, a young woman sets off on a cross-country journey in an attempt to escape her pain. As her emotional state deteriorates, she encounters hostile strangers and overwhelming paranoia, blurring the line between reality and fear. Her road to recovery turns into a psychological nightmare where survival depends on confronting her deepest anxieties. Director: Megan Freels Johnston Cast: Ashley James, Mark Meir, Wes O’Lee Genre: Horror, Thriller, Mystery Watch more movies on Flix For Free! Horror Movies: Action",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77689",
+  "title": "The Snare",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Snare",
+    "url": "https://www.youtube.com/embed/9h70hZE9aao",
+    "video_id": "9h70hZE9aao",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5241
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9h70hZE9aao",
+  "video_id": "9h70hZE9aao",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching The Snare on @FlixForFree Three friends head to the seafront for a drunken weekend, only to be imprisoned on the top floor of their holiday apartment by a malevolent paranormal force. As their sanity crumbles, dark secrets and disturbing hallucinations unravel their bond, trapping them in a psychological nightmare. Director: C.A. Cooper Cast: Eaoifa Forward, Daniel Paton, Rachel Warren Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77690",
+  "title": "Bottom Feeder",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bottom Feeder",
+    "url": "https://www.youtube.com/embed/Kknb9L40MLE",
+    "video_id": "Kknb9L40MLE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5458
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Kknb9L40MLE",
+  "video_id": "Kknb9L40MLE",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Bottom Feeder on @FlixForFree A routine maintenance job turns into a nightmare when a group of utility workers become trapped deep beneath the city in a maze of underground tunnels. Unbeknownst to them, a scientist conducting illegal experiments has mutated himself into a horrific creature that evolves by consuming its victims. As the monster grows stronger with every kill, the workers must fight for survival in the darkness before they are hunted down one by one. Director: Randy Daudlin Cast: Tom Sizemore, Wendy Anderson, Richard Fitzpatrick Genre: Horror, Sci-Fi,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77691",
+  "title": "Pitchfork",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Pitchfork",
+    "url": "https://www.youtube.com/embed/cyAI_U88CuA",
+    "video_id": "cyAI_U88CuA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5678
+   }
+  ],
+  "url": "https://www.youtube.com/embed/cyAI_U88CuA",
+  "video_id": "cyAI_U88CuA",
+  "eps": "1 ep",
+  "runtime": "95 min",
+  "desc": "Thanks for watching Pitchfork on @FlixForFree After revealing a deeply personal secret, Hunter invites a group of friends from New York City to his family’s remote farm for a weekend getaway. What begins as a chance for acceptance and escape quickly turns into a nightmare when a twisted and violent presence emerges. As secrets unravel, the group realizes that the past can be deadly — and something monstrous is stalking them. Director: Glenn Douglas Packard Cast: Daniel Wilkinson, Brian Michael Raetz, Lindsey Dresbach Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77692",
+  "title": "Dead Mary",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dead Mary",
+    "url": "https://www.youtube.com/embed/VrAkHli8iCQ",
+    "video_id": "VrAkHli8iCQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6569
+   }
+  ],
+  "url": "https://www.youtube.com/embed/VrAkHli8iCQ",
+  "video_id": "VrAkHli8iCQ",
+  "eps": "1 ep",
+  "runtime": "109 min",
+  "desc": "Thanks for watching Dead Mary on @FlixForFree A group of friends retreat to a secluded cabin in the woods for a weekend getaway and decide to play a supernatural game known as “Dead Mary.” What begins as harmless fun quickly turns terrifying when the ritual summons a vengeful witch spirit. As paranoia spreads and possessions begin, the friends are forced to confront dark secrets, violent hallucinations, and a growing evil that threatens to consume them one by one. Director: Robert Wilson Cast: Dominique Swain, Marie-Josée Colburn, Steven McCarthy Genre: Horror, Supernatural Watch more movies",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77693",
+  "title": "The Quantum Devil",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Quantum Devil",
+    "url": "https://www.youtube.com/embed/c-3OjbtvlsU",
+    "video_id": "c-3OjbtvlsU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5358
+   }
+  ],
+  "url": "https://www.youtube.com/embed/c-3OjbtvlsU",
+  "video_id": "c-3OjbtvlsU",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Thanks for watching The Quantum Devil on @FlixForFree An international team of scientists are summoned to a remote site in Eastern Europe to break through the quantum barrier—only to unleash unimaginable horror. As they attempt to access another dimension, they encounter mind-bending terror beyond reason. Science meets hell in this interdimensional nightmare. Director: Larry Wade Carrell Cast: Neil Dickson, Tyler Tackett, Ariadna Cabrol Genre: Horror, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77694",
+  "title": "The Stranger Game",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Stranger Game",
+    "url": "https://www.youtube.com/embed/-eeXhyW5J5A",
+    "video_id": "-eeXhyW5J5A",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5890
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-eeXhyW5J5A",
+  "video_id": "-eeXhyW5J5A",
+  "eps": "1 ep",
+  "runtime": "98 min",
+  "desc": "Thanks for watching The Stranger Game on @FlixForFree A devoted, hard-working single mother hires a male nanny to help care for her young son. At first charming and dependable, the stranger soon reveals a disturbing and dangerous side. As his obsessive behavior escalates, the mother uncovers his dark past and realizes he may be an antisocial psychopath determined to infiltrate and destroy her family. Trapped in a psychological game of manipulation and fear, she must act before it’s too late. Director: Terry Ingram Cast: Mimi Rogers, David Orth, Barclay Hope Genre: Thriller, Drama Watch more",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77695",
+  "title": "Replace",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Replace",
+    "url": "https://www.youtube.com/embed/6PELawabe7k",
+    "video_id": "6PELawabe7k",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5871
+   }
+  ],
+  "url": "https://www.youtube.com/embed/6PELawabe7k",
+  "video_id": "6PELawabe7k",
+  "eps": "1 ep",
+  "runtime": "98 min",
+  "desc": "Thanks for watching Replace on @FlixForFree Kira’s body is betraying her. Her skin is rapidly aging, cracking, and crumbling before her eyes. But when she discovers a disturbing remedy—replacing her own flesh with that of others—she's pulled into a spiraling obsession with youth, beauty, and identity. Replace is a stylish, body horror thriller that blends sci-fi aesthetics with psychological terror. Director: Norbert Keil Cast: Rebecca Forsythe, Lucie Aron, Barbara Crampton Genre: Horror, Sci-Fi, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77696",
+  "title": "Kiss Me Deadly",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Kiss Me Deadly",
+    "url": "https://www.youtube.com/embed/6dkuuGqjfzY",
+    "video_id": "6dkuuGqjfzY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5224
+   }
+  ],
+  "url": "https://www.youtube.com/embed/6dkuuGqjfzY",
+  "video_id": "6dkuuGqjfzY",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching Kiss Me Deadly on @FlixForFree Ex-spy Jacob Keane is forced back into the dark world of espionage when his former partner Marta resurfaces after seventeen years—her memory wiped and killers on her trail. As secrets unravel and assassins close in, Jacob must protect her and stop a global conspiracy before it's too late. Kiss Me Deadly is a tense, fast-paced action thriller packed with betrayal, memory loss, and international intrigue. Director: Ron Oliver Cast: Robert Gant, Shannen Doherty, Fraser Brown Genre: Action, Crime, Thriller Watch more movies on Flix For Free!",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77697",
+  "title": "Jimmy in Saigon",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jimmy in Saigon",
+    "url": "https://www.youtube.com/embed/nLgkxVMoims",
+    "video_id": "nLgkxVMoims",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5358
+   }
+  ],
+  "url": "https://www.youtube.com/embed/nLgkxVMoims",
+  "video_id": "nLgkxVMoims",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Thanks for watching Jimmy in Saigon on @FlixForFree JIMMY IN SAIGON is a documentary exploring the mysterious death of Peter McDowell’s eldest brother, James, who died at age 24 in Saigon. The film uncovers family secrets and unspoken grief, honoring a life lost too soon while shedding light on a deeply personal journey through memory, loss, and identity. Director: Peter McDowell Cast: John Attebury, Yves Bletzacker, Robert Carolan Genre: Documentary Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77698",
+  "title": "Reset",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Reset",
+    "url": "https://www.youtube.com/embed/Ha2r9bRIQko",
+    "video_id": "Ha2r9bRIQko",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4683
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Ha2r9bRIQko",
+  "video_id": "Ha2r9bRIQko",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "Thanks for watching Reset on @FlixForFree A broken father fights for his life when his daughter is taken by an otherworldly force. Trapped in a nightmarish cycle of terror, he faces a monstrous enemy and an endless loop of pain. Time is against him—and saving her will cost everything. Director: Michael Yammine Cast: Adam Holley, Caitlin Westfall, Lorelai Brown Genre: Sci-Fi, Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77699",
+  "title": "The Angel Maker",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Angel Maker",
+    "url": "https://www.youtube.com/embed/ClY8IyEKtR4",
+    "video_id": "ClY8IyEKtR4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5570
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ClY8IyEKtR4",
+  "video_id": "ClY8IyEKtR4",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "Thanks for watching The Angel Maker on @FlixForFree Detective Laura has been on sick leave after struggling with postpartum depression. When she and her partner get pulled into a disturbing new case, it becomes increasingly clear that Laura is concealing a dark secret of her own. The Angel Maker is a chilling crime thriller from Denmark, blending emotional trauma with a tense serial killer investigation. Directors: Julie R. Ølgaard, Esben Tønnesen Cast: Julie R. Ølgaard, Roland Møller, Stine Stengade Genre: Crime Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77700",
+  "title": "Terror in the Woods",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Terror in the Woods",
+    "url": "https://www.youtube.com/embed/kFODtkWfRV8",
+    "video_id": "kFODtkWfRV8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4573
+   }
+  ],
+  "url": "https://www.youtube.com/embed/kFODtkWfRV8",
+  "video_id": "kFODtkWfRV8",
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "Thanks for watching Terror in the Woods on @FlixForFree In the heart of the Vosges forest, childhood friendship turns to horror. After a tragic accident leaves a young boy dead, another witnesses his father commit a horrifying act of cover-up. Years later, the secrets buried in the ravine resurface with a vengeance. Terror in the Woods is a chilling French horror thriller that explores guilt, trauma, and revenge deep in the wilderness. Director: Pierre Mouchet Cast: Louka Meliava, Léna Laprès, Gilles David Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77701",
+  "title": "My First Mister",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "My First Mister",
+    "url": "https://www.youtube.com/embed/HsLsARdo1V0",
+    "video_id": "HsLsARdo1V0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6554
+   }
+  ],
+  "url": "https://www.youtube.com/embed/HsLsARdo1V0",
+  "video_id": "HsLsARdo1V0",
+  "eps": "1 ep",
+  "runtime": "109 min",
+  "desc": "Thanks for watching My First Mister on @FlixForFree A rebellious 17-year-old girl and a lonely 49-year-old man form an unlikely, deeply human connection in this moving coming-of-age dramedy. Through vulnerability, wit, and emotional scars, they build an unconventional friendship that helps both heal. My First Mister is a bittersweet story of growth, acceptance, and the unexpected power of companionship. Director: Christine Lahti Cast: Albert Brooks, Leelee Sobieski, Rutanya Alda Genre: Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77702",
+  "title": "Very Frightening Tales 2",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Very Frightening Tales 2",
+    "url": "https://www.youtube.com/embed/GBWgqHLRTZo",
+    "video_id": "GBWgqHLRTZo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 2655
+   }
+  ],
+  "url": "https://www.youtube.com/embed/GBWgqHLRTZo",
+  "video_id": "GBWgqHLRTZo",
+  "eps": "1 ep",
+  "runtime": "44 min",
+  "desc": "Thanks for watching Very Frightening Tales 2 on @FlixForFree This chilling sequel delivers six terrifying stories in one spine-tingling horror anthology. From an actress haunted by shadows to a cursed mirror and twisted glasses, each tale pushes the boundaries of fear. A sinister condo, a dark parking garage, and a film crew’s hunt for a legendary creature round out this collection of nightmarish encounters that are sure to leave you looking over your shoulder. Directors: Brian DeRozan, Mark Dormitorio, Dale Fabrigar Cast: Chelsea Rose Cook, Brian DeRozan, Christopher Dukes Genre: Horror",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77703",
+  "title": "My Deadly Affair",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "My Deadly Affair",
+    "url": "https://www.youtube.com/embed/BsLLZMda718",
+    "video_id": "BsLLZMda718",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5175
+   }
+  ],
+  "url": "https://www.youtube.com/embed/BsLLZMda718",
+  "video_id": "BsLLZMda718",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching My Deadly Affair on @FlixForFree When a troubled and emotionally unstable young woman becomes obsessed with a seemingly perfect married man, she cunningly inserts herself into his life by posing as a tutor to his teenage daughter. As her obsession deepens, manipulation and deceit spiral into violence. My Deadly Affair is a chilling domestic thriller that explores obsession, betrayal, and the fatal cost of ignoring the warning signs. Director: Jared Cohn Cast: Cassidy Espinola, Mark Piller, Eric Roberts Genre: Thriller Watch more movies on Flix For Free! Horror Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77704",
+  "title": "Eyes of the Abyss",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Eyes of the Abyss",
+    "url": "https://www.youtube.com/embed/h97nUILXHqM",
+    "video_id": "h97nUILXHqM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4303
+   }
+  ],
+  "url": "https://www.youtube.com/embed/h97nUILXHqM",
+  "video_id": "h97nUILXHqM",
+  "eps": "1 ep",
+  "runtime": "72 min",
+  "desc": "Thanks for watching Eyes of the Abyss on @FlixForFree A soldier awakens alone on a warship littered with corpses, her memories fragmented and her mind clouded by trauma. As she unravels the mystery of what happened, she must battle deadly enemies, confront supernatural forces, and survive a nightmare voyage deep into terror. Blending psychological tension with high-stakes action, this underwater thriller keeps you gasping for air. Director: Daniel de la Vega Cast: Raymond E. Lee, Pablo Turturiello Genre: Action, Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77705",
+  "title": "Unmoored",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Unmoored",
+    "url": "https://www.youtube.com/embed/gMGHZYgZvhw",
+    "video_id": "gMGHZYgZvhw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5618
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gMGHZYgZvhw",
+  "video_id": "gMGHZYgZvhw",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching Unmoored on @FlixForFree A Swedish TV presenter's well-ordered life unravels when she finally confronts her domineering husband about an accusation against him. Her subsequent flight sets off a chain of lies, paranoia, and suspicion in this taut, atmospheric psychological thriller that explores guilt, control, and emotional isolation. Director: Caroline Ingvarsson Cast: Anna Próchniak, Kris Hitchen, Thomas W. Gabrielsson Genre: Psychological Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77706",
+  "title": "You're It!",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "You're It!",
+    "url": "https://www.youtube.com/embed/UfjqDdXiASA",
+    "video_id": "UfjqDdXiASA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 8235
+   }
+  ],
+  "url": "https://www.youtube.com/embed/UfjqDdXiASA",
+  "video_id": "UfjqDdXiASA",
+  "eps": "1 ep",
+  "runtime": "137 min",
+  "desc": "Thanks for watching You're It! on @FlixForFree A seemingly supernatural serial killer stalks the crew of a retro-style horror film with a maniacal game of hide and seek. While paying sincere homage to Carpenter's iconic Halloween, this modern slasher delivers suspense, paranoia, and relentless terror as it attempts to reinvent the genre. Director: Ronald J Rossmann Cast: Clarence Adams, Sommer Allen, Kelsey Ann Baker Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77707",
+  "title": "Darklands",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Darklands",
+    "url": "https://www.youtube.com/embed/lNxWHVloMzk",
+    "video_id": "lNxWHVloMzk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5191
+   }
+  ],
+  "url": "https://www.youtube.com/embed/lNxWHVloMzk",
+  "video_id": "lNxWHVloMzk",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching Darklands on @flixforfree A newspaper reporter is lured into a terrifying world of pagan rituals and human sacrifice after investigating a mysterious death. As he digs deeper, he uncovers a chilling conspiracy that threatens his sanity—and his life. Director: Julian Richards Cast: Craig Fairbrass, Rowena King, Jon Finch Genre: Horror, Thriller, Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77708",
+  "title": "The Fisherman",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Fisherman",
+    "url": "https://www.youtube.com/embed/2ydxraAC0VI",
+    "video_id": "2ydxraAC0VI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4192
+   }
+  ],
+  "url": "https://www.youtube.com/embed/2ydxraAC0VI",
+  "video_id": "2ydxraAC0VI",
+  "eps": "1 ep",
+  "runtime": "70 min",
+  "desc": "Thanks for watching The Fisherman on @FlixForFree An immigrant fisherman with a failing heart risks everything to help a group of grieving fathers find peace. As his health fades, his faith strengthens—and his sacrifice becomes a beacon of hope for those who have lost everything. A moving story of redemption, selflessness, and the power of belief. Director: Martins Samuel Cast: DeAnthony Watson, Martins Samuel, Gina Taylor Genre: Drama / Faith-Based Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77709",
+  "title": "What Lives Here",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "What Lives Here",
+    "url": "https://www.youtube.com/embed/f-OP3QeqZl4",
+    "video_id": "f-OP3QeqZl4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5248
+   }
+  ],
+  "url": "https://www.youtube.com/embed/f-OP3QeqZl4",
+  "video_id": "f-OP3QeqZl4",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching What Lives Here on @FlixForFree A junk removal crew is hired by a shady real estate agent to clear out a remote mansion in another state. Promised easy money for a simple cleanout, they quickly realize the house holds terrifying secrets—and something else is still living inside. As the team begins to vanish one by one, they’re forced to confront the evil buried within the walls of a mansion with a violent past. Director: Troy Burbank Cast: Jeff Swanton, Troy Burbank, Matt Riley Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77710",
+  "title": "Danny Goes Aum",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Danny Goes Aum",
+    "url": "https://www.youtube.com/embed/6_ohtxCbaCY",
+    "video_id": "6_ohtxCbaCY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6273
+   }
+  ],
+  "url": "https://www.youtube.com/embed/6_ohtxCbaCY",
+  "video_id": "6_ohtxCbaCY",
+  "eps": "1 ep",
+  "runtime": "105 min",
+  "desc": "Thanks for watching Danny Goes Aum on @FlixForFree Danny, a burned-out British video editor, travels to Goa hoping to rediscover his passion for life—only to unexpectedly fall for a spirited local woman. As they bond over love, laughter, and legacy, the clash between cultures turns into chemistry. A heartwarming, sun-soaked romcom about second chances, self-reflection, and seaside love. Director: Sandeep Mohan Cast: Andrew Sloman, Anjali Patil, Marianne Borgo Genre: Romantic Comedy / Indie Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77711",
+  "title": "Wild About Harry",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Wild About Harry",
+    "url": "https://www.youtube.com/embed/DcJUKvP1xkQ",
+    "video_id": "DcJUKvP1xkQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5474
+   }
+  ],
+  "url": "https://www.youtube.com/embed/DcJUKvP1xkQ",
+  "video_id": "DcJUKvP1xkQ",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Wild About Harry on @FlixForFree Set in 1973 Cape Cod and inspired by true events, this touching family drama follows two sisters whose lives are turned upside down when they discover their widowed father is gay. As their small town reacts with judgment and fear, the family must fight to stay together—and stand up for love in all its forms. Director: Gwen Wynne Cast: Tate Donovan, Adam Pascal, Danielle Savre Genre: Drama / Family Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77712",
+  "title": "Sick-Amour: A Love Story",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sick-Amour: A Love Story",
+    "url": "https://www.youtube.com/embed/5oUSupYivqo",
+    "video_id": "5oUSupYivqo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4621
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5oUSupYivqo",
+  "video_id": "5oUSupYivqo",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "Thanks for watching Sick-Amour: A Love Story on @FlixForFree In this poetic and unconventional documentary, filmmaker Joel Tauber adopts a lonely tree trapped in the middle of a parking lot outside the Rose Bowl Stadium in Pasadena, California. What unfolds is a heartfelt meditation on loneliness, urban neglect, climate change—and the quiet power of nature to endure, connect, and inspire. Director: Joel Tauber Cast: Joel Tauber, Scott Cameron, Grandma Lee Swerdlow Genre: Documentary / Environmental Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77713",
+  "title": "Killer Content",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Killer Content",
+    "url": "https://www.youtube.com/embed/agMcHHqBsNE",
+    "video_id": "agMcHHqBsNE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4805
+   }
+  ],
+  "url": "https://www.youtube.com/embed/agMcHHqBsNE",
+  "video_id": "agMcHHqBsNE",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching Killer Content on @FlixForFree When a fan kidnaps her favorite influencer in a desperate attempt to go viral, it quickly spirals into a deadly nightmare. But not everything is as it seems—because this influencer is hiding a dark secret of her own. Fame turns fatal in this twisted tale of revenge and survival. Director: Chris St. Croix Cast: Katie Keene, Casey Casmira, Diego Gomez Genre: Horror / Thriller / Revenge Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77714",
+  "title": "A Game in the Woods",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Game in the Woods",
+    "url": "https://www.youtube.com/embed/c3dkvx0rpec",
+    "video_id": "c3dkvx0rpec",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4816
+   }
+  ],
+  "url": "https://www.youtube.com/embed/c3dkvx0rpec",
+  "video_id": "c3dkvx0rpec",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching A Game in the Woods on @FlixForFree After a Texas rancher dies, his granddaughter and her girlfriend stumble upon masked hunters competing in a twisted, deadly game deep in the woods. As terror unfolds, the couple must fight not only for survival—but for each other. Can their love endure the brutality that awaits? Director: Mike McCutchen Cast: Eleanor Newman, Emily Skeen, John P. Crowley Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77715",
+  "title": "Fear Cabin: The Last Weekend of Summer",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Fear Cabin: The Last Weekend of Summer",
+    "url": "https://www.youtube.com/embed/AXUeMpDvjFE",
+    "video_id": "AXUeMpDvjFE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4825
+   }
+  ],
+  "url": "https://www.youtube.com/embed/AXUeMpDvjFE",
+  "video_id": "AXUeMpDvjFE",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching Fear Cabin: The Last Weekend of Summer on @FlixForFree Six friends' end-of-summer cabin party turns into a nightmare when they discover they're not alone in the woods. What begins as a weekend of drinking and fun becomes a harrowing fight for survival as an unseen force stalks them through the forest. One by one, the group is pushed to their breaking point as they realize the only way out is through the horror waiting in the dark. Director: Brian Krainson Cast: Brian Krainson, Jennifer Barlow, Brody Wellmaker Genre: Horror Watch more movies on Flix For Free! Horror Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77716",
+  "title": "The A-Frame",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The A-Frame",
+    "url": "https://www.youtube.com/embed/Ggakmy3iTik",
+    "video_id": "Ggakmy3iTik",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4988
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Ggakmy3iTik",
+  "video_id": "Ggakmy3iTik",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching The A-Frame on @FlixForFree A brilliant quantum physicist creates a machine that opens a tunnel to a subatomic universe. As he experiments to prove his invention's capabilities, he makes a groundbreaking discovery: a potential cure for cancer. But unlocking the mysteries of the quantum realm has dangerous consequences—ones that may spiral far beyond his control. Director: Calvin Lee Reeder Cast: Johnny Whitworth, Dana Namerode, Nik Dodani Genre: Sci-Fi, Thriller, Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77717",
+  "title": "Elf in the Hood",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Elf in the Hood",
+    "url": "https://www.youtube.com/embed/_vepInZEYsg",
+    "video_id": "_vepInZEYsg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4491
+   }
+  ],
+  "url": "https://www.youtube.com/embed/_vepInZEYsg",
+  "video_id": "_vepInZEYsg",
+  "eps": "1 ep",
+  "runtime": "75 min",
+  "desc": "Thanks for watching Elf in the Hood on @FlixForFree A couple discovers a mysterious elf doll just before Christmas, unknowingly awakening a vengeful spirit that turns their holiday into a night of pure terror. As the evil presence grows stronger, they must survive until morning—or become the elf’s next victims. Director: Jamaal Burden Cast: Michele Chavez, Chad Davis-Lenette, Sabina Gavrilov Genre: Christmas Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77718",
+  "title": "The Elf",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Elf",
+    "url": "https://www.youtube.com/embed/CClbYdBZt9Q",
+    "video_id": "CClbYdBZt9Q",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5452
+   }
+  ],
+  "url": "https://www.youtube.com/embed/CClbYdBZt9Q",
+  "video_id": "CClbYdBZt9Q",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching The Elf on @FlixForFree Nick is haunted by the night terrors resulting from a tragic murder he witnessed as a child. When he inherits a cursed antique toy shop, he unknowingly awakens a sinister Christmas elf linked to his past. As the body count rises, Nick must confront both his trauma and a malevolent force determined to finish what it started. Director: Tristan Price Cast: Natassia Halabi, Gabriel Miller, Lassiter Holmes Genre: Supernatural Horror, Christmas Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77719",
+  "title": "The Codes of War",
+  "genre": "War",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Codes of War",
+    "url": "https://www.youtube.com/embed/0S25JK2yNCY",
+    "video_id": "0S25JK2yNCY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4980
+   }
+  ],
+  "url": "https://www.youtube.com/embed/0S25JK2yNCY",
+  "video_id": "0S25JK2yNCY",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching The Codes of War on @FlixForFree Marines confront a suicide truck bomb in six seconds. A Navy Corpsman fights to hold onto his humanity in the chaos of battle. And a WWII soldier, cut off from his unit, must face his beliefs in the midst of war’s darkest truths. Across two eras, three soldiers are bound by one question: what does it mean to survive with honor? Directors: Paul Anderson, Joshua DeFour, Marielle Woods Cast: Michael Grant, Noah Gray-Cabey Genre: War / Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77720",
+  "title": "A Heart Full of Hope",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Heart Full of Hope",
+    "url": "https://www.youtube.com/embed/EZMCute6Kec",
+    "video_id": "EZMCute6Kec",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4717
+   }
+  ],
+  "url": "https://www.youtube.com/embed/EZMCute6Kec",
+  "video_id": "EZMCute6Kec",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Thanks for watching A Heart Full of Hope on @FlixForFree As Christmas approaches, sisters Whitney and Lynett are in a desperate race against time to find a life-saving kidney donor. Amid snowfalls, lights, and love, they discover that the greatest gift of all may be hope itself—and the unbreakable bond of family. Director: Dale Fabrigar Cast: Tyler Andrews, Sebastian Armani, Cree Armstead Genre: Drama / Holiday Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77721",
+  "title": "A Woman Scorned",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Woman Scorned",
+    "url": "https://www.youtube.com/embed/P-KUu7rOGBc",
+    "video_id": "P-KUu7rOGBc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5046
+   }
+  ],
+  "url": "https://www.youtube.com/embed/P-KUu7rOGBc",
+  "video_id": "P-KUu7rOGBc",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching A Woman Scorned on @FlixForFree When her sister is murdered in cold blood, one woman takes justice into her own hands. Armed with rage and a chainsaw, she tracks down each killer and unleashes her fury in a brutal spree of vengeance. They took everything from her—now she’s taking them out, one by one. Directors: Becca Hirani, Michael Hoad Writer: Anya Vallentin Cast: Megan Purvis, Hannah Pauley, Aaron-Jon North Genre: Action / Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77722",
+  "title": "Buried Alive",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Buried Alive",
+    "url": "https://www.youtube.com/embed/GE8KRhFQ1Iw",
+    "video_id": "GE8KRhFQ1Iw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5221
+   }
+  ],
+  "url": "https://www.youtube.com/embed/GE8KRhFQ1Iw",
+  "video_id": "GE8KRhFQ1Iw",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching Buried Alive on @FlixForFree Officer Briggs chases fugitives into an abandoned missile facility, only to find himself and the criminals trapped by a deranged Overseer. Forced to endure deadly trials while mutants stalk them in the dark, survival becomes a nightmare beneath the surface. Director: Robert Conway Cast: Erin Zipse, Michael Ochotorena, Carl Bailey Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77723",
+  "title": "Hippo's Revenge",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hippo's Revenge",
+    "url": "https://www.youtube.com/embed/WHspA8Qt6MY",
+    "video_id": "WHspA8Qt6MY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4874
+   }
+  ],
+  "url": "https://www.youtube.com/embed/WHspA8Qt6MY",
+  "video_id": "WHspA8Qt6MY",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Thanks for watching Hippo's Revenge on @FlixForFree A father and daughter prepare to open a safari rescue park in the English countryside, home to a mother hippo and her calf. But when a ruthless criminal targets them for black-market capture, nature bites back. As night falls, the hunters become the hunted in a rampage of primal fury. Director: Sam P. Green Cast: Jason Bailey, Jenna N. Wilson, Evyn George Genre: Horror / Creature Feature Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77724",
+  "title": "30 Days Until I'm Famous",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "30 Days Until I'm Famous",
+    "url": "https://www.youtube.com/embed/fYOVdRR4_gc",
+    "video_id": "fYOVdRR4_gc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4990
+   }
+  ],
+  "url": "https://www.youtube.com/embed/fYOVdRR4_gc",
+  "video_id": "fYOVdRR4_gc",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching 30 Days Until I'm Famous on @FlixForFree A Latina messenger in Los Angeles gets the break of a lifetime when she’s spotted by a music producer and transformed into a glamorous pop sensation. But fame has its price—and she must decide if stardom is worth sacrificing her true identity. Director: Gabriela Tagliavini Cast: Camille Guaty, Sean Patrick Flanery, Alanna Ubach Genre: Comedy, Romance Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77725",
+  "title": "Middleton Christmas",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Middleton Christmas",
+    "url": "https://www.youtube.com/embed/xZUuGCZ7klc",
+    "video_id": "xZUuGCZ7klc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5468
+   }
+  ],
+  "url": "https://www.youtube.com/embed/xZUuGCZ7klc",
+  "video_id": "xZUuGCZ7klc",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Middleton Christmas on @FlixForFree In a small town gearing up for the holidays, high school dean Alana and her spirited daughter Samantha organize a Christmas concert to save their school. With help from a new maintenance man—an Army veteran named Johnny—and his reserved son Max, the season looks bright. But after a devastating car accident puts Samantha’s life in danger, the town is forced to confront love, sacrifice, and the true meaning of Christmas in this heartfelt romantic drama. Director: Dale Fabrigar Cast: Eileen Davidson, Michael Paré, Kennedy Tucker Genre:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77726",
+  "title": "Ironclad",
+  "genre": "War",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ironclad",
+    "url": "https://www.youtube.com/embed/fFUEkSDXdoQ",
+    "video_id": "fFUEkSDXdoQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 7265
+   }
+  ],
+  "url": "https://www.youtube.com/embed/fFUEkSDXdoQ",
+  "video_id": "fFUEkSDXdoQ",
+  "eps": "1 ep",
+  "runtime": "121 min",
+  "desc": "Thanks for watching Ironclad on @FlixForFree In thirteenth-century England, a Knights Templar and a small group of rebel barons make a heroic last stand at Rochester Castle to protect their freedom against the ruthless tyranny of King John. A gritty, battle-heavy epic inspired by true events following the signing of the Magna Carta. Director: Jonathan English Cast: James Purefoy, Brian Cox, Kate Mara Genre: War Epic, Action, Historical Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77727",
+  "title": "Gnome Sick: 7 Slays Til Mithras",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gnome Sick: 7 Slays Til Mithras",
+    "url": "https://www.youtube.com/embed/Er9m3jhrTiM",
+    "video_id": "Er9m3jhrTiM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5348
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Er9m3jhrTiM",
+  "video_id": "Er9m3jhrTiM",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Thanks for watching Gnome Sick: 7 Slays Til Mithras on @FlixForFree Pete returns home to Christmas, California, only to find his family missing and chaos lurking in the snow. Has the Santa Slasher returned? Or are evil gnomes behind the madness? As Pete searches for answers, he uncovers a sinister holiday cult led by his high school sweetheart Anne. Festive frights, gory laughs, and twisted traditions collide in this wild holiday horror-comedy that asks: Has Pete become... Gnome Sick? Director: Mike L. Taylor Cast: Bryan Forrest, Pyar Anderson, Lennon Hobson Genre: Horror, Holidays Horror",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77728",
+  "title": "Dug Up",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dug Up",
+    "url": "https://www.youtube.com/embed/xuTOuWDlw1k",
+    "video_id": "xuTOuWDlw1k",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5081
+   }
+  ],
+  "url": "https://www.youtube.com/embed/xuTOuWDlw1k",
+  "video_id": "xuTOuWDlw1k",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching Dug Up (2013) on @FlixForFree When treasure hunter Trevor Chesney convinces his girlfriend and sister to help him dig for rumored gold in a small-town cemetery, they accidentally unleash a zombie outbreak. As chaos erupts, a mysterious loner named ZZ West arrives to assist the local sheriff and the group in battling the undead menace. Director: Dustin Rikert Cast: Paul McCarthy-Boyington, William Shockley, Nicole Herold Genre: Horror, Zombie Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77729",
+  "title": "Decay",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Decay",
+    "url": "https://www.youtube.com/embed/5Z9NF_JksgM",
+    "video_id": "5Z9NF_JksgM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5909
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5Z9NF_JksgM",
+  "video_id": "5Z9NF_JksgM",
+  "eps": "1 ep",
+  "runtime": "98 min",
+  "desc": "Thanks for watching Decay on @FlixForFree Jonathan is a deeply lonely man. When a young woman unexpectedly enters his life and dies during a disturbing incident, he chooses not to report it—grateful simply for the company. But as her corpse begins to decay, so too does his grip on reality, descending into a dark and haunting psychological spiral. Director: Joseph Wartnerchaney Cast: Rob Zabrecky, Lisa Howard, Elisha Yaffe Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77730",
+  "title": "Raven",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Raven",
+    "url": "https://www.youtube.com/embed/IJJszK4061s",
+    "video_id": "IJJszK4061s",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5653
+   }
+  ],
+  "url": "https://www.youtube.com/embed/IJJszK4061s",
+  "video_id": "IJJszK4061s",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching Raven on @FlixForFree When a mission to capture stolen military tech goes south, the elite Raven Special Forces team must hunt down one of their own — a notorious operative turned rogue. Explosions, betrayals, and covert ops unfold as the hunter becomes the hunted in this explosive 90s B-action thriller led by Burt Reynolds. Director: Russell Solberg Cast: Burt Reynolds, Matt Battaglia, Krista Allen Genre: Action, B-Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77731",
+  "title": "Bride of the Wind",
+  "genre": "History",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bride of the Wind",
+    "url": "https://www.youtube.com/embed/9Da7npaRZiQ",
+    "video_id": "9Da7npaRZiQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5656
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9Da7npaRZiQ",
+  "video_id": "9Da7npaRZiQ",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching Bride of the Wind on @FlixForFree This lush historical drama tells the passionate and tragic story of Alma Mahler, muse, artist, and lover at the center of Vienna’s cultural revolution. As the wife of composer Gustav Mahler and the lover of men like architect Walter Gropius, painter Oskar Kokoschka, and writer Franz Werfel, Alma’s life unfolds in a whirlwind of romance, betrayal, and artistic obsession. But in a world dominated by brilliant men, her own creative voice struggles to be heard. Director: Bruce Beresford Cast: Sarah Wynter, Vincent Perez, Jonathan Pryce Genre:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77732",
+  "title": "Beach House",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Beach House",
+    "url": "https://www.youtube.com/embed/Lo38_qIJ6M8",
+    "video_id": "Lo38_qIJ6M8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4556
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Lo38_qIJ6M8",
+  "video_id": "Lo38_qIJ6M8",
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "Thanks for watching Beach House on @FlixForFree What begins as a carefree summer trip to Mallorca quickly descends into chaos when three friends cross paths with their mysterious new neighbors. As flirtations escalate and hidden cameras emerge, their sun-soaked getaway turns into a dangerous game of trust, jealousy, and surveillance. Director: Hèctor Hernández Vicens Cast: Albert Carbó, Francesc Colomer, Martí Atance Genre: Comedy-Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77733",
+  "title": "Eternal",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Eternal",
+    "url": "https://www.youtube.com/embed/ML5ZaX2mog8",
+    "video_id": "ML5ZaX2mog8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6029
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ML5ZaX2mog8",
+  "video_id": "ML5ZaX2mog8",
+  "eps": "1 ep",
+  "runtime": "100 min",
+  "desc": "Thanks for watching Eternal on @FlixForFree An earthquake causes a mysterious fracture on the ocean floor, which accelerates climate change and sets off a series of irreversible events. Director: Ulaa Salim Cast: Simon Sears, Nanna Øland Fabricius, Anna Søgaard Frandsen Genre: Sci-Fi, Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77734",
+  "title": "They Talk to Me",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "They Talk to Me",
+    "url": "https://www.youtube.com/embed/wHFlzFkauI8",
+    "video_id": "wHFlzFkauI8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5802
+   }
+  ],
+  "url": "https://www.youtube.com/embed/wHFlzFkauI8",
+  "video_id": "wHFlzFkauI8",
+  "eps": "1 ep",
+  "runtime": "97 min",
+  "desc": "Thanks for watching They Talk to Me on @FlixForFree Alex Browlin, a sound engineer, is working on a documentary called Forgotten Heroes when he accidentally records disturbing voices from the beyond—whispering his name and warning of an unspeakable danger. As he investigates the chilling sounds, Amanda, a mysterious woman from his troubled past, reappears. Her arrival unleashes a wave of terrifying paranormal events. Are the voices trying to save Alex—or doom him? The deeper he digs, the closer he comes to a deadly truth that refuses to stay buried. Director: Giorgio Bruno Cast: Aciel",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77735",
+  "title": "Man Vs.",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Man Vs.",
+    "url": "https://www.youtube.com/embed/lf6J4_tV-UM",
+    "video_id": "lf6J4_tV-UM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5082
+   }
+  ],
+  "url": "https://www.youtube.com/embed/lf6J4_tV-UM",
+  "video_id": "lf6J4_tV-UM",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching Man Vs. on @FlixForFree A reality TV survivalist sets out to film five days alone in the remote northern Ontario wilderness. But something else is out there — watching, stalking, and possibly hunting him. As isolation turns into terror, he realizes the threat may be more than just human. Director: Adam Massey Cast: Chris Diamantopoulos, Chloe Bradt, Michael Cram Genre: Horror, SciFi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77736",
+  "title": "Triggermen",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Triggermen",
+    "url": "https://www.youtube.com/embed/DS0stLzpGnE",
+    "video_id": "DS0stLzpGnE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5761
+   }
+  ],
+  "url": "https://www.youtube.com/embed/DS0stLzpGnE",
+  "video_id": "DS0stLzpGnE",
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "Thanks for watching Triggermen on @FlixForFree Two small-time conmen cross paths with a pair of deadly hitmen in Chicago. But when one of the killers swaps places with one of the conmen to chase after love, identities blur and chaos erupts. A sharp-witted mix of crime, comedy, and mistaken identity. Director: John Bradshaw Cast: Pete Postlethwaite, Neil Morrissey, Bill MacDonald Genre: Crime, Comedy Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77737",
+  "title": "Zombies of the Third Reich",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zombies of the Third Reich",
+    "url": "https://www.youtube.com/embed/YlKL4IZIWk4",
+    "video_id": "YlKL4IZIWk4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4510
+   }
+  ],
+  "url": "https://www.youtube.com/embed/YlKL4IZIWk4",
+  "video_id": "YlKL4IZIWk4",
+  "eps": "1 ep",
+  "runtime": "75 min",
+  "desc": "Thanks for watching Zombies of the Third Reich on @FlixForFree A special team of Allied forces is sent to infiltrate a Nazi-occupied bunker. But what they uncover is more horrifying than war itself—grotesque scientific experiments have created superhuman, flesh-eating zombies. Trapped behind enemy lines, the team must fight their way out before becoming part of the undead army. Director: David Gregory Cast: Andre Pierre, Philip Barden, Matthew Baunsgard Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77738",
+  "title": "Tales Beyond the Galaxy",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Tales Beyond the Galaxy",
+    "url": "https://www.youtube.com/embed/Kl9czPdPsqk",
+    "video_id": "Kl9czPdPsqk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5106
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Kl9czPdPsqk",
+  "video_id": "Kl9czPdPsqk",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching Tales Beyond the Galaxy on @FlixForFree A crew of astronauts discovers shocking evidence on a desolate planet. When disaster strikes, one sets out to find missing crewmates. Meanwhile, a woman must confront her past in deep space. As life support systems fail and survival becomes uncertain, two lost astronauts drift through the void, searching for their ship—and a way back. Directors: John M. Broadhead, Caden Butera, Nguyen-Anh Nguyen Cast: Curtis Bechdholt, Bonni Dichone, Jeananne Goossen Genre: Sci-Fi, Action Watch more movies on Flix For Free! Horror Movies: Action",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77739",
+  "title": "Perfect Endings",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Perfect Endings",
+    "url": "https://www.youtube.com/embed/JAJuS7Iphl0",
+    "video_id": "JAJuS7Iphl0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6061
+   }
+  ],
+  "url": "https://www.youtube.com/embed/JAJuS7Iphl0",
+  "video_id": "JAJuS7Iphl0",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "desc": "Thanks for watching Perfect Endings on @FlixForFree João and Hugo end their 10-year relationship but remain best friends. As they begin dating again, uncontrollable emotions resurface, clashing with the carefully planned perfection of their breakup. Director: Daniel Ribeiro Cast: Artur Volpi, Michel Joelsas, Julianna Gerais Genre: LGBTQ+ Romantic Comedy, Feel-Good Romance Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77740",
+  "title": "Hard Justice",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hard Justice",
+    "url": "https://www.youtube.com/embed/xABxGUlv7XA",
+    "video_id": "xABxGUlv7XA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4652
+   }
+  ],
+  "url": "https://www.youtube.com/embed/xABxGUlv7XA",
+  "video_id": "xABxGUlv7XA",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "Marine Grace Thompson joins the LAPD following the footsteps of her brother Michael. But when Michael is murdered, Grace must piece together the puzzle by following leads of corruption and cover-ups that run deeper than she ever imagined. Director: Nick DeRuve Cast: Eva Ceja, Tyler Christopher, James Nichols II Genre: Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77741",
+  "title": "The Darkside of Society",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Darkside of Society",
+    "url": "https://www.youtube.com/embed/C0q7tP3DMV4",
+    "video_id": "C0q7tP3DMV4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4363
+   }
+  ],
+  "url": "https://www.youtube.com/embed/C0q7tP3DMV4",
+  "video_id": "C0q7tP3DMV4",
+  "eps": "1 ep",
+  "runtime": "73 min",
+  "desc": "Thanks for watching The Darkside of Society on @FlixForFree Screenwriter Zeph E. Daniel, formerly known as Woody Keith, stepped out of his closet-of-dark-secrets and told the incredible story behind this morbid, subversive oddity of a film. Director: Larry Wade Carrell Cast: Screaming Mad George, David Gregory, John Gullidge Genre: Documentary Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77742",
+  "title": "A Dark Matter",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Dark Matter",
+    "url": "https://www.youtube.com/embed/OVw0k0u4FDY",
+    "video_id": "OVw0k0u4FDY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6039
+   }
+  ],
+  "url": "https://www.youtube.com/embed/OVw0k0u4FDY",
+  "video_id": "OVw0k0u4FDY",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "desc": "Thanks for watching A Dark Matter on @FlixForFree An artist struggles to find love in a surreal underworld where murder, crime, and the supernatural blur his perception of reality. As darkness closes in, he must face forces beyond his control in this haunting sci-fi thriller. Director: James Naylor Cast: Shauna Bradley, Ashiko Westguard, Troy Blundell Genre: Sci-Fi, Thriller, Crime Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77743",
+  "title": "Bury 'Em Deep",
+  "genre": "Western",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bury 'Em Deep",
+    "url": "https://www.youtube.com/embed/XNGuD_VaY_A",
+    "video_id": "XNGuD_VaY_A",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5468
+   }
+  ],
+  "url": "https://www.youtube.com/embed/XNGuD_VaY_A",
+  "video_id": "XNGuD_VaY_A",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Bury 'Em Deep on @FlixForFree A violent gunslinger sees visions of Hell and decides that in order to redeem himself, he'll give his ill-gotten loot to save a beautiful nun's orphanage. But when he's ambushed and left for dead, he sets out on a trail of vengeance. Director: Michael Fredianelli Cast: Robert Bronzi, Michael Paré, Rosanna Wyant Genre: Western, Drama, Spaghetti Western Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77744",
+  "title": "Dial M for Maya",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dial M for Maya",
+    "url": "https://www.youtube.com/embed/q1-ZfKlk6MA",
+    "video_id": "q1-ZfKlk6MA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4892
+   }
+  ],
+  "url": "https://www.youtube.com/embed/q1-ZfKlk6MA",
+  "video_id": "q1-ZfKlk6MA",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Dial M for Maya on @FlixForFree Paul, a successful businessman recently cleared of domestic violence charges, falls for the charming and mysterious Maya. Their whirlwind romance quickly turns serious—but as secrets from Maya’s past begin to surface, Paul suspects her loyalty. When Maya receives a cryptic call from someone named “V,” the truth behind their relationship begins to unravel with dangerous consequences. Director: Matthew Kavuma Cast: Herbert Abuka, Zetah Bukenya, Elizabeth Byasiima Genre: Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77745",
+  "title": "Bone Face",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bone Face",
+    "url": "https://www.youtube.com/embed/fp3KxFCTFWA",
+    "video_id": "fp3KxFCTFWA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5665
+   }
+  ],
+  "url": "https://www.youtube.com/embed/fp3KxFCTFWA",
+  "video_id": "fp3KxFCTFWA",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching Bone Face on @FlixForFree When a masked killer slaughters campers in a small town, a sheriff and a deputy follow a bloody trail to a remote diner. But as they investigate, suspicion mounts — anyone in the diner could be the killer. With time running out, they must uncover the identity behind the mask before another victim falls. Director: Michael Donovan Horn Cast: Elena Sanchez, Jeremy London, Alli Hart Genre: Horror, Thriller, Mystery Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77746",
+  "title": "Primal Games",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Primal Games",
+    "url": "https://www.youtube.com/embed/GkGda93rSxk",
+    "video_id": "GkGda93rSxk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5438
+   }
+  ],
+  "url": "https://www.youtube.com/embed/GkGda93rSxk",
+  "video_id": "GkGda93rSxk",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Primal Games on @FlixForFree A newlywed couple sets out on the honeymoon of a lifetime — but paradise turns to peril when they become the prey in a brutal and sadistic vacation game. Trapped in a remote location with no way out, they must fight to survive as their dream trip becomes a deadly test of strength and strategy. Director: David Ryan Keith Cast: Hannaj Bang Bendz, Gary Kasper, Mark Wood Genre: Sci-Fi, Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77747",
+  "title": "Impulse",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Impulse",
+    "url": "https://www.youtube.com/embed/A3iAH6avz8Y",
+    "video_id": "A3iAH6avz8Y",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5242
+   }
+  ],
+  "url": "https://www.youtube.com/embed/A3iAH6avz8Y",
+  "video_id": "A3iAH6avz8Y",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching Impulse on @FlixForFree A seductive conman preys on lonely women—scamming them out of money before murdering them to cover his tracks. But when he sets his sights on a vulnerable widow, her young daughter begins to suspect something sinister. Suspense builds in this chilling 70s psychological thriller starring William Shatner in one of his darkest roles. Director: William Grefé Cast: William Shatner, Ruth Roman, Jennifer Bishop Genre: Thriller, Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77748",
+  "title": "Decade of the Dead",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Decade of the Dead",
+    "url": "https://www.youtube.com/embed/tlbC_qqljCo",
+    "video_id": "tlbC_qqljCo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4986
+   }
+  ],
+  "url": "https://www.youtube.com/embed/tlbC_qqljCo",
+  "video_id": "tlbC_qqljCo",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching Decade of the Dead (2023) on @FlixForFree Ten years into the zombie apocalypse, Rachel, Tweeter, and Ben live in a world without hope. While scavenging the Caribbean, they encounter The Sworn, a zombie-worshiping cult that consumes the living and enslaves those they fail to convert. Rachel is captured and reunited with her long-lost sister, the high priestess of The Sworn, who leads the cult alongside Grinner, a blood-thirsty, fanatical brute. The reunion is short-lived as they battle to make it off the island alive. Director: Adam Deyoe, Fairai Branscombe Richmond Cast:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77749",
+  "title": "Its Name Was Mormo",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Its Name Was Mormo",
+    "url": "https://www.youtube.com/embed/xpiQhTElM40",
+    "video_id": "xpiQhTElM40",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5517
+   }
+  ],
+  "url": "https://www.youtube.com/embed/xpiQhTElM40",
+  "video_id": "xpiQhTElM40",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "Thanks for watching Its Name Was Mormo on @FlixForFree A young family's peaceful life descends into nightmare when a sinister presence begins targeting them — one by one — in increasingly malicious ways. Captured through police evidence, home recordings, and digital clues, Its Name Was Mormo is a terrifying found footage horror rooted in the darkest corners of Greek mythology. As the truth unravels, Mark, Diana, and Mia confront a demon whose name was never meant to be spoken. Director: Mark Andrew Bowers Cast: Mark Andrew Bowers, Mia Bowers, Marcela Cardenas Genre: Found Footage Horror /",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77750",
+  "title": "Zyzzyx Rd",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Zyzzyx Rd",
+    "url": "https://www.youtube.com/embed/rD5vxhuP9eY",
+    "video_id": "rD5vxhuP9eY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4845
+   }
+  ],
+  "url": "https://www.youtube.com/embed/rD5vxhuP9eY",
+  "video_id": "rD5vxhuP9eY",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Thanks for watching Zyzzyx Rd on @FlixForFree Accountant Grant thinks he’s found an escape from his mundane life when he begins a steamy affair with the mysterious Marissa in Las Vegas. But when her jealous boyfriend Joey attacks them, Grant kills him—or so he thinks. As paranoia and guilt consume him, he begins to question what’s real… and if Joey ever truly died. Director: John Penney Cast: Leo Grillo, Katherine Heigl, Tom Sizemore Genre: Thriller, Crime, Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77751",
+  "title": "Born for You",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Born for You",
+    "url": "https://www.youtube.com/embed/EXUAvOr4l6w",
+    "video_id": "EXUAvOr4l6w",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 2783
+   }
+  ],
+  "url": "https://www.youtube.com/embed/EXUAvOr4l6w",
+  "video_id": "EXUAvOr4l6w",
+  "eps": "1 ep",
+  "runtime": "46 min",
+  "desc": "Thanks for watching Born for You on @FlixForFree Based on a true story, Born for You follows Luca, a single Catholic man and openly gay, who steps forward to adopt Alba — a baby girl with Down syndrome abandoned at birth. After being rejected by 30 heterosexual couples, Alba finds an unexpected father and advocate in Luca. This powerful, emotional drama redefines love, family, and the meaning of parenthood in the modern world. Director: Fabio Mollo Cast: Barbora Bobulova, Liliana Bottone, Loris De Luna Genre: LGBTQ+ Drama Watch more movies on Flix For Free! Horror Movies: Action Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77752",
+  "title": "Blood in Them Hills",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blood in Them Hills",
+    "url": "https://www.youtube.com/embed/0XegXWA0-0E",
+    "video_id": "0XegXWA0-0E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6845
+   }
+  ],
+  "url": "https://www.youtube.com/embed/0XegXWA0-0E",
+  "video_id": "0XegXWA0-0E",
+  "eps": "1 ep",
+  "runtime": "114 min",
+  "desc": "Thanks for watching Blood in Them Hills on @FlixForFree A bank robber, a revenge-seeking Civil War doctor, and a rifle‑wielding midwife with a rescued baby become stranded on cursed Old West land. Trapped between a murderous outlaw gang, cannibalistic horrors, and an ancient Wendigo demon, they must fight together to survive an unforgiving supernatural nightmare. Directors: Kellen Garner, Christopher Sheffield Writer: Kellen Garner Cast: Aria Song, Peter Sherayko, Brian Shakti Genre: Horror · Western Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77753",
+  "title": "Linked by Love",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Linked by Love",
+    "url": "https://www.youtube.com/embed/NJONC_1novk",
+    "video_id": "NJONC_1novk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 9224
+   }
+  ],
+  "url": "https://www.youtube.com/embed/NJONC_1novk",
+  "video_id": "NJONC_1novk",
+  "eps": "1 ep",
+  "runtime": "154 min",
+  "desc": "Thanks for watching Linked by Love on @FlixForFree Transplantation, family, and the complicated history of Black Americans within the medical system all collide in this funny, emotional, and sometimes harrowing story of love and second chances. When a life-altering diagnosis forces long-buried family secrets into the light, a web of connections and truths reshapes the lives of everyone involved. Creators: Joe Camareno, Nicole Mendez Cast: Michelle N. Carter, Byron Marc Newsome, Shirley Jordan Genre: Drama, Romcom, Comedy, Romantic Watch more movies on Flix For Free! Horror Movies: Action",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77754",
+  "title": "YellowBrickRoad",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "YellowBrickRoad",
+    "url": "https://www.youtube.com/embed/m0Cm8bhPgc8",
+    "video_id": "m0Cm8bhPgc8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6067
+   }
+  ],
+  "url": "https://www.youtube.com/embed/m0Cm8bhPgc8",
+  "video_id": "m0Cm8bhPgc8",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "desc": "Thanks for watching YellowBrickRoad on @FlixForFree In 1940, the entire population of Friar, New Hampshire vanished without a trace after walking up a mysterious mountain trail. In 2008, an expedition team sets out to uncover what happened. What they find in the forest is not just a mystery — it’s madness. YellowBrickRoad is a chilling descent into folk horror and psychological breakdown, where the road never ends and the silence never stops screaming. Directors: Jesse Holland, Andy Mitton Cast: Michael Laurino, Anessa Ramsey, Alex Draper Genre: Folk Horror / Thriller Watch more movies on",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77755",
+  "title": "Meteor: Final Impact",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Meteor: Final Impact",
+    "url": "https://www.youtube.com/embed/L_lGLC36BR4",
+    "video_id": "L_lGLC36BR4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4688
+   }
+  ],
+  "url": "https://www.youtube.com/embed/L_lGLC36BR4",
+  "video_id": "L_lGLC36BR4",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "Thanks for watching Meteor: Final Impact on @FlixForFree As a sudden meteor storm strikes the Pacific Northwest, a man, his fiancée, and his mistress fight to survive—evading a violent gang and racing toward safety amidst chaos and destruction. This tense action‑sci‑fi thriller explores human resilience in a collapsing world. Director: Rene Perez Cast: Chase Bloomquist, Samantha Anne Kessler, Justin Higgs Genre: Action‑Adventure, Science Fiction Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77756",
+  "title": "Aliens on the Moon: Dark UFO Mysteries Exposed",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Aliens on the Moon: Dark UFO Mysteries Exposed",
+    "url": "https://www.youtube.com/embed/oN-aL4JqSis",
+    "video_id": "oN-aL4JqSis",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4688
+   }
+  ],
+  "url": "https://www.youtube.com/embed/oN-aL4JqSis",
+  "video_id": "oN-aL4JqSis",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "Thanks for watching Aliens on the Moon: Dark UFO Mysteries Exposed on @FlixForFree Explore what NASA won’t admit. This gripping documentary investigates claims that Apollo astronauts encountered alien technology, photographic evidence of Moon structures, and a chilling extraterrestrial warning not to return. Featuring expert testimony, classified analysis, and jaw-dropping visuals—Aliens on the Moon reveals the secrets long buried beneath lunar dust. Director: O.H. Krill Cast: Steve Mera, Charles Thompsen Genre: Documentary Watch more movies on Flix For Free! Horror Movies: Action Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77757",
+  "title": "Mortal Game",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mortal Game",
+    "url": "https://www.youtube.com/embed/l-SymteT5yU",
+    "video_id": "l-SymteT5yU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5119
+   }
+  ],
+  "url": "https://www.youtube.com/embed/l-SymteT5yU",
+  "video_id": "l-SymteT5yU",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching Mortal Game on @FlixForFree A group of elite hunters travels to a remote island in search of a mythical forest creature. But when their guide betrays them, the hunters realize they’re not the predators—they’re the prey. Hunted one by one by a cunning and deadly force, they must fight for survival in a brutal game they never agreed to play. Director: John Lechago Cast: Deniella Alexis, Kevin Lloyd Reid, Reece Presley Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77758",
+  "title": "Bitter & Twisted",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bitter & Twisted",
+    "url": "https://www.youtube.com/embed/n5Mvo6w3ooU",
+    "video_id": "n5Mvo6w3ooU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5129
+   }
+  ],
+  "url": "https://www.youtube.com/embed/n5Mvo6w3ooU",
+  "video_id": "n5Mvo6w3ooU",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching Bitter & Twisted on @FlixForFree Three years after the tragic death of Liam, the Lombard family in suburban Sydney struggles to rebuild their lives. Jordan (Steve Rodgers) sinks into emotional numbness and overeating; Penelope (Noni Hazlehurst) grapples with menopause and a fading marriage; and their younger son Ben (Christopher Weekes) wrestles with identity, torn between old loyalties and new impulses. Love, grief, and hidden desires collide in a slow-burning portrait of loss and longing. Director / Writer / Actor: Christopher Weekes Cast: Noni Hazlehurst, Steve Rodgers,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77759",
+  "title": "Blue Lights",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blue Lights",
+    "url": "https://www.youtube.com/embed/VwMz5DNVBP8",
+    "video_id": "VwMz5DNVBP8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6046
+   }
+  ],
+  "url": "https://www.youtube.com/embed/VwMz5DNVBP8",
+  "video_id": "VwMz5DNVBP8",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "desc": "Watch Blue Lights (Luces azules) — a compelling Argentine drama on @FlixForFree When Alejandro turns 70, the gathering of longtime friends becomes a turning point: hidden tensions, lifelong secrets, and shifting relationships emerge in a moving night of revelations. Written by Gustavo Pecoraro and directed by Lucas Santa Ana, Blue Lights explores love, loss, identity, and the bonds that never fade. Runtime: approx. 100 min. Original Spanish language. Cast includes Ernesto Larrese (Alejandro), Claudio Da Passano (Pedro), Osmar Núñez, Fernando Dente, Estela Garelli. Genre: Ensemble Drama /",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77760",
+  "title": "Fatal Ties",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Fatal Ties",
+    "url": "https://www.youtube.com/embed/yVjfV_3WEm8",
+    "video_id": "yVjfV_3WEm8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4754
+   }
+  ],
+  "url": "https://www.youtube.com/embed/yVjfV_3WEm8",
+  "video_id": "yVjfV_3WEm8",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Thanks for watching Fatal Ties on @FlixForFree A woman discovers that her estranged sister has been murdered—and as she searches for answers, she uncovers a web of lies, revenge, and deadly secrets that link back to her own troubled past. Director: Jamaal Burden Cast: Tiffany Rose, Crystal Foster, Denny Nolan Genre: Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77761",
+  "title": "Monster on a Plane",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Monster on a Plane",
+    "url": "https://www.youtube.com/embed/42uUBTK0pcM",
+    "video_id": "42uUBTK0pcM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5328
+   }
+  ],
+  "url": "https://www.youtube.com/embed/42uUBTK0pcM",
+  "video_id": "42uUBTK0pcM",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Watch Monster on a Plane now on Flix For Free 🎥 When a professor smuggles an exotic creature aboard a commercial transatlantic flight, all hell breaks loose. After severe turbulence triggers the monster’s escape, passengers are hunted midair in a confined cabin at 30,000 feet. As terror spreads, a courageous flight attendant and a quick-thinking teacher join forces to stop the creature—and uncover a killer hiding among them. With no CGI and all practical effects, this creature feature delivers retro horror with a deadly bite. Director: Ezra Tsegaye Cast: Eva Habermann, Robin Czerny, Philippe",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77762",
+  "title": "The Haunting at St. Madeline",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Haunting at St. Madeline",
+    "url": "https://www.youtube.com/embed/xEYswk7g_4Q",
+    "video_id": "xEYswk7g_4Q",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4631
+   }
+  ],
+  "url": "https://www.youtube.com/embed/xEYswk7g_4Q",
+  "video_id": "xEYswk7g_4Q",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "After a nun in crisis of faith is sent to a secluded \"progressive\" convent for rehabilitation, she uncovers sinister rituals and a murder cover‑up. Racing against time, she must escape before being sacrificed by the nuns themselves. Director: J. Jones Actors: Kate Tumanova, Dane Rhodes, Morgan Roberts Genre: Supernatural Horror / Suspense Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77763",
+  "title": "Interview with the Extraterrestrial",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Interview with the Extraterrestrial",
+    "url": "https://www.youtube.com/embed/wRMHkK3ztSg",
+    "video_id": "wRMHkK3ztSg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4461
+   }
+  ],
+  "url": "https://www.youtube.com/embed/wRMHkK3ztSg",
+  "video_id": "wRMHkK3ztSg",
+  "eps": "1 ep",
+  "runtime": "74 min",
+  "desc": "If you could spend one hour with an extraterrestrial, what would you ask them? In this eye-opening documentary, Serena DC meets Darryl Anka—a man who claims to channel an E.T. named Bashar. Through this unique encounter, the film explores humanity’s origins, life beyond Earth, and what the future may hold for our species. Director: Serena DC Cast: Darryl Anka, Paul Hynek, Serena DC Genre: Documentary Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77764",
+  "title": "Alien Invasion: Rise of the Phoenix",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alien Invasion: Rise of the Phoenix",
+    "url": "https://www.youtube.com/embed/9_K5UkUboN4",
+    "video_id": "9_K5UkUboN4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5341
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9_K5UkUboN4",
+  "video_id": "9_K5UkUboN4",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Thanks for watching Alien Invasion: Rise of the Phoenix on @flix An asteroid shower strikes a space station and then impacts a remote section of the Grand Canyon. Mysterious pods emerge and soon mutate into creatures that threaten both the space station and Earth. Director: Stefano Milla Cast: Michael Paré, Melissa Rokuskie, Jennifer Mischiati Genre: Science Fiction, Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77765",
+  "title": "The Night Attendant",
+  "genre": "Fantasy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Night Attendant",
+    "url": "https://www.youtube.com/embed/USv8CBws47E",
+    "video_id": "USv8CBws47E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6228
+   }
+  ],
+  "url": "https://www.youtube.com/embed/USv8CBws47E",
+  "video_id": "USv8CBws47E",
+  "eps": "1 ep",
+  "runtime": "104 min",
+  "desc": "Thanks for watching The Night Attendant on @FlixForFree Christian, the new night attendant at a morgue, discovers that the dead walk the hallways, their souls trapped by unresolved issues from their lives. Tasked with resolving their problems during the day to save them from destruction by the Mortician, Christian's mission becomes complicated when he falls in love with a girl who is already dead. Director: Isti Madarász Cast: Péter Bárnai, Máté Borsi-Balogh, Teréz Csombor Genre: Fantasy Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77766",
+  "title": "Backlash",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Backlash",
+    "url": "https://www.youtube.com/embed/_4VviEIiJFM",
+    "video_id": "_4VviEIiJFM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5553
+   }
+  ],
+  "url": "https://www.youtube.com/embed/_4VviEIiJFM",
+  "video_id": "_4VviEIiJFM",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "Thanks for watching Backlash (2024) on @FlixForFree A group of online gamers must kill each other to survive in a real world death-match based on their computer game after their cyber bullying causes a suicide of a classmate. Director: Jon Cohen Cast: Elke Hinrichsen, Alyson Rudlin, Lexie Rose Genre: Action, Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77767",
+  "title": "The Cursed Tapes",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Cursed Tapes",
+    "url": "https://www.youtube.com/embed/f4Ijknp9jAo",
+    "video_id": "f4Ijknp9jAo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5697
+   }
+  ],
+  "url": "https://www.youtube.com/embed/f4Ijknp9jAo",
+  "video_id": "f4Ijknp9jAo",
+  "eps": "1 ep",
+  "runtime": "95 min",
+  "desc": "Thanks for watching The Cursed Tapes on @flix After inheriting his father's old house, Clint stumbles upon a collection of VHS tapes that reveal a horrifying secret: his father had imprisoned a malevolent creature in the basement for decades. As Clint delves deeper into the tapes, he uncovers the dark legacy of his family and the monstrous entity that threatens to escape. Meanwhile, a young boy named Sammy, grappling with his own loss, becomes entangled in the creature's sinister plans through a seemingly innocuous radio purchased at a garage sale. As the lines between reality and nightmare",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77768",
+  "title": "Armed",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Armed",
+    "url": "https://www.youtube.com/embed/tOcJ-ZTbs70",
+    "video_id": "tOcJ-ZTbs70",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5811
+   }
+  ],
+  "url": "https://www.youtube.com/embed/tOcJ-ZTbs70",
+  "video_id": "tOcJ-ZTbs70",
+  "eps": "1 ep",
+  "runtime": "97 min",
+  "desc": "Thanks for watching Armed on @FlixForFree A group of veteran marines steal a shipment of weapons from the military, only to discover a Cold War-era robot programmed to hunt them down and complete its mission. As the relentless machine pursues them, the marines must confront their past and fight for survival against an unstoppable force. Director: Neil Mackay Cast: Omar Tucci, Rick Amsbury, Mason Cromwell Genre: Science Fiction, Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77769",
+  "title": "The Lady of the Lake",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Lady of the Lake",
+    "url": "https://www.youtube.com/embed/cDZAPS8JmN8",
+    "video_id": "cDZAPS8JmN8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5659
+   }
+  ],
+  "url": "https://www.youtube.com/embed/cDZAPS8JmN8",
+  "video_id": "cDZAPS8JmN8",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching The Lady of the Lake on @FlixForFree In 1937, a woman’s body surfaced in Washington’s Lake Crescent—eerily preserved and shrouded in mystery. Decades later, paranormal investigator Amanda Paulson dives into the case of Hallie Illingworth’s unsolved murder. This chilling true-crime documentary blends investigative journalism with supernatural exploration as Paulson unearths forgotten evidence and encounters strange phenomena tied to the lake’s dark past. Director: Ryan Grulich Cast: Amanda Paulson, Victoria Ainsworth, Ryan Grulich Genre: Documentary Watch more movies on",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77770",
+  "title": "Wellwood",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Wellwood",
+    "url": "https://www.youtube.com/embed/thKElJleHrI",
+    "video_id": "thKElJleHrI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5383
+   }
+  ],
+  "url": "https://www.youtube.com/embed/thKElJleHrI",
+  "video_id": "thKElJleHrI",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Thanks for watching Wellwood on @FlixForFree A married couple living on a distant planet must confront an unthinkable decision when the wife contracts a fatal alien illness. As desperation sets in, they discover a mysterious alien entity offering a possible cure—at a horrifying cost. Director: Eliza Hooper Cast: Keisha Castle-Hughes | Mike Mayhall | Lance E. Nichols Genre: Sci-Fi, Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77771",
+  "title": "True American Horror",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "True American Horror",
+    "url": "https://www.youtube.com/embed/2Ok1XzVNBho",
+    "video_id": "2Ok1XzVNBho",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5022
+   }
+  ],
+  "url": "https://www.youtube.com/embed/2Ok1XzVNBho",
+  "video_id": "2Ok1XzVNBho",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching True American Horror on @FlixForFree Embark on a chilling journey through America's darkest tales in True American Horror. This documentary delves into 30 real-life stories of horror, exploring true crimes and eerie events that have inspired famous horror films. Traversing 84 locations across seven Eastern states, the film uncovers the macabre history hidden within the United States. Narrated by Alex Di Nunzio, the stories are brought to life with original illustrations, AI-generated imagery, and 3D animations, offering a haunting exploration of America's sinister past.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77772",
+  "title": "Agent of Death",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Agent of Death",
+    "url": "https://www.youtube.com/embed/Pgkd2GAlm8A",
+    "video_id": "Pgkd2GAlm8A",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5865
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Pgkd2GAlm8A",
+  "video_id": "Pgkd2GAlm8A",
+  "eps": "1 ep",
+  "runtime": "98 min",
+  "desc": "Thanks for watching Agent of Death on @FlixForFree Synopsis Tara Croydon, a skilled CIA operative, is transformed by a covert government project that enables her to morph into other people using DNA injections. With this ability, she becomes the ultimate infiltrator, capable of entering any territory undetected. But when her father's death leads to suspicions about her own agency, Tara embarks on a rogue mission, facing deadly adversaries, stolen uranium, and a race to prevent a global nuclear catastrophe. Director: Matthew Marder Cast: Alanna Fox, Hugo Medina, Samantha Grace Miller Genre:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77773",
+  "title": "Tu Me Manques",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Tu Me Manques",
+    "url": "https://www.youtube.com/embed/PxJv8isrrrM",
+    "video_id": "PxJv8isrrrM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6629
+   }
+  ],
+  "url": "https://www.youtube.com/embed/PxJv8isrrrM",
+  "video_id": "PxJv8isrrrM",
+  "eps": "1 ep",
+  "runtime": "110 min",
+  "desc": "Thanks for watching Tu Me Manques on @FlixForFree After the tragic suicide of his son Gabriel, Jorge, a conservative Bolivian father, travels from Santa Cruz to New York to confront Sebastián, his son’s boyfriend. As they face their shared grief and cultural divide, Sebastián channels his sorrow into a bold theatrical production that honors Gabriel’s memory and challenges the societal norms that contributed to the tragedy. Director: Rodrigo Bellott Cast: Reyes Antelo, Fernando Barbosa, Erwin Berzain Genre: Drama, LGBTQ+ Watch more movies on Flix For Free! Horror Movies: Action Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77774",
+  "title": "Dead Season",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dead Season",
+    "url": "https://www.youtube.com/embed/DkQ0pdl67vE",
+    "video_id": "DkQ0pdl67vE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5264
+   }
+  ],
+  "url": "https://www.youtube.com/embed/DkQ0pdl67vE",
+  "video_id": "DkQ0pdl67vE",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Thanks for watching Dead Season (2012) on @FlixForFree After a deadly outbreak turns most of humanity into zombies, Elvis and Tweeter flee to a remote island in search of refuge. But paradise soon reveals a darker side when they discover that survival comes at a brutal cost. As factions form and morality erodes, the line between human and monster begins to blur. Director: Adam Deyoe Cast: Scott Peat, Marissa Merrill, James C. Burns Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77775",
+  "title": "Night Harvest",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Night Harvest",
+    "url": "https://www.youtube.com/embed/IHaRr4RWPRU",
+    "video_id": "IHaRr4RWPRU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4608
+   }
+  ],
+  "url": "https://www.youtube.com/embed/IHaRr4RWPRU",
+  "video_id": "IHaRr4RWPRU",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "Thanks for watching Night Harvest (2024) on @FlixForFree In 1970s Tennessee, Nathan, a troubled teenager with pyrokinesis, is on the run from the authorities alongside his sister and her friends. Their journey takes a dark turn when their RV breaks down near a secluded farm. As night falls, they find themselves stalked by an ancient evil lurking in the shadows, turning their desperate escape into a terrifying fight for survival.​ Director: Charlie Steeds Cast: Faith McCoy, Scot Scurlock, Daniel Considine Genre: Horror​ Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77776",
+  "title": "Scarecrows",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Scarecrows",
+    "url": "https://www.youtube.com/embed/Oo-zd23T4z8",
+    "video_id": "Oo-zd23T4z8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5158
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Oo-zd23T4z8",
+  "video_id": "Oo-zd23T4z8",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching Scarecrows (2017) on @FlixForFree A group of teenagers embarks on a carefree adventure, only to find themselves ensnared by a deranged farmer who transforms his victims into living scarecrows. As they struggle to escape the sinister trap set amidst the cornfields, their fight for survival becomes a harrowing ordeal.​ Director: Stuart Stone Cast: Hannah Gordon, Mike Taylor, Umed Amin Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77777",
+  "title": "Black Gold",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Black Gold",
+    "url": "https://www.youtube.com/embed/4F-QVIaOTAg",
+    "video_id": "4F-QVIaOTAg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4673
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4F-QVIaOTAg",
+  "video_id": "4F-QVIaOTAg",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77778",
+  "title": "Desecrated",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Desecrated",
+    "url": "https://www.youtube.com/embed/8rF76u_z1Hk",
+    "video_id": "8rF76u_z1Hk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4939
+   }
+  ],
+  "url": "https://www.youtube.com/embed/8rF76u_z1Hk",
+  "video_id": "8rF76u_z1Hk",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Desecrated (2015) on @FlixForFree A wealthy young woman and her friends head to her family's remote ranch for a weekend getaway. What starts as a relaxing trip turns deadly when they discover the grounds are being watched—and hunted—by a disturbed caretaker with a sinister secret. Director: Rob Garcia Cast: Haylie Duff, Michael Ironside, Gonzalo Menendez Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77779",
+  "title": "Climate Of The Hunter",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Climate Of The Hunter",
+    "url": "https://www.youtube.com/embed/eN5rJ61Z_G4",
+    "video_id": "eN5rJ61Z_G4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4886
+   }
+  ],
+  "url": "https://www.youtube.com/embed/eN5rJ61Z_G4",
+  "video_id": "eN5rJ61Z_G4",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Thanks for watching Climate Of The Hunter (2021) on @FlixForFree Two sisters vie for the affections of a man who may or may not be a vampire. When the three come together for dinner it has all the makings of a lovely meal filled with desire, memories...and blood. Director: Mickey Reece Writers: Mickey Reece, John Selvidge Stars: Ben Hall, Laurie Cummings, Danielle Ploger Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77780",
+  "title": "Bad Fish",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bad Fish",
+    "url": "https://www.youtube.com/embed/gRJNzVnzLLM",
+    "video_id": "gRJNzVnzLLM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4922
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gRJNzVnzLLM",
+  "video_id": "gRJNzVnzLLM",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Bad Fish on @FlixForFree When a marine biologist investigates mysterious deadly attacks on fishermen in an Oregon coastal town, he discovers the culprit is a mermaid who must find a mate to breed with before returning to the sea. Director: Brad Douglas Cast: Jonny Lee, Mark Schneider, Abby Wathen Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77781",
+  "title": "The Deadly Swarm",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Deadly Swarm",
+    "url": "https://www.youtube.com/embed/so8YBhb-Yw4",
+    "video_id": "so8YBhb-Yw4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4878
+   }
+  ],
+  "url": "https://www.youtube.com/embed/so8YBhb-Yw4",
+  "video_id": "so8YBhb-Yw4",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Thanks for watching The Deadly Swarm on @FlixForFree A group of friends signs up for a secluded medical trial run by the mysterious Dr. Feldman. As bizarre symptoms spread and the truth unravels, they discover they're part of a horrifying genetic experiment tied to a deadly swarm of mutated insects. Survival means escaping both the compound—and what’s inside them. Director: David Gregory Cast: Leona Clarke, Elliott Eason, Richard Kovacs Genre: Sci-Fi, Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77782",
+  "title": "Ankle Biters",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ankle Biters",
+    "url": "https://www.youtube.com/embed/NUOE8IZr3lo",
+    "video_id": "NUOE8IZr3lo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5327
+   }
+  ],
+  "url": "https://www.youtube.com/embed/NUOE8IZr3lo",
+  "video_id": "NUOE8IZr3lo",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Thanks for watching Ankle Biters (2021) on @FlixForFree Sean, a retired pro hockey enforcer, has fallen in love with Laura, a widowed mother of four young daughters. But when the children misinterpret an intimate moment as an act of violence, they set out to protect their mother at any cost. What follows is a twisted descent into dark comedy and bloody chaos, where love, trust, and survival clash in horrifying ways. Director: Bennet De Brabandere Cast: Colin Mochrie, Heidi von Palleske, Michael Copeman Genre: Horror, Comedy Watch more movies on Flix For Free! Horror Movies: Action Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77783",
+  "title": "Dollface",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dollface",
+    "url": "https://www.youtube.com/embed/q0JqHzpg1mk",
+    "video_id": "q0JqHzpg1mk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5562
+   }
+  ],
+  "url": "https://www.youtube.com/embed/q0JqHzpg1mk",
+  "video_id": "q0JqHzpg1mk",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "Thanks for watching Dollface (2014) on @FlixForFree A group of college students researching Dorchester Stewart, better known as the infamous killer Crinoline Head, return to the scene of the horrific murders that happened in 1996. ​ Director: Tommy Faircloth Cast: Debbie Rochon, Christian James, Jason Vail Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77784",
+  "title": "Alone with You",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alone with You",
+    "url": "https://www.youtube.com/embed/6xxxe7JGRJg",
+    "video_id": "6xxxe7JGRJg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4909
+   }
+  ],
+  "url": "https://www.youtube.com/embed/6xxxe7JGRJg",
+  "video_id": "6xxxe7JGRJg",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Alone with You on @FlixForFree Charlie, a young makeup artist, meticulously prepares her Brooklyn apartment for the return of her girlfriend, Simone. As she awaits Simone's arrival, unsettling occurrences—disembodied voices, shifting shadows, and eerie hallucinations—begin to unravel Charlie's perception of reality. Trapped within her own home, she confronts a haunting truth she's long suppressed. Director: Emily Bennett, Justin Brooks Cast: Emily Bennett, Emma Myles, Barbara Crampton Genre: Horror, Thriller, Psychological Horror Watch more movies on Flix For Free! Horror",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77785",
+  "title": "The Gundown",
+  "genre": "Western",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Gundown",
+    "url": "https://www.youtube.com/embed/M0YjJ4zzJm4",
+    "video_id": "M0YjJ4zzJm4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5809
+   }
+  ],
+  "url": "https://www.youtube.com/embed/M0YjJ4zzJm4",
+  "video_id": "M0YjJ4zzJm4",
+  "eps": "1 ep",
+  "runtime": "97 min",
+  "desc": "Thanks for watching The Gundown (2011) on @FlixForFree In 1889, bounty hunter Cole Brandt roams the Arizona desert, seeking justice for his family's murder. His quest leads him to Dead River, a lawless town under the grip of outlaw Travis McCain. As Brandt allies with the local saloon owners and a courageous woman named Cassey May, he prepares for a final, bloody showdown to free the town from tyranny.​ Director: Dustin Rikert Cast: Andrew W. Walker, Peter Coyote, Sheree J. Wilson Genre: Western​, Action, Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77786",
+  "title": "Neighbors Who Kill",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Neighbors Who Kill",
+    "url": "https://www.youtube.com/embed/dp7BkyBY3Xs",
+    "video_id": "dp7BkyBY3Xs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4838
+   }
+  ],
+  "url": "https://www.youtube.com/embed/dp7BkyBY3Xs",
+  "video_id": "dp7BkyBY3Xs",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Thanks for watching Neighbors Who Kill (2024) on @FlixForFree Neighbors Who Kill presents three gripping tales of suburban life turned deadly. Ordinary neighbors, living side by side, find their lives unraveling as tensions escalate, leading to shocking acts of violence. This anthology thriller delves into the dark side of human nature, exploring what happens when everyday conflicts spiral out of control.​ Director: Kris Black Cast: Madeleine Wade, Kris Black, Riley Van Cleve Genre: Thriller​ Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77787",
+  "title": "People in the Walls",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "People in the Walls",
+    "url": "https://www.youtube.com/embed/sZX4YO-SrhI",
+    "video_id": "sZX4YO-SrhI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5611
+   }
+  ],
+  "url": "https://www.youtube.com/embed/sZX4YO-SrhI",
+  "video_id": "sZX4YO-SrhI",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching People in the Walls (2024) on @FlixForFree Rachel, a 13-year-old girl, becomes intrigued by a viral trend that involves inviting mysterious entities from within the walls into the real world. What starts as a harmless experiment with her friend Becca turns deadly, leading to Becca's tragic death. Traumatized and disbelieved by her parents, Rachel finds solace in two new friends, Nancy and Chris, who share her fascination with the occult. Together, they delve deeper into the ritual, inadvertently opening a portal that allows sinister creatures to enter their reality. Now,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77788",
+  "title": "Wicked Season",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Wicked Season",
+    "url": "https://www.youtube.com/embed/enDL2s5cDRk",
+    "video_id": "enDL2s5cDRk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5160
+   }
+  ],
+  "url": "https://www.youtube.com/embed/enDL2s5cDRk",
+  "video_id": "enDL2s5cDRk",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching Wicked Season (2024) on @FlixForFree Three detectives follow the trail of a copycat serial killer to an abandoned insane asylum, but the case quickly spirals into something far more terrifying. What begins as a hunt for a murderer turns into a supernatural nightmare, as the team realizes they've been lured into a trap set by an evil force with a deadly agenda. Director: Samuel Haun Cast: E.K. Spila, Melissa Cordero, Paul Kolker Genre: Horror, Mystery Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77789",
+  "title": "The Ice Cream Truck",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Ice Cream Truck",
+    "url": "https://www.youtube.com/embed/XGub1oA-OsE",
+    "video_id": "XGub1oA-OsE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5139
+   }
+  ],
+  "url": "https://www.youtube.com/embed/XGub1oA-OsE",
+  "video_id": "XGub1oA-OsE",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching The Ice Cream Truck (2017) on @FlixForFree A young mother finds herself alone in her suburban hometown, where the neighbors are too nice and the ice cream man is anything but sweet. Director: Megan Freels Johnston Cast: Deanna Russo, Emil Johnsen, John Redlinger Genre: Horror, Slasher Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77790",
+  "title": "Last Night on Earth",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Last Night on Earth",
+    "url": "https://www.youtube.com/embed/BGM8jdqzMco",
+    "video_id": "BGM8jdqzMco",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5161
+   }
+  ],
+  "url": "https://www.youtube.com/embed/BGM8jdqzMco",
+  "video_id": "BGM8jdqzMco",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching Last Night on Earth (2024) on @FlixForFree Faced with impending doom from a planet-killing asteroid, a couple flees to the hills of Tennessee to spend their last days together—but the chaotic breakdown of society disrupts their peaceful plans. Director: Marcos Efron Cast: Leven Rambin, Jake McLaughlin, Shane West Genre: Sci-Fi, Thriller​ Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77791",
+  "title": "Project Z",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Project Z",
+    "url": "https://www.youtube.com/embed/7BjlqB4F_dI",
+    "video_id": "7BjlqB4F_dI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5341
+   }
+  ],
+  "url": "https://www.youtube.com/embed/7BjlqB4F_dI",
+  "video_id": "7BjlqB4F_dI",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Thanks for watching Project Z (2021) on @FlixForFree A group of students sets out to make a zombie movie in the Norwegian wilderness—but the project spirals into chaos when fiction becomes reality. As tensions rise on and off set, the crew must fight for survival in this blood-splattered meta-horror film that blurs the line between film and life. Director: Henrik Martin Dahlsbakken Cast: Eili Harboe, Regina Tucker, Vebjørn Enger Genre: Horror, Zombie Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77792",
+  "title": "Home Movie",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Home Movie",
+    "url": "https://www.youtube.com/embed/ip1JvU_h9T8",
+    "video_id": "ip1JvU_h9T8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 2535
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ip1JvU_h9T8",
+  "video_id": "ip1JvU_h9T8",
+  "eps": "1 ep",
+  "runtime": "42 min",
+  "desc": "Thanks for watching Common Outlaws (2014) on @FlixForFree When the Poe family moves to a house deep in the woods, the twins begin exhibiting increasingly bizarre behavior, all captured on the family camera. Director: Christopher Denham Cast: Lucian Maisel, Cady McClain, Adrian Pasdar Genre: Found Footage Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77793",
+  "title": "Hellhounds",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hellhounds",
+    "url": "https://www.youtube.com/embed/ZBBZTsOe6D4",
+    "video_id": "ZBBZTsOe6D4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4769
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ZBBZTsOe6D4",
+  "video_id": "ZBBZTsOe6D4",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Thanks for watching Hellhounds on @flixforfree A pack of werewolves known as the Hell Hounds wage a shadow war against a fanatical order of werewolf hunters called the Silver Bullets. The Hounds and the Bullets now roam the country appearing to the outside world as rival biker gangs. Director: Robert Conway Cast: Nathaniel Burns, Eva Hamilton, Cameron Kotecki Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77794",
+  "title": "The Ritual",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Ritual",
+    "url": "https://www.youtube.com/embed/J2j04H2TQEs",
+    "video_id": "J2j04H2TQEs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5970
+   }
+  ],
+  "url": "https://www.youtube.com/embed/J2j04H2TQEs",
+  "video_id": "J2j04H2TQEs",
+  "eps": "1 ep",
+  "runtime": "100 min",
+  "desc": "Thanks for watching The Ritual (2024) on @FlixForFree College sophomore Maria joins a paranormal academic group led by Louis, hoping to reconnect with her deceased father. Their scientific exploration uncovers an ancient ritual, ensnaring the group in a terrifying ordeal where they must confront a malevolent force beyond comprehension.​ IMDb Director: Hiroshi Katagiri Cast: Julianna Goldsmith, Jerry Campisi, Alex Whitehouse Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77795",
+  "title": "Common Outlaws",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Common Outlaws",
+    "url": "https://www.youtube.com/embed/qCMWynwE4ZU",
+    "video_id": "qCMWynwE4ZU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5506
+   }
+  ],
+  "url": "https://www.youtube.com/embed/qCMWynwE4ZU",
+  "video_id": "qCMWynwE4ZU",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "Thanks for watching Common Outlaws (2014) on @FlixForFree Fifteen years after watching their father get gunned down, the Hurley brothers return to their childhood hometown to avenge his murder. Synopsys Director: Louie Iaccarino Cast: Louie Iaccarino, John Druska, Gregory P. Loomis Genre: Action, Western Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77796",
+  "title": "Daughter",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Daughter",
+    "url": "https://www.youtube.com/embed/LIbOTJzXOek",
+    "video_id": "LIbOTJzXOek",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5755
+   }
+  ],
+  "url": "https://www.youtube.com/embed/LIbOTJzXOek",
+  "video_id": "LIbOTJzXOek",
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "Thanks for watching Daughter (2022) on @FlixForFree A young woman is abducted and forced into a twisted experiment of psychological conditioning by a man who believes he is creating the perfect family. As she navigates the disturbing dynamics of her captors, she must find a way to escape before she loses her identity entirely.​ Director: Corey Deshon Cast: Casper Van Dien, Elyse Dinh, Vivien Ngô Genre: Horror, Drama, Mystery Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77797",
+  "title": "Sightings",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sightings",
+    "url": "https://www.youtube.com/embed/YTYddyE20tg",
+    "video_id": "YTYddyE20tg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5451
+   }
+  ],
+  "url": "https://www.youtube.com/embed/YTYddyE20tg",
+  "video_id": "YTYddyE20tg",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Sightings (2017) on @FlixForFree When three mutilated bodies are discovered on his Texas ranch, former sheriff Tom Mayfield becomes the prime suspect. To clear his name, he enlists the help of his estranged brother-in-law, a surveillance expert, and a renowned cryptozoologist. As they delve deeper, they confront a terrifying presence that challenges their understanding of reality.​ Director: Dallas Morgan Cast: Boo Arnold, Tahlia Morgan, Rawn Erickson Genre: Sci-Fi, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77798",
+  "title": "Three Blind Mice",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Three Blind Mice",
+    "url": "https://www.youtube.com/embed/VrHyR9MtAAk",
+    "video_id": "VrHyR9MtAAk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4876
+   }
+  ],
+  "url": "https://www.youtube.com/embed/VrHyR9MtAAk",
+  "video_id": "VrHyR9MtAAk",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Thanks for watching Three Blind Mice (2023) on @FlixForFree Abi is going cold turkey; her family has taken her to a cabin in the woods so she can be away from the city and all her troubles. However, little do they know, The Three Blind Mice is more than just a fairy tale, and they may be next up on the menu. Director: Pierre B. Cast: May Kelly, Lila Lasso, Natasha Tosini, Samantha Cull, Danielle Ronald Genre: Slasher Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77799",
+  "title": "Gehenna: Where Death Lives",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Gehenna: Where Death Lives",
+    "url": "https://www.youtube.com/embed/MPqlR6NjZj8",
+    "video_id": "MPqlR6NjZj8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6404
+   }
+  ],
+  "url": "https://www.youtube.com/embed/MPqlR6NjZj8",
+  "video_id": "MPqlR6NjZj8",
+  "eps": "1 ep",
+  "runtime": "107 min",
+  "desc": "Thanks for watching Gehenna: Where Death Lives (2016) on @FlixForFree A group of real estate developers visits the island of Saipan to scout a location for a luxury resort. Deep in the jungle, they discover an old World War II bunker. Ignoring local warnings, they enter the underground maze — and awaken something ancient and evil. Trapped and hunted, they must face a nightmarish force that exposes their darkest secrets and threatens to destroy them from within. Director: Hiroshi Katagiri Cast: Doug Jones, Lance Henriksen, Patrick Gorman Genre: Horror, Monster Horror Watch more movies on Flix",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77800",
+  "title": "Animalia",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Animalia",
+    "url": "https://www.youtube.com/embed/Ai1hMtJP3ls",
+    "video_id": "Ai1hMtJP3ls",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5488
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Ai1hMtJP3ls",
+  "video_id": "Ai1hMtJP3ls",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Animalia (2023) on @FlixForFree In the midst of a mysterious supernatural event, Itto, a pregnant woman from a modest background, finds herself alone and separated from her affluent husband's family. As Morocco descends into chaos, she embarks on a transformative journey to reunite with her husband, confronting societal norms and exploring her own beliefs.​ Director: Sofia Alaoui Cast: Oumaïma Barid, Mehdi Dehbi, Fouad Oughaou Genre: Sci-Fi, Drama, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77801",
+  "title": "Murder at Hollow Creek",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Murder at Hollow Creek",
+    "url": "https://www.youtube.com/embed/5rQ98rUGCgM",
+    "video_id": "5rQ98rUGCgM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5669
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5rQ98rUGCgM",
+  "video_id": "5rQ98rUGCgM",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching Murder at Hollow Creek (2024) on @FlixForFree A disbarred lawyer and his eccentric brother attempt to pull off the robbery of a lifetime but find themselves in a dangerous game of cat and mouse with a disgruntled Serbian mobster. Director: David Lipper Cast: Keli Price, Jack Kesy, Tiffany Hines Genre: Action, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77802",
+  "title": "The Mandela Effect Phenomenon",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Mandela Effect Phenomenon",
+    "url": "https://www.youtube.com/embed/eiOums_fhuA",
+    "video_id": "eiOums_fhuA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5464
+   }
+  ],
+  "url": "https://www.youtube.com/embed/eiOums_fhuA",
+  "video_id": "eiOums_fhuA",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching The Mandela Effect Phenomenon (2024) on @FlixForFree Is reality shifting beneath our feet? This gripping documentary delves into the Mandela Effect—a phenomenon where countless individuals recall events, names, and cultural touchstones differently from the historical record. Featuring insights from journalist Mark LaFlamme and author Jacob Israel, director Robert Kiviat presents compelling evidence and theories suggesting that our collective memories might point to alternate timelines, simulation theory, or even supernatural forces at play. Explore the mysteries that",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77803",
+  "title": "Back Fork",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Back Fork",
+    "url": "https://www.youtube.com/embed/-IXvh0fJ4Gk",
+    "video_id": "-IXvh0fJ4Gk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5817
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-IXvh0fJ4Gk",
+  "video_id": "-IXvh0fJ4Gk",
+  "eps": "1 ep",
+  "runtime": "97 min",
+  "desc": "Thanks for watching (movie) on @flixforfree When the strain of tragedy was too much for a young couple in Appalachia, prescription pills became the medicine to ease the pain. Director: Josh Stewart Cast: Josh Stewart, Agnes Bruckner, A.J. Cook Genre: Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77804",
+  "title": "The Lost Realms: Mysterious Collapsed Worlds and Kingdoms",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Lost Realms: Mysterious Collapsed Worlds and Kingdoms",
+    "url": "https://www.youtube.com/embed/x257sH-eVOY",
+    "video_id": "x257sH-eVOY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4275
+   }
+  ],
+  "url": "https://www.youtube.com/embed/x257sH-eVOY",
+  "video_id": "x257sH-eVOY",
+  "eps": "1 ep",
+  "runtime": "71 min",
+  "desc": "Thanks for watching The Lost Realms: Mysterious Collapsed Worlds and Kingdoms (2024) on @FlixForFree The lifeblood of ancient civilizations and endless mysteries have baffled explorers for centuries. Delve into the secrets of the Nile's elusive source. The rise and fall of empires, the heartbeat of ancient Egypt - the Nile River and its connection with the gods of ancient Egypt, the global fascination with pyramids that are symbols of a shared human heritage that spans continents and millennia and the creators of the alphabet, whose influence spread across the Mediterranean. Take an epic",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77805",
+  "title": "Bright Hill Road",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bright Hill Road",
+    "url": "https://www.youtube.com/embed/8hKk0WHX8JA",
+    "video_id": "8hKk0WHX8JA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5417
+   }
+  ],
+  "url": "https://www.youtube.com/embed/8hKk0WHX8JA",
+  "video_id": "8hKk0WHX8JA",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Thanks for watching Bright Hill Road (2020) on @FlixForFree A troubled woman with substance abuse issues stemming from a tragic past confronts her inner demons during a stay at a mysterious boarding house. Director: Robert Cuffley Cast: Siobhan Williams, Agam Darshi, Michael Eklund Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77806",
+  "title": "Footprints of the Gods: Quest for the Ancient Giants",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Footprints of the Gods: Quest for the Ancient Giants",
+    "url": "https://www.youtube.com/embed/10A8KLSCsWM",
+    "video_id": "10A8KLSCsWM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5878
+   }
+  ],
+  "url": "https://www.youtube.com/embed/10A8KLSCsWM",
+  "video_id": "10A8KLSCsWM",
+  "eps": "1 ep",
+  "runtime": "98 min",
+  "desc": "Thanks for watching (movie) on @FlixForFree In a world shrouded in mystery and legends, one enigma stands tall above the rest: Giants. The journey into the Promised Land was fraught with peril, as ancient texts recount encounters with giants, known as the Nephilim. But did these towering figures truly walk the Earth, or were they mere myth? From the discoveries of history emerge colossal skeletons, challenging our perceptions of the past. From biblical scriptures to ancient folklore, the legacy of giants endures-a testament to humanity's eternal quest for truth and understanding. Join us on",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77807",
+  "title": "UAP: Massive UFOs, Non-Human Entities and Reverse Engineering",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "UAP: Massive UFOs, Non-Human Entities and Reverse Engineering",
+    "url": "https://www.youtube.com/embed/JD7uvJFmrwQ",
+    "video_id": "JD7uvJFmrwQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4383
+   }
+  ],
+  "url": "https://www.youtube.com/embed/JD7uvJFmrwQ",
+  "video_id": "JD7uvJFmrwQ",
+  "eps": "1 ep",
+  "runtime": "73 min",
+  "desc": "Thanks for watching UAP: Massive UFOs, Non-Human Entities and Reverse Engineering (2024) on @FlixForFree We are embarking on an era of fantastic discoveries and revelations. New insider disclosures claim there are active UAP recovery task forces that exist today and that military factions do indeed have alien bodies and biologics from several recoveries including as far back as Roswell and the 1930's. Director: J. Michael Long Cast: J. Michael LongPaul Hughes Genre: Documentary, Conspiracy Documentary Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77808",
+  "title": "Child of Mine",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Child of Mine",
+    "url": "https://www.youtube.com/embed/K-dZme43Yc4",
+    "video_id": "K-dZme43Yc4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5612
+   }
+  ],
+  "url": "https://www.youtube.com/embed/K-dZme43Yc4",
+  "video_id": "K-dZme43Yc4",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching Child of Mine (2005) on @FlixForFree A child psychologist adopts two girls whose mother was murdered, but when one begins acting strangely, fear drives her to the crime scene for answers. Directed by Jamie Payne Starring Joanne Whalley, Hannah Lochner, Adrian Dunbar Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77809",
+  "title": "Crucified",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Crucified",
+    "url": "https://www.youtube.com/embed/FsMln8BwY30",
+    "video_id": "FsMln8BwY30",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4332
+   }
+  ],
+  "url": "https://www.youtube.com/embed/FsMln8BwY30",
+  "video_id": "FsMln8BwY30",
+  "eps": "1 ep",
+  "runtime": "72 min",
+  "desc": "Thanks for watching Crucified (2019) on @FlixForFree In a world ravaged by the Apocalypse, groups of soldiers are engaged in exterminating every person they find in their search for patient zero, the root of all this evil. Director: Claudio Lattanzi Cast: Cinzia Monreale, Giovanni Lombardo Radice, Marina Loi Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77810",
+  "title": "Bad Apples",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bad Apples",
+    "url": "https://www.youtube.com/embed/l7JaO-FGCC0",
+    "video_id": "l7JaO-FGCC0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5051
+   }
+  ],
+  "url": "https://www.youtube.com/embed/l7JaO-FGCC0",
+  "video_id": "l7JaO-FGCC0",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Bad Apples (2018) on @FlixForFree Not celebrating Halloween proves treacherous for the new couple on the block when they're terrorized by a pair of sadistic trick-or-treaters. Director: Bryan Coyne Cast: Brea Grant, Graham Skipper, Aly Fitzgerald Genre: Horror, Slasher Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77811",
+  "title": "Alien Science: UFOs and UAPs Examined",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alien Science: UFOs and UAPs Examined",
+    "url": "https://www.youtube.com/embed/XNueBt2SNRA",
+    "video_id": "XNueBt2SNRA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4598
+   }
+  ],
+  "url": "https://www.youtube.com/embed/XNueBt2SNRA",
+  "video_id": "XNueBt2SNRA",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "Thanks for watching Alien Science: UFOs and UAPs Examined (2024) on @FlixForFree In a world filled with mysteries and unexplained phenomena, the existence of extraterrestrial life has long been a topic of fascination and speculation. Countless theories and alleged sightings have raised questions about the possibility of beings from other worlds visiting our own. However, with the advancement of technology and the study of science, evidence has started to emerge that could potentially confirm the existence of aliens and their visits to Earth. In this groundbreaking documentary, we delve into",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77812",
+  "title": "Breeder",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Breeder",
+    "url": "https://www.youtube.com/embed/sSGMnMKHczc",
+    "video_id": "sSGMnMKHczc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6307
+   }
+  ],
+  "url": "https://www.youtube.com/embed/sSGMnMKHczc",
+  "video_id": "sSGMnMKHczc",
+  "eps": "1 ep",
+  "runtime": "105 min",
+  "desc": "Thanks for watching Breeder (2020) on @FlixForFree Mia discovers that a renowned cosmetics firm has an underground facility where bio-hacking experiments are performed on women. As she begins to investigate, she finds herself trapped in the human farm’s bizarre web. Can she escape this nightmare? Director: Jens Dahl Cast: Sara Hjort Ditlevsen (Mia Lindberg), Anders Heinrichsen (Thomas Lindberg), Signe Egholm Olsen (Dr. Isabel Ruben), Morten Holst (The Dog) Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77813",
+  "title": "Mind Control Exposed: HAARP, Hypnosis and the Alien Factor",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mind Control Exposed: HAARP, Hypnosis and the Alien Factor",
+    "url": "https://www.youtube.com/embed/7oavz-TkT9Y",
+    "video_id": "7oavz-TkT9Y",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5533
+   }
+  ],
+  "url": "https://www.youtube.com/embed/7oavz-TkT9Y",
+  "video_id": "7oavz-TkT9Y",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "Thanks for watching Mind Control Exposed: HAARP, Hypnosis and the Alien Factor (2024) on @FlixForFree In the remote reaches of the Alaskan North Slope lies a place of scientific intrigue and controversy: HAARP, which ventures into the realm of mind control, utilizing high frequency signals to influence behavior. But beyond Earthly boundaries, the conversation expands. Could extraterrestrial beings hold the key to unlocking the mysteries of the mind? Director: Bryan Law Cast: Paul Hughes, Colin Ross, Nick Begwich Genre: Documentary Watch more movies on Flix For Free! Horror Movies: Action",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77814",
+  "title": "Unraveling Nostradamus: Prophecies and the Modern Age",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Unraveling Nostradamus: Prophecies and the Modern Age",
+    "url": "https://www.youtube.com/embed/BH6lHRjpR4Q",
+    "video_id": "BH6lHRjpR4Q",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4596
+   }
+  ],
+  "url": "https://www.youtube.com/embed/BH6lHRjpR4Q",
+  "video_id": "BH6lHRjpR4Q",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "Thanks for watching Unraveling Nostradamus: Prophecies and the Modern Age (2024) on @FlixForFree The verses of Nostradamus have sparked awe and fear. Explore the man behind the prophecies and visions that are forever linked to our past and future. Director: William Burkeson Cast: Arthur Givens, Jason Miller Genre: Documentary Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77815",
+  "title": "The Redwood Massacre",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Redwood Massacre",
+    "url": "https://www.youtube.com/embed/rn-Lxa-6Nns",
+    "video_id": "rn-Lxa-6Nns",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4878
+   }
+  ],
+  "url": "https://www.youtube.com/embed/rn-Lxa-6Nns",
+  "video_id": "rn-Lxa-6Nns",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Thanks for watching The Redwood Massacre (2015) on @FlixForFree What begins as a exciting camping trip to the legendary Redwood murder site, takes a terrifying turn when the innocent campers discover the legend is about to become a nasty and bloody reality. Director: David Ryan Keith Stars: Lisa Cameron, Mark Wood, Lisa Livingstone Genre: Slasher Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77816",
+  "title": "Alien Artifacts Marathon: The Weird, the Strange, the Unexplained",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alien Artifacts Marathon: The Weird, the Strange, the Unexplained",
+    "url": "https://www.youtube.com/embed/LAfCmcv0b1Q",
+    "video_id": "LAfCmcv0b1Q",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 12747
+   }
+  ],
+  "url": "https://www.youtube.com/embed/LAfCmcv0b1Q",
+  "video_id": "LAfCmcv0b1Q",
+  "eps": "1 ep",
+  "runtime": "212 min",
+  "desc": "Thanks for watching Alien Artifacts Marathon: The Weird, the Strange, the Unexplained (2024) on @FlixForFree A mind-bending journey through the most mysterious extraterrestrial discoveries, unexplained relics, and cosmic anomalies. Are they proof of alien life or something even stranger? You decide. Director: J. Michael Long Cast: Charles Thompsen, Jason Miller Genre: Documentari, Alien Documentary Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77817",
+  "title": "The Last Matinee",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Last Matinee",
+    "url": "https://www.youtube.com/embed/3ql2CqsAh8g",
+    "video_id": "3ql2CqsAh8g",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5127
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3ql2CqsAh8g",
+  "video_id": "3ql2CqsAh8g",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching The Last Matinee (2020) on @FlixForFree When a vicious murderer attacks a local cinema, the projectionist’s daughter and a group of patrons must fight back in the darkness of the matinee. Cast:Ricardo Islas, Luciana Grasso, Franco Duran Director:Maximiliano Contenti Genre: Slasher Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77818",
+  "title": "The Butchers",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Butchers",
+    "url": "https://www.youtube.com/embed/C2HZrvDSUb4",
+    "video_id": "C2HZrvDSUb4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4703
+   }
+  ],
+  "url": "https://www.youtube.com/embed/C2HZrvDSUb4",
+  "video_id": "C2HZrvDSUb4",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "Thanks for watching The Butchers (2014) on @FlixForFree Strangers on a bus find themselves fighting for their lives when one of them reads from a Gothic book and brings to life six dead serial killers who proceed to hunt them down one by one. Director: Steven Paul Judd Cast: Semi Anthony, Damien Puckler, Randall Bosley Genre: Horror, Thriller, Fantasy Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77819",
+  "title": "Heartlock",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Heartlock",
+    "url": "https://www.youtube.com/embed/q42KpkkNxm8",
+    "video_id": "q42KpkkNxm8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5706
+   }
+  ],
+  "url": "https://www.youtube.com/embed/q42KpkkNxm8",
+  "video_id": "q42KpkkNxm8",
+  "eps": "1 ep",
+  "runtime": "95 min",
+  "desc": "Thanks for watching Heartlock (2019) on @FlixForFree Heartlock is a rogue love story centered on a female prison guard whose life is turned upside down by the fleeting affections of her lover - a male convict whose charm is only as genuine as his desire to be free. Cast: Alexander Dreymon, Lesley-Ann Brandt, Erik LaRay Harvey Director: Jon Kauffman Genre: Crime, Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77820",
+  "title": "A Clear Shot",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Clear Shot",
+    "url": "https://www.youtube.com/embed/k09Uph5C-88",
+    "video_id": "k09Uph5C-88",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5267
+   }
+  ],
+  "url": "https://www.youtube.com/embed/k09Uph5C-88",
+  "video_id": "k09Uph5C-88",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Thanks for watching A Clear Shot (2019) on @FlixForFree A hostage situation at the Good Guys electronic store in Sacramento California goes awry when bullets start flying. Will law enforcement be able to come in and save the day or will the hostage takers win. Director: Nick Leisure Cast: Mario Van Peebles, Mandela Van Peebles, Jessica Meza Genre: Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77821",
+  "title": "Krampus Origins",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Krampus Origins",
+    "url": "https://www.youtube.com/embed/25L3fsHu7Ts",
+    "video_id": "25L3fsHu7Ts",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5124
+   }
+  ],
+  "url": "https://www.youtube.com/embed/25L3fsHu7Ts",
+  "video_id": "25L3fsHu7Ts",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching Krampus Origins (2018) on @FlixForFree In the year 1918 as WWI rages on a group of American soldiers find a mysterious artifact that can summon the ancient evil of the Krampus. After they are killed in battle, the artifact turns up in an orphanage and the Krampus once again is unleashed. Cast: Maria Olsen, Anna Harr, Amelia Haberman Director: Joseph Mbah Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77822",
+  "title": "Headspace",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Headspace",
+    "url": "https://www.youtube.com/embed/iqH_MGrhyMs",
+    "video_id": "iqH_MGrhyMs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4955
+   }
+  ],
+  "url": "https://www.youtube.com/embed/iqH_MGrhyMs",
+  "video_id": "iqH_MGrhyMs",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching Headspace (2005) on @FlixForFree A chance meeting with a mysterious artist and chess master turns a charming and intelligent 25-year man old into a nightmare-plagued genius. Directed by Andrew van den Houten Cast: Christopher Denham, Sean Young, Larry Fessenden, Daniel Manche Genre: Horror, Mystery, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77823",
+  "title": "Angels Fallen: Warriors of Peace",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Angels Fallen: Warriors of Peace",
+    "url": "https://www.youtube.com/embed/PLytvLbQ2jU",
+    "video_id": "PLytvLbQ2jU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6193
+   }
+  ],
+  "url": "https://www.youtube.com/embed/PLytvLbQ2jU",
+  "video_id": "PLytvLbQ2jU",
+  "eps": "1 ep",
+  "runtime": "103 min",
+  "desc": "Thanks for watching Angels Fallen: Warriors of Peace (2024) on @FlixForFree Haunted by the war in Iraq, a depressed and faithless Gabriel is approached by the mysterious Balthazar, who recruits Gabriel to stop the evil Archangel Michael from raising an army of the dead to take over the world. With the help of his old platoon, Gabriel sets off to find the Warriors of Peace, their only hope in defeating Michael and his army. Cast: Josh Burdett, Cuba Gooding Jr., Denise Richards, Randy Couture Director: Ali Zamani Genre: Action, Adventure, Fantasy Watch more movies on Flix For Free! Horror",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77824",
+  "title": "Blindsided",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blindsided",
+    "url": "https://www.youtube.com/embed/6-oPVL2UwDM",
+    "video_id": "6-oPVL2UwDM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4914
+   }
+  ],
+  "url": "https://www.youtube.com/embed/6-oPVL2UwDM",
+  "video_id": "6-oPVL2UwDM",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Blindsided (2018) on @FlixForFree Sloan Carter is a young girl who has recently been blinded. Her father leaves for the weekend and her two best friends, returning home from University, keep her company. A protege of her father's, passing through town, also spends the night. The peaceful weekend is interrupted by a shadowy threat and the safe country getaway turns into a fight for survival. Director: Johnny Mitchell Cast: Bea Santos, Atticus Mitchell, Erik Knudsen Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77825",
+  "title": "Crypsis",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Crypsis",
+    "url": "https://www.youtube.com/embed/FGQFJ19b0vk",
+    "video_id": "FGQFJ19b0vk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4903
+   }
+  ],
+  "url": "https://www.youtube.com/embed/FGQFJ19b0vk",
+  "video_id": "FGQFJ19b0vk",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Crypsis (2019) on @FlixForFree A group of friends make a bet to see who can survive camping on an island for a night. Unbeknownst to them, a strange creature lurks throughout the night terrorizing their every move, and sound is their biggest enemy. Director: Paul Anthony Rogers Cast: Eddie Nason, Anthony Hoang, Michael Armata Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77826",
+  "title": "A Perfect Host",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Perfect Host",
+    "url": "https://www.youtube.com/embed/NVJQbGD2ihc",
+    "video_id": "NVJQbGD2ihc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4380
+   }
+  ],
+  "url": "https://www.youtube.com/embed/NVJQbGD2ihc",
+  "video_id": "NVJQbGD2ihc",
+  "eps": "1 ep",
+  "runtime": "73 min",
+  "desc": "Thanks for watching A Perfect Host (2019) on @FlixForFree Avery and Sam arrive early at an isolated lake house for a weekend vacation with their friends. Sam's intentions are to work out relational baggage he has with Avery. Their conversation is interrupted, however, by the home's owner Tad, a tactless and awkward fitness obsessed loner whose possibly sinister intentions are revealed as their stay continues. Director: Chad Werner Cast: Katelyn Marie Marshall, Brady Johnson, Jeff McQuitty Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77827",
+  "title": "Haunted House Hunt: Creepiest, Scariest Abandoned Haunts of Europe",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Haunted House Hunt: Creepiest, Scariest Abandoned Haunts of Europe",
+    "url": "https://www.youtube.com/embed/LfC_8daXx-s",
+    "video_id": "LfC_8daXx-s",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4224
+   }
+  ],
+  "url": "https://www.youtube.com/embed/LfC_8daXx-s",
+  "video_id": "LfC_8daXx-s",
+  "eps": "1 ep",
+  "runtime": "70 min",
+  "desc": "Thanks for watching Haunted House Hunt: Creepiest, Scariest Abandoned Haunts of Europe (2024) on @FlixForFree A paranormal skeptic and a seasoned wilderness survival expert explore the most haunted places in Europe in a quest to discover the true nature of the supernatural. A thrilling exploration of the unknown and the reality that seeing is believing. Director: Cast: Genre: Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77828",
+  "title": "The Clinic",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Clinic",
+    "url": "https://www.youtube.com/embed/kAQ4hcisBn0",
+    "video_id": "kAQ4hcisBn0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5586
+   }
+  ],
+  "url": "https://www.youtube.com/embed/kAQ4hcisBn0",
+  "video_id": "kAQ4hcisBn0",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "Thanks for watching The Clinic (2010) on @FlixForFree While traveling across country with her fiancé, Beth wakes alone in an isolated clinic to find her unborn baby has been removed. Just how far will she go to get her child back? Director: Cast: Tabrett Bethell, Freya Stafford, Andy Whitfield Genre: Horror, Crime,Mystery, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77829",
+  "title": "Cry for the Bad Man",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cry for the Bad Man",
+    "url": "https://www.youtube.com/embed/Mf3omCkTLhM",
+    "video_id": "Mf3omCkTLhM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4470
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Mf3omCkTLhM",
+  "video_id": "Mf3omCkTLhM",
+  "eps": "1 ep",
+  "runtime": "74 min",
+  "desc": "Thanks for watching Cry for the Bad Man (2019) on @FlixForFree Cry For The Bad Man stars genre legend Camille Keaton (I Spit On Your Grave, What Have You Done To Solange?, The Lords Of Salem) as a secretive, small-town widow whose isolation is shattered by a grisly confrontation. Keaton leads a cast including Scott Peeler, Karen Konzen, Eric Dooley, Christopher James Forrest, Victor Jones, Mark Poppleton, and Kurt McCall. Director: Sam Farmer Cast: Camille Keaton, Scott Peeler, Karen Konzen Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77830",
+  "title": "Blind",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blind",
+    "url": "https://www.youtube.com/embed/8SWGafqkoHQ",
+    "video_id": "8SWGafqkoHQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5312
+   }
+  ],
+  "url": "https://www.youtube.com/embed/8SWGafqkoHQ",
+  "video_id": "8SWGafqkoHQ",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Thanks for watching Blind (2019) on @FlixForFree Faye, a former actress that lost her vision due to botched laser eye surgery, struggles to put her life back together while living alone in her dream house in the Hollywood Hills. Supported by her friend Sophia, she starts opening up to Luke, a personal trainer who is mute and can only communicate through his cell phone. When a masked stranger named Pretty Boy shows up, Faye will realize that she isn't as alone as she thinks. Director: Marcel Walz Cast: Sarah French, Caroline Williams, Tyler Gallant Genre: Horror, Thriller Watch more movies on",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77831",
+  "title": "Summoning The Spirit",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Summoning The Spirit",
+    "url": "https://www.youtube.com/embed/MOLvleN1eVo",
+    "video_id": "MOLvleN1eVo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5804
+   }
+  ],
+  "url": "https://www.youtube.com/embed/MOLvleN1eVo",
+  "video_id": "MOLvleN1eVo",
+  "eps": "1 ep",
+  "runtime": "97 min",
+  "desc": "Thanks for watching Summoning The Spirit (2023) on @FlixForFree Carla and Dean decide to escape the city, only to find themselves on the remote land of a strange cult claiming a connection to the flesh-eating bigfoot. Now they must save themselves and uncover the terrifying truth of the cult's prophecy. Director: Jon Garcia Cast: Krystal Millie Valdes, Ernesto Reyes, Jesse Tayeh Genre: Horror, Creature Feature Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77832",
+  "title": "Cartel 2045",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cartel 2045",
+    "url": "https://www.youtube.com/embed/aUP4eXbHvYs",
+    "video_id": "aUP4eXbHvYs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6261
+   }
+  ],
+  "url": "https://www.youtube.com/embed/aUP4eXbHvYs",
+  "video_id": "aUP4eXbHvYs",
+  "eps": "1 ep",
+  "runtime": "104 min",
+  "desc": "Thanks for watching Cartel 2045 (2017) on @FlixForFree The year is 2045, the continuing drug war has caused havoc between The United States and Mexico. Gear Side International, a robotics engineering company on the brink of bankruptcy, sells off their technology to the Cartel on the black market. With the advanced military robotics technology in the wrong hands the cartel uses it to their advantage; replacing their enforcers, hit men, and soldiers. Director: Chris Le Cast: Danny Trejo, Alexander P. Heartman, Blake Webb Genre: Action, Adventure, Sci-Fi Watch more movies on Flix For Free!",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77833",
+  "title": "Breath",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Breath",
+    "url": "https://www.youtube.com/embed/yN4Iobm3gK8",
+    "video_id": "yN4Iobm3gK8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6376
+   }
+  ],
+  "url": "https://www.youtube.com/embed/yN4Iobm3gK8",
+  "video_id": "yN4Iobm3gK8",
+  "eps": "1 ep",
+  "runtime": "106 min",
+  "desc": "Thanks for watching Breath (2022) on @FlixForFree Lara Winslet, a renowned volcanologist, finds herself trapped in a deep crevice while conducting research on a remote volcano. Alone and unable to call for help, she confronts her past, her fears, and the fragile connection with her daughter. As time runs out, Lara’s resilience is tested in an emotional journey of survival and self-discovery. Cast: James Cosmo, Rachel Daigh, Neb Chupin Director: John Real Genre: Drama, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77834",
+  "title": "Frazetta: Painting with Fire",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Frazetta: Painting with Fire",
+    "url": "https://www.youtube.com/embed/qqlP2xyvm40",
+    "video_id": "qqlP2xyvm40",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5606
+   }
+  ],
+  "url": "https://www.youtube.com/embed/qqlP2xyvm40",
+  "video_id": "qqlP2xyvm40",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "Thanks for watching Frazetta: Painting with Fire (2003) on @FlixForFree Go beyond the paintings of legendary fantasy artist Frank Frazetta as we delve into his life story. This acclaimed documentary unveils the man behind the masterpieces, showcasing his resilience and enduring legacy. Having single-handedly sparked an entire generation of artists, Frank Frazetta is not just a pop phenomenon, but a creative artist destined for a serious place in art history. Director: Lance Laspina Cast: Frank Frazetta (Himself), Ralph Bakshi (Himself), John Milius (Himself), Glenn Danzig (Himself), Dave",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77835",
+  "title": "El Susto",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "El Susto",
+    "url": "https://www.youtube.com/embed/mxATEYe2Vsg",
+    "video_id": "mxATEYe2Vsg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4560
+   }
+  ],
+  "url": "https://www.youtube.com/embed/mxATEYe2Vsg",
+  "video_id": "mxATEYe2Vsg",
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "Thanks for watching El Susto (2022) on @FlixForFree In Mexico, where sugary sodas are more accessible than clean drinking water and Type 2 Diabetes is a leading cause of death, El Susto tracks the powerful beverage industry’s aggressive marketing and deep political ties as courageous public health advocates, medical professionals and community members take action to fight for the well-being of a nation. Director: Karen Akins Cast: Simon Barquera, Alejandro Calvillo, Pilar Zazueta, Mark Pendergrast, Michael Jacobson, Patricia Bermudez Genre: Documentary, Health, Nutrition Watch more movies on",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77836",
+  "title": "Where Eskimos Live",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Where Eskimos Live",
+    "url": "https://www.youtube.com/embed/0i_md2m0ALo",
+    "video_id": "0i_md2m0ALo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5321
+   }
+  ],
+  "url": "https://www.youtube.com/embed/0i_md2m0ALo",
+  "video_id": "0i_md2m0ALo",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "Thanks for watching Where Eskimos Live (2002) on @FlixForFree Sharkey, part of the sinister world of child trade, picks up Vlado, an orphan of war, dreaming of freedom and a better life. They embark upon a strange and enlightening journey through war torn Bosnia. As they struggle to get out of the country and fight to stay alive, they find a special love and compassion from which emerges their ultimate moral and spiritual redemption. Director: Tomasz Wiszniewski Cast: Bob Hoskins - Sharkey, Sergiusz Zymelka - Vlado, Krzysztof Majchrzak - Colonel Vuko Genre: Action, Drama Watch more movies on",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77837",
+  "title": "Room For Rent",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Room For Rent",
+    "url": "https://www.youtube.com/embed/AKpvNWQdKAk",
+    "video_id": "AKpvNWQdKAk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4901
+   }
+  ],
+  "url": "https://www.youtube.com/embed/AKpvNWQdKAk",
+  "video_id": "AKpvNWQdKAk",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Room For Rent (2019) on @FlixForFree Lonely widow Joyce rents out a room to make easy money. She meets mysterious drifter Bob and takes him in as a long-term tenant. She becomes obsessed with her much younger guest, making him the object of her deepest romantic fantasies. When a friend’s betrayal derails Joyce’s fantasy world, she seizes control of her own destiny with a deadly mission to finally get what she deserves. Director: Tommy Stovall Cast: Lin Shaye (Joyce), Oliver Rayon (Bob), Valeska Miller (Sarah), Ryan Ochoa (Waynce), Linda Cushma (Gladys) Genre:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77838",
+  "title": "End Of Loyalty",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "End Of Loyalty",
+    "url": "https://www.youtube.com/embed/afKSqlRgyCE",
+    "video_id": "afKSqlRgyCE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5454
+   }
+  ],
+  "url": "https://www.youtube.com/embed/afKSqlRgyCE",
+  "video_id": "afKSqlRgyCE",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching End Of Loyalty (2023) on @FlixForFree When the head of the crime family is killed by a rival family, his son Grant vows to get retribution. As his grief turns into violence, his best friend Ray, a federal agent, does everything he can to keep Grant from going off the deep end. Cast: Vernon Wells, Michael Paré, Simon Phillips Director: Hiroshi Katagiri, Paul Tanter Genre: Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77839",
+  "title": "Man With The Screaming Brain",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Man With The Screaming Brain",
+    "url": "https://www.youtube.com/embed/4h78CAeHrgI",
+    "video_id": "4h78CAeHrgI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5068
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4h78CAeHrgI",
+  "video_id": "4h78CAeHrgI",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Man With The Screaming Brain (2005) on @FlixForFree The brains of a Russian taxi driver and a wealthy businessman are brought together in one body by a mad scientist. Director: Bruce Campbell Cast: Bruce Campbell, Tamara Gorski, Ted Raimi Genre: Comedy, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77840",
+  "title": "Unscarred",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Unscarred",
+    "url": "https://www.youtube.com/embed/5PLDH9dmwRI",
+    "video_id": "5PLDH9dmwRI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5257
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5PLDH9dmwRI",
+  "video_id": "5PLDH9dmwRI",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Thanks for watching Unscarred (2000) on @FlixForFree Four University friends reunite in Berlin twenty years after completing their studies. What starts out as a wild celebration suddenly turns dangerous when a young woman ends up dead. But that is only the beginning, and with the second body, things rapidly spiral out of control. The four friends learn all too soon that things are not always as they seem, and the results of this dangerous game of betrayal and revenge leave no survivor unscarred. Director: Buddy Giovinazzo Cast: James Russo - Mickey Vernon, Heino Ferch - Johann, Ornella Muti -",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77841",
+  "title": "Mumbo Jumbo",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mumbo Jumbo",
+    "url": "https://www.youtube.com/embed/nJfT4IXXkRA",
+    "video_id": "nJfT4IXXkRA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4921
+   }
+  ],
+  "url": "https://www.youtube.com/embed/nJfT4IXXkRA",
+  "video_id": "nJfT4IXXkRA",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching MumboJumbo on @FlixForFree A cynical young American, Thomas Doubting, stumbles upon a magical amulet that takes him on a mysterious journey to the island of Sinmouth. The eccentric locals believe he is the lost legend of Mumbo Jumbo -- an entity who will restore their fortunes and rescue the beautiful Princess Vanilla. Director: Stephen Cookson Cast: Jamie Walters, Brian Blessed, Joss Ackland Genre: Comedy Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77842",
+  "title": "Candy Witch",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Candy Witch",
+    "url": "https://www.youtube.com/embed/aAY9S5KQCGE",
+    "video_id": "aAY9S5KQCGE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5500
+   }
+  ],
+  "url": "https://www.youtube.com/embed/aAY9S5KQCGE",
+  "video_id": "aAY9S5KQCGE",
+  "eps": "1 ep",
+  "runtime": "92 min",
+  "desc": "Thanks for watching Candy Witch (2020) on @FlixForFree Two ghost hunters are called upon a distressed family who claim they are being tormented by an evil spirit known in their local town as The Candy Witch. But as the mystery of her curse is uncovered, surprising and sinister turns are discovered around The Candy Witch's identity. Their hardest case yet, can they solve this evil curse before more people are killed by the demonic spirit? Director: Rebecca Matthews Cast: Jon Callaway, Abi Casson Thompson, Kate Lush Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77843",
+  "title": "Throne Of Elves",
+  "genre": "Fantasy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Throne Of Elves",
+    "url": "https://www.youtube.com/embed/fpQzsQeBp_I",
+    "video_id": "fpQzsQeBp_I",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5928
+   }
+  ],
+  "url": "https://www.youtube.com/embed/fpQzsQeBp_I",
+  "video_id": "fpQzsQeBp_I",
+  "eps": "1 ep",
+  "runtime": "99 min",
+  "desc": "Thanks for watching Throne Of Elves (2016) on @FlixForFree In the mythical Elven world of Altera, an epic battle unfolds between the beautiful Princess Liya and the Dark Elf Elena, who has gained possession of a jewel so powerful it allows its holder complete authority over all Alterans. Director: Yuefeng Song Cast: Ryan Potter (Fish), Ashley Boettcher (Liya), Gavin Hammon (Prince Kyle), Julie Nathanson (Queen Mayre), Anika Noni Rose (Meyla), Kevin Michael Richardson (Captain B) Genre: Fantasy, Adventure, Family, Animation Watch more movies on Flix For Free! Horror Movies: Action Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77844",
+  "title": "Taking Sides",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Taking Sides",
+    "url": "https://www.youtube.com/embed/v9quzpymm98",
+    "video_id": "v9quzpymm98",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6308
+   }
+  ],
+  "url": "https://www.youtube.com/embed/v9quzpymm98",
+  "video_id": "v9quzpymm98",
+  "eps": "1 ep",
+  "runtime": "105 min",
+  "desc": "Thanks for watching Taking Sides (2001) on @FlixForFree After the end of World War II, a famous German conductor is accused of loyalty to the Nazi regime. He argues that art and politics are separate. An investigator thinks otherwise. Director: István Szabó Cast: Harvey Keitel (Major Steve Arnold), Stellan Skarsgård (Dr. Wilhelm Furtwängler), Moritz Bleibtreu (Lt. David Wills), Birgit Minichmayr (Emmi Straube) Genre: Drama, War Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77845",
+  "title": "Alien Reign Of Man",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alien Reign Of Man",
+    "url": "https://www.youtube.com/embed/-_wCx6hNlJ8",
+    "video_id": "-_wCx6hNlJ8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5063
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-_wCx6hNlJ8",
+  "video_id": "-_wCx6hNlJ8",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Alien Reign Of Man (2017) on @FlixForFree Stranded on a distant planet, a team must fight aliens and activate a machine meant to restore Earth to a time before its downfall. Director: Tristan Price Cast: Khu, Torrei Hart, Deanna Grace Congo, Stacey Moreno Genre: Sci-Fi, Action, Fantasy Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77846",
+  "title": "The Parish",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Parish",
+    "url": "https://www.youtube.com/embed/fPh_pL8YuEg",
+    "video_id": "fPh_pL8YuEg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4905
+   }
+  ],
+  "url": "https://www.youtube.com/embed/fPh_pL8YuEg",
+  "video_id": "fPh_pL8YuEg",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Parish (2019) on @FlixForFree Haunted by the death of her husband, Liz moves with her daughter to a small town. The real nightmares begin when they stumble upon a long-buried scandal and a blood thirsty nun who will stop at nothing to protect the deadly secrets of The Parish. Director: David S. Hogan Cast: Angela DiMarco (Liz Charles), Sanae Loutsis (Audrey Charles), Ray Tagavilla (Jason Charles), Bill Oberst Jr. (Father Felix), Sara Coates (Sandra Cassidy), Gin Hammond (Sister Beatrice), Amber Wolfe (Faye Phillips), Ryan Sanders (Howard Stonewall), Lucas Oktay (Caleb),",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77847",
+  "title": "Puppet Master Vs Demonic Toys",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Puppet Master Vs Demonic Toys",
+    "url": "https://www.youtube.com/embed/KYLFEReJ_YY",
+    "video_id": "KYLFEReJ_YY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5068
+   }
+  ],
+  "url": "https://www.youtube.com/embed/KYLFEReJ_YY",
+  "video_id": "KYLFEReJ_YY",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching (movie) on @FlixForFree A group of toymakers seek to use Andre Toulon's formula, now in the hands of Toulon's great-nephew Robert, to give life to a line of killer toys that they plan to unleash on Christmas Eve. Director: Silvia Suvadová Cast: Corey Feldman, Vanessa Angel, Danielle Keaton, Silvia Suvadová Genre: Horror, Comedy, Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77848",
+  "title": "Scream Of The Wolf",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Scream Of The Wolf",
+    "url": "https://www.youtube.com/embed/nb2ywNa3DcQ",
+    "video_id": "nb2ywNa3DcQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4804
+   }
+  ],
+  "url": "https://www.youtube.com/embed/nb2ywNa3DcQ",
+  "video_id": "nb2ywNa3DcQ",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching Scream Of The Wolf (2023) on @FlixForFree Making a vampire movie in an old, abandoned house should have been easy, but with the full moon, the nightmare begins. The body count rises as the cast & crew encounter the mansion's resident werewolf and by daylight only the lucky will survive. Director: Dominic Brunt Cast: James Fleet, John Henshaw, Nicky Evans Genre: Horror, Creature Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77849",
+  "title": "Murder in the Woods",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Murder in the Woods",
+    "url": "https://www.youtube.com/embed/Ax3BKU7wibU",
+    "video_id": "Ax3BKU7wibU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5304
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Ax3BKU7wibU",
+  "video_id": "Ax3BKU7wibU",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Thanks for watching Murder in the Woods (2017) on @FlixForFree Soon after arriving to a mysterious cabin in the woods, a group of college friends discover the dark secret it holds, which forces them to fight for their lives. Director: Luis Iga Cast: Danny Trejo (Sheriff Lorenzo), José Julián (Jesse), Jeanette Samano (Fernanda), Chelsea Rendon (Chelsea), Catherine Toribio (Celeste), Kade Wise (Jule), Jordan Diambrini (Gabe), Kurt Caceres (Raul), Max Chavarria (Kid) with Soledad St. Hilaire (Nana), Rolando Molina (Jesus) Genre: Horror, Mystery, Thriller Watch more movies on Flix For Free!",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77850",
+  "title": "Redwood Massacre: Annihilation",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Redwood Massacre: Annihilation",
+    "url": "https://www.youtube.com/embed/i1wLnkzuGCE",
+    "video_id": "i1wLnkzuGCE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6085
+   }
+  ],
+  "url": "https://www.youtube.com/embed/i1wLnkzuGCE",
+  "video_id": "i1wLnkzuGCE",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77851",
+  "title": "Hunting Grounds",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hunting Grounds",
+    "url": "https://www.youtube.com/embed/eDHWfQNElmw",
+    "video_id": "eDHWfQNElmw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5478
+   }
+  ],
+  "url": "https://www.youtube.com/embed/eDHWfQNElmw",
+  "video_id": "eDHWfQNElmw",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Hunting Grounds (2017) on @FlixForFree After losing their home following a devastating tragedy, a father and son are forced to move to an old family cabin. When two old friends arrive for a weekend of hunting, what begins as a bonding trip becomes an unimaginable nightmare. This trip deep into the forest will not find wild game, but does unearth a tribe of Sasquatch that are determined to protect their land. Director: John Portanova Cast: Miles Joris-Peyrafitte, Jason Vail, David Saucedo Genre: Action, Thriller, Horror Watch more movies on Flix For Free! Horror Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77852",
+  "title": "Urgency",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Urgency",
+    "url": "https://www.youtube.com/embed/eYuwnpwnceM",
+    "video_id": "eYuwnpwnceM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4973
+   }
+  ],
+  "url": "https://www.youtube.com/embed/eYuwnpwnceM",
+  "video_id": "eYuwnpwnceM",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching Urgency (2011) on @FlixForFree Tony is in a race against time to save his kidnapped wife before she is murdered but as he unravels the mystery behind her abduction he discovers they are after more than money. Director: Kantz Cast: Craig Barnett, Shaun T. Benjamin, Kasan Butcher Genre: Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77853",
+  "title": "Getaway",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Getaway",
+    "url": "https://www.youtube.com/embed/x8JG7kDWLhk",
+    "video_id": "x8JG7kDWLhk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4545
+   }
+  ],
+  "url": "https://www.youtube.com/embed/x8JG7kDWLhk",
+  "video_id": "x8JG7kDWLhk",
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "Thanks for watching Getaway (2020) on @FlixForFree The thriller follows Tamara Miller as she plans a weekend lake getaway with her two best friends. When Tamara gets kidnapped by a backwoods cult, eerie and unexplained occurrences arise. Will she make it out alive or become the treasure that's sought out by these cultish men's desires? Director: Toran Caudell Cast: Jaclyn Betham, Scout Taylor-Compton, Landry Allbright, Toran Caudell Genre: Thriller, Horror, Crime Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77854",
+  "title": "Beacon Point",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Beacon Point",
+    "url": "https://www.youtube.com/embed/ekDNufkHWlE",
+    "video_id": "ekDNufkHWlE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4928
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ekDNufkHWlE",
+  "video_id": "ekDNufkHWlE",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Beacon Point (2016) on @FlixForFree A tense, suspenseful sci-fi thriller that follows a group of hikers lost along the Appalachian Trail in the Great Smoky Mountains. Days from any kind of help, the group stumble upon an ancient secret that threatens their survival. You’ll never go camping again! Director: Eric Blue Cast: Rae Olivier, Jon Briddell, Eric Goins Genre: Horror, Thriller, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77855",
+  "title": "Alien Apocalypse",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Alien Apocalypse",
+    "url": "https://www.youtube.com/embed/hx4b2U9hva8",
+    "video_id": "hx4b2U9hva8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5059
+   }
+  ],
+  "url": "https://www.youtube.com/embed/hx4b2U9hva8",
+  "video_id": "hx4b2U9hva8",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Alien Apocalypse (2005) on @FlixForFree An astronaut doctor Ivan Hood and his fellow astronaut Kelly return from their mission in space to find the world has been taken over by aliens. Now Dr. Ivan Hood and Kelly must lead a revolution to free the human slaves from their alien masters. Director: Josh Becker Cast: Bruce Campbell, Renée O'Connor, Remington Franklin Genre: Adventure, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77856",
+  "title": "American Meltdown",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "American Meltdown",
+    "url": "https://www.youtube.com/embed/3VwUzqeF8Pg",
+    "video_id": "3VwUzqeF8Pg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5375
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3VwUzqeF8Pg",
+  "video_id": "3VwUzqeF8Pg",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Thanks for watching American Meltdown (2004) on @FlixForFree On an ordinary work day the San Onofre Nuclear Facility is taken over by terrorists. All traces found by the police and intelligence units, which rush to the site to get the situation under control, seem to point at Al Qaeda. Director: Jeremiah S. Chechik Cast: Bruce Greenwood, Leslie Hope, Arnold Vosloo Genre: Action, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77857",
+  "title": "Dino King: Journey to Fire Mountain",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dino King: Journey to Fire Mountain",
+    "url": "https://www.youtube.com/embed/5KHGV56QPkk",
+    "video_id": "5KHGV56QPkk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5653
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5KHGV56QPkk",
+  "video_id": "5KHGV56QPkk",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching Dino King: Journey to Fire Mountain (2018) on @FlixForFree It's a story between the strong father and the coward son, and love and conflict between them. The father is 'Speckles', the Tarbosaurus, who dominated the Eurasia lands during the Cretaceous period and the son, 'Junior' is the only child who is just scared to become a Dino king like his father. Director: Han Sang-Ho Cast: Park Heesoon(Speckles) / Ra Miran(Fang) /Kim Seonggyun(Ssai) Genre: Action, Animation, Adventure Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77858",
+  "title": "Evil Little Things",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Evil Little Things",
+    "url": "https://www.youtube.com/embed/ualD-HB0KFo",
+    "video_id": "ualD-HB0KFo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5138
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ualD-HB0KFo",
+  "video_id": "ualD-HB0KFo",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching Evil Little Things (2019) on @FlixForFree A young boy finds a mystical toymaker with stories to tell. The first is of a leprechaun seeking revenge on a defenseless family. The second is of a doll who works evil on her fragile owner. The toymaker gives the boy a clown named Giggles. Clowns are supposed to be the guardians of happiness, right? These Evil Little Things will cause you many sleepless nights. Director: Matt Green Cast: Hannah Fierman, Geoff McKnight, Zach Galligan Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77859",
+  "title": "Hazmat",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hazmat",
+    "url": "https://www.youtube.com/embed/7qE4q3BRYXQ",
+    "video_id": "7qE4q3BRYXQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4811
+   }
+  ],
+  "url": "https://www.youtube.com/embed/7qE4q3BRYXQ",
+  "video_id": "7qE4q3BRYXQ",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching Hazmat (2013) on @FlixForFree It’s been years since a chemical plant accident killed 138 employees including Jacob’s father, a fact that has made Jacob obsessed with the plant ever since. Jacob’s friends lure him to the plant to play a prank on him in hopes that he will come to his senses and realize the plant is not haunted. When Jacob discovers that he has been duped, he snaps, picks up an ax and goes on a rage filled killing spree. His friends and everyone else in the building have to hide and fight for their lives from this disturbed ax wielding maniac. Director: Lou",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77860",
+  "title": "All Girls Weekend",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "All Girls Weekend",
+    "url": "https://www.youtube.com/embed/er6mLFjRtTw",
+    "video_id": "er6mLFjRtTw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5130
+   }
+  ],
+  "url": "https://www.youtube.com/embed/er6mLFjRtTw",
+  "video_id": "er6mLFjRtTw",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching All Girls Weekend (2016) on @FlixForFree High school friends reunite after many years to spend a weekend in the mountains, but when everything goes wrong, there is no time for girl bonding. Director: Lou Simon Cast: Jamie Bernadette, Katie Carpenter, Gema Calero Genre: Action, Horror, Adventure, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77861",
+  "title": "Dragon Kingdom",
+  "genre": "Fantasy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dragon Kingdom",
+    "url": "https://www.youtube.com/embed/yGQijwzCt_E",
+    "video_id": "yGQijwzCt_E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5149
+   }
+  ],
+  "url": "https://www.youtube.com/embed/yGQijwzCt_E",
+  "video_id": "yGQijwzCt_E",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching Dragon Kingdom (2018) on @FlixForFree To save their Kingdom from the Dark Lord's army, a group of warriors must travel through the Forbidden lands fighting the fearsome monsters of The Dark Kingdom to rescue their King. Director: Simon Wells Genre: Fantasy, Adventure Cast: Ross O'Hennessy (RICHARD), Ben Loyd-Holmes (GEORGE), Rebecca Dyson-Smith (PRINCESS ELIZABETH), Zara Phythian (DIMIA), Jessica-Jane Stafford (GAILA), Jemma Moore (FREYA), Mike Mitchell (KING XALVADOR) Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77862",
+  "title": "HellKat",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "HellKat",
+    "url": "https://www.youtube.com/embed/jhqvSQ9bP1I",
+    "video_id": "jhqvSQ9bP1I",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4702
+   }
+  ],
+  "url": "https://www.youtube.com/embed/jhqvSQ9bP1I",
+  "video_id": "jhqvSQ9bP1I",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77863",
+  "title": "FearDotCom",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "FearDotCom",
+    "url": "https://www.youtube.com/embed/Yp-sXEz0RhE",
+    "video_id": "Yp-sXEz0RhE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6056
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Yp-sXEz0RhE",
+  "video_id": "Yp-sXEz0RhE",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "desc": "Thanks for watching FearDotCom (2002) on @FlixForFree A New York City detective investigates mysterious deaths occurring 48 hours after users log onto a site named feardotcom. Director: William Malone Cast: Stephen Dorff, Natascha McElhone, Stephen Rea, Udo Kier Genre: Crime, Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77864",
+  "title": "Devil Comes At Night",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Devil Comes At Night",
+    "url": "https://www.youtube.com/embed/lrQYrOxJnZ4",
+    "video_id": "lrQYrOxJnZ4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4812
+   }
+  ],
+  "url": "https://www.youtube.com/embed/lrQYrOxJnZ4",
+  "video_id": "lrQYrOxJnZ4",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching Devil Comes At Night (2023) on @FlixForFree Ben, a washed-up boxer goes searching for his inheritance and must fight for his life when he is trapped in his deceased father’s farmhouse by a local cannibal cult, who have Ben in their sights. Director: Scott Leaver Cast: Ryan Allen, Adrienne Kress, Jason Martorino Genre: Supernatural Horror, Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77865",
+  "title": "Dolls",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dolls",
+    "url": "https://www.youtube.com/embed/Z7K_mRMVfAY",
+    "video_id": "Z7K_mRMVfAY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5020
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Z7K_mRMVfAY",
+  "video_id": "Z7K_mRMVfAY",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Dolls (2019) on @FlixForFree Struggling children's book author Robert and his estranged daughter Sammey inherit a house from Robert's mother, who died in what was apparently a freak accident. But when Robert and Sammey find three mysterious dolls in the attic and strange occurrences begin to happen, it becomes clear that the dolls hold a sinister -- and deadly -- secret Cast: Thomas Downey, Dee Wallace, Trinity Simpson Director: Cuyle Carvin Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77866",
+  "title": "Mary Had A Little Lamb",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mary Had A Little Lamb",
+    "url": "https://www.youtube.com/embed/Im7lfReU7Gk",
+    "video_id": "Im7lfReU7Gk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4786
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Im7lfReU7Gk",
+  "video_id": "Im7lfReU7Gk",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching Mary Had A Little Lamb (2023) on @FlixForFree A radio host and her crew set out to discover the truth behind some disappearances for a true crime show. They will soon learn that there is far more to discover when they meet Mary and her lamb. Who will make it out alive of this house of horrors? Director: Jason Arber Cast: May Kelly, Danielle Scott, Christine Ann Nyland Genre: Slasher Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77867",
+  "title": "The Mutation",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Mutation",
+    "url": "https://www.youtube.com/embed/PxhVcXMCT0k",
+    "video_id": "PxhVcXMCT0k",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5186
+   }
+  ],
+  "url": "https://www.youtube.com/embed/PxhVcXMCT0k",
+  "video_id": "PxhVcXMCT0k",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching The Mutation (2021) on @FlixForFree After a deadly experiment on a rat goes wrong, the mutated rat has been let loose in a city and a group of detectives are on the hunt for the beast. As the body count rises, no one is safe, and the rat is growing at a rapid pace. Genre: Horror, Sci-Fi, Thriller, Creature Director: Scott Jeffrey Writer: Scott Jeffrey Stars: Sarah T. Cohen, Derek Nelson, Barbara Dabson Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77868",
+  "title": "Treehouse",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Treehouse",
+    "url": "https://www.youtube.com/embed/gmKRZ6Ut_tg",
+    "video_id": "gmKRZ6Ut_tg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6015
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gmKRZ6Ut_tg",
+  "video_id": "gmKRZ6Ut_tg",
+  "eps": "1 ep",
+  "runtime": "100 min",
+  "desc": "Thanks for watching Treehouse (2014) on @FlixForFree After chasing a mysterious shadow figure into the woods, a young girl disappears and is later discovered by two teenage brothers, trapped inside an old treehouse in the woods. Together they must battle an unimaginable evil that is trying to get in. Cast: Dana Melanie, J. Michael Trautmann, Clint James Director: Michael G. Bartlett Genre: Horror, Mystery, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77869",
+  "title": "Range Runners",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Range Runners",
+    "url": "https://www.youtube.com/embed/AzvfX-7HMqc",
+    "video_id": "AzvfX-7HMqc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6671
+   }
+  ],
+  "url": "https://www.youtube.com/embed/AzvfX-7HMqc",
+  "video_id": "AzvfX-7HMqc",
+  "eps": "1 ep",
+  "runtime": "111 min",
+  "desc": "Thanks for watching Range Runners (2019) on @FlixForFree A woman thru-hiking an isolated trail runs into trouble when her pack is hijacked by two men hiding out in the woods, desperate and on the run. Now, stranded and left to fend for herself, she has a choice: crawl back to her normal life in defeat, or push forward and take back what was stolen from her. Director: Phillip S. Plowden Cast: Celeste M Cooper, Sean Patrick Leonard, Michael B. Woods Genre: Survival Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77870",
+  "title": "Stalled",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Stalled",
+    "url": "https://www.youtube.com/embed/hQ0gcPTnqns",
+    "video_id": "hQ0gcPTnqns",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4960
+   }
+  ],
+  "url": "https://www.youtube.com/embed/hQ0gcPTnqns",
+  "video_id": "hQ0gcPTnqns",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching Stalled (2012) on @FlixForFree A young mother is kidnapped and must use all of her military skills to evade an unseen foe in order to get back to her baby. Director: Christian James Cast: Dan Palmer, Antonia Bernath, Tamaryn Payne Genre: Horror, Comedy Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77871",
+  "title": "Between the Trees",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Between the Trees",
+    "url": "https://www.youtube.com/embed/xHUbKSRKpFQ",
+    "video_id": "xHUbKSRKpFQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4532
+   }
+  ],
+  "url": "https://www.youtube.com/embed/xHUbKSRKpFQ",
+  "video_id": "xHUbKSRKpFQ",
+  "eps": "1 ep",
+  "runtime": "76 min",
+  "desc": "Thanks for watching Between the Trees (2018) on @FlixForFree Wishing to escape his marital problems, Steve invites his friends on a relaxing weekend retreat in the mountains. But they are not alone. Director: Brad Douglas Cast: Greg James, Michael Draper, Jonny Lee Genre: Horror, Mystery Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77872",
+  "title": "Deep Dark",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Deep Dark",
+    "url": "https://www.youtube.com/embed/QtUx-bmWLjk",
+    "video_id": "QtUx-bmWLjk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4613
+   }
+  ],
+  "url": "https://www.youtube.com/embed/QtUx-bmWLjk",
+  "video_id": "QtUx-bmWLjk",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "Thanks for watching Deep Dark (2015) on @FlixForFree A failed sculptor, on the verge of suicide, finds a strange creature in a hole in the wall that has the power to fulfill his wildest dreams...until the killing starts. Director: Michael Medagalia Cast: Sean McGrath, Anne Sorce, Denise Poirier Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77873",
+  "title": "Bornless Ones",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bornless Ones",
+    "url": "https://www.youtube.com/embed/7BR99u0s758",
+    "video_id": "7BR99u0s758",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4752
+   }
+  ],
+  "url": "https://www.youtube.com/embed/7BR99u0s758",
+  "video_id": "7BR99u0s758",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Thanks for watching Bornless Ones (2016)on @FlixForFree Emily, her fiancé, and two friends, move into a remote house with Emily's crippled brother Zach. After spending a single night in the house Zach begins to heal, but in turn reveals a force that creates the most horrific night anyone could ever face. Director: Alexander Babaev Cast: Margaret Judson, Devin Goodsell, Michael Johnston, Mark Furze Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77874",
+  "title": "Abominable",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Abominable",
+    "url": "https://www.youtube.com/embed/mTdR5NMD_pI",
+    "video_id": "mTdR5NMD_pI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4323
+   }
+  ],
+  "url": "https://www.youtube.com/embed/mTdR5NMD_pI",
+  "video_id": "mTdR5NMD_pI",
+  "eps": "1 ep",
+  "runtime": "72 min",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77875",
+  "title": "Howard's Mill",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Howard's Mill",
+    "url": "https://www.youtube.com/embed/AMZ7Nw3sFTg",
+    "video_id": "AMZ7Nw3sFTg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5783
+   }
+  ],
+  "url": "https://www.youtube.com/embed/AMZ7Nw3sFTg",
+  "video_id": "AMZ7Nw3sFTg",
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "Thanks for watching Howard's Mill (2021) on @FlixForFree An abandoned piece of farmland in rural Tennessee may hold the key to multiple missing person cases spanning over 40 years. Director: Shannon Houchins Cast: Josefina Boneo, Mark Cabus, Jeremy Childs, Santiago Cirilo Genre: Crime, Horror, Mystery, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77876",
+  "title": "The Funeral Home",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Funeral Home",
+    "url": "https://www.youtube.com/embed/IwAU3_o4SlU",
+    "video_id": "IwAU3_o4SlU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5144
+   }
+  ],
+  "url": "https://www.youtube.com/embed/IwAU3_o4SlU",
+  "video_id": "IwAU3_o4SlU",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching The Funeral Home (2020) on @FlixForFree A dysfunctional family lives amongst coffins and mischievous supernatural entities that visit daily. They attribute the paranormal manifestations to their mortuary work. But there is a presence there that means them harm. Director: Mauro Iván Ojeda Cast: Luis Machín (Bernardo), Celeste Gerez (Estela), Camila Vaccarini (Irina), Susana Varela (Ramona), Hugo Arana (Salvador) Genre: Supernatural Horror, Horror, Mystery Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77877",
+  "title": "First Contact",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "First Contact",
+    "url": "https://www.youtube.com/embed/vVS6Cb005IY",
+    "video_id": "vVS6Cb005IY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5375
+   }
+  ],
+  "url": "https://www.youtube.com/embed/vVS6Cb005IY",
+  "video_id": "vVS6Cb005IY",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Thanks for watching First Contact (2023) on @FlixForFree Two estranged siblings go to their late scientist father's farmhouse to make sense of his incomplete work. They soon discover an evil entity, buried in time and space for millions of years, has been released and begun wreaking havoc. Cast: Anna Shields, James Liddell, Chris Cimperman Director: Bruce Wemple Genre: Horror, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77878",
+  "title": "Walden",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Walden",
+    "url": "https://www.youtube.com/embed/YXciv0dM37c",
+    "video_id": "YXciv0dM37c",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6103
+   }
+  ],
+  "url": "https://www.youtube.com/embed/YXciv0dM37c",
+  "video_id": "YXciv0dM37c",
+  "eps": "1 ep",
+  "runtime": "102 min",
+  "desc": "Thanks for watching Walden (2023) on @FlixForFree Walden Dean is a court stenographer, witnessing injustice daily as criminals get off. After discovering he has a terminal illness, a rage boils over him and he decides to takes justice into his own hands...in the most gruesome ways imaginable. Director: Mick Davis Cast: Emile Hirsch (Walden), Shane West (Bill), Kelli Garner (Emmilene), Steve Coulter (Jesse), David Keith (Judge Boyle), Tania Raymonde (Sally), Sunny Mabrey (Laurie) Genre: Thriller, Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77879",
+  "title": "Lullaby",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Lullaby",
+    "url": "https://www.youtube.com/embed/yFV94HYsE4g",
+    "video_id": "yFV94HYsE4g",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5196
+   }
+  ],
+  "url": "https://www.youtube.com/embed/yFV94HYsE4g",
+  "video_id": "yFV94HYsE4g",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching 'Lullaby (2017)' on @FlixForFree Chloe is overwhelmed by the birth of her first child. She begins hearing voices, the humming of a childhood lullaby and sees flashes of a strange entity around her son. Convinced the entity is real, she will do anything in her power to protect him. Genre: Horror, Suspense Director: Darrell Roodt Cast: Brandon Auret, Reine Swart, Deandre Reiners Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77880",
+  "title": "Overrun",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Overrun",
+    "url": "https://www.youtube.com/embed/2UyYfMD9a1I",
+    "video_id": "2UyYfMD9a1I",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6491
+   }
+  ],
+  "url": "https://www.youtube.com/embed/2UyYfMD9a1I",
+  "video_id": "2UyYfMD9a1I",
+  "eps": "1 ep",
+  "runtime": "108 min",
+  "desc": "Thanks for watching this movie with @FlixForFree A former extraction specialist takes a job from a notorious crime boss to clear his sisters name. Director: Josh Tessier Cast: Johnny Messner, Omid Zader, Bruce Dern Genre: Action, Crime, Drama Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77881",
+  "title": "3: An Eye for an Eye",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "3: An Eye for an Eye",
+    "url": "https://www.youtube.com/embed/wfzQxKjDFdM",
+    "video_id": "wfzQxKjDFdM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4946
+   }
+  ],
+  "url": "https://www.youtube.com/embed/wfzQxKjDFdM",
+  "video_id": "wfzQxKjDFdM",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching this movie with @FlixForFree A man and a woman kidnap her rapist in order to extract a confession from him, but how far are they willing to go for justice and what if they are wrong? Director: Lou Simon Cast: Todd Bruno, Aniela McGuinness, Mike Stanley Genre: Thriller, Horror, Mystery Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77882",
+  "title": "The Passenger",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Passenger",
+    "url": "https://www.youtube.com/embed/EaWenPkP7Qc",
+    "video_id": "EaWenPkP7Qc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5455
+   }
+  ],
+  "url": "https://www.youtube.com/embed/EaWenPkP7Qc",
+  "video_id": "EaWenPkP7Qc",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching The Passenger (2022) on @FlixForFree A group of strangers sharing a van have their trip abruptly interrupted when the driver accidentally hits a woman hiking in the middle of the night. They decide to take her to the hospital, but on the way quickly learn that she is not in need of a hospital and that they shouldn't have let her in at all. Directors: Raúl Cerezo, Fernando González Gómez Cast: Ramiro Blas, Cecilia Suárez, Paula Gallego Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77883",
+  "title": "Paydirt",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Paydirt",
+    "url": "https://www.youtube.com/embed/wnMbivtN7Ig",
+    "video_id": "wnMbivtN7Ig",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5106
+   }
+  ],
+  "url": "https://www.youtube.com/embed/wnMbivtN7Ig",
+  "video_id": "wnMbivtN7Ig",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching Paydirt (2020) on @FlixForFree Five years after a DEA bust went wrong, a man recently released from prison teams up with his old gang to find a hidden bag of cash. Directed by Christian Sesma Starring Luke Goss, Val Kilmer, Mike Hatton, Mercedes Kilmer Genre: Action, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77884",
+  "title": "Thick And Thin",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Thick And Thin",
+    "url": "https://www.youtube.com/embed/DL0ZjfaAjFo",
+    "video_id": "DL0ZjfaAjFo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5660
+   }
+  ],
+  "url": "https://www.youtube.com/embed/DL0ZjfaAjFo",
+  "video_id": "DL0ZjfaAjFo",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "A journalist and an atypical politician discover a dead body that surprisingly resurrects in front of them. Through a series of unexpected events, a strange fellowship is forged and the new friends embark upon a surreal journey. Directed by Sébastien Betbeder Starring Thomas Scimeca, Nicolas Belvalette, Jonathan Capdevielle",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77885",
+  "title": "We Are Not Alone",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "We Are Not Alone",
+    "url": "https://www.youtube.com/embed/zB9X1sVBg4E",
+    "video_id": "zB9X1sVBg4E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5574
+   }
+  ],
+  "url": "https://www.youtube.com/embed/zB9X1sVBg4E",
+  "video_id": "zB9X1sVBg4E",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "Thanks for watching We Are Not Alone (2023) on @FlixForFree Serena DC speaks to some of the worlds leading experts, scientists and contactees in the UFO community about the undeniable evidence that proves, we are not alone. Directed by Serena DC Starring: Jay Bluemke, Jimmy Church, Adam Curry Genre: Documentary, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77886",
+  "title": "The Loch Ness Horror",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Loch Ness Horror",
+    "url": "https://www.youtube.com/embed/4T6i_lZVM-k",
+    "video_id": "4T6i_lZVM-k",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4702
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4T6i_lZVM-k",
+  "video_id": "4T6i_lZVM-k",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "A group are sent to discover what happened to a recent lost ship.. Only to discover the horror that awaits them lurking below.. Directed by Tyler James Starring Becca Hirani, May Kelly, Lila Lasso",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77887",
+  "title": "Monsternado",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Monsternado",
+    "url": "https://www.youtube.com/embed/SjvKgeeughY",
+    "video_id": "SjvKgeeughY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4872
+   }
+  ],
+  "url": "https://www.youtube.com/embed/SjvKgeeughY",
+  "video_id": "SjvKgeeughY",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "A tornado, infested with prehistoric monsters, has formed in the Bermuda Triangle, and is making its way towards land. Now the city must fight to survive against these deadly creatures. Directed by Tyler James Starring Derek Miller, Amanda Jane York, Chloe Karr",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77888",
+  "title": "Runaway Radio",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Runaway Radio",
+    "url": "https://www.youtube.com/embed/3Ne5ouT71II",
+    "video_id": "3Ne5ouT71II",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4994
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3Ne5ouT71II",
+  "video_id": "3Ne5ouT71II",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Lyle Lovett, ZZ Top's Dusty Hill, Melissa Etheridge & Sammy Hagar on how radio changed their lives, and why it's now hard to find rock on the FM dial. Directed by Mike McGuff Starring Lyle Lovett, Sammy Hagar, Melissa Etheridge, Dusty Hill, Doug Pinnick, Carmine Appice",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77889",
+  "title": "Battle for the Western Front",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Battle for the Western Front",
+    "url": "https://www.youtube.com/embed/0l6W-NgV2Wc",
+    "video_id": "0l6W-NgV2Wc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5394
+   }
+  ],
+  "url": "https://www.youtube.com/embed/0l6W-NgV2Wc",
+  "video_id": "0l6W-NgV2Wc",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Inspired by WWI flying ace Billy Bishop, two young soldiers crash the front lines in August 1918. With the Allies detained, their platoon must desperately hold out alongside legendary Anishinaabe sniper Francis \"Peggy\" Pegahmagabow. Directed by Aaron Huggett Starring Michael Lake, Christopher Cordell, Connor Dutchak",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77890",
+  "title": "Jurassic Triangle",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jurassic Triangle",
+    "url": "https://www.youtube.com/embed/UPjyNg1mKAM",
+    "video_id": "UPjyNg1mKAM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5064
+   }
+  ],
+  "url": "https://www.youtube.com/embed/UPjyNg1mKAM",
+  "video_id": "UPjyNg1mKAM",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Jurassic Triangle on @FlixForFree A group of friends set out to explore the Bermuda Triangle, but crash-land on a mysterious island where prehistoric creatures still roam. As they struggle to survive the deadly beasts and uncover the island's secrets, they realize something far more sinister may be at play. Director: Victor De Almeida Cast: Darcie Lincoln, Tom Taplin, Chris Wilson Genre: Action, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77891",
+  "title": "Roadkill",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Roadkill",
+    "url": "https://www.youtube.com/embed/-dR0byjNNg0",
+    "video_id": "-dR0byjNNg0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5416
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-dR0byjNNg0",
+  "video_id": "-dR0byjNNg0",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Thanks for watching Roadkill (2024) on @FlixForFree Vengeance rides the open road when a young woman traveling alone encounters a renegade drifter and ends up in a fight for her life. Directed by Warren Fast Starring Caitlin Carmichael, Ryan Knudson, Danielle Harris Genre: Action, Adventure, Crime Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77892",
+  "title": "Kaepernick And America",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Kaepernick And America",
+    "url": "https://www.youtube.com/embed/G86ZARdPPeE",
+    "video_id": "G86ZARdPPeE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4874
+   }
+  ],
+  "url": "https://www.youtube.com/embed/G86ZARdPPeE",
+  "video_id": "G86ZARdPPeE",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Kaepernick & America explores the intersection between Colin Kaepernick's anthem protests and the reactions they spurred in the United States, revealing unique insights into America's ongoing racial turmoil. Directors: Ross Hockrow, Tommy Walker Stars: Don Lemon, Pam Oliver, Hue Jackson, Nate Boyer",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77893",
+  "title": "The Curse of Wolf Mountain",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Curse of Wolf Mountain",
+    "url": "https://www.youtube.com/embed/myxX25Zd-MI",
+    "video_id": "myxX25Zd-MI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5667
+   }
+  ],
+  "url": "https://www.youtube.com/embed/myxX25Zd-MI",
+  "video_id": "myxX25Zd-MI",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "Thanks for watching The Curse of Wolf Mountain (2022) on @FlixForFree Disturbing dreams drive two brothers to revisit the site of their parents' death. But rumor has it that something mysterious roams these woods. Directed by David Lipper Starring: Keli Price, Karissa Lee Staples, David Lipper, Matt Rife, Tobin Bell, Danny Trejo Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77894",
+  "title": "Intimate Stranger",
+  "genre": "Mystery",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Intimate Stranger",
+    "url": "https://www.youtube.com/embed/vBkvkrII6sY",
+    "video_id": "vBkvkrII6sY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5130
+   }
+  ],
+  "url": "https://www.youtube.com/embed/vBkvkrII6sY",
+  "video_id": "vBkvkrII6sY",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "A single mother is left alone to protect herself and her 9-year-old son by any means necessary when an obsessed ex-boyfriend begins harassing her. Director: Bert Kish Starring: Kari Matchett, Peter Outerbridge, Matthew Knight",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77895",
+  "title": "Investigation 13",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Investigation 13",
+    "url": "https://www.youtube.com/embed/QWTNFRcXQSA",
+    "video_id": "QWTNFRcXQSA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5295
+   }
+  ],
+  "url": "https://www.youtube.com/embed/QWTNFRcXQSA",
+  "video_id": "QWTNFRcXQSA",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "College science students explore an urban legend of The Mole Man, an ex-patient said to live inside the walls of an asylum and make people disappear. Director: Krisstian de Lara Starring: Meg Foster, Stephanie Hernandez, Patrick Flanagan",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77896",
+  "title": "Magma: Volcanic Disaster",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Magma: Volcanic Disaster",
+    "url": "https://www.youtube.com/embed/-4eS_VOmHPg",
+    "video_id": "-4eS_VOmHPg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5203
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-4eS_VOmHPg",
+  "video_id": "-4eS_VOmHPg",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "A professor and his students try to convince the government and save Earth from impending Armageddon, after a giant comet triggers volcanic eruptions. Director: Ian Gilmore Starring: Xander Berkeley, Amy Jo Johnson, David O'Donnell",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77897",
+  "title": "Heaven Must Wait",
+  "genre": "Faith",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Heaven Must Wait",
+    "url": "https://www.youtube.com/embed/ntfTLtUFlvs",
+    "video_id": "ntfTLtUFlvs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5468
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ntfTLtUFlvs",
+  "video_id": "ntfTLtUFlvs",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "An American inherits an old church in an English village, where a treasure is buried, a greedy man covets it, and a cherub sets out on a mission. Director: Tom Reeve Starring: Andrew McCarthy, Louise Lombard, Bill Treacher",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77898",
+  "title": "Infernal",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Infernal",
+    "url": "https://www.youtube.com/embed/enSIUhAYDxw",
+    "video_id": "enSIUhAYDxw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5959
+   }
+  ],
+  "url": "https://www.youtube.com/embed/enSIUhAYDxw",
+  "video_id": "enSIUhAYDxw",
+  "eps": "1 ep",
+  "runtime": "99 min",
+  "desc": "The bliss a newly married couple feels after the birth of their baby girl quickly turns to terror when they suspect she may be possessed by the devil. Director: Bryan Coyne Starring: Andy Ostroff, Heather Adair, Alyssa Koerner",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77899",
+  "title": "My Pet Dinosaur",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "My Pet Dinosaur",
+    "url": "https://www.youtube.com/embed/kHBVyUrQKPI",
+    "video_id": "kHBVyUrQKPI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5630
+   }
+  ],
+  "url": "https://www.youtube.com/embed/kHBVyUrQKPI",
+  "video_id": "kHBVyUrQKPI",
+  "eps": "1 ep",
+  "runtime": "94 min",
+  "desc": "A boy’s lovable pet, created by a botched experiment, grows larger and more mischievous as the boy and his pals try to keep the military police away. Director: Matt Drummond Starring: Jordan Dulieu, Annabel Wolfe, Scott Irwin, Beth Champion",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77900",
+  "title": "The Gatehouse",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Gatehouse",
+    "url": "https://www.youtube.com/embed/repWcIqju4Y",
+    "video_id": "repWcIqju4Y",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5756
+   }
+  ],
+  "url": "https://www.youtube.com/embed/repWcIqju4Y",
+  "video_id": "repWcIqju4Y",
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "A mysterious object behind the home of a struggling writer recovering from his wife’s death and his 10-year-old daughter unlocks an ancient curse. Director: Martin Gooch Starring: Scarlett Rayner, Simeon Willis, Linal Haft",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77901",
+  "title": "George and the Dragon",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "George and the Dragon",
+    "url": "https://www.youtube.com/embed/Hgv1VOY2scg",
+    "video_id": "Hgv1VOY2scg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5363
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Hgv1VOY2scg",
+  "video_id": "Hgv1VOY2scg",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "When the valiant knight is asked to find a king’s lovely daughter, Sir George’s search begins, with her hunky fiance at his side and surprise ahead. Director: Tom Reeve Starring: James Purefoy, Patrick Swayze, Piper Perabo, Michael Clarke Duncan",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77902",
+  "title": "Planet Raptor",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Planet Raptor",
+    "url": "https://www.youtube.com/embed/0teCA4obeSw",
+    "video_id": "0teCA4obeSw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5285
+   }
+  ],
+  "url": "https://www.youtube.com/embed/0teCA4obeSw",
+  "video_id": "0teCA4obeSw",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "In the year 2066, a rescue team is stranded on a planet covered by raptors, as they try to rescue their missing team member and survive their mission. Director: Gary Jones Starring: Steven Bauer, Vanessa Angel, Ted Raimi",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77903",
+  "title": "Evel Knievel",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Evel Knievel",
+    "url": "https://www.youtube.com/embed/a2NKxbBLJ2k",
+    "video_id": "a2NKxbBLJ2k",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5464
+   }
+  ],
+  "url": "https://www.youtube.com/embed/a2NKxbBLJ2k",
+  "video_id": "a2NKxbBLJ2k",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Based on the life of the famous motorcycle daredevil, Bobby Knievel’s marketing stunt for his auto shop turns him into an international superstar. Director: John Badham Starring: George Eads, Jaime Pressly, Lance Henriksen, Beau Bridges",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77904",
+  "title": "Elvis: The Early Years Vol. 1",
+  "genre": "History",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Elvis: The Early Years Vol. 1",
+    "url": "https://www.youtube.com/embed/vxKZFv0uDxk",
+    "video_id": "vxKZFv0uDxk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5160
+   }
+  ],
+  "url": "https://www.youtube.com/embed/vxKZFv0uDxk",
+  "video_id": "vxKZFv0uDxk",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Get to know the man behind the legend in this intimate dramatization depicting the King of Rock'n Roll back when he was just a day-dreaming teenager. Director: James Steven Sadwith Starring: Jonathan Rhys Meyers, Rose McGowan, Robert Patrick, Randy Quaid",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77905",
+  "title": "Raptor Island",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Raptor Island",
+    "url": "https://www.youtube.com/embed/IQUDE2c4CYg",
+    "video_id": "IQUDE2c4CYg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5289
+   }
+  ],
+  "url": "https://www.youtube.com/embed/IQUDE2c4CYg",
+  "video_id": "IQUDE2c4CYg",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "A squad of U.S. Navy officers on an anti-terrorist mission in the South Seas are attacked by a mass of extinct raptors come to life and very hungry. Director: Stanley Isaacs Starring: Lorenzo Lamas, Steven Bauer, Hayley DuMond",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77906",
+  "title": "The Breed",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Breed",
+    "url": "https://www.youtube.com/embed/jRZrf8P4-U8",
+    "video_id": "jRZrf8P4-U8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5452
+   }
+  ],
+  "url": "https://www.youtube.com/embed/jRZrf8P4-U8",
+  "video_id": "jRZrf8P4-U8",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching The Breed (2006) on @FlixForFree John and Matt go on a trip to an island cabin along with friends. Their plan to spend a relaxing weekend goes haywire when they encounter a horde of dogs that have been genetically redesigned to kill. Producer: Wes Craven Director: Nicholas Mastandrea Cast: Michelle Rodriguez, Taryn Manning, Oliver Hudson Genre: Horror, Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77907",
+  "title": "Dead Sound",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dead Sound",
+    "url": "https://www.youtube.com/embed/5iXUi-T-n34",
+    "video_id": "5iXUi-T-n34",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5053
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5iXUi-T-n34",
+  "video_id": "5iXUi-T-n34",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "A graduation celebration on Block Island for four teens becomes a nightmare when the fishing boat crew they hire to take them there has other plans. Director: Tony Glazer Starring: Jeff Kober, Matty Cardarople, Caroline Day, Brett Azar",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77908",
+  "title": "American Black Beauty",
+  "genre": "Family",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "American Black Beauty",
+    "url": "https://www.youtube.com/embed/hIABKrMJvx0",
+    "video_id": "hIABKrMJvx0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5182
+   }
+  ],
+  "url": "https://www.youtube.com/embed/hIABKrMJvx0",
+  "video_id": "hIABKrMJvx0",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "A grieving orphan, sent to live with relatives who struggle to keep their ranch, forms a bond with a majestic stallion and a plan to help the family. Director: Richard Gabai Starring: Danielle Keaton, Dean Stockwell, Mark Kelly",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77909",
+  "title": "Air Force Two",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Air Force Two",
+    "url": "https://www.youtube.com/embed/eOzUyywrINo",
+    "video_id": "eOzUyywrINo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5037
+   }
+  ],
+  "url": "https://www.youtube.com/embed/eOzUyywrINo",
+  "video_id": "eOzUyywrINo",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "When the Vice President's plane goes down near a remote Pacific island, he is kidnapped by rebel forces and held for ransom. It is up to his female Secret Service agent and a press secretary to infiltrate the camp and save him. Director: Brian Trenchard-Smith Starring: Mariel Hemingway, David Keith, David Millbern",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77910",
+  "title": "A Family Lost",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Family Lost",
+    "url": "https://www.youtube.com/embed/b1SPHUP4Meo",
+    "video_id": "b1SPHUP4Meo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5251
+   }
+  ],
+  "url": "https://www.youtube.com/embed/b1SPHUP4Meo",
+  "video_id": "b1SPHUP4Meo",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "When Valerie and her daughter survive a plane crash in the wilderness, they must not only fight the elements, but a suspicious fellow passenger. Director: John Fasano Starring: Cynthia Gibb, Nicole Muñoz, Leslie Easterbrook, Daniel Roebuck",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77911",
+  "title": "Antidote",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Antidote",
+    "url": "https://www.youtube.com/embed/YcjgrjSrFgM",
+    "video_id": "YcjgrjSrFgM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5271
+   }
+  ],
+  "url": "https://www.youtube.com/embed/YcjgrjSrFgM",
+  "video_id": "YcjgrjSrFgM",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Thanks for watching Antidote (2021) on @FlixForFree A woman finds herself trapped inside an underground medical facility as a forced guinea pig in an experimental drug trial that mutilates its subjects. Director: Peter Daskaloff Starring: Ashlynn Yennie, Louis Mandylor, Augie Duke Genre: Horror, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77912",
+  "title": "Forsaken",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Forsaken",
+    "url": "https://www.youtube.com/embed/5tV5xgNZSYY",
+    "video_id": "5tV5xgNZSYY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5363
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5tV5xgNZSYY",
+  "video_id": "5tV5xgNZSYY",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "When a Priest discovers his wife is deathly ill, he decides to go against his faith and use his knowledge of exorcisms to possess her in order to save her life. Director: Tristan Price Writer: Tristan Price Stars: Micheal Catalano, David E. Cazares, Deanna Grace Congo",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77913",
+  "title": "Sasquatch Among Wildmen",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sasquatch Among Wildmen",
+    "url": "https://www.youtube.com/embed/cW-59FqEf50",
+    "video_id": "cW-59FqEf50",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4402
+   }
+  ],
+  "url": "https://www.youtube.com/embed/cW-59FqEf50",
+  "video_id": "cW-59FqEf50",
+  "eps": "1 ep",
+  "runtime": "73 min",
+  "desc": "Following the success of Darcy Weir's explosively popular Bigfoot documentary, The Unwonted Sasquatch, he is back with a follow up feature to flesh out the history of this creature and it's possible Relic Hominid cousins internationally. Director: Darcy Weir Writer: Darcy Weir Stars: Shane Corson, David Ellis, Lee Lustig",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77914",
+  "title": "Mother Schmuckers",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mother Schmuckers",
+    "url": "https://www.youtube.com/embed/vmEgUtgHJzE",
+    "video_id": "vmEgUtgHJzE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4269
+   }
+  ],
+  "url": "https://www.youtube.com/embed/vmEgUtgHJzE",
+  "video_id": "vmEgUtgHJzE",
+  "eps": "1 ep",
+  "runtime": "71 min",
+  "desc": "Issachar and Zabulon, two brothers in their twenties, are supremely stupid and never bored, as madness is part of their daily lives. When they lose their mother's beloved dog, they have 24 hours to find him - or she will kick them out. DIrectors: Harpo Guit, Lenny Guit Cast: Maxi Delmelle, Harpo Guit, Mathieu Amalric",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77915",
+  "title": "War On The Diamond",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "War On The Diamond",
+    "url": "https://www.youtube.com/embed/P-n7Cfr5xRw",
+    "video_id": "P-n7Cfr5xRw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4778
+   }
+  ],
+  "url": "https://www.youtube.com/embed/P-n7Cfr5xRw",
+  "video_id": "P-n7Cfr5xRw",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Based on the award-winning book The Pitch That Killed, War On The Diamond tells the story of Ray Chapman - the only MLB player killed by a pitch - and the 100-year rivalry between two baseball teams and two cities - Cleveland and New York. Director: Andrew Billman Cast: Jim Abbott, Sandy Alomar Jr., Terry Francona, Anthony Rizzo, Chris 'Mad Dog' Russo",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77916",
+  "title": "Secret Space UFOs: Apollo 1-11",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Secret Space UFOs: Apollo 1-11",
+    "url": "https://www.youtube.com/embed/sDwhTZTLc-Y",
+    "video_id": "sDwhTZTLc-Y",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6289
+   }
+  ],
+  "url": "https://www.youtube.com/embed/sDwhTZTLc-Y",
+  "video_id": "sDwhTZTLc-Y",
+  "eps": "1 ep",
+  "runtime": "105 min",
+  "desc": "Thanks for watching Secret Space UFOs: Apollo 1-11 (2023) on @FlixForFree UFO phenomenon has been recorded far beyond the boundaries of Earth with hundreds of sightings during the Apollo missions 1-11. James Fox, Mike Bara and Richard Dolan discuss this hidden history of UFOs in space and structures on the Moon. Director: Darcy Weir Stars: Buzz Aldrin, Neil Armstrong, Mike Bara Genre: Documentary, Mystery, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77917",
+  "title": "Crossbreed",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Crossbreed",
+    "url": "https://www.youtube.com/embed/9QRVulnAJTc",
+    "video_id": "9QRVulnAJTc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5074
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9QRVulnAJTc",
+  "video_id": "9QRVulnAJTc",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "Thanks for watching Crossbreed (2019) on @FlixForFree In the near future, the President of the New United States of America hires a team of military veterans to retrieve an alien bio-weapon from a top secret research facility orbiting the Earth. Director: Brandon Slagle Stars: Vivica A. Fox, Daniel Baldwin, Stink Fisher Genre: Action, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77918",
+  "title": "The Dawnseeker",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Dawnseeker",
+    "url": "https://www.youtube.com/embed/uXnrJdh2g9o",
+    "video_id": "uXnrJdh2g9o",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4932
+   }
+  ],
+  "url": "https://www.youtube.com/embed/uXnrJdh2g9o",
+  "video_id": "uXnrJdh2g9o",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "It's the year 2248 and to save the Earth's sun, five mercenaries must survive the onslaught of an alien species and collect a rare mineral before their home planet goes dark forever. Cast: Audrey Rode, Khu, Alexander Kane, Jason Skeen Director:Tristan Price",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77919",
+  "title": "Curse Of Willow Song Feature",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Curse Of Willow Song Feature",
+    "url": "https://www.youtube.com/embed/HYGES0I6j78",
+    "video_id": "HYGES0I6j78",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5409
+   }
+  ],
+  "url": "https://www.youtube.com/embed/HYGES0I6j78",
+  "video_id": "HYGES0I6j78",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Willow Song, a recovering addict and parolee, struggles to start over. Willow finds herself in a concrete wasteland. Facing isolation and displacement, shadows creep into Willow's mind and her nightmares become too real. Cast: Valerie Tian, Elfina Luk, Ingrid Nilson, Adam Lolacher Director: Karen Lam",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77920",
+  "title": "Caffe",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Caffe",
+    "url": "https://www.youtube.com/embed/_fxXpclVusM",
+    "video_id": "_fxXpclVusM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6550
+   }
+  ],
+  "url": "https://www.youtube.com/embed/_fxXpclVusM",
+  "video_id": "_fxXpclVusM",
+  "eps": "1 ep",
+  "runtime": "109 min",
+  "desc": "Three stories set in three different worlds, three destinies that intertwine expressing the uncertainty of our confused times. Director: Cristiano Bortone Cast: Dario Aita, Hichem Yacoubi, Miriam Dalmazio",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77921",
+  "title": "Beyond The Grave",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Beyond The Grave",
+    "url": "https://www.youtube.com/embed/wvcqptZVn8U",
+    "video_id": "wvcqptZVn8U",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4874
+   }
+  ],
+  "url": "https://www.youtube.com/embed/wvcqptZVn8U",
+  "video_id": "wvcqptZVn8U",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "In 2023, one of the biggest questions humanity is still yet to answer is what happens to us when we die? We delve deep into the world of the afterlife speaking with Near Death Experiencers, Mediums, death doulas, and visiting a Cryogenics lab and the Conjuring house to try and make contact with other side, all in an effort to understand what happens to us when we die. Director: Serena DC Cast: Serena DC, Andrea Perron, Aleksandar Sturanovic, Eben Alexander",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77922",
+  "title": "Beyto",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Beyto",
+    "url": "https://www.youtube.com/embed/U6kdCG-1fNE",
+    "video_id": "U6kdCG-1fNE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5897
+   }
+  ],
+  "url": "https://www.youtube.com/embed/U6kdCG-1fNE",
+  "video_id": "U6kdCG-1fNE",
+  "eps": "1 ep",
+  "runtime": "98 min",
+  "desc": "Talented swimmer, motivated apprentice, cool buddy: Beyto is in the midst of life. But when the only son of a Turkish migrant family falls in love with his coach Mike, an ideal world falls to pieces. His parents only see one way out: They lure him to their home village and plan his wedding with Seher, his childhood friend. Suddenly, Beyto finds himself in a disruptive love triangle. A subtle, summerly sensuous love story about three young people. Director: Gitta Gsell Writers: Gitta Gsell, Yusuf Yesilöz Stars: Burak Ates, Dimitri Stapfer, Beren Tuna",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77923",
+  "title": "The Hanged Girl",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Hanged Girl",
+    "url": "https://www.youtube.com/embed/-g2z48DjI2s",
+    "video_id": "-g2z48DjI2s",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5432
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-g2z48DjI2s",
+  "video_id": "-g2z48DjI2s",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "A group of friends go on a holiday to St. Joseph's Guesthouse, unaware that it was the site of accused witchcraft and a sacrifice of an innocent girl centuries before. They soon realize that it may be haunted by the spirit of The Hanged Girl. Director: JD Cohen Cast: Tal Hymans, Alex Snow, Tara Jay, Elke Hinrichsen",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77924",
+  "title": "Ghosts Of Darkness",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ghosts Of Darkness",
+    "url": "https://www.youtube.com/embed/Me-tSRpm8Ig",
+    "video_id": "Me-tSRpm8Ig",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4736
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Me-tSRpm8Ig",
+  "video_id": "Me-tSRpm8Ig",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Thanks for watching Ghosts Of Darkness (2023) on @FlixForFree Two paranormal investigators are unexpectedly thrown together in the hope of solving a 100 year mystery. Locked for three nights in a house with a dark and unsettling past, the two investigators must put their differences to one side and work together. Scepticism and showmanship are soon put to one side when the two investigators realise there is more at stake than just their professional reputation. For once they have stumbled onto the real thing, but this time it's their own lives at stake. Director: David Ryan Keith Cast:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77925",
+  "title": "Onoda: 10,000 Nights in the Jungle",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Onoda: 10,000 Nights in the Jungle",
+    "url": "https://www.youtube.com/embed/5cSpCV8HOHU",
+    "video_id": "5cSpCV8HOHU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 10017
+   }
+  ],
+  "url": "https://www.youtube.com/embed/5cSpCV8HOHU",
+  "video_id": "5cSpCV8HOHU",
+  "eps": "1 ep",
+  "runtime": "167 min",
+  "desc": "Japan, 1944. Trained for intelligence work, Hiroo Onoda, 22 years old, discovers a philosophy contrary to the official line: no suicide, stay alive whatever happens, the mission is more important than anything else. Sent to Lubang, a small island in the Philippines where the Americans are about to land, his role will be to wage a guerilla war until the return of the Japanese troops. The Empire will surrender soon after, Onoda 10,000 days later in this incredible true story. Director: Arthur Harari Cast: Yûya Endô, Kanji Tsuda, Yûya Matsuura",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77926",
+  "title": "Abbey Grace",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Abbey Grace",
+    "url": "https://www.youtube.com/embed/Il2Ys6iB0KQ",
+    "video_id": "Il2Ys6iB0KQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5017
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Il2Ys6iB0KQ",
+  "video_id": "Il2Ys6iB0KQ",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Abbey Grace (2016) on @FlixForFree When Stacy's mom dies, Stacey puts her life and career on hold and returns to her childhood home to take care of her OCD agoraphobic brother Ben who hasn't been out of the house for 23 years only to find out the house they grew up in harbors a disturbing secret. Director: Stephen Durham Writers: David Dittlinger, Stephen Durham Stars: Debbie Sheridan, Jacob Hobbs, Amber Gallaway Genre: Horror, Mystery Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77927",
+  "title": "The Night Sitter",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Night Sitter",
+    "url": "https://www.youtube.com/embed/Jx08TzOpsNc",
+    "video_id": "Jx08TzOpsNc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5293
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Jx08TzOpsNc",
+  "video_id": "Jx08TzOpsNc",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "A con artist poses as a babysitter to steal from a wealthy occult enthusiast. One of the kids she's sitting unwittingly summons a trio of witches known as The Three Mothers. Directors: Abiel Bruhn, John Rocco Writers: Abiel Bruhn, John Rocco Stars: Elyse Dufour, Jack Champion, Amber Neukum",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77928",
+  "title": "Scrooge And Marley",
+  "genre": "Family",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Scrooge And Marley",
+    "url": "https://www.youtube.com/embed/guOcObtxJWo",
+    "video_id": "guOcObtxJWo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5454
+   }
+  ],
+  "url": "https://www.youtube.com/embed/guOcObtxJWo",
+  "video_id": "guOcObtxJWo",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Scrooge & Marley is a modern day, queer variation on Charles Dickens' classic story of the holidays, \"A Christmas Carol.\" On Christmas Eve, Ben Scrooge, the man who hates the holidays, is given the chance to begin again when he is visited by three spirits - the Ghosts of Christmas Past, Present and Future. Recounted from a gay sensibility with heart, comedy and music. Director: Richard Knight Jr. Cast: Peter Neville, David Pevsner, Bruce Vilanch, Rusty Schwimmer",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77929",
+  "title": "After the Pandemic",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "After the Pandemic",
+    "url": "https://www.youtube.com/embed/LZzeO4hHEA0",
+    "video_id": "LZzeO4hHEA0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5011
+   }
+  ],
+  "url": "https://www.youtube.com/embed/LZzeO4hHEA0",
+  "video_id": "LZzeO4hHEA0",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching After the Pandemic (2022) on @FlixForFree Follows a scenario in which the death rate for a new virus isn't 1%, but somewhere around 98%. Ellie leaves her neighborhood and stumbles across a new city where she meets Quinn, someone who has taken a different approach to the new world. Director: Richard Lowry Writer: Richard Lowry Stars: Eve James, Kannon Smith, Juniper Preacher Genre: Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77930",
+  "title": "Once Upon a Time in Deadwood",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Once Upon a Time in Deadwood",
+    "url": "https://www.youtube.com/embed/VjiLR-o3wmI",
+    "video_id": "VjiLR-o3wmI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5090
+   }
+  ],
+  "url": "https://www.youtube.com/embed/VjiLR-o3wmI",
+  "video_id": "VjiLR-o3wmI",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "A notorious gunslinger is slipped a slow-acting poison by an heiress and told he has three days to track down and rescue her sister, who has been kidnapped by a gang of hoodlums and holds the antidote. Director: Rene Perez Writers: Rene Perez, Jeff Miller Stars: Robert Bronzi, Michael Paré, Karin Brauns",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77931",
+  "title": "The Devil to Pay",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Devil to Pay",
+    "url": "https://www.youtube.com/embed/Fyz8HPkmn-E",
+    "video_id": "Fyz8HPkmn-E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5222
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Fyz8HPkmn-E",
+  "video_id": "Fyz8HPkmn-E",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching The Devil to Pay (2019) on @FlixForFree After the disappearance of her husband, a struggling farmer in an isolated Appalachian community fights to save her son when the cold-hearted matriarch of the oldest family on the mountain demands payment of a debt that could destroy a decade's old truce. Directors: Lane Skye, Ruckus Skye Writers: Lane Skye, Ruckus Skye Stars: Danielle Deadwyler, Catherine Dyer, Jayson Warner Smith Genre: Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77932",
+  "title": "Doomed!",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Doomed!",
+    "url": "https://www.youtube.com/embed/8miwKH_84zU",
+    "video_id": "8miwKH_84zU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5065
+   }
+  ],
+  "url": "https://www.youtube.com/embed/8miwKH_84zU",
+  "video_id": "8miwKH_84zU",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "A documentary that tells the history of The Fantastic Four (1994), which was executive produced by Roger Corman. Director: Marty Langford Writer: Marty Langford Stars: Carl Ciarfalio, Roger Corman, Joseph Culp",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77933",
+  "title": "Entanglement",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Entanglement",
+    "url": "https://www.youtube.com/embed/aZHaWZkyfCI",
+    "video_id": "aZHaWZkyfCI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5087
+   }
+  ],
+  "url": "https://www.youtube.com/embed/aZHaWZkyfCI",
+  "video_id": "aZHaWZkyfCI",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "While searching for the meaning of his existence, Ben Layten uncovers a family secret that leads him to a woman named Hanna... But when he and Hanna inadvertently fall in love, his life becomes increasingly and strangely complicated. Ben starts to realize that everything is amazingly and incredibly connected - and that the world might just be more inexplicable than he ever imagined. Cast:Thomas Middleditch, Jess Weixler, Diana Bang Director:Jason James",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77934",
+  "title": "Emily & The Magical Journey",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Emily & The Magical Journey",
+    "url": "https://www.youtube.com/embed/k6cTVSpskvA",
+    "video_id": "k6cTVSpskvA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5136
+   }
+  ],
+  "url": "https://www.youtube.com/embed/k6cTVSpskvA",
+  "video_id": "k6cTVSpskvA",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Emily and her mother live alone after losing her father. She wants to help her mother find happiness and to learn about the father she never knew. When Emily finds a mysterious chest that transports her to a magical world, she meets fantastic and mythical creatures that become her new friends. After discovering her new friends are in danger, Emily must face her worst fear to complete her journey. Director: Marcus Ovnell Writers: Jenny Lampa, Marcus Ovnell Stars: Chelsea Edge, Tipper Seifert-Cleveland, Harriet Slater",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77935",
+  "title": "Operation Black Ops",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Operation Black Ops",
+    "url": "https://www.youtube.com/embed/ISGjfhyj5D8",
+    "video_id": "ISGjfhyj5D8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4818
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ISGjfhyj5D8",
+  "video_id": "ISGjfhyj5D8",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching Operation Black Ops (2023) on @FlixForFree A group of mercenaries are hired to overthrow a Neo-Nazi stronghold nestled deep in the heart of Texas only to discover they are protecting nuclear codes that could ignite World War III. Director: Jamaal Burden Cast: Tito Ortiz, Cris Cyborg, Mike Ferguson Genre: Action, Drama, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77936",
+  "title": "Wrong Place Wrong Time",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Wrong Place Wrong Time",
+    "url": "https://www.youtube.com/embed/RcVqiV8Kc_I",
+    "video_id": "RcVqiV8Kc_I",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5071
+   }
+  ],
+  "url": "https://www.youtube.com/embed/RcVqiV8Kc_I",
+  "video_id": "RcVqiV8Kc_I",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "A team of mercenaries plot to steal 14 billion dollars of laundered money. After being double-crossed, they find refuge in the middle of nowhere with a mysterious family carrying an unsettling secret. They discover that the man of the house is a creature of the dark and they must fight to survive the night. Director: Tristan Price Writer: Tristan Price Stars: Audrey Rode, Alex Ryan Brown, Chase Garland",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77937",
+  "title": "I Am Rage",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "I Am Rage",
+    "url": "https://www.youtube.com/embed/Aw-fRXxUDzI",
+    "video_id": "Aw-fRXxUDzI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5290
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Aw-fRXxUDzI",
+  "video_id": "Aw-fRXxUDzI",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Thanks for watching I Am Rage (2023) on @FlixForFree Erin's idyllic countryside trip turns to terror when a sinister blood cult abducts her. But they made a grave mistake, her abductors soon learn the painful consequences of crossing someone with severe anger issues. Cast: Hannaj Bang Bendz, Marta Svetek, Derek Nelson, Antonia Whillans Director: David Ryan Keith Genre: Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77938",
+  "title": "The 13th Friday",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The 13th Friday",
+    "url": "https://www.youtube.com/embed/0N87q4on5u0",
+    "video_id": "0N87q4on5u0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5744
+   }
+  ],
+  "url": "https://www.youtube.com/embed/0N87q4on5u0",
+  "video_id": "0N87q4on5u0",
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "Thrill seeking friends return to the place of the most terrifying killer. Director: Tristan Price Writer: Tristan Price Stars: Lisa May, Deanna Grace Congo, Jose Zuniga",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77939",
+  "title": "Elves",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Elves",
+    "url": "https://www.youtube.com/embed/0VvNpGI_Gws",
+    "video_id": "0VvNpGI_Gws",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4806
+   }
+  ],
+  "url": "https://www.youtube.com/embed/0VvNpGI_Gws",
+  "video_id": "0VvNpGI_Gws",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "When a group of friends discover ancient elves locked in a cursed chest, they unknowingly unleash their wrath on the world. Director: Jamaal Burden Writers: Tristan Price, Laura Beaumont Stars: Stephanie Marie Baggett, Chelsea Bella, Lori Bocanegro",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77940",
+  "title": "D-Railed",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "D-Railed",
+    "url": "https://www.youtube.com/embed/PUxnUxeEA8U",
+    "video_id": "PUxnUxeEA8U",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4824
+   }
+  ],
+  "url": "https://www.youtube.com/embed/PUxnUxeEA8U",
+  "video_id": "PUxnUxeEA8U",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Passengers on a train that crashes into a river must decide whether to risk waiting for help in the wreckage or take their chances in the murky depths below. Director: Dale Fabrigar Writers: Suzanne DeLaurentiis, Dale Fabrigar, Everette Wallin Stars: Lance Henriksen, Dwayne Standridge, Giovannie Espiritu",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77941",
+  "title": "Death Kiss",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Death Kiss",
+    "url": "https://www.youtube.com/embed/lgSVX7SiyOI",
+    "video_id": "lgSVX7SiyOI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5168
+   }
+  ],
+  "url": "https://www.youtube.com/embed/lgSVX7SiyOI",
+  "video_id": "lgSVX7SiyOI",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "A vigilante with a mysterious past moves into a city that has been infested with crime and terror. He then takes the law into his own hands so that he can save and protect a young mother and her child. Director: Rene Perez Writer: Rene Perez Stars: Robert Bronzi, Daniel Baldwin, Richard Tyson",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77942",
+  "title": "The Incredible Story of the Giant Pear",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Incredible Story of the Giant Pear",
+    "url": "https://www.youtube.com/embed/2D84MD6nc00",
+    "video_id": "2D84MD6nc00",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4521
+   }
+  ],
+  "url": "https://www.youtube.com/embed/2D84MD6nc00",
+  "video_id": "2D84MD6nc00",
+  "eps": "1 ep",
+  "runtime": "75 min",
+  "desc": "Life in Solby is nice and peaceful until one day Mitcho and Sebastian find a message in a bottle by the harbour. The bottle is from the missing mayor of Solby with a message that he is on a mysterious island and has made a great discovery. Now they must embark on a perilous journey to help save the mayor and bring him home, and in the process they uncover something that will bring great pleasure to the city of Solby - a giant pear. Directors: Amalie Næsby Fick, Jørgen Lerdam, Philip Einstein Lipski Writers: Bo Hr. Hansen, Jakob Martin Strid Stars: Alfred Bjerre Larsen, Liva Elvira Magnussen,",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77943",
+  "title": "St. Bernard Syndicate",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "St. Bernard Syndicate",
+    "url": "https://www.youtube.com/embed/k9uA-X1OwAE",
+    "video_id": "k9uA-X1OwAE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6038
+   }
+  ],
+  "url": "https://www.youtube.com/embed/k9uA-X1OwAE",
+  "video_id": "k9uA-X1OwAE",
+  "eps": "1 ep",
+  "runtime": "101 min",
+  "desc": "This hilarious mockumentary is an odd-couple comedy about the pitfalls of striking out in the economic frontier; charting two hapless Europeans' scheme to sell Saint Bernard dogs to China's middle class. Cast:Frederik Cilius Jørgensen, Rasmus Bruun Director:Mads Brügger",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77944",
+  "title": "Freeland",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Freeland",
+    "url": "https://www.youtube.com/embed/VTiRX5O3-34",
+    "video_id": "VTiRX5O3-34",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4798
+   }
+  ],
+  "url": "https://www.youtube.com/embed/VTiRX5O3-34",
+  "video_id": "VTiRX5O3-34",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Devi has been breeding legendary pot strains for decades, farming by day and getting stoned by night, fully expecting to live out her days on the remote homestead she built herself. But when cannabis is legalized, the fragile balance of her whole idyllic life is thrown into disarray. Cast: Krisha Fairchild, Lily Gladstone, Frank Moslley Director:Mario Furloni, Kate McLean",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77945",
+  "title": "Cafe",
+  "genre": "Romance",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cafe",
+    "url": "https://www.youtube.com/embed/XxzCEeWumdc",
+    "video_id": "XxzCEeWumdc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6165
+   }
+  ],
+  "url": "https://www.youtube.com/embed/XxzCEeWumdc",
+  "video_id": "XxzCEeWumdc",
+  "eps": "1 ep",
+  "runtime": "103 min",
+  "desc": "When tragedy strikes the community surrounding a cafe in West Philadelphia, the cafe's regulars come to realize how intertwined their lives truly are. Cast:Jennifer Love Hewitt, Jamie Kennedy Director:Marc Erlbaum",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77946",
+  "title": "The Prey",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Prey",
+    "url": "https://www.youtube.com/embed/qjkqgK-u3Gw",
+    "video_id": "qjkqgK-u3Gw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5599
+   }
+  ],
+  "url": "https://www.youtube.com/embed/qjkqgK-u3Gw",
+  "video_id": "qjkqgK-u3Gw",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "Xin is on an undercover mission, when a surprise raid puts him in a remote jungle prison that plays by its own rules. A ruthless warden is selling prisoners as human prey for rich hunters looking for thrills in the jungle, a most dangerous game. Cast:Byron Bishop, Vithaya Pansringarm, Sahajak Boonthanakit Director:Byron Bishop, Vithaya Pansringarm, Sahajak Boonthanakit",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77947",
+  "title": "The Icarus Line Must Die",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Icarus Line Must Die",
+    "url": "https://www.youtube.com/embed/RirbJXZLib8",
+    "video_id": "RirbJXZLib8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4944
+   }
+  ],
+  "url": "https://www.youtube.com/embed/RirbJXZLib8",
+  "video_id": "RirbJXZLib8",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Set against the backdrop of the current LA underground music scene, the film tracks Joe Cardamone, front man of notorious punk bad boys The Icarus Line as he navigates his way through the ups and downs of the modern music landscape. With a new record completed and a major label deal within sight, Joe fights to keep his band, his relationship and his life from completely falling apart. Cast:Joe Cardamone, Keith Morris, Annie Hardy, Ariel Pink Jerry Stahl Director:Michael Grodner",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77948",
+  "title": "Pet Graveyard",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Pet Graveyard",
+    "url": "https://www.youtube.com/embed/O95mPX_61zU",
+    "video_id": "O95mPX_61zU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5926
+   }
+  ],
+  "url": "https://www.youtube.com/embed/O95mPX_61zU",
+  "video_id": "O95mPX_61zU",
+  "eps": "1 ep",
+  "runtime": "99 min",
+  "desc": "A struggling student nurse assists her brother and his friends in a graveyard in a dangerous experiment called \"brinking\" -- a ritual where it is said you can explore a region between life and death, enabling you the chance to speak to those who have passed on. However, when they return to life, a sinister force is after the group, wanting to take them back to the dark side and keep them dead. Cast:Rita Di Tuccio, Mike Kelson, Georgina Jane Director:Rebecca Matthews",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77949",
+  "title": "They Reach",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "They Reach",
+    "url": "https://www.youtube.com/embed/SdchMuFjnYc",
+    "video_id": "SdchMuFjnYc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5281
+   }
+  ],
+  "url": "https://www.youtube.com/embed/SdchMuFjnYc",
+  "video_id": "SdchMuFjnYc",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Thanks for watching Hellarious (2019) on @FlixForFree It's 1979, and a 13-year-old science nerd stumbles upon a possessed tape player and accidentally unleashes a demonic entity. She recruits her two best friends to fight the beast before it devours more souls in the small town of Clarkston. Cast: Mary Madaline Roe, Morgan Chandler, Eden Campbell Director: Sylas Dall Genre: Adventure, Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77950",
+  "title": "Angelfish",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Angelfish",
+    "url": "https://www.youtube.com/embed/BM0zR4sGaqs",
+    "video_id": "BM0zR4sGaqs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5777
+   }
+  ],
+  "url": "https://www.youtube.com/embed/BM0zR4sGaqs",
+  "video_id": "BM0zR4sGaqs",
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "Angelfish tells the story of Brendan (Jimi Stanton), a high school drop out with a complicated family living in the Bronx who meets Eva (Princess Nokia), a young woman who's on her own journey of self-discovery. The film follows the young couple's relationship as they try to navigate their lives and future together. Cast:Princess Nokia, Jimi Stanton, Stanley Simons Director:Peter Andrew Lee",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77951",
+  "title": "#Roxy",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "#Roxy",
+    "url": "https://www.youtube.com/embed/jiM0aYR48Oo",
+    "video_id": "jiM0aYR48Oo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6311
+   }
+  ],
+  "url": "https://www.youtube.com/embed/jiM0aYR48Oo",
+  "video_id": "jiM0aYR48Oo",
+  "eps": "1 ep",
+  "runtime": "105 min",
+  "desc": "When Roxy falls for quarterback Christian, her friend and hacker genius Cyrus conspires with Christian to woo Roxy via social media. But Cyrus's brain and Christian's good looks wreak havoc when Roxy falls hard for the imaginary dream-boy. Cast:Jake Short, Sarah Fisher, Booboo Stewart, Danny Trejo, Pippa Mackie Director:Michael Kennedy",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77952",
+  "title": "Escape From Death Block 13",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Escape From Death Block 13",
+    "url": "https://www.youtube.com/embed/4wKrc42kb70",
+    "video_id": "4wKrc42kb70",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6322
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4wKrc42kb70",
+  "video_id": "4wKrc42kb70",
+  "eps": "1 ep",
+  "runtime": "105 min",
+  "desc": "Thanks for watching Escape From Death Block 13 (2021) on @FlixForFree Seeking justice after the death of his brother, Mick Kovacs is framed for attempted murder and sent to the notorious Pleasant Hill Penitentiary. Discovering the truth about his brother, his rage ignites an explosive riot, and all hell breaks loose. Cast: Robert Bronzi, Nicholas Turturro, Kenny Hendrix Director: Gary Jones Genre: Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77953",
+  "title": "Crop Circle Realities",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Crop Circle Realities",
+    "url": "https://www.youtube.com/embed/9UdjVIhMQ14",
+    "video_id": "9UdjVIhMQ14",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3880
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9UdjVIhMQ14",
+  "video_id": "9UdjVIhMQ14",
+  "eps": "1 ep",
+  "runtime": "65 min",
+  "desc": "This phenomenon stretches far beyond the boundaries of England with over a thousand crop circles spanning the globe. Although there have been some claimants to come forward to take responsibility for the creation of some crop circles, this documentary seeks out the most incredible crop circle designs and a possible E.T connection to their making. Realities that some may never have been exposed to before in regards to the UFO and crop circle phenomena. Cast:Stephen Bassett, Gary King, Paula Presdee Jones Director:Darcy Weir",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77954",
+  "title": "Hatched",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hatched",
+    "url": "https://www.youtube.com/embed/D4c6C1KworI",
+    "video_id": "D4c6C1KworI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5076
+   }
+  ],
+  "url": "https://www.youtube.com/embed/D4c6C1KworI",
+  "video_id": "D4c6C1KworI",
+  "eps": "1 ep",
+  "runtime": "85 min",
+  "desc": "An obsessive scientist discovers a way to bring dinosaurs back to life and when his family comes to visit, they find him dead, eaten by his creations. If they escape, these monsters could threaten the city, so they must be contained and destroyed. Cast:Nicola Wright, Megan Purvis, Georgie Banks director: Scott Jeffrey, Rebecca Matthews",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77955",
+  "title": "It Came From Below",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "It Came From Below",
+    "url": "https://www.youtube.com/embed/lC4LHnpxSpc",
+    "video_id": "lC4LHnpxSpc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4896
+   }
+  ],
+  "url": "https://www.youtube.com/embed/lC4LHnpxSpc",
+  "video_id": "lC4LHnpxSpc",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Jessie and her friends go deep underground to find out what happened to her father who claimed a monster lurks in the caves and has killed his friends. Wanting to uncover the truth, they will soon be hunted by a deadly creature from another world. Cast:Megan Purvis, Tom Taplin, Jake Watkins Director:Dan Allen",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77956",
+  "title": "Mummy Rebirth",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mummy Rebirth",
+    "url": "https://www.youtube.com/embed/6YIQbHICEWo",
+    "video_id": "6YIQbHICEWo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4821
+   }
+  ],
+  "url": "https://www.youtube.com/embed/6YIQbHICEWo",
+  "video_id": "6YIQbHICEWo",
+  "eps": "1 ep",
+  "runtime": "80 min",
+  "desc": "Thanks for watching Mummy Rebirth (2019) on @FlixForFree Daniela and Noe, two famed treasure hunters, are hired by a maniacal billionaire to find an ancient Egyptian city of mystical powers. Troubles arise when they uncover a sealed tomb and accidentally awake a mummy, whose sole purpose is to reset humanity to the Dark-Ages. It's a race against time as Daniela tries to stop the Mummy from wreaking havoc on the modern world. Cast:J ohn Brown, Carter, David E. Cazares Director: Khu, Tristan Prince Genre: Action, Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77957",
+  "title": "Goalie",
+  "genre": "Sports",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Goalie",
+    "url": "https://www.youtube.com/embed/Cwm8M2kGmbU",
+    "video_id": "Cwm8M2kGmbU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6551
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Cwm8M2kGmbU",
+  "video_id": "Cwm8M2kGmbU",
+  "eps": "1 ep",
+  "runtime": "109 min",
+  "desc": "The triumphant story of NHL Hall of Famer Terry Sawchuk - the original superstar goalie. Sawchuk traveled North America racking up 103 shutouts and 400 stitches to his face, proving that this is a man who lives, breathes, and dies a goalie. Cast:Mark O'Brien, Kevin Pollak, Georgina Reilly Director:Adriana Maggs",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77958",
+  "title": "Stu's Show",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Stu's Show",
+    "url": "https://www.youtube.com/embed/emk5Dx0F3bw",
+    "video_id": "emk5Dx0F3bw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5756
+   }
+  ],
+  "url": "https://www.youtube.com/embed/emk5Dx0F3bw",
+  "video_id": "emk5Dx0F3bw",
+  "eps": "1 ep",
+  "runtime": "96 min",
+  "desc": "An amazing series of events changes Stu's life forever when TV Legend Lucille Ball asks him to work for her personally. Cast:Stu Shostak, Edward Asner, Lucille Ball, Tony Dow, Jimmy Garrett, Wink Martindale, Betty White Director:C.J. Wallis",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77959",
+  "title": "Cold Moon",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cold Moon",
+    "url": "https://www.youtube.com/embed/um-hzWiSgAg",
+    "video_id": "um-hzWiSgAg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5429
+   }
+  ],
+  "url": "https://www.youtube.com/embed/um-hzWiSgAg",
+  "video_id": "um-hzWiSgAg",
+  "eps": "1 ep",
+  "runtime": "90 min",
+  "desc": "Thanks for watching Cold Moon (2017) on @FlixForFree A local girl has been murdered and revenge is in the air. A ghostly visage prowls the streets, graves erupt from the cemetery, and beneath the murky surface of the river, a shifting, almost human shape slowly takes form to seek a terrible vengeance. - From the writer of 'Beetle Juice' and 'The Nightmare Before Christmas' Cast:Josh Stewart, Candy Clark, Frank Whaley, Christopher Lloyd Director:Griff Furst Genre: Crime, Horror, Mystery, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77960",
+  "title": "Worldwide UFO Mysteries",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Worldwide UFO Mysteries",
+    "url": "https://www.youtube.com/embed/FSAfpF7qYPM",
+    "video_id": "FSAfpF7qYPM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4192
+   }
+  ],
+  "url": "https://www.youtube.com/embed/FSAfpF7qYPM",
+  "video_id": "FSAfpF7qYPM",
+  "eps": "1 ep",
+  "runtime": "70 min",
+  "desc": "Watch his story unfold as we recount his rise as a journalist covering some of the most controversial UFO events seen across Mexico in history. Jaime Maussan started his career in journalism at some of the highest profile news agencies in Mexico, including 60 minutes and TV Azteca. His ambition and powerful desire to tell stories at a feverish pace led to the creation of his own news reporting agency Tercer Milenio which still has a growing base of over 2 million viewers a week internationally. Cast:Dean Alioto, Stephen Bassett, Stanton Friedman Director:Darcy Weir",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77961",
+  "title": "Dementia Part 2",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dementia Part 2",
+    "url": "https://www.youtube.com/embed/MO3HczUHzYI",
+    "video_id": "MO3HczUHzYI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3979
+   }
+  ],
+  "url": "https://www.youtube.com/embed/MO3HczUHzYI",
+  "video_id": "MO3HczUHzYI",
+  "eps": "1 ep",
+  "runtime": "66 min",
+  "desc": "Suzanne wasn't always this confused. She wasn't always dead either - When an ex-con takes a job as a handyman for an unstable elderly woman to avoid a parole violation, it becomes a choice he may regret. Cast: Suzanne Voss, Matt Mercer, Najarra Townsend, Graham Skipper Director: Matt Mercer, Mike Testin",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77962",
+  "title": "The Runners",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Runners",
+    "url": "https://www.youtube.com/embed/-dIXWrWI2vc",
+    "video_id": "-dIXWrWI2vc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5924
+   }
+  ],
+  "url": "https://www.youtube.com/embed/-dIXWrWI2vc",
+  "video_id": "-dIXWrWI2vc",
+  "eps": "1 ep",
+  "runtime": "99 min",
+  "desc": "Thanks for watching The Runners (2020) on @FlixForFree After losing their parents in a car accident, Ryan must raise his rebellious teenage sister, Zoe. One night, Zoe sneaks out to a party and is abducted by a charming older boy who intends to sell her to the cartel for human trafficking. Now, Ryan and his best friend have just hours to track them down and save her before she is sold and dragged across the Mexican border, never to be seen again. Genre: Action, Crime Cast: Michah Lyons, Tom Sizemore, Glenn Morshower Director: Joey Loomis, Micah Lyons Watch more movies on Flix For Free! Horror",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77963",
+  "title": "Skinwalker",
+  "genre": "Western",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Skinwalker",
+    "url": "https://www.youtube.com/embed/BUtk27sn1_8",
+    "video_id": "BUtk27sn1_8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5675
+   }
+  ],
+  "url": "https://www.youtube.com/embed/BUtk27sn1_8",
+  "video_id": "BUtk27sn1_8",
+  "eps": "1 ep",
+  "runtime": "95 min",
+  "desc": "Thanks for watching Skinwalker (2021) on @FlixForFree After looting a Native American burial site, a hunter unleashes the Skinwalker, a shape shifting demon. Once thought to be only a legend, this ancient evil returns from the grave to wreak a terrible vengeance on all who cross its path. Genre: Western, Thriller Cast:Nathaniel Burns, Robert Conway, Edward Rodriguez, Eva Hamilton Director:Robert Conway Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77964",
+  "title": "Army Of One",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Army Of One",
+    "url": "https://www.youtube.com/embed/jtDZe2KfhRg",
+    "video_id": "jtDZe2KfhRg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5230
+   }
+  ],
+  "url": "https://www.youtube.com/embed/jtDZe2KfhRg",
+  "video_id": "jtDZe2KfhRg",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching Army Of One (2020) on @FlixForFree Out hiking, Special Forces Brenner Baker and her husband stumble upon an illegal drug compound. The drug dealers capture them, eliminate her husband, and leave her for dead. They should have made sure they finished the job. Now, 1st Lieutenant Brenner Baker of the Army's 75th Ranger Division is on a one-woman killing mission carving up everyone in her path until there is only one person standing, her. Cast: Ellen Hollman, Matt Passmore, Geraldine Singer, Stephen Dunlevy Director: Stephen Durham Genre: Action Watch more movies on Flix For",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77965",
+  "title": "Confession",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Confession",
+    "url": "https://www.youtube.com/embed/aE_JIXneGwY",
+    "video_id": "aE_JIXneGwY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5055
+   }
+  ],
+  "url": "https://www.youtube.com/embed/aE_JIXneGwY",
+  "video_id": "aE_JIXneGwY",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "One church. One priest. A wounded man and his loaded gun. Confession is an intense thriller played in real time during one fateful night where a vengeful confession must take place. Cast: Colm Meaney, Stephen Moyer, Clare-Hope Ashitey Director: David Beton",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77966",
+  "title": "Attack Of The Demons",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Attack Of The Demons",
+    "url": "https://www.youtube.com/embed/fOPfZfJDU6w",
+    "video_id": "fOPfZfJDU6w",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4509
+   }
+  ],
+  "url": "https://www.youtube.com/embed/fOPfZfJDU6w",
+  "video_id": "fOPfZfJDU6w",
+  "eps": "1 ep",
+  "runtime": "75 min",
+  "desc": "For centuries, a demonic cult has been plotting world destruction. When a small Colorado town is overrun by a legion of mutating demons, three non demon hunter friends must use every skill their minds can fathom to stave off the demon apocalypse. Cast:Andreas Petersen, Thomas Petersen, Eric Power, August Sargenti Director:Eric Power",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77967",
+  "title": "Dawn Of The Beast",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dawn Of The Beast",
+    "url": "https://www.youtube.com/embed/_O85zav5MJE",
+    "video_id": "_O85zav5MJE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4953
+   }
+  ],
+  "url": "https://www.youtube.com/embed/_O85zav5MJE",
+  "video_id": "_O85zav5MJE",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching Dawn Of The Beast (2021) on @FlixForFree A group of graduate students ventures into the remote Northeastern wilderness to research Bigfoot sightings — only to discover that legends aren’t just stories. What begins as an expedition turns into a nightmare as they encounter a deadly presence: not only Bigfoot, but something far more sinister and ancient. Director: Bruce Wemple Cast: Francesca Anderson, Adrian Burke, Ariella Mastroianni Genre: Horror, Creature Feature Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77968",
+  "title": "Empathy Inc",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Empathy Inc",
+    "url": "https://www.youtube.com/embed/07lSxnuNu44",
+    "video_id": "07lSxnuNu44",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5838
+   }
+  ],
+  "url": "https://www.youtube.com/embed/07lSxnuNu44",
+  "video_id": "07lSxnuNu44",
+  "eps": "1 ep",
+  "runtime": "97 min",
+  "desc": "After losing a big deal, Joel has hit rock bottom. Desperate for a win, he begins seeking investors for Empathy, Inc, a VR startup offering users the experience of a less fortunate live. Joel soon discovers that all is not what it seems. Cast:Zack Robidas, Kathy Searle, Jay Klaitz, Eric Berryman Director:Yedidya Gorsetman",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77969",
+  "title": "Ninja Zombies",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ninja Zombies",
+    "url": "https://www.youtube.com/embed/CiXVn9Cmmqs",
+    "video_id": "CiXVn9Cmmqs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4686
+   }
+  ],
+  "url": "https://www.youtube.com/embed/CiXVn9Cmmqs",
+  "video_id": "CiXVn9Cmmqs",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "In this raucous horror-comedy, a landlord must fight an army of undead ninjas after one of his tenants discovers an ancient sword of necromancy. Cast: Michael Castro, Pamel Chan, Adam Discko Director:Noah Cooper",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77970",
+  "title": "Unfit",
+  "genre": "History",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Unfit",
+    "url": "https://www.youtube.com/embed/ecJ02Rg5qaE",
+    "video_id": "ecJ02Rg5qaE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5050
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ecJ02Rg5qaE",
+  "video_id": "ecJ02Rg5qaE",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Unfit (2020) on @FlixForFree Is Donald Trump fit to hold the office of President of the United States? An eye-opening analysis of Trump by leading US mental health professionals and Republican strategists, on the record for the record. Science. Truth. Duty to Warn. Director: Dan Partland Cast: Malcolm Nance, George Conway, Anthony Scaramucci, John Gartner, Lance Dodes, Justin Frank, Ruth Ben-Ghiat and Ramani Durvasula Genre: Biography, Documentary Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77971",
+  "title": "The Retreat",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Retreat",
+    "url": "https://www.youtube.com/embed/quo-cRU-dxE",
+    "video_id": "quo-cRU-dxE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5248
+   }
+  ],
+  "url": "https://www.youtube.com/embed/quo-cRU-dxE",
+  "video_id": "quo-cRU-dxE",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Set in the Adirondack High Peaks of Upstate New York, two best friends. Gus and Adam, set out for a winter backpacking trip. After a horrifying encounter with a monster, Gus finds himself alone and lost. Now, he must now fight for his life while keeping his grip on reality as he's tormented both physically and psychologically by the evil Native American legend, The Wendigo. Cast:Grant Schumacher, Dylan Grunn, Chris Cimperman, Rick Montgomery Jr. Director:Bruce Wemple",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77972",
+  "title": "The League Of Legend Keepers: Shadows",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The League Of Legend Keepers: Shadows",
+    "url": "https://www.youtube.com/embed/_wCsukovFK8",
+    "video_id": "_wCsukovFK8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4347
+   }
+  ],
+  "url": "https://www.youtube.com/embed/_wCsukovFK8",
+  "video_id": "_wCsukovFK8",
+  "eps": "1 ep",
+  "runtime": "72 min",
+  "desc": "A family of archaeologists find the fifth pendant that has been missing for centuries. Unfortunately, a spirit has also been searching for this pendant. Once all pendants are brought together the shadows from the past are released. Will Sophie be able to save her town from the shadows? Cast: Richard Tyson, Isabella Blake-Thomas, James Nitti Director: Elizabeth Blake-Thomas",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77973",
+  "title": "Stalked",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Stalked",
+    "url": "https://www.youtube.com/embed/6GVEwslwwhc",
+    "video_id": "6GVEwslwwhc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5130
+   }
+  ],
+  "url": "https://www.youtube.com/embed/6GVEwslwwhc",
+  "video_id": "6GVEwslwwhc",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Former Royal marine Commando and single mother Sam is brutally kidnapped on her way to the pharmacy. She wakes up disoriented in what seems to be a deserted military factory. She soon realizes she is not alone and someone or something is preying on her. Stalked and attacked by an invisible foe, she must use all her military skills and knowledge to survive this deadly game of cat and mouse. Cast:Byron Bishop, Vithaya Pansringarm, Sahajak Boonthanakit Director:Jimmy Henderson",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77974",
+  "title": "Jurassic Island",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jurassic Island",
+    "url": "https://www.youtube.com/embed/xU8DhlyglzY",
+    "video_id": "xU8DhlyglzY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4678
+   }
+  ],
+  "url": "https://www.youtube.com/embed/xU8DhlyglzY",
+  "video_id": "xU8DhlyglzY",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "After her explorer father goes missing, in search of a mythical lost world, his daughter and team follows his clues to find the lost Jurassic Island. Once they arrive it's clear that the previous team had run into disaster. The search for her father becomes a battle for survival. Cost:Sarah T. Cohen, Alistair Stoneman, Jamila Wingett Director:Dominic Ellis",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77975",
+  "title": "Crappy Mothers Day",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Crappy Mothers Day",
+    "url": "https://www.youtube.com/embed/VZGz1axTpRM",
+    "video_id": "VZGz1axTpRM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4868
+   }
+  ],
+  "url": "https://www.youtube.com/embed/VZGz1axTpRM",
+  "video_id": "VZGz1axTpRM",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Three generations of women attempt to celebrate Mother's Day, but things go sour from the very start. This oddball family includes a crazy father, a domineering grandmother, whacky uncles, but it really gets going when a longtime secret is revealed. Cast:Jackie Debatin, Kristen Krak, Addison Anderson Director:Dan Karlok movie",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77976",
+  "title": "Garden Of Stars",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Garden Of Stars",
+    "url": "https://www.youtube.com/embed/2SysF3RebQY",
+    "video_id": "2SysF3RebQY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3627
+   }
+  ],
+  "url": "https://www.youtube.com/embed/2SysF3RebQY",
+  "video_id": "2SysF3RebQY",
+  "eps": "1 ep",
+  "runtime": "60 min",
+  "desc": "An enchanted old cemetery in Berlin where the Grimm Brothers are buried. Bernd is the undertaker and focuses on the resting places of gay people and stillborn babies. In one of Europe's most colorful cemetery, life is celebrated and all are welcome. Cast:Ichgola Androgyn, Bernd Bossmann Director:Pasquale Plastino, Stephane Riethauser",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77977",
+  "title": "Exorcist Vengeance",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Exorcist Vengeance",
+    "url": "https://www.youtube.com/embed/3mbINSUwQ5I",
+    "video_id": "3mbINSUwQ5I",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5276
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3mbINSUwQ5I",
+  "video_id": "3mbINSUwQ5I",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "When a prominent family is terrorized by a demonic force, a tough but troubled priest is called upon by the Vatican to root out the murderous demon. He must find the killer and stop the Devil's hold before it's too late. Cast:Robert Bronzi, Steven Berkoff, Simon Furness, Adrienne Grant Director:Scott Jeffrey, Rebecca Matthews",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77978",
+  "title": "Jurassic Games",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Jurassic Games",
+    "url": "https://www.youtube.com/embed/TgvXvCtuySc",
+    "video_id": "TgvXvCtuySc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5188
+   }
+  ],
+  "url": "https://www.youtube.com/embed/TgvXvCtuySc",
+  "video_id": "TgvXvCtuySc",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Every year, 10 of the world's most lethal death row criminals are chosen to compete for their freedom in The Jurassic Games, a television show where contestants must survive against a variety of ferocious dinosaurs. The last player standing is the winner and is granted not only his freedom, but fame and fortune. Survive the dinosaurs. Survive each other. Survive The Jurassic Games. Cast:Ryan Merriman, Perrey Reeves, Adam Hampton Director:Ryan Bellgardt",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77979",
+  "title": "Hunt Club",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hunt Club",
+    "url": "https://www.youtube.com/embed/yxsBMQbzVW0",
+    "video_id": "yxsBMQbzVW0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5266
+   }
+  ],
+  "url": "https://www.youtube.com/embed/yxsBMQbzVW0",
+  "video_id": "yxsBMQbzVW0",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Thanks for watching Hunt Club (2023) on @FlixForFree Cassandra just lost her girlfriend and daughter and is desperate to find help. In walks Carter offering her the chance to win $100k if she participates in the hunt on his island. She soon finds other women who are there for the cash have been tied up, only to be released as the hunted. With the help of Tessa and Lexi, Cassandra turns the tables on the men showing that women can be better hunters. Genre: Action, Thriller Director: Elizabeth Blake-Thomas Cast: Mena Suvari, Mickey Rourke, Casper Van Dien, Maya Stojan Watch more movies on Flix",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77980",
+  "title": "Don't Speak",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Don't Speak",
+    "url": "https://www.youtube.com/embed/4ns7oxoapd8",
+    "video_id": "4ns7oxoapd8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5009
+   }
+  ],
+  "url": "https://www.youtube.com/embed/4ns7oxoapd8",
+  "video_id": "4ns7oxoapd8",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Thanks for watching Don't Speak (2020) on @FlixForFree Rita takes her family to visit her dying father, who lives out in the county. Soon after arriving, they realize everyone in the town has vanished. They go from house to house, unable to find any sign of life. They learn that something has escaped from a local testing facility, killing everything in its path. The monster will soon be out for them unless they figure out a way to survive the night. Cast: Stephanie Lodge, Jake Watkins, Ryan Davies Director: Scott Jeffrey Genre: Horror, Sci-Fi, Thriller Watch more movies on Flix For Free!",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77981",
+  "title": "Cupid",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Cupid",
+    "url": "https://www.youtube.com/embed/3crN83w49Ts",
+    "video_id": "3crN83w49Ts",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5035
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3crN83w49Ts",
+  "video_id": "3crN83w49Ts",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Thanks for watching Cupid on @FlixForFree After being humiliated by bullies on Valentine’s Day, a quiet schoolgirl summons the evil Cupid to exact a bloody revenge. As classmates start turning up dead in twisted, love-themed murders, it's clear that this is no ordinary fairytale — Cupid is back, and he's out for vengeance. Director: Scott Jeffrey Cast: Georgina Jane, Michael Owusu, Abi Casson Thompson Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77982",
+  "title": "Child Remains",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Child Remains",
+    "url": "https://www.youtube.com/embed/ATi3GdospAo",
+    "video_id": "ATi3GdospAo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6462
+   }
+  ],
+  "url": "https://www.youtube.com/embed/ATi3GdospAo",
+  "video_id": "ATi3GdospAo",
+  "eps": "1 ep",
+  "runtime": "108 min",
+  "desc": "Thanks for watching Child Remains (2019) on @FlixForFree Inspired by the shocking true story of the infamous \"Butterbox Babies\", an expectant couple's intimate weekend turns to terror when they discover their country inn is a haunted maternity home where unwanted infants and mothers were murdered. Cast: Suzanne Clement, Allan Hawco, Shelley Thompson Director: Michael Melski Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77983",
+  "title": "Angels Fallen",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Angels Fallen",
+    "url": "https://www.youtube.com/embed/EN4XHFw82rE",
+    "video_id": "EN4XHFw82rE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5200
+   }
+  ],
+  "url": "https://www.youtube.com/embed/EN4XHFw82rE",
+  "video_id": "EN4XHFw82rE",
+  "eps": "1 ep",
+  "runtime": "87 min",
+  "desc": "Thanks for watching Angels Fallen (2020) on @FlixForFree Gabriel, a retired demon bounty hunter, returns to the dark land when his deceased wife's prophecy comes true that \"four angels will come to destroy mankind\", only to find a mysterious fifth angel that he must protect from a vicious demon horde. Cast:Nicola Posener, Houston Rhines, Michael Madsen, Eric Roberts Director:Ali Zamani Genre: Action, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77984",
+  "title": "Koko Di Koko Da",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Koko Di Koko Da",
+    "url": "https://www.youtube.com/embed/WCJ0Yqh7EKE",
+    "video_id": "WCJ0Yqh7EKE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5153
+   }
+  ],
+  "url": "https://www.youtube.com/embed/WCJ0Yqh7EKE",
+  "video_id": "WCJ0Yqh7EKE",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "While camping, a couple are terrorized by a derranged group of killers creating a maelstrom of psychological terror that keeps occuring again and again. Director: Johannes Nyholm Cast: Peter Belli, Leif Edlund, Ylva Gallon, Katarina Jacobson",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77985",
+  "title": "A Stalker in the House",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Stalker in the House",
+    "url": "https://www.youtube.com/embed/g6mIiUHHolg",
+    "video_id": "g6mIiUHHolg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4960
+   }
+  ],
+  "url": "https://www.youtube.com/embed/g6mIiUHHolg",
+  "video_id": "g6mIiUHHolg",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Jen is single and looking to find her match with online dating. She connects with Mike, who appears handsome and charming. But some things are too good to be true, and all is not what it seems. When he becomes aggressive Jen pushes away and tries to avoid him, however Mike has other ideas. Director: Jared Cohn Stars: Veronika Issa, Jack Pearson, Scout Taylor-Compton",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77986",
+  "title": "Breakout",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Breakout",
+    "url": "https://www.youtube.com/embed/7Pgz4Tu25EU",
+    "video_id": "7Pgz4Tu25EU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5144
+   }
+  ],
+  "url": "https://www.youtube.com/embed/7Pgz4Tu25EU",
+  "video_id": "7Pgz4Tu25EU",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching Breakout (2023) on @FlixForFree Having taken control of a maximum-security prison and recruited the other prisoners as his army, a criminal mastermind faces off against a rogue hostage negotiator and a retired Black Ops agent who had been visiting his incarcerated son. Director: Brandon Slagle Cast: Louis Mandylor, Kristos Andrews, Brian Krause, Tom Sizemore Genre: Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77987",
+  "title": "Missing",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Missing",
+    "url": "https://www.youtube.com/embed/qDECe2NOkH0",
+    "video_id": "qDECe2NOkH0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 7412
+   }
+  ],
+  "url": "https://www.youtube.com/embed/qDECe2NOkH0",
+  "video_id": "qDECe2NOkH0",
+  "eps": "1 ep",
+  "runtime": "124 min",
+  "desc": "Depressed and in debt following the death of his wife, Santoshi tells his young daughter he has found a way out. Pointing to the reward note, he vows to find infamous serial killer \"No Name\" claiming he saw the man in the flesh a few days earlier. Kaeda cannot believe her aloof, goofy father. But when he goes missing without a trace, she starts fearing the worst and begins looking for him. Director: Shinzo Katayama Cast: Jirô Satô, Aoi Itô, Hiroya Shimizu",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77988",
+  "title": "Area 51 Incident",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Area 51 Incident",
+    "url": "https://www.youtube.com/embed/O679pqyuWVA",
+    "video_id": "O679pqyuWVA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4899
+   }
+  ],
+  "url": "https://www.youtube.com/embed/O679pqyuWVA",
+  "video_id": "O679pqyuWVA",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Area 51 harbors a dark secret; A wormhole strengthening over the last 50 years. Alien creatures escape and over-run the facility, the survivors take refuge in a nuclear bunker, but soon the alien invaders make their way inside and the carnage begins. Director: Rhys Frake-Waterfield Stars: Scott Jeffrey, Megan Purvis",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77989",
+  "title": "Summer School",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Summer School",
+    "url": "https://www.youtube.com/embed/jehdT-6cBBk",
+    "video_id": "jehdT-6cBBk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5070
+   }
+  ],
+  "url": "https://www.youtube.com/embed/jehdT-6cBBk",
+  "video_id": "jehdT-6cBBk",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "Levi is set to go to college with a tennis scholarship, but he forgot to tell his parents one thing, he didn’t graduate High School. As a result, he must pass senior science at summer school before his mom and dad discover his failings. Director: Tom Morris Stars: Chris Sheffield, Larry Miller, Janeane Garofalo",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77990",
+  "title": "Secret Space UFO's: NASA's First Missions",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Secret Space UFO's: NASA's First Missions",
+    "url": "https://www.youtube.com/embed/naZeOVbJLDU",
+    "video_id": "naZeOVbJLDU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4974
+   }
+  ],
+  "url": "https://www.youtube.com/embed/naZeOVbJLDU",
+  "video_id": "naZeOVbJLDU",
+  "eps": "1 ep",
+  "runtime": "83 min",
+  "desc": "Secrecy regarding UFOs during our early space programs takes center stage as researchers present the facts with expansive UFO evidence presented on each space research mission from X-15, Project Mercury to the final Gemini Missions. Director: Darcy Weir Cast: Darcy Weir",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77991",
+  "title": "Dementer",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dementer",
+    "url": "https://www.youtube.com/embed/GOplk7xQr7U",
+    "video_id": "GOplk7xQr7U",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4854
+   }
+  ],
+  "url": "https://www.youtube.com/embed/GOplk7xQr7U",
+  "video_id": "GOplk7xQr7U",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "A young woman flees a backwoods cult and becomes a caregiver for a woman with Down syndrome. However, she can't escape the feeling that evil is coming to claim another victim. Director: Chad Crawford Kinkle Writer: Chad Crawford Kinkle Stars: Larry Fessenden, Katie Groshong, Stephanie Kinkle",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77992",
+  "title": "Those Who Call",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Those Who Call",
+    "url": "https://www.youtube.com/embed/VXyGUH_OknU",
+    "video_id": "VXyGUH_OknU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4200
+   }
+  ],
+  "url": "https://www.youtube.com/embed/VXyGUH_OknU",
+  "video_id": "VXyGUH_OknU",
+  "eps": "1 ep",
+  "runtime": "70 min",
+  "desc": "Thanks for watching Those Who Call (2023) on @FlixForFree Two sisters go on a road trip and on the way, their car breaks down in an abandoned old town. Soon they realize things aren't what they seem, and they aren't alone in the forest. They find themselves being hunted by a sadistic pagan cult. Genre: Horror, Mystery, Drama Director: Anubys Lopez Cast: Yetlanezi Rodriguez, Angie Sandoval, Reese Fast Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77993",
+  "title": "The Alternate",
+  "genre": "Sci-Fi",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Alternate",
+    "url": "https://www.youtube.com/embed/E4y3goIwhlM",
+    "video_id": "E4y3goIwhlM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5287
+   }
+  ],
+  "url": "https://www.youtube.com/embed/E4y3goIwhlM",
+  "video_id": "E4y3goIwhlM",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "A videographer discovers a portal to another dimension in which he has everything he has always wanted, but he learns it all comes with a price. Directors: Alrik Bursell Cast: Patrice Binaisa, Phillip Caires, Natalia Dominguez",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77994",
+  "title": "Back To The Drive-In",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Back To The Drive-In",
+    "url": "https://www.youtube.com/embed/_awv259bOd4",
+    "video_id": "_awv259bOd4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6311
+   }
+  ],
+  "url": "https://www.youtube.com/embed/_awv259bOd4",
+  "video_id": "_awv259bOd4",
+  "eps": "1 ep",
+  "runtime": "105 min",
+  "desc": "In this fascinating documentary, we go behind the scenes to visit eleven unique family-owned drive-ins across the country to experience their passion and determination to keep their theaters alive. It's a story of human resilience. Director: April Wright Cast: April Wright Featuring: D. Edward Vogel, Dwight Grimm, Leigh Van Swall",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77995",
+  "title": "Tales From The Other Side",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Tales From The Other Side",
+    "url": "https://www.youtube.com/embed/M4lrvAwsRC4",
+    "video_id": "M4lrvAwsRC4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5297
+   }
+  ],
+  "url": "https://www.youtube.com/embed/M4lrvAwsRC4",
+  "video_id": "M4lrvAwsRC4",
+  "eps": "1 ep",
+  "runtime": "88 min",
+  "desc": "Three kids want to have the most legendary Halloween night ever. Their trick-or-treat adventure brings them to the home of the local town legend \"Scary Mary\". Is she as terrible as the legends say? One thing is for certain, she knows just the right tales to give these three kids the scare of their life. Sharing six unique stories that lead the children down a mysterious path to the unexpected. Directors: Scotty Baker, Jamaal Burden, Jacob Cooney, Lucas Heyne, Pablo Macho Maysonet IV, Frank Merle, Kern Saxton Cast: Roslyn Gentle, James Duval, Vernon Wells",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77996",
+  "title": "Something In The Woods",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Something In The Woods",
+    "url": "https://www.youtube.com/embed/RzOYLEQ1oKY",
+    "video_id": "RzOYLEQ1oKY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4514
+   }
+  ],
+  "url": "https://www.youtube.com/embed/RzOYLEQ1oKY",
+  "video_id": "RzOYLEQ1oKY",
+  "eps": "1 ep",
+  "runtime": "75 min",
+  "desc": "A reporter who exposed a Senator's illegal activities, causing him to commit suicide, has been kidnapped by his daughter and taken deep into the woods. They soon encounter something much more sinister out in the wilderness, and it's hunting them. Director: Alexander Hwang Cast: Nicole Cinaglia, Robbie Dias, Vienna Hayden",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77997",
+  "title": "The Antenna",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Antenna",
+    "url": "https://www.youtube.com/embed/e0cHbQ8v-V4",
+    "video_id": "e0cHbQ8v-V4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6956
+   }
+  ],
+  "url": "https://www.youtube.com/embed/e0cHbQ8v-V4",
+  "video_id": "e0cHbQ8v-V4",
+  "eps": "1 ep",
+  "runtime": "116 min",
+  "desc": "The inhabitants of an apartment building are caught in a living nightmare when a radical, new communications technology goes horribly awry. Director: Orcun Behram Writer: Orcun Behram Stars: Ihsan Önal, Gül Arici, Levent Ünsal",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77998",
+  "title": "Firenado",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Firenado",
+    "url": "https://www.youtube.com/embed/CMtGkgPJ-J8",
+    "video_id": "CMtGkgPJ-J8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4739
+   }
+  ],
+  "url": "https://www.youtube.com/embed/CMtGkgPJ-J8",
+  "video_id": "CMtGkgPJ-J8",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Four scientists uncover a ground-breaking technology capable of controlling weather. On the first use of the device, it malfunctions and creates a Fire Tornado. As the Firenado leaves a wake of destruction, the group assist in evacuating nearby residents but stumble upon into an organized crime home invasion. Stuck between a rock and a hard place; the group struggle to survive the two threats. Director: Rhys Frake-Waterfield, Scott Jeffrey Cast: Sian Altman, Nicola Wright, Stephen Staley",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-77999",
+  "title": "Guns Of Eden",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Guns Of Eden",
+    "url": "https://www.youtube.com/embed/3_i60BLtN_s",
+    "video_id": "3_i60BLtN_s",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5484
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3_i60BLtN_s",
+  "video_id": "3_i60BLtN_s",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Guns Of Eden (2022) on @FlixForFree Megan, her partner Jeremy, and his friends Blake and Gabriella go camping for the weekend. In the woods, Megan and Jeremy witness the execution of a drug trafficker by the local sheriff and his deputies. The campers attempt to flee, but the deputies seal off the mountain, and the sheriff gets an armed militia to hunt the strangers. Director: Gary Lamberson Cast: Alexandra Faye Sadeghian, Bill Kennedy, Peter Johnson Genre: Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78000",
+  "title": "Kingdom Of The Dinosaurs",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Kingdom Of The Dinosaurs",
+    "url": "https://www.youtube.com/embed/YPrxdSRVl_0",
+    "video_id": "YPrxdSRVl_0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4768
+   }
+  ],
+  "url": "https://www.youtube.com/embed/YPrxdSRVl_0",
+  "video_id": "YPrxdSRVl_0",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "Thanks for watching Kingdom Of The Dinosaurs (2022) on @FlixForFree A corporation having brought Dinosaurs back to life, accidentally set them free during a war. An employee meets a group of survivors and takes shelter in a Nuclear Bunker. He ventures out in search of supplies, but little does he know, the dinosaurs have invaded the bunker and are hunting him down in the Mountains. Director: Scott Jeffrey Cast: Mark Haldor, Darcie Rose, Chelsea Greenwood Genre: Action, Dinosaur Adventure, Sci-Fi Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78001",
+  "title": "Croc!",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Croc!",
+    "url": "https://www.youtube.com/embed/Mm1H5HmyC_w",
+    "video_id": "Mm1H5HmyC_w",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4927
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Mm1H5HmyC_w",
+  "video_id": "Mm1H5HmyC_w",
+  "eps": "1 ep",
+  "runtime": "82 min",
+  "desc": "Thanks for watching Croc! (2022) on @FlixForFree Lisa and her family unite at a wedding venue, excited for the big day. However, unknown to the family, a nest of hungry crocodiles has been living in the nearby lake. As the crocodiles crash the wedding in a blood thirsty massacre, the remaining family members must survive the night against these Jurassic beasts. Director: Paul Franklin Cast: Sian Altman, Mark Haldor, George Nettleton Genre: Action, Horror, Creature Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78002",
+  "title": "Riki The Rhino",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Riki The Rhino",
+    "url": "https://www.youtube.com/embed/y_Kf27qmOJc",
+    "video_id": "y_Kf27qmOJc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5312
+   }
+  ],
+  "url": "https://www.youtube.com/embed/y_Kf27qmOJc",
+  "video_id": "y_Kf27qmOJc",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "A young rhino named Riki has his horn stolen and to get it back, he embarks on an exciting adventure through the rainforest with his friend Beni the duck. Along the way Riki helps others in trouble and is given new skills to help him on his quest. Director: Erwin Budiono Cast: Jennifer Castle, Paul Reynolds",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78003",
+  "title": "Death Hunt",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Death Hunt",
+    "url": "https://www.youtube.com/embed/w-ir0eX_asw",
+    "video_id": "w-ir0eX_asw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5562
+   }
+  ],
+  "url": "https://www.youtube.com/embed/w-ir0eX_asw",
+  "video_id": "w-ir0eX_asw",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "Thanks for watching Death Hunt (2022) on @FlixForFree A developer and his mistress, travelling to their weekend retreat, are taken hostage by a group of men and brought to a remote island. Here they fight for survival as the men release them into the wild and hunt them for sport. Director: Neil MacKay Cast: Marlene Malcolm, Omar Tucci, Rick Amsbury Genre: Action, Thriller Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78004",
+  "title": "Bring Him Back Dead",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Bring Him Back Dead",
+    "url": "https://www.youtube.com/embed/3MIE0ysqG0E",
+    "video_id": "3MIE0ysqG0E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5151
+   }
+  ],
+  "url": "https://www.youtube.com/embed/3MIE0ysqG0E",
+  "video_id": "3MIE0ysqG0E",
+  "eps": "1 ep",
+  "runtime": "86 min",
+  "desc": "Thanks for watching Bring Him Back Dead (2022) on @FlixForFree A team of thieves regroup at a rural cabin after a diamond heist goes bad, resulting in many deaths. One of them, for reasons known only to him, poisons the others and runs off with the loot as well as the boss's daughter. The boss orders the others to go after them and bring back the diamonds and his daughter alive, but as for the man, \"bring him back dead.\" Director: Mark Savage Cast: Gary Daniels, Louis Mandylor, Daniel Baldwin Genre: Action Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78005",
+  "title": "The Killing Tree",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Killing Tree",
+    "url": "https://www.youtube.com/embed/THFp7aUy-2E",
+    "video_id": "THFp7aUy-2E",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4354
+   }
+  ],
+  "url": "https://www.youtube.com/embed/THFp7aUy-2E",
+  "video_id": "THFp7aUy-2E",
+  "eps": "1 ep",
+  "runtime": "73 min",
+  "desc": "On Christmas Eve, a widow casts a spell to resurrect her executed husband. However, when the spell goes wrong, the husband is brought back as an Evil Christmas Tree and is hell-bent on getting revenge on the one who caused his execution. Director: Rhys Frake-Waterfield Writer: Craig McLearie Stars: Sarah Alexandra Marks, Marcus Massey, Judy Tcherniak",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78006",
+  "title": "The Bitcoin Field Guide",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Bitcoin Field Guide",
+    "url": "https://www.youtube.com/embed/gV-Zuib6Kv0",
+    "video_id": "gV-Zuib6Kv0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 6500
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gV-Zuib6Kv0",
+  "video_id": "gV-Zuib6Kv0",
+  "eps": "1 ep",
+  "runtime": "108 min",
+  "desc": "From Main Street to Wall Street we speak to industry professionals working in different areas of crypto business. Comedically, each chapter is designed to explain crypto. Behold nfts, defi, blockchain, meta and the future. Director: Darcy Weir Writers: Ryan LaPlante, Darcy Weir Stars: Ben Armstrong Bitboy, Beier Cai, Mitch Demeter",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78007",
+  "title": "Blackstock Boneyard",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blackstock Boneyard",
+    "url": "https://www.youtube.com/embed/IU41PR2s3ko",
+    "video_id": "IU41PR2s3ko",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4831
+   }
+  ],
+  "url": "https://www.youtube.com/embed/IU41PR2s3ko",
+  "video_id": "IU41PR2s3ko",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Thanks for watching Blackstock Boneyard (2021) on @FlixForFree Based on a true story, in South Carolina, 1913, brothers Thomas & Meeks Griffin were forced to sell their land after being framed by town leaders for a murder they didn't commit. One hundred years later, the brothers return from the grave to avenge their deaths and stop the town descendants from profiting off the land that was rightfully theirs. Director: Andre Alfa Writer: Stephen George Stars: Laura Flannery, Aspen Kennedy Wilson, Bryan McClure, Richie Stephens, Terry Milam, Becki Davis Genre: Horror Watch more movies on Flix",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78008",
+  "title": "Facing East",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Facing East",
+    "url": "https://www.youtube.com/embed/bdx1PmVDud0",
+    "video_id": "bdx1PmVDud0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5609
+   }
+  ],
+  "url": "https://www.youtube.com/embed/bdx1PmVDud0",
+  "video_id": "bdx1PmVDud0",
+  "eps": "1 ep",
+  "runtime": "93 min",
+  "desc": "This story follows the history of the most over buried commercial cemetery in America. It comes full circle to present day and documents a non profit's efforts to take care of the abandoned and abused burial ground. Director: Tommy Baker Writer: Tommy Baker Star: Francis Whitaker",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78009",
+  "title": "Reed's Point",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Reed's Point",
+    "url": "https://www.youtube.com/embed/dm458bpwK7Y",
+    "video_id": "dm458bpwK7Y",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4617
+   }
+  ],
+  "url": "https://www.youtube.com/embed/dm458bpwK7Y",
+  "video_id": "dm458bpwK7Y",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "Thanks for watching Reed's Point (2022) on @FlixForFree A vehicle crash in the Pine Barrens leads to a missing teen which raises conspiracy theories about the infamous Jersey Devil legend. On the anniversary of the crash, Sarah Franklin, convinced her cousin Kelsey is alive, goes out to the crash site with Alex, Kelsey's boyfriend, to investigate. Things go downhill quickly as Sarah and Alex uncover what really lurks in the woods. Director: Dale Fabrigar Writers: Tricia Aurand, Suzanne DeLaurentiis, Sandy Lo Stars: Joe Estevez, Joseph Almani, Clint Carmichael Genre: Horror Watch more movies",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78010",
+  "title": "Black Pumpkin",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Black Pumpkin",
+    "url": "https://www.youtube.com/embed/CdweubUZRWA",
+    "video_id": "CdweubUZRWA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5468
+   }
+  ],
+  "url": "https://www.youtube.com/embed/CdweubUZRWA",
+  "video_id": "CdweubUZRWA",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "On October 31st, two preteens in a small town accidentally awaken an evil that has lain dormant for decades. They are forced to survive through a terrifying Halloween night of cat-and-mouse, from the monster known as \"Bloody Bobby.\" Director: Ryan McGonagle Writer: Ryan McGonagle Stars: Ellie Patrikios, Matt Rife, Grayson Thorne Kilpatrick",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78011",
+  "title": "Murder, Anyone?",
+  "genre": "Thriller",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Murder, Anyone?",
+    "url": "https://www.youtube.com/embed/gbcXSp14uNE",
+    "video_id": "gbcXSp14uNE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4854
+   }
+  ],
+  "url": "https://www.youtube.com/embed/gbcXSp14uNE",
+  "video_id": "gbcXSp14uNE",
+  "eps": "1 ep",
+  "runtime": "81 min",
+  "desc": "Two Playwrights are tasked with creating the next avant-garde thriller; but as they write, the story comes to life and their own emotions and arguments begin to manifest on film. Director: James Cullen Bressack Writers: Gordon Bressack Stars: Kristos Andrews, Galadriel Stineman, Maurice LaMarche, Charlie Howell, Spencer Breslin, Carla Collins, Sally Kirkland",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78012",
+  "title": "The Rise of The Beast",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Rise of The Beast",
+    "url": "https://www.youtube.com/embed/qn1OfxAO5c4",
+    "video_id": "qn1OfxAO5c4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4643
+   }
+  ],
+  "url": "https://www.youtube.com/embed/qn1OfxAO5c4",
+  "video_id": "qn1OfxAO5c4",
+  "eps": "1 ep",
+  "runtime": "77 min",
+  "desc": "Thanks for watching The Rise of The Beast (2022) on @FlixForFree A group of activists break into a corporate facility where they know animal testing has been taking place. What they don’t realize until they’re captured, is exactly what has been experimented on, and now it’s too late. It’s loose, and out for blood. Director: Jack Ayers Writer: Max Brooks Stars: Sian Altman, Sam Sharma, Sarah T. Cohen Genre: Horror, Monster Horror, Creature Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78013",
+  "title": "Blood Harvest",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Blood Harvest",
+    "url": "https://www.youtube.com/embed/yDDL_y4MYZY",
+    "video_id": "yDDL_y4MYZY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4762
+   }
+  ],
+  "url": "https://www.youtube.com/embed/yDDL_y4MYZY",
+  "video_id": "yDDL_y4MYZY",
+  "eps": "1 ep",
+  "runtime": "79 min",
+  "desc": "A family moves back to a farm in the mother's hometown. One of the children is a clairvoyant and along with his sister they start to unravel secrets that have happened on the farm. Director: Danny LeGare Writers: Michael Hultquist, Danny LeGare, Seth Metoyer Stars: Jason London, Robert LaSardo, Eva Hamilton",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78014",
+  "title": "Dawn",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Dawn",
+    "url": "https://www.youtube.com/embed/VKPB24AUj7U",
+    "video_id": "VKPB24AUj7U",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4667
+   }
+  ],
+  "url": "https://www.youtube.com/embed/VKPB24AUj7U",
+  "video_id": "VKPB24AUj7U",
+  "eps": "1 ep",
+  "runtime": "78 min",
+  "desc": "A unsuspecting couple get into a ride-share only to find out that they may have to fight for their lives as the deranged driver puts them through life and death situations. Director: Nicholas Ryan Writers: Ryder Doupe, Dawson Doupé, Todd Tapper Stars: Jackie Moore, Jared Cohn, Sarah French",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78015",
+  "title": "Of The Devil",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Of The Devil",
+    "url": "https://www.youtube.com/embed/9bM-vV4StHg",
+    "video_id": "9bM-vV4StHg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5438
+   }
+  ],
+  "url": "https://www.youtube.com/embed/9bM-vV4StHg",
+  "video_id": "9bM-vV4StHg",
+  "eps": "1 ep",
+  "runtime": "91 min",
+  "desc": "Thanks for watching Of The Devil (2022) on @FlixForFree Of The Devil follows a family desperate to find a cure for their young son's brain cancer. When unconventional treatments lead to the child being possessed by an ancient evil, the parents must fight not only for the child's life but his very soul. Director: Kelton Jones Writers: James Cullen Bressack, Kelton Jones Stars: Jonathan Stoddard, Daniela Palavecino, Eileen Dietz Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies: Thriller Movies: Sci-Fi Movies: Documentaries:",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78016",
+  "title": "The Paranormal Mind",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Paranormal Mind",
+    "url": "https://www.youtube.com/embed/Ubcq4wFMSCM",
+    "video_id": "Ubcq4wFMSCM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5351
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Ubcq4wFMSCM",
+  "video_id": "Ubcq4wFMSCM",
+  "eps": "1 ep",
+  "runtime": "89 min",
+  "desc": "For over a century, sciences have denied the existence of the paranormal. This perspective is changing as a new bread of scientists and field investigators are demonstrating the causative powers of a mysterious world just beyond our normal reach. Director: Ron C. Meyer Stars: Lonnie Woodley, Brian Gloster, Rachel Mather",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78017",
+  "title": "Volcanic UFO Mysteries",
+  "genre": "Documentary",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Volcanic UFO Mysteries",
+    "url": "https://www.youtube.com/embed/jQ2J4fmbTnU",
+    "video_id": "jQ2J4fmbTnU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3685
+   }
+  ],
+  "url": "https://www.youtube.com/embed/jQ2J4fmbTnU",
+  "video_id": "jQ2J4fmbTnU",
+  "eps": "1 ep",
+  "runtime": "61 min",
+  "desc": "UFO sightings have been a regular world wide phenomenon for decades. Researchers of UFOs have noticed a connection with UFO sightings around Volcanic hot spots across Latin America. Join Stephen Bassett and Jaime Maussan as they discuss a history of sightings. Jaime has been a news journalist in Mexico for over 25 years and Stephen Bassett has been fighting for political disclosure UFOs. Director: Darcy Weir Writer: Darcy Weir Stars: Stephen Bassett, Jaime Maussan",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78018",
+  "title": "Lockdown",
+  "genre": "Action",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Lockdown",
+    "url": "https://www.youtube.com/embed/7nNb3eMBIoI",
+    "video_id": "7nNb3eMBIoI",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5067
+   }
+  ],
+  "url": "https://www.youtube.com/embed/7nNb3eMBIoI",
+  "video_id": "7nNb3eMBIoI",
+  "eps": "1 ep",
+  "runtime": "84 min",
+  "desc": "An angry mob, fed up with a deadly virus that has wiped out most of the population, attack a school to rid their city of those they suspect are spreading the disease. One man must rescue his sister and fight his way out, against the armed militia. Director: Micah Lyons Writer: Micah Lyons Stars: Kevin Nash, David D. Ford, Brooke Lyons",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Flix For Free",
+  "award_verified": false
  }
 ]
 ;
