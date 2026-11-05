@@ -2080414,6 +2080414,32 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "Public YouTube embed",
   "source_channel": "Flix For Free",
   "award_verified": false
+ },
+ {
+  "id": "stv-78019",
+  "title": "Intruders",
+  "genre": "Horror",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Intruders",
+    "url": "https://www.youtube.com/embed/pPDshk86ihQ",
+    "video_id": "pPDshk86ihQ",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 563
+   }
+  ],
+  "url": "https://www.youtube.com/embed/pPDshk86ihQ",
+  "video_id": "pPDshk86ihQ",
+  "eps": "1 ep",
+  "runtime": "9 min",
+  "desc": "In the aftermath of a deadly haunting in a small suburban home, a sinister omnipresent entity proceeds to cause havoc in the private lives of a young boy, an unsuspecting teen, and an absent-minded inspector. Written & directed by Santiago Menghini; inspired by the short comics of Al Columbia and Uno Moralez.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Santiago Menghini",
+  "award_verified": false
  }
 ]
 ;
