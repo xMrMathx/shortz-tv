@@ -2080440,6 +2080440,58 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "Public YouTube embed",
   "source_channel": "Santiago Menghini",
   "award_verified": false
+ },
+ {
+  "id": "stv-78020",
+  "title": "Straight Down Low",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Straight Down Low",
+    "url": "https://www.youtube.com/embed/58B0xBtyUIE",
+    "video_id": "58B0xBtyUIE",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 1511
+   }
+  ],
+  "url": "https://www.youtube.com/watch?v=58B0xBtyUIE",
+  "video_id": "58B0xBtyUIE",
+  "eps": "1 ep",
+  "desc": "A teenager investigates a gang. Short film from Omeleto, courtesy of Zach Wechter.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "Omeleto",
+  "runtime": "25 min",
+  "award_verified": false
+ },
+ {
+  "id": "stv-78021",
+  "title": "Reflection",
+  "genre": "Crime",
+  "verified": true,
+  "dateAdded": "2026-11-04",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Reflection",
+    "url": "https://www.youtube.com/embed/5T-m_psRwtw",
+    "video_id": "5T-m_psRwtw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 618
+   }
+  ],
+  "url": "https://www.youtube.com/watch?v=5T-m_psRwtw",
+  "video_id": "5T-m_psRwtw",
+  "eps": "1 ep",
+  "desc": "A story of choice and opportunity. From the creators of Hermanos Short Film, a Los Feliz Films production. Written and directed by Timur Bootzin.",
+  "rights_basis": "Public YouTube embed",
+  "source_channel": "OneVision Distribution",
+  "runtime": "10 min",
+  "award_verified": false
  }
 ]
 ;
