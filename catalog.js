@@ -2080526,6 +2080526,147 @@ window.SHORTZ_CATALOG = [
   "dateAdded": "2026-11-05",
   "verified": true,
   "award_verified": false
+ },
+ {
+  "id": "stv-78024",
+  "title": "The Knowing",
+  "genre": "Horror",
+  "eps": "1 ep",
+  "runtime": "10 min",
+  "desc": "After an unexplained event leaves her deeply unsettled, Londyn becomes trapped in a series of disturbing encounters that challenge her understanding of fear, fate, and survival. Written and directed by Marcus January; starring Brittany Lynn.",
+  "url": "https://www.youtube.com/embed/mAKQaxR7lDE",
+  "video_id": "mAKQaxR7lDE",
+  "source_channel": "M85 Studios",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "The Knowing",
+    "url": "https://www.youtube.com/embed/mAKQaxR7lDE",
+    "video_id": "mAKQaxR7lDE",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 591
+   }
+  ],
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-05",
+  "verified": true,
+  "award_verified": false
+ },
+ {
+  "id": "stv-78025",
+  "title": "Withdrawn",
+  "genre": "Horror",
+  "eps": "1 ep",
+  "runtime": "9 min",
+  "desc": "Barricaded inside his bedroom, a troubled man struggles to separate memory from reality as his parents call to him from the other side of the door. A psychological horror short directed by Chris Levine.",
+  "url": "https://www.youtube.com/embed/seNHgTcfsyI",
+  "video_id": "seNHgTcfsyI",
+  "source_channel": "Chris Levine",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Withdrawn",
+    "url": "https://www.youtube.com/embed/seNHgTcfsyI",
+    "video_id": "seNHgTcfsyI",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 520
+   }
+  ],
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-05",
+  "verified": true,
+  "award_verified": false
+ },
+ {
+  "id": "stv-78026",
+  "title": "A Couple Lives Together",
+  "genre": "Drama",
+  "eps": "1 ep",
+  "runtime": "13 min",
+  "desc": "A man and woman spend time together in their apartment, trading declarations of love and resentment in Ryan Delouya's black-and-white experimental short.",
+  "url": "https://www.youtube.com/embed/H05QlrtylwA",
+  "video_id": "H05QlrtylwA",
+  "source_channel": "Ryan Delouya",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "A Couple Lives Together",
+    "url": "https://www.youtube.com/embed/H05QlrtylwA",
+    "video_id": "H05QlrtylwA",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 758
+   }
+  ],
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-05",
+  "verified": true,
+  "award_verified": false
+ },
+ {
+  "id": "stv-78027",
+  "title": "The Strange Thing About the Johnsons",
+  "genre": "Horror",
+  "eps": "1 ep",
+  "runtime": "29 min",
+  "desc": "A father writes a memoir about a devastating family secret — and his wife burns it before anyone can read it. Ari Aster's 2011 AFI thesis short.",
+  "url": "https://www.youtube.com/embed/C43-L3dfgm4",
+  "video_id": "C43-L3dfgm4",
+  "source_channel": "Absolute Cinema Archive",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "The Strange Thing About the Johnsons",
+    "url": "https://www.youtube.com/embed/C43-L3dfgm4",
+    "video_id": "C43-L3dfgm4",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 1745
+   }
+  ],
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-05",
+  "verified": true,
+  "award_verified": false,
+  "rights_note": "Unlicensed re-upload of the 2011 leak; added on Mr. Moore's explicit order 2026-11-05 — remove if the link dies."
+ },
+ {
+  "id": "stv-78028",
+  "title": "Skipped",
+  "genre": "Sci-Fi",
+  "eps": "1 ep",
+  "runtime": "4 min",
+  "desc": "A man working at the office late at night stumbles upon a time-travel power that can boost his productivity. But a power so life-changing is nothing to sneeze at. Written and directed by Faisal Hashmi.",
+  "url": "https://www.youtube.com/embed/dGS48Kcax5k",
+  "video_id": "dGS48Kcax5k",
+  "source_channel": "Spine Drop Pictures",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Skipped",
+    "url": "https://www.youtube.com/embed/dGS48Kcax5k",
+    "video_id": "dGS48Kcax5k",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 266
+   }
+  ],
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-05",
+  "verified": true,
+  "award_verified": false
  }
 ]
 ;
