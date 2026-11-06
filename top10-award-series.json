@@ -35,6 +35,13 @@
   "thumb": "https://i.ytimg.com/vi/7q0edfw__fc/mqdefault.jpg"
  },
  {
+  "id": "stv-8036",
+  "title": "The Gay and Wondrous Life of Caleb Gallo",
+  "genre": "Comedy",
+  "views": 1214082,
+  "thumb": "https://i.ytimg.com/vi/YYXQzlKXzpk/mqdefault.jpg"
+ },
+ {
   "id": "stv-8024",
   "title": "Venice: The Series",
   "genre": "Drama",
@@ -61,12 +68,5 @@
   "genre": "Comedy",
   "views": 422577,
   "thumb": "https://i.ytimg.com/vi/Qo3aqVqzGWM/mqdefault.jpg"
- },
- {
-  "id": "stv-5092",
-  "title": "Better Call Saul Employee Training: Legal Ethics with Kim Wexler",
-  "genre": "Comedy",
-  "views": 285191,
-  "thumb": "https://i.ytimg.com/vi/iy69_WuZGcQ/mqdefault.jpg"
  }
 ]
