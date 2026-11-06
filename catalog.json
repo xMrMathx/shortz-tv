@@ -2080498,5 +2080498,33 @@
   "dateAdded": "2026-11-05",
   "verified": true,
   "award_verified": false
+ },
+ {
+  "id": "stv-78023",
+  "title": "Good Boy",
+  "genre": "Horror",
+  "eps": "1 ep",
+  "runtime": "11 min",
+  "desc": "On their last day of training together, two 'Delivery Dudes' - hardened package expert Elvis and eager trainee Taylor - run into some bloody trouble. Directed by Tyler Bradberry.",
+  "url": "https://www.youtube.com/embed/F7J-vbQaDgM",
+  "video_id": "F7J-vbQaDgM",
+  "source_channel": "Crypt TV",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Good Boy",
+    "url": "https://www.youtube.com/embed/F7J-vbQaDgM",
+    "video_id": "F7J-vbQaDgM",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 662
+   }
+  ],
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-05",
+  "verified": true,
+  "award_verified": false
  }
 ]
