@@ -42,6 +42,13 @@
   "thumb": "https://i.ytimg.com/vi/f43ZzXt4EKA/mqdefault.jpg"
  },
  {
+  "id": "stv-8023",
+  "title": "Her Story",
+  "genre": "Drama",
+  "views": 765089,
+  "thumb": "https://i.ytimg.com/vi/UkHicPm7C6Q/mqdefault.jpg"
+ },
+ {
   "id": "stv-5095",
   "title": "Honest Trailers",
   "genre": "Comedy",
@@ -61,12 +68,5 @@
   "genre": "Comedy",
   "views": 285191,
   "thumb": "https://i.ytimg.com/vi/iy69_WuZGcQ/mqdefault.jpg"
- },
- {
-  "id": "stv-8217",
-  "title": "Caper",
-  "genre": "Action",
-  "views": 224632,
-  "thumb": "https://i.ytimg.com/vi/N_seu4JeBfc/mqdefault.jpg"
  }
 ]
