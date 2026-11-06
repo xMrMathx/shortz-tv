@@ -28,6 +28,13 @@
   "thumb": "https://i.ytimg.com/vi/c3P1zSRa6SU/mqdefault.jpg"
  },
  {
+  "id": "stv-8083",
+  "title": "Barbelle",
+  "genre": "Comedy",
+  "views": 1244435,
+  "thumb": "https://i.ytimg.com/vi/ZQvThGbWTSo/mqdefault.jpg"
+ },
+ {
   "id": "stv-8044",
   "title": "Anyone But Me",
   "genre": "Drama",
@@ -61,12 +68,5 @@
   "genre": "Comedy",
   "views": 546982,
   "thumb": "https://i.ytimg.com/vi/on7MYq-S0QQ/mqdefault.jpg"
- },
- {
-  "id": "stv-6219",
-  "title": "Colbert Before Air",
-  "genre": "Comedy",
-  "views": 422577,
-  "thumb": "https://i.ytimg.com/vi/Qo3aqVqzGWM/mqdefault.jpg"
  }
 ]
