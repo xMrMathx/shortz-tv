@@ -21,6 +21,13 @@
   "thumb": "https://i.ytimg.com/vi/xOXolSQcEb4/mqdefault.jpg"
  },
  {
+  "id": "stv-8041",
+  "title": "New Boy",
+  "genre": "Short Films",
+  "views": 10324800,
+  "thumb": "https://i.ytimg.com/vi/FdeioVndUhs/mqdefault.jpg"
+ },
+ {
   "id": "stv-4742",
   "title": "Soar",
   "genre": "Animation",
@@ -61,12 +68,5 @@
   "genre": "Comedy",
   "views": 4710907,
   "thumb": "https://i.ytimg.com/vi/MJtHaJfDdKM/mqdefault.jpg"
- },
- {
-  "id": "stv-4491",
-  "title": "Skin",
-  "genre": "Short Films",
-  "views": 4483828,
-  "thumb": "https://i.ytimg.com/vi/4NbO16AS5oc/mqdefault.jpg"
  }
 ]
