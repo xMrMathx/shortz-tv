@@ -125,10 +125,11 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #deskNav button{background:none;border:0;color:#999;font-size:15px;font-weight:600;cursor:pointer;padding:8px 4px;position:relative;transition:color .2s}
 #deskNav button:hover{color:#fff}
 #deskNav button.on{color:#fff}
-#deskNav button.on::after{content:"";position:absolute;left:4px;right:4px;bottom:2px;height:2px;background:#e50914;border-radius:2px}
-.logo b{color:var(--red)}
-.free-tag{font-size:10px;font-weight:800;letter-spacing:1px;color:#04140a;background:linear-gradient(135deg,#4ade80,#22c55e);
-  padding:6px 12px;border-radius:20px;box-shadow:0 0 18px rgba(34,197,94,.35)}
+#deskNav button.on::after{content:"";position:absolute;left:4px;right:4px;bottom:2px;height:2px;background:#d4af37;border-radius:2px}
+.logo b{color:#d4af37}
+.free-tag{font-size:10px;font-weight:800;letter-spacing:1px;color:#e8e8ee;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.16);
+  padding:6px 12px;border-radius:20px;box-shadow:none}
 
 /* ---------- views: seamless crossfade ---------- */
 #views{position:relative;min-height:80vh}
@@ -139,7 +140,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .view.swipe-peek{position:fixed;top:0;bottom:0;left:0;width:100%;opacity:1;pointer-events:none;z-index:40;overflow:hidden;background:var(--bg)}
 .swipe-stub{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
 .swipe-stub-logo{font-weight:900;font-size:27px;letter-spacing:1px;color:#fff}
-.swipe-stub-logo span{color:#e50914}
+.swipe-stub-logo span{color:#d4af37}
 .swipe-stub-name{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--mut)}
 .view.swipe-cur{position:fixed!important;top:0;bottom:0;left:0;width:100%;opacity:1;z-index:41;overflow:hidden;background:var(--bg)}
 .view,#cfeed{touch-action:pan-y}
@@ -179,7 +180,7 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 #cfeedInner{max-width:640px;margin:0 auto;padding:12px 12px calc(96px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:14px}
 body.feedfull #cfeedInner{padding-top:calc(66px + env(safe-area-inset-top))}
 .cfcard{background:#101013;border:1px solid #232328;border-radius:16px;overflow:hidden;flex:none}
-.cfcard.playing{border-color:rgba(229,9,20,.55);box-shadow:0 0 0 1px rgba(229,9,20,.35),0 8px 30px rgba(0,0,0,.5)}
+.cfcard.playing{border-color:rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(0,0,0,.5)}
 .cfmedia{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden}
 .cfmedia .cfart{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .cfmedia .cfprev{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#000;z-index:2;pointer-events:none}
@@ -208,6 +209,7 @@ body.feedfull #cfeedInner{padding-top:calc(66px + env(safe-area-inset-top))}
 .cfaward{font-size:12.5px;color:#ffb02e;font-weight:600;margin-top:3px;line-height:1.35}
 .cfactions{display:flex;align-items:center;gap:8px;padding:8px 10px 12px}
 .cfact{display:flex;align-items:center;gap:7px;background:#1c1c21;border:1px solid transparent;border-radius:999px;padding:8px 14px;font-size:13.5px;font-weight:600;color:var(--txt);cursor:pointer;user-select:none;font-family:inherit}
+.cfact[data-cf-open]{background:linear-gradient(180deg,#d4af37,#b8912a);color:#151515;font-weight:800}
 .cfact:active{transform:scale(.96)}
 .cfact.liked{color:#ff3355;border-color:rgba(229,9,20,.45)}
 .cfact.saved{color:#2ee06f;border-color:rgba(46,224,111,.45)}
@@ -394,8 +396,8 @@ body.pip .scrub{display:none!important}
 .srcbox .v{font-size:13px;font-weight:700}
 .srcbox .r{font-size:12px;color:var(--mut);margin-top:4px}
 .playrow{display:flex;gap:10px;margin-top:18px;position:sticky;bottom:90px}
-.btn-play{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:#fff;font-weight:800;font-size:15px;
-  padding:13px 26px;border-radius:30px;box-shadow:0 8px 30px rgba(229,9,20,.45);transition:transform .25s var(--ease)}
+.btn-play{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#d4af37,#b8912a);color:#151515;font-weight:800;font-size:15px;
+  padding:13px 26px;border-radius:30px;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
 .btn-play:active{transform:scale(.96)}
 .installbtn{width:100%;justify-content:center;margin:2px 0 12px;font-size:15px}
 /* ---------- install instruction sheet ---------- */
@@ -493,15 +495,15 @@ body.rot-full #rotexit{display:block}
 .prev-spot{display:flex;align-items:center;gap:12px;margin:10px 0;padding:14px 16px;border-radius:14px;cursor:pointer;
   background:linear-gradient(135deg,#1a1a2e,#16213e);border:1px solid rgba(255,255,255,.1)}
 .prev-spot-tx{flex:1;min-width:0}
-.prev-spot-k{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#4ade80;text-transform:uppercase}
+.prev-spot-k{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#d4af37;text-transform:uppercase}
 .prev-spot-t{font-size:18px;font-weight:800;color:#fff;margin:2px 0}
 .prev-spot-d{font-size:12px;color:#aaa;line-height:1.4}
-.prev-spot-btn{flex:none;background:#e50914;border:none;color:#fff;font-size:13px;font-weight:800;
+.prev-spot-btn{flex:none;background:linear-gradient(180deg,#d4af37,#b8912a);border:none;color:#151515;font-size:13px;font-weight:800;
   border-radius:20px;padding:10px 18px;cursor:pointer}
 /* Store spotlight (his word 2026-10-29: link the live merch store inside Shortz VS) */
 .store-spot{display:flex;align-items:center;gap:12px;margin:10px 0;padding:14px 16px;border-radius:14px;cursor:pointer;
-  background:linear-gradient(135deg,rgba(229,9,20,.16),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14)}
-.store-spot-btn{flex:none;background:#e50914;border:none;color:#fff;font-size:13px;font-weight:800;
+  background:linear-gradient(135deg,rgba(212,175,55,.10),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14)}
+.store-spot-btn{flex:none;background:linear-gradient(180deg,#d4af37,#b8912a);border:none;color:#151515;font-size:13px;font-weight:800;
   border-radius:20px;padding:10px 18px;cursor:pointer}
 /* ---------- Top 10 (Netflix-style) ---------- */
 .top10-sec{margin:16px -16px 8px}
@@ -537,7 +539,27 @@ body.rot-full #rotexit{display:block}
 .br-chips{display:flex;gap:8px;overflow-x:auto;padding:12px 16px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .br-chips::-webkit-scrollbar{display:none}
 .br-chip{flex:0 0 auto;padding:9px 17px;border-radius:999px;background:#17171c;border:1px solid #26262c;color:#e8e8ec;font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
-.br-chip.on{background:#f6c945;border-color:#f6c945;color:#141414;font-weight:800}
+.br-chip.on{background:#17171c;border-color:#d4af37;color:#f5f0e6;font-weight:800}
+/* ===== BROWSE LEFT RAIL (luxury v3, his order 2026-11-06): Netflix-style —
+   every genre down the left, shaded/faded but visible, scrollable; tapping
+   one filters the main column to just that genre. The rail sticks under the
+   header while the main column scrolls. ===== */
+.browse-shell{display:flex;align-items:flex-start}
+.browse-rail{position:sticky;top:calc(56px + env(safe-area-inset-top));flex:0 0 128px;max-height:calc(100vh - 56px - env(safe-area-inset-top));overflow-y:auto;background:#0c0c10;border-right:1px solid rgba(255,255,255,.06);padding:14px 0 120px;scrollbar-width:none}
+.browse-rail::-webkit-scrollbar{display:none}
+.browse-rail-h{padding:0 16px 8px;font-size:11px;font-weight:800;letter-spacing:2px;color:#8b8b96}
+.browse-rail-i{display:block;width:100%;text-align:left;background:none;border:0;border-left:2px solid transparent;color:#9a9aa2;font-size:14.5px;font-weight:600;padding:8px 16px;cursor:pointer;font-family:inherit;opacity:.72;white-space:nowrap}
+.browse-rail-i.on{color:#d4af37;border-left-color:#d4af37;background:rgba(212,175,55,.08);opacity:1;font-weight:800}
+.browse-main{flex:1;min-width:0}
+.browse-main .top10-sec{margin:16px 0 8px}
+/* GENRE-FILTERED WALL: the rail picked one genre — the main column shows
+   just that genre's titles. The unfiltered shelves (hero, spots, Top 10s,
+   Kane, awards) hide so the grid is the genre, nothing else. */
+#view-browse.genre-filtered #featHero,#view-browse.genre-filtered .prev-spot,#view-browse.genre-filtered .store-spot,
+#view-browse.genre-filtered #kaneSpotSec,#view-browse.genre-filtered #gamesSec,#view-browse.genre-filtered #awardWinSec,
+#view-browse.genre-filtered #comingSoonSec,#view-browse.genre-filtered #awardFilmsSec,#view-browse.genre-filtered #awardSeriesSec,
+#view-browse.genre-filtered #top10sec,#view-browse.genre-filtered #top10AFsec,#view-browse.genre-filtered #top10ASsec,
+#view-browse.genre-filtered #browseMyListWrap{display:none!important}
 #browseLanding .feat-hero{margin:10px 16px 4px;border-radius:18px;height:216px}
 .fh-meta{font-size:12.5px;color:#d8d8de;margin-top:3px;font-weight:600}
 .fh-play{display:inline-flex;align-items:center;gap:7px;margin-top:11px;background:#f6c945;color:#141414;font-weight:800;font-size:14.5px;padding:10px 22px;border-radius:10px}
@@ -567,7 +589,7 @@ body.rot-full #rotexit{display:block}
 .gp-pill{display:inline-flex;align-items:baseline;gap:7px;background:#141419;border:1px solid #26262c;color:#eee;padding:10px 15px;border-radius:999px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer}
 .gp-pill:active{transform:scale(.97)}
 .gp-cnt{color:#9a9aa2;font-size:12.5px;font-weight:600}
-.fh-tag{display:inline-block;background:#e50914;color:#fff;font-size:10.5px;font-weight:800;letter-spacing:1.2px;padding:4px 9px;border-radius:5px}
+.fh-tag{display:inline-block;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.16);color:#f5f0e6;font-size:10.5px;font-weight:800;letter-spacing:1.2px;padding:4px 9px;border-radius:5px}
 .award-item{position:relative;flex:0 0 auto;width:120px;cursor:pointer}
 .award-item img{display:block;width:120px;height:170px;object-fit:cover;border-radius:8px;background:#1a1a1a;box-shadow:0 6px 18px rgba(0,0,0,.55)}
 .award-t{font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -637,7 +659,7 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 .sreel-cap p{font-size:12px;color:#ddd;margin:4px 0 0;text-shadow:0 1px 4px #000}
 .pill{flex:0 0 auto;font-size:13px;font-weight:700;padding:10px 18px;border-radius:22px;border:1px solid var(--line);
   background:rgba(255,255,255,.05);color:#d7d7e0;transition:all .35s var(--ease)}
-.pill.on{background:var(--red);border-color:var(--red);color:#fff;box-shadow:0 6px 20px rgba(229,9,20,.4)}
+.pill.on{background:rgba(212,175,55,.12);border-color:#d4af37;color:#f5f0e6;box-shadow:none}
 .searchbar{position:relative;margin:4px 0 2px}
 .searchbar input{width:100%;background:#14141c;border:1px solid rgba(255,255,255,.1);border-radius:14px;color:#fff;
   font-size:15px;font-family:inherit;padding:12px 42px 12px 16px;outline:none}
@@ -646,10 +668,10 @@ body.force-land #view-home{transform:rotate(90deg);transform-origin:center cente
 :focus-visible{outline:2px solid #f6c945;outline-offset:2px}
 #cform input:focus,.lform input:focus,#lvsearch:focus,.pinput:focus,#lnsheet input:focus{box-shadow:0 0 0 3px rgba(246,201,69,.22);border-color:#f6c945}
 .searchbar input::placeholder{color:rgba(255,255,255,.50)}
-.searchbar button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);
+.searchbar #bsearchx{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);
   border:0;color:#fff;width:28px;height:28px;border-radius:50%;font-size:12px;cursor:pointer;line-height:1}
 #recentSrch{display:none;position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:60;
-  background:#16161e;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.6)}
+  background:#16161e;border:1px solid var(--line);border-radius:14px;overflow-y:auto;max-height:264px;box-shadow:0 12px 40px rgba(0,0,0,.6)}
 #recentSrch.show{display:block}
 #recentSrch .rs-h{padding:10px 16px 4px;font-size:11px;font-weight:800;letter-spacing:1.5px;color:#8b8b96;text-transform:uppercase}
 #recentSrch .rs-i{display:flex;align-items:center;gap:10px;width:100%;padding:11px 16px;background:none;border:none;
@@ -1056,9 +1078,11 @@ body.pip #tvBox{display:none!important}
   align-items:center;justify-content:center;
   background:rgba(10,10,16,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
   border-top:1px solid var(--line);padding:8px 0 calc(10px + env(safe-area-inset-bottom))}
-.tab{flex:1;text-align:center;font-size:10px;color:#8b8b96;font-weight:600;transition:color .3s}
+.tab{flex:1;text-align:center;font-size:10px;color:#8b8b96;font-weight:600;transition:color .3s;position:relative}
 .tab .ico{font-size:20px;display:block;margin-bottom:3px}
 .tab.on{color:#fff}
+.tab.on::after{content:"";position:absolute;left:24%;right:24%;bottom:2px;height:3px;border-radius:2px;background:#d4af37}
+.tab.guide-tab.on{color:#ecc95c}
 #viewpad{height:calc(74px + env(safe-area-inset-bottom))}
 /* ================= SIMPLIFY — doors, card stack, profile button (his design 2026-10-24) ================= */
 /* profile button: the old All button's exact slot + size (38px disc, top-center, z-9600 family),
@@ -1117,21 +1141,8 @@ body.sz-livefront #szLiveTabs{display:flex}
   padding:6px 11px;font:600 12px system-ui,sans-serif;cursor:pointer;white-space:nowrap;-webkit-tap-highlight-color:transparent}
 .szlt.on{background:linear-gradient(180deg,#ecc95c,#c9a227);color:#151515;border-color:#ecc95c;font-weight:700}
 
-/* ---------- voice button: single-button navigation ----------
-   SQUARE per user order: the mic is ONE 54px square in every state — this
-   tab-bar button matches #micDot exactly (size, radius, listening glow).
-   The old full-width "Hold to talk" bar is gone; the listening wording now
-   lives only in the transcript chip (#voicePop shows "Listening…"). */
-#voiceBtn{flex:0 0 auto;width:54px;height:54px;display:flex;align-items:center;justify-content:center;
-  background:rgba(18,18,26,.72);border:1px solid rgba(255,255,255,.14);border-radius:14px;
-  margin:0;padding:0;color:#fff;cursor:pointer;
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  -webkit-tap-highlight-color:transparent;
-  user-select:none;-webkit-user-select:none;touch-action:none}
-#voiceBtn .vico{font-size:22px;line-height:1}
-#voiceBtn:active{transform:scale(.92)}
-#voiceBtn.listening{background:rgba(229,9,20,.35);border-color:#e50914;color:#fff;
-  box-shadow:0 0 14px rgba(229,9,20,.55);animation:mdotpulse 1s ease-in-out infinite}
+/* ---------- Guide tab: the middle tab is the TV Guide now (mic removed
+   2026-11-06, his order). Its underline comes from .tab.on::after. ---------- */
 @keyframes vpulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(255,255,255,.12)}
   50%{transform:scale(1.02);box-shadow:0 0 0 8px rgba(255,255,255,.05)}}
 /* voice popup: little bubble above the mic button — never covers the video */
@@ -1171,9 +1182,9 @@ body:has(:is(#agSheet,#agBubble,#scoutSheet,#stkSheet,#isheet,#lvsheet,#lnsheet,
 #voiceCancel{background:#1e1e28;color:#cfcfd8}
 #voiceGo{background:#e50914;color:#fff}
 /* ---------- back-to-top floating button ---------- */
-#toTop{position:fixed;right:16px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:60;
-  width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
-  background:linear-gradient(135deg,#e50914,#b00610);color:#fff;font-size:20px;font-weight:800;
+#toTop{position:fixed;left:16px;bottom:calc(86px + env(safe-area-inset-bottom));z-index:60;
+  width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.16);cursor:pointer;
+  background:rgba(20,20,28,.94);color:#f5f0e6;font-size:20px;font-weight:800;
   box-shadow:0 4px 16px rgba(0,0,0,.5);opacity:0;pointer-events:none;transform:translateY(8px);
   transition:opacity .25s,transform .25s}
 #toTop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
@@ -1395,7 +1406,7 @@ body.pia #view-home{visibility:hidden;pointer-events:none}
    rebuilds that view's innerHTML on every restack, which would wipe a
    chat mounted inside a card. Twitch = the real Twitch chat embed;
    YouTube/Kick = the Shortz chat (Watch Party pattern). */
-#ssChatPill{position:fixed;right:14px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:9000;background:var(--red);color:#fff;font-weight:800;font-size:14px;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:11px 18px;box-shadow:0 8px 22px rgba(0,0,0,.5);cursor:pointer}
+#ssChatPill{position:fixed;right:14px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:9000;background:rgba(20,20,28,.94);color:#f5f0e6;font-weight:800;font-size:14px;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:11px 18px;box-shadow:0 8px 22px rgba(0,0,0,.5);cursor:pointer}
 #ssChatPanel{position:fixed;left:0;right:0;bottom:0;height:min(62dvh,560px);z-index:9400;background:#101016;border-top:1px solid var(--gold);display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom)}
 .sschat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:800;font-size:14px;color:#fff}
 #ssChatX{background:none;border:1px solid var(--line);color:#fff;width:34px;height:34px;border-radius:50%;font-size:15px;cursor:pointer;flex-shrink:0}
@@ -1719,9 +1730,9 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 .szlive-dot{width:8px;height:8px;border-radius:50%;background:#e8332a;box-shadow:0 0 8px #e8332a}
 .szlive-hdsub{margin-left:auto;font-size:10px;font-weight:600;letter-spacing:0;color:#9a9aa2}
 /* MY CHANNEL door + streamer panel (Piece 2) */
-.szmine{display:flex;align-items:center;gap:9px;margin-top:14px;background:linear-gradient(120deg,#3d0a18,#7d1230);border:1px solid #a31645;border-radius:12px;padding:12px;cursor:pointer}
+.szmine{display:flex;align-items:center;gap:9px;margin-top:14px;background:#17171c;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px;cursor:pointer}
 .szmine-t{font-size:13.5px;font-weight:900;color:#fff}
-.szmine-s{font-size:10.5px;color:#f0b9c8}
+.szmine-s{font-size:10.5px;color:#a3a3b0}
 .szmine-arrow{margin-left:auto;font-size:17px;color:#fff;font-weight:900}
 .szpanel{position:fixed;inset:0;z-index:9200;background:#0c0c0f;display:none;flex-direction:column}
 .szpanel.open{display:flex}
@@ -1973,6 +1984,11 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 .tg-livebadge i{width:7px;height:7px;border-radius:50%;background:#ff2d55}
 .tg-replaybadge{display:inline-flex;align-items:center;color:#9a9aa2;font-size:11px;font-weight:900;flex:none;margin-left:auto}
 .tg-row:active,.tg-row.sel{background:#15151c;border-color:#2c2c36}
+/* channel switcher (Body Cam build): ‹ › arrows cycle the guide channels */
+.tg-chswitch{display:flex;align-items:center;gap:10px;margin:12px 0}
+.tg-chswitch button{flex:none;width:44px;height:44px;border-radius:12px;background:#17171c;border:1px solid rgba(255,255,255,.12);color:#fff;font-size:22px;cursor:pointer;font-family:inherit}
+.tg-chswitch button:active{transform:scale(.94)}
+.tg-chname{flex:1;text-align:center;font-size:14px;font-weight:800;letter-spacing:1.2px;color:#d4af37}
 /* live sports highlights strip in TV Guide */
 #tgHL{margin:14px 0 4px}
 .tg-hl-h{display:flex;align-items:center;justify-content:space-between;margin:0 2px 8px}
@@ -1980,7 +1996,7 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 .tg-hl-h .live{width:8px;height:8px;border-radius:50%;background:#e50914;display:inline-block;animation:hlblink 1.6s infinite}
 @keyframes hlblink{0%,100%{opacity:1}50%{opacity:.35}}
 .tg-hl-h .upd{font-size:10px;color:var(--mut)}
-.tg-hl-play{background:#e50914;border:0;color:#fff;font-size:12px;font-weight:800;border-radius:18px;padding:7px 14px;cursor:pointer}
+.tg-hl-play{background:linear-gradient(180deg,#d4af37,#b8912a);border:0;color:#151515;font-size:12px;font-weight:800;border-radius:18px;padding:7px 14px;cursor:pointer}
 .tg-hl-row{display:flex;gap:10px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none}
 .tg-hl-c{flex:0 0 150px;background:#14141c;border:1px solid rgba(255,255,255,.07);border-radius:10px;overflow:hidden;cursor:pointer;position:relative}
 .tg-hl-c img{width:150px;height:84px;object-fit:cover;display:block}
@@ -1991,7 +2007,7 @@ body.pod-on .pod-wrap{padding-bottom:calc(216px + env(safe-area-inset-bottom))}
 #tgScore{margin:14px 0 4px}
 .tg-sc-h{display:flex;align-items:center;justify-content:space-between;margin:0 2px 8px}
 .tg-sc-h .t{font-size:14px;font-weight:800;display:flex;align-items:center;gap:7px}
-.tg-sc-h .live{width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;animation:hlblink 1.6s infinite}
+.tg-sc-h .live{width:8px;height:8px;border-radius:50%;background:#e50914;display:inline-block;animation:hlblink 1.6s infinite}
 .tg-sc-h .upd{font-size:10px;color:var(--mut)}
 .tg-sc-league{font-size:11px;font-weight:800;letter-spacing:1px;color:#8b8b96;margin:10px 2px 6px;text-transform:uppercase}
 .tg-sc-game{display:flex;align-items:center;gap:8px;background:#14141c;border:1px solid rgba(255,255,255,.07);
@@ -2321,7 +2337,7 @@ try{
     </nav>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
       <div class="free-tag">100% FREE</div>
-      <button id="topShareApp" class="free-tag" style="display:none;border:none;cursor:pointer;background:linear-gradient(135deg,#e50914,#b00610);color:#fff;box-shadow:0 0 14px rgba(229,9,20,.35)">&#8599; SHARE APP</button>
+      <button id="topShareApp" class="free-tag" style="display:none;border:1px solid rgba(255,255,255,.16);cursor:pointer;background:rgba(255,255,255,.07);color:#e8e8ee;box-shadow:none">&#8599; SHARE APP</button>
     </div>
   </header>
 
@@ -2408,25 +2424,17 @@ try{
     </div>
   </div>
 
-  <!-- voice button: ONE square mic (54px), same form as #micDot — the old
-       full-width "Hold to talk" bar was removed per user order. -->
+  <!-- Channel Guide button (his order 2026-11-06): the mic is out — the middle
+       tab is the TV Guide. Plain .tab (NOT a szdoor): it navigates to Profile
+       and scrolls to the guide; the door stack never owns it. Icon is inline
+       SVG, same as #tvBtn — the 📺 emoji vanished on his phone in a disc. -->
   <nav id="tabbar">
     <button class="tab szdoor" data-v="home" data-door="watch"><span class="ico">▶</span>Watch</button>
     <button class="tab szdoor" data-v="browse" data-door="browse"><span class="ico">🧭</span>Browse</button>
-    <button id="voiceBtn" aria-label="Hold to speak, tap to type">
-      <span class="vico" id="voiceIco">🎙</span>
-    </button>
+    <button id="guideBtn" class="tab guide-tab" data-v="profile" aria-label="Channel Guide"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 3.5 12 8l3.5-4.5"/><rect x="3" y="8" width="18" height="12" rx="2.5"/><path d="M10.4 11.3 15 14l-4.6 2.7z" fill="currentColor" stroke="none"/></svg></span>Guide</button>
     <button class="tab szdoor" data-v="livehub" data-door="live"><span class="ico">🔴</span>Live</button>
     <button class="tab szdoor" data-v="games" data-door="play"><span class="ico">🎮</span>Play</button>
   </nav>
-  <script>
-  /* STARTUP-INPUT F2 (2026-10-27): the mic must answer from the first paint.
-     The voice engine registers its #voiceBtn handler only after the catalog
-     script parses — a press in that window used to be silently lost. This
-     shim buffers ONE press; the engine adopts it the moment it loads. */
-  window.__earlyMic={t:0};
-  (function(){var b=document.getElementById("voiceBtn");if(b)b.addEventListener("click",function(){window.__earlyMic.t=Date.now();});})();
-  </script>
   <!-- voice popup: little bubble above the mic button (like a typing indicator) -->
   <div id="voicePop" aria-hidden="true">
     <div class="vp-dots"><span></span><span></span><span></span></div>
@@ -2548,8 +2556,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog-slim.js?v=1793944583"></script>
-<script defer src="manga-catalog.js?v=1793944583d57a"></script>
+<script src="catalog-slim.js?v=1793961722"></script>
+<script defer src="manga-catalog.js?v=1793961722d57a"></script>
 <script defer src="manga-chapters.js?v=b8aa517"></script>
 <script>
 "use strict";
@@ -2560,7 +2568,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1793944583";
+window.__SZ_BUILD = "1793961722";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -3098,7 +3106,7 @@ const TREK="__trek__";
 const ALL="__all__";
 /* human label for the genre/collection filter button — always prefixed so it's obvious this is a filter */
 function genreLabel(g){
-  const base=g===ALL?"All":g===ONLYSHORTZ?"Shortz Picks":g===EARLY?"Early Release":g===AI?"AI Shorts":g===AWARD?"🏆 Award-Winning":g===TREK?"🚀 Star Trek Fan":g;
+  const base=g===ALL?"All":g===ONLYSHORTZ?"Shortz Picks":g===EARLY?"Early Release":g===AI?"AI Shorts":g===AWARD?"🏆 Award-Winning":g===TREK?"🚀 Star Trek Fan":g==="Body Cam"?"📹 Body Cam":g;
   return "🌐 Genre: "+base;
 }
 /* ALL-WALL ENGINE (2026-10-14): ONE shared collator for every sort.
@@ -3656,6 +3664,13 @@ function go(v){
 // tab buttons cached once — go() runs on every tab switch
 const TAB_BTNS=[...document.querySelectorAll(".tab")];
 document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{try{renderView(t.dataset.v)}catch(err){console.error("renderView",err)}go(t.dataset.v)});
+/* GUIDE TAB (his order 2026-11-06): the middle tab opens the TV Guide —
+   Profile + scroll to #tvGuide. The generic .tab handler above already
+   renders Profile and flips the view; this only scrolls to the guide once
+   the view is active (go() resets scroll to top first). */
+document.getElementById("guideBtn").addEventListener("click",()=>{
+  setTimeout(()=>{ try{ const g=document.getElementById("tvGuide"); if(g) g.scrollIntoView({behavior:"smooth",block:"start"}); }catch(e){} },160);
+});
 
 
 // Desktop top nav: same as mobile tabs
@@ -3679,7 +3694,11 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
   const btn=document.getElementById("voiceBtn"), pop=document.getElementById("voicePop"),
         tx=document.getElementById("voiceTranscript"), vt=document.getElementById("voiceType"),
         vi=document.getElementById("voiceInput"), vl=document.getElementById("voiceLabel");
-  if(!btn)return;
+  /* MIC REMOVED (his order 2026-11-06): #voiceBtn is gone, so btn is null —
+     but the engine must NOT bail here. The command path below (voiceCommand,
+     the type-path Go, the agent bridges) still initializes — the voice brain
+     stays callable via typing/agent. Only the speech listeners (guarded by
+     if(btn) below) need the button. */
   const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
   // NATIVE VOICE (APK): Android WebView has no Web Speech API. When the native
   // SpeechRecognizer bridge exists, the engine uses it — same pipeline, real mic.
@@ -4468,6 +4487,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
 
   // hold to talk — INSTANT: listening starts the moment you touch. Quick tap (<250ms, silent) = type.
   // TAP-TO-TALK: single tap toggles listening (no more hold). Tap to start, tap to stop.
+  if(btn){ // mic button only — null since the mic was removed (his order 2026-11-06); the command path below runs regardless
   btn.addEventListener("click",e=>{
     e.stopPropagation();e.preventDefault();
     try{
@@ -4487,6 +4507,7 @@ document.querySelectorAll("#sideBar button").forEach(b=>b.onclick=()=>{
       setTimeout(()=>{try{btn.click();}catch(e){}},60);
     }
   }catch(e){}
+  }
 
   document.getElementById("voiceCancel").onclick=closeType;
 
@@ -5996,7 +6017,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1793944583";
+const BUILD="1793961722";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9034,6 +9055,56 @@ function paintDiscovery(){
     else if(typeof loadStreamers==="function")Promise.resolve(loadStreamers()).then(()=>setTimeout(fill,60)).catch(()=>{});
   }catch(e){}
 }
+/* BROWSE LEFT RAIL (luxury v3, his order 2026-11-06): Netflix-style genre
+   rail down the left of Browse — All + every genre in GENRES order, the
+   active one gold. Tapping All opens the landing; tapping a genre filters
+   the main column to just that genre (renderBrowse wall, genre-filtered). */
+function browseRailHTML(){
+  const act=browseGenre;
+  const item=g=>`<button class="browse-rail-i${g===act?" on":""}" data-rail="${esc(g)}">${esc(g)}</button>`;
+  return `<nav class="browse-rail" aria-label="Genres"><div class="browse-rail-h">BROWSE</div>`
+    + `<button class="browse-rail-i${ALL===act?" on":""}" data-rail="${ALL}">All</button>`
+    + GENRES.map(item).join("")
+    + `</nav>`;
+}
+function bindBrowseRail(root){
+  (root||document).querySelectorAll("[data-rail]").forEach(b=>{ b.onclick=()=>{
+    const g=b.dataset.rail;
+    browseKind=""; browseQuery="";
+    if(g===ALL){ browseGenre=ALL; browseWall=false; renderBrowse(); }
+    else { browseGenre=g; browseWall=true; renderBrowse(); }
+    SZ_TOP(0);
+  };});
+}
+/* PER-GENRE TOP 10 ROWS (luxury v3, his order 2026-11-06): under the carousel
+   and Top 10 today, one row per genre — each genre's first 10 titles, NO rank
+   numbers (the app has only one global Top 10; these are not rankings).
+   Painted in the deferred idle pass like the other discovery rows. */
+function genreTop10(g){
+  const svG=browseGenre, svQ=browseQuery;
+  browseGenre=g; browseQuery="";
+  let list=[];
+  try{ list=browseList().slice(0,10); }catch(e){}
+  browseGenre=svG; browseQuery=svQ;
+  return list;
+}
+function paintGenreTop10Rows(){
+  const wrap=document.getElementById("genreRowsWrap");
+  if(!wrap||wrap.dataset.done)return;
+  try{
+    const rows=[];
+    for(const g of GENRES){
+      const list=genreTop10(g);
+      if(!list.length)continue;
+      rows.push(`<div class="wrap"><div class="award-sec"><div class="award-head"><h3>Top 10 ${esc(g)}</h3><button data-all data-g="${esc(g)}" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">View all ›</button></div><div class="award-row">${list.map(t=>cardHTML(t)).join("")}</div></div></div>`);
+    }
+    if(!rows.length)return;
+    wrap.innerHTML=rows.join("");
+    wrap.dataset.done="1";
+    bindCards(wrap);
+    wrap.querySelectorAll("[data-all]").forEach(b=>{ b.onclick=()=>{ renderBrowse(b.dataset.g); SZ_TOP(0); }; });
+  }catch(e){}
+}
 function renderBrowseLanding(){
   // Discovery hero order lives in FEAT_IDS itself: Leverage, The Listener, Mutant X lead (his order 2026-10-20), then the crowned Kane spotlight stv-1679 (his crown 2026-10-15)
   const cc=catalogCounts();
@@ -9042,6 +9113,7 @@ function renderBrowseLanding(){
   const POPULAR=["Comedy","Action","Horror","Thriller"]; // mockup Popular four — counts stay live via cnt()
   $("#view-browse").innerHTML=`
     <div id="browseLanding">
+    <div class="browse-shell">${browseRailHTML()}<div class="browse-main">
     <div class="br-head"><h1>Browse</h1>
       <div class="searchbar">
         <input id="bsearch" type="text" aria-label="Search shows, creators, genres" placeholder="Search shows, creators, genres" value="" autocomplete="off" enterkeyhint="search">
@@ -9064,6 +9136,7 @@ function renderBrowseLanding(){
       <div class="top10-head"><h3>Top 10 today</h3></div>
       <div class="top10-row" id="top10row"></div>
     </div></div>
+    <div id="genreRowsWrap"></div>
     <div class="wrap"><div class="award-sec" id="awardWinSec" style="display:none">
       <div class="award-head"><h3>Award winners</h3><button id="awardWinAll" style="margin-left:auto;background:none;border:0;color:#f6c945;font-weight:800;font-size:13px;cursor:pointer;font-family:inherit">See all</button></div>
       <div class="award-row" id="awardWinRow"></div>
@@ -9109,7 +9182,10 @@ function renderBrowseLanding(){
         ${(window.Games&&Games.list&&Games.list().length)?`<button class="gtile games" data-gtile="__games"><span>🎮 Games</span><span class="gtile-cnt">${Games.list().length} to play</span></button>`:""}
       </div>
     </div>
-    </div>`;
+    </div></div></div>`;
+  $("#view-browse").classList.remove("genre-filtered"); // the landing is never genre-filtered
+  $("#view-browse").classList.remove("searching"); // a cleared search must not leave the landing's hero/Top 10 hidden (his bug 2026-11-06)
+  bindBrowseRail($("#view-browse"));
   bindCfCards($("#view-browse"));
   try{ featBegin(); }catch(e){}
   try{ loadTop10(); }catch(e){}
@@ -9128,6 +9204,7 @@ function renderBrowseLanding(){
       try{ renderKaneSpot(); }catch(e){}
       try{ renderAwardWinners(); }catch(e){}
       paintDiscoveryRows();
+      try{ paintGenreTop10Rows(); }catch(e){} // one Top 10 row per genre, under Top 10 today
     };
     if("requestIdleCallback" in window) requestIdleCallback(later,{timeout:900});
     else setTimeout(later,300);
@@ -9228,6 +9305,7 @@ function renderBrowse(g){
   // (Cache is idle-precomputed after boot, so the first Browse tap is warm.)
   const cc=catalogCounts();
   $("#view-browse").innerHTML=`
+    <div class="browse-shell">${browseRailHTML()}<div class="browse-main">
     <div class="wrap" style="padding-top:18px">
       <div class="searchbar">
         <input id="bsearch" type="text" aria-label="Search shows" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
@@ -9248,7 +9326,8 @@ function renderBrowse(g){
         <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
         <button class="gitem${AWARD===browseGenre?" sel":""}" data-g="${AWARD}"><span>🏆 Award-Winning</span><span class="cnt">${cc.award}</span></button>
         <button class="gitem${TREK===browseGenre?" sel":""}" data-g="${TREK}"><span>🚀 Star Trek Fan</span><span class="cnt">${cc.trek}</span></button>
-        ${[...GENRES].sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
+        <button class="gitem${"Body Cam"===browseGenre?" sel":""}" data-g="Body Cam"><span>📹 Body Cam</span><span class="cnt">${cc.genre["Body Cam"]||0}</span></button>
+        ${[...GENRES].filter(x=>x!=="Body Cam").sort((a,b)=>a.localeCompare(b,"en",{sensitivity:"base"})).map(x=>
         `<button class="gitem${x===browseGenre?" sel":""}" data-g="${x}"><span>${x}</span><span class="cnt">${x==="Rebirth"?cc.rebirth:x==="Sci-Fi"?((cc.genre["Sci-Fi"]||0)+(cc.genre["Space"]||0)):(cc.genre[x]||0)}</span></button>`).join("")}
       </div>
     </div></div>
@@ -9269,7 +9348,7 @@ function renderBrowse(g){
       <div class="cs-row" id="comingSoonRow"></div>
     </div></div>
     <div class="wrap" style="padding-top:0">
-      <div class="rowlabel" style="margin-top:0"><h2 id="browseHead">${browseQuery.trim()?`${list.length} result${list.length===1?"":"s"} for &ldquo;${esc(browseQuery.trim())}&rdquo;`:(browseKind==="series"?(list.length+" series"):("Browse "+C.length+" series"))}</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
+      <div class="rowlabel" style="margin-top:0"><h2 id="browseHead">${browseQuery.trim()?`${list.length} result${list.length===1?"":"s"} for &ldquo;${esc(browseQuery.trim())}&rdquo;`:(browseKind==="series"?(list.length+" series"):((GENRES.indexOf(browseGenre)>=0&&browseGenre!=="Sports")?`${esc(browseGenre)} · ${list.length} shows`:("Browse "+C.length+" series")))}</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
       <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
       <div class="prev-spot" id="prevSpot">
         <div class="prev-spot-tx">
@@ -9281,7 +9360,7 @@ function renderBrowse(g){
       </div>
       <div class="store-spot">
         <div class="prev-spot-tx">
-          <div class="prev-spot-k" style="color:#ff6b6b">Official merch</div>
+          <div class="prev-spot-k" style="color:#d4af37">Official merch</div>
           <div class="prev-spot-t" style="font-size:15px">🛍️ SHORTZ VS STORE — Mascot Tees $24.33</div>
           <div class="prev-spot-d">The official Shortz VS mascot tees — printed and shipped to your door.</div>
         </div>
@@ -9310,7 +9389,10 @@ function renderBrowse(g){
     <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
       ? `<div class="sect" style="margin-top:4px">Pick your sport</div><div class="sportpick" id="sportpick"></div>`
       : `<div class="grid" id="bgrid"></div>`}
-    <div id="bnores" class="empty" style="display:${list.length||(browseGenre==="Sports"&&!browseQuery.trim())?"none":""}">No shows found.<br>Try another search.</div></div>`;
+    <div id="bnores" class="empty" style="display:${list.length||(browseGenre==="Sports"&&!browseQuery.trim())?"none":""}">No shows found.<br>Try another search.</div></div></div></div>`;
+  // genre-filtered wall: one genre from the rail — hide the unfiltered shelves so the grid IS the genre
+  $("#view-browse").classList.toggle("genre-filtered", GENRES.indexOf(browseGenre)>=0&&browseGenre!=="Sports");
+  bindBrowseRail($("#view-browse"));
   if(browseGenre==="Sports"&&!browseQuery.trim()){ renderSportPicker(); }
   else {
     // SPEED: render first chunk instantly, append more on scroll (never all at once)
@@ -9358,6 +9440,10 @@ function renderBrowse(g){
   const si=$("#bsearch"),sx=$("#bsearchx"),bc=$("#bcount"),gr=$("#bgrid"),nr=$("#bnores");
   const applySearch=()=>{
     browseQuery=si.value;
+    // CLEAR RESTORES THE LANDING (his report 2026-11-06): deleting the search
+    // back to empty must bring back the Browse landing — backspacing used to
+    // leave the bare wall up until restart. Same rule as the ✕ button below.
+    if(!si.value.trim()&&browseGenre===ALL){ browseWall=false; $("#view-browse").classList.remove("searching"); renderBrowse(); return; }
     const l=browseList();
     if(browseGenre==="Sports"&&!browseQuery.trim()){ return; } // picker stays
     if(!gr){ renderBrowse(); return; }
@@ -9373,7 +9459,9 @@ function renderBrowse(g){
     bc.textContent=searching?"":`${GENRES.length} genres`;
   };
   si.addEventListener("input",applySearch);
-  sx.onclick=()=>{si.value="";applySearch();si.focus();};
+  sx.onclick=()=>{ // ✕ FOLDS THE RECENTS (his spec 2026-11-06): dropdown open + empty input → fold it, don't clear
+    if(rsBox.classList.contains("show")&&!si.value.trim()){ hideRecent(); si.blur(); return; }
+    si.value="";applySearch();si.focus();};
   // recent searches: save on Enter, show on focus when empty
   const rsBox=$("#recentSrch");
   const getRecent=()=>{try{return store.get("recentSearch",[]).filter(x=>typeof x==="string")}catch(e){return[]}};
@@ -9384,7 +9472,7 @@ function renderBrowse(g){
       store.set("recentSearch",r);
     }catch(e){}
   };
-  const hideRecent=()=>{try{rsBox.classList.remove("show")}catch(e){}};
+  const hideRecent=()=>{try{rsBox.classList.remove("show");sx.style.display=si.value?"":"none";}catch(e){}};
   const showRecent=()=>{
     try{
       if(si.value.trim()){hideRecent();return;}
@@ -9394,6 +9482,7 @@ function renderBrowse(g){
         `<button class="rs-i" data-q="${esc(q)}"><span style="color:#8b8b96">🕘</span><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(q)}</span><span class="rs-x" data-del="${esc(q)}">✕</span></button>`
       ).join("");
       rsBox.classList.add("show");
+      sx.style.display=""; // the ✕ is the fold control while the dropdown is open (his spec 2026-11-06)
       rsBox.querySelectorAll(".rs-i").forEach(b=>b.addEventListener("click",ev=>{
         const del=ev.target.closest("[data-del]");
         if(del){
@@ -10104,10 +10193,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1793944583"></script>
+<script src="js/folders.js?v=1793961722"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1793944583"></script>
+<script src="js/guide.js?v=1793961722"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -10919,10 +11008,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1793944583"></script>
-<script src="js/shortz-live.js?v=1793944583"></script>
-<script src="js/games.js?v=1793944583"></script>
-<script src="js/podcasts.js?v=1793944583"></script>
+<script src="js/streaming.js?v=1793961722"></script>
+<script src="js/shortz-live.js?v=1793961722"></script>
+<script src="js/games.js?v=1793961722"></script>
+<script src="js/podcasts.js?v=1793961722"></script>
 <script>
 
 
@@ -11440,7 +11529,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1793944583"></script>
+<script src="js/swipe.js?v=1793961722"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -12010,7 +12099,7 @@ function stkMountPill(){
   if(document.getElementById("stkFloatPill"))return;
   const b=document.createElement("button");
   b.id="stkFloatPill";b.className="stkPill";b.setAttribute("aria-label","Stakes — coin balance");
-  b.style.cssText="position:fixed;top:14px;right:14px;z-index:60;display:none";
+  b.style.cssText="position:fixed;top:calc(62px + env(safe-area-inset-top));right:14px;z-index:60;display:none";
   b.innerHTML="◉ <span>1,000</span>";
   b.onclick=()=>Stake.openSheet();
   document.body.appendChild(b);
@@ -13675,8 +13764,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1793944583"></script>
-<script src="js/agent.js?v=1793944583"></script>
+<script src="js/live-sports.js?v=1793961722"></script>
+<script src="js/agent.js?v=1793961722"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
@@ -15052,7 +15141,12 @@ var szRevWatch = setInterval(function () {
 function szGoEntry(entry) {
   if (entry === 'live') { szGoLive(); return; }
   var v = SZ_DOOR_VIEW[entry];
-  szRenderOnce(v);
+  /* BROWSE RE-RENDERS ON EVERY ENTRY (his report 2026-11-06): the once-cache
+     left the search wall up after a search — the landing (New on Shortz VS)
+     never came back until restart. renderView('browse') resets browseWall /
+     browseKind / browseQuery, so the door always opens on the landing. */
+  if (v === 'browse') { try { renderView('browse'); } catch (e) {} }
+  else szRenderOnce(v);
   go(v);
 }
 function szGoLive() {
@@ -15181,11 +15275,18 @@ function szSync() {
       }).join('');
     }
   }
-  // door states
+  // door states — ONE source of truth (his bug 2026-11-06: Browse stayed gold
+  // on Home). go() also toggles .on by view, then szSync runs last and used
+  // to re-mark by stack alone — with an empty stack that wiped the current
+  // tab's gold, and with a stale stack it kept a dead tab gold. Rule now:
+  // sheet open → gold is the stack (front card glows); sheet closed → gold
+  // is exactly the current view, never a lingering stack entry.
   document.querySelectorAll('.szdoor').forEach(function (b) {
     var d = b.dataset.door;
-    b.classList.toggle('on', d === 'watch' ? (!open && curView === 'home') : szStack.indexOf(d) >= 0);
-    b.classList.toggle('front', d === szFront() || (d === 'watch' && !open && curView === 'home'));
+    var dv = d === 'watch' ? 'home' : (SZ_DOOR_VIEW[d] || d);
+    var isCur = dv === curView || (d === 'live' && (curView === 'live' || curView === 'streaming'));
+    b.classList.toggle('on', open ? (d === 'watch' ? false : szStack.indexOf(d) >= 0) : isCur);
+    b.classList.toggle('front', open ? (d === szFront()) : isCur);
   });
   var pb = document.getElementById('profileBtn');
   if (pb) pb.classList.toggle('on', szProfileOpen);

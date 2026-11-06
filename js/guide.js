@@ -5,6 +5,25 @@
    guide, and there is NO Unmute button — the sound arm retries patiently
    until the preview plays audibly (his order 2026-10-20). */
 let tgList=null, tgShown=0, tgQuery="";
+let tgMode="all"; // guide channel: "all" (everything) or a genre name — every genre is its own channel
+function tgChannels(){ // Everything first, Body Cam second, then every other genre (built lazily so GENRES exists)
+  const gs=(typeof GENRES!=="undefined"?GENRES:[]);
+  return ["__all__","Body Cam",...gs.filter(g=>g!=="Body Cam")];
+}
+function tgInChannel(t){
+  if(tgMode==="__all__"||tgMode==="all")return true; // "__all__" is what renderTvGuide sets — the old "all"-only check matched nothing and the Everything channel rendered EMPTY (2026-11-06)
+  if(tgMode==="Sci-Fi")return t.genre==="Sci-Fi"||t.genre==="Space"; // his rule: Space lives in Sci-Fi too
+  if(tgMode==="Rebirth")return t.rebirth===true;
+  return t.genre===tgMode;
+}
+function tgSetChannel(mode){
+  tgMode=mode; tgShown=0; tgList=tgFiltered();
+  const l=$("#tgList"); if(l){ l.innerHTML=""; tgMore(); }
+  const em=$("#tgEmpty"); if(em)em.style.display=tgList.length?"none":"";
+  const nm=$("#tgChName");
+  if(nm)nm.textContent=mode==="__all__"?("📺 Everything · "+C.length+" shows"):mode==="Body Cam"?("📹 Body Cam · "+tgList.length+" videos"):(mode+" · "+tgList.length+" shows");
+  if(curView==="profile"&&tgList.length)tgPreview(tgList[0].id);
+}
 const TG_CHUNK=60;
 /* Fisher-Yates shuffle (in place, returns the array) */
 function svShuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
@@ -33,7 +52,7 @@ function tgRowHTML(t){
 function tgFiltered(){
   const raw=tgQuery.trim(), q=searchNorm(tgQuery), qf=q.replace(/ /g,"");
   if(!tgOrder)tgOrder=svShuffle(C.map(t=>t.id)); // first use builds the visit order
-  const match=t=>!raw||searchMatch((t.title||"")+" "+(t.genre||""),q,qf);
+  const match=t=>tgInChannel(t)&&(!raw||searchMatch((t.title||"")+" "+(t.genre||""),q,qf));
   const seen=new Set(), out=[];
   // the visit's fresh order is the list; search narrows FROM it, never re-sorts
   tgOrder.forEach(id=>{ const t=byId(id); if(t&&match(t)){ out.push(t); seen.add(id); } });
@@ -371,7 +390,7 @@ function tgArmEnd(t,_retry){
 }
 function renderTvGuide(){
   const box=$("#tvGuide"); if(!box)return;
-  tgQuery=""; tgShown=0;
+  tgQuery=""; tgShown=0; tgMode="__all__"; // fresh every entry: back to the Everything channel
   tgOrder=svShuffle(C.map(t=>t.id)); // fresh order on EVERY entry (his order)
   tgList=tgFiltered();
   box.innerHTML=`
@@ -387,6 +406,7 @@ function renderTvGuide(){
         <button class="btn-play tg-watch" id="tgWatch" style="display:none">▶ Watch</button>
       </div>
     </div>
+    <div class="tg-chswitch"><button id="tgChPrev" aria-label="Previous channel">‹</button><span class="tg-chname" id="tgChName">📺 Everything · ${C.length} shows</span><button id="tgChNext" aria-label="Next channel">›</button></div>
     <div class="searchbar"><input id="tgSearch" type="text" placeholder="🔍 Search the guide…" autocomplete="off" enterkeyhint="search"></div>
     <div id="tgHL"></div>
     <div id="tgScore"></div>
@@ -414,6 +434,11 @@ function renderTvGuide(){
     const l=$("#tgList"); l.innerHTML=""; tgMore();
     $("#tgEmpty").style.display=tgList.length?"none":"";
   });
+  // channel switcher: arrows cycle every genre as its own channel — the list below filters to just that channel
+  const tgChStep=d=>{ const chs=tgChannels(); const i=chs.indexOf(tgMode); tgSetChannel(chs[(i+d+chs.length)%chs.length]); };
+  const _cp=$("#tgChPrev"), _cn=$("#tgChNext");
+  if(_cp)_cp.onclick=()=>tgChStep(-1);
+  if(_cn)_cn.onclick=()=>tgChStep(1);
   if(!window._tgHook){
     window._tgHook=true;
     window.addEventListener("scroll",()=>{
