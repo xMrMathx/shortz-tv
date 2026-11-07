@@ -49,6 +49,13 @@
   "thumb": "https://i.ytimg.com/vi/ebCgfiUI7Vo/mqdefault.jpg"
  },
  {
+  "id": "stv-1995",
+  "title": "The Misadventures of Awkward Black Girl",
+  "genre": "Comedy",
+  "views": 3177473,
+  "thumb": "https://i.ytimg.com/vi/nIVa9lxkbus/mqdefault.jpg"
+ },
+ {
   "id": "stv-5032",
   "title": "Star Trek Continues",
   "genre": "Space",
@@ -61,12 +68,5 @@
   "genre": "Comedy",
   "views": 3126098,
   "thumb": "https://i.ytimg.com/vi/c3P1zSRa6SU/mqdefault.jpg"
- },
- {
-  "id": "stv-1991",
-  "title": "Jake and Amir",
-  "genre": "Comedy",
-  "views": 1637381,
-  "thumb": "https://i.ytimg.com/vi/fjzzhMtiilU/mqdefault.jpg"
  }
 ]
