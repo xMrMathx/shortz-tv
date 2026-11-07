@@ -35,6 +35,13 @@
   "thumb": "https://i.ytimg.com/vi/d4OdATe76q4/mqdefault.jpg"
  },
  {
+  "id": "stv-096",
+  "title": "The Lizzie Bennet Diaries",
+  "genre": "Romance",
+  "views": 3765857,
+  "thumb": "https://i.ytimg.com/vi/KisuGP2lcPs/mqdefault.jpg"
+ },
+ {
   "id": "stv-5032",
   "title": "Star Trek Continues",
   "genre": "Space",
@@ -61,12 +68,5 @@
   "genre": "Drama",
   "views": 1201196,
   "thumb": "https://i.ytimg.com/vi/7q0edfw__fc/mqdefault.jpg"
- },
- {
-  "id": "stv-5093",
-  "title": "Hey Duggee",
-  "genre": "Family",
-  "views": 1193079,
-  "thumb": "https://i.ytimg.com/vi/k8dLwztClY8/mqdefault.jpg"
  }
 ]
