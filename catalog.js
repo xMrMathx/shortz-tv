@@ -2090081,5 +2090081,61 @@ window.SHORTZ_CATALOG = [
   "award_verified": false,
   "eps": "1 ep",
   "id": "stv-78353"
+ },
+ {
+  "id": "stv-78354",
+  "title": "Look Alive",
+  "genre": "Horror",
+  "eps": "1 ep",
+  "runtime": "3 min",
+  "desc": "A young woman cleaning up after her birthday gets an unexpected visitor — a creature that only moves when she blinks. Written & directed by Amanda Prescott; the monster, Jester's Scream, is her own original creation.",
+  "url": "https://www.youtube.com/embed/N03JkLtqMd8",
+  "video_id": "N03JkLtqMd8",
+  "source_channel": "amandaprescottfx",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Look Alive",
+    "url": "https://www.youtube.com/embed/N03JkLtqMd8",
+    "video_id": "N03JkLtqMd8",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 158
+   }
+  ],
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-07",
+  "verified": true,
+  "award_verified": false
+ },
+ {
+  "id": "stv-78355",
+  "title": "The Changing Room",
+  "genre": "Horror",
+  "eps": "1 ep",
+  "runtime": "4 min",
+  "desc": "A woman sneaks into a closed-off changing room to try on clothes — and the mirrors start showing her things that shouldn't be there. Written & directed by Sam Evenson; starring Jamie Taylor Ballesta.",
+  "url": "https://www.youtube.com/embed/SdS15vKWsHo",
+  "video_id": "SdS15vKWsHo",
+  "source_channel": "Grimoire Horror",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "The Changing Room",
+    "url": "https://www.youtube.com/embed/SdS15vKWsHo",
+    "video_id": "SdS15vKWsHo",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 265
+   }
+  ],
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-07",
+  "verified": true,
+  "award_verified": false
  }
 ];
