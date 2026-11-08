@@ -514,15 +514,15 @@ body.rot-full #rotexit{display:block}
 .top10-row::-webkit-scrollbar{display:none}
 .top10-row::after{content:"";flex:0 0 14px}
 .award-row::after{content:"";flex:0 0 6px}
-.top10-item{position:relative;flex:0 0 auto;width:152px;cursor:pointer}
-.top10-num{position:absolute;left:0;bottom:36px;font-family:Arial,Helvetica,sans-serif;font-size:118px;font-weight:900;line-height:.8;color:#0a0a0a;-webkit-text-stroke:4px #e5e5e5;z-index:0;user-select:none;letter-spacing:-8px}
-.top10-item.wide{width:252px}
-.top10-item.wide .top10-num{font-size:100px;letter-spacing:-16px} /* "10" at 118px runs ~162px wide and slides under the poster (img starts at 144px) — reads as "1" (family check 2026-10-28) */
-.top10-item.wide img{margin-left:144px}
-.top10-item.wide .top10-t,.top10-item.wide .top10-v{margin-left:144px}
-.top10-item img{position:relative;z-index:1;display:block;width:104px;height:148px;object-fit:cover;border-radius:8px;margin-left:46px;box-shadow:0 6px 18px rgba(0,0,0,.55);background:#1a1a1a}
-.top10-t{position:relative;z-index:1;font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0 46px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100px}
-.top10-v{position:relative;z-index:1;font-size:10px;color:var(--mut);margin:1px 0 0 46px}
+.top10-item{position:relative;flex:0 0 auto;width:212px;cursor:pointer}
+.top10-num{position:absolute;left:0;bottom:36px;font-family:Arial,Helvetica,sans-serif;font-size:100px;font-weight:900;line-height:.8;color:#0a0a0a;-webkit-text-stroke:4px #e5e5e5;z-index:0;user-select:none;letter-spacing:-8px}
+.top10-item.wide{width:308px}
+.top10-item.wide .top10-num{font-size:100px;letter-spacing:-16px} /* "10" at 100px runs ~137px wide and clears the poster (img starts at 160px) — the 118px numeral used to slide under it and read as "1" (family check 2026-10-28) */
+.top10-item.wide img{margin-left:160px}
+.top10-item.wide .top10-t,.top10-item.wide .top10-v{margin-left:160px}
+.top10-item img{position:relative;z-index:1;display:block;width:140px;height:200px;object-fit:cover;border-radius:8px;margin-left:64px;box-shadow:0 6px 18px rgba(0,0,0,.55);background:#1a1a1a}
+.top10-t{position:relative;z-index:1;font-size:11px;font-weight:600;color:#ddd;margin:7px 0 0 64px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:140px}
+.top10-v{position:relative;z-index:1;font-size:10px;color:var(--mut);margin:1px 0 0 64px}
 /* award-winning carousels */
 .award-sec{margin:16px -16px 8px}
 .disc-livepill{position:absolute;top:6px;left:6px;background:#e8332a;color:#fff;font-size:10px;font-weight:900;padding:3px 7px;border-radius:6px;letter-spacing:.4px;z-index:3}
@@ -540,18 +540,22 @@ body.rot-full #rotexit{display:block}
 .br-chips::-webkit-scrollbar{display:none}
 .br-chip{flex:0 0 auto;padding:9px 17px;border-radius:999px;background:#17171c;border:1px solid #26262c;color:#e8e8ec;font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
 .br-chip.on{background:#17171c;border-color:#d4af37;color:#f5f0e6;font-weight:800}
-/* ===== BROWSE LEFT RAIL (luxury v3, his order 2026-11-06): Netflix-style —
-   every genre down the left, shaded/faded but visible, scrollable; tapping
-   one filters the main column to just that genre. The rail sticks under the
-   header while the main column scrolls. ===== */
-.browse-shell{display:flex;align-items:flex-start}
-.browse-rail{position:sticky;top:calc(56px + env(safe-area-inset-top));flex:0 0 128px;max-height:calc(100vh - 56px - env(safe-area-inset-top));overflow-y:auto;background:#0c0c10;border-right:1px solid rgba(255,255,255,.06);padding:14px 0 120px;scrollbar-width:none}
-.browse-rail::-webkit-scrollbar{display:none}
-.browse-rail-h{padding:0 16px 8px;font-size:11px;font-weight:800;letter-spacing:2px;color:#8b8b96}
-.browse-rail-i{display:block;width:100%;text-align:left;background:none;border:0;border-left:2px solid transparent;color:#9a9aa2;font-size:14.5px;font-weight:600;padding:8px 16px;cursor:pointer;font-family:inherit;opacity:.72;white-space:nowrap}
-.browse-rail-i.on{color:#d4af37;border-left-color:#d4af37;background:rgba(212,175,55,.08);opacity:1;font-weight:800}
-.browse-main{flex:1;min-width:0}
+/* ===== BROWSE TOP STRIP (his order 2026-11-07, supersedes the left rail):
+   every genre across the top, swipe left-to-right starting at All; tapping
+   one filters the content below to just that genre. Rail is gone. ===== */
+.browse-strip{display:flex;gap:8px;overflow-x:auto;padding:14px 16px 4px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.browse-strip::-webkit-scrollbar{display:none}
+.browse-strip-i{flex:0 0 auto;padding:9px 17px;border-radius:999px;background:#17171c;border:1px solid #26262c;color:#e8e8ec;font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;white-space:nowrap}
+.browse-strip-i.on{background:#d4af37;border-color:#d4af37;color:#141414;font-weight:800}
+.browse-main{min-width:0}
 .browse-main .top10-sec{margin:16px 0 8px}
+/* BROWSE CARDS, BIGGER (his order 2026-11-07, mockup sizes at 384px):
+   genre-row cards 118x208 -> 160x282, award-shelf cards 120x170 -> 160x227.
+   Scoped to Browse rows only — Home/Profile grids keep their sizes. */
+#view-browse .award-row .vcard{width:160px;contain-intrinsic-size:160px 282px}
+#view-browse .award-row .vthumb{width:160px;height:282px}
+#view-browse .award-item{width:160px}
+#view-browse .award-item img{width:160px;height:227px}
 /* GENRE-FILTERED WALL: the rail picked one genre — the main column shows
    just that genre's titles. The unfiltered shelves (hero, spots, Top 10s,
    Kane, awards) hide so the grid is the genre, nothing else. */
@@ -2556,8 +2560,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog-slim.js?v=1794086790"></script>
-<script defer src="manga-catalog.js?v=1794086790d57a"></script>
+<script src="catalog-slim.js?v=1794107301"></script>
+<script defer src="manga-catalog.js?v=1794107301d57a"></script>
 <script defer src="manga-chapters.js?v=b8aa517"></script>
 <script>
 "use strict";
@@ -2568,7 +2572,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1794086790";
+window.__SZ_BUILD = "1794107301";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -6017,7 +6021,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1794086790";
+const BUILD="1794107301";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -8645,7 +8649,7 @@ async function loadTop10File(secId,rowId,file,cacheKey){
     const list=(top10Caches[cacheKey]||[]).slice(0,10);
     if(!list.length) return;
     row.innerHTML=list.map((t,i)=>{
-      const bt=byId(t.id); const awb=bt&&bt.award_verified?'<span class="awardbadge" style="top:6px;left:52px" title="Award winner">🏆</span>':"";
+      const bt=byId(t.id); const awb=bt&&bt.award_verified?'<span class="awardbadge" style="top:6px;left:70px" title="Award winner">🏆</span>':"";
       return `
       <div class="top10-item${i+1>=10?" wide":""}" data-tid="${esc(t.id)}">
         <div class="top10-num">${i+1}</div>
@@ -9055,19 +9059,19 @@ function paintDiscovery(){
     else if(typeof loadStreamers==="function")Promise.resolve(loadStreamers()).then(()=>setTimeout(fill,60)).catch(()=>{});
   }catch(e){}
 }
-/* BROWSE LEFT RAIL (luxury v3, his order 2026-11-06): Netflix-style genre
-   rail down the left of Browse — All + every genre in GENRES order, the
-   active one gold. Tapping All opens the landing; tapping a genre filters
-   the main column to just that genre (renderBrowse wall, genre-filtered). */
-function browseRailHTML(){
+/* BROWSE TOP STRIP (his order 2026-11-07, supersedes the left rail):
+   All + every genre in GENRES order across the top, swipeable, the active
+   one gold. Tapping All opens the landing; tapping a genre filters the
+   content below to just that genre (renderBrowse wall, genre-filtered). */
+function browseStripHTML(){
   const act=browseGenre;
-  const item=g=>`<button class="browse-rail-i${g===act?" on":""}" data-rail="${esc(g)}">${esc(g)}</button>`;
-  return `<nav class="browse-rail" aria-label="Genres"><div class="browse-rail-h">BROWSE</div>`
-    + `<button class="browse-rail-i${ALL===act?" on":""}" data-rail="${ALL}">All</button>`
+  const item=g=>`<button class="browse-strip-i${g===act?" on":""}" data-rail="${esc(g)}">${esc(g)}</button>`;
+  return `<nav class="browse-strip" aria-label="Genres">`
+    + `<button class="browse-strip-i${ALL===act?" on":""}" data-rail="${ALL}">All</button>`
     + GENRES.map(item).join("")
     + `</nav>`;
 }
-function bindBrowseRail(root){
+function bindBrowseStrip(root){
   (root||document).querySelectorAll("[data-rail]").forEach(b=>{ b.onclick=()=>{
     const g=b.dataset.rail;
     browseKind=""; browseQuery="";
@@ -9113,7 +9117,7 @@ function renderBrowseLanding(){
   const POPULAR=["Comedy","Action","Horror","Thriller"]; // mockup Popular four — counts stay live via cnt()
   $("#view-browse").innerHTML=`
     <div id="browseLanding">
-    <div class="browse-shell">${browseRailHTML()}<div class="browse-main">
+    <div class="browse-main">${browseStripHTML()}
     <div class="br-head"><h1>Browse</h1>
       <div class="searchbar">
         <input id="bsearch" type="text" aria-label="Search shows, creators, genres" placeholder="Search shows, creators, genres" value="" autocomplete="off" enterkeyhint="search">
@@ -9182,10 +9186,10 @@ function renderBrowseLanding(){
         ${(window.Games&&Games.list&&Games.list().length)?`<button class="gtile games" data-gtile="__games"><span>🎮 Games</span><span class="gtile-cnt">${Games.list().length} to play</span></button>`:""}
       </div>
     </div>
-    </div></div></div>`;
+    </div></div>`;
   $("#view-browse").classList.remove("genre-filtered"); // the landing is never genre-filtered
   $("#view-browse").classList.remove("searching"); // a cleared search must not leave the landing's hero/Top 10 hidden (his bug 2026-11-06)
-  bindBrowseRail($("#view-browse"));
+  bindBrowseStrip($("#view-browse"));
   bindCfCards($("#view-browse"));
   try{ featBegin(); }catch(e){}
   try{ loadTop10(); }catch(e){}
@@ -9305,7 +9309,7 @@ function renderBrowse(g){
   // (Cache is idle-precomputed after boot, so the first Browse tap is warm.)
   const cc=catalogCounts();
   $("#view-browse").innerHTML=`
-    <div class="browse-shell">${browseRailHTML()}<div class="browse-main">
+    <div class="browse-main">${browseStripHTML()}
     <div class="wrap" style="padding-top:18px">
       <div class="searchbar">
         <input id="bsearch" type="text" aria-label="Search shows" placeholder="🔍 Search shows..." value="${esc(browseQuery)}" autocomplete="off" enterkeyhint="search">
@@ -9389,10 +9393,10 @@ function renderBrowse(g){
     <div class="wrap">${(browseGenre==="Sports"&&!browseQuery.trim())
       ? `<div class="sect" style="margin-top:4px">Pick your sport</div><div class="sportpick" id="sportpick"></div>`
       : `<div class="grid" id="bgrid"></div>`}
-    <div id="bnores" class="empty" style="display:${list.length||(browseGenre==="Sports"&&!browseQuery.trim())?"none":""}">No shows found.<br>Try another search.</div></div></div></div>`;
-  // genre-filtered wall: one genre from the rail — hide the unfiltered shelves so the grid IS the genre
+    <div id="bnores" class="empty" style="display:${list.length||(browseGenre==="Sports"&&!browseQuery.trim())?"none":""}">No shows found.<br>Try another search.</div></div></div>`;
+  // genre-filtered wall: one genre from the strip — hide the unfiltered shelves so the grid IS the genre
   $("#view-browse").classList.toggle("genre-filtered", GENRES.indexOf(browseGenre)>=0&&browseGenre!=="Sports");
-  bindBrowseRail($("#view-browse"));
+  bindBrowseStrip($("#view-browse"));
   if(browseGenre==="Sports"&&!browseQuery.trim()){ renderSportPicker(); }
   else {
     // SPEED: render first chunk instantly, append more on scroll (never all at once)
@@ -10193,10 +10197,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1794086790"></script>
+<script src="js/folders.js?v=1794107301"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1794086790"></script>
+<script src="js/guide.js?v=1794107301"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -11008,10 +11012,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1794086790"></script>
-<script src="js/shortz-live.js?v=1794086790"></script>
-<script src="js/games.js?v=1794086790"></script>
-<script src="js/podcasts.js?v=1794086790"></script>
+<script src="js/streaming.js?v=1794107301"></script>
+<script src="js/shortz-live.js?v=1794107301"></script>
+<script src="js/games.js?v=1794107301"></script>
+<script src="js/podcasts.js?v=1794107301"></script>
 <script>
 
 
@@ -11529,7 +11533,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1794086790"></script>
+<script src="js/swipe.js?v=1794107301"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13764,8 +13768,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1794086790"></script>
-<script src="js/agent.js?v=1794086790"></script>
+<script src="js/live-sports.js?v=1794107301"></script>
+<script src="js/agent.js?v=1794107301"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
