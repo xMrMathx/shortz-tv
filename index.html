@@ -2560,8 +2560,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog-slim.js?v=1794107301"></script>
-<script defer src="manga-catalog.js?v=1794107301d57a"></script>
+<script src="catalog-slim.js?v=1794182281"></script>
+<script defer src="manga-catalog.js?v=1794182281d57a"></script>
 <script defer src="manga-chapters.js?v=b8aa517"></script>
 <script>
 "use strict";
@@ -2572,7 +2572,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1794107301";
+window.__SZ_BUILD = "1794182281";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2703,6 +2703,8 @@ const IDX = {
   vertPool: [],          // precomputed vertical-video series
   homePool: [],          // Home feed pool: 5+ verified episodes only
   homeVertPool: [],      // Home feed pool, vertical-first
+  aiTiers: [[],[],[]],   // AI player rotation tiers: [new-batch English, older English, non-English markers]
+  aiQueue: [], aiPos: 0, // AI player rotation queue (shuffled tiers, rebuilt each cycle)
   genreCount: {},        // genre -> count
   earlyList: [],         // early-release series
   earlyN: 0, aiN: 0, rebirthN: 0,
@@ -2711,18 +2713,31 @@ const IDX = {
 };
 function vcount(t){ return (t.episodes && t.episodes.length) ? t.episodes.filter(e=>e.verified).length : (t.vc || 0); }
 function epsN(t){ if(!t)return 0; if(t.episodes && t.episodes.length)return t.episodes.length; if(t.ec)return t.ec; const m=String(t.eps||"").match(/\d+/); return m?parseInt(m[0],10):0; } // slim-aware: the count lives on the slim record before episodes hydrate
+/* AI PLAYER ROTATION (his order 2026-11-08): "Title in English counts" — a
+   title counts as English when it carries no non-Latin script (no CJK /
+   Hangul / Kana / Cyrillic / Arabic / Devanagari). Tiers: [0] new-batch
+   (stv-78356–stv-79557) English-titled, [1] older English-titled,
+   [2] non-English markers. Verified 2026-11-08: 1202 / 881 / 67. */
+const AI_NONLATIN=/[\u0400-\u04FF\u3040-\u30FF\u4E00-\u9FFF\uAC00-\uD7AF\u0600-\u06FF\u0900-\u097F]/;
 function buildCatalogIndexes(){
   const rev = window.__catRev || 0;
   if(IDX.rev === rev) return;
   IDX.byId.clear(); IDX.vertPool.length = 0; IDX.sorted.clear();
   IDX.genreCount = {}; IDX.earlyList = [];
   IDX.homePool = []; IDX.homeVertPool = []; // Home feed: 5+ verified episodes only (his law)
+  IDX.aiTiers = [[],[],[]]; IDX.aiQueue = []; IDX.aiPos = 0;
   IDX.earlyN = 0; IDX.aiN = 0; IDX.rebirthN = 0; IDX.onlyShortzN = 0; IDX.awardN = 0; IDX.trekN = 0;
   for(let i = 0; i < C.length; i++){
     const t = C[i];
     IDX.byId.set(t.id, t);
     if(t.genre) IDX.genreCount[t.genre] = (IDX.genreCount[t.genre] || 0) + 1;
     if(t.ai_made === true) IDX.aiN++;
+    if(t.ai_made === true){
+      const nid=parseInt(String(t.id).split("-")[1]||"0",10);
+      const isNew=nid>=78356&&nid<=79557;
+      const nonEng=AI_NONLATIN.test(t.title||"");
+      IDX.aiTiers[isNew&&!nonEng?0:(!nonEng?1:2)].push(t);
+    }
     if(t.rebirth === true) IDX.rebirthN++;
     if(t.onlyShortz === true) IDX.onlyShortzN++;
     if(t.award_verified) IDX.awardN++;
@@ -2944,7 +2959,7 @@ function showErrorCard(node,vid,code){
   const nextBtn=card.querySelector("[data-err-next]");
   if(nextBtn)nextBtn.onclick=()=>{
     card.style.display="none";
-    try{ if(typeof pickRandom==="function"&&typeof playSeries==="function")playSeries(pickRandom(t)); }catch(e){}
+    try{ if(typeof pickRandom==="function"&&typeof playSeries==="function")playSeries(pickRandom(t,"ai")); }catch(e){}
   };
 }
 function hideErrorCard(node){
@@ -5040,6 +5055,12 @@ let velSamples=[];
 let snapAnim=false, suppressClick=false, skipMouseUntil=0;
 function isVertMain(t){
   // true when the series' main video is natively vertical (9:16) — cached on t._vmain.
+  // AI PLAYER (his order 2026-11-08): AI-made titles open already fitted to
+  // the vertical screen. The ingest never flagged them vertical (only 20 of
+  // 2150 carry the flag), so without this they open letterboxed. A horizontal
+  // AI video in the vertical frame renders the same size as Fit today; a
+  // vertical one fills the screen.
+  if(t&&t.ai_made===true){ t._vmain=true; return true; }
   if(t._vmain!==undefined)return t._vmain;
   if(t.vm!==undefined){ t._vmain=!!t.vm; return t._vmain; } // slim precompute (Piece 1 stage B)
   let v=!!t.vertical;
@@ -5097,7 +5118,41 @@ function freshScore(t,recentGenres,taste){
   try{ if(isVertMain(t))s+=0.5; }catch(e){}                 // vertical fills the screen
   return s;
 }
-function pickRandom(exceptId){
+/* AI PLAYER ROTATION queue (his order 2026-11-08): tier-ordered walk —
+   all of tier 0 (new-batch English-titled), then tier 1 (older
+   English-titled), then tier 2 (non-English markers), each tier shuffled;
+   when all three are exhausted the tiers reshuffle and the cycle restarts.
+   The queue is session-local; nothing is persisted except the shared seen
+   list (same cap + debounced write as pickRandom). */
+function aiQueueBuild(){
+  const sh=a=>{ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=(Math.random()*(i+1))|0; const tmp=a[i]; a[i]=a[j]; a[j]=tmp; } return a; };
+  IDX.aiQueue=sh(IDX.aiTiers[0]).concat(sh(IDX.aiTiers[1]),sh(IDX.aiTiers[2]));
+  IDX.aiPos=0;
+}
+function pickAiNext(exceptId){
+  if(!IDX.aiQueue.length)aiQueueBuild();
+  if(!IDX.aiQueue.length)return null;
+  let guard=0;
+  while(guard++<IDX.aiQueue.length+2){
+    if(IDX.aiPos>=IDX.aiQueue.length)aiQueueBuild(); // cycle done — reshuffle, start over
+    const t=IDX.aiQueue[IDX.aiPos++];
+    if(t&&t.id!==exceptId)return t;
+  }
+  return null;
+}
+function pickRandom(exceptId,mode){
+  // AI PLAYER (his order 2026-11-08): inside the player stage, every next
+  // video comes from the AI rotation — tier-ordered, never the home pool.
+  if(mode==="ai"){
+    const a=pickAiNext(exceptId);
+    if(a){
+      seen.push(a.id); if(seen.length > 1000)seen.splice(0, seen.length - 1000);
+      clearTimeout(pickRandom._st);
+      pickRandom._st = setTimeout(()=>{ try{ store.set("seen",seen); }catch(e){} }, 2000);
+      return a;
+    }
+    // AI queue empty (catalog not loaded yet) — fall through to the standard pool.
+  }
   // O(1) amortized: precomputed pools, no regex, no full scan.
   // (Home feed prefers natively-vertical series so video fills the screen.)
   // HIS LAW: Home only ever shows series with 5+ verified episodes.
@@ -6021,7 +6076,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1794107301";
+const BUILD="1794182281";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -6947,7 +7002,7 @@ function playSeries(t){
   try{ fitSticky=!((t.orientation==="vertical")||isVertMain(t)); }catch(e){}
   try{cfEnterStage();}catch(e){} // NEW HOME: playing a title opens the stage over the card feed
   try{if(feedMounted&&slotNodes[1])saveProg(slotNodes[1])}catch(e){}
-  const nx=pickRandom(t.id);
+  const nx=pickRandom(t.id,"ai");
   feedStack=[t,nx];feedPos=0;
   feed.cur=t;feed.curEp=null;
   const track=$("#feedTrack");
@@ -6964,7 +7019,7 @@ function advanceAnimated(dir){
   const stage=$("#feedStage"),track=$("#feedTrack"),H=stage.clientHeight;
   if(snapAnim)return;
   if(dir>0){
-    const nx=(slotNodes[2]&&slotNodes[2]._t)||pickRandom(feed.cur&&feed.cur.id);
+    const nx=(slotNodes[2]&&slotNodes[2]._t)||pickRandom(feed.cur&&feed.cur.id,"ai");
     feedStack[feedPos+1]=nx;
     feedPos++;
     snapAnim=true;track.classList.add("anim");
@@ -6991,7 +7046,7 @@ function commitSnap(dir){
     feed.cur=feedStack[feedPos];
     fillSlide(nC,feedStack[feedPos-1]||null,feedStack[feedPos-1]?"unload":"blank");
     fillSlide(nN,feed.cur,"current");
-    const nn=pickRandom(feed.cur.id);
+    const nn=pickRandom(feed.cur.id,"ai");
     feedStack[feedPos+1]=nn;
     fillSlide(nP,nn,"preload");
   }else{
@@ -10197,10 +10252,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1794107301"></script>
+<script src="js/folders.js?v=1794182281"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1794107301"></script>
+<script src="js/guide.js?v=1794182281"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -11012,10 +11067,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1794107301"></script>
-<script src="js/shortz-live.js?v=1794107301"></script>
-<script src="js/games.js?v=1794107301"></script>
-<script src="js/podcasts.js?v=1794107301"></script>
+<script src="js/streaming.js?v=1794182281"></script>
+<script src="js/shortz-live.js?v=1794182281"></script>
+<script src="js/games.js?v=1794182281"></script>
+<script src="js/podcasts.js?v=1794182281"></script>
 <script>
 
 
@@ -11533,7 +11588,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1794107301"></script>
+<script src="js/swipe.js?v=1794182281"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -13768,8 +13823,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1794107301"></script>
-<script src="js/agent.js?v=1794107301"></script>
+<script src="js/live-sports.js?v=1794182281"></script>
+<script src="js/agent.js?v=1794182281"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
