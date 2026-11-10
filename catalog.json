@@ -4406,7 +4406,8 @@
     "kind": "episode"
    }
   ],
-  "episodes_note": "No official playlist; EP1-EP3 found on Fey Earth channel uploads."
+  "episodes_note": "No official playlist; EP1-EP3 found on Fey Earth channel uploads.",
+  "legacies": true
  },
  {
   "id": "stv-083",
@@ -4446,7 +4447,8 @@
     "kind": "episode"
    }
   ],
-  "episodes_note": "All 3 episodes from the creators' channel uploads (matches catalog '3 eps'). The official 'Something Wicked' playlist (PLaPb7XJjOxFjC0vqk0NlurBDE5oagvBGf) is promo/BTS only and does not contain the episodes."
+  "episodes_note": "All 3 episodes from the creators' channel uploads (matches catalog '3 eps'). The official 'Something Wicked' playlist (PLaPb7XJjOxFjC0vqk0NlurBDE5oagvBGf) is promo/BTS only and does not contain the episodes.",
+  "legacies": true
  },
  {
   "id": "stv-084",
@@ -4655,7 +4657,8 @@
    }
   ],
   "episodes_note": "11 saga installments verified; official trailer excluded; episodes not numbered on source (listed in playlist order).",
-  "episodes_playlist": "PLXOS-GzRny0k"
+  "episodes_playlist": "PLXOS-GzRny0k",
+  "legacies": true
  },
  {
   "id": "stv-087",
@@ -4762,7 +4765,8 @@
    }
   ],
   "episodes_note": "Playlist validated (contains known video). 9-episode Shorts arc; EP3-EP9 numbered by playlist order (only EP1/EP2 explicitly numbered in titles); series ongoing.",
-  "episodes_playlist": "PLJ20d7wJ9JesA_uU-RnMxUlrp_PKDxevM"
+  "episodes_playlist": "PLJ20d7wJ9JesA_uU-RnMxUlrp_PKDxevM",
+  "legacies": true
  },
  {
   "id": "stv-088",
@@ -5650,7 +5654,8 @@
     "kind": "episode"
    }
   ],
-  "episodes_note": "108 numbered episodes (S1-S3, all oEmbed-verified) + 1 Christmas special. Season 0 not found on official KindaTV source."
+  "episodes_note": "108 numbered episodes (S1-S3, all oEmbed-verified) + 1 Christmas special. Season 0 not found on official KindaTV source.",
+  "legacies": true
  },
  {
   "id": "stv-089",
@@ -8280,7 +8285,8 @@
     "kind": "episode"
    }
   ],
-  "episodes_note": "Episode 1, Episode 2 + verified Prologue (special); blooper reel excluded."
+  "episodes_note": "Episode 1, Episode 2 + verified Prologue (special); blooper reel excluded.",
+  "legacies": true
  },
  {
   "id": "stv-1020",
@@ -14328,7 +14334,8 @@
     "vertical": true
    }
   ],
-  "episodes_note": "All 53 episodes (EP1-EP53) found in the channel's 'Full Series' playlist, all vertical and embeddable."
+  "episodes_note": "All 53 episodes (EP1-EP53) found in the channel's 'Full Series' playlist, all vertical and embeddable.",
+  "legacies": true
  },
  {
   "id": "stv-1190",
@@ -17480,7 +17487,8 @@
     "vertical": true
    }
   ],
-  "episodes_note": "5/5 oEmbed-verified and stream-dimension-verified vertical (1080x1920). Episode organization on-channel is fragmented: EP1-4 exists only as one compilation video; EP5-11 not located; EP12-15 verified individually. Treat EP1-4 entry as a part."
+  "episodes_note": "5/5 oEmbed-verified and stream-dimension-verified vertical (1080x1920). Episode organization on-channel is fragmented: EP1-4 exists only as one compilation video; EP5-11 not located; EP12-15 verified individually. Treat EP1-4 entry as a part.",
+  "legacies": true
  },
  {
   "id": "stv-1290",
@@ -21041,7 +21049,8 @@
     "vertical": true
    }
   ],
-  "episodes_note": "EP2 not found on the channel; a second EP1 upload with the identical title (qqLeUf24WDo) exists — kept the first upload."
+  "episodes_note": "EP2 not found on the channel; a second EP1 upload with the identical title (qqLeUf24WDo) exists — kept the first upload.",
+  "legacies": true
  },
  {
   "id": "stv-1410",
@@ -21875,7 +21884,8 @@
     "vertical": true
    }
   ],
-  "episodes_note": "Canonical EP1-EP8. Alternate EP6 upload 'She Was Told to Run... But She Chose to Fight' (Qew9z0yvNYM) and teaser 'She couldn't escape the Alpha' (woLY27PZ1fM) excluded."
+  "episodes_note": "Canonical EP1-EP8. Alternate EP6 upload 'She Was Told to Run... But She Chose to Fight' (Qew9z0yvNYM) and teaser 'She couldn't escape the Alpha' (woLY27PZ1fM) excluded.",
+  "legacies": true
  },
  {
   "id": "stv-1440",
@@ -22654,7 +22664,8 @@
     "vertical": true
    }
   ],
-  "episodes_note": "EP1-42 added 2026-10-06 (all verified vertical, embeddable, <=12 min). EP1-9 are the saga's horror intro arc ('The Door That Should Never Exist', labeled 'Horror AI Series' by the channel); the story transitions to the Aren/siren arc at EP10. EP53 not found on channel; duplicate uploads exist for EP54/EP55/EP57 (one kept per number). 'Last Episode: Mermaid's world - SEASON 2 IS COMING' kept as Finale."
+  "episodes_note": "EP1-42 added 2026-10-06 (all verified vertical, embeddable, <=12 min). EP1-9 are the saga's horror intro arc ('The Door That Should Never Exist', labeled 'Horror AI Series' by the channel); the story transitions to the Aren/siren arc at EP10. EP53 not found on channel; duplicate uploads exist for EP54/EP55/EP57 (one kept per number). 'Last Episode: Mermaid's world - SEASON 2 IS COMING' kept as Finale.",
+  "legacies": true
  },
  {
   "id": "stv-1450",
@@ -23126,7 +23137,8 @@
     "vertical": true
    }
   ],
-  "episodes_note": "Parts 1-6 not found on the channel; EP7-EP26 all vertical-verified."
+  "episodes_note": "Parts 1-6 not found on the channel; EP7-EP26 all vertical-verified.",
+  "legacies": true
  },
  {
   "id": "stv-1460",
@@ -23676,7 +23688,8 @@
     "vertical": true
    }
   ],
-  "episodes_note": "EP1 + EP2 in three parts (PT.1/PT.2/PART 3), all vertical-verified."
+  "episodes_note": "EP1 + EP2 in three parts (PT.1/PT.2/PART 3), all vertical-verified.",
+  "legacies": true
  },
  {
   "id": "stv-1480",
@@ -25150,7 +25163,8 @@
     "vertical": true
    }
   ],
-  "episodes_note": "Three-part run, all vertical-verified."
+  "episodes_note": "Three-part run, all vertical-verified.",
+  "legacies": true
  },
  {
   "id": "stv-1530",
@@ -48810,7 +48824,8 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "Public YouTube embed"
+  "rights_basis": "Public YouTube embed",
+  "legacies": true
  },
  {
   "id": "stv-1649",
@@ -48833,7 +48848,8 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "Public YouTube embed"
+  "rights_basis": "Public YouTube embed",
+  "legacies": true
  },
  {
   "id": "stv-165",
@@ -96124,7 +96140,8 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "Public YouTube embed"
+  "rights_basis": "Public YouTube embed",
+  "legacies": true
  },
  {
   "id": "stv-1876",
@@ -96233,7 +96250,8 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "Public YouTube embed"
+  "rights_basis": "Public YouTube embed",
+  "legacies": true
  },
  {
   "id": "stv-188",
@@ -97011,7 +97029,8 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "legacies": true
  },
  {
   "id": "stv-1890",
@@ -210823,7 +210842,8 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "legacies": true
  },
  {
   "id": "stv-2976",
@@ -211454,7 +211474,8 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "Public YouTube embed"
+  "rights_basis": "Public YouTube embed",
+  "legacies": true
  },
  {
   "id": "stv-3002",
@@ -230552,7 +230573,8 @@
     "kind": "episode"
    }
   ],
-  "rights_basis": "Public YouTube embed"
+  "rights_basis": "Public YouTube embed",
+  "legacies": true
  },
  {
   "id": "stv-3423",
@@ -235085,7 +235107,8 @@
     "vertical": false,
     "vertical_source": "episode completion 2026-10-07"
    }
-  ]
+  ],
+  "legacies": true
  },
  {
   "id": "stv-3590",
@@ -267212,7 +267235,8 @@
   ],
   "url": "https://www.youtube.com/watch?v=enxHsYXimWY",
   "eps": "1 ep",
-  "rights_basis": "Public YouTube embed"
+  "rights_basis": "Public YouTube embed",
+  "legacies": true
  },
  {
   "id": "stv-5032",
@@ -269795,7 +269819,8 @@
     "vertical": false,
     "vertical_source": "orientation unverified"
    }
-  ]
+  ],
+  "legacies": true
  },
  {
   "id": "stv-549",
@@ -346992,7 +347017,8 @@
   "eps": "1 ep",
   "desc": "Short film from Short of the Week (10 min).",
   "rights_basis": "Public YouTube embed",
-  "source_channel": "Short of the Week"
+  "source_channel": "Short of the Week",
+  "legacies": true
  },
  {
   "id": "stv-7998",
@@ -349866,7 +349892,8 @@
   ],
   "award": "Winner — Indie Series Award (2013), Best Web Series (Comedy)",
   "award_verified": true,
-  "dateAdded": "2026-10-12"
+  "dateAdded": "2026-10-12",
+  "legacies": true
  },
  {
   "id": "stv-8053",
@@ -350855,7 +350882,8 @@
   ],
   "award": "Nominee — Canadian Screen Award (2017), Best Original Program or Series, Fiction",
   "award_verified": false,
-  "dateAdded": "2026-10-12"
+  "dateAdded": "2026-10-12",
+  "legacies": true
  },
  {
   "id": "stv-8065",
@@ -351023,7 +351051,8 @@
   ],
   "award": "Nominee — Canadian Screen Award (2019), Best Web Program or Series, Fiction",
   "award_verified": false,
-  "dateAdded": "2026-10-12"
+  "dateAdded": "2026-10-12",
+  "legacies": true
  },
  {
   "id": "stv-8066",
@@ -352534,7 +352563,8 @@
   ],
   "award": "Winner — NZ Web Fest (2023), Best Show, Narrative Series (English Language)",
   "award_verified": true,
-  "dateAdded": "2026-10-12"
+  "dateAdded": "2026-10-12",
+  "legacies": true
  },
  {
   "id": "stv-8098",
@@ -355182,7 +355212,8 @@
   ],
   "award": "Winner — Best Comedy Series, Indie Series Awards 2015",
   "award_verified": true,
-  "dateAdded": "2026-10-13"
+  "dateAdded": "2026-10-13",
+  "legacies": true
  },
  {
   "id": "stv-8197",
@@ -368769,7 +368800,8 @@
   "desc": "LUZ is an ambulance driver. Her work brings her to discover the inert body of Dorothée. That’s when her dreams reveal the identity of the murderer: a malevolent woman who pursues her. There follows",
   "rights_basis": "Public YouTube embed",
   "source_channel": "KIS KIS - keep it short",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-8779",
@@ -401499,7 +401531,8 @@
   "desc": "Libby makes her living selling spells, fortunes and hexes to small-time criminals and drug runners, but her lifestyle is disrupted when a figure from her past reappears. \"Gutterwitch\" by Harry Baker Connect with the Filmmaker: More About \"Gutterwitch\": Libby makes her living selling spells, fortunes and hexes to local criminals and drug runners, with small-time crooks Cal and Ed providing security.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "ALTER",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-10202",
@@ -414241,7 +414274,8 @@
   "desc": "Fearful and avoidant of an inner voice, this movement film takes us on a journey that combines dance and",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Directors Notes",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-10756",
@@ -891330,7 +891364,8 @@
   "desc": "Forced to take a job delivering pizzas, Kenji dreads a dead-end life. But when he and his partner take a late call on his first night, he realizes what he should be dreading are the undead themselves.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Film Shortage",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-31502",
@@ -896873,7 +896908,8 @@
   "desc": "Fearful and avoidant of an inner voice, this movement film takes us on a journey that combines dance and",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Film Shortage",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-31743",
@@ -901795,7 +901831,8 @@
   "desc": "A werewolf thinks she has her life figured out until a late night chance encounter changes her mind SUBSCRIBE for Your Daily Dose of Inspiration ➠ @FilmShortage SUBMIT your film ➠",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Film Shortage",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-31957",
@@ -902002,7 +902039,8 @@
   "desc": "Tired of being bullied and ridiculed in the ruthless Witch World due to her kind and sensitive nature, young witch Donnie sets out to the world of human males hoping to find redemption in the form",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Film Shortage",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-31966",
@@ -902232,7 +902270,8 @@
   "desc": "A vampire finds a therapist to help him kick his blood addiction. A Film Shortage Selection Subscribe for Your Daily Dose of Inspiration @Film Shortage Or Inspire Others by Submitting Your film",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Film Shortage",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-31976",
@@ -949636,7 +949675,8 @@
   "desc": "Tabloid reporters Jack Harrison (Jeff Goldblum) and Gil Turner (Ed Begley Jr.) are sent to Transylvania with two options: find the Frankenstein monster or find new jobs. The two bumbling heroes are",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Movies",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-34037",
@@ -949682,7 +949722,8 @@
   "desc": "Based on H.P. Lovecraft's horror classic, this adaptation of \"The Dunwich Horror\" features monsters, cultists and cursed copies of the Necronomicon. With Dean Stockwell (\"Quantum Leap\"). Presented",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Movies",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-34039",
@@ -949728,7 +949769,8 @@
   "desc": "When a 300-year-old vampire (Tony Todd, \"Candyman\") hires a genetic scientist to research a cure to survive the sun, she inadvertently unleashes a scourge of vampires upon unsuspecting partiers in",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Movies",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-34041",
@@ -950533,7 +950575,8 @@
   "desc": "In this supernatural Scottish coming-of-age drama, an orphaned girl reeling from tragedy is banned from the community school, taunted by other children and branded as a \"witch's daughter.\"",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Movies",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-34076",
@@ -952856,7 +952899,8 @@
   "desc": "An American man unwittingly gets involved with French werewolves who have developed a serum allowing them to transform at will. Co-starring Julie Delpy.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Movies",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-34177",
@@ -1051471,7 +1051515,8 @@
   "desc": "The Sheriff Hunts A Monster Werewolf In A Small Town | Torn | Full Monster Movie 2026 - When a tormented father goes to a remote cabin in the woods to face his personal demons, he learns of the",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-37019",
@@ -1051701,7 +1051746,8 @@
   "desc": "A 1940s Criminal Turned Into A Immortal Vampire | Prisoner of the Dawn | Full Movie 2026 | Prisoner of the Dawn is a pulse-pounding supernatural action thriller that spans eight decades of dark",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-37029",
@@ -1053173,7 +1053219,8 @@
   "desc": "Brother Fights His Haunted Witch Sister | Witch Twins | Full 2025 Horror Sci-Fi Movie - Witch Twins follows Hansel as he faces a terrifying reality: his twin sister Gretel has fallen under a dark",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-37094",
@@ -1057083,7 +1057130,8 @@
   "desc": "A Vampire Must Hunt For Survival | The Last Nosferatu | Horror Thriller Ethan has been single for several months and has decided to meet people online. One night, he meets “Black Pearl,” whom he",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-37264",
@@ -1060027,7 +1060075,8 @@
   "desc": "He Became a Werewolf to Save His Life | Werewolf Serenade | Full Comedy Drama Movie When burnt-out college professor Peter MacTire accidentally becomes a werewolf, he and his concert cellist wife",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-37392",
@@ -1061062,7 +1061111,8 @@
   "desc": "Ambrogio: The First Vampire | 2025 Gothic Horror Romance | Vampire Love Movie A millennium old Vampire encounters a woman who resembles his long lost love. As well as dealing with a long time enemy",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-37437",
@@ -1065616,7 +1065666,8 @@
   "desc": "In the middle ages, Erik and Jason seek revenge against the Evil Red Queen for the death of the King and the devastation of their land. 2010. Stars: Luke Goss, Ed Speleers, Andrew Pleavin *Licensed",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-37635",
@@ -1071941,7 +1071992,8 @@
   "desc": "Beautiful, young Isabel is out on the town with friends. One too many is the least of her problems when she is saved from the clutches of a serial mugger by an ancient but gorgeous vampire, Aurelie-",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-37910",
@@ -1074609,7 +1074661,8 @@
   "desc": "Mark of the Witch - A beautiful young woman is driven into a dark underworld of demonic possession, desire, and extreme indulgences when she learns she may be the devil's daughter. 2014. Stars",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-38029",
@@ -1077852,7 +1077905,8 @@
   "desc": "Two filmmakers and an ex-cop investigate the disappearance of a young girl that is rumored to have been abducted by a witch in the haunted woods of Connecticut. 2022. Stars: Caite Basdeo",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-38172",
@@ -1085580,7 +1085634,8 @@
   "desc": "Blood From Stone - Starting over in a new life, Darya struggles to overcome her curse of being turned a vampire by Jure. For Jure, he feels the weight of immortality crushing him and burdened by the",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-38515",
@@ -1091031,7 +1091086,8 @@
   "desc": "Kiss Of The Vampire (Immortally Yours) - A coven of Sexy, modern Day vampires ravage the American Midwest with the thirst for blood, while a romantic twist puts the vampires at odds among themselves",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Movie Central",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-38763",
@@ -1100877,7 +1100933,8 @@
   "desc": "Driven by her fear of death, Victoria hunts a mythical Witch, determined to steal her book that grants eternal life-but at a sinister price. Starring: Ian Cardoni, Krishna Smitha, Ali Williams",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Indie Rights Movies For Free",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-39203",
@@ -1101682,7 +1101739,8 @@
   "desc": "When the Chair of the Parapsychology Department at the Freestone School of the Arts turns up dead, burnt-out film professor Peter MacTire is asked to step in and complete his generously endowed",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Indie Rights Movies For Free",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-39238",
@@ -1105707,7 +1105765,8 @@
   "desc": "A burned-out ex-Navy SEAL and an emotionally-damaged firefighter work together as handymen in Tidewater Virginia. Things turn surreal when a simple renovation job becomes a journey to another world",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Indie Rights Movies For Free",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-39413",
@@ -1107156,7 +1107215,8 @@
   "desc": "With Halloween only hours away, the members of a popular podcast, The Witching Hour, gather to swap scary stories in the dark. But they bargain for more than just ratings when they venture to the",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Indie Rights Movies For Free",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-39476",
@@ -1133929,7 +1133989,8 @@
   "desc": "THE VELVET VAMPIRE | Cult, Horror, Cemetery Girls, Vampires A newlywed couple is delighted to be invited to spend some time",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-40644",
@@ -1135631,7 +1135692,8 @@
   "desc": "THE LAST MAN ON EARTH | Vincent Price | Sci-Fi, Horror, Vampires, Zombies, Drama When a disease turns all of humanity into",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-40718",
@@ -1135792,7 +1135854,8 @@
   "desc": "THE UNDEAD | Roger Corman, Dick Miller | B&W, Witches, Horror, MST3K A beautiful woman is sent back in time via hypnosis to",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-40725",
@@ -1136758,7 +1136821,8 @@
   "desc": "TEENAGE VAMPIRE | High School, Teen, Horror, Comedy, Cheerleaders Chase and Pam join the high school cheerleading squad in",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-40767",
@@ -1137517,7 +1137581,8 @@
   "desc": "BLACK SUNDAY | Mario Bava, Barbara Steele | Cult, Horror, Period Film, Giallo, Vampires, Witches A vengeful witch and her",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-40800",
@@ -1138690,7 +1138755,8 @@
   "desc": "SATURDAY THE 14th | Jeffrey Tambor | Comedy, Horror, Vampires, Parody, Spoof, Friday The 13th A family moves into a house",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-40851",
@@ -1140001,7 +1140067,8 @@
   "desc": "LITTLE VAMPIRE | Animation, Family, Fantasy, Vampires, Comic Books A friendship forms between a never-aging 10-year-old",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-40908",
@@ -1140461,7 +1140528,8 @@
   "desc": "WITCHES IN THE WOODS | Horror, Mystery, Thriller, Witches Jill, a tenacious college freshman, abandons her studies for an",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-40928",
@@ -1142554,7 +1142622,8 @@
   "desc": "NOSFERATU THE VAMPYRE | Klaus Kinski, Werner Herzog | Dracula, Horror, Vampires Count Dracula moves from Transylvania to",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41020",
@@ -1143382,7 +1143451,8 @@
   "desc": "COUNTESS DRACULA | Vampires, Hammer Films, Horror, Period Film In 17th-century Hungary, elderly widow Countess Elisabeth",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41056",
@@ -1144441,7 +1144511,8 @@
   "desc": "BAD MOON | Mariel Hemingway, Michael Pare | Werewolf, Dog, Horror Full, crescent, quarter... each is a Bad Moon for Ted",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41102",
@@ -1145131,7 +1145202,8 @@
   "desc": "SABRINA THE TEENAGE WITCH | Melissa Joan Hart | High School, Wiccan, Magic, Teen, Family, Fantasy, Black Cat, Comedy Before",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Shout! Studios",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41132",
@@ -1148305,7 +1148377,8 @@
   "desc": "Making a vampire movie in an abandoned mansion should have been simple. But when the full moon rises, the cast and crew discover that the old house already has a monster of its own. What begins as a",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41271",
@@ -1148696,7 +1148769,8 @@
   "desc": "A witch was sent to the gallows in 1640. Her revenge was only delayed. Kings of Horror presents Hag of Black Howe Moor, a supernatural witch horror movie where a brutal execution in England’s past",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41288",
@@ -1149041,7 +1149115,8 @@
   "desc": "Kings of Horror presents Bleeding Game, a wild supernatural horror comedy where cosmic darkness accidentally creates a very 1980s vampire problem. When an ambitious sorcerer summons three eldritch",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41303",
@@ -1149133,7 +1149208,8 @@
   "desc": "Mutant Vampires From Planet Neptune Five friends head to a secluded cabin for a weekend of partying, only to discover they are being hunted by a murderous alien vampire from beyond the stars. Packed with campy fun, practical effects, gore, and outrageous creature action, this retro-inspired horror comedy is perfect for fans of B-movies. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41307",
@@ -1149386,7 +1149462,8 @@
   "desc": "The Ecstasy Of Isabel Mann A troubled teenager is pulled into a terrifying world of violence, bloodlust, and supernatural obsession when she becomes entangled with a secret sect of day-walking vampires. As students begin disappearing and brutal murders spread through the nearby woods, two detectives uncover a nightmare growing beneath the surface of a quiet town.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41318",
@@ -1149501,7 +1149578,8 @@
   "desc": "The Gothfather In a shadowy world beyond imagination, The Gothfather rules a gothic empire built on blood and power. Alongside his loyal companions, Marie and Sofie, he controls everything from underground dealings to supernatural supply chains. But when rival Lord Emo sets his sights on the throne, betrayal, chaos, and dark humor collide in a battle for ultimate control. A stylish horror-comedy packed with bizarre characters, supernatural intrigue, and tongue-in-cheek darkness.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41323",
@@ -1149823,7 +1149901,8 @@
   "desc": "In the Light of the Moon After losing the love of his life, Anton becomes consumed by grief and desperation. Believing there may still be a way to save her, he takes a dangerous step—capturing Scarlet, the mysterious woman responsible, who harbors a dark secret of her own. Part human, part werewolf, Scarlet is driven by a haunting connection to love and loss. As Anton searches for answers, he is pulled deeper into a world where emotion and monstrosity collide.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41337",
@@ -1150260,7 +1150339,8 @@
   "desc": "#VampireMovie #ApocalypseHorror #EndOfTheWorld #FullMovie #kingsofhorror When a catastrophic impact on the moon triggers a global chain reaction, humanity is plunged into chaos as a full-scale",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41356",
@@ -1150329,7 +1150409,8 @@
   "desc": "#folkhorror #witchcraft #indiehorror #fullmovie #kingsofhorror Fear can turn a village against its own. As rumors of an approaching invasion spread, tension grips a remote village struggling to",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41359",
@@ -1150467,7 +1150548,8 @@
   "desc": "Count Drahoon welcomes horror actor, writer, and filmmaker Frank Dietz to Interviewed by a Vampire for an in-depth conversation about horror, filmmaking, and growing up a monster kid. In this exclusive horror interview, Frank discusses his new YouTube channel This Monstrous Life, his career working both in front of and behind the camera, and the lifelong passion that shaped his journey in genre filmmaking.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41365",
@@ -1150927,7 +1151009,8 @@
   "desc": "Bubba the Redneck Werewolf Meet the most lovable monster you’ll ever fear. Bubba the Redneck Werewolf unleashes backwoods chaos as a pack of rowdy hillbillies clash with supernatural evil in the town of Broken Taint. Equal parts splatter horror, outrageous comedy, and cult-movie insanity, Bubba proves you can be friendly, fuzzy, and still responsible for unbelievable carnage. Hosted by Graveyard Gil, this cult favorite is best enjoyed with a cold beer—or twenty.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41385",
@@ -1150973,7 +1151056,8 @@
   "desc": "Blood Orgy of the She-Devils Dive into classic occult horror with Blood Orgy of the She-Devils. Lorraine and Mark are drawn into a shadowy world of witchcraft, reincarnation, and prophecy when a mysterious seer reveals secrets of their past lives. As ritualistic murders begin to mount, they seek answers from a troubled doctor—only to uncover a deadly cult operating just beneath the surface.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41387",
@@ -1151019,7 +1151103,8 @@
   "desc": "The Immortal Hunters Set during World War II at the Battle of Turda, The Immortal Hunters blends vampire horror with wartime brutality. Lieutenant-Colonel Vladimir lies dying on the battlefield when he is saved by a mysterious female vampire—only to awaken bound to the ancient Tepesh bloodline. Now immortal and hunted by the relentless Cardinal Baldini, Vladimir is drawn into a secret war between faith, blood, and power. As history collides with myth, survival means embracing the darkness within.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41389",
@@ -1151434,7 +1151519,8 @@
   "desc": "Deadlines Down-and-out reporter Kyle Deeders stumbles upon a story that could resurrect his career — and destroy his life. When he discovers that a small-town vampire cult is feeding on the homeless, Kyle’s investigation turns into a desperate fight for survival. To save his fiancée and himself, he must expose the truth before he becomes the next victim. Dark secrets, blood-soaked conspiracies, and a reporter’s last chance at redemption. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41407",
@@ -1152906,7 +1152992,8 @@
   "desc": "Eat Local The eight remaining vampire overlords of Britain gather at a remote farmhouse for their once-every-50-years summit. But their plans for a peaceful (and possibly final) feast are interrupted when a group of heavily armed vampire slayers crash the party. What follows is a blood-soaked, bullet-riddled showdown filled with dark humor, sharp fangs, and even sharper wit. Eat Local delivers a uniquely British blend of horror, action, and comedy with plenty of gore, charm, and undead swagger.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41471",
@@ -1153044,7 +1153131,8 @@
   "desc": "The Night Sitter A con artist posing as a babysitter picks the wrong house to rob when a kid unleashes a trio of ancient witches. The Night Sitter delivers neon-lit scares, demonic energy, and horror-comedy with a throwback edge. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41477",
@@ -1153067,7 +1153155,8 @@
   "desc": "Living Among Us A documentary crew is granted unprecedented access to a group of vampires trying to live peacefully among humans—until they uncover a darker agenda. Living Among Us is a bloody, high-stakes found-footage thriller where curiosity could cost your life. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41478",
@@ -1153113,7 +1153202,8 @@
   "desc": "Blood Pageant In a cutthroat reality show competition, seven beautiful contestants battle for fame—but one is willing to do anything to win. With the help of a life coach and new age rituals, she gains an edge... but those positive affirmations quickly turn into demonic incantations. Blood Pageant is a twisted supernatural horror that blends beauty, ambition, and ancient evil into one unforgettable nightmare. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41480",
@@ -1153205,7 +1153295,8 @@
   "desc": "Vampire at Midnight In the 1980s, Los Angeles is rocked by a series of gruesome murders where victims are drained of their blood. Detective Roger Sutter investigates the case, leading him to Victor Radikoff, a sinister therapist with a deadly secret. As Sutter digs deeper, he uncovers a supernatural world that threatens to consume him. Vampire at Midnight is a gritty 1980s horror-thriller that blends detective noir with chilling vampire mythology for a thrilling ride.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41484",
@@ -1153320,7 +1153411,8 @@
   "desc": "The Naked Witch aka The Witchmaker A professor of paranormal science travels deep into the Louisiana swamps with his students to investigate a series of brutal murders targeting young women. But when a nosy reporter tags along and ancient secrets begin to surface, the group discovers they're not just facing folklore—they’re up against a powerful sorcerer and a satanic coven of witches with deadly intent.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41489",
@@ -1153389,7 +1153481,8 @@
   "desc": "The Candy Witch Two ghost hunters are summoned by a desperate family plagued by a violent spirit known only as The Candy Witch. But as they dig into the legend, they uncover dark secrets behind her origins—and realize this may be their most dangerous case yet. Time is running out, and bodies are piling up. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41492",
@@ -1153849,7 +1153942,8 @@
   "desc": "American Vampire Teenager Frankie thought he hit the jackpot—parents out of town, waves to catch, and a mysterious trio of beautiful Bohemian drifters crashing at his place. But things take a deadly turn when he discovers his new houseguests are actually vampires with a thirst for more than just fun in the sun.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41512",
@@ -1153872,7 +1153966,8 @@
   "desc": "The Night Is Young Nora is a vlogger looking for love until she meets a vampire named Celia, who is being hunted by a leather-clad group of vampire hunters. Nora and Celia race the clock to escape the hunters before the sun rises. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41513",
@@ -1154148,7 +1154243,8 @@
   "desc": "The Ones You Didn’t Burn After his father’s death, a young man returns to sell the family farm—only to meet two women who claim it was stolen from their ancestors, accused witches. As he digs deeper, he finds himself entangled in an occult conspiracy that destroyed his father…and now has its sights on him. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41525",
@@ -1154217,7 +1154313,8 @@
   "desc": "Morbid Colors After returning from another runaway trip, Myca is different—dangerously different. Her foster sister and bandmate, Devin, soon discovers the horrifying truth: Myca has an insatiable thirst for human blood. As they race across the Midwest searching for a cure, their bond is tested in a brutal fight for survival. ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41528",
@@ -1154378,7 +1154475,8 @@
   "desc": "#fullfilm #SupernaturalThriller #ObsidianCurse #KingsOfHorror Kings Of Horror Presents: Obsidian Curse After a mysterious encounter, a young woman becomes cursed—attracting supernatural threats from",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41535",
@@ -1154470,7 +1154568,8 @@
   "desc": "A. K. Tolstoy's A Taste of Blood After a ruthless vampire hunt, one family awaits the return of their loved one—but is he still human? Based on A.K. Tolstoy’s classic The Family of the Vourdalak, this haunting tale explores the moment between life and death… and the hunger that lingers beyond. What would YOU do if a loved one returned… but wasn’t the same? ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41539",
@@ -1154516,7 +1154615,8 @@
   "desc": "Aware of the Wolf Terry, a motivational speaker for the timid and fearful, helps his students unlock their inner power. But when they become \"aware of the wolf\" inside them, their transformations take a sinister turn. As newfound confidence spirals into uncontrolled aggression, Terry realizes he's unleashed something far more dangerous than he ever intended. Will they control the wolf—or will it control them? ‍ Follow Kings of Horror for more terrifying films: Turn on notifications!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41541",
@@ -1155298,7 +1155398,8 @@
   "desc": "Nosferatu: The 100th Anniversary Edition A vampire count ravages the countryside in this all-time silent horror movie classic. For its 100th anniversary, Nosferatu: A Symphony of Horrors, directed by F.W. Murnau and starring Max Schreck, has been given a brand-new score by innovative composer Hugh Doolan. This Figgis-West presentation of Nosferatu has been derived from the best available picture materials and has been restored to its original length. The new score is presented in stereophonic sound.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41575",
@@ -1155482,7 +1155583,8 @@
   "desc": "The Last Sleigh Ride When a group of indie filmmakers are ripped off by a crooked distributor, they set out on a mission of revenge, but quickly find themselves facing off against literal bloodsuckers in what becomes the ultimate battle of good vs evil featuring filmmakers, vampires, loan sharks and more! The Last Slay Ride is a holiday themed comedy/horror starring Elissa Dowling (Girl on The Third Floor) and Eileen Dietz (The Exorcist).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41583",
@@ -1155666,7 +1155768,8 @@
   "desc": "Kings of Horror presents Flee the Light, a chilling folk horror movie about witchcraft, possession, and the terrifying power of an ancient coven. Sisters Andra and Delfi travel to a remote town",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41591",
@@ -1155965,7 +1156068,8 @@
   "desc": "Dracula's Bride of Horror On the three nights of the super blood moon, Dracula and his blood-thirsty witches turn LA beaches into his killing zone as he stalks and seduces his voluptuous Bride of Horror through psychological and supernatural terrorism. Will she have the strength of will to resist his hypnotic power or will she join him as Queen of the Undead Realm?",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41604",
@@ -1156034,7 +1156138,8 @@
   "desc": "Hunter Haunted by demons real and imagined, a young homeless man grapples with the brutal cold of a Chicago winter and the truth of the supernatural figures that slaughtered his family to rise above being the victim and become the HUNTER. Kings of Horror on Social Media: If you are viewing on a mobile device, click on the white bell on our channel home page to turn on notifications about exciting new horror movies we are uploading!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41607",
@@ -1156218,7 +1156323,8 @@
   "desc": "Rutabaga \"Adrien, a young journalist, receives an assignment to cover the opening of a new guest house run by a mysterious couple named Mr. Pierre and Miss Agathe. Despite the pleasant surroundings, Adrien feels a subconscious force is at work in the house and with the help of Hélène, an employee of the couple, he sets out to uncover the evil secret at its heart.\" Kings of Horror on Social Media: If you are viewing on a mobile device, click on the white bell on our channel home page to turn on notifications about",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41615",
@@ -1156931,7 +1157037,8 @@
   "desc": "Witches' Well While researching her book on Scottish Witch trials, a popular Horror writer becomes the target of a relentless stalker, challenging her disbelief in the Paranormal in this suspenseful Found-Footage film. Kings of Horror on Social Media: If you are viewing on a mobile device, click on the white bell on our channel home page to turn on notifications about exciting new horror movies we are uploading!",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41646",
@@ -1158656,7 +1158763,8 @@
   "desc": "Frostbite Annika, a medical doctor, and her daughter Saga move to a small town in northern Sweden to work with her idol, geneticist Professor Gerhard Beckert. However, Beckert's sinister past in the SS soon catches up with him when a couple of pill-popping interns mistake an experimental vaccine for party drugs. Mayhem ensues as the town's teenagers succumb one by one to the mysterious virus.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41722",
@@ -1159714,7 +1159822,8 @@
   "desc": "Kings of Horror presents: Featuring a monster like no other, Bubba the Redneck Werewolf pits a host of riotous hillbillies against the forces of evil in the backwater town of Broken Taint. Never",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41768",
@@ -1160220,7 +1160329,8 @@
   "desc": "Documenting The Witch Path Three young documentary filmmakers find out about a place called 'The Witch Path'. It leads to a lake known as 'Witch Lake' where, in the 17th century, innocent women were drowned when they were accused of witchery. Today, the path and the lake are closed off. No one wants to answer why, but the filmmakers venture out to find a horrifying truth...",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41791",
@@ -1161439,7 +1161549,8 @@
   "desc": "A professor's son (Andrew Prine) opens the island tomb of a queen (Teresa Gimpera) buried alive by her husband in 1269. Follow us on:",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41845",
@@ -1161508,7 +1161619,8 @@
   "desc": "Traveling back to her hometown, a woman discovers a sleepy village that seems to be hiding a dark secret.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41848",
@@ -1162428,7 +1162540,8 @@
   "desc": "Celebrate Halloween with 10/31, a creepy horror anthology packed with five chilling tales from some of indie horror’s most exciting filmmakers. From masked killers and sinister tricksters to scarecrows, witches, and the things that lurk in the dark, this October nightmare offers a scare for every kind of horror fan. If you love anthology horror, Halloween movies, and indie fright films filled with seasonal atmosphere, 10/31 is the perfect late-night watch.",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Kings of Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-41889",
@@ -1171338,7 +1171451,8 @@
   "desc": "Visit the most haunted places and encounter the terrifying spirits who reside there. Spine chilling supernatural activity and terrifying phenomena in the strangest places. Shocking stories that will",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Gravitas UNEXPLAINED",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-42276",
@@ -1193765,7 +1193879,8 @@
   "desc": "Witchtrap full movie. Parapsychologists try to make an inn haunted by an evil witch's ghost safe for guests. Directed by Kevin Tenney Starring James W Quinn, Kathleen Bailey, Judy Tatum 1989 Edited",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Popcornflix",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-43251",
@@ -1194479,7 +1194594,8 @@
   "desc": "Blood Moon Full Movie. A stagecoach of travelers, a gunslinger and two outlaws arrive in a deserted mining town lit by the glow of a reddish full moon. As their worlds collide, they are hunted by a",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Popcornflix",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-43283",
@@ -1205693,7 +1205809,8 @@
   "desc": "When 12-year-old Clara is scratched by a mysterious, black cat, her world turns upside down. Soon after, Clara discovers that she can communicate with animals and that she belongs to a family of",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Janson TV - Free Movies & Shows",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-43773",
@@ -1206774,7 +1206891,8 @@
   "desc": "Frustrated housewife Leslie visits an animal shop to purchase a flea-collar. Not knowing the owner is a werewolf, she accepts his invitation to lunch and later to his apartment. With a bite to her",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Janson TV - Free Movies & Shows",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-43820",
@@ -1209005,7 +1209123,8 @@
   "desc": "Captain Kirk himself, William Shatner hosts the Full Moon Features Gothic Vampire tale VAMPIRE JOURNALS. See your favorite Full Moon movies in a way you have never seen them before - in the",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Full Moon Features",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-43917",
@@ -1214740,7 +1214859,8 @@
   "desc": "Horror feature film (1933) from archive.org's The Video Cellar Collection collection, 63 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "The Video Cellar Collection",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-44167",
@@ -1224471,7 +1224591,8 @@
   "desc": "Comedy feature film (1942) from archive.org's Comedy Films collection, 73 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Comedy Films",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-44590",
@@ -1235719,7 +1235840,8 @@
   "desc": "Drama feature film (1948) from archive.org's Miscellaneous Feature Films collection, 102 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Miscellaneous Feature Films",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-45079",
@@ -1240481,7 +1240603,8 @@
   "desc": "Horror feature film (1960) from archive.org's Science Fiction Films collection, 86 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Science Fiction Films",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-45286",
@@ -1241309,7 +1241432,8 @@
   "desc": "Horror feature film (1961) from archive.org's Sci-Fi / Horror collection, 83 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Sci-Fi / Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-45322",
@@ -1243173,7 +1243297,8 @@
   "desc": "Horror feature film (1973) from archive.org's Sci-Fi / Horror collection, 89 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Sci-Fi / Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-45404",
@@ -1243242,7 +1243367,8 @@
   "desc": "Horror feature film (1974) from archive.org's Sci-Fi / Horror collection, 90 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Sci-Fi / Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-45407",
@@ -1245957,7 +1246083,8 @@
   "desc": "Horror feature film from archive.org's Sci-Fi / Horror collection, 86 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Sci-Fi / Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-45525",
@@ -1249591,7 +1249718,8 @@
   "desc": "Horror feature film from archive.org's Sci-Fi / Horror collection, 90 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Sci-Fi / Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-45683",
@@ -1256492,7 +1256620,8 @@
   "desc": "Horror feature film from archive.org's Sci-Fi / Horror collection, 59 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Sci-Fi / Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-45983",
@@ -1257435,7 +1257564,8 @@
   "desc": "Sci-Fi feature film from archive.org's Sci-Fi / Horror collection, 60 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Sci-Fi / Horror",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-46024",
@@ -1258171,7 +1258301,8 @@
   "desc": "Comedy feature film from archive.org's Comedy Films collection, 74 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Comedy Films",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-46056",
@@ -1260126,7 +1260257,8 @@
   "desc": "Animated classic (1927) from archive.org's Felix collection, 7 min.",
   "rights_basis": "Public domain (archive.org)",
   "source_channel": "Felix",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-46141",
@@ -1427241,7 +1427373,8 @@
   "desc": "Uncle was a Vampire (1959) — a public-domain feature in color, presented by PizzaFlix.",
   "rights_basis": "published 1959 — renewal-era title in PizzaFlix PD catalog; renewal lapses are the standard basis for this catalog class",
   "source_channel": "PizzaFlix",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52654",
@@ -1427448,7 +1427581,8 @@
   "desc": "Witches (1961) — a public-domain feature in color, presented by PizzaFlix.",
   "rights_basis": "published 1961 — renewal-era title in PizzaFlix PD catalog; renewal lapses are the standard basis for this catalog class",
   "source_channel": "PizzaFlix",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52663",
@@ -1432140,7 +1432274,8 @@
   "desc": "Title: THE WITCHES OF DUMPLING FARM (aka WICKED WITCHES) Certificate: TV-MA horror movies best movies 2026 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52867",
@@ -1432439,7 +1432574,8 @@
   "desc": "Title: MONSTER WEREWOLF Certificate: TV-MA horror movies best movies 2026 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52880",
@@ -1432784,7 +1432920,8 @@
   "desc": "Title: THE WITCHING Certificate: TV-MA horror movies best movies 2026 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52895",
@@ -1433244,7 +1433381,8 @@
   "desc": "Title: THE KISS OF A VAMPIRE Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52915",
@@ -1433727,7 +1433865,8 @@
   "desc": "Title: BLACK WATER VAMPIRE Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52936",
@@ -1434164,7 +1434303,8 @@
   "desc": "Title: CURSE OF THE WITCHING TREE Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52955",
@@ -1435015,7 +1435155,8 @@
   "desc": "Title: XANE: THE VAMPIRE GOD Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-52992",
@@ -1436372,7 +1436513,8 @@
   "desc": "Title: RETURN OF THE SALEM WITCH Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53051",
@@ -1438099,7 +1438241,8 @@
   "desc": "Title: THEY WERE WITCHES Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53126",
@@ -1438352,7 +1438495,8 @@
   "desc": "Title: AMITYVILLE WITCHES Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53137",
@@ -1440905,7 +1441049,8 @@
   "desc": "Title: WEREWOLF SANTA Certificate: 16 (reedit safe) Partner rating: S V F More full Horror stories: Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. Tags: horror movies best movies 2025 English",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53248",
@@ -1442216,7 +1442361,8 @@
   "desc": "Title: MARK OF THE WITCH Certificate: 16 (reedit safe) Partner rating: S V F SUPPORTING our channel monthly starting at 1,99 $. Get extra videos and hugs. Cancel anytime. More full Horror stories: Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. Tags: horror movies best movies 2024 english",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53305",
@@ -1443458,7 +1443604,8 @@
   "desc": "Title: REEL NIGHTMARE: BOOK OF WITCHCRAFT Certificate: 16 (reedit safe) Partner rating: S V F SUPPORTING our channel monthly starting at 1,99 $. Get extra videos and hugs. Cancel anytime. More full Horror stories: Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. Tags: horror movies best movies 2023 english",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53359",
@@ -1443872,7 +1444019,8 @@
   "desc": "Title: GRAVE OF THE VAMPIRE: SEED OF TERROR Certificate: 16 (reedit safe) Partner rating: S V F SUPPORTING our channel monthly starting at 1,99 $. Get extra videos and hugs. Cancel anytime. More full Horror stories: Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. Tags: horror movies best movies 2023 english",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53377",
@@ -1444033,7 +1444181,8 @@
   "desc": "Title: WITCH HOUSE: THE LEGEND OF BLACK HOWE MOOR Certificate: 16 (reedit safe) Partner rating: S V F SUPPORTING our channel monthly starting at 1,99 $. Get extra videos and hugs. Cancel anytime. More full Horror stories: Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. Tags: horror movies best movies 2022 english",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53384",
@@ -1444217,7 +1444366,8 @@
   "desc": "Title: THE BEAST OF BRAY ROAD: WEREWOLF OF WISCONSIN Certificate: 16 (reedit safe) Partner rating: S V F SUPPORTING our channel monthly starting at 1,99 $. Get extra videos and hugs. Cancel anytime. More full Horror stories: Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. Tags: horror movies best movies 2022 english",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53392",
@@ -1444493,7 +1444643,8 @@
   "desc": "Title: VAMPIRE HOOKERS: LURE BEAUTIES Writers: Howard R. Cohen (screenplay) Stars: John Carradine, Bruce Fairbairn, Trey Wilson… Year produced: 1978 Certificate: TV-MA SUPPORTING our channel monthly starting at 1,99 $. Get extra videos and hugs. Cancel anytime. More full Horror stories: Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. Tags: horror movies best movies 2021 english",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53404",
@@ -1444930,7 +1445081,8 @@
   "desc": "Title: WAY OF THE VAMPIRE Stars: Rhett Giles, Andreas Beckett, Paul Logan Year produces: 2005 Certificate: TV-MA More full Horror stories: Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. Tags: horror movies english best movies 2020 english",
   "rights_basis": "Distributor-posted full feature — Watch Movies Now! official YouTube upload, public embed",
   "source_channel": "Watch Movies Now!",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53423",
@@ -1447138,7 +1447290,8 @@
   "desc": "Title: WITCHES' WELL Certificate: TV-MA More full HORROR stories Horror THRILLER sci-fi movies intense english best movies 2025 English full HD action",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53519",
@@ -1448610,7 +1448763,8 @@
   "desc": "Title: THE WITCH: REVENGE Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53583",
@@ -1448817,7 +1448971,8 @@
   "desc": "Title: WEREWOLF MASSACRE Certificate: TV-MA sci-fi movies english best movies 2025 English full HD action",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53592",
@@ -1449875,7 +1450030,8 @@
   "desc": "Title: WITCH OF THE WOOD Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53638",
@@ -1450151,7 +1450307,8 @@
   "desc": "Title: CALEB: VILLAGE OF THE VAMPIRE Certificate: TV-MA horror movies best movies 2025 English thriller drama full HD",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53650",
@@ -1450565,7 +1450722,8 @@
   "desc": "Title: VAMPIRE ATTACK Certificate: TV-MA More full HORROR stories Horror THRILLER sci-fi movies intense english best movies 2025 English full HD action",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53668",
@@ -1450634,7 +1450792,8 @@
   "desc": "Title: SALEM WITCH DOLL Certificate: TV-MA More full HORROR stories Horror THRILLER sci-fi movies intense english best movies 2025 English full HD action",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53671",
@@ -1451301,7 +1451460,8 @@
   "desc": "Title: TROPICAL VAMPIRE Certificate: TV-MA More full HORROR stories Horror THRILLER sci-fi movies intense english best movies 2025 English full HD action",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53700",
@@ -1452060,7 +1452220,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53733",
@@ -1452267,7 +1452428,8 @@
   "desc": "Title: THE VAMPIRE CONSPIRACY Certificate: TV-MA Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. MORE ENGLISH TITLES: Tags: sci-fi movies english best movies 2025 English \"",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53742",
@@ -1452428,7 +1452590,8 @@
   "desc": "Title: JESUS CHRIST VAMPIRE HUNTER Certificate: TV-MA Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. MORE ENGLISH TITLES: Tags: sci-fi movies english best movies 2025 English \"",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53749",
@@ -1452635,7 +1452798,8 @@
   "desc": "Title: CONJURING THE DEAD: VALLEY OF THE WITCH Certificate: TV-MA Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. MORE ENGLISH TITLES: Tags: sci-fi movies english best movies 2025 English \"",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53758",
@@ -1453302,7 +1453466,8 @@
   "desc": "Title: WITCHING HOUR II: POSSESSION TIME Certificate: TV-MA Every week a new breathtaking documentary about the most remote places in the world and their rarest animal inhabitants. MORE ENGLISH TITLES: Tags: sci-fi movies english best movies 2024 English \"",
   "rights_basis": "Distributor-posted full feature — WATCH HORROR MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH HORROR MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53787",
@@ -1455832,7 +1455997,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH THRILLER MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH THRILLER MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53897",
@@ -1456108,7 +1456274,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH THRILLER MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH THRILLER MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-53909",
@@ -1468413,7 +1468580,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH DRAMA MOVIES NOW official YouTube upload, public embed",
   "source_channel": "WATCH DRAMA MOVIES NOW",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-54444",
@@ -1473220,7 +1473388,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH NOW - SCI-FI & FANTASY official YouTube upload, public embed",
   "source_channel": "WATCH NOW - SCI-FI & FANTASY",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-54653",
@@ -1474094,7 +1474263,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH NOW - SCI-FI & FANTASY official YouTube upload, public embed",
   "source_channel": "WATCH NOW - SCI-FI & FANTASY",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-54691",
@@ -1474623,7 +1474793,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH NOW - SCI-FI & FANTASY official YouTube upload, public embed",
   "source_channel": "WATCH NOW - SCI-FI & FANTASY",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-54714",
@@ -1475037,7 +1475208,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH NOW - SCI-FI & FANTASY official YouTube upload, public embed",
   "source_channel": "WATCH NOW - SCI-FI & FANTASY",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-54732",
@@ -1475244,7 +1475416,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH NOW - SCI-FI & FANTASY official YouTube upload, public embed",
   "source_channel": "WATCH NOW - SCI-FI & FANTASY",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-54741",
@@ -1476026,7 +1476199,8 @@
   "desc": "",
   "rights_basis": "Distributor-posted full feature — WATCH NOW - SCI-FI & FANTASY official YouTube upload, public embed",
   "source_channel": "WATCH NOW - SCI-FI & FANTASY",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-54775",
@@ -1549066,7 +1549240,8 @@
   "eps": "1 ep",
   "desc": "Three terrifying investigations. Three supernatural nightmares. One massive three-way WAR. Which movie leaves the biggest mark when the cameras finally stop rolling? ️ THE WAR: The Blair Witch Project vs. Noroi: The Curse vs. Paranormal Activity ️ LIST OF DOOM: Top 5 Paranormal Moments in Media HORRORS OF GAMING: Phasmophobia (2020) — Still worth playing? THE END: WWE Money in the Bank predictions + NFL Week 5 predictions Stay until the end for the SECRET WORD and put it in the comments!",
   "rights_basis": "Distributor-posted official upload — Kings of Horror, public YouTube embed",
-  "source_channel": "Kings of Horror"
+  "source_channel": "Kings of Horror",
+  "legacies": true
  },
  {
   "id": "stv-58013",
@@ -1550276,7 +1550451,8 @@
   "eps": "1 ep",
   "desc": "Those Darn Vampires ‍ Follow Kings of Horror for more terrifying films: Turn on notifications! Never miss a new horror upload—tap the on our channel homepage!",
   "rights_basis": "Distributor-posted official upload — Kings of Horror, public YouTube embed",
-  "source_channel": "Kings of Horror"
+  "source_channel": "Kings of Horror",
+  "legacies": true
  },
  {
   "id": "stv-58068",
@@ -1550518,7 +1550694,8 @@
   "eps": "1 ep",
   "desc": "Horror feature (Kings of Horror).",
   "rights_basis": "Distributor-posted official upload — Kings of Horror, public YouTube embed",
-  "source_channel": "Kings of Horror"
+  "source_channel": "Kings of Horror",
+  "legacies": true
  },
  {
   "id": "stv-58079",
@@ -1551002,7 +1551179,8 @@
   "eps": "1 ep",
   "desc": "A modern day urban fantasy drama, Tabitha, Witch of the Order is a cop show with witches. A nerdy rookie witch-cop teams up with a grizzled priest to stop a coven of rogue witches. If you are viewing on a mobile device, click on the white bell on our channel home page to turn on notifications about exciting new horror movies we are uploading!",
   "rights_basis": "Distributor-posted official upload — Kings of Horror, public YouTube embed",
-  "source_channel": "Kings of Horror"
+  "source_channel": "Kings of Horror",
+  "legacies": true
  },
  {
   "id": "stv-58101",
@@ -1552498,7 +1552676,8 @@
   "eps": "1 ep",
   "desc": "A 17th-century witch uses her craft to transport herself to the 20th century. She brings spine-chilling terror to the present-day occupants of the old farmhouse in which she lived. Hammer House Of Horror features appearances by Peter Cushing, Brian Cox, Pierce Brosnan, Nicholas Ball, Anna Calder-Marshall, Christopher Cazenove, Denholm Elliott, Jon Finch, Julia Foster, Barbara Kellerman, Leigh Lawson, Ray Lonnen, and more. Presented by Radial Entertainment Shout!",
   "rights_basis": "Distributor-posted official upload — Shout! Studios, public YouTube embed",
-  "source_channel": "Shout! Studios"
+  "source_channel": "Shout! Studios",
+  "legacies": true
  },
  {
   "id": "stv-58169",
@@ -1584530,7 +1584709,8 @@
   "eps": "1 ep",
   "desc": "Hindi-language feature (Ultra Bollywood).",
   "rights_basis": "Ultra Bollywood (distributor) official YouTube upload — public embed",
-  "source_channel": "Ultra Bollywood"
+  "source_channel": "Ultra Bollywood",
+  "legacies": true
  },
  {
   "id": "stv-59792",
@@ -1587654,7 +1587834,8 @@
   "eps": "1 ep",
   "desc": "Underground raves hide deadly disappearances. A troubled detective uncovers vampires hunting partygoers, is bitten, disbelieved, and must face the nightmare before losing his mind. Genre : Full Movie 2025, New Movie 2025, Cinema © 2025 - All Rights Reserved",
   "rights_basis": "Channel-posted upload — Boxoffice | NEW Full Movies in English; rights claim spot-checked (see dump4_summary.md Boxoffice verdict)",
-  "source_channel": "Boxoffice | NEW Full Movies in English"
+  "source_channel": "Boxoffice | NEW Full Movies in English",
+  "legacies": true
  },
  {
   "id": "stv-59934",
@@ -1591724,7 +1591905,8 @@
   "eps": "1 ep",
   "desc": "Feature film (Boxoffice).",
   "rights_basis": "Channel-posted upload — Boxoffice | NEW Full Movies in English; rights claim spot-checked (see dump4_summary.md Boxoffice verdict)",
-  "source_channel": "Boxoffice | NEW Full Movies in English"
+  "source_channel": "Boxoffice | NEW Full Movies in English",
+  "legacies": true
  },
  {
   "id": "stv-60119",
@@ -1592582,7 +1592764,8 @@
   "eps": "1 ep",
   "desc": "Feature film (Boxoffice).",
   "rights_basis": "Channel-posted upload — Boxoffice | NEW Full Movies in English; rights claim spot-checked (see dump4_summary.md Boxoffice verdict)",
-  "source_channel": "Boxoffice | NEW Full Movies in English"
+  "source_channel": "Boxoffice | NEW Full Movies in English",
+  "legacies": true
  },
  {
   "id": "stv-60158",
@@ -1593220,7 +1593403,8 @@
   "eps": "1 ep",
   "desc": "Feature film (Boxoffice).",
   "rights_basis": "Channel-posted upload — Boxoffice | NEW Full Movies in English; rights claim spot-checked (see dump4_summary.md Boxoffice verdict)",
-  "source_channel": "Boxoffice | NEW Full Movies in English"
+  "source_channel": "Boxoffice | NEW Full Movies in English",
+  "legacies": true
  },
  {
   "id": "stv-60187",
@@ -1598456,7 +1598640,8 @@
   "eps": "1 ep",
   "desc": "Feature film (Boxoffice).",
   "rights_basis": "Channel-posted upload — Boxoffice | THRILLERS | Full Movies; rights claim spot-checked (see dump4_summary.md Boxoffice verdict)",
-  "source_channel": "Boxoffice | THRILLERS | Full Movies"
+  "source_channel": "Boxoffice | THRILLERS | Full Movies",
+  "legacies": true
  },
  {
   "id": "stv-60425",
@@ -1851235,7 +1851420,8 @@
   "desc": "Lecture 4 - From Science to Sorcery: Why Witchcraft Appeals More Than Science, this lecture explains why the postmodern West is more interested in Harry Potter than Isaac Newton. This series is based ",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Vision Video",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-71736",
@@ -1912573,7 +1912759,8 @@
   "desc": "Sabrina the Animated Series 109 - Extreme Harvey | HD | Full Episiode ► Click to Subscribe to Sabrina: Meet Sabrina Spellman, a cute twelve year-old with a big heart and an even bigger secret. Determi",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Sabrina The Teenage Witch - WildBrain",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-73062",
@@ -1930206,7 +1930393,8 @@
     "platform": "youtube",
     "verified": true
    }
-  ]
+  ],
+  "legacies": true
  },
  {
   "id": "stv-73069",
@@ -1952921,7 +1953109,8 @@
   "rights_basis": "Rights holder (TMS Entertainment) official international channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
   "source_channel": "Anime! on TMS Official Channel",
   "award_verified": false,
-  "url": "https://www.youtube.com/embed/eutBzS30qhM"
+  "url": "https://www.youtube.com/embed/eutBzS30qhM",
+  "legacies": true
  },
  {
   "id": "stv-73125",
@@ -1955285,7 +1955474,8 @@
   "rights_basis": "Licensed label (Nozomi Entertainment / Right Stuf) official channel; every episode API-verified embeddable, no ytRating, US not region-blocked",
   "source_channel": "Nozomi Entertainment",
   "award_verified": false,
-  "url": "https://www.youtube.com/embed/fbddZquhGoE"
+  "url": "https://www.youtube.com/embed/fbddZquhGoE",
+  "legacies": true
  },
  {
   "id": "stv-73138",
@@ -2004109,7 +2004299,8 @@
   "source_channel": "FilmIsNow Horror Movies",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/11SKv_tesx0",
-  "runtime": "79 min"
+  "runtime": "79 min",
+  "legacies": true
  },
  {
   "id": "stv-74705",
@@ -2004809,7 +2005000,8 @@
   "source_channel": "FilmIsNow Horror Movies",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/Nq3pRyPew5U",
-  "runtime": "109 min"
+  "runtime": "109 min",
+  "legacies": true
  },
  {
   "id": "stv-74733",
@@ -2005859,7 +2006051,8 @@
   "source_channel": "FilmIsNow Horror Movies",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/Ai3oxXXnP7E",
-  "runtime": "90 min"
+  "runtime": "90 min",
+  "legacies": true
  },
  {
   "id": "stv-74775",
@@ -2009834,7 +2010027,8 @@
   "source_channel": "FilmIsNow Horror Movies",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/pENHbPslcVs",
-  "runtime": "70 min"
+  "runtime": "70 min",
+  "legacies": true
  },
  {
   "id": "stv-74934",
@@ -2009959,7 +2010153,8 @@
   "source_channel": "FilmIsNow Horror Movies",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/Hanfudu_3fA",
-  "runtime": "60 min"
+  "runtime": "60 min",
+  "legacies": true
  },
  {
   "id": "stv-74939",
@@ -2010084,7 +2010279,8 @@
   "source_channel": "FilmIsNow Horror Movies",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/DBxmEp84aG8",
-  "runtime": "74 min"
+  "runtime": "74 min",
+  "legacies": true
  },
  {
   "id": "stv-74944",
@@ -2010109,7 +2010305,8 @@
   "source_channel": "FilmIsNow Horror Movies",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/hU6DhFBkLM8",
-  "runtime": "92 min"
+  "runtime": "92 min",
+  "legacies": true
  },
  {
   "id": "stv-74945",
@@ -2010709,7 +2010906,8 @@
   "source_channel": "FilmIsNow Horror Movies",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/b1bxGPEnFRQ",
-  "runtime": "94 min"
+  "runtime": "94 min",
+  "legacies": true
  },
  {
   "id": "stv-74969",
@@ -2042609,7 +2042807,8 @@
   "source_channel": "Kings of Horror",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/uAHud395Bek",
-  "runtime": "89 min"
+  "runtime": "89 min",
+  "legacies": true
  },
  {
   "id": "stv-76435",
@@ -2042859,7 +2043058,8 @@
   "source_channel": "Kings of Horror",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/63yCTQWEjxM",
-  "runtime": "115 min"
+  "runtime": "115 min",
+  "legacies": true
  },
  {
   "id": "stv-76449",
@@ -2042959,7 +2043159,8 @@
   "source_channel": "Kings of Horror",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/Dh7UNp4ijMk",
-  "runtime": "77 min"
+  "runtime": "77 min",
+  "legacies": true
  },
  {
   "id": "stv-76455",
@@ -2052184,7 +2052385,8 @@
   "source_channel": "PizzaFlix",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/3rJbXFHsrus",
-  "runtime": "89 min"
+  "runtime": "89 min",
+  "legacies": true
  },
  {
   "id": "stv-76844",
@@ -2052459,7 +2052661,8 @@
   "source_channel": "PizzaFlix",
   "award_verified": false,
   "url": "https://www.youtube.com/embed/moUHNMXUBGM",
-  "runtime": "86 min"
+  "runtime": "86 min",
+  "legacies": true
  },
  {
   "id": "stv-76855",
@@ -2075818,7 +2076021,8 @@
   "desc": "Thanks for watching Candy Witch (2020) on @FlixForFree Two ghost hunters are called upon a distressed family who claim they are being tormented by an evil spirit known in their local town as The Candy Witch. But as the mystery of her curse is uncovered, surprising and sinister turns are discovered around The Candy Witch's identity. Their hardest case yet, can they solve this evil curse before more people are killed by the demonic spirit? Director: Rebecca Matthews Cast: Jon Callaway, Abi Casson Thompson, Kate Lush Genre: Horror Watch more movies on Flix For Free! Horror Movies: Action Movies:",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Flix For Free",
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-77843",
@@ -2082421,7 +2082625,8 @@
   "source_channel": "Kings of Horror",
   "award_verified": false,
   "ai_made": false,
-  "id": "stv-78093"
+  "id": "stv-78093",
+  "legacies": true
  },
  {
   "title": "Hivemind Deluxe",
@@ -2092676,7 +2092881,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-78447",
@@ -2104492,7 +2104698,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-78869",
@@ -2104940,7 +2105147,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-78885",
@@ -2113564,7 +2113772,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-79193",
@@ -2113844,7 +2114053,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-79203",
@@ -2119668,7 +2119878,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-79411",
@@ -2121180,7 +2121391,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-79465",
@@ -2121404,7 +2121616,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-79473",
@@ -2122216,7 +2122429,8 @@
   "rights_basis": "Public YouTube embed",
   "dateAdded": "2026-11-07",
   "verified": true,
-  "award_verified": false
+  "award_verified": false,
+  "legacies": true
  },
  {
   "id": "stv-79502",
@@ -2123785,5 +2123999,449 @@
   "dateAdded": "2026-11-07",
   "verified": true,
   "award_verified": false
+ },
+ {
+  "id": "stv-79558",
+  "title": "SLADE the Series",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ep. 1",
+    "url": "https://www.youtube.com/embed/p5-TVVFbqj0",
+    "video_id": "p5-TVVFbqj0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 2948
+   },
+   {
+    "n": 2,
+    "title": "Ep. 2",
+    "url": "https://www.youtube.com/embed/kzoK1KqLkZ8",
+    "video_id": "kzoK1KqLkZ8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 2735
+   },
+   {
+    "n": 3,
+    "title": "Ep. 3",
+    "url": "https://www.youtube.com/embed/K-geApxeeog",
+    "video_id": "K-geApxeeog",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 2759
+   },
+   {
+    "n": 4,
+    "title": "Ep. 4",
+    "url": "https://www.youtube.com/embed/GG3aPv_qEkA",
+    "video_id": "GG3aPv_qEkA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3457
+   },
+   {
+    "n": 5,
+    "title": "Ep. 5",
+    "url": "https://www.youtube.com/embed/irCMQLjp_Co",
+    "video_id": "irCMQLjp_Co",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3581
+   },
+   {
+    "n": 6,
+    "title": "Ep. 6",
+    "url": "https://www.youtube.com/embed/edfPtt88RIY",
+    "video_id": "edfPtt88RIY",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3486
+   },
+   {
+    "n": 7,
+    "title": "Ep. 7",
+    "url": "https://www.youtube.com/embed/ZfDIAgJClZ0",
+    "video_id": "ZfDIAgJClZ0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3553
+   }
+  ],
+  "url": "https://www.youtube.com/embed/p5-TVVFbqj0",
+  "eps": "7 eps",
+  "desc": "No matter how hard Ryan Slade tries running from his past, it always seems to come back to bite him. Ryan navigates life with old friends and new found enemies in the small town of Elderwood. Indie supernatural series from THE LA WOLF.",
+  "rights_basis": "Creator-posted official upload — THE LA WOLF, public YouTube embed",
+  "source_channel": "THE LA WOLF",
+  "legacies": true
+ },
+ {
+  "id": "stv-79559",
+  "title": "A Discovery of Witches",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "It Begins",
+    "url": "https://www.youtube.com/embed/LdR2LptRpbU",
+    "video_id": "LdR2LptRpbU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 2696
+   }
+  ],
+  "url": "https://www.youtube.com/embed/LdR2LptRpbU",
+  "eps": "1 ep",
+  "desc": "A Discovery of Witches — Season 1, Episode 1 'It Begins.' A witch and a vampire cross paths in Oxford as a secret magical world stirs. Free full episode posted by AMC+.",
+  "rights_basis": "Official free full episode — amc+ channel, public YouTube embed",
+  "source_channel": "amc+",
+  "legacies": true
+ },
+ {
+  "id": "stv-79560",
+  "title": "Mayfair Witches",
+  "genre": "Drama",
+  "verified": true,
+  "dateAdded": "2026-11-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Witching Hour",
+    "url": "https://www.youtube.com/embed/zOkOH9DmhQc",
+    "video_id": "zOkOH9DmhQc",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 3300
+   }
+  ],
+  "url": "https://www.youtube.com/embed/zOkOH9DmhQc",
+  "eps": "1 ep",
+  "desc": "Mayfair Witches — series premiere 'The Witching Hour.' Intuitive young neurosurgeon Rowan (Alexandra Daddario) discovers she is the unlikely heir to a family of witches — and must contend with a sinister presence that has haunted her family for generations. Free full episode posted by AMC+.",
+  "rights_basis": "Official free full episode — amc+ channel, public YouTube embed",
+  "source_channel": "amc+",
+  "legacies": true
+ },
+ {
+  "id": "stv-79561",
+  "title": "Highschool Vampire Chronicles",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "I Vant to go to Highschool",
+    "url": "https://www.youtube.com/embed/Jalc_19R9rs",
+    "video_id": "Jalc_19R9rs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 555
+   },
+   {
+    "n": 2,
+    "title": "I Vant to Fight",
+    "url": "https://www.youtube.com/embed/IKg5OzCqHDA",
+    "video_id": "IKg5OzCqHDA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 696
+   },
+   {
+    "n": 3,
+    "title": "I Vant to Dance",
+    "url": "https://www.youtube.com/embed/qZtKtY5aQqA",
+    "video_id": "qZtKtY5aQqA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 732
+   },
+   {
+    "n": 4,
+    "title": "I Just Vant to Trick or Treat",
+    "url": "https://www.youtube.com/embed/6gPo-_Rzrg4",
+    "video_id": "6gPo-_Rzrg4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 766
+   },
+   {
+    "n": 5,
+    "title": "I Just Vant the Truth",
+    "url": "https://www.youtube.com/embed/tP40IrbC2AU",
+    "video_id": "tP40IrbC2AU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 922
+   }
+  ],
+  "url": "https://www.youtube.com/embed/Jalc_19R9rs",
+  "eps": "5 eps",
+  "desc": "What happens when a 1,000-year-old vampire falls in love with a highschool girl? Vlad and Brittany lock eyes in the hallway and become destined star-crossed lovers... or something! Fan-made vampire high-school parody series from Dabu Doodles.",
+  "rights_basis": "Creator-posted official upload — Dabu Doodles, public YouTube embed",
+  "source_channel": "Dabu Doodles",
+  "legacies": true
+ },
+ {
+  "id": "stv-79562",
+  "title": "Vampirina: Teenage Vampire",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-11-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "First Year to Watch",
+    "url": "https://www.youtube.com/embed/BT3puol4UD4",
+    "video_id": "BT3puol4UD4",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 1568
+   }
+  ],
+  "url": "https://www.youtube.com/embed/BT3puol4UD4",
+  "eps": "1 ep",
+  "desc": "Vampirina: Teenage Vampire — Episode 1 'First Year to Watch.' Tween vampire Vee leaves Transylvania for a performing-arts boarding school, keeping her vampire identity a secret among humans. Free full episode posted by Disney Channel.",
+  "rights_basis": "Official free full episode — Disney Channel, public YouTube embed",
+  "source_channel": "Disney Channel",
+  "legacies": true
+ },
+ {
+  "id": "stv-79563",
+  "title": "Monster High",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-11-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Every Monster High Episode EVER!",
+    "url": "https://www.youtube.com/embed/TAZs98t47zA",
+    "video_id": "TAZs98t47zA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 22243
+   },
+   {
+    "n": 2,
+    "title": "Monster Ball Homecoming",
+    "url": "https://www.youtube.com/embed/JqJx-C15lm8",
+    "video_id": "JqJx-C15lm8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 2380
+   }
+  ],
+  "url": "https://www.youtube.com/embed/TAZs98t47zA",
+  "eps": "2 eps",
+  "desc": "Monster High — vampires, werewolves, ghosts and ghouls at high school. G1: every episode ever in one 6-hour compilation (Mattel Imagine). G3: Monster Ball Homecoming full episodes (Nickelodeon). The literal Legacies formula — animated.",
+  "rights_basis": "Official free compilations — Mattel Imagine / Nickelodeon, public YouTube embeds",
+  "source_channel": "Mattel Imagine / Nickelodeon",
+  "legacies": true
+ },
+ {
+  "id": "stv-79564",
+  "title": "Ever After High",
+  "genre": "Animation",
+  "verified": true,
+  "dateAdded": "2026-11-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Beginning (Episodes 1-4)",
+    "url": "https://www.youtube.com/embed/HbILciNAHXU",
+    "video_id": "HbILciNAHXU",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 1593
+   },
+   {
+    "n": 2,
+    "title": "COMPLETE Chapter 2 (Episodes 5-14)",
+    "url": "https://www.youtube.com/embed/TkC0Hnp3-Vg",
+    "video_id": "TkC0Hnp3-Vg",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 1510
+   },
+   {
+    "n": 3,
+    "title": "COMPLETE Chapter 3 (Episodes 12-21)",
+    "url": "https://www.youtube.com/embed/QtZeJD3-BJk",
+    "video_id": "QtZeJD3-BJk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 1801
+   },
+   {
+    "n": 4,
+    "title": "COMPLETE Chapter 4",
+    "url": "https://www.youtube.com/embed/rL3k0-kbCZo",
+    "video_id": "rL3k0-kbCZo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 1581
+   },
+   {
+    "n": 5,
+    "title": "EPIC Hour Long Compilation",
+    "url": "https://www.youtube.com/embed/CijqDIWYCwo",
+    "video_id": "CijqDIWYCwo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4082
+   },
+   {
+    "n": 6,
+    "title": "1 HOUR COMPILATION — ALL Chapters",
+    "url": "https://www.youtube.com/embed/tKfSSREE92Y",
+    "video_id": "tKfSSREE92Y",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 4095
+   },
+   {
+    "n": 7,
+    "title": "CHRISTMAS SPECIAL 1 Hour Compilation",
+    "url": "https://www.youtube.com/embed/_X5uPL9KAuA",
+    "video_id": "_X5uPL9KAuA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 5438
+   }
+  ],
+  "url": "https://www.youtube.com/embed/HbILciNAHXU",
+  "eps": "7 eps",
+  "desc": "Ever After High — the teen children of fairy-tale characters at a magic school, romance and ensemble. Official full-episode compilations from the Ever After High channel.",
+  "rights_basis": "Official free compilations — Ever After High channel, public YouTube embeds",
+  "source_channel": "Ever After High",
+  "legacies": true
+ },
+ {
+  "id": "stv-79565",
+  "title": "Edgar Allan Poe's Murder Mystery Dinner Party",
+  "genre": "Comedy",
+  "verified": true,
+  "dateAdded": "2026-11-09",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Ch. 1: The Bells",
+    "url": "https://www.youtube.com/embed/bJdZQRNudCs",
+    "video_id": "bJdZQRNudCs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 575
+   },
+   {
+    "n": 2,
+    "title": "Ch. 2: The Masque of the Red Death",
+    "url": "https://www.youtube.com/embed/3IJdNOjYzCs",
+    "video_id": "3IJdNOjYzCs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 460
+   },
+   {
+    "n": 3,
+    "title": "Ch. 3: The Purloined Letter",
+    "url": "https://www.youtube.com/embed/e6ppqFNBkLo",
+    "video_id": "e6ppqFNBkLo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 731
+   },
+   {
+    "n": 4,
+    "title": "Ch. 4: A Descent Into the Maelström",
+    "url": "https://www.youtube.com/embed/spdhjKK6zCo",
+    "video_id": "spdhjKK6zCo",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 905
+   },
+   {
+    "n": 5,
+    "title": "Ch. 5: The Oval Portrait",
+    "url": "https://www.youtube.com/embed/VPoNcAeOycw",
+    "video_id": "VPoNcAeOycw",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 579
+   },
+   {
+    "n": 6,
+    "title": "Ch. 6: Spirits of the Dead",
+    "url": "https://www.youtube.com/embed/vEUTjJuZvhA",
+    "video_id": "vEUTjJuZvhA",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 552
+   },
+   {
+    "n": 7,
+    "title": "Ch. 7: Mesmeric Revelation",
+    "url": "https://www.youtube.com/embed/_dG92abOTC8",
+    "video_id": "_dG92abOTC8",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 442
+   },
+   {
+    "n": 8,
+    "title": "Ch. 8: The Cask of Amontillado",
+    "url": "https://www.youtube.com/embed/DJug8HZ0Mxs",
+    "video_id": "DJug8HZ0Mxs",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 855
+   },
+   {
+    "n": 9,
+    "title": "Ch. 9: The Sleeper",
+    "url": "https://www.youtube.com/embed/DchXqQlXmpM",
+    "video_id": "DchXqQlXmpM",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 660
+   },
+   {
+    "n": 10,
+    "title": "Ch. 10: Annabel Lee",
+    "url": "https://www.youtube.com/embed/mLd6BoA5qn0",
+    "video_id": "mLd6BoA5qn0",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 432
+   },
+   {
+    "n": 11,
+    "title": "Ch. 11: The Tell-Tale Heart",
+    "url": "https://www.youtube.com/embed/3cPe-WwlX1k",
+    "video_id": "3cPe-WwlX1k",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 1101
+   },
+   {
+    "n": 12,
+    "title": "Epilogue",
+    "url": "https://www.youtube.com/embed/8dqf9gvpefk",
+    "video_id": "8dqf9gvpefk",
+    "platform": "youtube",
+    "verified": true,
+    "dur": 149
+   }
+  ],
+  "url": "https://www.youtube.com/embed/bJdZQRNudCs",
+  "eps": "12 eps",
+  "desc": "Edgar Allan Poe's Murder Mystery Dinner Party — Poe and his ghostly roommate Lenore host a dinner party that turns deadly. Full 11-chapter series plus epilogue from Shipwrecked Comedy, the same creators as Headless.",
+  "rights_basis": "Creator-posted official uploads — Shipwrecked Comedy, public YouTube embeds",
+  "source_channel": "Shipwrecked Comedy",
+  "legacies": true
  }
 ]

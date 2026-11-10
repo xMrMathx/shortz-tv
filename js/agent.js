@@ -686,7 +686,7 @@ function catalogDigest(){
 }
 
 /* ---------- the brain (Layer 1 + 5 + 4) ---------- */
-var GENRE_WORDS={horror:"Horror",scary:"Horror",comedy:"Comedy",funny:"Comedy",action:"Action",drama:"Drama",western:"Western",westens:"Western","sci-fi":"Sci-Fi",scifi:"Sci-Fi","science fiction":"Sci-Fi",romance:"Romance",thriller:"Thriller",mystery:"Mystery",crime:"Crime",documentary:"Documentary",animation:"Animation",anime:"Anime",family:"Family",war:"War",music:"Music",sports:"Sports",reality:"Reality",wrestling:"Wrestling"};
+var GENRE_WORDS={horror:"Horror",scary:"Horror",comedy:"Comedy",funny:"Comedy",action:"Action",drama:"Drama",western:"Western",westens:"Western","sci-fi":"Sci-Fi",scifi:"Sci-Fi","science fiction":"Sci-Fi",romance:"Romance",thriller:"Thriller",mystery:"Mystery",crime:"Crime",documentary:"Documentary",animation:"Animation",anime:"Anime",family:"Family",war:"War",music:"Music",sports:"Sports",reality:"Reality",wrestling:"Wrestling",legacies:"If You Like Legacies"};
 function runtimeMin(t){
   var r=String(t.runtime||""); if(!r)return null;
   var h=r.match(/(\d+)\s*h/), m=r.match(/(\d+)\s*m/);
@@ -701,7 +701,8 @@ function doFind(genreWord,typeWord,maxMin,phrase,off,extra){
   var terms=extra.terms||null;
   for(i=0;i<C.length&&out.length<40;i++){
     t=C[i]; if(!t||!t.title)continue;
-    if(g && String(t.genre||"").toLowerCase()!==g.toLowerCase())continue;
+    if(g==="If You Like Legacies"){ if(t.legacies!==true)continue; }
+    else if(g && String(t.genre||"").toLowerCase()!==g.toLowerCase())continue;
     if(!g && phrase){
       var hay=(String(t.title)+" "+String(t.genre||"")).toLowerCase();
       if(phrase.split(/\s+/).some(function(w){ return w.length>2 && hay.indexOf(w)<0; }))continue;
