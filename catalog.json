@@ -2124443,5 +2124443,33 @@
   "rights_basis": "Creator-posted official uploads — Shipwrecked Comedy, public YouTube embeds",
   "source_channel": "Shipwrecked Comedy",
   "legacies": true
+ },
+ {
+  "id": "stv-79566",
+  "title": "Don't swipe left - One Minute Short Film",
+  "genre": "Short Films",
+  "eps": "1 ep",
+  "runtime": "1 min",
+  "desc": "For all you brave and poor souls navigating the dating apps — remember, never swipe left on Valentine's Day! A 1-minute horror short by Adrián Ramírez León: a man scrolling a dating app keeps re-encountering the same profile, Suki, closer and closer — until she's standing in his doorway.",
+  "url": "https://www.youtube.com/embed/HlDYMQXL36U",
+  "video_id": "HlDYMQXL36U",
+  "source_channel": "Adrian Rale",
+  "ai_made": false,
+  "episodes": [
+   {
+    "title": "Don't Swipe Left",
+    "url": "https://www.youtube.com/embed/HlDYMQXL36U",
+    "video_id": "HlDYMQXL36U",
+    "platform": "youtube",
+    "n": 1,
+    "verified": true,
+    "kind": "episode",
+    "dur": 60
+   }
+  ],
+  "rights_basis": "Creator-posted official upload — Adrian Rale (Adrián Ramírez León), public YouTube embed",
+  "dateAdded": "2026-11-12",
+  "verified": true,
+  "award_verified": false
  }
 ]
