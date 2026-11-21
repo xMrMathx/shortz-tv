@@ -165,6 +165,15 @@
  ],
  "twitch": [
   {
+   "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/f3edd67d-32ce-41dd-895c-e3129123ee9e-profile_image-300x300.png",
+   "category": "Gaming",
+   "featured": true,
+   "name": "watchpreviously",
+   "pinned": true,
+   "thumb": "https://static-cdn.jtvnw.net/jtv_user_pictures/f3edd67d-32ce-41dd-895c-e3129123ee9e-profile_image-300x300.png",
+   "url": "https://www.twitch.tv/watchpreviously"
+  },
+  {
    "avatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/bf6a04cf-3f44-4986-8eed-5c36bfad542b-profile_image-300x300.png",
    "category": "IRL / Gaming",
    "followers": "",
