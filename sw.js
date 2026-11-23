@@ -1,7 +1,7 @@
 /* Shortz TV service worker — app shell: network-first for the page (always fresh when online), cache-first for the rest */
-const CACHE = "shortztv-v9"; // bumped 2026-10-24: mascot app icons (the precached icon-192/512/maskable are new files — a fresh cache name is what makes existing installs pick them up)
+const CACHE = "shortztv-v10"; // bumped 2026-11-23 (Xbox lightening): catalog.js (69MB, never loaded as a script anymore — the app boots from catalog-boot.js + catalog-slim.json) dropped from the precached shell, so a fresh install stops downloading it; the bump purges the old cache holding it
 const CATALOG_CACHE = "shortztv-catalog-v1"; // survives shell bumps; keys are content-addressed URLs
-const SHELL = ["catalog.js", "manifest.json",
+const SHELL = ["manifest.json",
   "icon-192.png", "icon-512.png", "icon-512-maskable.png"];
 const PAGE = ["index.html"];
 

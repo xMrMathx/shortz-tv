@@ -2560,9 +2560,8 @@ try{
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
 <script defer src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="catalog-slim.js?v=1795397836"></script>
-<script defer src="manga-catalog.js?v=1795397836d57a"></script>
-<script defer src="manga-chapters.js?v=b8aa517"></script>
+<script src="catalog-boot.js?v=1795399017"></script>
+<!-- manga data (manga-catalog.js / manga-chapters.js) loads on first Manga open via szLoadManga() — not on every launch (Xbox lightening) -->
 <script>
 "use strict";
 /* ---------- live catalog: the app is data-driven, not hard-coded ----------
@@ -2572,7 +2571,7 @@ try{
    working. Boot waits for this (or a 2s timeout) before rendering. */
 window.SHORTZ_CATALOG = window.SHORTZ_SLIM || [];
 window.SHORTZ_SLIM = null;
-window.__SZ_BUILD = "1795397836";
+window.__SZ_BUILD = "1795399017";
 /* Piece 1 stage B: slim records carry short keys (see bin/gen-slim.py);
    szExpand restores the full field names, derives url/eps, and marks
    every record episode-less until ensureEps hydrates it from its pack. */
@@ -2594,7 +2593,38 @@ window.__szExpand = szExpand;
 if(window.SHORTZ_CATALOG.length && window.SHORTZ_CATALOG[0] && !window.SHORTZ_CATALOG[0].id){
   window.SHORTZ_CATALOG = window.SHORTZ_CATALOG.map(szExpand);
 }
+/* XBOX LIGHTENING: splice a fresh/full catalog into the SAME array object
+   (not replaced) so every existing reference keeps working. Also clears the
+   boot-subset flags so counts come from the real catalog afterwards. */
+window.__szSpliceFull = function(data){
+  if(!Array.isArray(data) || !data.length) return false;
+  var c = window.SHORTZ_CATALOG;
+  c.length = 0;
+  for(var i = 0; i < data.length; i++) c.push(window.__szExpand ? window.__szExpand(data[i]) : data[i]);
+  window.__catRev = (window.__catRev || 0) + 1;
+  window.__SZ_BOOT = false; window.__SZ_FULL = null;
+  try{ buildCatalogIndexes(); }catch(e){}
+  return true;
+};
 window.SHORTZ_CATALOG_READY = (function(){
+  // XBOX LIGHTENING: the bundled catalog is now a small boot subset
+  // (window.__SZ_BOOT, catalog-boot.js). The full catalog still loads —
+  // after first paint, at idle — and splices in through __szSpliceFull.
+  // Boot mode never blocks SHORTZ_CATALOG_READY on the full download, and
+  // the idle fetch does NOT wait on the version check (it fetches with the
+  // build stamp as the cache-buster; Pages serves the deployed slim either
+  // way), so a slow version fetch can never strand the page on the subset.
+  if(window.__SZ_BOOT){
+    var idleFetch = function(){
+      if(!window.__SZ_BOOT) return; // already full
+      fetch("https://xmrmathx.github.io/shortz-tv/catalog-slim.json?v=" + encodeURIComponent(window.__SZ_BUILD || ""), {cache: "no-store"})
+        .then(function(r){ if(!r.ok) throw 0; return r.json(); })
+        .then(function(data){ window.__szSpliceFull(data); })
+        .catch(function(){ /* offline: boot catalog stays */ });
+    };
+    try{ if("requestIdleCallback" in window) requestIdleCallback(idleFetch, {timeout: 5000}); else setTimeout(idleFetch, 1500); }
+    catch(e){ setTimeout(idleFetch, 1500); }
+  }
   // Fetch version first, then cache-bust the catalog so a new deploy always pulls fresh data
   var verUrl = "https://xmrmathx.github.io/shortz-tv/version.json";
   var getVer = fetch(verUrl, {cache: "no-store"}).then(function(r){ return r.ok ? r.json() : null; })
@@ -2602,6 +2632,8 @@ window.SHORTZ_CATALOG_READY = (function(){
     .catch(function(){ return String(Date.now()); });
   var timeout = new Promise(function(res){ setTimeout(res, 2000); });
   var fresh = getVer.then(function(ver){
+    // Boot mode: the full load is handled by idleFetch above.
+    if(window.__SZ_BOOT) return null;
     // Faster-open (Piece A): when this page IS the live build, the bundled slim
     // it already parsed is the fresh catalog (its URL is content-addressed per
     // build) — skip the second full-catalog download + expand entirely. The
@@ -2613,12 +2645,7 @@ window.SHORTZ_CATALOG_READY = (function(){
       return r.json();
     });
   }).then(function(data){
-    if (Array.isArray(data) && data.length > 0) {
-      var c = window.SHORTZ_CATALOG;
-      c.length = 0;
-      for (var i = 0; i < data.length; i++) c.push(window.__szExpand ? window.__szExpand(data[i]) : data[i]);
-      window.__catRev = (window.__catRev || 0) + 1;
-    }
+    if(data) window.__szSpliceFull(data);
   }).catch(function(){ /* offline: keep bundled fallback */ });
   return Promise.race([fresh, timeout]);
 })();
@@ -2694,6 +2721,9 @@ document.addEventListener("click",function(e){
   });
 })();
 const C = window.SHORTZ_CATALOG || [];
+/* XBOX LIGHTENING: while the boot subset is live, display the FULL catalog
+   total (embedded in catalog-boot.js) instead of the subset length. */
+function szTotal(){ return (window.__SZ_BOOT && window.__SZ_FULL && window.__SZ_FULL.n) || C.length; }
 /* ---------- catalog indexes: built once per catalog rev, O(1) lookups after ----------
    Kills: per-swipe pickRandom() full scans, byId() O(n) linear search (13+ hot
    call sites), and repeated filter passes. buildCatalogIndexes() is called here
@@ -2749,6 +2779,21 @@ function buildCatalogIndexes(){
       IDX.homePool.push(t);
       if(isVertMain(t)) IDX.homeVertPool.push(t);
     }
+  }
+  // XBOX LIGHTENING: while the boot subset is the catalog, report the FULL
+  // catalog's counts (embedded in catalog-boot.js as __SZ_FULL) so genre
+  // tiles, the All count and collection counts are exact on first paint.
+  // Cleared by __szSpliceFull when the full catalog lands.
+  if(window.__SZ_BOOT && window.__SZ_FULL){
+    var F = window.__SZ_FULL;
+    if(F.genre) IDX.genreCount = F.genre;
+    if(typeof F.early === "number") IDX.earlyN = F.early;
+    if(typeof F.ai === "number") IDX.aiN = F.ai;
+    if(typeof F.rebirth === "number") IDX.rebirthN = F.rebirth;
+    if(typeof F.onlyShortz === "number") IDX.onlyShortzN = F.onlyShortz;
+    if(typeof F.award === "number") IDX.awardN = F.award;
+    if(typeof F.trek === "number") IDX.trekN = F.trek;
+    if(typeof F.legacies === "number") IDX.legaciesN = F.legacies;
   }
   IDX.rev = rev;
 }
@@ -5029,7 +5074,7 @@ function renderView(v){
   if(v==="browse"){browseWall=false;browseKind="";renderBrowse(browseGenre);}
   if(v==="live"){ if(curView!=="live")Live.tab="sports"; renderLive(); } // every fresh entry lands on Sports (his order)
   if(v==="streaming"){ stopStreamFeed(); renderStreaming(); } // stop BEFORE rebuild: re-tapping the tab re-renders, and innerHTML alone lets the old video's audio leak in WebView
-  if(v==="manga")renderManga();
+  if(v==="manga"){ renderManga(); if(!window.MANGA_CATALOG || !window.MANGA_CHAPTERS) szLoadManga(function(){ if(curView==="manga"){ try{ renderManga(); }catch(e){} } }); }
   if(v==="games")renderGames();
   if(v==="podcasts"&&window.Podcasts)Podcasts.paint();
   if(v==="profile")renderProfile();
@@ -6080,7 +6125,7 @@ let _hiddenAt=0;
    so updates must be chased actively. Triggers: boot, pageshow (bfcache),
    visibilitychange (foreground), online (reconnect), plus a 30s poll with a
    watchdog. Nobody force-closes or hard-refreshes — ever. */
-const BUILD="1795397836";
+const BUILD="1795399017";
 const _fresh={lastCheck:0,fails:0,reloads:0,reloadWin:Date.now(),pending:false};
 function checkBuildFresh(){
   _fresh.lastCheck=Date.now();
@@ -9241,7 +9286,7 @@ function renderBrowseLanding(){
         ${POPULAR.map((g,i)=>`<button class="gtile gpop gpop-${i}" data-gtile="${esc(g)}"><span class="gp-name">${esc(g)}</span><span class="gp-cnt2">${cnt(g)} shows</span></button>`).join("")}
       </div>
       <div class="gtile-grid" style="margin-top:10px">
-        <button class="gtile all" data-gtile="${ALL}"><span>All</span><span class="gtile-cnt">${C.length} shows</span></button>
+        <button class="gtile all" data-gtile="${ALL}"><span>All</span><span class="gtile-cnt">${szTotal()} shows</span></button>
         ${(window.Games&&Games.list&&Games.list().length)?`<button class="gtile games" data-gtile="__games"><span>🎮 Games</span><span class="gtile-cnt">${Games.list().length} to play</span></button>`:""}
       </div>
     </div>
@@ -9386,7 +9431,7 @@ function renderBrowse(g){
     <div class="wrap"><div class="gdrop" id="gdrop">
       <button class="gdrop-btn" id="gdropbtn"><span id="gdropcur">${genreLabel(browseGenre)}</span><span class="arr">▼</span></button>
       <div class="gmenu" id="gmenu">
-        <button class="gitem${ALL===browseGenre?" sel":""}" data-g="${ALL}"><span>All</span><span class="cnt">${C.length}</span></button>
+        <button class="gitem${ALL===browseGenre?" sel":""}" data-g="${ALL}"><span>All</span><span class="cnt">${szTotal()}</span></button>
         <button class="gitem${ONLYSHORTZ===browseGenre?" sel":""}" data-g="${ONLYSHORTZ}"><span>Shortz Picks</span><span class="cnt">${cc.onlyShortz}</span></button>
         <button class="gitem${EARLY===browseGenre?" sel":""}" data-g="${EARLY}"><span>Early Release</span><span class="cnt">${cc.early}</span></button>
         <button class="gitem${AI===browseGenre?" sel":""}" data-g="${AI}"><span>AI Shorts</span><span class="cnt">${cc.ai}</span></button>
@@ -9415,7 +9460,7 @@ function renderBrowse(g){
       <div class="cs-row" id="comingSoonRow"></div>
     </div></div>
     <div class="wrap" style="padding-top:0">
-      <div class="rowlabel" style="margin-top:0"><h2 id="browseHead">${browseQuery.trim()?`${list.length} result${list.length===1?"":"s"} for &ldquo;${esc(browseQuery.trim())}&rdquo;`:(browseKind==="series"?(list.length+" series"):((GENRES.indexOf(browseGenre)>=0&&browseGenre!=="Sports")?`${esc(browseGenre)} · ${list.length} shows`:("Browse "+C.length+" series")))}</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
+      <div class="rowlabel" style="margin-top:0"><h2 id="browseHead">${browseQuery.trim()?`${list.length} result${list.length===1?"":"s"} for &ldquo;${esc(browseQuery.trim())}&rdquo;`:(browseKind==="series"?(list.length+" series"):((GENRES.indexOf(browseGenre)>=0&&browseGenre!=="Sports")?`${esc(browseGenre)} · ${list.length} shows`:("Browse "+szTotal()+" series")))}</h2><span id="bcount">${browseQuery.trim()?"":`${GENRES.length} genres`}</span></div>
       <div class="feat-hero" id="featHero"><div class="feat-track" id="featTrack"></div></div>
       <div class="prev-spot" id="prevSpot">
         <div class="prev-spot-tx">
@@ -9522,7 +9567,7 @@ function renderBrowse(g){
     $("#view-browse").classList.toggle("searching",searching);
     const mlw=$("#browseMyListWrap"); if(mlw)mlw.style.display=searching?"none":"";
     const h2=$("#browseHead");
-    if(h2)h2.innerHTML=searching?`${l.length} result${l.length===1?"":"s"} for &ldquo;${esc(si.value.trim())}&rdquo;`:`Browse ${C.length} series`;
+    if(h2)h2.innerHTML=searching?`${l.length} result${l.length===1?"":"s"} for &ldquo;${esc(si.value.trim())}&rdquo;`:`Browse ${szTotal()} series`;
     bc.textContent=searching?"":`${GENRES.length} genres`;
   };
   si.addEventListener("input",applySearch);
@@ -10260,10 +10305,10 @@ async function mgBackfillTitles(ids){
 }
 
 </script>
-<script src="js/folders.js?v=1795397836"></script>
+<script src="js/folders.js?v=1795399017"></script>
 <script>
 </script>
-<script src="js/guide.js?v=1795397836"></script>
+<script src="js/guide.js?v=1795399017"></script>
 <script>
 function renderProfileSetup(){
   $("#view-profile").innerHTML=`<div class="wrap" style="padding-top:26px">
@@ -11075,10 +11120,10 @@ function liveShellHTML(){
   </div>`;
 }
 </script>
-<script src="js/streaming.js?v=1795397836"></script>
-<script src="js/shortz-live.js?v=1795397836"></script>
-<script src="js/games.js?v=1795397836"></script>
-<script src="js/podcasts.js?v=1795397836"></script>
+<script src="js/streaming.js?v=1795399017"></script>
+<script src="js/shortz-live.js?v=1795399017"></script>
+<script src="js/games.js?v=1795399017"></script>
+<script src="js/podcasts.js?v=1795399017"></script>
 <script>
 
 
@@ -11596,7 +11641,7 @@ if("serviceWorker" in navigator){
   });
 }
 </script>
-<script src="js/swipe.js?v=1795397836"></script>
+<script src="js/swipe.js?v=1795399017"></script>
 <script>
 /* ================= MANGA (MangaDex — safe+suggestive only, BL excluded) ================= */
 const MDX="https://shortz-tv.pages.dev/api/mdx"; // MangaDex proxy (Cloudflare Pages Function, functions/api/mdx) — MangaDex sends no CORS headers. ABSOLUTE Cloudflare origin: the app is served from GitHub Pages, which cannot run the function — a relative "/api/mdx" 404s there and the reader dies. The function sends Access-Control-Allow-Origin:*, so cross-origin fetch works.
@@ -11655,6 +11700,21 @@ function mdxAuthor(m){ return m.author||""; }
 function mdxTags(m){ return m.tags||[]; }
 
 /* ---------- browse ---------- */
+/* XBOX LIGHTENING: manga data (manga-catalog.js + manga-chapters.js, ~4.6MB)
+   loads on first Manga open, not on every launch. renderManga() already
+   handles the not-yet-loaded state (spinner + live API); this re-renders
+   once the bundled data lands. */
+var __szMangaQ = null;
+function szLoadManga(cb){
+  if(window.MANGA_CATALOG && window.MANGA_CHAPTERS){ if(cb)cb(); return; }
+  if(__szMangaQ){ if(cb)__szMangaQ.push(cb); return; }
+  __szMangaQ = cb ? [cb] : [];
+  var n = 0;
+  function one(){ if(++n === 2){ var q = __szMangaQ; __szMangaQ = null; q.forEach(function(f){ try{ f(); }catch(e){} }); } }
+  function load(src){ var s = document.createElement("script"); s.src = src; s.onload = one; s.onerror = one; document.head.appendChild(s); }
+  load("manga-catalog.js?v=" + encodeURIComponent(window.__SZ_BUILD || "") + "d57a");
+  load("manga-chapters.js?v=b8aa517");
+}
 function renderManga(){
   mangaCloseReader(true);
   Manga.screen="browse"; Manga.gen++;
@@ -13831,8 +13891,8 @@ window.Scout={profile:profile,openInbox:openInbox,closeInbox:closeInbox,maybeRun
   <div id="csSheet" role="dialog" aria-label="Creator Space"></div>
   <div id="csToast" role="status" aria-live="polite"></div>
 </div>
-<script src="js/live-sports.js?v=1795397836"></script>
-<script src="js/agent.js?v=1795397836"></script>
+<script src="js/live-sports.js?v=1795399017"></script>
+<script src="js/agent.js?v=1795399017"></script>
 <script>
 /* ================= CREATOR SPACE (his idea, 2026-10-17) =================
    Creators-only room inside Shortz VS. Gate = founder email or a
