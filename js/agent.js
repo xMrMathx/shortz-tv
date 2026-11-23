@@ -686,7 +686,7 @@ function catalogDigest(){
 }
 
 /* ---------- the brain (Layer 1 + 5 + 4) ---------- */
-var GENRE_WORDS={horror:"Horror",scary:"Horror",comedy:"Comedy",funny:"Comedy",action:"Action",drama:"Drama",western:"Western",westens:"Western","sci-fi":"Sci-Fi",scifi:"Sci-Fi","science fiction":"Sci-Fi",romance:"Romance",thriller:"Thriller",mystery:"Mystery",crime:"Crime",documentary:"Documentary",animation:"Animation",anime:"Anime",family:"Family",war:"War",music:"Music",sports:"Sports",reality:"Reality",wrestling:"Wrestling",legacies:"If You Like Legacies"};
+var GENRE_WORDS={horror:"Horror",scary:"Horror",comedy:"Comedy",funny:"Comedy",action:"Action",drama:"Drama",western:"Western",westens:"Western","sci-fi":"Sci-Fi",scifi:"Sci-Fi","science fiction":"Sci-Fi",romance:"Romance",thriller:"Thriller",mystery:"Mystery",detective:"Detective",crime:"Crime",documentary:"Documentary",animation:"Animation",anime:"Anime",family:"Family",war:"War",music:"Music",sports:"Sports",reality:"Reality",wrestling:"Wrestling",legacies:"If You Like Legacies"};
 function runtimeMin(t){
   var r=String(t.runtime||""); if(!r)return null;
   var h=r.match(/(\d+)\s*h/), m=r.match(/(\d+)\s*m/);
