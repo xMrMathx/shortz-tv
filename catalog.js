@@ -456,7 +456,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-015",
   "title": "The Bookshop Investigations (S1)",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "21 eps",
   "runtime": "~2:40–11:49",
   "desc": "Cosy crime-comedy whodunit — amateur sleuth Agatha solves Agatha Christie-style cases out of her bookshop. Human-made, rights-holder upload.",
@@ -662,7 +662,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-016",
   "title": "To Serve and Protect",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "2 eps",
   "runtime": "~1:40–2:00",
   "desc": "Police-procedural shorts following Detective LaMont Fields, from the producing studio's own channel.",
@@ -695,8 +695,8 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-017",
   "title": "Black & Pepper",
-  "genre": "Mystery",
-  "eps": "2 eps",
+  "genre": "Detective",
+  "eps": "28 eps",
   "runtime": "Shorts",
   "desc": "Film-noir private-detective shorts set in Baldwin Hills. The producing studio discloses AI filmmaking (#aimicrodrama).",
   "url": "https://www.youtube.com/embed/x5ThMzZa8tc",
@@ -724,6 +724,292 @@ window.SHORTZ_CATALOG = [
     "vertical": true,
     "vertical_source": "original upload (already vertical)",
     "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Ep. 2: The Threat | Black & Pepper | Film Noir Detective Mystery",
+    "video_id": "ghZcHCopDt8",
+    "url": "https://www.youtube.com/embed/ghZcHCopDt8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 4,
+    "title": "Ep. 3: The Last Frame | Black & Pepper Episode | Film Noir Detective Mystery",
+    "video_id": "ZblnSNrxKpQ",
+    "url": "https://www.youtube.com/embed/ZblnSNrxKpQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 5,
+    "title": "Ep. 4: The Dark Block | Black & Pepper Episode | Film Noir Detective Mystery #aimicrodrama",
+    "video_id": "8YFp7M4_PzU",
+    "url": "https://www.youtube.com/embed/8YFp7M4_PzU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 6,
+    "title": "Ep. 5: What They Came For | Black & Pepper  | AI Noir Microdrama #aimicrodrama",
+    "video_id": "YGlJ-3k5gPg",
+    "url": "https://www.youtube.com/embed/YGlJ-3k5gPg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 7,
+    "title": "Ep. 6: Mr. Miller | Black & Pepper  | AI Noir Microdrama #aimicrodrama",
+    "video_id": "wb2OsrpT8nw",
+    "url": "https://www.youtube.com/embed/wb2OsrpT8nw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 8,
+    "title": "Ep. 7: The Wrong Property | Black & Pepper | AI Noir Microdrama #aimicrodrama",
+    "video_id": "tJHCrj3FLGs",
+    "url": "https://www.youtube.com/embed/tJHCrj3FLGs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 9,
+    "title": "Ep. 8: Concrete | Black & Pepper | AI Noir Microdrama #aimicrodrama",
+    "video_id": "KiIGWrhe714",
+    "url": "https://www.youtube.com/embed/KiIGWrhe714",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 10,
+    "title": "Ep. 9: The Tip | Black & Pepper Episode 9 | AI Noir Microdrama #aimicrodrama",
+    "video_id": "ioFJR0NBg3E",
+    "url": "https://www.youtube.com/embed/ioFJR0NBg3E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 11,
+    "title": "Ep. 10: The Boy In The Dirt | Black & Pepper | AI Noir Microdrama #aimicrodrama",
+    "video_id": "H62KDHdSICQ",
+    "url": "https://www.youtube.com/embed/H62KDHdSICQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 12,
+    "title": "Ep. 11: Not Twice | Black & Pepper  #aimicrodrama",
+    "video_id": "fLYaseAA68w",
+    "url": "https://www.youtube.com/embed/fLYaseAA68w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 13,
+    "title": "Ep.12: Isolated | Black & Pepper  #aimicrodrama",
+    "video_id": "lgopg1xraqs",
+    "url": "https://www.youtube.com/embed/lgopg1xraqs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 14,
+    "title": "Ep. 13: The Things They Leave | Black & Pepper  #aimicrodrama",
+    "video_id": "3iv2pW1zXGk",
+    "url": "https://www.youtube.com/embed/3iv2pW1zXGk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 15,
+    "title": "Ep. 14: Staged Fear | Black & Pepper  #aimicrodrama",
+    "video_id": "TKGmHjPK4jk",
+    "url": "https://www.youtube.com/embed/TKGmHjPK4jk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 16,
+    "title": "Ep. 15: The Tax List | Black & Pepper  #aimicrodrama",
+    "video_id": "aM4_d6kCugg",
+    "url": "https://www.youtube.com/embed/aM4_d6kCugg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 17,
+    "title": "Ep. 16: The Banker | Black & Pepper  #aimicrodrama",
+    "video_id": "eWzmg6Z3g7g",
+    "url": "https://www.youtube.com/embed/eWzmg6Z3g7g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 18,
+    "title": "Ep.17: The Override | Black & Pepper  #aimicrodrama",
+    "video_id": "z7in3psSex4",
+    "url": "https://www.youtube.com/embed/z7in3psSex4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 19,
+    "title": "Ep. 18: The Officer Who Lied | Black & Pepper #aimicrodrama",
+    "video_id": "hX8uLdrYji8",
+    "url": "https://www.youtube.com/embed/hX8uLdrYji8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 20,
+    "title": "Ep. 19: Inside the Scheme | Black & Pepper #aimicrodrama",
+    "video_id": "CK5Gtr6AT_I",
+    "url": "https://www.youtube.com/embed/CK5Gtr6AT_I",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 21,
+    "title": "Ep. 20: The Empty Board | Black & Pepper #aimicrodrama",
+    "video_id": "2VwXsOvYAgE",
+    "url": "https://www.youtube.com/embed/2VwXsOvYAgE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 22,
+    "title": "Ep. 21: The Filmmaker | Black & Pepper #aimicrodrama",
+    "video_id": "ahZIw1K9CsM",
+    "url": "https://www.youtube.com/embed/ahZIw1K9CsM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 23,
+    "title": "Ep.  22: The Scandal",
+    "video_id": "FTIcmKpV1uU",
+    "url": "https://www.youtube.com/embed/FTIcmKpV1uU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 24,
+    "title": "Ep  23: The Contract | Black & Pepper #aimicrodrama",
+    "video_id": "vUGpVqY46UY",
+    "url": "https://www.youtube.com/embed/vUGpVqY46UY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 25,
+    "title": "Ep  24: Bought and Buried | Black & Pepper #aimicrodrama",
+    "video_id": "jHeBKB_gFrY",
+    "url": "https://www.youtube.com/embed/jHeBKB_gFrY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 26,
+    "title": "Ep  25: Olympus | Black & Pepper #aimicrodrama",
+    "video_id": "Gj57f5xgtGw",
+    "url": "https://www.youtube.com/embed/Gj57f5xgtGw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 27,
+    "title": "Ep  26: The Man Above the City | Black & Pepper #aimicrodrama",
+    "video_id": "kL7iQ3NaI7A",
+    "url": "https://www.youtube.com/embed/kL7iQ3NaI7A",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 28,
+    "title": "Ep  27: Black Goes Quiet | Black & Pepper #aimicrodrama",
+    "video_id": "_E-X2mow84w",
+    "url": "https://www.youtube.com/embed/_E-X2mow84w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
    }
   ],
   "episodes_note": "Official playlist is a Shorts reel (2 items). Standard extractor returned 0; items pulled via reelWatchEndpoint.",
@@ -732,7 +1018,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-018",
   "title": "Things We Hide",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "2 eps",
   "runtime": "~3:06–3:26",
   "desc": "Crime-thriller detective series with Detective Alexander Marquez. YouTube applies its 'Content was made with AI' label.",
@@ -768,7 +1054,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-019",
   "title": "Case Files (S1)",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "Shorts",
   "desc": "Fictional crime drama with Detectives Marcus Reed & Elena Torres, 10 short episodes. An AI-generated channel with thin production provenance.",
@@ -1124,7 +1410,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-027",
   "title": "The Detective and the Heiress Ep1",
-  "genre": "Thriller",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "Shorts ≤3 min",
   "desc": "Detective-and-heiress mystery shorts from the Half & Half studio channel.",
@@ -7473,7 +7759,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-100",
   "title": "The Gumshoe Vault",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "3 eps",
   "runtime": "~1–6 min",
   "desc": "A noir detective audio drama adapting a 1923 public-domain pulp story.",
@@ -25554,29 +25840,6 @@ window.SHORTZ_CATALOG = [
    }
   ],
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-1545",
-  "title": "THE PERFECT HEIST - 3 Minutes... One Impossible Bank Heist!",
-  "genre": "Action",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Three masterminds execute a bank heist in 3 minutes: laser grids, police closing in, and a high-speed chase. AI storytelling action thriller. ~5:09 min.",
-  "url": "https://www.youtube.com/embed/HlOjO5e6qL8",
-  "video_id": "HlOjO5e6qL8",
-  "source_channel": "",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "THE PERFECT HEIST - 3 Minutes... One Impossible Bank Heist!",
-    "url": "https://www.youtube.com/embed/HlOjO5e6qL8",
-    "video_id": "HlOjO5e6qL8",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
   "id": "stv-1546",
@@ -54401,7 +54664,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1696",
   "title": "Unknown Cases: The House That Remembers",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Detective Alistair 'Crow' is drawn to a grand ancestral mansion tied to a family legacy buried in silence — a cinematic detective mystery series of hidden truths and family secrets.",
@@ -54470,7 +54733,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1699",
   "title": "A Frankie Drake Mysteries Cold Case",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "6 eps",
   "runtime": "~1-3 min each",
   "desc": "Six short cold-case webisodes from the Frankie Drake Mysteries universe — bite-sized 1920s detective cases.",
@@ -54569,7 +54832,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1700",
   "title": "The Duke is Dead",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "2026 murder mystery miniseries: early 1800s Scottish Highlands — the Duke of Lennox summons Europe's most powerful nobles to Loch Lomond, and a killer is among them.",
@@ -54592,7 +54855,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1701",
   "title": "The Impossible Locked Room Trick",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Solve-it-yourself detective series, Case 001: a man is found dead inside a room locked from the inside — can your detective brain solve the thread trick before the reveal?",
@@ -54615,7 +54878,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1702",
   "title": "Investigator Investigator",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Comedy mystery shorts series starring Melissa Becraft & Sarah Pribis — EP1: can you solve this mystery before the investigators do?",
@@ -54661,7 +54924,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1704",
   "title": "The Briefcase",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Crime-mystery shorts series: the criminals thought they had escaped — but the investigator is still working the case and just found something. To be continued…",
@@ -86608,22 +86871,14 @@ window.SHORTZ_CATALOG = [
   "id": "stv-1728",
   "title": "Velvet Revenge - Episode 1 | AI Short Drama Series",
   "genre": "Revenge",
-  "eps": "7 eps",
+  "eps": "6 eps",
   "runtime": "~1-3 min each",
   "desc": "After one night shatters her perfect relationship, she plots her revenge across an 8-episode AI drama series.",
-  "url": "https://www.youtube.com/embed/EkjzAxHsqBU",
+  "url": "",
   "video_id": "Md4FzBAM4XM",
   "source_channel": "",
   "ai_made": true,
   "episodes": [
-   {
-    "title": "She Thought She Escaped Him… Until He Returned | Velvet Revenge – Episode 2",
-    "video_id": "EkjzAxHsqBU",
-    "url": "https://www.youtube.com/embed/EkjzAxHsqBU",
-    "n": 2,
-    "verified": true,
-    "kind": "episode"
-   },
    {
     "title": "The Confrontation | Velvet Revenge – Episode 3",
     "video_id": "wPHrl_J7YeM",
@@ -89096,29 +89351,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-1762",
-  "title": "Others on Mars",
-  "genre": "Sci-Fi",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Two astronauts exploring Mars uncover a buried facility that should not exist. The deeper they investigate, the clearer it becomes it was never meant to be discovered.",
-  "url": "https://www.youtube.com/embed/KZvOVD_0epc",
-  "video_id": "KZvOVD_0epc",
-  "source_channel": "",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Others on Mars",
-    "url": "https://www.youtube.com/embed/KZvOVD_0epc",
-    "video_id": "KZvOVD_0epc",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-1763",
   "title": "Text2Self",
   "genre": "Sci-Fi",
@@ -89932,29 +90164,6 @@ window.SHORTZ_CATALOG = [
    }
   ],
   "rebirth": true
- },
- {
-  "id": "stv-1770",
-  "title": "NOVACREW",
-  "genre": "Sci-Fi",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "A high-stakes rescue mission takes an unexpected turn as the crew descends into the unknown. Cinematic 4K AI sci-fi series premiere.",
-  "url": "https://www.youtube.com/embed/dXB2EURcmZ8",
-  "video_id": "dXB2EURcmZ8",
-  "source_channel": "",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "NOVACREW",
-    "url": "https://www.youtube.com/embed/dXB2EURcmZ8",
-    "video_id": "dXB2EURcmZ8",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
   "id": "stv-1771",
@@ -97088,29 +97297,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-1891",
-  "title": "POV: From Dinghy to Hotel — Benefits Included! (No Human Filter)",
-  "genre": "Comedy",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Parts 1–3 compilation of No Human Filter, the AI-powered comedy series where bots say what humans are too scared to: a fictional new arrival navigates the UK — dinghy crossing, luxury hotel, NHS denti",
-  "url": "https://www.youtube.com/embed/pX2lM79Tyik",
-  "video_id": "pX2lM79Tyik",
-  "source_channel": "No Human Filter",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "POV: From Dinghy to Hotel — Benefits Included! (No Human Filter)",
-    "url": "https://www.youtube.com/embed/pX2lM79Tyik",
-    "video_id": "pX2lM79Tyik",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-1892",
   "title": "A UrsupaDOLLra | Episódios 1 a 5 (AI Soap Opera)",
   "genre": "Comedy",
@@ -97428,29 +97614,6 @@ window.SHORTZ_CATALOG = [
     "title": "FRESPAÑOL — Romeo y Lucía: Everything Changes in Chapter 5 (AI Drama Series)",
     "url": "https://www.youtube.com/embed/ZxC39oJtdHc",
     "video_id": "ZxC39oJtdHc",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-1895",
-  "title": "Episode 1: Ang Responsibilidad (AI Drama Tagalog Series)",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Episode 1 'Ang Responsibilidad' of the Tagalog AI Drama series by Kuya Benedict: emotional original stories brought to life with AI-assisted visuals, voices, cinematic editing and animation (tool undi",
-  "url": "https://www.youtube.com/embed/QhYB9iSH7lA",
-  "video_id": "QhYB9iSH7lA",
-  "source_channel": "Kuya Benedict",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Episode 1: Ang Responsibilidad (AI Drama Tagalog Series)",
-    "url": "https://www.youtube.com/embed/QhYB9iSH7lA",
-    "video_id": "QhYB9iSH7lA",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -97830,7 +97993,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-1901",
   "title": "OBSIDIAN — Episode 1: The Dame at the Door (AI Anime-Noir)",
-  "genre": "Anime",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Episode 1 'The Dame at the Door' of OBSIDIAN — Shattered City, an AI-generated anime-noir detective series: Detective Dutch Marlowe works the night shift in a corrupt neon-soaked Obsidian City carved ",
@@ -102858,29 +103021,6 @@ window.SHORTZ_CATALOG = [
    }
   ],
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-1967",
-  "title": "brAIzh — Épisode 1: le réseau des AI Makers de Bretagne",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Six-episode French AI-animated teaser series from Brittany: explorer ArmIn the stoat gathers the AI Makers of Bretagne. Created entirely with AI tools (Midjourney, Kling, Suno), imagined by humans. Re",
-  "url": "https://www.youtube.com/embed/yZReCH7-M3E",
-  "video_id": "yZReCH7-M3E",
-  "source_channel": "Fiipe* Studio IA",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "brAIzh - le réseau des AI Makers de Bretagne - Episode 1",
-    "video_id": "yZReCH7-M3E",
-    "url": "https://www.youtube.com/embed/yZReCH7-M3E",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
   "id": "stv-1968",
@@ -140376,7 +140516,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2153",
   "title": "The Therapist's Betrayal | AI FBI Thriller Short Film",
-  "genre": "Thriller",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI-generated FBI thriller short. A therapist's deadly secret exposed in 3 minutes.",
@@ -140696,29 +140836,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-2167",
-  "title": "wanted | sci-fi short film",
-  "genre": "Western",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Dialogue-free AI sci-fi western (6:08): a lone bounty hunter tracks a WANTED target across a dust-scarred future frontier. Veo 3 visuals with Cubase sound design.",
-  "url": "https://www.youtube.com/embed/wwHEDfyl8Cw",
-  "video_id": "wwHEDfyl8Cw",
-  "source_channel": "LEGENDARY WORLDS",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "wanted | sci-fi short film",
-    "url": "https://www.youtube.com/embed/wwHEDfyl8Cw",
-    "video_id": "wwHEDfyl8Cw",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-2168",
   "title": "Iconic Western Gunfights Recreated with AI | Episode 1",
   "genre": "Western",
@@ -140734,29 +140851,6 @@ window.SHORTZ_CATALOG = [
     "title": "Iconic Western Gunfights Recreated with AI | Episode 1",
     "url": "https://www.youtube.com/embed/E5kxDXM2M68",
     "video_id": "E5kxDXM2M68",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-2169",
-  "title": "THE LAST ROBOT — Episode 1: IRON SUNDAY | Sci-Fi Western Short Film",
-  "genre": "Western",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI sci-fi western (4:01): a battle-worn robot arrives in a lawless futuristic frontier town to face hostile combat robots. Episode 1 of the Last Robot series.",
-  "url": "https://www.youtube.com/embed/OrhAY1ce4w4",
-  "video_id": "OrhAY1ce4w4",
-  "source_channel": "Robot Legendes",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "THE LAST ROBOT — Episode 1: IRON SUNDAY | Sci-Fi Western Short Film",
-    "url": "https://www.youtube.com/embed/OrhAY1ce4w4",
-    "video_id": "OrhAY1ce4w4",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -146431,30 +146525,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-2286",
-  "title": "【AIが考えた】ポストが怖くなる【怪談】",
-  "genre": "Anime",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Pure SORA2 horror: the AI was given only the title 'the mailbox becomes scary' and dreamed up the rest. Daily 1-minute ghost-story series.",
-  "url": "https://www.youtube.com/embed/hWsD44NvuVA",
-  "video_id": "hWsD44NvuVA",
-  "source_channel": "百恐の語り部 | 1分怪談クリエーター",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "【AIが考えた】ポストが怖くなる【怪談】",
-    "url": "https://www.youtube.com/embed/hWsD44NvuVA",
-    "video_id": "hWsD44NvuVA",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "onlyShortz": true,
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-2287",
   "title": "【ai動画】妖怪パレード：恐ろしき赤子妖怪が集う不気味な宴！",
   "genre": "Anime",
@@ -146494,30 +146564,6 @@ window.SHORTZ_CATALOG = [
     "title": "消えた商店街を、少年時代から取り戻せ。｜全編AIフルアニメMV",
     "url": "https://www.youtube.com/embed/6MHCA4czh-0",
     "video_id": "6MHCA4czh-0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "onlyShortz": true,
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-2289",
-  "title": "【AI生成】INTJ毛利元就 × ENFP前田慶次が旅に出たら…",
-  "genre": "Anime",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI-generated Sengoku what-if: planner Mouri Motonari vs go-with-the-flow Maeda Keiji, lost on the road together. Personality-diagnosis comedy short.",
-  "url": "https://www.youtube.com/embed/c04VxLJoP00",
-  "video_id": "c04VxLJoP00",
-  "source_channel": "x-type",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "【AI生成】INTJ毛利元就 × ENFP前田慶次が旅に出たら…",
-    "url": "https://www.youtube.com/embed/c04VxLJoP00",
-    "video_id": "c04VxLJoP00",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -156938,29 +156984,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-2399",
-  "title": "Choti Chirya Aur Beej Ki Kahani (AI Hindi Short)",
-  "genre": "Family",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI cartoon moral short in Hindi: a lonely seed lies in the ground until a little bird waters it drop by drop every day — a small kindness grows into a blooming plant.",
-  "url": "https://www.youtube.com/embed/gtPoFEC1ZwU",
-  "video_id": "gtPoFEC1ZwU",
-  "source_channel": "Hindi AI Stories",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Choti Chirya Aur Beej Ki Kahani (AI Hindi Short)",
-    "url": "https://www.youtube.com/embed/gtPoFEC1ZwU",
-    "video_id": "gtPoFEC1ZwU",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-240",
   "title": "EP1上#短剧 #最火短剧 #shortdrama #drama #chinesedrama #movie #kdrama #爱情 #情感 #romance #film #搞笑 #電影",
   "genre": "Romance",
@@ -158042,7 +158065,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2417",
   "title": "When The Badge Breaks — Episode 1",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI-generated psychological crime thriller: an NYC detective's perfect life unravels overnight and the badge that protected him now marks him as a threat.",
@@ -158065,7 +158088,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2418",
   "title": "Shadow Files — Episode 1: The Pattern",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI cinematic thriller: forensic investigator Dr. Amara Okoye finds an impossible pattern buried in financial records and pulls a thread that leads to a far bigger conspiracy.",
@@ -158476,29 +158499,6 @@ window.SHORTZ_CATALOG = [
    }
   ],
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-2426",
-  "title": "Episode 19 Her Boyfriend Betrayed Her With Her Mom—Then She Fell for Her New Roommate",
-  "genre": "Romance",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Filipino AI romance drama (1:57): betrayed Dani moves in with Rafa — roommates-to-lovers slow burn with family secrets.",
-  "url": "https://www.youtube.com/embed/ifVVZWovyNc",
-  "video_id": "ifVVZWovyNc",
-  "source_channel": "Binge Flicks Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Episode 19 Her Boyfriend Betrayed Her With Her Mom—Then She Fell for Her New Roommate",
-    "url": "https://www.youtube.com/embed/ifVVZWovyNc",
-    "video_id": "ifVVZWovyNc",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
   "id": "stv-2427",
@@ -159208,7 +159208,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2454",
   "title": "THE INTERROGATION — An AI Crime Drama | Higgsfield Film Festival 2026",
-  "genre": "Thriller",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI crime drama from the Higgsfield Film Festival. Five minutes inside a high-pressure interrogation room.",
@@ -159319,29 +159319,6 @@ window.SHORTZ_CATALOG = [
    }
   ],
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-2459",
-  "title": "META WORLD - AI SHORT FILM",
-  "genre": "Action",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI-generated original superhero saga: Soren, last son of Vaelor, stops hiding his powers on a kaiju-ruled Earth.",
-  "url": "https://www.youtube.com/embed/0mM1n0GOkFk",
-  "video_id": "0mM1n0GOkFk",
-  "source_channel": "ReelSaga Network",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "META WORLD - AI SHORT FILM",
-    "url": "https://www.youtube.com/embed/0mM1n0GOkFk",
-    "video_id": "0mM1n0GOkFk",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
   "id": "stv-246",
@@ -162651,29 +162628,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-2527",
-  "title": "ARGANTARA — Episode 1",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Indonesian AI cinematic animation experiment: an indie creator's generative-AI animation trial. 4.8-min episode (287s verified); AI-made.",
-  "url": "https://www.youtube.com/embed/NNd9eMdttxU",
-  "video_id": "NNd9eMdttxU",
-  "source_channel": "Argantara",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "ARGANTARA — Episode 1",
-    "url": "https://www.youtube.com/embed/NNd9eMdttxU",
-    "video_id": "NNd9eMdttxU",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-2528",
   "title": "Petualangan Chilo — Menyelamatkan Planet Lomura (Eps. 2)",
   "genre": "Animation",
@@ -162860,7 +162814,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2530",
   "title": "T-41 — Bölüm 1: TUTANAK",
-  "genre": "Animation",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Turkey's first solo-made AI animation series: seven suspects, one interrogation room, seven stories. Hybrid production (human drawings/script, AI video-ization). 5.7-min episode (344s verified); AI-ma",
@@ -207154,7 +207108,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2863",
   "title": "Murder at Wimbledon — Episode 1: The Opening Serve",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI thriller series: a charismatic tennis pro arrives in London chasing Wimbledon glory but is coerced into throwing a match, plunging into crime, corruption, and murder.",
@@ -207167,29 +207121,6 @@ window.SHORTZ_CATALOG = [
     "title": "Murder at Wimbledon — Episode 1: The Opening Serve",
     "url": "https://www.youtube.com/embed/Yyc3WghGZhg",
     "video_id": "Yyc3WghGZhg",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-2864",
-  "title": "Chain Killers — Episode 1: The Investigation Begins",
-  "genre": "Mystery",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI crime-mystery series: disturbing rumors claim fast-food meat isn't what it seems, and a special team of detectives launches an investigation into every major chain.",
-  "url": "https://www.youtube.com/embed/Y9Fjal3PI4M",
-  "video_id": "Y9Fjal3PI4M",
-  "source_channel": "CultureHouse TV",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Chain Killers — Episode 1: The Investigation Begins",
-    "url": "https://www.youtube.com/embed/Y9Fjal3PI4M",
-    "video_id": "Y9Fjal3PI4M",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -207223,7 +207154,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2866",
   "title": "They All Got The Same Envelope...",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI whodunit: four strangers receive identical envelopes luring them to a remote lighthouse hotel, where someone knows what each of them buried. Guess the host before the twist.",
@@ -207246,7 +207177,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2867",
   "title": "The AI Crime Nobody Can Solve",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI whodunit: $250 million missing and Detective Moreau interrogates four AI suspects — Claude, ChatGPT, Gemini, and Grok. One of them is lying.",
@@ -207269,7 +207200,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2868",
   "title": "WHO DID IT?",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI whodunit short: a single gunshot, one victim, five suspects. Detectives Sarah Hayes and Liam Brooks dig through motives and lies to find who pulled the trigger.",
@@ -207292,7 +207223,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2869",
   "title": "The Dead Man's Secret — Part 1: A Traitor Among Us",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI mystery thriller set in Paris: Daniel Cole returns after his younger brother's mysterious death and follows a trail of envelopes, keys, and secrets toward a darker conspiracy. Five-part series.",
@@ -207383,7 +207314,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2870",
   "title": "AURELIA: The Last Gear — Episode 1 | The Clock That Lied (AI Steampunk Mystery Film)",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Fully AI-generated steampunk mystery film by a solo creator in Japan (~8 min). In the floating brass city of Aurelia, Detective Ria Vane and partner Noah Brass follow a 3-second clock anomaly to a loc",
@@ -207429,11 +207360,11 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2872",
   "title": "Endless Noir — Case 054 — Good Night, and Be Forgiven | 1930s noir radio drama",
-  "genre": "Mystery",
-  "eps": "27 eps",
+  "genre": "Detective",
+  "eps": "26 eps",
   "runtime": "~1-3 min each",
   "desc": "Self-writing 1930s noir radio serial: every case planned, written, voiced and scored by an autonomous AI pipeline (11:25). Case 054: a widow swears the voice absolving strangers on the air is the man ",
-  "url": "https://www.youtube.com/embed/31BR4wSmaQE",
+  "url": "",
   "video_id": "31BR4wSmaQE",
   "source_channel": "endless Noir",
   "ai_made": true,
@@ -207639,14 +207570,6 @@ window.SHORTZ_CATALOG = [
     "kind": "episode"
    },
    {
-    "title": "Case 054 — Good Night, and Be Forgiven",
-    "video_id": "31BR4wSmaQE",
-    "url": "https://www.youtube.com/embed/31BR4wSmaQE",
-    "n": 26,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Trailer — Tune In to Endless Noir",
     "video_id": "p6FlCrINA7k",
     "url": "https://www.youtube.com/embed/p6FlCrINA7k",
@@ -207660,7 +207583,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2873",
   "title": "A Dead Man Called My Office at Midnight | Noir Mystery",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Complete original noir mystery set in Bay City, 1947 (~9 min): a dead man calls detective Frank Malone's office at midnight wanting something back before one. Told through voices, sound design and atm",
@@ -207706,7 +207629,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2875",
   "title": "The Silent Whispers Ep. 1 - The Perfect Crime?",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Short-form crime series (YouTube Short): what if the perfect crime wasn't as perfect as it seemed? Detective Alex Morgan is on the case when a high-profile businessman is found dead — apparent suicide",
@@ -207752,7 +207675,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2878",
   "title": "The Left-Handed Stranger — Part 2: He solved his own cold case",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "4 eps",
   "runtime": "~1-3 min each",
   "desc": "Part 2 of 'The Left-Handed Stranger', a 15-part fictional psychological thriller series (YouTube Shorts): he solved his own cold case. A mystery built around a single question — which hand do you writ",
@@ -207919,7 +207842,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-2883",
   "title": "The Jungle Mystery | Episode 5 | Season 1 | Farah Files",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI detective short (YouTube Short): Detective Farah enters a dangerous jungle investigation — a wildlife researcher, a missing doctor, and a deadly secret hidden near the riverbank. A shocking betraya",
@@ -209424,29 +209347,6 @@ window.SHORTZ_CATALOG = [
     "title": "Insaan se bana Giant Hyde!",
     "url": "https://www.youtube.com/embed/V05iVO0fsp0",
     "video_id": "V05iVO0fsp0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-2954",
-  "title": "Manager Ne Garib Ko Showroom Se Bhahar Nikal Diya",
-  "genre": "Revenge",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Hindi entirely AI-generated revenge Short. A manager throws a poor man out of the showroom — revenge follows. (YouTube Short)",
-  "url": "https://www.youtube.com/embed/p2P-78kQFW8",
-  "video_id": "p2P-78kQFW8",
-  "source_channel": "Ai BAAZ",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Manager Ne Garib Ko Showroom Se Bhahar Nikal Diya",
-    "url": "https://www.youtube.com/embed/p2P-78kQFW8",
-    "video_id": "p2P-78kQFW8",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -212217,29 +212117,6 @@ window.SHORTZ_CATALOG = [
    }
   ],
   "rights_basis": "Public YouTube embed"
- },
- {
-  "id": "stv-3034",
-  "title": "LILY — Google AI Film Award winner (Tunisia)",
-  "genre": "Short Films",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Tunisian AI-generated short (~9 min): an archivist haunted by a doll linked to an accident he caused — guilt and repair told through cutting-edge generative AI (characters, environments, AI-assisted a",
-  "url": "https://www.youtube.com/embed/x7xCRSLFHW0",
-  "video_id": "x7xCRSLFHW0",
-  "source_channel": "Zoubeir Jelassi (Zoubeir Jlassi)",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "LILY — Google AI Film Award winner (Tunisia)",
-    "url": "https://www.youtube.com/embed/x7xCRSLFHW0",
-    "video_id": "x7xCRSLFHW0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
   "id": "stv-3035",
@@ -217362,7 +217239,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3202",
   "title": "GHOST SIGNAL | Episode 1: Flight 309 | A Mystery Spy Thriller Short Film",
-  "genre": "Thriller",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI mystery spy thriller, episode 1. An encrypted radio transmission leads investigator Ahmed to a long-abandoned airport. Three minutes.",
@@ -226210,7 +226087,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3397",
   "title": "Diamonds Out of Ashes — S1E1: They Witnessed a Murder in the Forest",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "An AI-generated film series based on the book Diamonds Out of Ashes. Season 1 Episode 1: witnesses to a murder in the forest set a tense mystery in motion.",
@@ -230413,29 +230290,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-3416",
-  "title": "THE AETHERSEA CHRONICLES: Episode 1 - Arrival (Pilot)",
-  "genre": "Sci-Fi",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI steampunk sci-fi series pilot. A storm washes the pirate ship The Wanderer ashore on a mysterious island; a masked wanderer arrives in Port City as the Deep Ones come ashore.",
-  "url": "https://www.youtube.com/embed/b2WgWR5C9F4",
-  "video_id": "b2WgWR5C9F4",
-  "source_channel": "Tenebrae Cinematics",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "THE AETHERSEA CHRONICLES: Episode 1 - Arrival (Pilot)",
-    "url": "https://www.youtube.com/embed/b2WgWR5C9F4",
-    "video_id": "b2WgWR5C9F4",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-3418",
   "title": "Total Pixel Space — Runway AI Film Festival 2025 Winner",
   "genre": "Space",
@@ -231191,7 +231045,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3447",
   "title": "The Briefcase Affair",
-  "genre": "Thriller",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "A mysterious woman hires a private detective for a simple job: pick up a briefcase from a deserted telephone booth. What is inside, and who wants it back? A 2.5-minute 1970s-style AI film-noir crime t",
@@ -231214,7 +231068,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3448",
   "title": "Detective Coalheart",
-  "genre": "Thriller",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "A tired detective watches an emergency broadcast of mysterious UFO sightings and just says 'I knew it.' Minutes later, something glowing appears above his car. An 80-second AI noir sci-fi short in the",
@@ -231237,7 +231091,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3449",
   "title": "Case AI",
-  "genre": "Thriller",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "A hard-boiled detective receives a package marked 'Case: A-I' and chases a white rabbit through worlds beyond black and white. An 11-minute AI genre-twisting short where classic film noir meets simula",
@@ -232619,29 +232473,6 @@ window.SHORTZ_CATALOG = [
     "title": "NEVIATH — Episode 1: No Goodbye",
     "url": "https://www.youtube.com/embed/NGIoYXQBJpU",
     "video_id": "NGIoYXQBJpU",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-3503",
-  "title": "ECLIPSED MIND — Episode 1: The Monster Within",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI anime horror: Episode 1 'The Monster Within' of Eclipsed Mind, from DreamCore Studio.",
-  "url": "https://www.youtube.com/embed/uNrskas6Zd0",
-  "video_id": "uNrskas6Zd0",
-  "source_channel": "DreamCore Studio",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "ECLIPSED MIND — Episode 1: The Monster Within",
-    "url": "https://www.youtube.com/embed/uNrskas6Zd0",
-    "video_id": "uNrskas6Zd0",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -235180,29 +235011,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-3593",
-  "title": "BIGFOOT VS ABANDONED SKYSCRAPER",
-  "genre": "Horror",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Bigfoot explores an abandoned skyscraper in POV found-footage style — but something is already waiting inside. An orange portal opens, the Clown Doctor steps out, and the nightmare begins. AI-made hor",
-  "url": "https://www.youtube.com/embed/C4UhJwMeSko",
-  "video_id": "C4UhJwMeSko",
-  "source_channel": "GameOnBro",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "BIGFOOT VS ABANDONED SKYSCRAPER",
-    "url": "https://www.youtube.com/embed/C4UhJwMeSko",
-    "video_id": "C4UhJwMeSko",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-3594",
   "title": "Zero",
   "genre": "Horror",
@@ -235376,29 +235184,6 @@ window.SHORTZ_CATALOG = [
   ]
  },
  {
-  "id": "stv-3600",
-  "title": "The Forest of Uzakru",
-  "genre": "Horror",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI-made African supernatural horror epic in the classic Nollywood village-movie spirit. Episode 1: a prince defies an ancient warning and enters the forbidden Forest of Uzakru — when he returns, somet",
-  "url": "https://www.youtube.com/embed/L-5FPJqE6Tg",
-  "video_id": "L-5FPJqE6Tg",
-  "source_channel": "Dingo Studios GH",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Forest of Uzakru",
-    "url": "https://www.youtube.com/embed/L-5FPJqE6Tg",
-    "video_id": "L-5FPJqE6Tg",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-3601",
   "title": "Shraapit Haveli",
   "genre": "Horror",
@@ -235539,7 +235324,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3608",
   "title": "Everybody Lies | Animated Short Sci-fi Noir (The Gian Files Ep1)",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Episode 1 of The Gian Files — an AI-animated sci-fi noir detective series. A lone investigator takes a widow's plea for justice in the city of Gian, uncovering lies and betrayal.",
@@ -235633,7 +235418,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3613",
   "title": "ARCANA Ep.1 'Tear of the Moon' | Original AI Mystery Anime - Detective vs Phantom Thief",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Original Japanese AI mystery anime (3:40, fully voiced in Japanese, Seedance x Runway): in fog-bound Kirigasaki, teen detective Koko and fennec-fox partner Mocha face phantom thief Arcana, after the s",
@@ -235786,29 +235571,6 @@ window.SHORTZ_CATALOG = [
     "title": "The Silent Justice | AI Short",
     "url": "https://www.youtube.com/embed/dKNf4mOizR4",
     "video_id": "dKNf4mOizR4",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-3629",
-  "title": "Epic Samurai Sword Fight | AI Short Film",
-  "genre": "Revenge",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI micro-cinema: samurai revenge in under 3 minutes - every strike fueled by vengeance, a Red Commander confronts the Kuro Commander in an epic sword fight. Complete action story.",
-  "url": "https://www.youtube.com/embed/A9M30KU-_Kk",
-  "video_id": "A9M30KU-_Kk",
-  "source_channel": "Epic Cinema Hub",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Epic Samurai Sword Fight | AI Short Film",
-    "url": "https://www.youtube.com/embed/A9M30KU-_Kk",
-    "video_id": "A9M30KU-_Kk",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -236329,7 +236091,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-365",
   "title": "HOOD COPS : EP 1 Homie Hookup W/ @BachelorsPadTv",
-  "genre": "Hood",
+  "genre": "Detective",
   "eps": "9 eps",
   "runtime": "~4 min",
   "desc": "Follow Detective Gonzalez on her INDEPENDENT show she created Hood Cops, after being rejected from the famous COPS show. Detective Gonzalez",
@@ -238667,29 +238429,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-3739",
-  "title": "The Cat Who Saved a Baby Bunny #Shorts",
-  "genre": "Family",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "A brave orange cat rescues a tiny baby bunny that fell into a dangerous drain during the rain, then cleans it, feeds it, and stays by its side until it feels safe. A heartwarming AI-animated short tol",
-  "url": "https://www.youtube.com/embed/DwLUKpC4-O0",
-  "video_id": "DwLUKpC4-O0",
-  "source_channel": "PawTale Stories",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Cat Who Saved a Baby Bunny #Shorts",
-    "url": "https://www.youtube.com/embed/DwLUKpC4-O0",
-    "video_id": "DwLUKpC4-O0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-374",
   "title": "Mein esi larki nahi ho | Short | Pyar ka Jaal | Love Trap | EP 1 |",
   "genre": "Hood",
@@ -239803,7 +239542,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-3787",
   "title": "The Heart of the City (Neural Noir)",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "AI cinematic noir anthology (8 min, explicit): Detective Elias Thorne investigates a 'clog' in the digestive system of a living biomechanical metropolis.",
@@ -243674,29 +243413,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-3974",
-  "title": "The Dragon's Covenant with the Cloaked 2",
-  "genre": "Fantasy",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "An AI-generated fantasy adventure of a mystical alliance between dragons and cloaked warriors in a realm of magic and mystery.",
-  "url": "https://www.youtube.com/embed/WwCBlDiqGLM",
-  "video_id": "WwCBlDiqGLM",
-  "source_channel": "ZYTHI STUDIO",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Dragon's Covenant with the Cloaked 2",
-    "url": "https://www.youtube.com/embed/WwCBlDiqGLM",
-    "video_id": "WwCBlDiqGLM",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-3975",
   "title": "THE RECURSION — Fantasy Short Film (2017)",
   "genre": "Fantasy",
@@ -245060,29 +244776,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-4036",
-  "title": "Gladiator Of Punjab💥| Epic Punjabi Action Ai Short Film",
-  "genre": "Action",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI-generated action short 'Gladiator Of Punjab💥| Epic Punjabi Action Ai Short Film' — 22G da Cinema.",
-  "url": "https://www.youtube.com/embed/nj7H9ADnmvQ",
-  "video_id": "nj7H9ADnmvQ",
-  "source_channel": "22G da Cinema",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Gladiator Of Punjab💥| Epic Punjabi Action Ai Short Film",
-    "url": "https://www.youtube.com/embed/nj7H9ADnmvQ",
-    "video_id": "nj7H9ADnmvQ",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-4037",
   "title": "THE BAD GUY || KANNADA SHORT FILM (AI)",
   "genre": "Action",
@@ -245282,29 +244975,6 @@ window.SHORTZ_CATALOG = [
     "title": "የክህደት ዋጋ! በገንዘብ የተፈተነው እውነተኛ ጓደኝነት 😱 | Amharic 3D Ai Drama",
     "url": "https://www.youtube.com/embed/v_iuQFchVRA",
     "video_id": "v_iuQFchVRA",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-4046",
-  "title": "የጠፋው ውሃ - አትክልቶቹ ውሃውን ያገኙት ይሆን? | AI Animated Fruits & Vegetables Story",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "An Amharic AI-animated kids' story: the fruits and vegetables have lost their water — will they find it?",
-  "url": "https://www.youtube.com/embed/Sm7GvXv8IOw",
-  "video_id": "Sm7GvXv8IOw",
-  "source_channel": "Pixel Dream Motion",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "የጠፋው ውሃ - አትክልቶቹ ውሃውን ያገኙት ይሆን? | AI Animated Fruits & Vegetables Story",
-    "url": "https://www.youtube.com/embed/Sm7GvXv8IOw",
-    "video_id": "Sm7GvXv8IOw",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -246294,29 +245964,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "Public YouTube embed"
  },
  {
-  "id": "stv-4088",
-  "title": "አጭር የ AI አኒሜሽን ፊልም ከስደት ወደ ስኬት ጎመኒት አስደናቂ እና አስተማሪ ፊልም | Ethiopian Amharic AI Movie",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "From migration to success: a short Amharic AI animation film — inspiring and educational.",
-  "url": "https://www.youtube.com/embed/8B50kYvt2v0",
-  "video_id": "8B50kYvt2v0",
-  "source_channel": "Teddy afro - Ethiorica   5.4M  views   days   ago",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "አጭር የ AI አኒሜሽን ፊልም ከስደት ወደ ስኬት ጎመኒት አስደናቂ እና አስተማሪ ፊልም | Ethiopian Amharic AI Movie",
-    "url": "https://www.youtube.com/embed/8B50kYvt2v0",
-    "video_id": "8B50kYvt2v0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-4089",
   "title": "የAI አኒሜሽን ታሪክ አጭር የ AI አኒሜሽን ፊልም የአትክልቶች አለም | Ethiopian Amharic AI Movie",
   "genre": "Animation",
@@ -246355,29 +246002,6 @@ window.SHORTZ_CATALOG = [
     "title": "ተስፈኛው ድንች part 1 Amharic AI Animation Video",
     "url": "https://www.youtube.com/embed/oughIMpWmhU",
     "video_id": "oughIMpWmhU",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-4091",
-  "title": "አጭር የ AI አኒሜሽን ፊልም የእናት ውለታ አስደናቂ እና አስተማሪ ፊልም | Ethiopian Amharic AI Movie",
-  "genre": "Animation",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "A mother's debt: a wonderful and educational short Amharic AI animation film.",
-  "url": "https://www.youtube.com/embed/qoQj9m4oV4Y",
-  "video_id": "qoQj9m4oV4Y",
-  "source_channel": "Teddy afro - Ethiorica   5.4M  views   days   ago",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "አጭር የ AI አኒሜሽን ፊልም የእናት ውለታ አስደናቂ እና አስተማሪ ፊልም | Ethiopian Amharic AI Movie",
-    "url": "https://www.youtube.com/embed/qoQj9m4oV4Y",
-    "video_id": "qoQj9m4oV4Y",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -247000,30 +246624,6 @@ window.SHORTZ_CATALOG = [
     "title": "The Day the Sky Ran Out of Air... | Our World Without AIR (CO2) | Cinematic Anime Ep. 1",
     "url": "https://www.youtube.com/embed/KIaVqXSm40o",
     "video_id": "KIaVqXSm40o",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "onlyShortz": true,
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-4120",
-  "title": "Journey of a Samurai | Part 1",
-  "genre": "Anime",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "Original AI anime series by CinebrushAI: the first part of a samurai's journey. Short-form AI anime episode. (2:13)",
-  "url": "https://www.youtube.com/embed/knhHXr4rk08",
-  "video_id": "knhHXr4rk08",
-  "source_channel": "Anand Anil",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Journey of a Samurai | Part 1",
-    "url": "https://www.youtube.com/embed/knhHXr4rk08",
-    "video_id": "knhHXr4rk08",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -248231,29 +247831,6 @@ window.SHORTZ_CATALOG = [
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
-  "id": "stv-4173",
-  "title": "Not all heroes wear capes Some just have kind hearts",
-  "genre": "Family",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "A small puppy accidentally falls into a deep roadside drain, cold, scared, and alone — until a young boy steps forward to rescue the helpless puppy. An AI-animated short reminding us that even a small",
-  "url": "https://www.youtube.com/embed/3GZpd5w7bu0",
-  "video_id": "3GZpd5w7bu0",
-  "source_channel": "MRB Animation Studio",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Not all heroes wear capes Some just have kind hearts",
-    "url": "https://www.youtube.com/embed/3GZpd5w7bu0",
-    "video_id": "3GZpd5w7bu0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
   "id": "stv-4174",
   "title": "The Duck and the Magical Egg | AI Cartoon Short",
   "genre": "Family",
@@ -248775,29 +248352,6 @@ window.SHORTZ_CATALOG = [
     "title": "Часть 2. А. С. Пушкин — Лукоморье. | Ожившая сказка (AI Animation)",
     "url": "https://www.youtube.com/embed/eaRVYSCpY1o",
     "video_id": "eaRVYSCpY1o",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
-  "rights_basis": "AI-made by original creator (third-party production method)"
- },
- {
-  "id": "stv-4199",
-  "title": "Queen of Sheba: The Truth Behind the Legend of Solomon 👑🇪🇹**",
-  "genre": "Fantasy",
-  "eps": "1 ep",
-  "runtime": "~1-3 min each",
-  "desc": "AI-powered African legend short (0:48, English): Meet Makeda, the legendary Queen of Sheba from the ancient Kingdom of Axum, Ethiopia. Follow her 1,200-mile journey to Jerusalem to test the wisdom of ",
-  "url": "https://www.youtube.com/embed/t8NCAPOomSk",
-  "video_id": "t8NCAPOomSk",
-  "source_channel": "Abyssinian Chronicles AI",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Queen of Sheba: The Truth Behind the Legend of Solomon 👑🇪🇹**",
-    "url": "https://www.youtube.com/embed/t8NCAPOomSk",
-    "video_id": "t8NCAPOomSk",
     "n": 1,
     "verified": true,
     "kind": "episode"
@@ -250735,7 +250289,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-4281",
   "title": "SYD CONFIDENTIAL",
-  "genre": "Mystery",
+  "genre": "Detective",
   "eps": "1 ep",
   "runtime": "~1-3 min each",
   "desc": "Generative AI noir short film (Tropfest 2026 finalist, ~7 min): a private detective follows a trail of 'clues' across Sydney, blurring reality and imagination. Verified oEmbed 200.",
@@ -1050738,7 +1050292,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-36985",
   "title": "Detectives Hunt LA's Most Terrifying Serial Killer | Manhunt | Full True Crime Mystery Movie",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-13",
   "episodes": [
@@ -1056905,7 +1056459,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-37254",
   "title": "Detectives Risk Everything To Find The Killer | Manipulated | Crime Mystery Movie",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-13",
   "episodes": [
@@ -1057895,7 +1057449,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-37297",
   "title": "NYPD Detective Must Find The Killer | | Sons Of God | Crime Drama Movie",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-13",
   "episodes": [
@@ -1057918,7 +1057472,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-37298",
   "title": "Detectives Hunt Gangland Killers | The 4 Points | Crime Drama Movie",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-13",
   "episodes": [
@@ -1420570,7 +1420124,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-52427",
   "title": "I, Detective",
-  "genre": "Reality",
+  "genre": "Detective",
   "eps": "35 eps",
   "runtime": "~22 min",
   "desc": "Real homicide detectives walk through the cases that defined their careers — the evidence, the interrogations, and the moment each case finally broke. truTV's true-crime series, full episodes from truTV UK.",
@@ -1422177,7 +1421731,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-52437",
   "title": "Above Suspicion",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-15",
   "episodes": [
@@ -1422255,7 +1421809,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-52438",
   "title": "Rose and Maloney",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-15",
   "episodes": [
@@ -1422351,7 +1421905,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-52439",
   "title": "Accused",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-15",
   "episodes": [
@@ -1422456,7 +1422010,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-52440",
   "title": "Racket Squad",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-15",
   "episodes": [
@@ -1422967,7 +1422521,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-52442",
   "title": "Colonel March of Scotland Yard",
-  "genre": "Crime",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-15",
   "episodes": [
@@ -1814710,7 +1814264,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-70155",
   "title": "Vindication | Season 1",
-  "genre": "Faith",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1930399,7 +1929953,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73069",
   "title": "The Listener",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "url": "https://www.youtube.com/embed/IEgqV47pons",
@@ -1933337,7 +1932891,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73074",
   "title": "The Bill: Series 1",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1933460,7 +1933014,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73075",
   "title": "The Bill: Series 2",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1933583,7 +1933137,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73076",
   "title": "The Bill: Series 3",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1933706,7 +1933260,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73077",
   "title": "The Bill: Series 4",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1934153,7 +1933707,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73078",
   "title": "The Bill: Series 5",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1935104,7 +1934658,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73079",
   "title": "The Bill: Series 6",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1936055,7 +1935609,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73080",
   "title": "The Bill: Series 7",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1937015,7 +1936569,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73081",
   "title": "The Bill: Series 8",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1937975,7 +1937529,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73082",
   "title": "The Bill: Series 9",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1939376,7 +1938930,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73083",
   "title": "The Bill: Series 10",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1940786,7 +1940340,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73084",
   "title": "The Bill: Series 11",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1942142,7 +1941696,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73085",
   "title": "The Bill: Series 12",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1943561,7 +1943115,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73086",
   "title": "The Bill: Series 13",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1944944,7 +1944498,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73087",
   "title": "The Bill: Series 14",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1946048,7 +1945602,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73088",
   "title": "The Bill: Series 15",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1946846,7 +1946400,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73089",
   "title": "The Bill: Series 16",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1947617,7 +1947171,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73090",
   "title": "The Bill: Series 17",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1948406,7 +1947960,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73091",
   "title": "The Bill: Series 18",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1948673,7 +1948227,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73092",
   "title": "The Bill: Series 21",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -1948715,7 +1948269,7 @@ window.SHORTZ_CATALOG = [
  {
   "id": "stv-73093",
   "title": "The Bill: Series 22",
-  "genre": "Drama",
+  "genre": "Detective",
   "verified": true,
   "dateAdded": "2026-10-20",
   "episodes": [
@@ -2091960,34 +2091514,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78414",
-  "title": "The Day I Got Divorced, My Billionaire Mom Found Me",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "42 min",
-  "desc": "AI-made vertical drama from NetShort- Popular Dramas & TV. Full movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/j17a7q4ju1E",
-  "video_id": "j17a7q4ju1E",
-  "source_channel": "NetShort- Popular Dramas & TV",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Day I Got Divorced, My Billionaire Mom Found Me",
-    "url": "https://www.youtube.com/embed/j17a7q4ju1E",
-    "video_id": "j17a7q4ju1E",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2520
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78415",
   "title": "She Attended Her Own Funeral",
   "genre": "Drama",
@@ -2092156,34 +2091682,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78421",
-  "title": "My Fiancé Arrived With His Mistress—So I Married a Billionaire That Same Day!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "46 min",
-  "desc": "AI-made vertical drama from Sonnet Drama. Full movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/aQ_Os2PnS14",
-  "video_id": "aQ_Os2PnS14",
-  "source_channel": "Sonnet Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "My Fiancé Arrived With His Mistress—So I Married a Billionaire That Same Day!",
-    "url": "https://www.youtube.com/embed/aQ_Os2PnS14",
-    "video_id": "aQ_Os2PnS14",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2790
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78422",
   "title": "The Real Heiress Was Humiliated on Day One",
   "genre": "Drama",
@@ -2092232,34 +2091730,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 6406
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78424",
-  "title": "Billionaire Heiress Hides Her Wealth as a Housewife",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "66 min",
-  "desc": "AI-made vertical drama from Forbidden Mates. Full movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/go0DV_zrzg4",
-  "video_id": "go0DV_zrzg4",
-  "source_channel": "Forbidden Mates",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Billionaire Heiress Hides Her Wealth as a Housewife",
-    "url": "https://www.youtube.com/embed/go0DV_zrzg4",
-    "video_id": "go0DV_zrzg4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3972
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2093641,34 +2093111,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78474",
-  "title": "Reborn, she runs over 50 soldiers with her car and builds her own…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "103 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/FT5uh6j0i1g",
-  "video_id": "FT5uh6j0i1g",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn, she runs over 50 soldiers with her car and builds her own…",
-    "url": "https://www.youtube.com/embed/FT5uh6j0i1g",
-    "video_id": "FT5uh6j0i1g",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6161
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78475",
   "title": "My Husband Kept His Money And Made Unfair Marriage Rules, I Left Him…",
   "genre": "Drama",
@@ -2093857,34 +2093299,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5282
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78482",
-  "title": "Reborn as an Exiled Slave, She Married a Poor Soldier and Built a…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "58 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/jgE1FIAWso0",
-  "video_id": "jgE1FIAWso0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as an Exiled Slave, She Married a Poor Soldier and Built a…",
-    "url": "https://www.youtube.com/embed/jgE1FIAWso0",
-    "video_id": "jgE1FIAWso0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3487
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2094369,34 +2093783,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78500",
-  "title": "Reborn senior sister refuses to save ungrateful sect, awakens as real…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "52 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/wft3gQIIbSc",
-  "video_id": "wft3gQIIbSc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn senior sister refuses to save ungrateful sect, awakens as real…",
-    "url": "https://www.youtube.com/embed/wft3gQIIbSc",
-    "video_id": "wft3gQIIbSc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3117
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78501",
   "title": "A Legendary Mechanic Was Kicked Out by His Student—Now the Top Team…",
   "genre": "Drama",
@@ -2094453,34 +2093839,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78503",
-  "title": "She curses the tyrant 100 times a day in her mind, not knowing he can…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "68 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/uuF2AxG27h0",
-  "video_id": "uuF2AxG27h0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "She curses the tyrant 100 times a day in her mind, not knowing he can…",
-    "url": "https://www.youtube.com/embed/uuF2AxG27h0",
-    "video_id": "uuF2AxG27h0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4098
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78504",
   "title": "He Hid as a Dishwasher for 3 Years—Then Revealed He Was the World's Greatest Magic Chef!",
   "genre": "Drama",
@@ -2094529,34 +2093887,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5807
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78506",
-  "title": "Modern scientist framed for beast abuse tames vengeful cat demon and busts dark trade lab!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "100 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/26o8BelPnts",
-  "video_id": "26o8BelPnts",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Modern scientist framed for beast abuse tames vengeful cat demon and busts dark trade lab!",
-    "url": "https://www.youtube.com/embed/26o8BelPnts",
-    "video_id": "26o8BelPnts",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5995
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2094697,34 +2094027,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3181
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78512",
-  "title": "Poor girl hatches an unwanted egg, cute pet devours magic, return stronger to humiliate tyrant!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "96 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/D_AHr5e2k9k",
-  "video_id": "D_AHr5e2k9k",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Poor girl hatches an unwanted egg, cute pet devours magic, return stronger to humiliate tyrant!",
-    "url": "https://www.youtube.com/embed/D_AHr5e2k9k",
-    "video_id": "D_AHr5e2k9k",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5734
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2095173,34 +2094475,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4915
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78529",
-  "title": "A poor girl inherited a small shop and built her own empire spanning…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "51 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/TNKv5xad9iI",
-  "video_id": "TNKv5xad9iI",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "A poor girl inherited a small shop and built her own empire spanning…",
-    "url": "https://www.youtube.com/embed/TNKv5xad9iI",
-    "video_id": "TNKv5xad9iI",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3067
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2095769,34 +2095043,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78550",
-  "title": "Reborn, she uses modern knowledge to build hot springs and looms…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "74 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/s1SKFJo58fM",
-  "video_id": "s1SKFJo58fM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn, she uses modern knowledge to build hot springs and looms…",
-    "url": "https://www.youtube.com/embed/s1SKFJo58fM",
-    "video_id": "s1SKFJo58fM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4446
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78551",
   "title": "I Hated My Quarterback Rival—Until I Learned His Love Letter Was for…",
   "genre": "Drama",
@@ -2096013,34 +2095259,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 8903
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78559",
-  "title": "Betrayed and killed by the Prince, she reborn to marry the enemy…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "44 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/cEmrFflJJGM",
-  "video_id": "cEmrFflJJGM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed and killed by the Prince, she reborn to marry the enemy…",
-    "url": "https://www.youtube.com/embed/cEmrFflJJGM",
-    "video_id": "cEmrFflJJGM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2664
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2096301,34 +2095519,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78569",
-  "title": "Reborn on her wedding night,she leads everyone to catch her cheating…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "131 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/75zmrH52b7U",
-  "video_id": "75zmrH52b7U",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn on her wedding night,she leads everyone to catch her cheating…",
-    "url": "https://www.youtube.com/embed/75zmrH52b7U",
-    "video_id": "75zmrH52b7U",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7875
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78570",
   "title": "The Body God Without Magic",
   "genre": "Drama",
@@ -2096489,34 +2095679,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4708
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78576",
-  "title": "Special Ops Soldier Transmigrates to Ancient Era, Slaps Greedy…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "130 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/iQhxFfZqSUo",
-  "video_id": "iQhxFfZqSUo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Special Ops Soldier Transmigrates to Ancient Era, Slaps Greedy…",
-    "url": "https://www.youtube.com/embed/iQhxFfZqSUo",
-    "video_id": "iQhxFfZqSUo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7820
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2097001,62 +2096163,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78594",
-  "title": "Forced through the side door, bride cancels wedding and marries the…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "79 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/xnsW69B2ToQ",
-  "video_id": "xnsW69B2ToQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced through the side door, bride cancels wedding and marries the…",
-    "url": "https://www.youtube.com/embed/xnsW69B2ToQ",
-    "video_id": "xnsW69B2ToQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4763
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78595",
-  "title": "Driving a forklift across time to ancient times, she solved the flood…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "40 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/aIOVvhy_ljA",
-  "video_id": "aIOVvhy_ljA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Driving a forklift across time to ancient times, she solved the flood…",
-    "url": "https://www.youtube.com/embed/aIOVvhy_ljA",
-    "video_id": "aIOVvhy_ljA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2413
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78596",
   "title": "Eight hundred degrees of nearsightedness—how will this Princess…",
   "genre": "Drama",
@@ -2097217,34 +2096323,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4200
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78602",
-  "title": "Reborn as the murdered princess, she uses a stick to shut her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "41 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/6yqXcYXKCrQ",
-  "video_id": "6yqXcYXKCrQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as the murdered princess, she uses a stick to shut her…",
-    "url": "https://www.youtube.com/embed/6yqXcYXKCrQ",
-    "video_id": "6yqXcYXKCrQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2469
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2097421,62 +2096499,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78609",
-  "title": "Poisoned by Her Husband, She Reborn with All Her Memories to Take…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "73 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/jBunY9_rVxM",
-  "video_id": "jBunY9_rVxM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Poisoned by Her Husband, She Reborn with All Her Memories to Take…",
-    "url": "https://www.youtube.com/embed/jBunY9_rVxM",
-    "video_id": "jBunY9_rVxM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4378
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78610",
-  "title": "Betrayed Princess Reborn With Modern Science, Invented Gunpowder and…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "41 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/bXsoSdJdKSc",
-  "video_id": "bXsoSdJdKSc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed Princess Reborn With Modern Science, Invented Gunpowder and…",
-    "url": "https://www.youtube.com/embed/bXsoSdJdKSc",
-    "video_id": "bXsoSdJdKSc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2469
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78611",
   "title": "They Mocked a Pizza Shop Owner—Not Knowing He Was the World's Greatest Hacker!",
   "genre": "Drama",
@@ -2097609,34 +2096631,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 9314
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78616",
-  "title": "Betrayed and sacrificed, she is reborn with her memories to take…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "52 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/MKjL--AufEQ",
-  "video_id": "MKjL--AufEQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed and sacrificed, she is reborn with her memories to take…",
-    "url": "https://www.youtube.com/embed/MKjL--AufEQ",
-    "video_id": "MKjL--AufEQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3117
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2097785,34 +2096779,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78622",
-  "title": "Tortured to death by her sister, she returns as a mafia boss!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "83 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/78156d1BnOY",
-  "video_id": "78156d1BnOY",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Tortured to death by her sister, she returns as a mafia boss!",
-    "url": "https://www.youtube.com/embed/78156d1BnOY",
-    "video_id": "78156d1BnOY",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4951
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78623",
   "title": "She Dumped Her Plumber Boyfriend for a Tycoon—Not Knowing He Was a…",
   "genre": "Drama",
@@ -2097833,34 +2096799,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4131
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78624",
-  "title": "Betrayed by My Business Partner, I Walked Away and Built an Empire on…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "49 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/mKEPZWX0kmo",
-  "video_id": "mKEPZWX0kmo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed by My Business Partner, I Walked Away and Built an Empire on…",
-    "url": "https://www.youtube.com/embed/mKEPZWX0kmo",
-    "video_id": "mKEPZWX0kmo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2959
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2098065,90 +2097003,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78632",
-  "title": "An arrogant princess crosses two worlds and becomes a queen in both!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "42 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/yOQXjTCm7zQ",
-  "video_id": "yOQXjTCm7zQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "An arrogant princess crosses two worlds and becomes a queen in both!",
-    "url": "https://www.youtube.com/embed/yOQXjTCm7zQ",
-    "video_id": "yOQXjTCm7zQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2521
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78633",
-  "title": "Reborn wife trades wild game for modern crops, turns ruined shack into famine miracle",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "82 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/j234EqvoYYw",
-  "video_id": "j234EqvoYYw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn wife trades wild game for modern crops, turns ruined shack into famine miracle",
-    "url": "https://www.youtube.com/embed/j234EqvoYYw",
-    "video_id": "j234EqvoYYw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4914
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78634",
-  "title": "Mocked Substitute Wife Uncovers Huge Embezzlement, Foils Poison Plot…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "67 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/IqF4sj_HJFk",
-  "video_id": "IqF4sj_HJFk",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Mocked Substitute Wife Uncovers Huge Embezzlement, Foils Poison Plot…",
-    "url": "https://www.youtube.com/embed/IqF4sj_HJFk",
-    "video_id": "IqF4sj_HJFk",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4046
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78635",
   "title": "Past Life Tormented, Reborn Life Full Of Revenge And Glory.Now She…",
   "genre": "Drama",
@@ -2098197,34 +2097051,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 7221
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78637",
-  "title": "Groom stolen by my BFF at the wedding?I turned around",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "85 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/suo4pyzjHmc",
-  "video_id": "suo4pyzjHmc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Groom stolen by my BFF at the wedding?I turned around",
-    "url": "https://www.youtube.com/embed/suo4pyzjHmc",
-    "video_id": "suo4pyzjHmc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5126
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2098401,34 +2097227,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78644",
-  "title": "To earn medicine money, she forces the shut-in Prince out to steal…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "89 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/f79cV8eEhoo",
-  "video_id": "f79cV8eEhoo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "To earn medicine money, she forces the shut-in Prince out to steal…",
-    "url": "https://www.youtube.com/embed/f79cV8eEhoo",
-    "video_id": "f79cV8eEhoo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5333
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78645",
   "title": "They Called Him a Useless Omega… Until the Merman King Claimed Him as…",
   "genre": "Drama",
@@ -2098505,62 +2097303,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5413
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78648",
-  "title": "Reborn, she activates the farm owner system, turning wasteland into a…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "44 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/_PQ3KeNf2hs",
-  "video_id": "_PQ3KeNf2hs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn, she activates the farm owner system, turning wasteland into a…",
-    "url": "https://www.youtube.com/embed/_PQ3KeNf2hs",
-    "video_id": "_PQ3KeNf2hs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2651
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78649",
-  "title": "Wrongfully killed, she is reborn with the God of War system to sweep…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "65 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/27jPy2Noq1s",
-  "video_id": "27jPy2Noq1s",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Wrongfully killed, she is reborn with the God of War system to sweep…",
-    "url": "https://www.youtube.com/embed/27jPy2Noq1s",
-    "video_id": "27jPy2Noq1s",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3901
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2098905,34 +2097647,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78662",
-  "title": "My father told me to please the emperor with an instrument, but I…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "79 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/VxRexHI2zIQ",
-  "video_id": "VxRexHI2zIQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "My father told me to please the emperor with an instrument, but I…",
-    "url": "https://www.youtube.com/embed/VxRexHI2zIQ",
-    "video_id": "VxRexHI2zIQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4713
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78663",
   "title": "The Discarded Ace",
   "genre": "Drama",
@@ -2098953,62 +2097667,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4554
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78664",
-  "title": "Modern Builder Unlocks Ancient City, Uses Concrete and Drones to…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "40 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/oC5qs7pTh64",
-  "video_id": "oC5qs7pTh64",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Modern Builder Unlocks Ancient City, Uses Concrete and Drones to…",
-    "url": "https://www.youtube.com/embed/oC5qs7pTh64",
-    "video_id": "oC5qs7pTh64",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2413
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78665",
-  "title": "Everyone mocked her as a dragging country girl, but she won first…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "60 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/1KgPFpN2A44",
-  "video_id": "1KgPFpN2A44",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Everyone mocked her as a dragging country girl, but she won first…",
-    "url": "https://www.youtube.com/embed/1KgPFpN2A44",
-    "video_id": "1KgPFpN2A44",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3594
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2099269,34 +2097927,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78675",
-  "title": "Falsely accused and imprisoned, she conquers the entire prison with…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "52 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/3UQYY712YXE",
-  "video_id": "3UQYY712YXE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Falsely accused and imprisoned, she conquers the entire prison with…",
-    "url": "https://www.youtube.com/embed/3UQYY712YXE",
-    "video_id": "3UQYY712YXE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3127
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78676",
   "title": "He Was Just a Deliveryman—Until 3 Beauties' Favor Gave Him Advanced Weapons!",
   "genre": "Drama",
@@ -2099373,62 +2098003,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3422
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78679",
-  "title": "Falsely accused and killed, reborn, refuses to endure anymore—avenges…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "58 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/-vUyj_GBkq4",
-  "video_id": "-vUyj_GBkq4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Falsely accused and killed, reborn, refuses to endure anymore—avenges…",
-    "url": "https://www.youtube.com/embed/-vUyj_GBkq4",
-    "video_id": "-vUyj_GBkq4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3491
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78680",
-  "title": "Her bottled water became an ancient luxury, building a business…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "48 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/J1rlaoRauR8",
-  "video_id": "J1rlaoRauR8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her bottled water became an ancient luxury, building a business…",
-    "url": "https://www.youtube.com/embed/J1rlaoRauR8",
-    "video_id": "J1rlaoRauR8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2859
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2099549,34 +2098123,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78685",
-  "title": "Reborn student ignores roommate opening window in freeze, exposes…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "58 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/t4tVR3kEuEM",
-  "video_id": "t4tVR3kEuEM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn student ignores roommate opening window in freeze, exposes…",
-    "url": "https://www.youtube.com/embed/t4tVR3kEuEM",
-    "video_id": "t4tVR3kEuEM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3491
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78686",
   "title": "Her sister swaps marriages after rebirth, but she marries a soldier and strikes it rich.",
   "genre": "Drama",
@@ -2099625,34 +2098171,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4238
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78688",
-  "title": "Forced to replace her runaway sister, she discovers the disabled…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "74 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/K31lz3FN_O8",
-  "video_id": "K31lz3FN_O8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced to replace her runaway sister, she discovers the disabled…",
-    "url": "https://www.youtube.com/embed/K31lz3FN_O8",
-    "video_id": "K31lz3FN_O8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4460
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2099737,62 +2098255,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1695
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78692",
-  "title": "Poisoned Noble Girl Reborn at Age Eight, Exposes Evil Servants and…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "73 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/tbcV4wZXtBA",
-  "video_id": "tbcV4wZXtBA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Poisoned Noble Girl Reborn at Age Eight, Exposes Evil Servants and…",
-    "url": "https://www.youtube.com/embed/tbcV4wZXtBA",
-    "video_id": "tbcV4wZXtBA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4378
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78693",
-  "title": "Reborn, she activates the loan system, using infinite money to exact…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "69 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/wyzXKW5AfLU",
-  "video_id": "wyzXKW5AfLU",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn, she activates the loan system, using infinite money to exact…",
-    "url": "https://www.youtube.com/embed/wyzXKW5AfLU",
-    "video_id": "wyzXKW5AfLU",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4153
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2100025,34 +2098487,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78702",
-  "title": "Fail and die! To conquer 5 emperors, she became the idealized first…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "99 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/DvdJpfN_Vl0",
-  "video_id": "DvdJpfN_Vl0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Fail and die! To conquer 5 emperors, she became the idealized first…",
-    "url": "https://www.youtube.com/embed/DvdJpfN_Vl0",
-    "video_id": "DvdJpfN_Vl0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5935
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78703",
   "title": "The Dog Blocked The Door At Midnight, Someone Waits Outside",
   "genre": "Drama",
@@ -2100101,90 +2098535,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4452
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78705",
-  "title": "Reborn as a villainess, she uses her ability to foresee the future to…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "69 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/dgxgn1zF7co",
-  "video_id": "dgxgn1zF7co",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a villainess, she uses her ability to foresee the future to…",
-    "url": "https://www.youtube.com/embed/dgxgn1zF7co",
-    "video_id": "dgxgn1zF7co",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4143
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78706",
-  "title": "Reborn as a country girl, she rules a billionaire family with her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "68 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/5FxZ7VjFz4E",
-  "video_id": "5FxZ7VjFz4E",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a country girl, she rules a billionaire family with her…",
-    "url": "https://www.youtube.com/embed/5FxZ7VjFz4E",
-    "video_id": "5FxZ7VjFz4E",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4096
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78707",
-  "title": "Dumped Noble Lady Time Traveled to Modern Set, Rose From Extra to…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "42 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/OjGaqxdC4Ak",
-  "video_id": "OjGaqxdC4Ak",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Dumped Noble Lady Time Traveled to Modern Set, Rose From Extra to…",
-    "url": "https://www.youtube.com/embed/OjGaqxdC4Ak",
-    "video_id": "OjGaqxdC4Ak",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2521
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2100249,62 +2098599,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78710",
-  "title": "Her instant noodles became an ancient luxury, scrambled for by all…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "59 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/DORA4GqwJh4",
-  "video_id": "DORA4GqwJh4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her instant noodles became an ancient luxury, scrambled for by all…",
-    "url": "https://www.youtube.com/embed/DORA4GqwJh4",
-    "video_id": "DORA4GqwJh4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3534
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78711",
-  "title": "Mocked by everyone, for a 10 million prize, she shows her true skills!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "60 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/-oEGiFcbP74",
-  "video_id": "-oEGiFcbP74",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Mocked by everyone, for a 10 million prize, she shows her true skills!",
-    "url": "https://www.youtube.com/embed/-oEGiFcbP74",
-    "video_id": "-oEGiFcbP74",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3596
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78712",
   "title": "Lord of the Undead",
   "genre": "Drama",
@@ -2100325,34 +2098619,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4006
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78713",
-  "title": "Framed lady dies miserably, reborn with powerful system to summon…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "65 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/74qXbgvPEg8",
-  "video_id": "74qXbgvPEg8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Framed lady dies miserably, reborn with powerful system to summon…",
-    "url": "https://www.youtube.com/embed/74qXbgvPEg8",
-    "video_id": "74qXbgvPEg8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3901
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2100409,62 +2098675,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3156
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78716",
-  "title": "Framed and exiled to die, she tames her assassin, builds an empire…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "88 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Zg1gqHZSfg8",
-  "video_id": "Zg1gqHZSfg8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Framed and exiled to die, she tames her assassin, builds an empire…",
-    "url": "https://www.youtube.com/embed/Zg1gqHZSfg8",
-    "video_id": "Zg1gqHZSfg8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5301
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78717",
-  "title": "Reborn as a death row inmate, she conquers the emperor with modern…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "115 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ei11OTr5oHM",
-  "video_id": "ei11OTr5oHM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a death row inmate, she conquers the emperor with modern…",
-    "url": "https://www.youtube.com/embed/ei11OTr5oHM",
-    "video_id": "ei11OTr5oHM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6898
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2100669,34 +2098879,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78725",
-  "title": "Banished concubine uses science to survive freezing cold palace…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "74 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/kB1KYfyoXiU",
-  "video_id": "kB1KYfyoXiU",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Banished concubine uses science to survive freezing cold palace…",
-    "url": "https://www.youtube.com/embed/kB1KYfyoXiU",
-    "video_id": "kB1KYfyoXiU",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4446
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78726",
   "title": "I Butcher Gods with a Skinning Knife",
   "genre": "Drama",
@@ -2100717,34 +2098899,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4494
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78727",
-  "title": "Abused Hostage Princess Rebels, Captures Five Cities and Overthrows…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "50 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/RO5Iy3kFzKs",
-  "video_id": "RO5Iy3kFzKs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Abused Hostage Princess Rebels, Captures Five Cities and Overthrows…",
-    "url": "https://www.youtube.com/embed/RO5Iy3kFzKs",
-    "video_id": "RO5Iy3kFzKs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2989
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2100801,34 +2098955,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1386
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78730",
-  "title": "The manager tried to frame her, but she had a secret power to hear…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "72 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/UVkskJFGauk",
-  "video_id": "UVkskJFGauk",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The manager tried to frame her, but she had a secret power to hear…",
-    "url": "https://www.youtube.com/embed/UVkskJFGauk",
-    "video_id": "UVkskJFGauk",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4338
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2101033,34 +2099159,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78738",
-  "title": "The Secret My Husband Kept",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "62 min",
-  "desc": "AI-made vertical drama from AI Drama Series. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/MDIV3kNfYEc",
-  "video_id": "MDIV3kNfYEc",
-  "source_channel": "AI Drama Series",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Secret My Husband Kept",
-    "url": "https://www.youtube.com/embed/MDIV3kNfYEc",
-    "video_id": "MDIV3kNfYEc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3702
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78739",
   "title": "Fast and Furious: Deliveryman's Comeback",
   "genre": "Drama",
@@ -2101165,34 +2099263,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5352
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78743",
-  "title": "Forced apart by a decree: one to the cold palace, the other to a war…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "65 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/YgAsv8FRn0s",
-  "video_id": "YgAsv8FRn0s",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced apart by a decree: one to the cold palace, the other to a war…",
-    "url": "https://www.youtube.com/embed/YgAsv8FRn0s",
-    "video_id": "YgAsv8FRn0s",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3927
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2101509,34 +2099579,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78755",
-  "title": "Fake heiress tries to be hated for cash, but family reads her mind and spoils her instead!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "69 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/St51xEnMWvA",
-  "video_id": "St51xEnMWvA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Fake heiress tries to be hated for cash, but family reads her mind and spoils her instead!",
-    "url": "https://www.youtube.com/embed/St51xEnMWvA",
-    "video_id": "St51xEnMWvA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4117
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78756",
   "title": "Stolen Muse, Contracted Bride",
   "genre": "Drama",
@@ -2101705,34 +2099747,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78762",
-  "title": "Forced to marry a rooster, she shocks the mansion by carrying the…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "64 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/KHOnz2rcBIc",
-  "video_id": "KHOnz2rcBIc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced to marry a rooster, she shocks the mansion by carrying the…",
-    "url": "https://www.youtube.com/embed/KHOnz2rcBIc",
-    "video_id": "KHOnz2rcBIc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3865
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78763",
   "title": "Police Humiliated a Homeless Veteran—Then the Mayor Arrived and Revealed His True Identity!",
   "genre": "Drama",
@@ -2101753,34 +2099767,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3280
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78764",
-  "title": "Mocked, she relies on her secret oyster sauce recipe to build a…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "78 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/QoM9nRr7Mns",
-  "video_id": "QoM9nRr7Mns",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Mocked, she relies on her secret oyster sauce recipe to build a…",
-    "url": "https://www.youtube.com/embed/QoM9nRr7Mns",
-    "video_id": "QoM9nRr7Mns",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4709
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2101901,34 +2099887,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78769",
-  "title": "Betrayed by her fiancé, she hires a mysterious drifter to be her fake…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "85 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/1YCN5n4tutI",
-  "video_id": "1YCN5n4tutI",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed by her fiancé, she hires a mysterious drifter to be her fake…",
-    "url": "https://www.youtube.com/embed/1YCN5n4tutI",
-    "video_id": "1YCN5n4tutI",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5126
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78770",
   "title": "Miss Jiang quits without hesitation, leaving her old life behind to…",
   "genre": "Drama",
@@ -2102013,34 +2099971,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78773",
-  "title": "Reborn as a pitiful maid, she activates the foresight system to make…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "115 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/60BcrXYnnQo",
-  "video_id": "60BcrXYnnQo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a pitiful maid, she activates the foresight system to make…",
-    "url": "https://www.youtube.com/embed/60BcrXYnnQo",
-    "video_id": "60BcrXYnnQo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6897
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78774",
   "title": "He Took In a Pregnant “Mad Woman”… What DNA Revealed Left His Family…",
   "genre": "Drama",
@@ -2102061,34 +2099991,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1539
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78775",
-  "title": "Transmigrated Girl Fails Mission 999 Times, Teams with Fellow Modern…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "72 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/cAQ5Gl-pJpM",
-  "video_id": "cAQ5Gl-pJpM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Transmigrated Girl Fails Mission 999 Times, Teams with Fellow Modern…",
-    "url": "https://www.youtube.com/embed/cAQ5Gl-pJpM",
-    "video_id": "cAQ5Gl-pJpM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4295
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2102125,34 +2100027,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78777",
-  "title": "Reborn as a doomed villainess, she activates the future prediction…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "51 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/GzDvAbRylkg",
-  "video_id": "GzDvAbRylkg",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a doomed villainess, she activates the future prediction…",
-    "url": "https://www.youtube.com/embed/GzDvAbRylkg",
-    "video_id": "GzDvAbRylkg",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3033
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78778",
   "title": "The World’s Greatest Racer Became a Poor Mechanic—20 Years Later, He Returned to Prove Them Wrong!",
   "genre": "Drama",
@@ -2102173,34 +2100047,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4483
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78779",
-  "title": "A modern ER doctor reborn as a doomed Princess: Saving lives in a…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "61 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/SiM3ZpO_1zE",
-  "video_id": "SiM3ZpO_1zE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "A modern ER doctor reborn as a doomed Princess: Saving lives in a…",
-    "url": "https://www.youtube.com/embed/SiM3ZpO_1zE",
-    "video_id": "SiM3ZpO_1zE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3638
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2102341,62 +2100187,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5217
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78785",
-  "title": "Fake heiress steals bank balance with system, reborn rich girl takes…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "69 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/YK4y4Zu_Hec",
-  "video_id": "YK4y4Zu_Hec",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Fake heiress steals bank balance with system, reborn rich girl takes…",
-    "url": "https://www.youtube.com/embed/YK4y4Zu_Hec",
-    "video_id": "YK4y4Zu_Hec",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4153
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78786",
-  "title": "Reborn bride unmasks poisoned wedding wine, joins hands with reborn prince to execute evil family",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "78 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/pR6PR5E9FoA",
-  "video_id": "pR6PR5E9FoA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn bride unmasks poisoned wedding wine, joins hands with reborn prince to execute evil family",
-    "url": "https://www.youtube.com/embed/pR6PR5E9FoA",
-    "video_id": "pR6PR5E9FoA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4652
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2103133,34 +2100923,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78813",
-  "title": "Reborn as a Dying Traitor, the Bloodthirsty Tyrant Can Hear My Inner…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "59 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/m1bBL253NIc",
-  "video_id": "m1bBL253NIc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a Dying Traitor, the Bloodthirsty Tyrant Can Hear My Inner…",
-    "url": "https://www.youtube.com/embed/m1bBL253NIc",
-    "video_id": "m1bBL253NIc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3526
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78814",
   "title": "At the Queen’s coronation, both her husband and her first boyfriend…",
   "genre": "Drama",
@@ -2103329,34 +2101091,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78820",
-  "title": "Forced into marriage for medical bills, she flash-married a stranger…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "70 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/zlpaVCk0_Uk",
-  "video_id": "zlpaVCk0_Uk",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced into marriage for medical bills, she flash-married a stranger…",
-    "url": "https://www.youtube.com/embed/zlpaVCk0_Uk",
-    "video_id": "zlpaVCk0_Uk",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4209
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78821",
   "title": "The Kitchen Servant Was Forced to Cook for His Life, Until the King…",
   "genre": "Drama",
@@ -2103497,34 +2101231,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78826",
-  "title": "Betrayed and poisoned by her fiancé, she reborn and married the crazy…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "56 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/dM4H3OoyckQ",
-  "video_id": "dM4H3OoyckQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed and poisoned by her fiancé, she reborn and married the crazy…",
-    "url": "https://www.youtube.com/embed/dM4H3OoyckQ",
-    "video_id": "dM4H3OoyckQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3342
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78827",
   "title": "The Weak Servant Was Actually the Deep Sea's Strongest Knight—One…",
   "genre": "Drama",
@@ -2103609,34 +2101315,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78830",
-  "title": "Deaf tyrant hears time traveling doctor's inner thoughts, traps her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "68 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/YwcVnCyqa4A",
-  "video_id": "YwcVnCyqa4A",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Deaf tyrant hears time traveling doctor's inner thoughts, traps her…",
-    "url": "https://www.youtube.com/embed/YwcVnCyqa4A",
-    "video_id": "YwcVnCyqa4A",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4098
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78831",
   "title": "He Was Auctioned for One Bite, Until His Blood Proved He Was Royal",
   "genre": "Drama",
@@ -2103713,34 +2101391,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3015
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78834",
-  "title": "Reborn as the Murdered Younger Sister, I Took Revenge on My Wicked…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "83 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/9Oj1s7R7HU8",
-  "video_id": "9Oj1s7R7HU8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as the Murdered Younger Sister, I Took Revenge on My Wicked…",
-    "url": "https://www.youtube.com/embed/9Oj1s7R7HU8",
-    "video_id": "9Oj1s7R7HU8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4977
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2103973,34 +2101623,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78843",
-  "title": "Reborn as female character, she uses modern knowledge to become queen…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "79 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/YYHS35XgNZE",
-  "video_id": "YYHS35XgNZE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as female character, she uses modern knowledge to become queen…",
-    "url": "https://www.youtube.com/embed/YYHS35XgNZE",
-    "video_id": "YYHS35XgNZE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4743
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78844",
   "title": "Revenge of the Thunder God",
   "genre": "Drama",
@@ -2104021,34 +2101643,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 6368
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78845",
-  "title": "Betrayed by ungrateful stepkids, reborn mother takes back dowry and leads daughter to victory",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "52 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/AIbh5Q2AJsQ",
-  "video_id": "AIbh5Q2AJsQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed by ungrateful stepkids, reborn mother takes back dowry and leads daughter to victory",
-    "url": "https://www.youtube.com/embed/AIbh5Q2AJsQ",
-    "video_id": "AIbh5Q2AJsQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3101
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2104105,34 +2101699,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 7396
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78848",
-  "title": "She treated the stray cat better than the King, not knowing the cat…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "50 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/V_hP7M4KNUc",
-  "video_id": "V_hP7M4KNUc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "She treated the stray cat better than the King, not knowing the cat…",
-    "url": "https://www.youtube.com/embed/V_hP7M4KNUc",
-    "video_id": "V_hP7M4KNUc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3021
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2104337,34 +2101903,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78856",
-  "title": "Dumped in the rain, she took in a stray dog—unaware he was a cursed…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "66 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/whOBn4ztNcI",
-  "video_id": "whOBn4ztNcI",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Dumped in the rain, she took in a stray dog—unaware he was a cursed…",
-    "url": "https://www.youtube.com/embed/whOBn4ztNcI",
-    "video_id": "whOBn4ztNcI",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3985
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78857",
   "title": "The Empress was forced to confess. The Emperor learned the truth—and…",
   "genre": "Drama",
@@ -2104413,62 +2101951,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4548
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78859",
-  "title": "Reborn, her entire family can hear her inner thoughts, exposing her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "68 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/tp0zCy4bYiw",
-  "video_id": "tp0zCy4bYiw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn, her entire family can hear her inner thoughts, exposing her…",
-    "url": "https://www.youtube.com/embed/tp0zCy4bYiw",
-    "video_id": "tp0zCy4bYiw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4096
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78860",
-  "title": "Greedy female assassin saves ambush prince for cash, royal pays fortune to make her his bodyguard",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "111 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/I7lpl4g9jxc",
-  "video_id": "I7lpl4g9jxc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Greedy female assassin saves ambush prince for cash, royal pays fortune to make her his bodyguard",
-    "url": "https://www.youtube.com/embed/I7lpl4g9jxc",
-    "video_id": "I7lpl4g9jxc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6651
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2104730,34 +2102212,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78870",
-  "title": "Reborn Wife Exposes Courtesan Plot at Banquet, Halts Family Trade and…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "83 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/7KGiFtdb5ek",
-  "video_id": "7KGiFtdb5ek",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn Wife Exposes Courtesan Plot at Banquet, Halts Family Trade and…",
-    "url": "https://www.youtube.com/embed/7KGiFtdb5ek",
-    "video_id": "7KGiFtdb5ek",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4958
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78871",
   "title": "My Father Is Thor",
   "genre": "Drama",
@@ -2104834,34 +2102288,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4189
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78874",
-  "title": "Forced bride carries a comatose prince to wed, fights evil in-laws…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "64 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/1xPGVvIZ72Q",
-  "video_id": "1xPGVvIZ72Q",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced bride carries a comatose prince to wed, fights evil in-laws…",
-    "url": "https://www.youtube.com/embed/1xPGVvIZ72Q",
-    "video_id": "1xPGVvIZ72Q",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3865
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2105038,34 +2102464,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78881",
-  "title": "The Crown Forced Me to Marry—Then a Mafia King Claimed I Was the Boy…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "64 min",
-  "desc": "AI-made vertical drama from Her AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/_Qnd34N122U",
-  "video_id": "_Qnd34N122U",
-  "source_channel": "Her AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Crown Forced Me to Marry—Then a Mafia King Claimed I Was the Boy…",
-    "url": "https://www.youtube.com/embed/_Qnd34N122U",
-    "video_id": "_Qnd34N122U",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3864
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78882",
   "title": "Abandoned as a Baby, He Was Actually the God of Luck Who Turned Scrap…",
   "genre": "Drama",
@@ -2105171,34 +2102569,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 7257
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78886",
-  "title": "Inheriting an ancestral mansion spanning eras, she trades food for…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "122 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/g_ChiyjEIVs",
-  "video_id": "g_ChiyjEIVs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Inheriting an ancestral mansion spanning eras, she trades food for…",
-    "url": "https://www.youtube.com/embed/g_ChiyjEIVs",
-    "video_id": "g_ChiyjEIVs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7326
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2105347,34 +2102717,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78892",
-  "title": "Victorious general rejects poison and takes weak scholar husband, unmasking top assassin to rule!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "60 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ElsrAPa2XtY",
-  "video_id": "ElsrAPa2XtY",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Victorious general rejects poison and takes weak scholar husband, unmasking top assassin to rule!",
-    "url": "https://www.youtube.com/embed/ElsrAPa2XtY",
-    "video_id": "ElsrAPa2XtY",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3601
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78893",
   "title": "He Learned Card Tricks in Prison for 10 Years—Now He Makes the Casino…",
   "genre": "Drama",
@@ -2105479,34 +2102821,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3360
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78897",
-  "title": "Her Ex Left Her to Die, Unaware Her New Husband Controls His Entire…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "52 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/_-HAbWtFcLc",
-  "video_id": "_-HAbWtFcLc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her Ex Left Her to Die, Unaware Her New Husband Controls His Entire…",
-    "url": "https://www.youtube.com/embed/_-HAbWtFcLc",
-    "video_id": "_-HAbWtFcLc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3100
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2105647,34 +2102961,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3667
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78903",
-  "title": "Modern lawyer transmigrates onto guillotine, proves fake prophecy…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "115 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Fkk6rIZFfd4",
-  "video_id": "Fkk6rIZFfd4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Modern lawyer transmigrates onto guillotine, proves fake prophecy…",
-    "url": "https://www.youtube.com/embed/Fkk6rIZFfd4",
-    "video_id": "Fkk6rIZFfd4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6898
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2105871,34 +2103157,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5054
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78911",
-  "title": "An ancient Prince stepped out of a magical painting, turning her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "51 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/2GF0b7WvvHk",
-  "video_id": "2GF0b7WvvHk",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "An ancient Prince stepped out of a magical painting, turning her…",
-    "url": "https://www.youtube.com/embed/2GF0b7WvvHk",
-    "video_id": "2GF0b7WvvHk",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3067
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2106131,34 +2103389,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78920",
-  "title": "Cast out fake heiress turns wasteland into fortune, family secretly…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "75 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/wUoBXEpjzo8",
-  "video_id": "wUoBXEpjzo8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Cast out fake heiress turns wasteland into fortune, family secretly…",
-    "url": "https://www.youtube.com/embed/wUoBXEpjzo8",
-    "video_id": "wUoBXEpjzo8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4485
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78921",
   "title": "Her Stepmother Sold Her to a Mafia Boss—Then He Called Her by Her…",
   "genre": "Drama",
@@ -2106327,34 +2103557,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78927",
-  "title": "Killed by her mother-in-law, she reborn to protect her child and make…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "43 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/se3342r6y-c",
-  "video_id": "se3342r6y-c",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Killed by her mother-in-law, she reborn to protect her child and make…",
-    "url": "https://www.youtube.com/embed/se3342r6y-c",
-    "video_id": "se3342r6y-c",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2606
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78928",
   "title": "In a famine-stricken world, a miracle doctor raises her kids and builds a fortune.",
   "genre": "Drama",
@@ -2106375,34 +2103577,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 7519
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78929",
-  "title": "Framed consort begs for cold palace, mind reading emperor hears truth, traitor executed!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "85 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/dRnZA2Yq-WQ",
-  "video_id": "dRnZA2Yq-WQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Framed consort begs for cold palace, mind reading emperor hears truth, traitor executed!",
-    "url": "https://www.youtube.com/embed/dRnZA2Yq-WQ",
-    "video_id": "dRnZA2Yq-WQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5109
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2106487,34 +2103661,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4585
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78933",
-  "title": "Transported with a modern truck: She crushed ancient enemies to save…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "103 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/vWJ4DYL985A",
-  "video_id": "vWJ4DYL985A",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Transported with a modern truck: She crushed ancient enemies to save…",
-    "url": "https://www.youtube.com/embed/vWJ4DYL985A",
-    "video_id": "vWJ4DYL985A",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6161
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2106971,34 +2104117,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78950",
-  "title": "Her husband cheated and her daughter betrayed her, so she chose a new…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "75 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/5Gz52o5vwN0",
-  "video_id": "5Gz52o5vwN0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her husband cheated and her daughter betrayed her, so she chose a new…",
-    "url": "https://www.youtube.com/embed/5Gz52o5vwN0",
-    "video_id": "5Gz52o5vwN0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4509
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78951",
   "title": "A wicked stepmom farms her way to fortune and raises two gifted siblings into geniuses.",
   "genre": "Drama",
@@ -2107251,34 +2104369,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78960",
-  "title": "Just by getting fired she gets 5000000, all her inner thoughts are…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "64 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/mAISASDykcE",
-  "video_id": "mAISASDykcE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Just by getting fired she gets 5000000, all her inner thoughts are…",
-    "url": "https://www.youtube.com/embed/mAISASDykcE",
-    "video_id": "mAISASDykcE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3816
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78961",
   "title": "Secrets, Forgiveness & Family Reunion",
   "genre": "Drama",
@@ -2107383,34 +2104473,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 8725
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78965",
-  "title": "Framed Princess survives fire, returns as Duchess to crush evil concubine and expose the truth!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "83 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/SfskzMxv8zc",
-  "video_id": "SfskzMxv8zc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Framed Princess survives fire, returns as Duchess to crush evil concubine and expose the truth!",
-    "url": "https://www.youtube.com/embed/SfskzMxv8zc",
-    "video_id": "SfskzMxv8zc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4962
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2107951,118 +2105013,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78985",
-  "title": "Girl wakes as powerless puppy, her inner voice exposes evil bride…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "77 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ehCqBaLs7ik",
-  "video_id": "ehCqBaLs7ik",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Girl wakes as powerless puppy, her inner voice exposes evil bride…",
-    "url": "https://www.youtube.com/embed/ehCqBaLs7ik",
-    "video_id": "ehCqBaLs7ik",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4598
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78986",
-  "title": "She traded modern supplies to save a dying city, but the portal…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "59 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/29OTuMPK92E",
-  "video_id": "29OTuMPK92E",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "She traded modern supplies to save a dying city, but the portal…",
-    "url": "https://www.youtube.com/embed/29OTuMPK92E",
-    "video_id": "29OTuMPK92E",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3534
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78987",
-  "title": "Forced by family to commit suicide,she chooses the rebel leader upon…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "101 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/80VhvW4IEcw",
-  "video_id": "80VhvW4IEcw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced by family to commit suicide,she chooses the rebel leader upon…",
-    "url": "https://www.youtube.com/embed/80VhvW4IEcw",
-    "video_id": "80VhvW4IEcw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6080
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78988",
-  "title": "They Called Her a Country Bumpkin",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "65 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/dDfzsj1THzY",
-  "video_id": "dDfzsj1THzY",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "They Called Her a Country Bumpkin",
-    "url": "https://www.youtube.com/embed/dDfzsj1THzY",
-    "video_id": "dDfzsj1THzY",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3910
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78989",
   "title": "After heartbreak, she crosses spring’s threshold and finds the love…",
   "genre": "Drama",
@@ -2108231,90 +2105181,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-78995",
-  "title": "She insults the court to get rejected! The amused Emperor crowns her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "69 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/CoE2lJi6htQ",
-  "video_id": "CoE2lJi6htQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "She insults the court to get rejected! The amused Emperor crowns her…",
-    "url": "https://www.youtube.com/embed/CoE2lJi6htQ",
-    "video_id": "CoE2lJi6htQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4133
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78996",
-  "title": "Mocked for her appearance, her daughter shocks the shop by revealing…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "69 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/hcQUPVrOdy0",
-  "video_id": "hcQUPVrOdy0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Mocked for her appearance, her daughter shocks the shop by revealing…",
-    "url": "https://www.youtube.com/embed/hcQUPVrOdy0",
-    "video_id": "hcQUPVrOdy0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4162
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-78997",
-  "title": "Billionaire CEO travels to 1980s, rips up divorce papers, flirts with…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "69 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/e4IJvEUMiOw",
-  "video_id": "e4IJvEUMiOw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Billionaire CEO travels to 1980s, rips up divorce papers, flirts with…",
-    "url": "https://www.youtube.com/embed/e4IJvEUMiOw",
-    "video_id": "e4IJvEUMiOw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4143
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-78998",
   "title": "Episodes 1–5 (",
   "genre": "Drama",
@@ -2108419,34 +2105285,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 2519
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79002",
-  "title": "Reborn bride swaps poisoned wedding wine with evil prince, breaks…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "71 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/TpavXR5AzA4",
-  "video_id": "TpavXR5AzA4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn bride swaps poisoned wedding wine with evil prince, breaks…",
-    "url": "https://www.youtube.com/embed/TpavXR5AzA4",
-    "video_id": "TpavXR5AzA4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4253
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2108763,34 +2105601,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79014",
-  "title": "Reborn as a doomed supporting female character, she alters her fate…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "54 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/MkkPQWx0S9U",
-  "video_id": "MkkPQWx0S9U",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a doomed supporting female character, she alters her fate…",
-    "url": "https://www.youtube.com/embed/MkkPQWx0S9U",
-    "video_id": "MkkPQWx0S9U",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3256
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79015",
   "title": "A Beggar Was Actually Odysseus—His Warrior Memories Awakened When Monsters Attacked!",
   "genre": "Drama",
@@ -2108903,34 +2105713,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79019",
-  "title": "Reborn, she brings modern goods via a portal, building an empire in…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "82 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/3tb6brLLQcY",
-  "video_id": "3tb6brLLQcY",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn, she brings modern goods via a portal, building an empire in…",
-    "url": "https://www.youtube.com/embed/3tb6brLLQcY",
-    "video_id": "3tb6brLLQcY",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4914
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79020",
   "title": "She changes her groom before the wedding, but her bold choice sparks an unexpected love story.",
   "genre": "Drama",
@@ -2109035,34 +2105817,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1715
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79024",
-  "title": "She cared for mute noble 2 years. He broke her heart. Her magic umbrellas make him regret.",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "48 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/SlTJJeosLFs",
-  "video_id": "SlTJJeosLFs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "She cared for mute noble 2 years. He broke her heart. Her magic umbrellas make him regret.",
-    "url": "https://www.youtube.com/embed/SlTJJeosLFs",
-    "video_id": "SlTJJeosLFs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2905
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2109203,34 +2105957,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5817
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79030",
-  "title": "Killed by my cheating husband, reborn I played along to exact revenge…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "71 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/0uZBYPuMx-E",
-  "video_id": "0uZBYPuMx-E",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Killed by my cheating husband, reborn I played along to exact revenge…",
-    "url": "https://www.youtube.com/embed/0uZBYPuMx-E",
-    "video_id": "0uZBYPuMx-E",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4274
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2109407,34 +2106133,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79037",
-  "title": "Reborn, she activates a supermarket system and builds a business…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "80 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/RBK9knRHfQc",
-  "video_id": "RBK9knRHfQc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn, she activates a supermarket system and builds a business…",
-    "url": "https://www.youtube.com/embed/RBK9knRHfQc",
-    "video_id": "RBK9knRHfQc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4777
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79038",
   "title": "From A Neglected Illegitimate Princess To A Empress, She Draws Her…",
   "genre": "Drama",
@@ -2109575,34 +2106273,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79043",
-  "title": "True heiress beats wicked servants with steel ruler, sends fake sister to prison, and gets engaged!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "100 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Q9sT49S-2uE",
-  "video_id": "Q9sT49S-2uE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "True heiress beats wicked servants with steel ruler, sends fake sister to prison, and gets engaged!",
-    "url": "https://www.youtube.com/embed/Q9sT49S-2uE",
-    "video_id": "Q9sT49S-2uE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6014
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79044",
   "title": "Return of the Ice-Fire Queen",
   "genre": "Drama",
@@ -2109623,34 +2106293,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3385
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79045",
-  "title": "Reborn bride exposes sterile husband, three brothers crush in-laws, new empress crowned!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "100 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/9pRdoAouQyU",
-  "video_id": "9pRdoAouQyU",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn bride exposes sterile husband, three brothers crush in-laws, new empress crowned!",
-    "url": "https://www.youtube.com/embed/9pRdoAouQyU",
-    "video_id": "9pRdoAouQyU",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5976
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2109847,34 +2106489,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4131
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79053",
-  "title": "Greedy In-Laws Demand Dowry for Gambling Debt, Bride Tears Up Deed…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "72 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/3uMT8tQSja4",
-  "video_id": "3uMT8tQSja4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Greedy In-Laws Demand Dowry for Gambling Debt, Bride Tears Up Deed…",
-    "url": "https://www.youtube.com/embed/3uMT8tQSja4",
-    "video_id": "3uMT8tQSja4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4316
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2110415,34 +2107029,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79073",
-  "title": "Abandoned and starving, she signs a pact with a divine cat, gaining…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "126 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/wkb8RWsX0Mw",
-  "video_id": "wkb8RWsX0Mw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Abandoned and starving, she signs a pact with a divine cat, gaining…",
-    "url": "https://www.youtube.com/embed/wkb8RWsX0Mw",
-    "video_id": "wkb8RWsX0Mw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7576
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79074",
   "title": "Bound by winter’s cold, two hearts struggle to escape a love they…",
   "genre": "Drama",
@@ -2110491,34 +2107077,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 7281
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79076",
-  "title": "General daughter ties up cheating groom, exposes mother-in-law de",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "133 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/b5LSzBS-3_g",
-  "video_id": "b5LSzBS-3_g",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "General daughter ties up cheating groom, exposes mother-in-law de",
-    "url": "https://www.youtube.com/embed/b5LSzBS-3_g",
-    "video_id": "b5LSzBS-3_g",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7977
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2110667,34 +2107225,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79082",
-  "title": "Heiress bullied by evil stepmother reveals secret designer identity…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "72 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/hwNnvmcwFk8",
-  "video_id": "hwNnvmcwFk8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Heiress bullied by evil stepmother reveals secret designer identity…",
-    "url": "https://www.youtube.com/embed/hwNnvmcwFk8",
-    "video_id": "hwNnvmcwFk8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4306
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79083",
   "title": "Reborn, the scorned wife strips their luck away and makes her enemies…",
   "genre": "Drama",
@@ -2110807,34 +2107337,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79087",
-  "title": "The System Gave Me 30 Days to Live—Until My Amnesiac Husband Hacked…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "57 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Vn0KD08eJnw",
-  "video_id": "Vn0KD08eJnw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The System Gave Me 30 Days to Live—Until My Amnesiac Husband Hacked…",
-    "url": "https://www.youtube.com/embed/Vn0KD08eJnw",
-    "video_id": "Vn0KD08eJnw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3445
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79088",
   "title": "A gifted healer conquers the capital, while the Prince relentlessly…",
   "genre": "Drama",
@@ -2110891,34 +2107393,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79090",
-  "title": "Killed by her sister, after rebirth she becomes her sister's maid to…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "62 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/imna5ODbB7g",
-  "video_id": "imna5ODbB7g",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Killed by her sister, after rebirth she becomes her sister's maid to…",
-    "url": "https://www.youtube.com/embed/imna5ODbB7g",
-    "video_id": "imna5ODbB7g",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3735
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79091",
   "title": "A stand-in bride returns with spring’s arrival, awakening a love long…",
   "genre": "Drama",
@@ -2110939,62 +2107413,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 9489
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79092",
-  "title": "Reborn on the wedding night, she tricks the Prince into drinking his…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "71 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/4ABQDI6MP68",
-  "video_id": "4ABQDI6MP68",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn on the wedding night, she tricks the Prince into drinking his…",
-    "url": "https://www.youtube.com/embed/4ABQDI6MP68",
-    "video_id": "4ABQDI6MP68",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4253
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79093",
-  "title": "Reborn as a wicked villainess, her family hears her thoughts, exposes…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "62 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/GCBvHXxpyI4",
-  "video_id": "GCBvHXxpyI4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a wicked villainess, her family hears her thoughts, exposes…",
-    "url": "https://www.youtube.com/embed/GCBvHXxpyI4",
-    "video_id": "GCBvHXxpyI4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3693
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2111199,34 +2107617,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79101",
-  "title": "Reborn in a book: Her family can hear her thoughts and they're all…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "65 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/MFH1nb-chi8",
-  "video_id": "MFH1nb-chi8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn in a book: Her family can hear her thoughts and they're all…",
-    "url": "https://www.youtube.com/embed/MFH1nb-chi8",
-    "video_id": "MFH1nb-chi8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3903
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79102",
   "title": "She maltreated the old woman but didn't expect what happened next",
   "genre": "Drama",
@@ -2111283,62 +2107673,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79104",
-  "title": "Her Snacks Became an Ancient Luxury, Building a Commercial Empire…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "49 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/kRZnvot_qRs",
-  "video_id": "kRZnvot_qRs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her Snacks Became an Ancient Luxury, Building a Commercial Empire…",
-    "url": "https://www.youtube.com/embed/kRZnvot_qRs",
-    "video_id": "kRZnvot_qRs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2923
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79105",
-  "title": "A fallen socialite becomes a nurse to save a disabled billionaire…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "109 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/_1lMiYesJEE",
-  "video_id": "_1lMiYesJEE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "A fallen socialite becomes a nurse to save a disabled billionaire…",
-    "url": "https://www.youtube.com/embed/_1lMiYesJEE",
-    "video_id": "_1lMiYesJEE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6513
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79106",
   "title": "Her Ex Called Her Just an Assistant—Then She Proved She Owned the…",
   "genre": "Drama",
@@ -2111367,34 +2107701,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79107",
-  "title": "Time travel! I became the cold general's savior! Using modern…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "48 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Dw3vfMP7X80",
-  "video_id": "Dw3vfMP7X80",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Time travel! I became the cold general's savior! Using modern…",
-    "url": "https://www.youtube.com/embed/Dw3vfMP7X80",
-    "video_id": "Dw3vfMP7X80",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2854
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79108",
   "title": "Little Aman, the Gu family’s lucky charm, turns Lin’an upside down with her adorable antics.",
   "genre": "Drama",
@@ -2111415,34 +2107721,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4771
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79109",
-  "title": "Pushed off Cliff with Sacred Egg, Cultivator Bonds Divine Beast and…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "47 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/rIuFWpp9xpY",
-  "video_id": "rIuFWpp9xpY",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Pushed off Cliff with Sacred Egg, Cultivator Bonds Divine Beast and…",
-    "url": "https://www.youtube.com/embed/rIuFWpp9xpY",
-    "video_id": "rIuFWpp9xpY",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2793
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2111535,34 +2107813,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79113",
-  "title": "Real Heiress Returns from Streets, Crushes Scheming Imposter and Wins…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "75 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/MmecKqxkTUg",
-  "video_id": "MmecKqxkTUg",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Real Heiress Returns from Streets, Crushes Scheming Imposter and Wins…",
-    "url": "https://www.youtube.com/embed/MmecKqxkTUg",
-    "video_id": "MmecKqxkTUg",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4496
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79114",
   "title": "He Cheated on Her Birthday, Then His Billionaire Brother Made Her His…",
   "genre": "Drama",
@@ -2111591,118 +2107841,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79115",
-  "title": "Dumped noble lady travels to modern film set, rises from extra to superstar, and rejects ex!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "42 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/IMnG7cvzRd8",
-  "video_id": "IMnG7cvzRd8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Dumped noble lady travels to modern film set, rises from extra to superstar, and rejects ex!",
-    "url": "https://www.youtube.com/embed/IMnG7cvzRd8",
-    "video_id": "IMnG7cvzRd8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2521
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79116",
-  "title": "Mind reading bride swaps groom, fake lazy husband solves crimes, coup crushed!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "109 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/rGepx5wG3TA",
-  "video_id": "rGepx5wG3TA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Mind reading bride swaps groom, fake lazy husband solves crimes, coup crushed!",
-    "url": "https://www.youtube.com/embed/rGepx5wG3TA",
-    "video_id": "rGepx5wG3TA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6542
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79117",
-  "title": "Reborn as a doomed villainess, she uses modern executive skills to…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "70 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/6AFB8YDRnLU",
-  "video_id": "6AFB8YDRnLU",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a doomed villainess, she uses modern executive skills to…",
-    "url": "https://www.youtube.com/embed/6AFB8YDRnLU",
-    "video_id": "6AFB8YDRnLU",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4176
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79118",
-  "title": "A bowl of porridge cured the Prince's 3-year illness, and now he…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "45 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/IKZ3GIePixE",
-  "video_id": "IKZ3GIePixE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "A bowl of porridge cured the Prince's 3-year illness, and now he…",
-    "url": "https://www.youtube.com/embed/IKZ3GIePixE",
-    "video_id": "IKZ3GIePixE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2690
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79119",
   "title": "Entire Household Are Top Talents,Except for me. But I’m The Family…",
   "genre": "Drama",
@@ -2111723,34 +2107861,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4194
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79120",
-  "title": "Sold by her parents, she returns as an empress to make them pay!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "107 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/v-DJG1bi8do",
-  "video_id": "v-DJG1bi8do",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Sold by her parents, she returns as an empress to make them pay!",
-    "url": "https://www.youtube.com/embed/v-DJG1bi8do",
-    "video_id": "v-DJG1bi8do",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6402
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2111807,34 +2107917,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3616
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79123",
-  "title": "Reborn as poor girl, she builds business empire via the trade system…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "112 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/dbSC_ILf5Qw",
-  "video_id": "dbSC_ILf5Qw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as poor girl, she builds business empire via the trade system…",
-    "url": "https://www.youtube.com/embed/dbSC_ILf5Qw",
-    "video_id": "dbSC_ILf5Qw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6715
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2111927,34 +2108009,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79127",
-  "title": "Abandoned, she returns as a mafia queen, drives out the fake heiress…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "100 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/hpvYEKld2DQ",
-  "video_id": "hpvYEKld2DQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Abandoned, she returns as a mafia queen, drives out the fake heiress…",
-    "url": "https://www.youtube.com/embed/hpvYEKld2DQ",
-    "video_id": "hpvYEKld2DQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6019
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79128",
   "title": "Facing family exile in two weeks, she empties the mansion and starts a new life farming.",
   "genre": "Drama",
@@ -2111975,34 +2108029,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5817
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79129",
-  "title": "She Was the School's Weakest Nobody",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "101 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/_IBOQ2RumYI",
-  "video_id": "_IBOQ2RumYI",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "She Was the School's Weakest Nobody",
-    "url": "https://www.youtube.com/embed/_IBOQ2RumYI",
-    "video_id": "_IBOQ2RumYI",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6084
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2112207,118 +2108233,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79137",
-  "title": "Transmigrated and pregnant: Her genius baby can read minds and shocks…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "70 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Iv7VXKl5Y9E",
-  "video_id": "Iv7VXKl5Y9E",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Transmigrated and pregnant: Her genius baby can read minds and shocks…",
-    "url": "https://www.youtube.com/embed/Iv7VXKl5Y9E",
-    "video_id": "Iv7VXKl5Y9E",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4220
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79138",
-  "title": "Mafia boss reincarnates as bullied fake heiress, using sheer force to…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "75 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ediIZzCNZoo",
-  "video_id": "ediIZzCNZoo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Mafia boss reincarnates as bullied fake heiress, using sheer force to…",
-    "url": "https://www.youtube.com/embed/ediIZzCNZoo",
-    "video_id": "ediIZzCNZoo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4496
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79139",
-  "title": "Reborn as a Bichon Frise, the tyrant's family hears my inner thoughts…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "77 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/_2yaUkUQOng",
-  "video_id": "_2yaUkUQOng",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a Bichon Frise, the tyrant's family hears my inner thoughts…",
-    "url": "https://www.youtube.com/embed/_2yaUkUQOng",
-    "video_id": "_2yaUkUQOng",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4598
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79140",
-  "title": "Reborn in ancient times, she subdues locust plagues with modern…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "51 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/2nVjxSjblTk",
-  "video_id": "2nVjxSjblTk",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn in ancient times, she subdues locust plagues with modern…",
-    "url": "https://www.youtube.com/embed/2nVjxSjblTk",
-    "video_id": "2nVjxSjblTk",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3072
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79141",
   "title": "Banished to the cold palace, she awakens a forbidden romance with the…",
   "genre": "Drama",
@@ -2112339,34 +2108253,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3144
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79142",
-  "title": "Real heiress survives hitmen and arson, uses DNA test to arrest fake sister and reclaim empire",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "111 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/SqYhV4x8utQ",
-  "video_id": "SqYhV4x8utQ",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Real heiress survives hitmen and arson, uses DNA test to arrest fake sister and reclaim empire",
-    "url": "https://www.youtube.com/embed/SqYhV4x8utQ",
-    "video_id": "SqYhV4x8utQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6688
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2112459,34 +2108345,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79146",
-  "title": "Reborn as a doomed younger sister, she marries in her sister's place…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "67 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/87IEnf9QzGE",
-  "video_id": "87IEnf9QzGE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a doomed younger sister, she marries in her sister's place…",
-    "url": "https://www.youtube.com/embed/87IEnf9QzGE",
-    "video_id": "87IEnf9QzGE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4024
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79147",
   "title": "Ikenna My Love (",
   "genre": "Drama",
@@ -2112507,62 +2108365,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 919
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79148",
-  "title": "Framed maid stops emperor from drinking poison, accidentally swaps bodies to rule the empire",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "51 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Ix3wbcT4pVM",
-  "video_id": "Ix3wbcT4pVM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Framed maid stops emperor from drinking poison, accidentally swaps bodies to rule the empire",
-    "url": "https://www.youtube.com/embed/Ix3wbcT4pVM",
-    "video_id": "Ix3wbcT4pVM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3046
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79149",
-  "title": "Evil Wife Thought In-Laws Hated Her, Family Read Her Mind to Catch…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "62 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/moPj9wj4AK4",
-  "video_id": "moPj9wj4AK4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Evil Wife Thought In-Laws Hated Her, Family Read Her Mind to Catch…",
-    "url": "https://www.youtube.com/embed/moPj9wj4AK4",
-    "video_id": "moPj9wj4AK4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3693
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2112683,34 +2108485,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79154",
-  "title": "Her bracelet spans 2,000 years, building a commercial empire in a…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "123 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/huPoIIK8syM",
-  "video_id": "huPoIIK8syM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her bracelet spans 2,000 years, building a commercial empire in a…",
-    "url": "https://www.youtube.com/embed/huPoIIK8syM",
-    "video_id": "huPoIIK8syM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7392
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79155",
   "title": "Vein of Sound",
   "genre": "Drama",
@@ -2112739,34 +2108513,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79156",
-  "title": "Betrayed in the apocalypse, she activates all her powers, making her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "53 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/1O9PxAuV1Jg",
-  "video_id": "1O9PxAuV1Jg",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed in the apocalypse, she activates all her powers, making her…",
-    "url": "https://www.youtube.com/embed/1O9PxAuV1Jg",
-    "video_id": "1O9PxAuV1Jg",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3152
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79157",
   "title": "A graceful crane finds its place among the branches, where an unexpected love begins to bloom.",
   "genre": "Drama",
@@ -2112787,90 +2108533,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 7383
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79158",
-  "title": "Sassy daughter curses out matchmaker, powerful judge proposes, expose stepmother and get justice!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "100 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/LUmZAbaMuU4",
-  "video_id": "LUmZAbaMuU4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Sassy daughter curses out matchmaker, powerful judge proposes, expose stepmother and get justice!",
-    "url": "https://www.youtube.com/embed/LUmZAbaMuU4",
-    "video_id": "LUmZAbaMuU4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6009
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79159",
-  "title": "Killed by her family, after rebirth she takes the only ship and her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "49 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ZThpShlojCU",
-  "video_id": "ZThpShlojCU",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Killed by her family, after rebirth she takes the only ship and her…",
-    "url": "https://www.youtube.com/embed/ZThpShlojCU",
-    "video_id": "ZThpShlojCU",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2961
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79160",
-  "title": "Betrayed noble wife trades divorce papers for palace favor, feeds blood to royal curse, and schemes!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "131 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/6HkzW_saJ-4",
-  "video_id": "6HkzW_saJ-4",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed noble wife trades divorce papers for palace favor, feeds blood to royal curse, and schemes!",
-    "url": "https://www.youtube.com/embed/6HkzW_saJ-4",
-    "video_id": "6HkzW_saJ-4",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7854
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2112927,34 +2108589,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 8455
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79163",
-  "title": "Reborn as a fierce mother: Using modern training skills to discipline…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "115 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ZNa_9U4Brg8",
-  "video_id": "ZNa_9U4Brg8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a fierce mother: Using modern training skills to discipline…",
-    "url": "https://www.youtube.com/embed/ZNa_9U4Brg8",
-    "video_id": "ZNa_9U4Brg8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6902
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2113047,34 +2108681,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79167",
-  "title": "Reborn, she punishes her vicious sister with a cursed doll and is…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "127 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/7q10JKF9fQA",
-  "video_id": "7q10JKF9fQA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn, she punishes her vicious sister with a cursed doll and is…",
-    "url": "https://www.youtube.com/embed/7q10JKF9fQA",
-    "video_id": "7q10JKF9fQA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7618
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79168",
   "title": "Her Family Sold Her as a Trophy Fiancée—So She Took Their Empire",
   "genre": "Drama",
@@ -2113159,34 +2108765,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79171",
-  "title": "Reborn as a villainess's subordinate, she teams up with the villain…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "48 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/mapAl4dleWA",
-  "video_id": "mapAl4dleWA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a villainess's subordinate, she teams up with the villain…",
-    "url": "https://www.youtube.com/embed/mapAl4dleWA",
-    "video_id": "mapAl4dleWA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2881
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79172",
   "title": "She Treated a Bleeding Stranger…Then Learned He Was the Mafia Don",
   "genre": "Drama",
@@ -2113235,62 +2108813,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 4401
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79174",
-  "title": "Exiled by her family, she awoke a power to hear animals and became a…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "114 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/mZkGqouyaWs",
-  "video_id": "mZkGqouyaWs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Exiled by her family, she awoke a power to hear animals and became a…",
-    "url": "https://www.youtube.com/embed/mZkGqouyaWs",
-    "video_id": "mZkGqouyaWs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6835
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79175",
-  "title": "Mrs. Fu seems sweet, but her mystical powers make her the true master of fortune.",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "121 min",
-  "desc": "AI-made vertical drama from AI Drama World TV 🎬. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ZCs4IxxkS-c",
-  "video_id": "ZCs4IxxkS-c",
-  "source_channel": "AI Drama World TV 🎬",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Mrs. Fu seems sweet, but her mystical powers make her the true master of fortune.",
-    "url": "https://www.youtube.com/embed/ZCs4IxxkS-c",
-    "video_id": "ZCs4IxxkS-c",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7258
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2113403,34 +2108925,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3131
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79180",
-  "title": "Hidden Daughter of the City's Richest Man",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "91 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/bJcMdTZMsmE",
-  "video_id": "bJcMdTZMsmE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Hidden Daughter of the City's Richest Man",
-    "url": "https://www.youtube.com/embed/bJcMdTZMsmE",
-    "video_id": "bJcMdTZMsmE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 5439
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2113579,34 +2109073,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79186",
-  "title": "Framed consort cooks gourmet feasts in death row, uses secret blood letter to ally with cruel rival!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "52 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/TonSy-Muqbw",
-  "video_id": "TonSy-Muqbw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Framed consort cooks gourmet feasts in death row, uses secret blood letter to ally with cruel rival!",
-    "url": "https://www.youtube.com/embed/TonSy-Muqbw",
-    "video_id": "TonSy-Muqbw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3127
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79187",
   "title": "A mighty general plots to conquer the realm while his brilliant physician wife commands its fate.",
   "genre": "Drama",
@@ -2113663,34 +2109129,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79189",
-  "title": "Reborn Princess halts execution, turns soldier into consort, and claims the empire!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "138 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/gctvY-BMIPE",
-  "video_id": "gctvY-BMIPE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn Princess halts execution, turns soldier into consort, and claims the empire!",
-    "url": "https://www.youtube.com/embed/gctvY-BMIPE",
-    "video_id": "gctvY-BMIPE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 8275
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79190",
   "title": "Bullies Gave Him $40 After a Crash—They Didn't Know His Golden Eyes Could Make Him Rich!",
   "genre": "Drama",
@@ -2113711,34 +2109149,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 5553
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79191",
-  "title": "Broke store owner drops instant noodles into magic bowl, saves starving army, and gets rich on jade!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "48 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/eGTA1yqvDLY",
-  "video_id": "eGTA1yqvDLY",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Broke store owner drops instant noodles into magic bowl, saves starving army, and gets rich on jade!",
-    "url": "https://www.youtube.com/embed/eGTA1yqvDLY",
-    "video_id": "eGTA1yqvDLY",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2859
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2113796,62 +2109206,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 2488
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79194",
-  "title": "Broke diner owner feeds starving ancient army, exposes poisoned silver, and claims a fortune!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "60 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/75vUjl0OS8w",
-  "video_id": "75vUjl0OS8w",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Broke diner owner feeds starving ancient army, exposes poisoned silver, and claims a fortune!",
-    "url": "https://www.youtube.com/embed/75vUjl0OS8w",
-    "video_id": "75vUjl0OS8w",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3599
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79195",
-  "title": "Toddler claims cold prince with jade token, thwarts poisoned cakes, and crushes palace rebels!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "45 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/1w8CmvV9Ugw",
-  "video_id": "1w8CmvV9Ugw",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Toddler claims cold prince with jade token, thwarts poisoned cakes, and crushes palace rebels!",
-    "url": "https://www.youtube.com/embed/1w8CmvV9Ugw",
-    "video_id": "1w8CmvV9Ugw",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2722
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2114000,34 +2109354,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79201",
-  "title": "Forced into Live Burial, Abandoned Stable Boy Returns as General to Seek Revenge",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "101 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/3o4bzRXgSMs",
-  "video_id": "3o4bzRXgSMs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced into Live Burial, Abandoned Stable Boy Returns as General to Seek Revenge",
-    "url": "https://www.youtube.com/embed/3o4bzRXgSMs",
-    "video_id": "3o4bzRXgSMs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6080
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79202",
   "title": "He Bought a Strange Bracelet—Then a Vampire Queen Claimed His Fate",
   "genre": "Drama",
@@ -2114113,34 +2109439,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79205",
-  "title": "Girl mistakes music lessons for martial arts, catches palace assassin, and crushes corrupt rebels!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "79 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/2pYdnNXgXas",
-  "video_id": "2pYdnNXgXas",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Girl mistakes music lessons for martial arts, catches palace assassin, and crushes corrupt rebels!",
-    "url": "https://www.youtube.com/embed/2pYdnNXgXas",
-    "video_id": "2pYdnNXgXas",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4713
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79206",
   "title": "She Had 10 Days to Betray the Mafia Queen—But Fell in Love With the Woman She Had to Destroy!",
   "genre": "Drama",
@@ -2114169,34 +2109467,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79207",
-  "title": "CEO transmigrates into plus-size girl, drugs wounded General, and heals empire to marry him!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "109 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/EdjnnQej0wk",
-  "video_id": "EdjnnQej0wk",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "CEO transmigrates into plus-size girl, drugs wounded General, and heals empire to marry him!",
-    "url": "https://www.youtube.com/embed/EdjnnQej0wk",
-    "video_id": "EdjnnQej0wk",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6530
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79208",
   "title": "I Caught My Fiancé With Another Woman—So I Took Everything He Thought Was His",
   "genre": "Drama",
@@ -2114217,62 +2109487,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3614
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79209",
-  "title": "Evil bride's inner voice exposes swindler, heals crippled heir, and becomes family favorite!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "62 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/rKXJLEdg9mI",
-  "video_id": "rKXJLEdg9mI",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Evil bride's inner voice exposes swindler, heals crippled heir, and becomes family favorite!",
-    "url": "https://www.youtube.com/embed/rKXJLEdg9mI",
-    "video_id": "rKXJLEdg9mI",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3693
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79210",
-  "title": "Poor orphan saves talking beast, guards magic bowl against greedy village, and heals the empire!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "53 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/vhks-bTGKW8",
-  "video_id": "vhks-bTGKW8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Poor orphan saves talking beast, guards magic bowl against greedy village, and heals the empire!",
-    "url": "https://www.youtube.com/embed/vhks-bTGKW8",
-    "video_id": "vhks-bTGKW8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3163
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2114393,34 +2109607,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79215",
-  "title": "Reborn master alchemist repays huge debt through farming, turning worst sect into ultimate champions",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "102 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/dxjaunmQ2Ys",
-  "video_id": "dxjaunmQ2Ys",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn master alchemist repays huge debt through farming, turning worst sect into ultimate champions",
-    "url": "https://www.youtube.com/embed/dxjaunmQ2Ys",
-    "video_id": "dxjaunmQ2Ys",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6115
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79216",
   "title": "Bullied at 280 Pounds, He Rebuilt His Body—Then Took the Star Quarterback's Spot!",
   "genre": "Drama",
@@ -2114449,34 +2109635,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79217",
-  "title": "Starving Girl Fed Stray Fat Cat Her Last Bread, Cat Spawns Food Overnight and Turns Into God t!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "126 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/SdZZVUTPiFU",
-  "video_id": "SdZZVUTPiFU",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Starving Girl Fed Stray Fat Cat Her Last Bread, Cat Spawns Food Overnight and Turns Into God t!",
-    "url": "https://www.youtube.com/embed/SdZZVUTPiFU",
-    "video_id": "SdZZVUTPiFU",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7576
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79218",
   "title": "Thirty Matches to Trust: The Star Defender and the Data Girl",
   "genre": "Drama",
@@ -2114497,62 +2109655,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 2790
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79219",
-  "title": "Defiant noble girl rejects ruthless warlord, his obsessive love takes her all the way to empress",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "60 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/5vk40u5SLp0",
-  "video_id": "5vk40u5SLp0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Defiant noble girl rejects ruthless warlord, his obsessive love takes her all the way to empress",
-    "url": "https://www.youtube.com/embed/5vk40u5SLp0",
-    "video_id": "5vk40u5SLp0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3608
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79220",
-  "title": "Sold bride talks to wild beasts to dig rare herbs, uncovers corrupt ledger and arrests villains!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "70 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/XdTeI5nNxak",
-  "video_id": "XdTeI5nNxak",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Sold bride talks to wild beasts to dig rare herbs, uncovers corrupt ledger and arrests villains!",
-    "url": "https://www.youtube.com/embed/XdTeI5nNxak",
-    "video_id": "XdTeI5nNxak",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4184
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2114617,90 +2109719,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79223",
-  "title": "Agent wakes in coffin to beat thugs! Her dying bought husband becomes prince!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "152 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ToCSZb5-Cvo",
-  "video_id": "ToCSZb5-Cvo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Agent wakes in coffin to beat thugs! Her dying bought husband becomes prince!",
-    "url": "https://www.youtube.com/embed/ToCSZb5-Cvo",
-    "video_id": "ToCSZb5-Cvo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 9145
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79224",
-  "title": "Bankrupt CEO revives with magic modern store, crushes abusive kin, and outsmarts greedy prince!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "80 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/3loJgtrP_-U",
-  "video_id": "3loJgtrP_-U",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Bankrupt CEO revives with magic modern store, crushes abusive kin, and outsmarts greedy prince!",
-    "url": "https://www.youtube.com/embed/3loJgtrP_-U",
-    "video_id": "3loJgtrP_-U",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4777
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79225",
-  "title": "Stunt actress wakes as doomed villain, fakes madness to crush evil family and weds prime minister!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "140 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Bhze9zIsHek",
-  "video_id": "Bhze9zIsHek",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Stunt actress wakes as doomed villain, fakes madness to crush evil family and weds prime minister!",
-    "url": "https://www.youtube.com/embed/Bhze9zIsHek",
-    "video_id": "Bhze9zIsHek",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 8382
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79226",
   "title": "An Elf Archmage Raised a Little Boy—No One Knew He Was the Strongest Magic Genius Alive!",
   "genre": "Drama",
@@ -2114729,34 +2109747,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79227",
-  "title": "Modern doctor cures village plague with one needle, stops fire decree, exposes royal poison plot",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "63 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/lpKWvhr5zzE",
-  "video_id": "lpKWvhr5zzE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Modern doctor cures village plague with one needle, stops fire decree, exposes royal poison plot",
-    "url": "https://www.youtube.com/embed/lpKWvhr5zzE",
-    "video_id": "lpKWvhr5zzE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3795
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79228",
   "title": "Her Fiancé Sold Her at an Underground Auction—Then a Mafia Godmother Saved Her!",
   "genre": "Drama",
@@ -2114777,34 +2109767,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 3931
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79229",
-  "title": "Forced to marry pig farmer, his secret empire feeds truffles, villain jailed!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "116 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Rsdv8nxicsA",
-  "video_id": "Rsdv8nxicsA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced to marry pig farmer, his secret empire feeds truffles, villain jailed!",
-    "url": "https://www.youtube.com/embed/Rsdv8nxicsA",
-    "video_id": "Rsdv8nxicsA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 6960
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2114925,90 +2109887,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79234",
-  "title": "Castaway Daoist heiress predicts family ruin, digs up cursed tomb, and faces ancient demon!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "55 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/3z-S616ASXs",
-  "video_id": "3z-S616ASXs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Castaway Daoist heiress predicts family ruin, digs up cursed tomb, and faces ancient demon!",
-    "url": "https://www.youtube.com/embed/3z-S616ASXs",
-    "video_id": "3z-S616ASXs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3323
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79235",
-  "title": "Cast-off queen survives death trap to topple traitors, refuses royal reunion",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "128 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/YtQxa7eH2uY",
-  "video_id": "YtQxa7eH2uY",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Cast-off queen survives death trap to topple traitors, refuses royal reunion",
-    "url": "https://www.youtube.com/embed/YtQxa7eH2uY",
-    "video_id": "YtQxa7eH2uY",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7700
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79236",
-  "title": "Ancient goddess awakens as demon god, crashes birthday feast in mourning robes to avenge daughter",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "49 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/U-awhEeV400",
-  "video_id": "U-awhEeV400",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Ancient goddess awakens as demon god, crashes birthday feast in mourning robes to avenge daughter",
-    "url": "https://www.youtube.com/embed/U-awhEeV400",
-    "video_id": "U-awhEeV400",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2942
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79237",
   "title": "Reborn After Betrayal, She Slept With a Rogue—Unaware He Was the Ancient Lycan King!",
   "genre": "Drama",
@@ -2115121,90 +2109999,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79241",
-  "title": "Forced bride cleans wounded general on wedding night, solves military crisis, and wins his heart!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "65 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Xn67z8vH5a8",
-  "video_id": "Xn67z8vH5a8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Forced bride cleans wounded general on wedding night, solves military crisis, and wins his heart!",
-    "url": "https://www.youtube.com/embed/Xn67z8vH5a8",
-    "video_id": "Xn67z8vH5a8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3927
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79242",
-  "title": "Banned actress travels through closet to trade with wounded tyrant, gets rich to crush ex fiancé",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "120 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/C9XZSnnxJi0",
-  "video_id": "C9XZSnnxJi0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Banned actress travels through closet to trade with wounded tyrant, gets rich to crush ex fiancé",
-    "url": "https://www.youtube.com/embed/C9XZSnnxJi0",
-    "video_id": "C9XZSnnxJi0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7177
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79243",
-  "title": "Reborn merchant refuses her ungrateful ex slave, but the reborn future regent clings back!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "72 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/TnGj8XFQfEI",
-  "video_id": "TnGj8XFQfEI",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn merchant refuses her ungrateful ex slave, but the reborn future regent clings back!",
-    "url": "https://www.youtube.com/embed/TnGj8XFQfEI",
-    "video_id": "TnGj8XFQfEI",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 4321
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79244",
   "title": "He Paid Her to Sleep Beside Him for 10 Years—Then She Left and He Couldn't Sleep!",
   "genre": "Drama",
@@ -2115261,62 +2110055,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79246",
-  "title": "Exiled doctor mother fights off bullies, cures royal plague, and clears her father's name!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "46 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/3l48kQaieLo",
-  "video_id": "3l48kQaieLo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Exiled doctor mother fights off bullies, cures royal plague, and clears her father's name!",
-    "url": "https://www.youtube.com/embed/3l48kQaieLo",
-    "video_id": "3l48kQaieLo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2759
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79247",
-  "title": "Disguised female coroner reads dead memories, crushes corrupt court, and refuses the crown!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "146 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/Znf7vJ9HT7U",
-  "video_id": "Znf7vJ9HT7U",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Disguised female coroner reads dead memories, crushes corrupt court, and refuses the crown!",
-    "url": "https://www.youtube.com/embed/Znf7vJ9HT7U",
-    "video_id": "Znf7vJ9HT7U",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 8789
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79248",
   "title": "Full African Folktale",
   "genre": "Drama",
@@ -2115337,62 +2110075,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1062
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79249",
-  "title": "Transmigrated wife stops abortion to save broke husband, uses magic space, and builds empire!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "64 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/ykO-kk7uDcs",
-  "video_id": "ykO-kk7uDcs",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Transmigrated wife stops abortion to save broke husband, uses magic space, and builds empire!",
-    "url": "https://www.youtube.com/embed/ykO-kk7uDcs",
-    "video_id": "ykO-kk7uDcs",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 3818
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79250",
-  "title": "Reborn on the wedding night, she exposed the cheaters and married the tyrant Regent!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "131 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. Full Movie. Made with AI.",
-  "url": "https://www.youtube.com/embed/v8entRpNzSo",
-  "video_id": "v8entRpNzSo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn on the wedding night, she exposed the cheaters and married the tyrant Regent!",
-    "url": "https://www.youtube.com/embed/v8entRpNzSo",
-    "video_id": "v8entRpNzSo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 7875
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2116325,34 +2111007,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79284",
-  "title": "Her supermarket spans 2,000 years, trading pure water for an ancient…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "33 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/ahG7WeyNK0o",
-  "video_id": "ahG7WeyNK0o",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her supermarket spans 2,000 years, trading pure water for an ancient…",
-    "url": "https://www.youtube.com/embed/ahG7WeyNK0o",
-    "video_id": "ahG7WeyNK0o",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1979
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79285",
   "title": "Boyfriend for Rent, Billionaire for Real",
   "genre": "Drama",
@@ -2116597,34 +2111251,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1815
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79294",
-  "title": "Returning after 500 years of cultivation, she saves her dying son and…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "28 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/1n91CmSS-v0",
-  "video_id": "1n91CmSS-v0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Returning after 500 years of cultivation, she saves her dying son and…",
-    "url": "https://www.youtube.com/embed/1n91CmSS-v0",
-    "video_id": "1n91CmSS-v0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1681
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2116913,34 +2111539,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79305",
-  "title": "Inheriting a failing shop, she trades snacks for gold with people…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "38 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/4Ac_u-oP3TE",
-  "video_id": "4Ac_u-oP3TE",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Inheriting a failing shop, she trades snacks for gold with people…",
-    "url": "https://www.youtube.com/embed/4Ac_u-oP3TE",
-    "video_id": "4Ac_u-oP3TE",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2292
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79306",
   "title": "She is the One They Begged For",
   "genre": "Drama",
@@ -2117213,34 +2111811,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1907
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79316",
-  "title": "Reborn as a lowly maid, she conquers the empire with modern…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "31 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/fsBv0PZDpRc",
-  "video_id": "fsBv0PZDpRc",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Reborn as a lowly maid, she conquers the empire with modern…",
-    "url": "https://www.youtube.com/embed/fsBv0PZDpRc",
-    "video_id": "fsBv0PZDpRc",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1856
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2117753,62 +2112323,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79335",
-  "title": "Betrayed, she returns as an Empress to exact revenge on her entire…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "32 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/CYTOk8MPTFM",
-  "video_id": "CYTOk8MPTFM",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed, she returns as an Empress to exact revenge on her entire…",
-    "url": "https://www.youtube.com/embed/CYTOk8MPTFM",
-    "video_id": "CYTOk8MPTFM",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1936
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79336",
-  "title": "Fired as a \"Trophy Wife,\" She Joined the Rival Firm to Bring Down Her…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "33 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/RM_Nfeizh_Y",
-  "video_id": "RM_Nfeizh_Y",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Fired as a \"Trophy Wife,\" She Joined the Rival Firm to Bring Down Her…",
-    "url": "https://www.youtube.com/embed/RM_Nfeizh_Y",
-    "video_id": "RM_Nfeizh_Y",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1965
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79337",
   "title": "Reborn from a miserable marriage, I Abandoned My Fiance and Married…",
   "genre": "Drama",
@@ -2117857,62 +2112371,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1329
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79339",
-  "title": "Betrayed and lost her child: She demands a divorce while the Prince…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "30 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/ll4LhxMNjGg",
-  "video_id": "ll4LhxMNjGg",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed and lost her child: She demands a divorce while the Prince…",
-    "url": "https://www.youtube.com/embed/ll4LhxMNjGg",
-    "video_id": "ll4LhxMNjGg",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1830
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79340",
-  "title": "Betrayed while pregnant, she demands a divorce on her delivery day!",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "31 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/Co0w29RbaE8",
-  "video_id": "Co0w29RbaE8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Betrayed while pregnant, she demands a divorce on her delivery day!",
-    "url": "https://www.youtube.com/embed/Co0w29RbaE8",
-    "video_id": "Co0w29RbaE8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1839
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2118025,34 +2112483,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1634
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79345",
-  "title": "Abandoned by her family, she returns as a violent queen, making them…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "34 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/uz5U3dDNJDA",
-  "video_id": "uz5U3dDNJDA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Abandoned by her family, she returns as a violent queen, making them…",
-    "url": "https://www.youtube.com/embed/uz5U3dDNJDA",
-    "video_id": "uz5U3dDNJDA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2036
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2118193,34 +2112623,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 2087
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79351",
-  "title": "Her courier station links to the past; princes deliver for modern…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "36 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/a1nRvnF3XCo",
-  "video_id": "a1nRvnF3XCo",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her courier station links to the past; princes deliver for modern…",
-    "url": "https://www.youtube.com/embed/a1nRvnF3XCo",
-    "video_id": "a1nRvnF3XCo",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2186
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2118509,34 +2112911,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79362",
-  "title": "She turned an ancient temple into a fashion empire using modern…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "39 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/R8JcUd3jY2M",
-  "video_id": "R8JcUd3jY2M",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "She turned an ancient temple into a fashion empire using modern…",
-    "url": "https://www.youtube.com/embed/R8JcUd3jY2M",
-    "video_id": "R8JcUd3jY2M",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2367
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79363",
   "title": "They Laughed at Me. Now They Kneel.From the Girl Who Had Nothing to…",
   "genre": "Drama",
@@ -2118705,34 +2113079,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79369",
-  "title": "The Husband Who Betrayed Me Regrets It",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "27 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/QEf_CyeNhD8",
-  "video_id": "QEf_CyeNhD8",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Husband Who Betrayed Me Regrets It",
-    "url": "https://www.youtube.com/embed/QEf_CyeNhD8",
-    "video_id": "QEf_CyeNhD8",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1632
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79370",
   "title": "Fired by a Rich Heiress, He Joined Her Rival Team and Crushed Her Racing Empire!",
   "genre": "Drama",
@@ -2118809,34 +2113155,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 2282
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79373",
-  "title": "Her supermarket connects to ancient times, trading matches for a…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "36 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/Ng5AytGiQeA",
-  "video_id": "Ng5AytGiQeA",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Her supermarket connects to ancient times, trading matches for a…",
-    "url": "https://www.youtube.com/embed/Ng5AytGiQeA",
-    "video_id": "Ng5AytGiQeA",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2180
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2119069,34 +2113387,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79382",
-  "title": "The poor girl's supermarket spans a millennia; she trades bottled…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "38 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/FJsSlQy9p3E",
-  "video_id": "FJsSlQy9p3E",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The poor girl's supermarket spans a millennia; she trades bottled…",
-    "url": "https://www.youtube.com/embed/FJsSlQy9p3E",
-    "video_id": "FJsSlQy9p3E",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2278
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79383",
   "title": "Pt.2",
   "genre": "Drama",
@@ -2119313,34 +2113603,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 2303
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79391",
-  "title": "The Billionaire Forgotten Wife",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "11 min",
-  "desc": "AI-made vertical drama from AI Drama Series. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/q2cHonk_oLQ",
-  "video_id": "q2cHonk_oLQ",
-  "source_channel": "AI Drama Series",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Billionaire Forgotten Wife",
-    "url": "https://www.youtube.com/embed/q2cHonk_oLQ",
-    "video_id": "q2cHonk_oLQ",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 682
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2119994,34 +2114256,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79415",
-  "title": "Three Men Were Chosen to Marry Her—None Knew She Was an Ex-Mafia Boss",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "31 min",
-  "desc": "AI-made vertical drama from AI Drama Series. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/3ioro8eHC88",
-  "video_id": "3ioro8eHC88",
-  "source_channel": "AI Drama Series",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Three Men Were Chosen to Marry Her—None Knew She Was an Ex-Mafia Boss",
-    "url": "https://www.youtube.com/embed/3ioro8eHC88",
-    "video_id": "3ioro8eHC88",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1853
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79416",
   "title": "The Loop American Nightmares",
   "genre": "Drama",
@@ -2120154,34 +2114388,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1364
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79421",
-  "title": "Bullying victim traps evil maid with bloody print, exposes corrupt…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "31 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/EIkMz_tOIiY",
-  "video_id": "EIkMz_tOIiY",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Bullying victim traps evil maid with bloody print, exposes corrupt…",
-    "url": "https://www.youtube.com/embed/EIkMz_tOIiY",
-    "video_id": "EIkMz_tOIiY",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1856
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2121535,34 +2115741,6 @@ window.SHORTZ_CATALOG = [
   "award_verified": false
  },
  {
-  "id": "stv-79470",
-  "title": "Broke store owner trades instant meals for ancient gold, saves a…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "33 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/sMn_MJQ-d2M",
-  "video_id": "sMn_MJQ-d2M",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Broke store owner trades instant meals for ancient gold, saves a…",
-    "url": "https://www.youtube.com/embed/sMn_MJQ-d2M",
-    "video_id": "sMn_MJQ-d2M",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1979
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
   "id": "stv-79471",
   "title": "Rebirth!A Brutal Prince, a Princess's Affair—I Uncover the Conspiracy…",
   "genre": "Drama",
@@ -2121864,62 +2116042,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1872
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79482",
-  "title": "Mocked as a country girl, she revealed her true identity, shocking…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "35 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/GIvhq6Mq1M0",
-  "video_id": "GIvhq6Mq1M0",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Mocked as a country girl, she revealed her true identity, shocking…",
-    "url": "https://www.youtube.com/embed/GIvhq6Mq1M0",
-    "video_id": "GIvhq6Mq1M0",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 2086
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79483",
-  "title": "Everyone wants to kill her, but all the damage she receives is…",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "30 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/kTFzucT6L50",
-  "video_id": "kTFzucT6L50",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Everyone wants to kill her, but all the damage she receives is…",
-    "url": "https://www.youtube.com/embed/kTFzucT6L50",
-    "video_id": "kTFzucT6L50",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1823
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2122929,34 +2117051,6 @@ window.SHORTZ_CATALOG = [
     "verified": true,
     "kind": "episode",
     "dur": 1979
-   }
-  ],
-  "rights_basis": "Public YouTube embed",
-  "dateAdded": "2026-11-07",
-  "verified": true,
-  "award_verified": false
- },
- {
-  "id": "stv-79520",
-  "title": "Groom Flees on Wedding Day, Secret Admirer Marries the Bride and Wins Her Heart",
-  "genre": "Drama",
-  "eps": "1 ep",
-  "runtime": "33 min",
-  "desc": "AI-made vertical drama from Heartbeat AI Drama. episode bundle. Made with AI.",
-  "url": "https://www.youtube.com/embed/yQ9qk8CVu8A",
-  "video_id": "yQ9qk8CVu8A",
-  "source_channel": "Heartbeat AI Drama",
-  "ai_made": true,
-  "episodes": [
-   {
-    "title": "Groom Flees on Wedding Day, Secret Admirer Marries the Bride and Wins Her Heart",
-    "url": "https://www.youtube.com/embed/yQ9qk8CVu8A",
-    "video_id": "yQ9qk8CVu8A",
-    "platform": "youtube",
-    "n": 1,
-    "verified": true,
-    "kind": "episode",
-    "dur": 1987
    }
   ],
   "rights_basis": "Public YouTube embed",
@@ -2124471,5 +2118565,2241 @@ window.SHORTZ_CATALOG = [
   "dateAdded": "2026-11-12",
   "verified": true,
   "award_verified": false
+ },
+ {
+  "id": "stv-79567",
+  "title": "Port City P.D.",
+  "genre": "Detective",
+  "eps": "13 eps",
+  "runtime": "~2-3 min each",
+  "desc": "The first original scripted streaming series on the internet (2006): a gritty police procedural re-cut as vertical shorts — Port City detectives work the city's underbelly one case at a time.",
+  "url": "https://www.youtube.com/embed/h5kxHD6fmn8",
+  "video_id": "h5kxHD6fmn8",
+  "source_channel": "Port City P.D.",
+  "rights_basis": "Public YouTube embed",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Port City P.D. Episode 1 (Vertical Series) #shorts",
+    "video_id": "h5kxHD6fmn8",
+    "url": "https://www.youtube.com/embed/h5kxHD6fmn8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "Port City P.D. Episode 2 (Vertical Series)  #shorts",
+    "video_id": "W0KfItlWfvA",
+    "url": "https://www.youtube.com/embed/W0KfItlWfvA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 3,
+    "title": "Port City P.D. Episode  3 (Vertical Series) #shorts",
+    "video_id": "SQLhn0AQxQI",
+    "url": "https://www.youtube.com/embed/SQLhn0AQxQI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 4,
+    "title": "Port City P.D. Episode 4 (Vertical Series) #shorts",
+    "video_id": "FpqYNa21I1w",
+    "url": "https://www.youtube.com/embed/FpqYNa21I1w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 5,
+    "title": "Port City P.D. Episode 5 (Vertical Series) #shorts",
+    "video_id": "oC_9j0wElKM",
+    "url": "https://www.youtube.com/embed/oC_9j0wElKM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 6,
+    "title": "Port City P.D. Episode 6 (Vertical Series) #shorts",
+    "video_id": "9gKfTPWW8gQ",
+    "url": "https://www.youtube.com/embed/9gKfTPWW8gQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 7,
+    "title": "Port City P.D. Episode 7 (Vertical Series) #shorts",
+    "video_id": "BGtTIExYfZc",
+    "url": "https://www.youtube.com/embed/BGtTIExYfZc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 8,
+    "title": "Port City P.D. Episode 8 (Vertical Series) #shorts",
+    "video_id": "q5Vxw6WiGBk",
+    "url": "https://www.youtube.com/embed/q5Vxw6WiGBk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 9,
+    "title": "Port City P.D. Episode 9 (Vertical Series) #shorts",
+    "video_id": "zNYT54xAbJA",
+    "url": "https://www.youtube.com/embed/zNYT54xAbJA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 10,
+    "title": "Port City P.D. Episode 10 (Vertical Series) #shorts  #crime #film #movie",
+    "video_id": "9-iI8EyZbFk",
+    "url": "https://www.youtube.com/embed/9-iI8EyZbFk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 11,
+    "title": "Port City P.D. Episode 11  (Vertical Series) #shorts",
+    "video_id": "vkk74abTXD8",
+    "url": "https://www.youtube.com/embed/vkk74abTXD8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 12,
+    "title": "Port City P.D. Episode 12 (Vertical Series) #shorts",
+    "video_id": "8KI8NkicK_E",
+    "url": "https://www.youtube.com/embed/8KI8NkicK_E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 13,
+    "title": "Port City P.D. Episode 13 (Vertical Series) #shorts",
+    "video_id": "_F75nXob_Wg",
+    "url": "https://www.youtube.com/embed/_F75nXob_Wg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ]
+ },
+ {
+  "id": "stv-79568",
+  "title": "Noir Case Files",
+  "genre": "Detective",
+  "eps": "30 eps",
+  "runtime": "~1-3 min each",
+  "desc": "Film-noir detective shorts: a hard-boiled private eye works a new case in every city — rain-soaked streets, femme fatales, and a confession at the end of every reel.",
+  "url": "https://www.youtube.com/embed/7luvOtdZzTE",
+  "video_id": "7luvOtdZzTE",
+  "source_channel": "Noir Case Files By Hitesh",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Last Case on Bourbon Street | Noir Case Files By Hitesh | USA-America Noir Case Files |Detective",
+    "video_id": "7luvOtdZzTE",
+    "url": "https://www.youtube.com/embed/7luvOtdZzTE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "Dead Men Don't Whisper | A Film Noir Detective Story | Dark Mystery Short Film | Episode 1",
+    "video_id": "Lkuhu0SotBg",
+    "url": "https://www.youtube.com/embed/Lkuhu0SotBg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 3,
+    "title": "Ashes and Alibis | Film Noir Detective Mystery | Dark Crime Short Film 4K",
+    "video_id": "jKJV8Um6xlE",
+    "url": "https://www.youtube.com/embed/jKJV8Um6xlE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 4,
+    "title": "Shadows on the Bay | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 3",
+    "video_id": "5cXIv7x-IBg",
+    "url": "https://www.youtube.com/embed/5cXIv7x-IBg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 5,
+    "title": "The Devil's Sermon | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 4",
+    "video_id": "mS8_y7fkPH4",
+    "url": "https://www.youtube.com/embed/mS8_y7fkPH4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 6,
+    "title": "The Glass Eye | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 6",
+    "video_id": "U6Q7ZS6NiZQ",
+    "url": "https://www.youtube.com/embed/U6Q7ZS6NiZQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 7,
+    "title": "The Widow's Gambit | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 7",
+    "video_id": "D0l5E0IHFno",
+    "url": "https://www.youtube.com/embed/D0l5E0IHFno",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 8,
+    "title": "The Senator's Shadow | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 8",
+    "video_id": "UvW_hzR82tk",
+    "url": "https://www.youtube.com/embed/UvW_hzR82tk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 9,
+    "title": "Blood on the Tracks | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 9",
+    "video_id": "6Od9GyGR3II",
+    "url": "https://www.youtube.com/embed/6Od9GyGR3II",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 10,
+    "title": "The Ivory Key | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 10",
+    "video_id": "43Bb0YsW-GI",
+    "url": "https://www.youtube.com/embed/43Bb0YsW-GI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 11,
+    "title": "Southern Cross | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K",
+    "video_id": "KnYXeL-FNLI",
+    "url": "https://www.youtube.com/embed/KnYXeL-FNLI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 12,
+    "title": "Neon Grave | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K",
+    "video_id": "VsglC7GPWHU",
+    "url": "https://www.youtube.com/embed/VsglC7GPWHU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 13,
+    "title": "The Midnight Standard | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K",
+    "video_id": "vC1AfGwUXec",
+    "url": "https://www.youtube.com/embed/vC1AfGwUXec",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 14,
+    "title": "The Last Borough | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K",
+    "video_id": "-hbaV-ZgHh4",
+    "url": "https://www.youtube.com/embed/-hbaV-ZgHh4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 15,
+    "title": "The Chicago Confession | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K",
+    "video_id": "XJiVcrX12Ww",
+    "url": "https://www.youtube.com/embed/XJiVcrX12Ww",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 16,
+    "title": "Black Gold Blues | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K",
+    "video_id": "BuP8vt7eytc",
+    "url": "https://www.youtube.com/embed/BuP8vt7eytc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 17,
+    "title": "\"Mississippi Blues | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K\"",
+    "video_id": "pHgzTRlQYxc",
+    "url": "https://www.youtube.com/embed/pHgzTRlQYxc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 18,
+    "title": "Mountain Cold | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 18",
+    "video_id": "LQa_2I9WY-E",
+    "url": "https://www.youtube.com/embed/LQa_2I9WY-E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 19,
+    "title": "Chesapeake Dark | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 19",
+    "video_id": "q7PR-ROgd_8",
+    "url": "https://www.youtube.com/embed/q7PR-ROgd_8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 20,
+    "title": "Frozen North | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 20",
+    "video_id": "5l_5nCNo8mE",
+    "url": "https://www.youtube.com/embed/5l_5nCNo8mE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 21,
+    "title": "Columbia Rain | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 21",
+    "video_id": "kcZKRfBYICI",
+    "url": "https://www.youtube.com/embed/kcZKRfBYICI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 22,
+    "title": "Gateway to Hell | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 22",
+    "video_id": "bYZ187QVBG8",
+    "url": "https://www.youtube.com/embed/bYZ187QVBG8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 23,
+    "title": "Steel City Sins | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 23",
+    "video_id": "mEnKvjZfEuA",
+    "url": "https://www.youtube.com/embed/mEnKvjZfEuA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 24,
+    "title": "Queen City Shadow | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 24",
+    "video_id": "O8Vx9qReoYc",
+    "url": "https://www.youtube.com/embed/O8Vx9qReoYc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 25,
+    "title": "Nashville Noir | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 25",
+    "video_id": "EZgbKhy1hWE",
+    "url": "https://www.youtube.com/embed/EZgbKhy1hWE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 26,
+    "title": "River Walk Dead | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 26",
+    "video_id": "tOKo6vKOWAM",
+    "url": "https://www.youtube.com/embed/tOKo6vKOWAM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 27,
+    "title": "Desert Heat | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 27",
+    "video_id": "ByFGddkRPco",
+    "url": "https://www.youtube.com/embed/ByFGddkRPco",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 28,
+    "title": "Salt Lake Shadows | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 28",
+    "video_id": "6RKg7P4uubM",
+    "url": "https://www.youtube.com/embed/6RKg7P4uubM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 29,
+    "title": "Rio Grande Rouge | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K | Episode 29",
+    "video_id": "gvnQvEy0arY",
+    "url": "https://www.youtube.com/embed/gvnQvEy0arY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 30,
+    "title": "Savannah Dark | Film Noir Detective Crime Mystery | Dark Thriller Short Film 4K| Episode 30",
+    "video_id": "NvmO9ZAsIys",
+    "url": "https://www.youtube.com/embed/NvmO9ZAsIys",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79569",
+  "title": "H. H. Holmes",
+  "genre": "Detective",
+  "eps": "18 eps",
+  "runtime": "~1 min each",
+  "desc": "Philadelphia, 1895: Detective Frank Geyer sets out to find three missing children — and the man who took them called himself Dr. H. H. Holmes. A true-crime detective serial in 18 parts.",
+  "url": "https://www.youtube.com/embed/Y0FK5s4-VQE",
+  "video_id": "Y0FK5s4-VQE",
+  "source_channel": "Fog & Ink",
+  "rights_basis": "Public YouTube embed",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "H. H. Holmes (Part 1/18): A Detective Sets Out #Shorts",
+    "video_id": "Y0FK5s4-VQE",
+    "url": "https://www.youtube.com/embed/Y0FK5s4-VQE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "H. H. Holmes (Part 2/18): Herman Mudgett #Shorts",
+    "video_id": "qjBquhB1IPY",
+    "url": "https://www.youtube.com/embed/qjBquhB1IPY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 3,
+    "title": "H. H. Holmes (Part 3/18): Englewood #Shorts",
+    "video_id": "2fBt86vSO_c",
+    "url": "https://www.youtube.com/embed/2fBt86vSO_c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 4,
+    "title": "H. H. Holmes (Part 4/18): The White City #Shorts",
+    "video_id": "o02Z5ff6S00",
+    "url": "https://www.youtube.com/embed/o02Z5ff6S00",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 5,
+    "title": "H. H. Holmes (Part 5/18): Julia and Pearl #Shorts",
+    "video_id": "bGtSDyTzLlQ",
+    "url": "https://www.youtube.com/embed/bGtSDyTzLlQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 6,
+    "title": "H. H. Holmes (Part 6/18): Emeline, Minnie and Nannie #Shorts",
+    "video_id": "RUs6nE1v4uk",
+    "url": "https://www.youtube.com/embed/RUs6nE1v4uk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 7,
+    "title": "H. H. Holmes (Part 7/18): The Scheme #Shorts",
+    "video_id": "IIDt7-NAzk8",
+    "url": "https://www.youtube.com/embed/IIDt7-NAzk8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 8,
+    "title": "H. H. Holmes (Part 8/18): Callowhill Street #Shorts",
+    "video_id": "YtHuPIKZhsk",
+    "url": "https://www.youtube.com/embed/YtHuPIKZhsk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 9,
+    "title": "H. H. Holmes (Part 9/18): Alice's Letters #Shorts",
+    "video_id": "uRW-P2P32zw",
+    "url": "https://www.youtube.com/embed/uRW-P2P32zw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 10,
+    "title": "H. H. Holmes (Part 10/18): Detroit to Toronto #Shorts",
+    "video_id": "YalFGyy8kgs",
+    "url": "https://www.youtube.com/embed/YalFGyy8kgs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 11,
+    "title": "H. H. Holmes (Part 11/18): We Never Sleep #Shorts",
+    "video_id": "fL6cr0oAkbQ",
+    "url": "https://www.youtube.com/embed/fL6cr0oAkbQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 12,
+    "title": "H. H. Holmes (Part 12/18): Stories From a Cell #Shorts",
+    "video_id": "NqekLdWjrA4",
+    "url": "https://www.youtube.com/embed/NqekLdWjrA4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 13,
+    "title": "H. H. Holmes (Part 13/18): Detective Frank Geyer #Shorts",
+    "video_id": "1SyNvbDgCKs",
+    "url": "https://www.youtube.com/embed/1SyNvbDgCKs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 14,
+    "title": "H. H. Holmes (Part 14/18): The Search Ends #Shorts",
+    "video_id": "FLSh9wECAqo",
+    "url": "https://www.youtube.com/embed/FLSh9wECAqo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 15,
+    "title": "H. H. Holmes (Part 15/18): The Trial #Shorts",
+    "video_id": "VlbsfZu3508",
+    "url": "https://www.youtube.com/embed/VlbsfZu3508",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 16,
+    "title": "H. H. Holmes (Part 16/18): The Verdict #Shorts",
+    "video_id": "Cs1DYxqjMfo",
+    "url": "https://www.youtube.com/embed/Cs1DYxqjMfo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 17,
+    "title": "H. H. Holmes (Part 17/18): How the Legend Grew #Shorts",
+    "video_id": "o7TIxVg-UXk",
+    "url": "https://www.youtube.com/embed/o7TIxVg-UXk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 18,
+    "title": "H. H. Holmes (Part 18/18): The People We Can Name #Shorts",
+    "video_id": "HhWdvO1rNUk",
+    "url": "https://www.youtube.com/embed/HhWdvO1rNUk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ]
+ },
+ {
+  "id": "stv-79570",
+  "title": "Evidence in Ink",
+  "genre": "Detective",
+  "eps": "4 eps",
+  "runtime": "~1-2 min each",
+  "desc": "A courtroom sketch artist draws what the witnesses won't say — and every sketch pulls the trial closer to the truth. An AI courtroom thriller in four parts.",
+  "url": "https://www.youtube.com/embed/jhiaKxSqKYU",
+  "video_id": "jhiaKxSqKYU",
+  "source_channel": "Untold Lies: AI Suspense Thriller",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Evidence in Ink – Episode 1: Drawn to Die | Courtroom Sketch Thriller",
+    "video_id": "jhiaKxSqKYU",
+    "url": "https://www.youtube.com/embed/jhiaKxSqKYU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Evidence in Ink – Episode 2: The Sketch Was Wrong | Mystery Thriller Short",
+    "video_id": "4QXhSjaiL-E",
+    "url": "https://www.youtube.com/embed/4QXhSjaiL-E",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Evidence in Ink – Episode 3: Uninvited Guest | Thriller Short Series",
+    "video_id": "uwYIv6cQ2qs",
+    "url": "https://www.youtube.com/embed/uwYIv6cQ2qs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 4,
+    "title": "Evidence in Ink – Episode 4: The Confession | Final Episode",
+    "video_id": "btKWM7z1088",
+    "url": "https://www.youtube.com/embed/btKWM7z1088",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79571",
+  "title": "AI Murder Mystery",
+  "genre": "Detective",
+  "eps": "6 eps",
+  "runtime": "~1 min each",
+  "desc": "An AI murder mystery game, played out loud: a detective beefs with the police chief, roleplays the suspects, and catches an AI witness lying.",
+  "url": "https://www.youtube.com/embed/vYX_SjSPtA8",
+  "video_id": "vYX_SjSPtA8",
+  "source_channel": "AHD Mathias",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "AI Murder Mystery |  Part 1 | Beefing with the Police Chief | Vaudeville #short #shorts",
+    "video_id": "vYX_SjSPtA8",
+    "url": "https://www.youtube.com/embed/vYX_SjSPtA8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "AI Murder Mystery| Part 2 |Still beefing with Chief Gretzky | Vaudeville #short #shorts #ai",
+    "video_id": "t3Xr5hjDYag",
+    "url": "https://www.youtube.com/embed/t3Xr5hjDYag",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 3,
+    "title": "AI Murder Mystery | Part 3 | Still beefing with Chief Gretzky | Vaudeville #short #subscribe #ai",
+    "video_id": "EwNKQH_QItg",
+    "url": "https://www.youtube.com/embed/EwNKQH_QItg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 4,
+    "title": "AI Murder Mystery | Part 4 | Roleplaying Moist Cr1tikal | Vaudeville #short #subscribe #ai #gaming",
+    "video_id": "XVC26YUCZZA",
+    "url": "https://www.youtube.com/embed/XVC26YUCZZA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 5,
+    "title": "AI Murder Mystery | Part 5 | HOW TO KILL AN AI | Vaudeville #short #subscribe #ai #gaming",
+    "video_id": "LpgdrhMst38",
+    "url": "https://www.youtube.com/embed/LpgdrhMst38",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 6,
+    "title": "AI Murder Mystery Game  | THIS AI WITNESS IS LYING | Vaudeville | #short #ai #gaming #fyp",
+    "video_id": "tMD75vdHby0",
+    "url": "https://www.youtube.com/embed/tMD75vdHby0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79572",
+  "title": "Detective Morrison",
+  "genre": "Detective",
+  "eps": "6 eps",
+  "runtime": "~1-2 min each",
+  "desc": "Detective Morrison investigates social media itself — the feed is noise, and the case is learning to filter it. Fully AI-generated.",
+  "url": "https://www.youtube.com/embed/FXaVAXHHc14",
+  "video_id": "FXaVAXHHc14",
+  "source_channel": "Online Visuals - Creative Agency",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Detective Morrison – Episode 1 – The Feed is Noise",
+    "video_id": "FXaVAXHHc14",
+    "url": "https://www.youtube.com/embed/FXaVAXHHc14",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "Detective Morrison, Episode 2 – The Authenticity Lie",
+    "video_id": "inyBPWSF5zg",
+    "url": "https://www.youtube.com/embed/inyBPWSF5zg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 3,
+    "title": "Detective Morrison, Episode 3 – The Marketing Trap",
+    "video_id": "DfhMph25zis",
+    "url": "https://www.youtube.com/embed/DfhMph25zis",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 4,
+    "title": "Detective Morrison, Episode 4 – AI is not Human",
+    "video_id": "r-urYyDWTxo",
+    "url": "https://www.youtube.com/embed/r-urYyDWTxo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 5,
+    "title": "Detective Morrison, Episode 5 – The Problem with Social Media Strategy",
+    "video_id": "nv_nWxqIzNo",
+    "url": "https://www.youtube.com/embed/nv_nWxqIzNo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 6,
+    "title": "Detective Morrison, Episode 6 – Drop your Phone, go to a Bar",
+    "video_id": "wsZyKIXnBU8",
+    "url": "https://www.youtube.com/embed/wsZyKIXnBU8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79573",
+  "title": "Detective Stubbs",
+  "genre": "Detective",
+  "eps": "3 eps",
+  "runtime": "~1-3 min each",
+  "desc": "An AI detective show: Detective Stubbs works the case in parts, and time itself is the prime suspect.",
+  "url": "https://www.youtube.com/embed/MrvCKize6XA",
+  "video_id": "MrvCKize6XA",
+  "source_channel": "Detective Stubbs",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "DETECTIVE STUBBS - AI Show - Ep.1 Part 1",
+    "video_id": "MrvCKize6XA",
+    "url": "https://www.youtube.com/embed/MrvCKize6XA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "DETECTIVE STUBBS - AI Show - Ep.1 Part 2",
+    "video_id": "WQExzYmwugY",
+    "url": "https://www.youtube.com/embed/WQExzYmwugY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 3,
+    "title": "DETECTIVE STUBBS: Stolen Time | Episode 1 | AI Short Film",
+    "video_id": "31xh9nEnS1Y",
+    "url": "https://www.youtube.com/embed/31xh9nEnS1Y",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79574",
+  "title": "THE EVIDENCE",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "runtime": "~1 min",
+  "desc": "A detective. A stolen bag of cash. A secret that could destroy everything — and a desperate pursuit that turns violent.",
+  "url": "https://www.youtube.com/embed/ZoTJDwsgzGo",
+  "video_id": "ZoTJDwsgzGo",
+  "source_channel": "Velqith Studios",
+  "rights_basis": "Public YouTube embed",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Detective Has a Deadly Secret | THE EVIDENCE Ep. 1 #shorts",
+    "video_id": "ZoTJDwsgzGo",
+    "url": "https://www.youtube.com/embed/ZoTJDwsgzGo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ]
+ },
+ {
+  "id": "stv-79575",
+  "title": "FIREWEED",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "runtime": "~1 min",
+  "desc": "An AI noir mystery series: someone tried to warn them — and nobody listened.",
+  "url": "https://www.youtube.com/embed/jTC8TxHgcow",
+  "video_id": "jTC8TxHgcow",
+  "source_channel": "Last Road Archive",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "I TRIED TO WARN THEM | FIREWEED — AI Noir Mystery Series",
+    "video_id": "jTC8TxHgcow",
+    "url": "https://www.youtube.com/embed/jTC8TxHgcow",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79576",
+  "title": "Murder on the Highland Express",
+  "genre": "Detective",
+  "eps": "2 eps",
+  "runtime": "~1 min each",
+  "desc": "1928, a luxury Scottish train: a millionaire is murdered aboard, and Inspector Malcolm Reid must uncover the killer before the journey ends.",
+  "url": "https://www.youtube.com/embed/8fFXggA6MF4",
+  "video_id": "8fFXggA6MF4",
+  "source_channel": "Offscript",
+  "rights_basis": "Public YouTube embed",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Murder on the Highland Express (Part 1) #shorts #psychologicalthriller #mystery #murdermystery",
+    "video_id": "8fFXggA6MF4",
+    "url": "https://www.youtube.com/embed/8fFXggA6MF4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "Murder on the Highland Express (Part 2) #shorts #psychologicalthriller #detectivemystery #suspense",
+    "video_id": "UTybE4E570M",
+    "url": "https://www.youtube.com/embed/UTybE4E570M",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ]
+ },
+ {
+  "id": "stv-79577",
+  "title": "Murder Mystery of Willowbrook",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "runtime": "~1 min",
+  "desc": "An AI murder mystery: Willowbrook has a secret, and the first part is only the beginning of the case.",
+  "url": "https://www.youtube.com/embed/sBcfsTww_Ag",
+  "video_id": "sBcfsTww_Ag",
+  "source_channel": "Synthetic Sagas",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "MURDER MYSTERY OF WILLOWBROOK: PART 1 │ AI STORIES #shorts #stories #murdermystery",
+    "video_id": "sBcfsTww_Ag",
+    "url": "https://www.youtube.com/embed/sBcfsTww_Ag",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79578",
+  "title": "Dangerous Darlings",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "runtime": "~10 min",
+  "desc": "Episode 1, the Tinder murder case: a date turns deadly, and the darlings are more dangerous than they look.",
+  "url": "https://www.youtube.com/embed/adALKRbu75k",
+  "video_id": "adALKRbu75k",
+  "source_channel": "madninja",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "DANGEROUS DARLINGS Episode 1 - Tinder Murder Case #trending #ai #video #crime #thriller #series",
+    "video_id": "adALKRbu75k",
+    "url": "https://www.youtube.com/embed/adALKRbu75k",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79579",
+  "title": "Detective Misty & Barnaby",
+  "genre": "Detective",
+  "eps": "3 eps",
+  "runtime": "~1 min each",
+  "desc": "A tiny AI detective duo — Misty the kitten and Barnaby — solve pocket-sized mysteries one episode at a time.",
+  "url": "https://www.youtube.com/embed/5_jV7ADJsPs",
+  "video_id": "5_jV7ADJsPs",
+  "source_channel": "AI Tiny Shorts",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Detective Misty & Barnaby - Episode 1",
+    "video_id": "5_jV7ADJsPs",
+    "url": "https://www.youtube.com/embed/5_jV7ADJsPs",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 2,
+    "title": "Detective Misty & Barnaby - Episode 2",
+    "video_id": "jVdJlicgyTQ",
+    "url": "https://www.youtube.com/embed/jVdJlicgyTQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   },
+   {
+    "n": 3,
+    "title": "Detective Misty & Barnaby - Episode 3",
+    "video_id": "qNw-Fr-OHmM",
+    "url": "https://www.youtube.com/embed/qNw-Fr-OHmM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79580",
+  "title": "Briarwick Diaries",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "runtime": "~2 min",
+  "desc": "Original British mystery drama: 'Keep the Cheque' — old money, old secrets, and a detective's first case in Briarwick.",
+  "url": "https://www.youtube.com/embed/N19Hw_KOgwc",
+  "video_id": "N19Hw_KOgwc",
+  "source_channel": "Briarwick Diaries | Old Money Drama",
+  "rights_basis": "Public YouTube embed",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Episode 1: \"Keep the Cheque\" — Briarwick Diaries (Original British Old-Money Vertical Drama).",
+    "video_id": "N19Hw_KOgwc",
+    "url": "https://www.youtube.com/embed/N19Hw_KOgwc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79581",
+  "title": "The Verdict",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "runtime": "~1 min",
+  "desc": "A courtroom drama, AI-generated: the verdict is in — and the final call changes everything.",
+  "url": "https://www.youtube.com/embed/e_Xig6ya_6Q",
+  "video_id": "e_Xig6ya_6Q",
+  "source_channel": "Courthouse Chronicles",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Verdict — A Courtroom Drama",
+    "video_id": "e_Xig6ya_6Q",
+    "url": "https://www.youtube.com/embed/e_Xig6ya_6Q",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79582",
+  "title": "Vic Pichette Noir Detective Shorts",
+  "genre": "Detective",
+  "eps": "2 eps",
+  "runtime": "~1 min each",
+  "desc": "Real private eye Vic Pichette turns noir detective: a missing kid, a dark alley, and a case only a PI could crack — made by AI.",
+  "url": "https://www.youtube.com/embed/iOcsWSHJk1s",
+  "video_id": "iOcsWSHJk1s",
+  "source_channel": "Vic Pichette Investigation",
+  "rights_basis": "AI-made by original creator (third-party production method)",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Noir Detective Short: Vic Pichette I The Missing Kid Mystery",
+    "video_id": "iOcsWSHJk1s",
+    "url": "https://www.youtube.com/embed/iOcsWSHJk1s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "Private Eye in the Dark | Made by AI | Vic Pichette Investigations  #privatedetective #PIGuy",
+    "video_id": "udJB-2gkA6g",
+    "url": "https://www.youtube.com/embed/udJB-2gkA6g",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ],
+  "ai_made": true
+ },
+ {
+  "id": "stv-79583",
+  "title": "House 55",
+  "genre": "Detective",
+  "eps": "2 eps",
+  "runtime": "~1 min each",
+  "desc": "A vertical short film series inspired by true crime stories — House 55, where it all started, and the story continues.",
+  "url": "https://www.youtube.com/embed/SZQSb2Cq1Pk",
+  "video_id": "SZQSb2Cq1Pk",
+  "source_channel": "721 PROJECT",
+  "rights_basis": "Public YouTube embed",
+  "episodes": [
+   {
+    "n": 1,
+    "title": "House 55. A vertical short film series inspired by true crime stories.  #shortfilm #verticalvideo",
+    "video_id": "SZQSb2Cq1Pk",
+    "url": "https://www.youtube.com/embed/SZQSb2Cq1Pk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   },
+   {
+    "n": 2,
+    "title": "House 55. To be continued. #reelshorts #thriller #truestory #mystery #shortfilm #shorts #drama #fyp",
+    "video_id": "UaRdW5h5FGc",
+    "url": "https://www.youtube.com/embed/UaRdW5h5FGc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode",
+    "vertical": true,
+    "vertical_source": "YouTube Short (verified /shorts/)"
+   }
+  ]
+ },
+ {
+  "id": "stv-79584",
+  "title": "Sherlock Holmes: The Secret Weapon (1943)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Basil Rathbone's Holmes takes on Nazi spies in the 1943 classic — the Secret Weapon is a bombsight, and the enemy wants it back.",
+  "url": "https://www.youtube.com/embed/E9tOT4OhaJ8",
+  "source_channel": "PhantomReel",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Basil Rathbone | Classic Detective | Moriarty's Trap | Sherlock Holmes: Secret Weapon  Full Movie",
+    "video_id": "E9tOT4OhaJ8",
+    "url": "https://www.youtube.com/embed/E9tOT4OhaJ8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79585",
+  "title": "Sherlock Holmes: The Hound of the Baskervilles",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "The most famous Holmes case of all: a spectral hound stalks the Baskerville family across the moors, and only Holmes can unmask it.",
+  "url": "https://www.youtube.com/embed/8qqCnEM2CZg",
+  "source_channel": "The Great British Channel",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Hound of the Baskervilles",
+    "video_id": "8qqCnEM2CZg",
+    "url": "https://www.youtube.com/embed/8qqCnEM2CZg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79586",
+  "title": "Sherlock Holmes: Dressed to Kill (1946)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Rathbone and Bruce return: a music box holds the key to a fortune in stolen banknotes, and murder follows every note.",
+  "url": "https://www.youtube.com/embed/al-Ar6Bek3o",
+  "source_channel": "BlimeyTV | Restored Classic Movies",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sherlock Holmes & the Secret Worth Killing For - Dressed to Kill (1946) 🎬 - Refurbished Full Movie",
+    "video_id": "al-Ar6Bek3o",
+    "url": "https://www.youtube.com/embed/al-Ar6Bek3o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79587",
+  "title": "Sherlock Holmes: The Scarlet Claw (1944)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A marsh, a missing man, and a monster in the fog — Holmes and Watson face the Scarlet Claw in wartime Canada.",
+  "url": "https://www.youtube.com/embed/cYoVmOZo9go",
+  "source_channel": "Storyline Reveal Studio",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sherlock Holmes Faces a TERRIFYING Mystery! | The Scarlet Claw (1944) – Full Movie",
+    "video_id": "cYoVmOZo9go",
+    "url": "https://www.youtube.com/embed/cYoVmOZo9go",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79588",
+  "title": "Sherlock Holmes: Terror by Night (1946)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Aboard a speeding train with the Star of Rhodesia diamond, Holmes must stop a killer who strikes in the dark.",
+  "url": "https://www.youtube.com/embed/Wed5vAyq9uE",
+  "source_channel": "BlimeyTV | Restored Classic Movies",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sherlock Holmes vs a Killer on a Train - Terror by Night (1946) 🎬 - Refurbished Full Movie",
+    "video_id": "Wed5vAyq9uE",
+    "url": "https://www.youtube.com/embed/Wed5vAyq9uE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79589",
+  "title": "Sherlock Holmes: The Masks of Death (1984)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Peter Cushing returns as Holmes: a dead man found with three masks, and a case that reaches back to the war.",
+  "url": "https://www.youtube.com/embed/NPUJqyJMkqE",
+  "source_channel": "Enigma Abierto",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sherlock Holmes and the Masks of Death | Peter Cushing | John Mills",
+    "video_id": "NPUJqyJMkqE",
+    "url": "https://www.youtube.com/embed/NPUJqyJMkqE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79590",
+  "title": "Sherlock Holmes: A Case of Evil (2002)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A young Holmes faces his first great adversary — Professor Moriarty — in this 2002 feature.",
+  "url": "https://www.youtube.com/embed/15HSOpegXg8",
+  "source_channel": "TheArchiveMovies",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sherlock: A Case of Evil (2002) | Full Movie | James D'Arcy | Roger Morlidge | Gabrielle Anwar",
+    "video_id": "15HSOpegXg8",
+    "url": "https://www.youtube.com/embed/15HSOpegXg8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79591",
+  "title": "Sherlock Holmes (1939)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "The film that made Basil Rathbone a legend: Holmes and Watson hunt Moriarty through London.",
+  "url": "https://www.youtube.com/embed/Sn_Sfa56eRo",
+  "source_channel": "Golden Classics by EverGlow Entertainment",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Film That Made Basil Rathbone A LEGEND | Sherlock Holmes 1939",
+    "video_id": "Sn_Sfa56eRo",
+    "url": "https://www.youtube.com/embed/Sn_Sfa56eRo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79592",
+  "title": "Sherlock Holmes: The Smashed Napoleon Murders",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Basil Rathbone's Holmes investigates a killer smashing Napoleon busts — the Adventure of the Six Napoleons.",
+  "url": "https://www.youtube.com/embed/JZKVGxKErvg",
+  "source_channel": "FEATURE FILM",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Sherlock Holmes & The Smashed Napoleon Murders | Full Classic Detective Movie Free Vintage Thriller",
+    "video_id": "JZKVGxKErvg",
+    "url": "https://www.youtube.com/embed/JZKVGxKErvg",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79593",
+  "title": "Sherlock Holmes: A Web of Murder",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Rathbone and Bruce in a classic Holmes mystery: a web of murder spun across London, and only Holmes can untangle it.",
+  "url": "https://www.youtube.com/embed/7bV97CB422s",
+  "source_channel": "Aleda Music",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Web of Murder | Basil Rathbone | Nigel Bruce | Full HD English Movie",
+    "video_id": "7bV97CB422s",
+    "url": "https://www.youtube.com/embed/7bV97CB422s",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79594",
+  "title": "Sherlock Holmes: Aboard a Ship Full of Suspects",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Aboard a ship full of suspects, one detective must uncover the killers — a classic Rathbone Holmes mystery adventure.",
+  "url": "https://www.youtube.com/embed/3WMuoHF4uMo",
+  "source_channel": "Busra",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Aboard a Ship Full of Suspects, One Detective Must Uncover the Killers | Classic Mystery Full Movie",
+    "video_id": "3WMuoHF4uMo",
+    "url": "https://www.youtube.com/embed/3WMuoHF4uMo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79595",
+  "title": "Where the Sidewalk Ends (1950)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Gene Tierney and Dana Andrews in a 1950 noir: a tough detective crosses the line, and the case turns on him.",
+  "url": "https://www.youtube.com/embed/hIUPsKCI2Uc",
+  "source_channel": "Marvelous Movies",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Where the Sidewalk Ends (1950) Film Noir Starring Gene Tierney",
+    "video_id": "hIUPsKCI2Uc",
+    "url": "https://www.youtube.com/embed/hIUPsKCI2Uc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79596",
+  "title": "Private Hell 36 (1954)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Don Siegel's 1954 noir: two cops find a fortune in stolen cash — and the money starts deciding who lives.",
+  "url": "https://www.youtube.com/embed/XoZcpTpN38o",
+  "source_channel": "Broken Trout ",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Private Hell 36 (1954) Film Noir Full Movie",
+    "video_id": "XoZcpTpN38o",
+    "url": "https://www.youtube.com/embed/XoZcpTpN38o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79597",
+  "title": "Try and Get Me! (1950)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A 1950 film noir: a drifter falls into a kidnapping scheme, and the whole town turns into a lynch mob.",
+  "url": "https://www.youtube.com/embed/-KVBACYMnMY",
+  "source_channel": "Broken Trout ",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Try and Get Me! (1950) Film noir Movie",
+    "video_id": "-KVBACYMnMY",
+    "url": "https://www.youtube.com/embed/-KVBACYMnMY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79598",
+  "title": "Undertow (1949)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A 1949 noir: a man framed for murder escapes custody and has one night to find the real killer.",
+  "url": "https://www.youtube.com/embed/5s-sSHplXRc",
+  "source_channel": "Broken Trout ",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Undertow (1949) Film noir",
+    "video_id": "5s-sSHplXRc",
+    "url": "https://www.youtube.com/embed/5s-sSHplXRc",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79599",
+  "title": "The Scarlet Hour (1956)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A 1956 noir: a married woman and her lover plot the perfect murder — and the perfect murder plots back.",
+  "url": "https://www.youtube.com/embed/oM4Mz7bIQ7o",
+  "source_channel": "Sara Fayruz",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Scarlet Hour (1956) | Tense Film Noir Crime Drama of Desire, Betrayal & Fate | Full Movie HD",
+    "video_id": "oM4Mz7bIQ7o",
+    "url": "https://www.youtube.com/embed/oM4Mz7bIQ7o",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79600",
+  "title": "The Shop at Sly Corner (1947)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A 1947 British noir thriller: an antique dealer with a secret past, a blackmailer, and a daughter who starts asking questions.",
+  "url": "https://www.youtube.com/embed/TM1klHiidTI",
+  "source_channel": "wocomoMOVIES",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Shop at Sly Corner (1947) | Classic British Noir Thriller of Blackmail, Secrets & Murder",
+    "video_id": "TM1klHiidTI",
+    "url": "https://www.youtube.com/embed/TM1klHiidTI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79601",
+  "title": "The Guilty (1947)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A 1947 noir: two roommates, one missing girl, and a detective who won't stop asking where she went.",
+  "url": "https://www.youtube.com/embed/mQdeIl_Kxng",
+  "source_channel": "Silver ScreenTime",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Guilty (1947) | Crime Thriller | Old Hollywood Noir | Vintage Hollywood Full Movie",
+    "video_id": "mQdeIl_Kxng",
+    "url": "https://www.youtube.com/embed/mQdeIl_Kxng",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79602",
+  "title": "House by the River (1950)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Fritz Lang's 1950 noir: a crime on the riverbank, a guilty conscience, and a brother who knows too much.",
+  "url": "https://www.youtube.com/embed/rjtjnQf11Ks",
+  "source_channel": "Sevdaxanim",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "House by the River (1950) | Fritz Lang’s Dark Film Noir Masterpiece of Crime, Guilt, | Classic Movie",
+    "video_id": "rjtjnQf11Ks",
+    "url": "https://www.youtube.com/embed/rjtjnQf11Ks",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79603",
+  "title": "Too Many Winners (1947)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Michael Shayne, private detective: a fixed horse race, a dead jockey, and too many winners to trust.",
+  "url": "https://www.youtube.com/embed/SD_i0oDMyyo",
+  "source_channel": "YouLook Film Hits",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Too Many Winners (1947) | Michael Shayne Detective Mystery | Film Noir | Full Movie",
+    "video_id": "SD_i0oDMyyo",
+    "url": "https://www.youtube.com/embed/SD_i0oDMyyo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79604",
+  "title": "Trouble Is My Business (1946)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A private eye caught in a deadly trap: blackmail, a dame in trouble, and a case that won't let go.",
+  "url": "https://www.youtube.com/embed/s8J2G9PfQ0c",
+  "source_channel": "Cinema Epoch",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Private Eye Caught in a Deadly Trap | TROUBLE IS MY BUSINESS | Full Crime Movie",
+    "video_id": "s8J2G9PfQ0c",
+    "url": "https://www.youtube.com/embed/s8J2G9PfQ0c",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79605",
+  "title": "Charlie Chan: Docks of New Orleans (1948)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Charlie Chan works the docks of New Orleans: a murdered seaman, a smuggling ring, and the detective who never misses.",
+  "url": "https://www.youtube.com/embed/wPre6qAK_kA",
+  "source_channel": "FFF Rewind | Full Free Old School Films",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "CHARLIE CHAN: DOCKS OF NEW ORLEANS (1948) - Roland Winters as CHARLIE CHAN | Full MYSTERY Movie",
+    "video_id": "wPre6qAK_kA",
+    "url": "https://www.youtube.com/embed/wPre6qAK_kA",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79606",
+  "title": "Witness for the Prosecution (1982)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Agatha Christie's courtroom classic: a lawyer defends a man accused of murdering a rich widow — and the witness for the prosecution is his own wife.",
+  "url": "https://www.youtube.com/embed/npFziL7Rjuk",
+  "source_channel": "Aleda Music",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Courtroom Mystery That Will Leave You Speechless (1982) Witness for the Prosecution | English Film",
+    "video_id": "npFziL7Rjuk",
+    "url": "https://www.youtube.com/embed/npFziL7Rjuk",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79607",
+  "title": "The Paradine Case (1947)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Hitchcock's courtroom drama: Gregory Peck defends a woman accused of murdering her blind husband — and falls for his own client.",
+  "url": "https://www.youtube.com/embed/SRb2WsY3mx8",
+  "source_channel": "Marvelous Movies",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Paradine Case (1947) Hitchcock Film Noir Starring Gregory Peck",
+    "video_id": "SRb2WsY3mx8",
+    "url": "https://www.youtube.com/embed/SRb2WsY3mx8",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79608",
+  "title": "Jury of Twelve",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A high-stakes single-location courtroom drama, in the spirit of 12 Angry Men — twelve jurors, one verdict, and the truth on trial.",
+  "url": "https://www.youtube.com/embed/UOgwTCg023w",
+  "source_channel": "FFF True | Full Free Films Based on True Stories",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "JURY OF TWELVE | Based On True Story | Full Movie HD",
+    "video_id": "UOgwTCg023w",
+    "url": "https://www.youtube.com/embed/UOgwTCg023w",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79609",
+  "title": "Justice Is Mind",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A near-future courtroom drama: technology can read thoughts, and a man stands trial for a double murder he cannot remember.",
+  "url": "https://www.youtube.com/embed/i0sn-F0T1JI",
+  "source_channel": "Stash Movies & TV",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Justice Is Mind | Courtroom Drama | Full Movie | Double Murder",
+    "video_id": "i0sn-F0T1JI",
+    "url": "https://www.youtube.com/embed/i0sn-F0T1JI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79610",
+  "title": "The Trial",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A courtroom drama starring Matthew Modine: an ordinary man accused, a system that won't explain itself, and a trial with no way out.",
+  "url": "https://www.youtube.com/embed/KSoHhMbdppw",
+  "source_channel": "Christian Movies",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Trial | Full Movie | Matthew Modine | Clare Carey | Bob Gunton",
+    "video_id": "KSoHhMbdppw",
+    "url": "https://www.youtube.com/embed/KSoHhMbdppw",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79611",
+  "title": "Agatha Christie: Spider's Web (1982)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Christie's stage mystery on screen: a body in the drawing room, a wife with a story, and a detective who sees through it all.",
+  "url": "https://www.youtube.com/embed/x2Tn_STFRl0",
+  "source_channel": "MurderMysteries",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Agatha Christie - Spider's Web (1982) / full movie",
+    "video_id": "x2Tn_STFRl0",
+    "url": "https://www.youtube.com/embed/x2Tn_STFRl0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79612",
+  "title": "Rehearsal for Murder (1982)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Robert Preston stars in a whodunit with a twist: a playwright stages a murder to catch the real killer among his friends.",
+  "url": "https://www.youtube.com/embed/Y66rQdursSI",
+  "source_channel": "Romance Plus by Free Movies Plus",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Rehearsal for Murder (1982) | Robert Preston | Lynn Redgrave | Mystery Thriller | Full Movie",
+    "video_id": "Y66rQdursSI",
+    "url": "https://www.youtube.com/embed/Y66rQdursSI",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79613",
+  "title": "Mystery Woman: Mystery Weekend",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A Hallmark mystery movie: a bookseller-turned-sleuth spends a mystery weekend — and the game turns real.",
+  "url": "https://www.youtube.com/embed/fpf2jiS8tGQ",
+  "source_channel": "Tube TV Classics",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Mystery Woman: Mystery Weekend",
+    "video_id": "fpf2jiS8tGQ",
+    "url": "https://www.youtube.com/embed/fpf2jiS8tGQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79614",
+  "title": "Crimes of Fashion: Killer Clutch",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A Hallmark mystery: a fashion designer-turned-detective follows a killer clutch — literally — to the truth.",
+  "url": "https://www.youtube.com/embed/Or_c3DAB1DQ",
+  "source_channel": "Hallmark Movies",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Crimes of Fashion: Killer Clutch - FULL MOVIE | Hallmark Movies",
+    "video_id": "Or_c3DAB1DQ",
+    "url": "https://www.youtube.com/embed/Or_c3DAB1DQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79615",
+  "title": "Francesca Quinn, PI",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A Hallmark PI movie: Francesca Quinn takes a case that looks simple — and finds a killer hiding in plain sight.",
+  "url": "https://www.youtube.com/embed/BIr-V_BD9pE",
+  "source_channel": "Hallmark Movies",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Francesca Quinn, PI | Hallmark Movies",
+    "video_id": "BIr-V_BD9pE",
+    "url": "https://www.youtube.com/embed/BIr-V_BD9pE",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79616",
+  "title": "The Inspectors",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A crime mystery movie: postal inspectors chase a mail-bombing case across the country — the clues are in the envelopes.",
+  "url": "https://www.youtube.com/embed/XJL1oW06Aj4",
+  "source_channel": "GEM: Film Library",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Inspectors | English Full Movie | Crime Mystery",
+    "video_id": "XJL1oW06Aj4",
+    "url": "https://www.youtube.com/embed/XJL1oW06Aj4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79617",
+  "title": "The Return of Frank Cannon",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Frank Cannon is back: the big detective takes one more case, and the trail leads straight into the fire.",
+  "url": "https://www.youtube.com/embed/kh0pezMn_R4",
+  "source_channel": "GEM: Film Library",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Return of Frank Cannon | English Full Movie | Action Crime Mystery",
+    "video_id": "kh0pezMn_R4",
+    "url": "https://www.youtube.com/embed/kh0pezMn_R4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79618",
+  "title": "The Private Detective",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A determined amateur investigator exposes cheating husbands for betrayed wives — until one case leads her to suspect murder.",
+  "url": "https://www.youtube.com/embed/s-oNhJmlEJM",
+  "source_channel": "Full Movies in English HD",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "The Private Detective | DRAMA | Full Movie in English",
+    "video_id": "s-oNhJmlEJM",
+    "url": "https://www.youtube.com/embed/s-oNhJmlEJM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79619",
+  "title": "Prime Suspect (1982)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A 1982 crime thriller: a respectable businessman becomes the prime suspect, and a town divides over fear.",
+  "url": "https://www.youtube.com/embed/xhaeyYKbllo",
+  "source_channel": "ThrillGore",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Prime Suspect (1982) | Full Crime Thriller Movie | Mike Farrell | Teri Garr | Veronica Cartwright",
+    "video_id": "xhaeyYKbllo",
+    "url": "https://www.youtube.com/embed/xhaeyYKbllo",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79620",
+  "title": "Arthur Hailey's Detective (2005)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Tom Berenger and Cybill Shepherd in the 2005 miniseries: a detective reopens a serial-killer case that cost him everything.",
+  "url": "https://www.youtube.com/embed/WgvH9YTqqHU",
+  "source_channel": "Василий",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Full Movie «DETECTIVE»  //  Cybill Shepherd, Tom Berenger/ Mystery, Crime Drama /",
+    "video_id": "WgvH9YTqqHU",
+    "url": "https://www.youtube.com/embed/WgvH9YTqqHU",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79621",
+  "title": "Marlowe (2022)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Liam Neeson is Philip Marlowe: a missing lover, a Hollywood club, and a case that goes all the way to the top.",
+  "url": "https://www.youtube.com/embed/1HrMID5Sm_0",
+  "source_channel": "Shout! Studios",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Marlowe | FULL MOVIE | Liam Neeson, Diane Kruger, Jessica Lange | Crime Film Noir Mystery Thriller",
+    "video_id": "1HrMID5Sm_0",
+    "url": "https://www.youtube.com/embed/1HrMID5Sm_0",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79622",
+  "title": "Michael Shayne Private Detective Movie Marathon",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Seven classic Michael Shayne detective movies in one marathon — the private eye who never backs down from a case.",
+  "url": "https://www.youtube.com/embed/AKloI-pgew4",
+  "source_channel": "videoGR8",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Michael Shayne Private Detective Movie Marathon starring Lloyd Nolan  | 7 Full Episodes",
+    "video_id": "AKloI-pgew4",
+    "url": "https://www.youtube.com/embed/AKloI-pgew4",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79623",
+  "title": "The Merry Gentleman (2008)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "Michael Keaton's crime thriller: a hitman trying to quit, a detective on his trail, and a woman caught between them.",
+  "url": "https://www.youtube.com/embed/DGjOUNIU4rY",
+  "source_channel": "Movies Anytime",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Gripping Detective Thriller You’ll Remember Long After It Ends | Full Movie",
+    "video_id": "DGjOUNIU4rY",
+    "url": "https://www.youtube.com/embed/DGjOUNIU4rY",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79624",
+  "title": "The Ascent",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A veteran detective takes on a mysterious murder and uncovers a terrifying secret on the way up.",
+  "url": "https://www.youtube.com/embed/5hi_5w-WRjQ",
+  "source_channel": "MOVIETOWN media",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "A Veteran Detective Takes On a MYSTERIOUS MURDER and Uncovers a Terrifying Secret! | Full Movie",
+    "video_id": "5hi_5w-WRjQ",
+    "url": "https://www.youtube.com/embed/5hi_5w-WRjQ",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
+ },
+ {
+  "id": "stv-79625",
+  "title": "Street Corner (1953)",
+  "genre": "Detective",
+  "eps": "1 ep",
+  "desc": "A 1953 British police drama: women officers on the beat, a baby-farming ring, and the streets of London.",
+  "url": "https://www.youtube.com/embed/i10kijclceM",
+  "source_channel": "Free Vintage Movies | Public Domain Classics",
+  "rights_basis": "Public YouTube embed",
+  "dateAdded": "2026-11-23",
+  "verified": true,
+  "episodes": [
+   {
+    "n": 1,
+    "title": "Street Corner (1953) | Full Movie HD | British Police Drama | Terence Young Classic",
+    "video_id": "i10kijclceM",
+    "url": "https://www.youtube.com/embed/i10kijclceM",
+    "platform": "youtube",
+    "verified": true,
+    "kind": "episode"
+   }
+  ]
  }
 ];
