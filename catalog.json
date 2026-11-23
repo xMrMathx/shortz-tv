@@ -3,7 +3,7 @@
   "id": "stv-001",
   "title": "From Contract Lover to the Billionaire's Bride (EP1-10)",
   "genre": "Romance",
-  "eps": "4 eps",
+  "eps": "0 eps",
   "runtime": "~1–3 min",
   "desc": "A contract-marriage romance that turns into a billionaire love story, told in 10 short episodes from the micro-drama studio's own channel.",
   "url": "https://www.youtube.com/embed/DtlTqhArRcQ",
@@ -11,42 +11,7 @@
   "source_channel": "SnackShort Official",
   "rights_basis": "Rights-holder (studio official channel)",
   "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "【NEW series】From Contract Lover to the Billionaire's Bride  EP1-10 #drama #romance #JacksonTiller",
-    "video_id": "DtlTqhArRcQ",
-    "url": "https://www.youtube.com/embed/DtlTqhArRcQ",
-    "verified": true,
-    "kind": "part",
-    "vertical": true,
-    "vertical_source": "catalog video is natively vertical (360x640 stream dims)"
-   },
-   {
-    "n": 11,
-    "title": "【FANS ONLY】From Contract Lover to the Billionaire's Bride EP11-30 #drama #romance #cinderella",
-    "video_id": "6pnhDoJZgUg",
-    "url": "https://www.youtube.com/embed/6pnhDoJZgUg",
-    "verified": true,
-    "kind": "part"
-   },
-   {
-    "n": 31,
-    "title": "【FANS ONLY】From Contract Lover to the Billionaire's Bride EP31-60 #drama #romance #cinderella",
-    "video_id": "lHD2UXgCZmY",
-    "url": "https://www.youtube.com/embed/lHD2UXgCZmY",
-    "verified": true,
-    "kind": "part"
-   },
-   {
-    "n": 61,
-    "title": "【FANS ONLY】From Contract Lover to the Billionaire's Bride EP61-90 #drama #romance #cinderella",
-    "video_id": "B0nymEY4IaE",
-    "url": "https://www.youtube.com/embed/B0nymEY4IaE",
-    "verified": true,
-    "kind": "part"
-   }
-  ],
+  "episodes": [],
   "episodes_note": "Official SnackShort channel distributes this series as 4 compilation parts (EP1-10/11-30/31-60/61-90), not individual episodes. All 4 oEmbed-verified."
  },
  {
@@ -1557,7 +1522,7 @@
   "id": "stv-032",
   "title": "The Autumn Stalker",
   "genre": "Thriller",
-  "eps": "8 eps",
+  "eps": "0 eps",
   "runtime": "short",
   "desc": "A psychological thriller miniseries about a stalker.",
   "url": "https://www.youtube.com/embed/ir1NYLZPsVY",
@@ -1565,88 +1530,7 @@
   "source_channel": "MiniSeries Project MNP",
   "rights_basis": "GOOD — creator's channel",
   "ai_made": false,
-  "episodes": [
-   {
-    "n": 1,
-    "title": "The Autumn Stalker|Episode 1 A regular autumn day in the life of a student content creator. #shorts",
-    "video_id": "ir1NYLZPsVY",
-    "url": "https://www.youtube.com/embed/ir1NYLZPsVY",
-    "verified": true,
-    "vertical": true,
-    "vertical_source": "original upload (already vertical)",
-    "kind": "episode"
-   },
-   {
-    "n": 2,
-    "title": "A Mysterious Package at the Door | The Autumn Stalker - Episode 2 (Miniseries) #shorts #autumn",
-    "video_id": "BjBKO7vtncA",
-    "url": "https://www.youtube.com/embed/BjBKO7vtncA",
-    "verified": true,
-    "vertical": true,
-    "vertical_source": "original upload (already vertical)",
-    "kind": "episode"
-   },
-   {
-    "n": 3,
-    "title": "The Ugly Sweater and a Vintage Camera | The Autumn Stalker - Episode 3 (Miniseries) #miniseries",
-    "video_id": "vPoXwglwQyM",
-    "url": "https://www.youtube.com/embed/vPoXwglwQyM",
-    "verified": true,
-    "vertical": true,
-    "vertical_source": "original upload (already vertical)",
-    "kind": "episode"
-   },
-   {
-    "n": 4,
-    "title": "Developing the Secret Film Photos |The Autumn Stalker - Episode 4 (Miniseries) #shorts #autumnseries",
-    "video_id": "Xz7aRys0JUU",
-    "url": "https://www.youtube.com/embed/Xz7aRys0JUU",
-    "verified": true,
-    "vertical": true,
-    "vertical_source": "original upload (already vertical)",
-    "kind": "episode"
-   },
-   {
-    "n": 5,
-    "title": "A Mysterious Message Changes Everything |The Autumn Stalker |Episode 5  #shorts  #miniseries",
-    "video_id": "XPZmoZvLdzg",
-    "url": "https://www.youtube.com/embed/XPZmoZvLdzg",
-    "verified": true,
-    "vertical": true,
-    "vertical_source": "original upload (already vertical)",
-    "kind": "episode"
-   },
-   {
-    "n": 6,
-    "title": "The Dark Secret Revealed | The Autumn Stalker |  Episode 6 #shorts  #miniseries",
-    "video_id": "I5BBpnN1pbM",
-    "url": "https://www.youtube.com/embed/I5BBpnN1pbM",
-    "verified": true,
-    "vertical": true,
-    "vertical_source": "original upload (already vertical)",
-    "kind": "episode"
-   },
-   {
-    "n": 7,
-    "title": "The Trap is Set |The Autumn Stalker | Episode 7#miniserial #miniseries",
-    "video_id": "ld2bJ6dEm3M",
-    "url": "https://www.youtube.com/embed/ld2bJ6dEm3M",
-    "verified": true,
-    "vertical": true,
-    "vertical_source": "original upload (already vertical)",
-    "kind": "episode"
-   },
-   {
-    "n": 8,
-    "title": "The Autumn Stalker | Episode | 8 The Phone Call After the Live #miniseries #autumnseries  #shorts",
-    "video_id": "0NKwiq4OvBk",
-    "url": "https://www.youtube.com/embed/0NKwiq4OvBk",
-    "verified": true,
-    "vertical": true,
-    "vertical_source": "original upload (already vertical)",
-    "kind": "episode"
-   }
-  ],
+  "episodes": [],
   "episodes_note": "Official Shorts-format playlist (8 episodes EP1-EP8). The known catalog video (xSuQeOUZFZ0, full-miniseries compilation) excluded per method: individual episodes exist separately.",
   "episodes_playlist": "PLUvz1t0JROGo"
  },
@@ -2443,183 +2327,15 @@
   "id": "stv-049",
   "title": "WE•BE saga",
   "genre": "Sci-Fi",
-  "eps": "29 eps",
+  "eps": "1 ep",
   "runtime": "short",
   "desc": "A multi-episode sci-fi saga from the WE·BE Universe channel.",
-  "url": "https://www.youtube.com/embed/kua7hdecEKo",
+  "url": "https://www.youtube.com/embed/v6fZ-u3eFtg",
   "url_status": "ok",
   "source_channel": "WE·BE Universe",
   "rights_basis": "GOOD — creator's channel",
   "ai_made": false,
   "episodes": [
-   {
-    "n": 1,
-    "title": "Core Crystal - WE·BE Pilot | Sci-Fi Short Film",
-    "video_id": "SLz638yUM4k",
-    "url": "https://www.youtube.com/embed/SLz638yUM4k",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 2,
-    "title": "WE·BE | Danger and Beauty | Sci-Fi Short Film",
-    "video_id": "SKpcnfazIXU",
-    "url": "https://www.youtube.com/embed/SKpcnfazIXU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 3,
-    "title": "WE·BE | Can She Kill the Creature That Wiped Out Her Entire Army?",
-    "video_id": "ICmt07OMfpk",
-    "url": "https://www.youtube.com/embed/ICmt07OMfpk",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 4,
-    "title": "WE·BE | Subject OMEGA | Sci-Fi Short Film | Episode 4 (Part 1)",
-    "video_id": "yAPJUSkd5cM",
-    "url": "https://www.youtube.com/embed/yAPJUSkd5cM",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 5,
-    "title": "WE·BE | Omega's Neural Link Threatens Consciousness Merge",
-    "video_id": "mBxB70gFps0",
-    "url": "https://www.youtube.com/embed/mBxB70gFps0",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 6,
-    "title": "WE·BE | The Hunt |  Sci-Fi  Short Film | Episode 4 (Part 3)",
-    "video_id": "attEhZWuG4U",
-    "url": "https://www.youtube.com/embed/attEhZWuG4U",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 7,
-    "title": "WE•BE – They Built an AI God | The Omega Prophecy | Sci-Fi Short film",
-    "video_id": "kua7hdecEKo",
-    "url": "https://www.youtube.com/embed/kua7hdecEKo",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 8,
-    "title": "WE·BE | Subject OMEGA | The Amazing Race | Sci-Fi  Short Film | Episode 4 (Part 4 - Finale)",
-    "video_id": "a-qfDo4bp4o",
-    "url": "https://www.youtube.com/embed/a-qfDo4bp4o",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 9,
-    "title": "WE·BE | The Journey Continues | A Sci-Fi Detail Fans Notice",
-    "video_id": "qJdSMpORCG4",
-    "url": "https://www.youtube.com/embed/qJdSMpORCG4",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 10,
-    "title": "WE·BE | The Child of the prophecy | Sci-Fi Cyberpunk Short Film",
-    "video_id": "Rx1IJx6EjrY",
-    "url": "https://www.youtube.com/embed/Rx1IJx6EjrY",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 11,
-    "title": "WE•BE | She sees everything | The Omega Prophecy | SciFi Film",
-    "video_id": "j8qtatpzcFc",
-    "url": "https://www.youtube.com/embed/j8qtatpzcFc",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 12,
-    "title": "WE•BE | I Cover Your Retreat. Run! | The Omega Prophecy | Sci-Fi film",
-    "video_id": "eLW27ES0JiE",
-    "url": "https://www.youtube.com/embed/eLW27ES0JiE",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 13,
-    "title": "WE•BE | You Don’t Laugh Like This Unless You’re Dangerous | The Omega Prophecy | Sci-Fi film",
-    "video_id": "0GNqcT1LD_A",
-    "url": "https://www.youtube.com/embed/0GNqcT1LD_A",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 14,
-    "title": "WE•BE | The Deal | Sci-Fi Cyberpunk Short film",
-    "video_id": "nqZlrV3_5wc",
-    "url": "https://www.youtube.com/embed/nqZlrV3_5wc",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 15,
-    "title": "WE•BE | The Deal Nobody Expected | Impossible Choices",
-    "video_id": "lVjhaxSdkwM",
-    "url": "https://www.youtube.com/embed/lVjhaxSdkwM",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 16,
-    "title": "WE•BE | The Approach | One Mistake Ends Everything",
-    "video_id": "l0MF6Ds8xnQ",
-    "url": "https://www.youtube.com/embed/l0MF6Ds8xnQ",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 17,
-    "title": "What Happens When You Change One Identity In An All-Seeing System?",
-    "video_id": "cL5PrNH2m4c",
-    "url": "https://www.youtube.com/embed/cL5PrNH2m4c",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 18,
-    "title": "WE•BE | The Galactic Registry — WINGS OF ASCENSION | Sci-Fi Cyberpunk Film",
-    "video_id": "0MKDkEfpbJ0",
-    "url": "https://www.youtube.com/embed/0MKDkEfpbJ0",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 19,
-    "title": "WE•BE | The test of flesh | Sci-Fi Cyberpunk Short film",
-    "video_id": "F8fHs-JWlCU",
-    "url": "https://www.youtube.com/embed/F8fHs-JWlCU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 20,
-    "title": "WE•BE | What Happens When You Survive the Unsurvivable?",
-    "video_id": "iCOmjme4Xzw",
-    "url": "https://www.youtube.com/embed/iCOmjme4Xzw",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 21,
-    "title": "Valdrek's Final Gamble | WE•BE Cyberpunk",
-    "video_id": "_7Y6bDEVaO8",
-    "url": "https://www.youtube.com/embed/_7Y6bDEVaO8",
-    "verified": true,
-    "kind": "episode"
-   },
    {
     "n": 22,
     "title": "WE•BE | INTERCEPT – Zalandra and Kael's Violent Storm",
@@ -2627,66 +2343,11 @@
     "url": "https://www.youtube.com/embed/v6fZ-u3eFtg",
     "verified": true,
     "kind": "episode"
-   },
-   {
-    "n": 23,
-    "title": "WE•BE | They Sent Everything to Stop Him… It Wasn’t Enough",
-    "video_id": "ovso6vQIDxk",
-    "url": "https://www.youtube.com/embed/ovso6vQIDxk",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 24,
-    "title": "They're Hiding Something Inside the Mountain | WE•BE",
-    "video_id": "QoJjPGohIqk",
-    "url": "https://www.youtube.com/embed/QoJjPGohIqk",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 25,
-    "title": "WE•BE | When One Soldier Holds Back An Army",
-    "video_id": "Omv7wGCfgQQ",
-    "url": "https://www.youtube.com/embed/Omv7wGCfgQQ",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 26,
-    "title": "WE•BE | When Evolution Demands Everything",
-    "video_id": "8j0qHInCAyw",
-    "url": "https://www.youtube.com/embed/8j0qHInCAyw",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 27,
-    "title": "WE•BE | Extraction Plan | Short Sci-Fi Cyberpunk film",
-    "video_id": "MPjOwqA30Xk",
-    "url": "https://www.youtube.com/embed/MPjOwqA30Xk",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 28,
-    "title": "WE•BE | Extraction | Short Sci-Fi Cyberpunk film",
-    "video_id": "qNCbn1YzkVU",
-    "url": "https://www.youtube.com/embed/qNCbn1YzkVU",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 29,
-    "title": "WE•BE | The Becoming | Destiny Has a Price",
-    "video_id": "K93xMgiqb74",
-    "url": "https://www.youtube.com/embed/K93xMgiqb74",
-    "verified": true,
-    "kind": "episode"
    }
   ],
   "episodes_note": "29 saga installments verified. Excluded: EP4 official trailer, two short clips, a 92s recap, and the 71-min Director's Cut full movie. Episodes are not numbered on the source; listed in official playlist order.",
-  "episodes_playlist": "PLAC2kqMqpkE-8_da6UqMaRjtI_brigO79"
+  "episodes_playlist": "PLAC2kqMqpkE-8_da6UqMaRjtI_brigO79",
+  "video_id": "v6fZ-u3eFtg"
  },
  {
   "id": "stv-050",
@@ -6847,7 +6508,7 @@
   "id": "stv-095",
   "title": "The Treacherous Treasure",
   "genre": "Action",
-  "eps": "3 parts",
+  "eps": "0 eps",
   "runtime": "UNVERIFIED (may exceed 6 min)",
   "desc": "A heist-thriller 'broadcast literature' series with AI visuals disclosed. Audiobook-style — may exceed 6 minutes.",
   "url": "https://www.youtube.com/embed/u9Gj3CnjdHY",
@@ -49730,887 +49391,14 @@
   "id": "stv-1660",
   "title": "✨ Little Isabelle's Fairyland | The Magical Beginning – Chapters 1–12",
   "genre": "Fantasy",
-  "eps": "109 eps",
+  "eps": "0 eps",
   "runtime": "~1-3 min each",
   "desc": "Chapters 1–12 of Little Isabelle's Fairyland: her first steps into Fairyland — enchanted forests, sparkling waterfalls, secret places, and magical creatures. 9:52 total.",
   "url": "https://www.youtube.com/embed/uWWQXPuVOFc",
   "video_id": "uWWQXPuVOFc",
   "source_channel": "",
   "ai_made": false,
-  "episodes": [
-   {
-    "title": "✨ Welcome to Little Isabelle's Fairyland ✨",
-    "video_id": "GUGf6iHHZhQ",
-    "url": "https://www.youtube.com/embed/GUGf6iHHZhQ",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ A Little Spark Can Change Everything... ✨",
-    "video_id": "55HYanf2QBQ",
-    "url": "https://www.youtube.com/embed/55HYanf2QBQ",
-    "n": 2,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ A Beautiful Day in Fairyland ✨",
-    "video_id": "nYJsgGlQKOw",
-    "url": "https://www.youtube.com/embed/nYJsgGlQKOw",
-    "n": 3,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Little Isabelle's Fairyland ✨",
-    "video_id": "EHcNd1x5Fa8",
-    "url": "https://www.youtube.com/embed/EHcNd1x5Fa8",
-    "n": 4,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌙 A Fairy's Way Home",
-    "video_id": "oTCR1IXnQZ0",
-    "url": "https://www.youtube.com/embed/oTCR1IXnQZ0",
-    "n": 5,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Goodnight from Little Isabelle's Fairyland ✨",
-    "video_id": "JkvlsW_nGXY",
-    "url": "https://www.youtube.com/embed/JkvlsW_nGXY",
-    "n": 6,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Sweet Dreams from Little Isabelle's Fairyland ✨",
-    "video_id": "-dvMymF9qpI",
-    "url": "https://www.youtube.com/embed/-dvMymF9qpI",
-    "n": 7,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "The Beginning of a Magical Journey ✨",
-    "video_id": "1e7gNEw59Qs",
-    "url": "https://www.youtube.com/embed/1e7gNEw59Qs",
-    "n": 8,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "☀️ A brand-new magical day begins... 🧚‍♀️✨",
-    "video_id": "NRVkpBRz4UQ",
-    "url": "https://www.youtube.com/embed/NRVkpBRz4UQ",
-    "n": 9,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ A New Adventure Begins ✨",
-    "video_id": "gEpnT848rJg",
-    "url": "https://www.youtube.com/embed/gEpnT848rJg",
-    "n": 10,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌸 The Flower of Fairyland 🌸",
-    "video_id": "3syOqzDI0Go",
-    "url": "https://www.youtube.com/embed/3syOqzDI0Go",
-    "n": 11,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦋 A New Friend 🦋",
-    "video_id": "LgUawpSTW3g",
-    "url": "https://www.youtube.com/embed/LgUawpSTW3g",
-    "n": 12,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦄 A Magical Surprise 🦄",
-    "video_id": "aswZKWgKDbA",
-    "url": "https://www.youtube.com/embed/aswZKWgKDbA",
-    "n": 13,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌈 The Crystal Bridge 🌈",
-    "video_id": "-CVdutYveQo",
-    "url": "https://www.youtube.com/embed/-CVdutYveQo",
-    "n": 14,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ The Hidden Path ✨ #fairymagic #kidsfantasyadventure #disney #livewallpaper #enchantedforest #fairy",
-    "video_id": "RZP8yGxDuao",
-    "url": "https://www.youtube.com/embed/RZP8yGxDuao",
-    "n": 15,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🧚 Have You Ever Seen a Forest Like This?",
-    "video_id": "M6JYhZfDY2s",
-    "url": "https://www.youtube.com/embed/M6JYhZfDY2s",
-    "n": 16,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "The Golden Butterfly Wanted to Show Her Something... #littleisabellesfairyland #fairymagic",
-    "video_id": "cFZqP-WYbyo",
-    "url": "https://www.youtube.com/embed/cFZqP-WYbyo",
-    "n": 17,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "She Was Never Supposed to Find This Place...",
-    "video_id": "6ilXc9EVbVU",
-    "url": "https://www.youtube.com/embed/6ilXc9EVbVU",
-    "n": 18,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "The Fountain Came to Life the Moment She Touched It...",
-    "video_id": "LW-gqWy6fGU",
-    "url": "https://www.youtube.com/embed/LW-gqWy6fGU",
-    "n": 19,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Who Left This Magical Letter...?  #littleisabellesfairyland #fairymagic #fairy #enchantedforest",
-    "video_id": "hGcLcBwFWDY",
-    "url": "https://www.youtube.com/embed/hGcLcBwFWDY",
-    "n": 20,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "She Never Expected To Receive This Invitation...  #littleisabellesfairyland #fairymagic #fairy",
-    "video_id": "8D8cO7Fehpc",
-    "url": "https://www.youtube.com/embed/8D8cO7Fehpc",
-    "n": 21,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Some Dresses Aren't Chosen... They Choose You. ✨",
-    "video_id": "3Jok1dYTO98",
-    "url": "https://www.youtube.com/embed/3Jok1dYTO98",
-    "n": 22,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "👠 Every Fairy Needs Magical Shoes... ✨",
-    "video_id": "bRx3lh93arw",
-    "url": "https://www.youtube.com/embed/bRx3lh93arw",
-    "n": 23,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💎 Every Fairy Needs A Little Magic... ✨",
-    "video_id": "m5ismvt4DSE",
-    "url": "https://www.youtube.com/embed/m5ismvt4DSE",
-    "n": 24,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌸 Friendship Makes Everything More Beautiful. 🐦",
-    "video_id": "MJyNT35fPxU",
-    "url": "https://www.youtube.com/embed/MJyNT35fPxU",
-    "n": 25,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨Fairyland Is Getting Ready... ✨#littleisabellesfairyland #fantasyadventure #fairy #enchantedforest",
-    "video_id": "b2UXrP1FtDU",
-    "url": "https://www.youtube.com/embed/b2UXrP1FtDU",
-    "n": 26,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💎 Every Step Revealed More Magic... ✨ #littleisabellesfairyland #tinkerbell #fairymagic #fairy",
-    "video_id": "fqh62w-e2kQ",
-    "url": "https://www.youtube.com/embed/fqh62w-e2kQ",
-    "n": 27,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌉 A Bridge Made of Pure Magic... ✨",
-    "video_id": "xOHtvextPRk",
-    "url": "https://www.youtube.com/embed/xOHtvextPRk",
-    "n": 28,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌸 A Place Beyond Her Wildest Dreams... ✨  #littleisabellesfairyland #fairymagic #fairy",
-    "video_id": "Ga9rxXTUZY4",
-    "url": "https://www.youtube.com/embed/Ga9rxXTUZY4",
-    "n": 29,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🏰 There It Was... ✨",
-    "video_id": "LW6F7ZXPpe0",
-    "url": "https://www.youtube.com/embed/LW6F7ZXPpe0",
-    "n": 30,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ The Grand Entrance Awaits... ✨  #littleisabellesfairyland #fairymagic #fairy",
-    "video_id": "Y0KbjcSjKe0",
-    "url": "https://www.youtube.com/embed/Y0KbjcSjKe0",
-    "n": 31,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Every magical adventure begins with a single step... 🧚‍♀️💖",
-    "video_id": "_1jj5G6r8v8",
-    "url": "https://www.youtube.com/embed/_1jj5G6r8v8",
-    "n": 32,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Close your eyes... and let your imagination take flight. 🧚💜  #littleisabellesfairyland #fairymagic",
-    "video_id": "aFbZSFOstSY",
-    "url": "https://www.youtube.com/embed/aFbZSFOstSY",
-    "n": 33,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Every Great Adventure Begins With One Step... ✨",
-    "video_id": "C0bJlaCNTxU",
-    "url": "https://www.youtube.com/embed/C0bJlaCNTxU",
-    "n": 34,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🏰 Welcome To The Grand Fairy Ball... ✨",
-    "video_id": "DB-uyrM-EKs",
-    "url": "https://www.youtube.com/embed/DB-uyrM-EKs",
-    "n": 35,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Take a deep breath... and follow Little Isabelle into the heart of Fairyland. 🌸🧚‍♀️",
-    "video_id": "tf7FuZX6GvU",
-    "url": "https://www.youtube.com/embed/tf7FuZX6GvU",
-    "n": 36,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "👑 The Most Important Fairy Wanted To Meet Her... ✨ #littleisabellesfairyland",
-    "video_id": "dqHeDZGCl8w",
-    "url": "https://www.youtube.com/embed/dqHeDZGCl8w",
-    "n": 37,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💖 Some Dreams Really Do Come True... ✨ #littleisabellesfairyland #fairymagic",
-    "video_id": "0I5S90v749I",
-    "url": "https://www.youtube.com/embed/0I5S90v749I",
-    "n": 38,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Home is where magic lives. 🧚🏻‍♀️💜",
-    "video_id": "NFRWd3nHzxQ",
-    "url": "https://www.youtube.com/embed/NFRWd3nHzxQ",
-    "n": 39,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌟 Every Ending Is The Beginning Of A New Adventure... 🧚‍♀️ #littleisabellesfairyland",
-    "video_id": "Eviwzlucuck",
-    "url": "https://www.youtube.com/embed/Eviwzlucuck",
-    "n": 40,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Every magical journey begins with a single step... 🌸🧚",
-    "video_id": "u3nB5wJeyEs",
-    "url": "https://www.youtube.com/embed/u3nB5wJeyEs",
-    "n": 41,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Every New Day Brings New Magic... ✨",
-    "video_id": "rC_ErUrrvB8",
-    "url": "https://www.youtube.com/embed/rC_ErUrrvB8",
-    "n": 42,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦌 Every Friend Needs Someone To Believe In Them... 💖",
-    "video_id": "-DN9NJBc8NA",
-    "url": "https://www.youtube.com/embed/-DN9NJBc8NA",
-    "n": 43,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💕 No One Should Ever Feel Lost... 🦌",
-    "video_id": "fgv_8R1S5Pw",
-    "url": "https://www.youtube.com/embed/fgv_8R1S5Pw",
-    "n": 44,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐦 Sometimes The Smallest Friend Makes The Biggest Difference... ✨",
-    "video_id": "B2Vtd7aUw8k",
-    "url": "https://www.youtube.com/embed/B2Vtd7aUw8k",
-    "n": 45,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🩷 Sometimes Happy Endings Are The Most Magical Of All... ✨",
-    "video_id": "8_Dfbmufs18",
-    "url": "https://www.youtube.com/embed/8_Dfbmufs18",
-    "n": 46,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "A Little Fairy Finds Her Way Home ✨",
-    "video_id": "XxFkYGGoLsE",
-    "url": "https://www.youtube.com/embed/XxFkYGGoLsE",
-    "n": 47,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Little Isabelle has made it home. 🧚‍♀️✨",
-    "video_id": "ilxOPR9flDw",
-    "url": "https://www.youtube.com/embed/ilxOPR9flDw",
-    "n": 48,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Little Isabelle steps inside her cozy fairy home and sits down on her soft little bed. 🧚‍♀️🛏️✨",
-    "video_id": "ftXy4JbR3jM",
-    "url": "https://www.youtube.com/embed/ftXy4JbR3jM",
-    "n": 49,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Little Isabelle snuggles into her soft bed and closes her eyes. 🧚‍♀️💕",
-    "video_id": "fVR7p83Rd7w",
-    "url": "https://www.youtube.com/embed/fVR7p83Rd7w",
-    "n": 50,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Was It Really Just A Dream...?✨",
-    "video_id": "Czbdl1XdL7o",
-    "url": "https://www.youtube.com/embed/Czbdl1XdL7o",
-    "n": 51,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "⭐ Sometimes The Brightest Friends Live In The Sky..✨ #littleisabellesfairyland #kidsfantasyadventure",
-    "video_id": "zJDWQKNE0H0",
-    "url": "https://www.youtube.com/embed/zJDWQKNE0H0",
-    "n": 52,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💦 Nothing Made Sense... And That's What Made It Magical. ✨",
-    "video_id": "n_HaPBH7Bg0",
-    "url": "https://www.youtube.com/embed/n_HaPBH7Bg0",
-    "n": 53,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Maybe Some Dreams Are More Than Dreams... 💖",
-    "video_id": "Rrr7xD2sW3g",
-    "url": "https://www.youtube.com/embed/Rrr7xD2sW3g",
-    "n": 54,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐦 Every Little Heart Deserves A Helping Wing. 💖",
-    "video_id": "Vg6OgyDDKFc",
-    "url": "https://www.youtube.com/embed/Vg6OgyDDKFc",
-    "n": 55,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐿️ Even The Smallest Problem Can Feel Very Big...",
-    "video_id": "MfeJqfD0K-A",
-    "url": "https://www.youtube.com/embed/MfeJqfD0K-A",
-    "n": 56,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦔 Nobody Should Ever Feel Alone...",
-    "video_id": "JCvniEVkJLM",
-    "url": "https://www.youtube.com/embed/JCvniEVkJLM",
-    "n": 57,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐇 Sometimes Curiosity Leads To The Greatest Adventures...",
-    "video_id": "QuSqOF_S6ik",
-    "url": "https://www.youtube.com/embed/QuSqOF_S6ik",
-    "n": 58,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💖 The Greatest Magic Isn't Found...  #fairymagic  #littleisabellesfairyland",
-    "video_id": "giZZ60o9oz8",
-    "url": "https://www.youtube.com/embed/giZZ60o9oz8",
-    "n": 59,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌸 Fairyland Changed Overnight... ✨",
-    "video_id": "U_zKCuDYVxM",
-    "url": "https://www.youtube.com/embed/U_zKCuDYVxM",
-    "n": 60,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌈 What Was Waiting Beneath The Rainbow...? 🦄✨",
-    "video_id": "J0rk2_AOnwI",
-    "url": "https://www.youtube.com/embed/J0rk2_AOnwI",
-    "n": 61,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🍂 Nutmeg Found A Very Special Treasure... 🐿️✨",
-    "video_id": "U2VOtmbtuCQ",
-    "url": "https://www.youtube.com/embed/U2VOtmbtuCQ",
-    "n": 62,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "❄️ Fairyland Has Never Looked Like THIS Before... ✨",
-    "video_id": "Uu3Y9Zmljug",
-    "url": "https://www.youtube.com/embed/Uu3Y9Zmljug",
-    "n": 63,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💖 Fairyland Keeps Changing... But Some Things Never Do. ✨",
-    "video_id": "xaf54JfUgG8",
-    "url": "https://www.youtube.com/embed/xaf54JfUgG8",
-    "n": 64,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "👀 Something Strange Is Happening In Fairyland...",
-    "video_id": "amB6QxKLilU",
-    "url": "https://www.youtube.com/embed/amB6QxKLilU",
-    "n": 65,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Fairyland Is Preparing Something BIG... ✨",
-    "video_id": "XbCxZonfEqo",
-    "url": "https://www.youtube.com/embed/XbCxZonfEqo",
-    "n": 66,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌸 Everyone Has Something Special To Give... 💖",
-    "video_id": "X-Xi3KrvfuQ",
-    "url": "https://www.youtube.com/embed/X-Xi3KrvfuQ",
-    "n": 67,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "👑 Little Isabelle Didn't Expect HER To Arrive... ✨",
-    "video_id": "Q_JA6CqSdJE",
-    "url": "https://www.youtube.com/embed/Q_JA6CqSdJE",
-    "n": 68,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "👑 Little Isabelle Didn't Expect HER To Arrive... ✨",
-    "video_id": "8UxYowbPeaU",
-    "url": "https://www.youtube.com/embed/8UxYowbPeaU",
-    "n": 69,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌸 Wait... There's ANOTHER Surprise?! ✨",
-    "video_id": "vO0Y29-fADE",
-    "url": "https://www.youtube.com/embed/vO0Y29-fADE",
-    "n": 70,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🧺 SURPRISE! 💖✨",
-    "video_id": "vMD7RbBRYKI",
-    "url": "https://www.youtube.com/embed/vMD7RbBRYKI",
-    "n": 71,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🧁 What Do Fairies Eat At A Magical Picnic...? ✨",
-    "video_id": "05JsmsBx1EY",
-    "url": "https://www.youtube.com/embed/05JsmsBx1EY",
-    "n": 72,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💃 And Then... The Whole Meadow Started Dancing! 🧚‍♀️✨",
-    "video_id": "DyGhVY3sJN0",
-    "url": "https://www.youtube.com/embed/DyGhVY3sJN0",
-    "n": 73,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💖 Look How Far Little Isabelle Has Come...",
-    "video_id": "vXUI0GS3khg",
-    "url": "https://www.youtube.com/embed/vXUI0GS3khg",
-    "n": 74,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🍂 Something Changed in Fairyland Overnight... ✨",
-    "video_id": "ELhiL7zQQlU",
-    "url": "https://www.youtube.com/embed/ELhiL7zQQlU",
-    "n": 75,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🧚 Chapter 1 – The Magical Beginning",
-    "video_id": "tk5uHUiN8Es",
-    "url": "https://www.youtube.com/embed/tk5uHUiN8Es",
-    "n": 76,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "💦 Chapter 2 – The Secret Beyond the Waterfall",
-    "video_id": "urFUb7ya15I",
-    "url": "https://www.youtube.com/embed/urFUb7ya15I",
-    "n": 77,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐿️ Nutmeg Found Something VERY Special... ✨",
-    "video_id": "p08xOo7tmN8",
-    "url": "https://www.youtube.com/embed/p08xOo7tmN8",
-    "n": 78,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Little Isabelle’s Fairyland | The Magical Beginning – Chapters 1–12",
-    "video_id": "1nKVr1cy37g",
-    "url": "https://www.youtube.com/embed/1nKVr1cy37g",
-    "n": 79,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌳 Chapter 3 – The Magical Treehouse",
-    "video_id": "0EoEYnNu6X4",
-    "url": "https://www.youtube.com/embed/0EoEYnNu6X4",
-    "n": 80,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🍎 Everyone In Fairyland Was Suddenly VERY Busy... 🐿️🐇",
-    "video_id": "Il3PuW-dcJY",
-    "url": "https://www.youtube.com/embed/Il3PuW-dcJY",
-    "n": 81,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌙 Chapter 4 – The Dream That Became Real",
-    "video_id": "LVorxPgo4og",
-    "url": "https://www.youtube.com/embed/LVorxPgo4og",
-    "n": 82,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🍁 One Leaf Refused To Fall... ✨",
-    "video_id": "cAv1t2E8iNU",
-    "url": "https://www.youtube.com/embed/cAv1t2E8iNU",
-    "n": 83,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🍂 This Path Wasn't Here Before... 👀✨",
-    "video_id": "7lRgJlwajHs",
-    "url": "https://www.youtube.com/embed/7lRgJlwajHs",
-    "n": 84,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦋 Chapter 5 – Following the Magical Butterfly",
-    "video_id": "C44g9iTDozY",
-    "url": "https://www.youtube.com/embed/C44g9iTDozY",
-    "n": 85,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦄 Chapter 6 – The Unicorn and the Crystal Bridge",
-    "video_id": "-uHEk9t7c3Y",
-    "url": "https://www.youtube.com/embed/-uHEk9t7c3Y",
-    "n": 86,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🍁 Little Isabelle Has Entered The Secret Autumn Path... ✨",
-    "video_id": "hpPGKKQSThY",
-    "url": "https://www.youtube.com/embed/hpPGKKQSThY",
-    "n": 87,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌳 Did The Trees Just... TALK?! 🍂✨",
-    "video_id": "OFu_LYiLFEk",
-    "url": "https://www.youtube.com/embed/OFu_LYiLFEk",
-    "n": 88,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🌸 Chapter 7 – The Secret Garden of Fairyland",
-    "video_id": "syqJnh4Gp3Q",
-    "url": "https://www.youtube.com/embed/syqJnh4Gp3Q",
-    "n": 89,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "👗 Chapter 8 – Getting Ready for the Fairy Ball",
-    "video_id": "uxK12vigR_o",
-    "url": "https://www.youtube.com/embed/uxK12vigR_o",
-    "n": 90,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🏰 Chapter 9 – The Journey to the Fairy Castle",
-    "video_id": "j-wFwzQ_jdc",
-    "url": "https://www.youtube.com/embed/j-wFwzQ_jdc",
-    "n": 91,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦊 Meet The Newest Little Face In Fairyland... 💖🍂",
-    "video_id": "4VU5QW3tgW4",
-    "url": "https://www.youtube.com/embed/4VU5QW3tgW4",
-    "n": 92,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦊 Maple Is Lost... 💔🍂",
-    "video_id": "qf_D9jri0Us",
-    "url": "https://www.youtube.com/embed/qf_D9jri0Us",
-    "n": 93,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "👑 Chapter 10 – The Fairy Queen’s Magical Ball",
-    "video_id": "FqmF2F3qHGM",
-    "url": "https://www.youtube.com/embed/FqmF2F3qHGM",
-    "n": 94,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐿️ If Something Is Lost... Call Nutmeg! 😂✨",
-    "video_id": "NyfHWSDBi3A",
-    "url": "https://www.youtube.com/embed/NyfHWSDBi3A",
-    "n": 95,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Chapter 11 – A New Adventure Begins",
-    "video_id": "zmX5PSCWMIg",
-    "url": "https://www.youtube.com/embed/zmX5PSCWMIg",
-    "n": 96,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🍁 The Golden Leaf Finally Stopped... ✨",
-    "video_id": "6zw2ViUQqhI",
-    "url": "https://www.youtube.com/embed/6zw2ViUQqhI",
-    "n": 97,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🦊💖 Maple Is Home!",
-    "video_id": "BaFdfRruz74",
-    "url": "https://www.youtube.com/embed/BaFdfRruz74",
-    "n": 98,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐾 Chapter 12 – A Magical Friend Needs Help",
-    "video_id": "gemWQ5jme3U",
-    "url": "https://www.youtube.com/embed/gemWQ5jme3U",
-    "n": 99,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "⛈️ Something Is Coming To Fairyland... 🍂",
-    "video_id": "0rp1xb4D8FM",
-    "url": "https://www.youtube.com/embed/0rp1xb4D8FM",
-    "n": 100,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🏡 There's Always Room For One More... 💖",
-    "video_id": "S3_kaw-Olpc",
-    "url": "https://www.youtube.com/embed/S3_kaw-Olpc",
-    "n": 101,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐦 Wait...WHERE IS PIP?! 😟",
-    "video_id": "gkEvTe12weI",
-    "url": "https://www.youtube.com/embed/gkEvTe12weI",
-    "n": 102,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "⛈️ Little Isabelle Couldn't Leave Pip Behind... 🐦💖",
-    "video_id": "1fZzppfP3JM",
-    "url": "https://www.youtube.com/embed/1fZzppfP3JM",
-    "n": 103,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "✨ Isabelle Saw A Tiny Light Between The Trees...",
-    "video_id": "1bw5kjP7XME",
-    "url": "https://www.youtube.com/embed/1bw5kjP7XME",
-    "n": 104,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🐦💖 Now We Know Why Pip Didn't Come Home...",
-    "video_id": "o1SnUQv367w",
-    "url": "https://www.youtube.com/embed/o1SnUQv367w",
-    "n": 105,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🏡💖 Safe At Home Together...",
-    "video_id": "oynefhcJmKo",
-    "url": "https://www.youtube.com/embed/oynefhcJmKo",
-    "n": 106,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🎃 WHAT Happened To Fairyland Overnight?! 😲✨",
-    "video_id": "hEOXmc-fJhI",
-    "url": "https://www.youtube.com/embed/hEOXmc-fJhI",
-    "n": 107,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🎃 WAIT...DID THAT PUMPKIN JUST MOVE?! 😂",
-    "video_id": "A8GH9ZdDr74",
-    "url": "https://www.youtube.com/embed/A8GH9ZdDr74",
-    "n": 108,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "🎃 Isabelle Thought She Had Seen Every Kind Of Pumpkin...Until she found THIS ONE. 😲✨",
-    "video_id": "uWWQXPuVOFc",
-    "url": "https://www.youtube.com/embed/uWWQXPuVOFc",
-    "n": 109,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
+  "episodes": [],
   "rights_basis": "Public YouTube embed"
  },
  {
@@ -86871,63 +85659,14 @@
   "id": "stv-1728",
   "title": "Velvet Revenge - Episode 1 | AI Short Drama Series",
   "genre": "Revenge",
-  "eps": "6 eps",
+  "eps": "0 eps",
   "runtime": "~1-3 min each",
   "desc": "After one night shatters her perfect relationship, she plots her revenge across an 8-episode AI drama series.",
   "url": "",
   "video_id": "Md4FzBAM4XM",
   "source_channel": "",
   "ai_made": true,
-  "episodes": [
-   {
-    "title": "The Confrontation | Velvet Revenge – Episode 3",
-    "video_id": "wPHrl_J7YeM",
-    "url": "https://www.youtube.com/embed/wPHrl_J7YeM",
-    "n": 3,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "The Night Everything Fell Apart | Velvet Revenge – Episode 4",
-    "video_id": "9u8jScP91xk",
-    "url": "https://www.youtube.com/embed/9u8jScP91xk",
-    "n": 4,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "In Lagos, Reputation Is Everything | Velvet Revenge – Episode 5",
-    "video_id": "UXjfy63gNbk",
-    "url": "https://www.youtube.com/embed/UXjfy63gNbk",
-    "n": 5,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "They Found Tobi’s Offshore Accounts | Velvet Revenge Episode 6",
-    "video_id": "humQlPQ7Tp4",
-    "url": "https://www.youtube.com/embed/humQlPQ7Tp4",
-    "n": 6,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Point of No Return | Velvet Revenge – Episode 7",
-    "video_id": "r6gzE5mPI34",
-    "url": "https://www.youtube.com/embed/r6gzE5mPI34",
-    "n": 7,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Tobi’s Lies Finally Caught Up With Him | Velvet Revenge Episode 8 Finale",
-    "video_id": "Md4FzBAM4XM",
-    "url": "https://www.youtube.com/embed/Md4FzBAM4XM",
-    "n": 8,
-    "verified": true,
-    "kind": "episode"
-   }
-  ],
+  "episodes": [],
   "rights_basis": "AI-made by original creator (third-party production method)"
  },
  {
@@ -135636,7 +134375,7 @@
   "id": "stv-2036",
   "title": "Shortened: Moo Family | Fun Adventure on Cow Paradise Island!",
   "genre": "Family",
-  "eps": "71 eps",
+  "eps": "68 eps",
   "runtime": "~1-3 min each",
   "desc": "A delightful 3D animated series for kids where fun, friendship, and adventure come together on the magical Cow Paradise Island. This short episode follows the Moo Family on jeep rides, river rafting, ",
   "url": "https://www.youtube.com/embed/UmFDmERb8Sg",
@@ -135981,14 +134720,6 @@
     "kind": "episode"
    },
    {
-    "title": "Moo Family | Moo Match - Play, Match, Smile with Little Jack!",
-    "video_id": "kByUtIBtHvo",
-    "url": "https://www.youtube.com/embed/kByUtIBtHvo",
-    "n": 43,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Moo Family | Learn Words with Milo: APPLE",
     "video_id": "ioGxpb8L2nY",
     "url": "https://www.youtube.com/embed/ioGxpb8L2nY",
@@ -136193,14 +134924,6 @@
     "video_id": "3G0NEZeBvxI",
     "url": "https://www.youtube.com/embed/3G0NEZeBvxI",
     "n": 70,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Moo Family | Moo Match - Official Game Teaser | Coming Soon! 🎮",
-    "video_id": "QGj1k4SePso",
-    "url": "https://www.youtube.com/embed/QGj1k4SePso",
-    "n": 71,
     "verified": true,
     "kind": "episode"
    }
@@ -163022,7 +161745,7 @@
   "id": "stv-254",
   "title": "🔥[张翅×岳雨婷] 躁郁症千金与负债落魄少年.Mutual Desire for Submission | EP01#短剧 #cdrama #爱情 #双向救赎 #重生",
   "genre": "Thriller",
-  "eps": "2 eps",
+  "eps": "0 eps",
   "runtime": "~26 sec",
   "desc": "🎬大家好，歡迎來到💗YeranDrama💗",
   "url": "https://www.youtube.com/embed/C9TWp0u4oh4",
@@ -163032,28 +161755,7 @@
   "ai_made": false,
   "vertical": false,
   "vertical_source": "orientation unverified (API hunt 2026-10-07)",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "🔥[张翅×岳雨婷] 躁郁症千金与负债落魄少年.Mutual Desire for Submission | EP01#短剧 #cdrama #爱情 #双向救赎 #重生",
-    "video_id": "C9TWp0u4oh4",
-    "url": "https://www.youtube.com/embed/C9TWp0u4oh4",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "orientation unverified (API hunt 2026-10-07)"
-   },
-   {
-    "n": 2,
-    "title": "🔥[张翅×岳雨婷] 躁郁症千金与负债落魄少年.Mutual Desire for Submission | EP02#短剧 #cdrama #爱情 #双向救赎 #重生",
-    "video_id": "0nUVGhSbvGs",
-    "url": "https://www.youtube.com/embed/0nUVGhSbvGs",
-    "verified": true,
-    "kind": "episode",
-    "vertical": false,
-    "vertical_source": "episode completion 2026-10-07"
-   }
-  ],
+  "episodes": [],
   "rebirth": true
  },
  {
@@ -176374,7 +175076,7 @@
   "id": "stv-2638",
   "title": "Ninja Sex Party",
   "genre": "Comedy",
-  "eps": "150 eps",
+  "eps": "148 eps",
   "runtime": "~1-3 min each",
   "desc": "Musical comedy duo Danny Sexbang and Ninja Brian in narrative music videos with running lore, villains, and recurring characters across dozens of songs.",
   "url": "https://www.youtube.com/embed/yX0qHRJD7Vc",
@@ -177503,14 +176205,6 @@
     "kind": "episode"
    },
    {
-    "title": "NSP is bringing the Pure Elegance Tour to the EU/UK!",
-    "video_id": "eFZkA30GER8",
-    "url": "https://www.youtube.com/embed/eFZkA30GER8",
-    "n": 141,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "THREE WEEKS until we fulfill our destiny of being ON TOUR with @TWRPband in Europe!!!",
     "video_id": "mc4iY04BhzM",
     "url": "https://www.youtube.com/embed/mc4iY04BhzM",
@@ -177555,14 +176249,6 @@
     "video_id": "scMS5_Apt6k",
     "url": "https://www.youtube.com/embed/scMS5_Apt6k",
     "n": 147,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Brian has a NEW ALBUM, “Bebop Cowboy”, out Sept 18!!",
-    "video_id": "xWBqR91RTYQ",
-    "url": "https://www.youtube.com/embed/xWBqR91RTYQ",
-    "n": 148,
     "verified": true,
     "kind": "episode"
    },
@@ -193384,7 +192070,7 @@
   "id": "stv-2756",
   "title": "Mochi's Cookie Trouble! | Cute Cat Cartoon for Kids",
   "genre": "Family",
-  "eps": "6 eps",
+  "eps": "5 eps",
   "runtime": "~1-3 min each",
   "desc": "Mochi, a cute and mischievous orange kitten, discovers a giant cookie and learns that sharing makes everyone happier. A fun, wholesome family-friendly cartoon about friendship, kindness, and sharing. ",
   "url": "https://www.youtube.com/embed/HhEuxWsEUxI",
@@ -204985,7 +203671,7 @@
   "id": "stv-2839",
   "title": "Deadprints Episode 1: Bleeding Blueprint",
   "genre": "Horror",
-  "eps": "12 eps",
+  "eps": "2 eps",
   "runtime": "~1-3 min each",
   "desc": "AI-generated micro-series premiere (9 parts): reclusive architect Elias Thorne's rejected blueprints bleed into reality as his designs manifest into architectural terror.",
   "url": "https://www.youtube.com/embed/jHdh6LMQbeI",
@@ -204994,90 +203680,10 @@
   "ai_made": true,
   "episodes": [
    {
-    "title": "Deadprints | Episode 1 | Bleeding Blueprint #Deadprints",
-    "video_id": "y8QPoDn5bv0",
-    "url": "https://www.youtube.com/embed/y8QPoDn5bv0",
-    "n": 1,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints | Episode 2 | Hallway of Echoes",
-    "video_id": "qQOL4qowLuk",
-    "url": "https://www.youtube.com/embed/qQOL4qowLuk",
-    "n": 2,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints | Episode 3 | Foundation of Bone",
-    "video_id": "k7W8hxZhAfM",
-    "url": "https://www.youtube.com/embed/k7W8hxZhAfM",
-    "n": 3,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints | Episode 4 | Windows of The Soul",
-    "video_id": "oaAF73nfmgQ",
-    "url": "https://www.youtube.com/embed/oaAF73nfmgQ",
-    "n": 4,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints | Episode 5 | Spiral Staircase",
-    "video_id": "F3lAPmYE6wk",
-    "url": "https://www.youtube.com/embed/F3lAPmYE6wk",
-    "n": 5,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints | Episode 6 | Living Room",
-    "video_id": "Wfm714tQFkY",
-    "url": "https://www.youtube.com/embed/Wfm714tQFkY",
-    "n": 6,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints | Episode 7 | Master Bedroom",
-    "video_id": "LRZ_AVXtydc",
-    "url": "https://www.youtube.com/embed/LRZ_AVXtydc",
-    "n": 7,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints | Episode 8 | Library of Unwritten Laws",
-    "video_id": "3pnb-Nc_ymA",
-    "url": "https://www.youtube.com/embed/3pnb-Nc_ymA",
-    "n": 8,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints | Episode 9 | Grand Opening | Finale",
-    "video_id": "nnM8pOnkyFE",
-    "url": "https://www.youtube.com/embed/nnM8pOnkyFE",
-    "n": 9,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Deadprints | Official Trailer #horrorseries #aihorror  #supernaturalthriller  #cinematichorror",
     "video_id": "jHdh6LMQbeI",
     "url": "https://www.youtube.com/embed/jHdh6LMQbeI",
     "n": 10,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Deadprints Official Trailer#2 #Deadprints #horrorseries #aihorror",
-    "video_id": "h3zu_r-reKA",
-    "url": "https://www.youtube.com/embed/h3zu_r-reKA",
-    "n": 11,
     "verified": true,
     "kind": "episode"
    },
@@ -207361,7 +205967,7 @@
   "id": "stv-2872",
   "title": "Endless Noir — Case 054 — Good Night, and Be Forgiven | 1930s noir radio drama",
   "genre": "Detective",
-  "eps": "26 eps",
+  "eps": "23 eps",
   "runtime": "~1-3 min each",
   "desc": "Self-writing 1930s noir radio serial: every case planned, written, voiced and scored by an autonomous AI pipeline (11:25). Case 054: a widow swears the voice absolving strangers on the air is the man ",
   "url": "",
@@ -207374,14 +205980,6 @@
     "video_id": "H-A7CU1Z6WE",
     "url": "https://www.youtube.com/embed/H-A7CU1Z6WE",
     "n": 1,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Case 026 — The Next Name in the Tray",
-    "video_id": "Hf7gTy3qoZ0",
-    "url": "https://www.youtube.com/embed/Hf7gTy3qoZ0",
-    "n": 2,
     "verified": true,
     "kind": "episode"
    },
@@ -207530,14 +206128,6 @@
     "kind": "episode"
    },
    {
-    "title": "Case 025 — In Good Standing",
-    "video_id": "6RUknA54Ixo",
-    "url": "https://www.youtube.com/embed/6RUknA54Ixo",
-    "n": 21,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "title": "Case 020 — The Name He Stepped Into",
     "video_id": "IZP-wFDYzis",
     "url": "https://www.youtube.com/embed/IZP-wFDYzis",
@@ -207558,14 +206148,6 @@
     "video_id": "jQ1CSW2hvCk",
     "url": "https://www.youtube.com/embed/jQ1CSW2hvCk",
     "n": 24,
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "title": "Case 052 — Play This When I'm Gone",
-    "video_id": "T4JG2LvtYK8",
-    "url": "https://www.youtube.com/embed/T4JG2LvtYK8",
-    "n": 25,
     "verified": true,
     "kind": "episode"
    },
@@ -256783,7 +255365,7 @@
   "id": "stv-4601",
   "title": "60 Second Docs",
   "genre": "Documentary",
-  "eps": "30 eps",
+  "eps": "24 eps",
   "runtime": "~1–12 min",
   "desc": "Award-winning: Webby Award — Video: Documentary (2019)",
   "url": "https://www.youtube.com/embed/8iEzkdoUj5s",
@@ -272635,7 +271217,7 @@
   "title": "NFL Highlights",
   "genre": "Sports",
   "sport": "NFL",
-  "eps": "42 eps",
+  "eps": "41 eps",
   "runtime": "~1 min",
   "desc": "Top NFL highlights — swipe through the best moments.",
   "url": "https://www.youtube.com/embed/dsIPxZJ-8r8",
@@ -273832,7 +272414,7 @@
   "title": "Baseball Highlights",
   "genre": "Sports",
   "sport": "Baseball",
-  "eps": "52 eps",
+  "eps": "51 eps",
   "runtime": "~1 min",
   "desc": "Top Baseball highlights — swipe through the best moments.",
   "url": "https://www.youtube.com/embed/gKbULErGScw",
@@ -274108,18 +272690,6 @@
     "publishedAt": "2026-08-29T15:30:31Z",
     "published": "2026-08-29",
     "label": "EP31",
-    "kind": "episode"
-   },
-   {
-    "n": 23,
-    "title": "Colton Cowser ROBBED a Walk-Off Home Run!",
-    "video_id": "URNv5cNZKiI",
-    "url": "https://www.youtube.com/embed/URNv5cNZKiI",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-09-01T18:00:01Z",
-    "published": "2026-09-01",
-    "label": "EP30",
     "kind": "episode"
    },
    {
@@ -274485,7 +273055,7 @@
   "title": "Basketball Highlights",
   "genre": "Sports",
   "sport": "Basketball",
-  "eps": "58 eps",
+  "eps": "55 eps",
   "runtime": "~1 min",
   "desc": "Top Basketball highlights — swipe through the best moments.",
   "url": "https://www.youtube.com/embed/V7tBSVX1YdU",
@@ -274876,18 +273446,6 @@
     "kind": "episode"
    },
    {
-    "n": 32,
-    "title": "Victor Wembanyama Crazy Blocks & Dunks – Unreal Defensive Monster Highlights",
-    "video_id": "i6ttmr9LpRw",
-    "url": "https://www.youtube.com/embed/i6ttmr9LpRw",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-06-24T04:00:39Z",
-    "published": "2026-06-24",
-    "label": "EP26",
-    "kind": "episode"
-   },
-   {
     "n": 33,
     "title": "Ja Morant Throws Down a MONSTER Poster Dunk! 🔥🤯",
     "video_id": "TwVkn9uitMI",
@@ -275130,18 +273688,6 @@
     "kind": "episode"
    },
    {
-    "n": 53,
-    "title": "CAITLIN CLARK JUST BROKE HER ANKLES! 😱🔥 #shorts #caitlinclark  #basketball  #wnb",
-    "video_id": "wDAya5b0vrs",
-    "url": "https://www.youtube.com/embed/wDAya5b0vrs",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-09-28T20:00:30Z",
-    "published": "2026-09-28",
-    "label": "EP5",
-    "kind": "episode"
-   },
-   {
     "n": 54,
     "title": "Ja Morant Defies Gravity",
     "video_id": "mz_fpXId7Rg",
@@ -275198,7 +273744,7 @@
   "title": "Soccer Highlights",
   "genre": "Sports",
   "sport": "Soccer",
-  "eps": "52 eps",
+  "eps": "47 eps",
   "runtime": "~1 min",
   "desc": "Top Soccer highlights — swipe through the best moments.",
   "url": "https://www.youtube.com/embed/6J9SL1OPYtw",
@@ -275746,18 +274292,6 @@
     "kind": "episode"
    },
    {
-    "n": 45,
-    "title": "8 Goals - Liverpool vs Arsenal Classic",
-    "video_id": "okLGT2thXsI",
-    "url": "https://www.youtube.com/embed/okLGT2thXsI",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-10-02T11:22:40Z",
-    "published": "2026-10-02",
-    "label": "EP8",
-    "kind": "episode"
-   },
-   {
     "n": 46,
     "title": "The 5 Most IMPOSSIBLE Messi Goals Ever Recorded 🐐 paet #1",
     "video_id": "f4VsvCOf1ZQ",
@@ -275783,19 +274317,6 @@
     "kind": "episode"
    },
    {
-    "n": 48,
-    "title": "France vs Italy | Olise Scores, Bastoni Equalizes 🔥 #shorts #football #nationsle",
-    "video_id": "zFHwELnZln8",
-    "url": "https://www.youtube.com/embed/zFHwELnZln8",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-10-04T18:00:09Z",
-    "source_channel": "StrikeFX0",
-    "published": "2026-10-04",
-    "label": "EP5",
-    "kind": "episode"
-   },
-   {
     "n": 49,
     "title": "125 GOALS, 207 CAPS! The Messi anthem - every record #Argentina #LionelMessi #Ar",
     "video_id": "WWnkmfwU6eo",
@@ -275806,18 +274327,6 @@
     "published": "2026-10-04",
     "label": "EP4",
     "kind": "episode"
-   },
-   {
-    "n": 51,
-    "title": "Messi's Last Match - Goal + 2 Assists",
-    "video_id": "ZQfCaIQrfLE",
-    "url": "https://www.youtube.com/embed/ZQfCaIQrfLE",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-10-07T02:54:40Z",
-    "published": "2026-10-07",
-    "label": "EP2",
-    "kind": "episode"
    }
   ]
  },
@@ -275826,7 +274335,7 @@
   "title": "Cricket Highlights",
   "genre": "Sports",
   "sport": "Cricket",
-  "eps": "49 eps",
+  "eps": "41 eps",
   "runtime": "~1 min",
   "desc": "Top Cricket highlights — swipe through the best moments.",
   "url": "https://www.youtube.com/embed/DjrapPOaCpw",
@@ -275983,42 +274492,6 @@
     "kind": "episode"
    },
    {
-    "n": 13,
-    "title": "Incredible Shots By MS Dhoni #cricketshorts",
-    "video_id": "lrqvOmeYJX0",
-    "url": "https://www.youtube.com/embed/lrqvOmeYJX0",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-05-30T10:34:16Z",
-    "published": "2026-05-30",
-    "label": "EP39",
-    "kind": "episode"
-   },
-   {
-    "n": 14,
-    "title": "Virat Kohli's Amazing Shot - King Kohli at His Best #Shorts",
-    "video_id": "i6C5KECm6Ug",
-    "url": "https://www.youtube.com/embed/i6C5KECm6Ug",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-06-08T07:13:56Z",
-    "published": "2026-06-08",
-    "label": "EP38",
-    "kind": "episode"
-   },
-   {
-    "n": 15,
-    "title": "Ranking MS Dhoni's Top Helicopter Shots #shorts",
-    "video_id": "59kNM-CyUVM",
-    "url": "https://www.youtube.com/embed/59kNM-CyUVM",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-06-14T12:55:59Z",
-    "published": "2026-06-14",
-    "label": "EP37",
-    "kind": "episode"
-   },
-   {
     "n": 16,
     "title": "Virat Kohli's 3 Most UNBELIEVABLE Catches Ever! #shorts",
     "video_id": "Cy9IjLTpajs",
@@ -276052,18 +274525,6 @@
     "publishedAt": "2026-07-12T11:00:32Z",
     "published": "2026-07-12",
     "label": "EP34",
-    "kind": "episode"
-   },
-   {
-    "n": 19,
-    "title": "MS Dhoni Best Cricket Moments That Every Fan Must Watch #shorts",
-    "video_id": "PTlfE6xtmBc",
-    "url": "https://www.youtube.com/embed/PTlfE6xtmBc",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-08-04T07:30:37Z",
-    "published": "2026-08-04",
-    "label": "EP33",
     "kind": "episode"
    },
    {
@@ -276238,18 +274699,6 @@
     "kind": "episode"
    },
    {
-    "n": 34,
-    "title": "Hardik Pandya 3 Balls 3 SIXES vs Imad Wasim! Pure Carnage #Shorts",
-    "video_id": "4Z2pRt8n-4I",
-    "url": "https://www.youtube.com/embed/4Z2pRt8n-4I",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-09-25T13:36:41Z",
-    "published": "2026-09-25",
-    "label": "EP16",
-    "kind": "episode"
-   },
-   {
     "n": 35,
     "title": "FIVE TOWERING SIXES BY INZIMAM #cricketshorts #shorts",
     "video_id": "TqbQd6pmViw",
@@ -276259,30 +274708,6 @@
     "publishedAt": "2026-09-25T13:38:42Z",
     "published": "2026-09-25",
     "label": "EP15",
-    "kind": "episode"
-   },
-   {
-    "n": 36,
-    "title": "Flintoff provoked, Broad paid the price! Yuvraj Singh 6 Sixes #Shorts",
-    "video_id": "jt5Q2scUbW8",
-    "url": "https://www.youtube.com/embed/jt5Q2scUbW8",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-09-25T14:37:14Z",
-    "published": "2026-09-25",
-    "label": "EP14",
-    "kind": "episode"
-   },
-   {
-    "n": 37,
-    "title": "Virat Kohli - King Ka Powerful Shot #Shorts",
-    "video_id": "ihZ5pr9oRv8",
-    "url": "https://www.youtube.com/embed/ihZ5pr9oRv8",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-09-30T08:30:34Z",
-    "published": "2026-09-30",
-    "label": "EP13",
     "kind": "episode"
    },
    {
@@ -276425,7 +274850,7 @@
   "title": "MMA Highlights",
   "genre": "Sports",
   "sport": "MMA",
-  "eps": "40 eps",
+  "eps": "38 eps",
   "runtime": "~1 min",
   "desc": "Top MMA highlights — swipe through the best moments.",
   "url": "https://www.youtube.com/embed/o92qfZG7p1E",
@@ -276778,30 +275203,6 @@
     "kind": "episode"
    },
    {
-    "n": 29,
-    "title": "WHAT A MASSIVE KNOCKOUT #shorts #ufc #knockout",
-    "video_id": "RGRu8P8baGw",
-    "url": "https://www.youtube.com/embed/RGRu8P8baGw",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-09-20T13:15:17Z",
-    "published": "2026-09-20",
-    "label": "EP12",
-    "kind": "episode"
-   },
-   {
-    "n": 30,
-    "title": "Jon Jones STUNNED as Gable Steveson Gets KO'd in 12 Seconds",
-    "video_id": "KPHglHTqybQ",
-    "url": "https://www.youtube.com/embed/KPHglHTqybQ",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-09-20T19:56:52Z",
-    "published": "2026-09-20",
-    "label": "EP11",
-    "kind": "episode"
-   },
-   {
     "n": 31,
     "title": "Gustafsson KO's Teixeira",
     "video_id": "wSbdlRtWJQ8",
@@ -276928,7 +275329,7 @@
   "title": "Tennis Highlights",
   "genre": "Sports",
   "sport": "Tennis",
-  "eps": "48 eps",
+  "eps": "45 eps",
   "runtime": "~1 min",
   "desc": "Top Tennis highlights — swipe through the best moments.",
   "url": "https://www.youtube.com/embed/CZOzRikjJa0",
@@ -277192,30 +275593,6 @@
     "kind": "episode"
    },
    {
-    "n": 22,
-    "title": "Day 13/125 👑 Maria Sharapova iconic match point moment #mariasharapova #tennis #",
-    "video_id": "hIrBvqXz6ZI",
-    "url": "https://www.youtube.com/embed/hIrBvqXz6ZI",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-04-24T14:50:29Z",
-    "published": "2026-04-24",
-    "label": "EP27",
-    "kind": "episode"
-   },
-   {
-    "n": 23,
-    "title": "Day 16/125 👑 Maria Sharapova iconic match point moment #mariasharapova #tennis #",
-    "video_id": "_cV_ICN8F8A",
-    "url": "https://www.youtube.com/embed/_cV_ICN8F8A",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-04-27T14:20:35Z",
-    "published": "2026-04-27",
-    "label": "EP26",
-    "kind": "episode"
-   },
-   {
     "n": 24,
     "title": "Mensik gets the win on his 7th match point 👊  #shorts",
     "video_id": "ttRAzCNOv2s",
@@ -277300,18 +275677,6 @@
     "source_channel": "Alcaraz ESP",
     "published": "2026-07-27",
     "label": "EP19",
-    "kind": "episode"
-   },
-   {
-    "n": 31,
-    "title": "Sharapova vs Serena | Longest Rally Ends in Controversy | Brisbane 2014 🎾#tennis",
-    "video_id": "FCv6Wd-wQ4I",
-    "url": "https://www.youtube.com/embed/FCv6Wd-wQ4I",
-    "verified": true,
-    "vertical": true,
-    "publishedAt": "2026-08-06T17:48:39Z",
-    "published": "2026-08-06",
-    "label": "EP18",
     "kind": "episode"
    },
    {
@@ -958813,14 +957178,6 @@
     "verified": true
    },
    {
-    "n": 119,
-    "title": "Forensic Files",
-    "url": "https://www.youtube.com/embed/2laEGF9Ji3M",
-    "video_id": "2laEGF9Ji3M",
-    "platform": "youtube",
-    "verified": true
-   },
-   {
     "n": 120,
     "title": "Forensic Files",
     "url": "https://www.youtube.com/embed/to4u1xF9BOM",
@@ -960545,7 +958902,7 @@
    }
   ],
   "url": "https://www.youtube.com/embed/Hoidr7HgYP0",
-  "eps": "327 eps",
+  "eps": "326 eps",
   "desc": "Forensic Files — series from FilmRise True Crime (374 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -962066,7 +960423,7 @@
    }
   ],
   "url": "https://www.youtube.com/embed/1iQ5C0p4PKc",
-  "eps": "51 eps",
+  "eps": "48 eps",
   "desc": "Reality Cop Drama — series from FilmRise True Crime (51 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -968030,7 +966387,7 @@
    }
   ],
   "url": "https://www.youtube.com/embed/1YCu2Ej5fWA",
-  "eps": "50 eps",
+  "eps": "40 eps",
   "desc": "Forensic Files (HD) — series from FilmRise True Crime (50 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise True Crime",
@@ -977985,7 +976342,7 @@
    }
   ],
   "url": "https://www.youtube.com/embed/FKd8KvZPKJo",
-  "eps": "680 eps",
+  "eps": "679 eps",
   "desc": "Cheaters — series from FilmRise Television (680 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Television",
@@ -979547,7 +977904,7 @@
    }
   ],
   "url": "https://www.youtube.com/embed/sJFEjBhZH14",
-  "eps": "151 eps",
+  "eps": "144 eps",
   "desc": "Untold Stories of the ER — series from FilmRise Television (151 episodes).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "FilmRise Television",
@@ -1424127,74 +1422484,9 @@
   "genre": "Comedy",
   "verified": true,
   "dateAdded": "2026-10-15",
-  "episodes": [
-   {
-    "n": 1,
-    "title": "Keith Vs. White Guys",
-    "url": "https://player.vimeo.com/video/881839530",
-    "video_id": "881839530",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 2,
-    "title": "Keith vs. The Neighborhood",
-    "url": "https://player.vimeo.com/video/884911294",
-    "video_id": "884911294",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 3,
-    "title": "Keith Vs. Cops",
-    "url": "https://player.vimeo.com/video/886516429",
-    "video_id": "886516429",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 4,
-    "title": "Keith Vs. Spoken Word",
-    "url": "https://player.vimeo.com/video/889357748",
-    "video_id": "889357748",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 5,
-    "title": "Keith Vs. Charity",
-    "url": "https://player.vimeo.com/video/891249258",
-    "video_id": "891249258",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 6,
-    "title": "Keith Vs. Family",
-    "url": "https://player.vimeo.com/video/893391583",
-    "video_id": "893391583",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 7,
-    "title": "Keith Vs. Jill",
-    "url": "https://player.vimeo.com/video/896064354",
-    "video_id": "896064354",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 8,
-    "title": "Keith Vs. Pets",
-    "url": "https://player.vimeo.com/video/898389057",
-    "video_id": "898389057",
-    "platform": "vimeo",
-    "verified": true
-   }
-  ],
+  "episodes": [],
   "url": "https://player.vimeo.com/video/881839530",
-  "eps": "8 eps",
+  "eps": "0 eps",
   "desc": "Keith Powell (30 Rock) declares war on everyday life — white guys, cops, charity, family, even his own wife — one unwinnable battle at a time. Winner of 7 Indie Series Awards including Best Comedy Series (2025).",
   "rights_basis": "Public Vimeo embed — creator's official account",
   "source_channel": "Vimeo (Keith Powell)",
@@ -1424356,58 +1422648,10 @@
     "video_id": "203924325",
     "platform": "vimeo",
     "verified": true
-   },
-   {
-    "n": 2,
-    "title": "Episode 2",
-    "url": "https://player.vimeo.com/video/204010747",
-    "video_id": "204010747",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 3,
-    "title": "Episode 3",
-    "url": "https://player.vimeo.com/video/204010519",
-    "video_id": "204010519",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 4,
-    "title": "Episode 4",
-    "url": "https://player.vimeo.com/video/204010226",
-    "video_id": "204010226",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 5,
-    "title": "Episode 5",
-    "url": "https://player.vimeo.com/video/204010026",
-    "video_id": "204010026",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 6,
-    "title": "Episode 6",
-    "url": "https://player.vimeo.com/video/204009737",
-    "video_id": "204009737",
-    "platform": "vimeo",
-    "verified": true
-   },
-   {
-    "n": 7,
-    "title": "Episode 7",
-    "url": "https://player.vimeo.com/video/204008552",
-    "video_id": "204008552",
-    "platform": "vimeo",
-    "verified": true
    }
   ],
   "url": "https://player.vimeo.com/video/203924325",
-  "eps": "7 eps",
+  "eps": "1 ep",
   "desc": "Two Chicago friends — a queer Pakistani-American poet and a Black musician — figuring out love, art and each other. Winner of Best Drama Series at the 2017 Streamy Awards.",
   "rights_basis": "Public Vimeo embed — producing rights-holder's channel",
   "source_channel": "Vimeo (OTV | Open Television)",
@@ -1931228,73 +1929472,10 @@
   "dateAdded": "2026-10-20",
   "episodes": [
    {
-    "n": 1,
-    "title": "S01E05 · The Night Shift.",
-    "url": "https://www.youtube.com/embed/iqhCHXANJLA",
-    "video_id": "iqhCHXANJLA",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 2,
-    "title": "S01E06 · Officer Down.",
-    "url": "https://www.youtube.com/embed/_SemS3O2pGU",
-    "video_id": "_SemS3O2pGU",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 3,
     "title": "S01E07 · Circle of Friends.",
     "url": "https://www.youtube.com/embed/_PE3TqwvAMU",
     "video_id": "_PE3TqwvAMU",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 4,
-    "title": "S01E10 · A Killer Slips Away.",
-    "url": "https://www.youtube.com/embed/PGEc-2hVH0g",
-    "video_id": "PGEc-2hVH0g",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 5,
-    "title": "S01E13 · Reconstructing Murder/Fire Flicks.",
-    "url": "https://www.youtube.com/embed/73_9JwOdzGc",
-    "video_id": "73_9JwOdzGc",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 6,
-    "title": "S01E14 · Reconstructing Murder/Fire Flicks.",
-    "url": "https://www.youtube.com/embed/K793z9wwJ2E",
-    "video_id": "K793z9wwJ2E",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 7,
-    "title": "S02E01 · The Voice In The Lake.",
-    "url": "https://www.youtube.com/embed/v7kaBKyYShU",
-    "video_id": "v7kaBKyYShU",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 8,
-    "title": "S02E02 · Devil At The Door.",
-    "url": "https://www.youtube.com/embed/GrTaQgd3O4Q",
-    "video_id": "GrTaQgd3O4Q",
     "platform": "youtube",
     "verified": true,
     "kind": "episode"
@@ -1931309,55 +1929490,10 @@
     "kind": "episode"
    },
    {
-    "n": 10,
-    "title": "S02E05 · The Heartland Killer.",
-    "url": "https://www.youtube.com/embed/FeFa_e_KXoA",
-    "video_id": "FeFa_e_KXoA",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 11,
     "title": "S02E08 · Ice Cold in Denver.",
     "url": "https://www.youtube.com/embed/_DLq8ogaLsA",
     "video_id": "_DLq8ogaLsA",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 12,
-    "title": "S02E11 · A Lesson in Homicide.",
-    "url": "https://www.youtube.com/embed/3lyZR3AlCPM",
-    "video_id": "3lyZR3AlCPM",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 13,
-    "title": "S02E13 · Eyes of a Killer.",
-    "url": "https://www.youtube.com/embed/of66zv8zdQA",
-    "video_id": "of66zv8zdQA",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 14,
-    "title": "S02E14 · Dark Angel.",
-    "url": "https://www.youtube.com/embed/uT0IITYfB34",
-    "video_id": "uT0IITYfB34",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 15,
-    "title": "S02E19 · Suspicious Minds.",
-    "url": "https://www.youtube.com/embed/aIzdzMsNo-4",
-    "video_id": "aIzdzMsNo-4",
     "platform": "youtube",
     "verified": true,
     "kind": "episode"
@@ -1931372,46 +1929508,10 @@
     "kind": "episode"
    },
    {
-    "n": 17,
-    "title": "S02E23 · A is for Arson.",
-    "url": "https://www.youtube.com/embed/RDvLEn6_s1M",
-    "video_id": "RDvLEn6_s1M",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 18,
     "title": "S02E24 · Til Death Do Us Part.",
     "url": "https://www.youtube.com/embed/HMOr-1BbWjU",
     "video_id": "HMOr-1BbWjU",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 19,
-    "title": "S03E01 · 11,000 Leads Later, Police Finally Find a Suspect",
-    "url": "https://www.youtube.com/embed/0vZX9ToV7FA",
-    "video_id": "0vZX9ToV7FA",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 20,
-    "title": "S03E02 · The Zodiac Killer.",
-    "url": "https://www.youtube.com/embed/jOd93UP6K3I",
-    "video_id": "jOd93UP6K3I",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 21,
-    "title": "S03E03 · A Map To Murder/Life On The Run.",
-    "url": "https://www.youtube.com/embed/rG32ZZ-Gl4I",
-    "video_id": "rG32ZZ-Gl4I",
     "platform": "youtube",
     "verified": true,
     "kind": "episode"
@@ -1931444,82 +1929544,10 @@
     "kind": "episode"
    },
    {
-    "n": 25,
-    "title": "S03E07 · Mommy's Rules.",
-    "url": "https://www.youtube.com/embed/Q2lQcZnGs5E",
-    "video_id": "Q2lQcZnGs5E",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 26,
-    "title": "S03E08 · Cop Killer/Evil Twin / License To Kill.",
-    "url": "https://www.youtube.com/embed/fApZGYErUMk",
-    "video_id": "fApZGYErUMk",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 27,
     "title": "S03E10 · The Accidental Killer / Traces Of Murder.",
     "url": "https://www.youtube.com/embed/6mN15yuOBlU",
     "video_id": "6mN15yuOBlU",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 28,
-    "title": "S03E11 · The Merry Widow / The Missing Informant.",
-    "url": "https://www.youtube.com/embed/Xs9Q_mlD3zM",
-    "video_id": "Xs9Q_mlD3zM",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 29,
-    "title": "S03E13 · Green River Killer / Missing And The Dead.",
-    "url": "https://www.youtube.com/embed/eK2bM8e6U70",
-    "video_id": "eK2bM8e6U70",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 30,
-    "title": "S03E14 · The Killer's Tattoo / The Perfect Murder.",
-    "url": "https://www.youtube.com/embed/SeHtGiTsmSo",
-    "video_id": "SeHtGiTsmSo",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 31,
-    "title": "S03E16 · The DNA Link/Widow And The Wolf.",
-    "url": "https://www.youtube.com/embed/fTqjG6GqZ0o",
-    "video_id": "fTqjG6GqZ0o",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 32,
-    "title": "S03E18 · Blood Money / Operation Jambalaya.",
-    "url": "https://www.youtube.com/embed/B2qlwRV-ToU",
-    "video_id": "B2qlwRV-ToU",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 33,
-    "title": "S03E19 · Unholy Bible / The Answer In The Box.",
-    "url": "https://www.youtube.com/embed/XMSkmpwydAQ",
-    "video_id": "XMSkmpwydAQ",
     "platform": "youtube",
     "verified": true,
     "kind": "episode"
@@ -1931556,24 +1929584,6 @@
     "title": "S04E01 · A Killer Confession.",
     "url": "https://www.youtube.com/embed/GNeWMla9Ncs",
     "video_id": "GNeWMla9Ncs",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 38,
-    "title": "S04E02 · Good Girl Gone.",
-    "url": "https://www.youtube.com/embed/vpZO5YrwnXY",
-    "video_id": "vpZO5YrwnXY",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 39,
-    "title": "S04E03 · Who Killed My Father.",
-    "url": "https://www.youtube.com/embed/mQk8IlO8yhQ",
-    "video_id": "mQk8IlO8yhQ",
     "platform": "youtube",
     "verified": true,
     "kind": "episode"
@@ -1931624,46 +1929634,10 @@
     "kind": "episode"
    },
    {
-    "n": 45,
-    "title": "S04E09 · Viciously Murdered.",
-    "url": "https://www.youtube.com/embed/_h_GrivOKyE",
-    "video_id": "_h_GrivOKyE",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 46,
-    "title": "S04E10 · Death of a Baseball Mom.",
-    "url": "https://www.youtube.com/embed/n7lVHBpCmt0",
-    "video_id": "n7lVHBpCmt0",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 47,
-    "title": "S04E11 · Sooner State Nightmare.",
-    "url": "https://www.youtube.com/embed/l0ESUm-SqNU",
-    "video_id": "l0ESUm-SqNU",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
     "n": 48,
     "title": "S04E12 · Blood Red Snow.",
     "url": "https://www.youtube.com/embed/ZME2vaDBKSM",
     "video_id": "ZME2vaDBKSM",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 49,
-    "title": "S04E14 · No Known Enemies.",
-    "url": "https://www.youtube.com/embed/KQfa933NcLY",
-    "video_id": "KQfa933NcLY",
     "platform": "youtube",
     "verified": true,
     "kind": "episode"
@@ -1931676,50 +1929650,15 @@
     "platform": "youtube",
     "verified": true,
     "kind": "episode"
-   },
-   {
-    "n": 51,
-    "title": "S05E13 · Caught on Tape / A Son Remembers.",
-    "url": "https://www.youtube.com/embed/a6eJXqmGj_o",
-    "video_id": "a6eJXqmGj_o",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 52,
-    "title": "S05E19 · Daddy Dearest / A Pastor's Wife.",
-    "url": "https://www.youtube.com/embed/QOrxVSntpYE",
-    "video_id": "QOrxVSntpYE",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 53,
-    "title": "S06E05 · On the Case: A Child Remembers.",
-    "url": "https://www.youtube.com/embed/f_0LcVNo1SA",
-    "video_id": "f_0LcVNo1SA",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
-   },
-   {
-    "n": 54,
-    "title": "S07E01 · The Execution of Michael Johnson.",
-    "url": "https://www.youtube.com/embed/FgKoO8LfxzQ",
-    "video_id": "FgKoO8LfxzQ",
-    "platform": "youtube",
-    "verified": true,
-    "kind": "episode"
    }
   ],
-  "eps": "54 eps",
+  "eps": "20 eps",
   "desc": "A&E's classic true-crime procedural, narrated by Bill Kurtis: detectives reopen long-dead murder cases and close them with new forensic evidence. Official free episodes from A&E's channels, spanning seasons 1-7 (partial - the full run is larger).",
   "rights_basis": "Public YouTube embed",
   "source_channel": "Crime 360 by A&E / A&E",
   "award_verified": false,
-  "url": "https://www.youtube.com/embed/iqhCHXANJLA"
+  "url": "https://www.youtube.com/embed/_PE3TqwvAMU",
+  "video_id": "_PE3TqwvAMU"
  },
  {
   "id": "stv-73073",
